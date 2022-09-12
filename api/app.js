@@ -29,7 +29,7 @@ app.use((req, res, next) => {
   }));
 
   app.use(passport.initialize());
-  app.use(passport.session())
+  app.use(passport.session());
 
   app.use('/', freeAccess); //Rutas que puede acceder sin estar registrado/logeado
   
