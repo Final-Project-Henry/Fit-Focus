@@ -1,8 +1,14 @@
 const app = require('./app.js');
 require('dotenv').config()
+const {connection} = require('./db.js')
 
-const {PORT} = process.env
+ const {PORT} = process.env
 
-app.listen(PORT, () => {
+connection.syncIndexes().then(()=>{
+  app.listen(PORT, () => {
   console.log(`Server is listening on PORT: ${PORT}`)
 });
+})
+
+
+
