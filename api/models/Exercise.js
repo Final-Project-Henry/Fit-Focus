@@ -4,7 +4,8 @@ const { Schema, model } = require('mongoose');
 const exerciseSchema = new Schema({
    
     name: {
-        type: String
+        type: String,
+        unique: true
     },
     difficulty: {
         type: String,
@@ -18,7 +19,7 @@ const exerciseSchema = new Schema({
         type: String,
         enum: ['man', 'woman', 'both']
     },
-    accesories: {
+    accessories: {
         type: Boolean,
     },
     video: {
@@ -27,6 +28,6 @@ const exerciseSchema = new Schema({
 
 })
 
-const exercise = new model('Exercise', exerciseSchema);
+module.exports = model('Exercise', exerciseSchema);
 
-module.exports = exercise;
+

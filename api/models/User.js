@@ -17,13 +17,16 @@ const userSchema = new Schema({
         required: true,
         unique : true
       },
+    avatar: {
+      type: String
+    },
     plan: {
         type: String,
         enum: ['normal', 'premium'],
         default: 'normal'
       },
     admin: {
-        type: Boolean,
+        type: Boolean,  
         default: false
     },
     signupDate: {
