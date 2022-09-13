@@ -21,7 +21,7 @@ app.use((req, res, next) => {
     next();
   });
 
-  
+
 
   app.use('/', freeAccess); //Rutas que puede acceder sin estar registrado/logeado
 
