@@ -61,7 +61,7 @@ passport.serializeUser((user,done) => {
 })
 
 passport.deserializeUser((userid, done) => {
-  User.findById(userid)
+  user.findById(userid)
   .then((user)=>{
     done(null,user)
   })
