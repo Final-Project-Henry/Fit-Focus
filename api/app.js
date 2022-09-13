@@ -1,5 +1,11 @@
 const express = require('express');
 const freeAccess = require('./routes/freeAccess.js');
+const passport = require('passport');
+const passportLocal = require('passport-local').Strategy;
+
+const MongoStore = require('connect-mongo');
+
+
 require('dotenv').config();
 
 
@@ -13,6 +19,8 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
     next();
   });
+
+
 
   app.use('/', freeAccess); //Rutas que puede acceder sin estar registrado/logeado
 
