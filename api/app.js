@@ -61,7 +61,7 @@ passport.serializeUser((user,done) => {
 })
 
 passport.deserializeUser((userid, done) => {
-  User.findById(userid)
+  user.findById(userid)
   .then((user)=>{
     done(null,user)
   })
@@ -71,8 +71,7 @@ passport.deserializeUser((userid, done) => {
 })
 
 
-  
-app.use('/', freeAccess); //Rutas que puede acceder sin estar registrado/logeado
 
-  module.exports = app
-  
+  app.use('/', freeAccess); //Rutas que puede acceder sin estar registrado/logeado
+
+ module.exports = app
