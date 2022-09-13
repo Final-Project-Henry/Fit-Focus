@@ -41,7 +41,7 @@ export default function HomeVisitor() {
           edad: {e.lifespan}
           </div>)}
         </div>
-        <div className="VideoPicante">Video Picante</div>
+        <div className="Video">Video</div>
 
         <div>
           CHECK OUT YOUR SKILLS
@@ -61,9 +61,13 @@ CARRUSEL DE FRASES MOTIVACIONALES
 <div className="bannerFinal">
 <h1 className="image2" ></h1>
 
-<div className="AboutUs">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero adipisci quaerat deserunt aut repellat corrupti et itaque rem voluptatum, quis repellendus maiores fugit est iusto rerum beatae saepe veniam ducimus.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero adipisci quaerat deserunt aut repellat corrupti et itaque rem voluptatum, quis repellendus maiores fugit est iusto rerum beatae saepe veniam ducimus.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero adipisci quaerat deserunt aut repellat corrupti et itaque rem voluptatum, quis repellendus maiores fugit est iusto rerum beatae saepe veniam ducimus.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero adipisci quaerat deserunt aut repellat corrupti et itaque rem voluptatum, quis repellendus maiores fugit est iusto rerum beatae saepe veniam ducimus.</div>
+<div className="AboutUs">
+  ABOUT US:   
+  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero adipisci quaerat deserunt aut repellat corrupti et itaque rem voluptatum, quis repellendus maiores fugit est iusto rerum beatae saepe veniam ducimus.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero adipisci quaerat deserunt aut repellat corrupti et itaque rem voluptatum, quis repellendus maiores fugit est iusto rerum beatae saepe veniam ducimus.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero adipisci quaerat deserunt aut repellat corrupti et itaque rem voluptatum, quis repellendus maiores fugit est iusto rerum beatae saepe veniam ducimus.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero adipisci quaerat deserunt aut repellat corrupti et itaque rem voluptatum, quis repellendus maiores fugit est iusto rerum beatae saepe veniam ducimus.</div>
 
 
+<h1>Al navegar en este sitio aceptas las cookies que utilizamos para mejorartu experiencia</h1>
+<footer className="Footer">PROYECTO FINAL SOY HENRY 2022</footer>
 </div>
 
 
