@@ -4,7 +4,6 @@ const passport = require('passport');
 const user = require('../models/User.js')
 
 
-
 const router = Router();
 
 router.post('/register', async (req, res) => {
@@ -22,6 +21,7 @@ router.post('/register', async (req, res) => {
   } catch (error) {
     res.status(500).send(error.message);
   }
+  
 });
 
 router.post('/login', passport.authenticate('local',{failureRedirect: '/'}), (req, res) => {
