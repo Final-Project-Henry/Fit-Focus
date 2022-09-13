@@ -4,7 +4,6 @@ const passport = require('passport');
 const passportLocal = require('passport-local').Strategy;
 
 const MongoStore = require('connect-mongo');
-const session = require('express-session');
 
 
 require('dotenv').config();
