@@ -2,13 +2,14 @@ const express = require('express');
 const freeAccess = require('./routes/freeAccess.js');
 const passport = require('passport');
 const passportLocal = require('passport-local').Strategy;
+
 const session = require('express-session');
 const bcrypt = require('bcrypt');
 
 const user = require('./models/User.js')
 
 const MongoStore = require('connect-mongo');  // Para guardar datos de la sesion en mongo
-const User = require('./models/User.js');
+
 
 require('dotenv').config();
 const {SECRET, MONGODB_URI} = process.env
@@ -24,6 +25,7 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
     next();
   });
+
 
 app.use(session({ // creando una sesion
   secret: SECRET,
@@ -67,6 +69,7 @@ passport.deserializeUser((userid, done) => {
     done(error)
   })
 })
+
 
 
   app.use('/', freeAccess); //Rutas que puede acceder sin estar registrado/logeado
