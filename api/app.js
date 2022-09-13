@@ -8,7 +8,6 @@ const bcrypt = require('bcrypt');
 const user = require('./models/User.js')
 
 const MongoStore = require('connect-mongo');  // Para guardar datos de la sesion en mongo
-const User = require('./models/User.js');
 
 require('dotenv').config();
 const {SECRET, MONGODB_URI} = process.env
