@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+//import React from 'react';
+//import logo from './logo.svg';
+//import { Counter } from './features/counter/Counter';
+import './App.css';
+import { LandingPage } from './components/LandingPage/LandingPage';
+
+function App() {
+  return (
+    <LandingPage />
+=======
 import React from 'react';
 import { Route } from "react-router-dom";
 import HomeVisitor from './components/HomeVisitor/HomeVisitor';
@@ -17,6 +28,7 @@ function App() {
 
   
     </React.Fragment>
+>>>>>>> 1992478d84ea4524e0c77437a5ff6df03789acb9
   );
 }
 
