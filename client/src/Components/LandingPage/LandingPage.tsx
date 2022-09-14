@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import "../app/styles/LandingPage.css";
+import '../../app/styles/LandingPage.css';
 import Typewriter from "react-ts-typewriter";
 //import Home from "./Home";
-const landingTrain = require("../app/styles/assets/landingTrain.mp4");
+const landingTrain = require("../../app/styles/assets/landingTrain.mp4");
 
 export const LandingPage = () => {
   return (
@@ -36,3 +36,5 @@ export const LandingPage = () => {
     </div>
   );
 };
+
+export default LandingPage;
