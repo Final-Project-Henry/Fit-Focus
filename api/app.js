@@ -1,18 +1,11 @@
 const express = require('express');
 const freeAccess = require('./routes/freeAccess.js');
-const passport = require('passport');
-const passportLocal = require('passport-local').Strategy;
-
-const session = require('express-session');
-const bcrypt = require('bcrypt');
-
-const user = require('./models/User.js')
-
-const MongoStore = require('connect-mongo');  // Para guardar datos de la sesion en mongo
+const authRoutes = require('./routes/authRoutes.js');
+const jwt = require('jsonwebtoken');
 
 
 require('dotenv').config();
-const {SECRET, MONGODB_URI} = process.env
+const {SECRET} = process.env
 
 const app = express();
 
@@ -26,52 +19,21 @@ app.use((req, res, next) => {
     next();
   });
 
-
-app.use(session({ // creando una sesion
-  secret: SECRET,
-  resave : true,
-  saveUninitialized: true,
-  store : MongoStore.create({ // definiendo la store donde se van a guardar los datos de la sesion en connect-mongo
-    mongoUrl : MONGODB_URI,
-    collectionName : 'sessions'
-  })
-}))
-
-app.use(passport.initialize());
-app.use(passport.session());
-
- passport.use(new passportLocal({passwordField: 'password', usernameField: 'email'}, function (email,password,done){
-       user.findOne({email : email}, function (err, usuario) {
-        if(err) { return done(err);}
-       if(!usuario) { return done(null,false)}
-       bcrypt.compare(password, usuario.password)
-       .then((Check) => {
-        if(!Check){
-          return done(null,false)
-        }else {
-          return done(null,usuario)
-        }
-       });
-
-      });
-}));
-
-passport.serializeUser((user,done) => {
-  done(null, user.id);
-})
-
-passport.deserializeUser((userid, done) => {
-  user.findById(userid)
-  .then((user)=>{
-    done(null,user)
-  })
-  .catch(error => {
-    done(error)
-  })
-})
-
-
-
   app.use('/', freeAccess); //Rutas que puede acceder sin estar registrado/logeado
+
+
+  app.use((req, res, next) => {
+    const header = req.headers['authorization'];
+    const token = header && header.split(' ')[1]
+     jwt.verify(token, '' + SECRET, (err, decoded)=> {
+      if(err) {
+         return res.status(403).json({message : err.message })
+      }
+      req.user = decoded
+      next()
+     })
+  });
+
+  app.use('/auth', authRoutes);
 
  module.exports = app

@@ -1,8 +1,11 @@
 const { Router } = require('express');
 const bcrypt = require('bcrypt');
-const passport = require('passport');
-const user = require('../models/User.js')
+const user = require('../models/User.js');
+const jwt = require('jsonwebtoken')
 
+require('dotenv').config();
+
+const {SECRET} = process.env
 
 const router = Router();
 
@@ -21,25 +24,29 @@ router.post('/register', async (req, res) => {
   } catch (error) {
     res.status(500).send(error.message);
   }
+
+});
+
+router.post('/login', async (req, res) => { // aca se crea e inicia la sesion 
   
-});
-
-router.post('/login', passport.authenticate('local',{failureRedirect: '/'}), (req, res) => {
-  res.redirect('/getexercises')
-});
-
-router.get('/getexercises', async (req,res) => {
-   try {
-     res.status(200).send('fuaaaa')
+  try {
+    const {email , password} = req.body
     
-   } catch (error) {
-     res.status(500).send(error.message)
-   }
+    const User = await user.findOne({email : email})
+  
+    if(!User) return res.status(404).send('User not found')
+  
+    const isValid = await bcrypt.compare(password, User.password);
+    if(isValid) {
+      const token = jwt.sign({email: email, name : User.name}, "" + SECRET);
+      return res.status(200).json(token)
+    }else {
+      return res.status(401).send('Password not valid')
+    }
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
 });
 
-router.get('/', (req, res) => {
-res.status(200).send('fallaste')
-
-});
 
 module.exports = router
