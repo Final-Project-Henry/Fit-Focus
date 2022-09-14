@@ -1,0 +1,28 @@
+.navbar {
+    padding: 20px;
+    background-color: rgb(24, 22, 22);
+    color: white;
+}
+
+a {
+    color: wheat;
+}
+
+ .nav-user  {
+    float: right;
+    margin: 0.5em;
+}
+
+.nav-visitor {
+    float: left;
+}
+
+.nav-visitor li {
+    display: inline;
+    margin: 0.5em ;
+}
+
+.btn-in {
+    display: inline;
+    margin: 0.5em ;
+}
