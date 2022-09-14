@@ -10,13 +10,8 @@ function App() {
   return (
     <React.Fragment>
       <Navbar />
-
-      <Route path="/" component={LandingPage} />
-
-      <Route path="/home" component={HomeVisitor} />
-
+      <Route exact path="/" component={LandingPage} />
       <Route exact path="/singUp" component={SingUp} />
-
       <Route exact path="/login" component={Login} />
       <Route path="/home" component={HomeVisitor} />
     </React.Fragment>
