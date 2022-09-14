@@ -3,10 +3,9 @@ import { Redirect } from "react-router-dom"
 import jwt_deocde from "jwt-decode";
 import { useScript,useAppDispatch, useAppSelector  } from "../../app/hooks";
 import {
-  User,
   User_Register_State,
   selectUser
-} from '../../features/counter/counterSlice';
+} from '../../features/user/UserSelice';
 import gymIcon_singUp from "../../Assets/sport.jpg"
 const clientId:string="647787736227-gvt467rgdovggebhuu26n05c3f9a8ok7.apps.googleusercontent.com";
 
@@ -62,7 +61,6 @@ export default function SingUp(){
   useEffect(() => {
     const  data = {email:data_user?.email, name:data_user?.name,photo:data_user?.picture }
     if (data_user) {
-     dispatch(User(data))
      dispatch(User_Register_State(data))
     }
   },[data_user]) 
@@ -139,6 +137,9 @@ export default function SingUp(){
         </div>
         <button type="submit" >Regristrase</button>
       </form>
+      </div>
+      <div>
+        <span>mensaje</span>
       </div>
     </div>
   )
