@@ -4,11 +4,14 @@ import { RootState, AppThunk } from '../../app/store';
 
 export interface State {
   user: object|null;
+
   status :object|string;
+
 }
 
 const initialState: State = {
   user: null,
+
   status :""
 };
 
@@ -38,7 +41,7 @@ export const User_Login_State = createAsyncThunk(
       thunkAPI.rejectWithValue(error)
       return
     }
-  }
+   }
 );
 
 export const StateSlice = createSlice({
@@ -78,6 +81,7 @@ export const StateSlice = createSlice({
 });
 
 export const { User } = StateSlice.actions;
+
 
 export const selectUser = (state: RootState) => state.user;
 

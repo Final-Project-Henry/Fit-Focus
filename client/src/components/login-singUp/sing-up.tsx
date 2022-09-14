@@ -46,7 +46,8 @@ export default function SingUp(){
 
   useEffect(()=>{
 
-    if (user_logeao) {
+    if (user_logeao.user) {
+
       window.localStorage.setItem(
         'Login_userFit_Focus', JSON.stringify(user_logeao.user)
       )
@@ -98,13 +99,17 @@ export default function SingUp(){
   console.log(user);
   return(
     <div className="flex flex-row flex-column justify-center">
-      <div className=" flex-1">
-        <img className="w-full" src={gymIcon_singUp}/>
+
+      <div className="w-1/2">
+        <img className="w-80" src={gymIcon_singUp}/>
       </div>
       <div  className="w-1/2">
         <div>{!user&&<div ref={googlebuttonref}></div>}</div>
         <div>{user?<Redirect to="/home"></Redirect>:user}{user_logeao.user?<Redirect to="/home"></Redirect>:""}</div>
-      <form className="" onSubmit={event=>handleSubmit(event)}>
+
+     </div>
+      <form onSubmit={event=>handleSubmit(event)}>
+
         <div>
           <label>Nombre</label>
           <input type="text" 
@@ -138,9 +143,11 @@ export default function SingUp(){
         <button type="submit" >Regristrase</button>
       </form>
       </div>
+
       <div>
         <span>{user_logeao.status.toString()}</span>
       </div>
+
     </div>
   )
 }
