@@ -8,6 +8,7 @@ const landingTrain = require("../assets/landing-media/landingTrain.mp4");
 
 
 const LandingPage = () => {
+  
   return (
     <div className="main">
       <div className="overlay"></div>
