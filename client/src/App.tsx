@@ -12,14 +12,20 @@ function App() {
 import React from 'react';
 import { Route } from "react-router-dom";
 import HomeVisitor from './components/HomeVisitor/HomeVisitor';
+import Login from './components/login-singUp/Login'; 
+
 import SingUp from './components/login-singUp/sing-up';
+
 
 function App() {
   return (
     <React.Fragment>
 
-    <Route exact path="/login" component={SingUp} />
+    <Route exact path="/singUp" component={SingUp} />
+    
+    <Route exact path="/login" component={Login} />
     <Route path ="/home" component={HomeVisitor}/>
+
   
     </React.Fragment>
 >>>>>>> 1992478d84ea4524e0c77437a5ff6df03789acb9
