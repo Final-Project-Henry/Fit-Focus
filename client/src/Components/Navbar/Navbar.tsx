@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
-import "./Navbar.css";
+import "./styles/Navbar.css";
 
 const Navbar = () => {
   const history = useHistory();

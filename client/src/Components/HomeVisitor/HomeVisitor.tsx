@@ -1,6 +1,6 @@
-import { url } from "inspector";
+
 import React, { useEffect, useState } from "react";
-import "./HomeVisitor.css";
+import "./styles/HomeVisitor.css";
 
 export default function HomeVisitor() {
   const [data, setData] = useState<any[]>();
