@@ -16,7 +16,7 @@ interface payload{
 }
 export default function SingUp(){
   const googlebuttonref = useRef<any>();
-  const user_logeao = useAppSelector(selectUser);
+  const user_logeao = useAppSelector(selectUser );
   const dispatch=useAppDispatch()
   const [user, setuser] = useState<boolean|object>(false);
 
@@ -46,7 +46,7 @@ export default function SingUp(){
 
   useEffect(()=>{
 
-    if (user_logeao.user) {
+    if (user_logeao) {
       window.localStorage.setItem(
         'Login_userFit_Focus', JSON.stringify(user_logeao.user)
       )
@@ -103,7 +103,7 @@ export default function SingUp(){
       </div>
       <div  className="w-1/2">
         <div>{!user&&<div ref={googlebuttonref}></div>}</div>
-        <div>{user?<Redirect to="/home"></Redirect>:user}{user_logeao.user?<Redirect to="/home"></Redirect>:""}</div>
+        <div>{user?<Redirect to="/home"></Redirect>:user}{user_logeao?<Redirect to="/home"></Redirect>:""}</div>
       <form className="" onSubmit={event=>handleSubmit(event)}>
         <div>
           <label>Nombre</label>

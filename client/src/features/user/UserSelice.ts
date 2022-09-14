@@ -9,7 +9,7 @@ export interface State {
 
 const initialState: State = {
   user: null,
-  status : ""
+  status :""
 };
 
 export const User_Register_State = createAsyncThunk(
