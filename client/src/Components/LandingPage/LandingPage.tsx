@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link  } from "react-router-dom";
 
-import '../../app/styles/LandingPage.css';
+import './styles/LandingPage.css';
 import Typewriter from "react-ts-typewriter";
+import HomeVisitor from "../HomeVisitor/HomeVisitor";
 //import Home from "./Home";
-const landingTrain = require("../../app/styles/assets/landingTrain.mp4");
+const landingTrain = require("../assets/landing-media/landingTrain.mp4");
 
 
 export const LandingPage = () => {
@@ -32,7 +33,7 @@ export const LandingPage = () => {
       </div>
       <div className="buttonDiv">
         <Link to="/home">
-          <button className="landingButton">COMENCEMOS</button>
+          <button  className="landingButton">COMENCEMOS</button>
         </Link>
       </div>
     </div>

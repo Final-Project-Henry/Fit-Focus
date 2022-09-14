@@ -8,7 +8,7 @@ import {
   selectUser,
   
 } from "../../features/counter/counterSlice";
-import gymIcon_singUp from "../../Assets/sport.jpg"
+import gymIcon_singUp from "../assets/login-singup_media/sport.jpg"
 const clientId:string="647787736227-gvt467rgdovggebhuu26n05c3f9a8ok7.apps.googleusercontent.com";
 
 interface payload {
@@ -18,7 +18,7 @@ interface payload {
 }
 export default function SingUp() {
   const googlebuttonref = useRef<any>();
-  const user_logeao = useAppSelector(selectUser );
+  const user_logeao = useAppSelector(selectUser);
   const dispatch=useAppDispatch()
   
   const [user, setuser] = useState<boolean|object>(false);
@@ -162,6 +162,7 @@ export default function SingUp() {
           <span>{user_logeao.status.toString()}</span>
         </div>
 
+      </div>
     </div>
   );
 }

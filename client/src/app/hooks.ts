@@ -5,6 +5,7 @@ import {useEffect } from "react"
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
+///auth google
 export function useScript(url:string, onload:any){
   useEffect(() =>{
     let existing = document.getElementById("googleidentityservice");
