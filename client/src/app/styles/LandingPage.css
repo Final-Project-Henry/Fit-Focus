@@ -1,0 +1,109 @@
+.main {
+    width: 100%;
+    height: 100vh;
+}
+
+.content {
+    position: absolute;
+    margin: 80px;
+    width: 90%;
+    padding: 20px;
+    height: 80%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    color: azure;
+
+}
+
+video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.buttonDiv {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.landingButton {
+    position: absolute;
+    width: 30%;
+    margin-top: 40%;
+    margin-left: 10%;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: justify;
+    padding: 0.85em 1.5em;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+    background-color: #edfd09;
+    border: none;
+    border-radius: 40px;
+}
+
+.landingButton:hover {
+    background-color: #000000;
+    color: #edfd09;
+    width: 30%;
+}
+
+.titleApp {
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-size: 250%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    color: rgb(255, 217, 0);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.noPainDiv {
+    font-family: 'Tiro Devanagari Hindi', serif;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 100px;
+    margin-left: 70%;
+    margin-top: 12%;
+    font-size: 300%;
+    font-weight: bold;
+    top: -35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: justify;
+    color: rgb(255, 217, 0);
+}
+
+.typewriterDiv {
+    margin-top: 10%;
+    width: 70%;
+}
