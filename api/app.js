@@ -40,6 +40,11 @@ app.use((req, res, next) => {
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use((req,res,next)=> {
+ console.log(req.user);
+ next();
+});
+
  passport.use(new passportLocal({passwordField: 'password', usernameField: 'email'}, function (email,password,done){
        user.findOne({email : email}, function (err, usuario) {
         if(err) { return done(err);}
