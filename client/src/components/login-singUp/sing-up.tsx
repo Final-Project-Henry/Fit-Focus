@@ -3,10 +3,10 @@ import { Redirect } from "react-router-dom"
 import jwt_deocde from "jwt-decode";
 import { useScript,useAppDispatch, useAppSelector  } from "../../app/hooks";
 import {
-  User,
   User_Register_State,
   selectUser
 } from '../../features/counter/counterSlice';
+import gymIcon_singUp from "../../Assets/sport.jpg"
 const clientId:string="647787736227-gvt467rgdovggebhuu26n05c3f9a8ok7.apps.googleusercontent.com";
 
 interface payload{
@@ -16,7 +16,7 @@ interface payload{
 }
 export default function SingUp(){
   const googlebuttonref = useRef<any>();
-  const user_logeao = useAppSelector(selectUser);
+  const user_logeao = useAppSelector(selectUser );
   const dispatch=useAppDispatch()
   const [user, setuser] = useState<boolean|object>(false);
 
@@ -47,6 +47,7 @@ export default function SingUp(){
   useEffect(()=>{
 
     if (user_logeao.user) {
+
       window.localStorage.setItem(
         'Login_userFit_Focus', JSON.stringify(user_logeao.user)
       )
@@ -61,7 +62,6 @@ export default function SingUp(){
   useEffect(() => {
     const  data = {email:data_user?.email, name:data_user?.name,photo:data_user?.picture }
     if (data_user) {
-     dispatch(User(data))
      dispatch(User_Register_State(data))
     }
   },[data_user]) 
@@ -98,41 +98,55 @@ export default function SingUp(){
   }
   console.log(user);
   return(
-    <div>
-      <div>
+    <div className="flex flex-row flex-column justify-center">
+
+      <div className="w-1/2">
+        <img className="w-80" src={gymIcon_singUp}/>
+      </div>
+
+      <div className="w-1/2">
         <div>{!user&&<div ref={googlebuttonref}></div>}</div>
         <div>{user?<Redirect to="/home"></Redirect>:user}{user_logeao.user?<Redirect to="/home"></Redirect>:""}</div>
-     </div>
-      <form onSubmit={event=>handleSubmit(event)}>
-        <div>
-          <label>Nombre</label>
-          <input type="text" 
-          name="name"
-          autoComplete="off"
-          value={Form_data.name}
-          onChange={(event) => handleChange(event)}
-          />
-        </div>
-        <div>
-        <label>Email</label>
-          <input type="email" 
-            name="email"
+
+        <form onSubmit={event=>handleSubmit(event)}>
+          <div>
+            <label>Nombre</label>
+            <input type="text" 
+            name="name"
+            className="mt-1 block w-full"
             autoComplete="off"
-            value={Form_data.email}
-            onChange={(event) => handleChange(event)
-            }/>
-        </div>
-        <div>
-          <label>Contraseña</label>
-          <input type="password"
-            name="password"
-            autoComplete="off"
-            value={Form_data.password}
+            value={Form_data.name}
             onChange={(event) => handleChange(event)}
-          />
+            />
+          </div>
+          <div>
+          <label>Email</label>
+            <input type="email" 
+              name="email"
+              className="mt-1 block w-full"
+              autoComplete="off"
+              value={Form_data.email}
+              onChange={(event) => handleChange(event)
+              }/>
+          </div>
+          <div>
+            <label>Contraseña</label>
+            <input type="password"
+              name="password"
+              autoComplete="off"
+              className="mt-1 block w-full"
+              value={Form_data.password}
+              onChange={(event) => handleChange(event)}
+            />
+          </div>
+          <button type="submit" >Regristrase</button>
+        </form>
         </div>
-        <button type="submit" >Regristrase</button>
-      </form>
+        
+        <div>
+          <span>{user_logeao.status.toString()}</span>
+        </div>
+
     </div>
   )
 }
