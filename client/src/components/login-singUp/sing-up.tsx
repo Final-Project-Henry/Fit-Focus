@@ -103,50 +103,49 @@ export default function SingUp(){
       <div className="w-1/2">
         <img className="w-80" src={gymIcon_singUp}/>
       </div>
-      <div  className="w-1/2">
+
+      <div className="w-1/2">
         <div>{!user&&<div ref={googlebuttonref}></div>}</div>
         <div>{user?<Redirect to="/home"></Redirect>:user}{user_logeao.user?<Redirect to="/home"></Redirect>:""}</div>
 
-     </div>
-      <form onSubmit={event=>handleSubmit(event)}>
-
-        <div>
-          <label>Nombre</label>
-          <input type="text" 
-          name="name"
-          className="mt-1 block w-full"
-          autoComplete="off"
-          value={Form_data.name}
-          onChange={(event) => handleChange(event)}
-          />
-        </div>
-        <div>
-        <label>Email</label>
-          <input type="email" 
-            name="email"
+        <form onSubmit={event=>handleSubmit(event)}>
+          <div>
+            <label>Nombre</label>
+            <input type="text" 
+            name="name"
             className="mt-1 block w-full"
             autoComplete="off"
-            value={Form_data.email}
-            onChange={(event) => handleChange(event)
-            }/>
-        </div>
-        <div>
-          <label>Contraseña</label>
-          <input type="password"
-            name="password"
-            autoComplete="off"
-            className="mt-1 block w-full"
-            value={Form_data.password}
+            value={Form_data.name}
             onChange={(event) => handleChange(event)}
-          />
+            />
+          </div>
+          <div>
+          <label>Email</label>
+            <input type="email" 
+              name="email"
+              className="mt-1 block w-full"
+              autoComplete="off"
+              value={Form_data.email}
+              onChange={(event) => handleChange(event)
+              }/>
+          </div>
+          <div>
+            <label>Contraseña</label>
+            <input type="password"
+              name="password"
+              autoComplete="off"
+              className="mt-1 block w-full"
+              value={Form_data.password}
+              onChange={(event) => handleChange(event)}
+            />
+          </div>
+          <button type="submit" >Regristrase</button>
+        </form>
         </div>
-        <button type="submit" >Regristrase</button>
-      </form>
-      </div>
-
-      <div>
-        <span>{user_logeao.status.toString()}</span>
-      </div>
+        
+        <div>
+          <span>{user_logeao.status.toString()}</span>
+        </div>
 
     </div>
   )
