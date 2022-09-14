@@ -24,7 +24,7 @@ router.post('/register', async (req, res) => {
 
 });
 
-router.post('/login', passport.authenticate('local',{failureRedirect: '/'}), (req, res) => { // aca se crea la sesion 
+router.post('/login', passport.authenticate('local',{failureRedirect: '/'}), (req, res) => { // aca se crea e inicia la sesion 
   res.redirect('/getexercises')  
 });
 
