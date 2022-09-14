@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from "react-router-dom";
 import HomeVisitor from './components/HomeVisitor/HomeVisitor';
 import Login from './components/login-singUp/Login';
-import SingUp from './components/login-singUp/Sing-up';
+import SingUp from './components/login-singUp/sing-up';
 
 function App() {
   return (
