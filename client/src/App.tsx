@@ -1,10 +1,10 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { LandingPage } from "./components/LandingPage/LandingPage";
-import HomeVisitor from "./components/HomeVisitor/HomeVisitor";
-import Navbar from "./components/Navbar/Navbar";
-import Login from "./components/login-singUp/Login";
-import SingUp from "./components/login-singUp/sing-up";
+import { LandingPage } from "./Components/LandingPage/LandingPage";
+import HomeVisitor from "./Components/HomeVisitor/HomeVisitor";
+import Navbar from "./Components/Navbar/Navbar";
+import Login from "./Components/login-singUp/Login";
+import SingUp from "./Components/login-singUp/sing-up";
 
 
 
