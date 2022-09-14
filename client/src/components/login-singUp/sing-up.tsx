@@ -103,7 +103,7 @@ export default function SingUp(){
       </div>
       <div  className="w-1/2">
         <div>{!user&&<div ref={googlebuttonref}></div>}</div>
-        <div>{user?<Redirect to="/home"></Redirect>:user}{user_logeao?<Redirect to="/home"></Redirect>:""}</div>
+        <div>{user?<Redirect to="/home"></Redirect>:user}{user_logeao.user?<Redirect to="/home"></Redirect>:""}</div>
       <form className="" onSubmit={event=>handleSubmit(event)}>
         <div>
           <label>Nombre</label>
@@ -139,7 +139,7 @@ export default function SingUp(){
       </form>
       </div>
       <div>
-        <span>mensaje</span>
+        <span>{user_logeao.status.toString()}</span>
       </div>
     </div>
   )
