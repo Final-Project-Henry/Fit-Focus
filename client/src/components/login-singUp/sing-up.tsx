@@ -7,6 +7,7 @@ import {
   User_Register_State,
   selectUser
 } from '../../features/counter/counterSlice';
+import gymIcon_singUp from "../../Assets/icons8-strength-100.png"
 const clientId:string="647787736227-gvt467rgdovggebhuu26n05c3f9a8ok7.apps.googleusercontent.com";
 
 interface payload{
@@ -98,8 +99,11 @@ export default function SingUp(){
   }
   console.log(user);
   return(
-    <div className="flex flex-row flex-column">
-      <div>
+    <div className="flex flex-row flex-column justify-center">
+      <div className="w-1/2">
+        <img className="w-80" src={gymIcon_singUp}/>
+      </div>
+      <div  className="w-1/2">
         <div>{!user&&<div ref={googlebuttonref}></div>}</div>
         <div>{user?<Redirect to="/home"></Redirect>:user}{user_logeao.user?<Redirect to="/home"></Redirect>:""}</div>
      
@@ -108,6 +112,7 @@ export default function SingUp(){
           <label>Nombre</label>
           <input type="text" 
           name="name"
+          className="mt-1 block w-full"
           autoComplete="off"
           value={Form_data.name}
           onChange={(event) => handleChange(event)}
@@ -117,6 +122,7 @@ export default function SingUp(){
         <label>Email</label>
           <input type="email" 
             name="email"
+            className="mt-1 block w-full"
             autoComplete="off"
             value={Form_data.email}
             onChange={(event) => handleChange(event)
@@ -127,6 +133,7 @@ export default function SingUp(){
           <input type="password"
             name="password"
             autoComplete="off"
+            className="mt-1 block w-full"
             value={Form_data.password}
             onChange={(event) => handleChange(event)}
           />
