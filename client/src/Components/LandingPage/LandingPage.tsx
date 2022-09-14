@@ -7,7 +7,7 @@ import HomeVisitor from "../HomeVisitor/HomeVisitor";
 const landingTrain = require("../assets/landing-media/landingTrain.mp4");
 
 
-export const LandingPage = () => {
+const LandingPage = () => {
   return (
     <div className="main">
       <div className="overlay"></div>
