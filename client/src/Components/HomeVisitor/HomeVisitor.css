@@ -1,4 +1,4 @@
-/* .bannerTop{
+.bannerTop{
 
 margin: 200;
 background-color: red;
@@ -17,40 +17,23 @@ flex: content;
     
 }
 
+.Publicidad{
+width: 250px;
+}
+
 .Card{
- 
-        
     
-  
-        color: #1d11a7;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        bottom: 100%;
-        top: 20%; 
-        border-radius: 10%;
-        justify-items: center;
-        padding: 5px;
-  
-        display: grid;
- 
-    
-  
-        width:200px; 
-        height:200px;
-        border-radius: 10%;
-        justify-content: center;
-        border-style:outset;
-        border-color: rgba(59, 180, 57, 0.781);
-        border-width: 7px;
-   
-        color: #5d1a94;
-        justify-content: center;
-        border-radius: 10%;
-        text-decoration: inherit;
-        height: 50px;
-        font-size: 19px;
-        
-        width: 20%;
-    }
+        display:flex;
+        flex-direction:column;
+        justify-content:space-between;
+        width:420px;
+        border: 1px solid lightgray;
+        box-shadow: 2px 2px 8px 4px #d3d3d3d1;
+        border-radius:15px;
+        font-family: sans-serif;
+       
+
+}
 
 
     .Video{
@@ -97,4 +80,4 @@ flex: content;
 
     background-color: rgb(110, 110, 126);
 }
- */
+

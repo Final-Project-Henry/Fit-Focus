@@ -1,27 +1,12 @@
 import { url } from "inspector";
 import React, { useEffect, useState } from "react";
 import "./HomeVisitor.css";
+import exercises from "./EjerciciosProvisorio/ejercicios";
 
 export default function HomeVisitor() {
-  const [data, setData] = useState<any[]>();
-  const [promoRutina, setPromoRutina] = useState<any[]>()
+  // const [data, setData] = useState<any[]>();
+  // const [promoRutina, setPromoRutina] = useState<any[]>()
 
-
-  useEffect(() => {
-    fetch("https://api.thedogapi.com/v1/breeds?api_key=$%7BAPI_KEY%7").then(
-      (res) => res.json().then(data => setData(data))
-    );
-  }, []);
-  useEffect(() => {
-    fetch("https://api.thedogapi.com/v1/breeds?api_key=$%7BAPI_KEY%7").then(
-      (res) => res.json().then(data => setPromoRutina(data))
-    );
-  }, []);
-
-
-
-
-  console.log(data)
 
   return (
     <div>
@@ -32,15 +17,18 @@ export default function HomeVisitor() {
         <button className="buttonBanner">SING IN</button>
 
         <div className="Publicidad">
-          {data && data.slice(0,3).map((e) => <div className="Card">Name : {e.name}
-          edad: {e.lifespan}
+
+        {exercises && exercises.slice(0,3).map((e) => <div className="Card">Name : {e.name}
+         Difficulty: {e.difficulty}
+         Equipment: {e.equipment}
+         Muscles: {e.muscles}
+         Genre": {e.genre}
+         Video:  {e.video}
+
           </div>)}
         </div>
-        <div className="PublicidadRutina">
-          {data && data.slice(0,3).map((e) => <div className="Card">Name : {e.name}
-          edad: {e.lifespan}
-          </div>)}
-        </div>
+       
+       
         <div className="Video">Video</div>
 
         <div>

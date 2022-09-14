@@ -2,8 +2,7 @@ import React from 'react';
 import { Route } from "react-router-dom";
 import HomeVisitor from './Components/HomeVisitor/HomeVisitor';
 import Login from './Components/login-singUp/Login'; 
-import { LandingPage } from './Components/LandingPage/LandingPage';
-
+import LandingPage from './Components/LandingPage/LandingPage';
 
 import SingUp from './Components/login-singUp/sing-up';
 
