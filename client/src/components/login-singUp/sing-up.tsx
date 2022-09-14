@@ -106,8 +106,11 @@ export default function SingUp(){
       <div  className="w-1/2">
         <div>{!user&&<div ref={googlebuttonref}></div>}</div>
         <div>{user?<Redirect to="/home"></Redirect>:user}{user_logeao.user?<Redirect to="/home"></Redirect>:""}</div>
-     
+        
       <form className="" onSubmit={event=>handleSubmit(event)}>
+
+     </div>
+      <form onSubmit={event=>handleSubmit(event)}>
         <div>
           <label>Nombre</label>
           <input type="text" 
