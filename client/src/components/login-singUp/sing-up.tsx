@@ -7,7 +7,7 @@ import {
   User_Register_State,
   selectUser
 } from '../../features/counter/counterSlice';
-import gymIcon_singUp from "../../Assets/icons8-strength-100.png"
+import gymIcon_singUp from "../../Assets/sport.jpg"
 const clientId:string="647787736227-gvt467rgdovggebhuu26n05c3f9a8ok7.apps.googleusercontent.com";
 
 interface payload{
@@ -100,13 +100,12 @@ export default function SingUp(){
   console.log(user);
   return(
     <div className="flex flex-row flex-column justify-center">
-      <div className="w-1/2">
-        <img className="w-80" src={gymIcon_singUp}/>
+      <div className=" flex-1">
+        <img className="w-full" src={gymIcon_singUp}/>
       </div>
       <div  className="w-1/2">
         <div>{!user&&<div ref={googlebuttonref}></div>}</div>
         <div>{user?<Redirect to="/home"></Redirect>:user}{user_logeao.user?<Redirect to="/home"></Redirect>:""}</div>
-     
       <form className="" onSubmit={event=>handleSubmit(event)}>
         <div>
           <label>Nombre</label>
