@@ -5,7 +5,7 @@ import { useScript,useAppDispatch, useAppSelector  } from "../../app/hooks";
 import {
   User_Register_State,
   selectUser
-} from '../../features/user/UserSelice';
+} from '../../feature/user/UserSelice';
 import gymIcon_singUp from "../../Assets/sport.jpg"
 const clientId:string="647787736227-gvt467rgdovggebhuu26n05c3f9a8ok7.apps.googleusercontent.com";
 
