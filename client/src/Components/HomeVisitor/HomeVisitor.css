@@ -1,0 +1,100 @@
+/* .bannerTop{
+
+margin: 200;
+background-color: red;
+height: 200px
+}
+
+.buttonBanner{
+
+margin : 70px;
+right: 300px;
+}
+
+.CarruselDePromos{
+margin-right: 200px;
+flex: content;
+    
+}
+
+.Card{
+ 
+        
+    
+  
+        color: #1d11a7;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        bottom: 100%;
+        top: 20%; 
+        border-radius: 10%;
+        justify-items: center;
+        padding: 5px;
+  
+        display: grid;
+ 
+    
+  
+        width:200px; 
+        height:200px;
+        border-radius: 10%;
+        justify-content: center;
+        border-style:outset;
+        border-color: rgba(59, 180, 57, 0.781);
+        border-width: 7px;
+   
+        color: #5d1a94;
+        justify-content: center;
+        border-radius: 10%;
+        text-decoration: inherit;
+        height: 50px;
+        font-size: 19px;
+        
+        width: 20%;
+    }
+
+
+    .Video{
+        margin: 200;
+        background-color: red;
+        height: 200px
+
+
+    }
+
+    .FrasesMotivacionales{
+        margin: 200;
+        background-color: red;
+        height: 200px
+
+
+    }
+.image{
+    width: 200px;
+    margin-left: 1200px;
+    background-color: blue;
+    height: 150px;
+
+}
+
+.bannerFinal{
+    margin: 200;
+    background-color: green;
+    height: 200px
+
+
+}
+.image2{
+    width: 200px;
+    margin-left: 50px;
+    background-color: blue;
+    height: 200px;
+
+}
+
+
+
+.Footer{
+
+    background-color: rgb(110, 110, 126);
+}
+ */
