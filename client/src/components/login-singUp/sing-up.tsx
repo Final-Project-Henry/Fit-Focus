@@ -98,12 +98,12 @@ export default function SingUp(){
   }
   console.log(user);
   return(
-    <div>
+    <div className="flex flex-row flex-column">
       <div>
         <div>{!user&&<div ref={googlebuttonref}></div>}</div>
         <div>{user?<Redirect to="/home"></Redirect>:user}{user_logeao.user?<Redirect to="/home"></Redirect>:""}</div>
-     </div>
-      <form onSubmit={event=>handleSubmit(event)}>
+     
+      <form className="" onSubmit={event=>handleSubmit(event)}>
         <div>
           <label>Nombre</label>
           <input type="text" 
@@ -133,6 +133,7 @@ export default function SingUp(){
         </div>
         <button type="submit" >Regristrase</button>
       </form>
+      </div>
     </div>
   )
 }
