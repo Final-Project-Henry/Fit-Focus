@@ -1,10 +1,10 @@
 import React,{useEffect, useRef,useState} from "react";
 import { Redirect } from "react-router-dom"
-import {useDispatch,useSelector } from "react-redux";
 import jwt_deocde from "jwt-decode";
 import { useScript,useAppDispatch, useAppSelector  } from "../../app/hooks";
 import {
   User,
+  User_Register_State,
   selectUser
 } from '../../features/counter/counterSlice';
 const clientId:string="647787736227-gvt467rgdovggebhuu26n05c3f9a8ok7.apps.googleusercontent.com";
@@ -29,6 +29,7 @@ export default function SingUp(){
       password:"",
     }
   );
+
   //buscar usuario en el localStorage//////////////////////////////////////////////////////////////
 
   useEffect(()=>{
@@ -44,6 +45,7 @@ export default function SingUp(){
   //guardar usuario en el localStorage////////////////////////////////////////////////////////////
 
   useEffect(()=>{
+
     if (user_logeao.user) {
       window.localStorage.setItem(
         'Login_userFit_Focus', JSON.stringify(user_logeao.user)
@@ -53,13 +55,14 @@ export default function SingUp(){
   //////////recolectar data del user con goole//////////////////////////////////////////
   const onGoogleSignIn = async(user:any) => {
     let userCred = user.credential;
-    set_data_user(jwt_deocde(userCred))  
+    set_data_user(jwt_deocde(userCred))
   };
   //////////enviar al stado global la data del user obtenido por google//////////////////////////////////////////
   useEffect(() => {
-    const  data: object = {Email:data_user?.email, Name:data_user?.name,Photo:data_user?.picture }
+    const  data = {email:data_user?.email, name:data_user?.name,photo:data_user?.picture }
     if (data_user) {
-      dispatch(User(data)) 
+     dispatch(User(data))
+     dispatch(User_Register_State(data))
     }
   },[data_user]) 
 
@@ -88,15 +91,17 @@ export default function SingUp(){
    //////////enviar de datos  por medio de los input//////////////////////////////////////////
   function handleSubmit(event:React.FormEvent):void {
     event.preventDefault();
-    console.log(Form_data);
+    
     setuser(Form_data)
+    dispatch(User_Register_State(Form_data))
+
   }
-  
+  console.log(user);
   return(
     <div>
       <div>
         <div>{!user&&<div ref={googlebuttonref}></div>}</div>
-        <div>{user?<Redirect to="/"></Redirect>:user}{user_logeao.user?<Redirect to="/"></Redirect>:""}</div>
+        <div>{user?<Redirect to="/home"></Redirect>:user}{user_logeao.user?<Redirect to="/home"></Redirect>:""}</div>
      </div>
       <form onSubmit={event=>handleSubmit(event)}>
         <div>
