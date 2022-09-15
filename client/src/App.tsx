@@ -6,6 +6,7 @@ import HomeRegister from "./Components/HomeRegister/HomeRegister";
 import Navbar from "./Components/Navbar/Navbar";
 import Login from "./Components/login-singUp/Login";
 import SingUp from "./Components/login-singUp/sing-up";
+import Form_rutinas from "./Components/form_rutinas/From_rutina";
 
 function App() {
   const { pathname } = useLocation();
@@ -19,6 +20,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<HomeVisitor />} />
         <Route path="/homeRegister" element={<HomeRegister />} />
+        <Route path="/rutinas" element={<Form_rutinas  />} />
       </Routes>
     </React.Fragment>
   );

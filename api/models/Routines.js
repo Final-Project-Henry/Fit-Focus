@@ -23,6 +23,4 @@ const routinesSchema = new Schema({
 })
 
 
-const routines = new model('Routines', routinesSchema );
-
-module.exports = routines;
+module.exports = model('Routines', routinesSchema );
