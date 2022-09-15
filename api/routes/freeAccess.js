@@ -49,4 +49,9 @@ router.post('/login', async (req, res) => { // aca se crea e inicia la sesion
   }
 });
 
+router.get('/exercises', async (req, res) =>{
+  const Exercises = await exercise.find().limit(15);
+  res.status(200).send(Exercises)
+});
+
 module.exports = router
