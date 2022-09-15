@@ -30,6 +30,5 @@ const userinfoSchema = new Schema({
 
 })
 
-const userinfo = new model('UserInfo', userinfoSchema);
-
-module.exports = userinfo;
+// model('UserInfo', userinfoSchema);
+module.exports = userinfoSchema
