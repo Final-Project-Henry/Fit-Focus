@@ -1,15 +1,14 @@
 import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import LandingPage from "./Components/LandingPage/LandingPage";
-import HomeVisitor from "./Components/HomeVisitor/HomeVisitor";
-import HomeRegister from "./Components/HomeRegister/HomeRegister";
-import Navbar from "./Components/Navbar/Navbar";
-import Login from "./Components/login-singUp/Login";
-import SingUp from "./Components/login-singUp/sing-up";
+import LandingPage from "./components/LandingPage/LandingPage";
+import HomeVisitor from "./components/HomeVisitor/HomeVisitor";
+import HomeRegister from "./components/HomeRegister/HomeRegister";
+import Navbar from "./components/Navbar/Navbar";
+import Login from "./components/login-singUp/Login";
+import SingUp from "./components/login-singUp/sing-up";
 
 function App() {
-
-  const { pathname } = useLocation()
+  const { pathname } = useLocation();
 
   return (
     <React.Fragment>
