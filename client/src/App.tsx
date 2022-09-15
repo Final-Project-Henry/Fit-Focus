@@ -8,8 +8,7 @@ import Login from "./Components/login-singUp/Login";
 import SingUp from "./Components/login-singUp/sing-up";
 
 function App() {
-
-  const { pathname } = useLocation()
+  const { pathname } = useLocation();
 
   return (
     <React.Fragment>
