@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const bcrypt = require('bcrypt');
 const user = require('../models/User.js');
+const exercise = require('../models/Exercise.js')
 const jwt = require('jsonwebtoken')
 
 require('dotenv').config();
@@ -48,5 +49,9 @@ router.post('/login', async (req, res) => { // aca se crea e inicia la sesion
   }
 });
 
+router.get('/exercises', async (req, res) =>{
+  const Exercises = await exercise.find().limit(15);
+  res.status(200).send(Exercises)
+});
 
 module.exports = router
