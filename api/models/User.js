@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-
+const userinfo = require('./UserInfo.js')
 
 const userSchema = new Schema({
 
@@ -40,10 +40,7 @@ const userSchema = new Schema({
       type: Schema.Types.ObjectId, 
       ref: 'Routines' 
     }],
-    userinfo: [{ 
-      type: Schema.Types.ObjectId, 
-      ref: 'UserInfo' 
-    }],
+    userinfo: [userinfo],
 
 
 })

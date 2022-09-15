@@ -34,6 +34,6 @@ app.use((req, res, next) => {
      })
   });
 
-  app.use('/auth', authRoutes);
+  app.use('/auth', authRoutes); //Rutas para usuarios logeados, si queres acceder a estas rutas van a necesitar un JWT
 
  module.exports = app

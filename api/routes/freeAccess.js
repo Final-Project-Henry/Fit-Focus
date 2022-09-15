@@ -28,7 +28,7 @@ router.post('/register', async (req, res) => {
 
 });
 
-router.post('/login', async (req, res) => { // aca se crea e inicia la sesion 
+router.post('/login', async (req, res) => { // Validando las credenciales y devuelve el token.
   
   try {
     const {email , password} = req.body
@@ -39,7 +39,7 @@ router.post('/login', async (req, res) => { // aca se crea e inicia la sesion
   
     const isValid = await bcrypt.compare(password, User.password);
     if(isValid) {
-      const token = jwt.sign({email: email, name : User.name}, "" + SECRET);
+      const token = jwt.sign({email: email, name : User.name, id : User._id}, "" + SECRET);
       return res.status(200).json(token)
     }else {
       return res.status(401).send('Password not valid')
@@ -49,7 +49,7 @@ router.post('/login', async (req, res) => { // aca se crea e inicia la sesion
   }
 });
 
-router.get('/exercises', async (req, res) =>{
+router.get('/exercises', async (req, res) =>{ // Devuelve unos ejercicios para mostrar
   const Exercises = await exercise.find().limit(15);
   res.status(200).send(Exercises)
 });
