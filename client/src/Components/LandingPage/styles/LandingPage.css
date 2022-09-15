@@ -21,7 +21,7 @@
 
 video {
     width: 100%;
-    height: 100vh;
+    height: 1vh;
     object-fit: cover;
 }
 
@@ -91,18 +91,14 @@ video {
     position: absolute;
     width: 100%;
     height: 100%;
-    margin: 100px;
-
-    margin-left: 85%;
     margin-top: 12%;
     font-size: 200%;
-
     font-weight: bold;
     top: -35%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     text-align: justify;
     color: rgb(255, 217, 0);
 }

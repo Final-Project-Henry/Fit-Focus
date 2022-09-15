@@ -17,9 +17,10 @@ function App() {
       {pathname!=="/"&&<Navbar/>}
 
       <Route exact path="/" component={LandingPage} />
+      <Route exact path="/home" component={HomeVisitor} />
       <Route exact path="/singUp" component={SingUp} />
       <Route exact path="/login" component={Login} />
-      <Route exact path="/home" component={HomeVisitor} />
+      
 
     </React.Fragment>
   );

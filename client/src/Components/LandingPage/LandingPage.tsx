@@ -1,13 +1,16 @@
-import { Link  } from "react-router-dom";
 
+import { Link  } from "react-router-dom";
 import './styles/LandingPage.css';
 import Typewriter from "react-ts-typewriter";
-import HomeVisitor from "../HomeVisitor/HomeVisitor";
-//import Home from "./Home";
+//import HomeVisitor from "../HomeVisitor/HomeVisitor";
+
+
 const landingTrain = require("../assets/landing-media/landingTrain.mp4");
 
 
 const LandingPage = () => {
+
+
   
   return (
     <div className="main">
@@ -34,7 +37,7 @@ const LandingPage = () => {
       </div>
       <div className="buttonDiv">
         <Link to="/home">
-          <button  className="landingButton">COMENCEMOS</button>
+          <button className="landingButton">COMENCEMOS</button>
         </Link>
       </div>
     </div>
