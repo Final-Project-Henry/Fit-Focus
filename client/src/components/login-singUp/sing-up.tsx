@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import jwt_deocde from "jwt-decode";
 import { useScript, useAppDispatch, useAppSelector } from "../../app/hooks";
 
@@ -17,6 +17,7 @@ interface payload {
   picture: string;
 }
 export default function SingUp() {
+
   const googlebuttonref = useRef<any>();
   const user_logeao = useAppSelector(selectUser);
   const dispatch=useAppDispatch()
@@ -115,14 +116,14 @@ export default function SingUp() {
       <div className="w-1/2">
         <div>{!user && <div ref={googlebuttonref}></div>}</div>
         <div>
-          {user ? <Redirect to="/home"></Redirect> : user}
-          {user_logeao.user ? <Redirect to="/home"></Redirect> : ""}
+          {user ? <Navigate to="/home" /> : user}
+          {user_logeao.user ? <Navigate to="/home" /> : ""}
         </div>
       </div>
  
       <div className="w-1/2">
         <div>{!user&&<div ref={googlebuttonref}></div>}</div>
-        <div>{user?<Redirect to="/home"></Redirect>:user}{user_logeao.user?<Redirect to="/home"></Redirect>:""}</div>
+        <div>{user?<Navigate to="/home" />:user}{user_logeao.user?<Navigate to="/home" />:""}</div>
 
         <form onSubmit={event=>handleSubmit(event)}>
           <div>

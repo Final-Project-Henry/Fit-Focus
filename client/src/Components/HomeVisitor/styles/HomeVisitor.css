@@ -1,3 +1,9 @@
+
+.container{
+
+    background-color: rgb(241, 230, 230);
+}
+
 .bannerTop{
 
 margin: 200;
@@ -17,52 +23,34 @@ flex: content;
     
 }
 
-.Card{
- 
-        
+.foto1{
+    border-radius: 30%;
+    width: 20%;    
+    height: 20%;
+    display:flex;
+    flex-direction: row ;
     
-  
-        color: #1d11a7;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        bottom: 100%;
-        top: 20%; 
-        border-radius: 10%;
-        justify-items: center;
-        padding: 5px;
-  
-        display: grid;
- 
-    
-  
-        width:200px; 
-        height:200px;
-        border-radius: 10%;
-        justify-content: center;
-        border-style:outset;
-        border-color: rgba(59, 180, 57, 0.781);
-        border-width: 7px;
-   
-        color: #5d1a94;
-        justify-content: center;
-        border-radius: 10%;
-        text-decoration: inherit;
-        height: 50px;
-        font-size: 19px;
-        
-        width: 20%;
-    }
 
+}
+
+.fotos{
+    display: flex;
+    flex-direction: row ;
+    justify-content:space-around ;
+    margin: 30px;
+
+
+}
 
     .Video{
-        margin: 200;
-        background-color: red;
-        height: 200px
-
+        height: 300px;
+        width: 100%;
+        
 
     }
 
     .FrasesMotivacionales{
-        margin: 200;
+        margin: top;
         background-color: red;
         height: 200px
 
