@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 // Navbar.tsx
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import "./styles/Navbar.css";
 
 const Navbar = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
   let isLogged = useSelector((state: RootState) => state.auth.isLogged);
 
@@ -22,7 +22,7 @@ const Navbar = () => {
           {!isLogged ? (
             <button
               style={{ backgroundColor: "white", padding: "4px" }}
-              onClick={() => history.push("/login")}
+              onClick={() => navigate("/login")}
             >
               Log In
             </button>
@@ -88,7 +88,6 @@ const Navbar = () => {
                       <li>
                         <Link
                           to="/dashboard"
-                          href="#"
                           className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                         >
                           Dashboard
