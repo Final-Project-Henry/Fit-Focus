@@ -15,17 +15,16 @@ try {
    const {genre, age, weight, height, goal, equipment, experience} = req.body
 
    const check = await user.findOne({email : email}).select('userinfo');
-   console.log(check)
    if(check.userinfo.length !== 0) {
       return res.status(409).send('Already added info')
    }
 
-   const User = await user.updateOne({email : email}, {
+    await user.updateOne({email : email}, {
       $push : {
         userinfo : {genre, age, weight, height, goal, equipment, experience}
       }
    })
-   res.status(200).send(User)
+   res.redirect('/auth/getexercises')
 } catch (error) {
    res.status(500).send(error.message)
 }
