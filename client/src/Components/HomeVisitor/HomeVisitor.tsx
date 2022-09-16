@@ -19,7 +19,7 @@ export default function HomeVisitor() {
 
   return (
     <div className="container">
-      <Navbar/>
+      {/* <Navbar/> */}
       <div className="Carousel">       <Carousel></Carousel> 
 </div>
        

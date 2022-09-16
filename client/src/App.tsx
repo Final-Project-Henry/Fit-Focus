@@ -13,7 +13,7 @@ function App() {
 
   return (
     <React.Fragment>
-      {/* {pathname !== "/" && <Navbar />} */}
+      {pathname !== "/" && <Navbar />}
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/singUp" element={<SingUp />} />
