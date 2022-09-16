@@ -28,13 +28,11 @@ export default function Login(){
    function handleSubmit(event:React.FormEvent):void {
     event.preventDefault();
     dispatch(User_Login_State(Form_data))
-    console.log(Form_data)
   }
   
     return(
     <>
-      {/* <div>{user&&<Navigate to="/HomeRegister" />}</div>
-     */}
+       <div>{user&&<Navigate to="/HomeRegister" />}</div>
       <form className="bg-white w-3/4 rounded-2xl p-11" onSubmit={handleSubmit}>
 
             <div>

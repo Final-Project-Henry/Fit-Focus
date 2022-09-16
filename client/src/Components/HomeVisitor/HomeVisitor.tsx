@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Carousel from "../Carousel/Carousel";
-import { Div_cards, Div_video,Div_card_skill } from "./styles/styled_componet_homeVisite";
+import {
+  Div_cards,
+  Div_video,
+  Div_card_skill,
+} from "./styles/styled_componet_homeVisite";
 import img1 from "../assets/homeRegister-media/Img1.jpg";
 import img2 from "../assets/homeRegister-media/Img2.jpg";
 import img3 from "../assets/homeRegister-media/Img3.jpg";
@@ -23,7 +27,6 @@ export default function HomeVisitor() {
 
   }
 
- 
 
 
 
@@ -43,7 +46,10 @@ export default function HomeVisitor() {
       <Div_cards className="flex  ">
         <div id="card" className="   text-white bg-gray-900">
           <div id="img_card">
-            <img src={foto1} className="foto1" />
+
+      
+
+            <img src={foto1} className="foto1" alt="foto" />
           </div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo id
@@ -53,6 +59,7 @@ export default function HomeVisitor() {
         <div id="card" className=" text-white bg-gray-900">
           <div id="img_card">
             <img src={foto2} className="foto1" />
+            
           </div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo id
@@ -61,7 +68,7 @@ export default function HomeVisitor() {
         </div>
         <div id="card" className=" text-white bg-gray-900">
           <div id="img_card">
-            <img src={foto3} className="foto1" />
+            <img src={foto3} className="foto1" alt="foto" />
           </div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo id
@@ -81,11 +88,12 @@ export default function HomeVisitor() {
         <h1 className="image"></h1>
       </div> */}
       <Div_card_skill>
-        <img src={skille} />
+        <img src={skille} alt="skills" />
       </Div_card_skill>
-      <div className="flex justify-center">
+      <div className="flex justify-center" id="about">
         <p id="abut">Acerca de nosotros</p>
-      
+      </div>
+      <div>
         <p className="p-5">
           Somos un grupo de jóvenes y entusiastas programadores que
           desarrollamos aplicaciones web responsive. Nuestra meta es desarrollar
@@ -93,7 +101,6 @@ export default function HomeVisitor() {
           derrotar al sistema y no tener que hacer aportes para la jubilación.
         </p>
       </div>
-   
       <footer className="bg-black">
         <div className="text-white">
           <p>PROYECTO FINAL SOY HENRY 2022</p>
