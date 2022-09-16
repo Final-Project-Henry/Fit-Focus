@@ -48,7 +48,7 @@ export default function HomeVisitor() {
         veniam ducimus.
       </div>
 
-      <div>
+      <div id="skills">
         CHECK OUT YOUR SKILLS Lorem ipsum dolor sit, amet consectetur
         adipisicing elit. Illo, sit iusto optio explicabo, voluptates totam
         voluptas maiores ipsa tempora vero voluptatem dicta necessitatibus nisi
