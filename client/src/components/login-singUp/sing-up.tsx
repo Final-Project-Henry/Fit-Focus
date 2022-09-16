@@ -48,7 +48,7 @@ export default function SingUp() {
 
   useEffect(() => {
     if (user_logeao.user) {
-
+      console.log(user_logeao)
       window.localStorage.setItem(
         "Login_userFit_Focus",
         JSON.stringify(user_logeao.user)
@@ -156,7 +156,7 @@ export default function SingUp() {
               onChange={(event) => handleChange(event)}
             />
           </div>
-          <button type="submit" >Regristrase</button>
+          <button type="submit" >Registrase</button>
         </form>
         
         <div>

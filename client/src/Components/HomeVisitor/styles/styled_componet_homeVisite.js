@@ -1,0 +1,62 @@
+import styled from "styled-components";
+
+const Div_cards = styled.div`
+  display: flex;
+
+  #card{
+    box-shadow: 0 4px 10px #000e3e55;
+    width:100%;
+    margin:50px;
+    font-size:1.2rem;
+      p{
+          padding: 20px;
+      }
+  }
+  #img_card{
+    width:100%;
+    height: 250px;
+    overflow: hidden;
+    img{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+
+    }   
+  }
+  
+  
+`
+const Div_video = styled.div`
+  height: 650px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  p{  
+      position: absolute;
+      font-size: 2rem;
+      z-index:1;
+  }
+  
+  #btm_video{
+    margin:50px
+  }
+  #video{
+    opacity: 50%;
+  }  
+
+`
+
+const Div_card_skill = styled.div`
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin:50px 0;
+  img{
+    border-radius: 50px;
+    box-shadow: 0 4px 10px #000e3e55;
+  }
+`
+
+export { Div_cards, Div_video,Div_card_skill }
