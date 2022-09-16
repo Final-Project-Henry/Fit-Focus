@@ -13,7 +13,7 @@ const Navbar = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
   let isLogged = useSelector((state: RootState) => state.auth.isLogged);
   const user=useSesion()
-
+  console.log(user)
 
   return (
     <div>
@@ -46,30 +46,34 @@ const Navbar = () => {
                     Nosotros
                   </Scroll>
                 </li>
-                <li>
-                  <Scroll
-                    to="feedbacks"
-                    spy={true}
-                    smooth={true}
-                    offset={-100}
-                    duration={500}
-                    className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 cursor-pointer"
-                  >
-                    Opiniones
-                  </Scroll>
-                </li>
-                <li>
-                  <Scroll
-                    to="contact"
-                    spy={true}
-                    smooth={true}
-                    offset={-100}
-                    duration={500}
-                    className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 cursor-pointer"
-                  >
-                    Contacto
-                  </Scroll>
-                </li>
+                {user && (
+                  <li>
+                    <Scroll
+                      to="excercises"
+                      spy={true}
+                      smooth={true}
+                      offset={-100}
+                      duration={500}
+                      className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 cursor-pointer"
+                    >
+                      Ejercicios
+                    </Scroll>
+                  </li>
+                )}
+                {user && (
+                  <li>
+                    <Scroll
+                      to="feedbacks"
+                      spy={true}
+                      smooth={true}
+                      offset={-100}
+                      duration={500}
+                      className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 cursor-pointer"
+                    >
+                      Opiniones
+                    </Scroll>
+                  </li>
+                )}
               </ul>
             </div>
             <img src={icon} alt="" className="w-12" />
@@ -77,11 +81,10 @@ const Navbar = () => {
               Fit-Focus
             </span>
           </div>
-          {!user? (
+
             <div className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <Link
                 to="/auth/login"
-
                 className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Registrarse
