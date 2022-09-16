@@ -4,6 +4,9 @@ import { Div_cards, Div_video,Div_card_skill } from "./styles/styled_componet_ho
 import img1 from "../assets/homeRegister-media/Img1.jpg";
 import img2 from "../assets/homeRegister-media/Img2.jpg";
 import img3 from "../assets/homeRegister-media/Img3.jpg";
+import FormFeedback from "../FormFeedback/FormFeedback";
+import { Form } from "react-router-dom";
+
 
 const foto1 = require("../assets/Fotos y Videos HomeVisitor/6Q26YGICPFBULGVJ2YO3RZN2F4.jpg");
 const foto2 = require("../assets/Fotos y Videos HomeVisitor/depositphotos_81858526-stock-photo-couple-doing-planking-exercises.jpg");
@@ -14,7 +17,15 @@ const video = require("../assets/Fotos y Videos HomeVisitor/pexels-tima-miroshni
 
 export default function HomeVisitor() {
   const [data, setData] = useState<any[]>();
-  const [promoRutina, setPromoRutina] = useState<any[]>();
+
+  const handleChange = ()=>{
+
+
+  }
+
+ 
+
+
 
   return (
     <div className="felx bg-slate-100">
@@ -24,27 +35,28 @@ export default function HomeVisitor() {
         <Carousel
           content={[
             { src: img1, text: "hombre fuerte" },
-            { src: img2, text: 'Hombre fuerte 2' },
-            { src: img3, text: "Hombre Fuerte 3" }
+            { src: img2, text: "Hombre fuerte 2" },
+            { src: img3, text: "Hombre Fuerte 3" },
           ]}
         />
       </div>
-
       <Div_cards className="flex  ">
         <div id="card" className="   text-white bg-gray-900">
           <div id="img_card">
-          <img src={foto1} className="foto1" />
+            <img src={foto1} className="foto1" />
           </div>
           <p>
-           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo id dicta magni, deleniti
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo id
+            dicta magni, deleniti
           </p>
         </div>
         <div id="card" className=" text-white bg-gray-900">
           <div id="img_card">
-          <img src={foto2} className="foto1" />
+            <img src={foto2} className="foto1" />
           </div>
           <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo id dicta magni, deleniti
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo id
+            dicta magni, deleniti
           </p>
         </div>
         <div id="card" className=" text-white bg-gray-900">
@@ -52,31 +64,28 @@ export default function HomeVisitor() {
             <img src={foto3} className="foto1" />
           </div>
           <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo id dicta magni, deleniti
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo id
+            dicta magni, deleniti
           </p>
         </div>
       </Div_cards>
       <Div_video>
-        <p className="text-white">
-            EL ÚNICO LÍMITE ERES TÚ
-        </p>
-        <video id="video"  src={video} autoPlay loop muted  />
+        <p className="text-white">EL ÚNICO LÍMITE ERES TÚ</p>
+        <video id="video" src={video} autoPlay loop muted />
         {/* <div id="btm_video" className="w-1/4  bg-blue-700 absolute text-white text-center p-2 my-5">
           <button >Empieza a ENTRENAR</button>
         </div> */}
       </Div_video>
-{/* 
+      {/* 
       <div className="FrasesMotivacionales">
         <h1 className="image"></h1>
       </div> */}
-
       <Div_card_skill>
-        <img src={skille}/>
+        <img src={skille} />
       </Div_card_skill>
       <div className="flex justify-center">
         <p id="abut">Acerca de nosotros</p>
-      </div>
-      <div >
+      
         <p className="p-5">
           Somos un grupo de jóvenes y entusiastas programadores que
           desarrollamos aplicaciones web responsive. Nuestra meta es desarrollar
@@ -84,13 +93,10 @@ export default function HomeVisitor() {
           derrotar al sistema y no tener que hacer aportes para la jubilación.
         </p>
       </div>
-
-
+   
       <footer className="bg-black">
         <div className="text-white">
-          <p >
-             PROYECTO FINAL SOY HENRY 2022
-          </p>
+          <p>PROYECTO FINAL SOY HENRY 2022</p>
         </div>
       </footer>
     </div>
