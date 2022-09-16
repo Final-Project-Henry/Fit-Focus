@@ -11,7 +11,6 @@ import {
 import facebook from "../assets/login-singup_media/icons8-facebook.svg";
 import google from "../assets/login-singup_media/icons8-google.svg";
 import linkedin from "../assets/login-singup_media/icons8-linkedin-circled.svg";
-import gymIcon_singUp from "../assets/login-singup_media/sport.jpg"
 const clientId:string="647787736227-gvt467rgdovggebhuu26n05c3f9a8ok7.apps.googleusercontent.com";
 
 interface payload {
@@ -35,29 +34,7 @@ export default function SingUp() {
     password: "",
   });
 
-  //buscar usuario en el localStorage//////////////////////////////////////////////////////////////
-
-  useEffect(() => {
-    let userJSON = window.localStorage.getItem("Login_userFit_Focus");
-    if (userJSON) {
-      if (userJSON.length > 3) {
-        let user_exists = JSON.parse(userJSON);
-        setuser(user_exists);
-      }
-    }
-  }, []);
-
-  //guardar usuario en el localStorage////////////////////////////////////////////////////////////
-
-  useEffect(() => {
-    if (user_logeao.user) {
-      console.log(user_logeao)
-      window.localStorage.setItem(
-        "Login_userFit_Focus",
-        JSON.stringify(user_logeao.user)
-      );
-    }
-  }, [user_logeao.user]);
+  
   //////////recolectar data del user con goole//////////////////////////////////////////
   const onGoogleSignIn = async (user: any) => {
     let userCred = user.credential;
@@ -74,7 +51,6 @@ export default function SingUp() {
       dispatch(User_Register_State(data))
     }
   }, [data_user]);
-
   //////////actializacion del windo para obtner la api de google//////////////////////////////////////////
   useEffect(() => {
     Set_Auth_Google(window);
@@ -105,9 +81,10 @@ export default function SingUp() {
   function handleSubmit(event: React.FormEvent): void {
     event.preventDefault();
 
-    setuser(Form_data);
+    // setuser(Form_data);
     dispatch(User_Register_State(Form_data));
   }
+
   console.log(user);
   return (
 
@@ -115,7 +92,7 @@ export default function SingUp() {
       //   <div>{!user&&<div ref={googlebuttonref}></div>}</div>
       //   
         <>
-        <div>{user?<Navigate to="/HomeRegister" />:user}{user_logeao.user?<Navigate to="/HomeRegister" />:""}</div>
+        <div>{user_logeao.user&&<Navigate to="/HomeRegister" />}</div>
            <form className="bg-white w-3/4 rounded-2xl p-11" onSubmit={handleSubmit}>
 
           <div>
