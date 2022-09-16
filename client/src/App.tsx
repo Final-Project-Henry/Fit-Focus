@@ -7,7 +7,6 @@ import Navbar from "./Components/Navbar/Navbar";
 import Login from "./Components/login-singUp/Login";
 import SingUp from "./Components/login-singUp/sing-up";
 import Form_rutinas from "./Components/form_rutinas/From_rutina";
-import FormFeedback from "./Components/FormFeedback/FormFeedback";
 
 function App() {
   const { pathname } = useLocation();
@@ -22,10 +21,7 @@ function App() {
         <Route path="/home" element={<HomeVisitor />} />
         <Route path="/homeRegister" element={<HomeRegister />} />
         <Route path="/rutinas" element={<Form_rutinas  />} />
-        <Route path="/feedback" element={<FormFeedback  />} />
-
       </Routes>
-      
     </React.Fragment>
   );
 }
