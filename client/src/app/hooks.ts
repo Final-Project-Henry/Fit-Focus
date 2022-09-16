@@ -28,14 +28,15 @@ export function useScript(url: string, onload: any) {
 
 export function useSesion() {
   const userStado = useAppSelector(selectUser);
-  const [user, setuser] = useState<object | boolean>(false);
 
-  useEffect(() => {
-    let userJSON = window.localStorage.getItem("Login_userFit_Focus");
-    if (userJSON) {
-      if (userJSON.length > 3) {
-        let userlogin = JSON.parse(userJSON);
-        setuser(userlogin);
+  const [user, setuser] = useState<any>(false);
+
+  useEffect(()=>{
+      let userJSON = window.localStorage.getItem("Login_userFit_Focus");
+      if (userJSON) {
+        if (userJSON.length>3) {
+          let userlogin = JSON.parse(userJSON)
+          setuser(userlogin)
       }
     }
   }, []);
