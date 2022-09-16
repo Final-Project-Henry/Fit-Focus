@@ -20,7 +20,7 @@ export default function HomeVisitor() {
     <div className="felx bg-slate-100">
       {/* <Navbar/> */}
       {/* Yo adrian he quitado de className la clase Carousel para que se vea, pero la pagina sirve asi que subire, ojo aqui */}
-      <div className="">
+      <div className="w-screen">
         <Carousel
           content={[
             { src: img1, text: "hombre fuerte" },
