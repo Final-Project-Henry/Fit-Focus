@@ -1,14 +1,20 @@
 import "./styles/HomeRegister.css"
-import Carousel from "./Carousel"
-import { useSelector } from "react-redux"
-
-
+import Carousel from "../Carousel/Carousel"
+import img1 from "../assets/homeRegister-media/Img1.jpg";
+import img2 from "../assets/homeRegister-media/Img2.jpg";
+import img3 from "../assets/homeRegister-media/Img3.jpg";
 
 const HomeRegister = () => {
 
     return (
         <div className="max-w-screen-lg my-12 mx-auto overflow-hidden">
-            <Carousel />
+            <Carousel
+            content={[
+                {src: img1, text: "hombre fuerte"},
+                {src: img2, text: 'Hombre fuerte 2'},
+                {src: img3, text: "Hombre Fuerte 3"}
+            ]}
+            />
             <div>
                 <h1 className="text-center text-2xl mt-10" >Ejercicios Semanales</h1>
                 <div className="flex fl space-x-8 mt-5 justify-between">
