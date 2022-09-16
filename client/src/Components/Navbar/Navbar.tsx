@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import { useSelector } from "react-redux";
-// import { RootState } from "../../app/store";
+import { useSelector } from "react-redux";
+import { RootState } from "../../app/store";
 import icon from "../assets/icons/nav-icon.png";
 import defaultPhoto from "../assets/icons/monkey.jpg";
 import { Link as Scroll } from "react-scroll";
@@ -10,14 +10,9 @@ import "./styles/Navbar.css";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
-  // let isLogged = useSelector((state: RootState) => state.auth.isLogged);
+  let isLogged = useSelector((state: RootState) => state.auth.isLogged);
 
-  let user = useSesion();
-  console.log(user);
-
-  const handleLogout = (e: any) => {
-    e.preventDefault();
-  };
+  const user = useSesion();
 
   return (
     <div>
@@ -53,7 +48,7 @@ const Navbar = () => {
                 {user && (
                   <li>
                     <Scroll
-                      to="exercises"
+                      to="excercises"
                       spy={true}
                       smooth={true}
                       offset={-100}
@@ -66,12 +61,16 @@ const Navbar = () => {
                 )}
                 {user && (
                   <li>
-                    <Link
-                      to="/feedbacks"
+                    <Scroll
+                      to="feedbacks"
+                      spy={true}
+                      smooth={true}
+                      offset={-100}
+                      duration={500}
                       className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 cursor-pointer"
                     >
                       Opiniones
-                    </Link>
+                    </Scroll>
                   </li>
                 )}
               </ul>
@@ -134,10 +133,10 @@ const Navbar = () => {
                   >
                     <div className="py-3 px-4">
                       <span className="block text-sm text-gray-900 dark:text-white">
-                        Username
+                        David Cicconi
                       </span>
                       <span className="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">
-                        email@email.com
+                        david.cicconi94@gmail.com
                       </span>
                     </div>
                     <ul className="py-1" aria-labelledby="user-menu-button">
@@ -167,8 +166,7 @@ const Navbar = () => {
                       </li>
                       <li>
                         <Link
-                          onClick={handleLogout}
-                          to="/home"
+                          to="/"
                           className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                         >
                           Cerrar sesión
