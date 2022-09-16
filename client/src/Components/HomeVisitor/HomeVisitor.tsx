@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Carousel from "../HomeRegister/Carousel";
+import Carousel from "../Carousel/Carousel";
 import { Div_cards, Div_video,Div_card_skill } from "./styles/styled_componet_homeVisite";
+import img1 from "../assets/homeRegister-media/Img1.jpg";
+import img2 from "../assets/homeRegister-media/Img2.jpg";
+import img3 from "../assets/homeRegister-media/Img3.jpg";
 
 const foto1 = require("../assets/Fotos y Videos HomeVisitor/6Q26YGICPFBULGVJ2YO3RZN2F4.jpg");
 const foto2 = require("../assets/Fotos y Videos HomeVisitor/depositphotos_81858526-stock-photo-couple-doing-planking-exercises.jpg");
@@ -16,8 +19,15 @@ export default function HomeVisitor() {
   return (
     <div className="felx bg-slate-100">
       {/* <Navbar/> */}
+      {/* Yo adrian he quitado de className la clase Carousel para que se vea, pero la pagina sirve asi que subire, ojo aqui */}
       <div className="">
-        <Carousel />
+        <Carousel
+          content={[
+            { src: img1, text: "hombre fuerte" },
+            { src: img2, text: 'Hombre fuerte 2' },
+            { src: img3, text: "Hombre Fuerte 3" }
+          ]}
+        />
       </div>
 
       <Div_cards className="flex  ">
