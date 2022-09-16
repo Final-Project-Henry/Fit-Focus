@@ -8,6 +8,9 @@ import {
   selectUser,
   
 } from "../../features/counter/counterSlice";
+import facebook from "../assets/login-singup_media/icons8-facebook.svg";
+import google from "../assets/login-singup_media/icons8-google.svg";
+import linkedin from "../assets/login-singup_media/icons8-linkedin-circled.svg";
 import gymIcon_singUp from "../assets/login-singup_media/sport.jpg"
 const clientId:string="647787736227-gvt467rgdovggebhuu26n05c3f9a8ok7.apps.googleusercontent.com";
 
@@ -48,7 +51,7 @@ export default function SingUp() {
 
   useEffect(() => {
     if (user_logeao.user) {
-
+      console.log(user_logeao)
       window.localStorage.setItem(
         "Login_userFit_Focus",
         JSON.stringify(user_logeao.user)
@@ -107,63 +110,63 @@ export default function SingUp() {
   }
   console.log(user);
   return (
-    <div className="flex flex-row flex-column justify-center">
 
-      <div className="w-1/2">
-        <img className="w-80" src={gymIcon_singUp} />
-      </div>
+      // <div className="w-1/2">
+      //   <div>{!user&&<div ref={googlebuttonref}></div>}</div>
+      //   
+        <>
+        <div>{user?<Navigate to="/HomeRegister" />:user}{user_logeao.user?<Navigate to="/HomeRegister" />:""}</div>
+           <form className="bg-white w-3/4 rounded-2xl p-11" onSubmit={handleSubmit}>
 
-      <div className="w-1/2">
-        <div>{!user && <div ref={googlebuttonref}></div>}</div>
-        <div>
-          {user ? <Navigate to="/home" /> : user}
-          {user_logeao.user ? <Navigate to="/home" /> : ""}
-        </div>
-      </div>
- 
-      <div className="w-1/2">
-        <div>{!user&&<div ref={googlebuttonref}></div>}</div>
-        <div>{user?<Navigate to="/home" />:user}{user_logeao.user?<Navigate to="/home" />:""}</div>
-
-        <form onSubmit={event=>handleSubmit(event)}>
           <div>
             <label>Nombre</label>
             <input type="text" 
             name="name"
-            className="mt-1 block w-full"
+            className="w-full px-1"
             autoComplete="off"
+            placeholder="Alex"
             value={Form_data.name}
             onChange={(event) => handleChange(event)}
             />
           </div>
-          <div>
+          <div className="my-5">
           <label>Email</label>
             <input type="email" 
               name="email"
-              className="mt-1 block w-full"
+              className="w-full px-1"
               autoComplete="off"
+              placeholder="Alex@gmail.com"
               value={Form_data.email}
               onChange={(event) => handleChange(event)
               }/>
           </div>
-          <div>
+          <div className="my-5">
             <label>Contraseña</label>
             <input type="password"
               name="password"
               autoComplete="off"
-              className="mt-1 block w-full"
+              className="w-full px-1"
+              placeholder="***********"
               value={Form_data.password}
               onChange={(event) => handleChange(event)}
             />
           </div>
-          <button type="submit" >Regristrase</button>
-        </form>
-        
-        <div>
-          <span>{user_logeao.status.toString()}</span>
-        </div>
+          <div className="w-full bg-blue-700 my-16  text-white text-center p-2  ">
+              <button type="submit" >Registrarse</button>
+            </div>
+            <div id="auth" className="flex ">
+              <div className="rounded p-3">
+                <img src={google}/>
+              </div>
+              <div className="rounded p-3">
+                <img src={facebook} />
+              </div>
+              <div className="rounded p-3">
+                <img src={linkedin}/>
+              </div>
+            </div>
+          </form>
+      </>
 
-      </div>
-    </div>
   );
 }
