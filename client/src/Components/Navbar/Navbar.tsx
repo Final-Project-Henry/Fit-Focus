@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-// Navbar.tsx
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import icon from "../assets/icons/nav-icon.png";
 import defaultPhoto from "../assets/icons/monkey.jpg";
+import { Link as Scroll } from "react-scroll";
+import { useSesion } from "../../app/hooks";
 import "./styles/Navbar.css";
 
 const Navbar = () => {
-  const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState<boolean>(false);
   let isLogged = useSelector((state: RootState) => state.auth.isLogged);
+
+  const user = useSesion();
 
   return (
     <div>
@@ -28,62 +30,67 @@ const Navbar = () => {
                     className="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
                     aria-current="page"
                   >
-                    Home
+                    Inicio
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to=""
-                    className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  <Scroll
+                    spy={true}
+                    smooth={true}
+                    offset={-100}
+                    duration={500}
+                    to="about"
+                    className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 cursor-pointer"
                   >
-                    About us
-                  </Link>
+                    Nosotros
+                  </Scroll>
                 </li>
                 <li>
-                  <Link
-                    to="/feedbacks"
-                    className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  <Scroll
+                    to="feedbacks"
+                    spy={true}
+                    smooth={true}
+                    offset={-100}
+                    duration={500}
+                    className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 cursor-pointer"
                   >
-                    Feedbacks
-                  </Link>
+                    Opiniones
+                  </Scroll>
                 </li>
                 <li>
-                  <Link
-                    to="/products"
-                    className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  <Scroll
+                    to="contact"
+                    spy={true}
+                    smooth={true}
+                    offset={-100}
+                    duration={500}
+                    className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 cursor-pointer"
                   >
-                    Skills
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/contact"
-                    className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                  >
-                    Contact
-                  </Link>
+                    Contacto
+                  </Scroll>
                 </li>
               </ul>
             </div>
             <img src={icon} alt="" className="w-12" />
-            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white px-2">
+            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white px-2 cursor-default">
               Fit-Focus
             </span>
           </div>
 
-          {isLogged ? (
+          {user ? (
             <div className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-              <Link
-                to="/login"
-                className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-              >
-                Sign In
-              </Link>
               <Link
                 to="/singUp"
                 className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
-                Sign Up
+                Registrarse
+              </Link>
+
+              <Link
+                to="/login"
+                className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              >
+                Iniciar sesión
               </Link>
             </div>
           ) : (
@@ -134,7 +141,7 @@ const Navbar = () => {
                           to="/profile"
                           className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                         >
-                          My Profile
+                          Mi Perfil
                         </Link>
                       </li>
                       <li>
@@ -142,7 +149,7 @@ const Navbar = () => {
                           to="/settings"
                           className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                         >
-                          Settings
+                          Configuraciones
                         </Link>
                       </li>
                       <li>
@@ -158,7 +165,7 @@ const Navbar = () => {
                           to="/"
                           className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                         >
-                          Sign out
+                          Cerrar sesión
                         </Link>
                       </li>
                     </ul>

@@ -3,8 +3,6 @@ import Carousel from "../Carousel/Carousel"
 import img1 from "../assets/homeRegister-media/Img1.jpg";
 import img2 from "../assets/homeRegister-media/Img2.jpg";
 import img3 from "../assets/homeRegister-media/Img3.jpg";
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
 
 const HomeRegister = () => {
 
@@ -13,6 +11,7 @@ const HomeRegister = () => {
     return (
         <div className="max-w-screen-lg my-12 mx-auto overflow-hidden">
             <Carousel
+
                 content={[
                     { src: img1, text: "hombre fuerte" },
                     { src: img2, text: 'Hombre fuerte 2' },
