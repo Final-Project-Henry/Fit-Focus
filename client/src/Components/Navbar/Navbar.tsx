@@ -6,15 +6,17 @@ import { RootState } from "../../app/store";
 import icon from "../assets/icons/nav-icon.png";
 import defaultPhoto from "../assets/icons/monkey.jpg";
 import "./styles/Navbar.css";
+import { useSesion } from "../../app/hooks";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState<boolean>(false);
   let isLogged = useSelector((state: RootState) => state.auth.isLogged);
+  const user=useSesion()
 
   return (
     <div>
-      <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+      <nav className=" border-gray-200 px-2 sm:px-4 py-2.5  bg-gray-900">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
           <div className="flex">
             <div
@@ -71,16 +73,16 @@ const Navbar = () => {
             </span>
           </div>
 
-          {isLogged ? (
+          {!user? (
             <div className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <Link
-                to="/login"
+                to="/auth/login"
                 className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Sign In
               </Link>
               <Link
-                to="/singUp"
+                to="/auth/sign-up"
                 className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Sign Up
@@ -122,10 +124,11 @@ const Navbar = () => {
                   >
                     <div className="py-3 px-4">
                       <span className="block text-sm text-gray-900 dark:text-white">
-                        David Cicconi
+                      {user.name}
                       </span>
                       <span className="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">
-                        david.cicconi94@gmail.com
+                      {user.email}
+
                       </span>
                     </div>
                     <ul className="py-1" aria-labelledby="user-menu-button">
