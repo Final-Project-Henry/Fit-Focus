@@ -32,7 +32,7 @@ export function useScript(url:string, onload:any){
 
 export function useSesion(){
   const userStado = useAppSelector(selectUser);
-  const [user, setuser]=useState<object|boolean>(false);
+  const [user, setuser]=useState<any>(false);
 
   useEffect(()=>{
       let userJSON = window.localStorage.getItem("Login_userFit_Focus");
