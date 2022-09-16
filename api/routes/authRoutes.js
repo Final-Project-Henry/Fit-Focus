@@ -24,7 +24,7 @@ try {
         userinfo : {genre, age, weight, height, goal, equipment, experience}
       }
    })
-   res.redirect('/auth/getexercises')
+   res.redirect('/authe/getexercises')
 } catch (error) {
    res.status(500).send(error.message)
 }
