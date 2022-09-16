@@ -8,12 +8,11 @@ import { Link as Scroll } from "react-scroll";
 import { useSesion } from "../../app/hooks";
 import "./styles/Navbar.css";
 
-
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
   let isLogged = useSelector((state: RootState) => state.auth.isLogged);
-  const user=useSesion()
-  console.log(user)
+  const user = useSesion();
+  console.log(user);
 
   return (
     <div>
@@ -62,16 +61,12 @@ const Navbar = () => {
                 )}
                 {user && (
                   <li>
-                    <Scroll
-                      to="feedbacks"
-                      spy={true}
-                      smooth={true}
-                      offset={-100}
-                      duration={500}
+                    <Link
+                      to="/feedbacks"
                       className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 cursor-pointer"
                     >
                       Opiniones
-                    </Scroll>
+                    </Link>
                   </li>
                 )}
               </ul>
@@ -81,7 +76,7 @@ const Navbar = () => {
               Fit-Focus
             </span>
           </div>
-          {!user?(
+          {!user ? (
             <div className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <Link
                 to="/auth/login"
@@ -133,11 +128,10 @@ const Navbar = () => {
                   >
                     <div className="py-3 px-4">
                       <span className="block text-sm text-gray-900 dark:text-white">
-                      {user.name}
+                        {user.name}
                       </span>
                       <span className="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">
-                      {user.email}
-
+                        {user.email}
                       </span>
                     </div>
                     <ul className="py-1" aria-labelledby="user-menu-button">
