@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./styles/HomeVisitor.css";
+import Carousel from "../HomeRegister/Carousel";
+import Navbar from "../Navbar/Navbar";
+
 
 const foto1 = require("../assets/Fotos y Videos HomeVisitor/6Q26YGICPFBULGVJ2YO3RZN2F4.jpg");
 const foto2 = require("../assets/Fotos y Videos HomeVisitor/depositphotos_81858526-stock-photo-couple-doing-planking-exercises.jpg");
@@ -13,16 +16,18 @@ export default function HomeVisitor() {
   const [data, setData] = useState<any[]>();
   const [promoRutina, setPromoRutina] = useState<any[]>();
 
-  console.log(data);
 
   return (
     <div className="container">
-      <div className="bannerTop"></div>
-
+      {/* <Navbar/> */}
+      <div className="Carousel">       <Carousel></Carousel> 
+</div>
+       
+     
         <div className="fotos">
-          <img src={foto1} className="foto1" />
-          <img src={foto2} className="foto1" />
-          <img src={foto3} className="foto1"/>
+          <img src={foto1} className="foto1" /> Correr puede tener numerosos beneficios sobre tu salud. Un estudio publicado por la Universidad de Brigham Young muestra que el beneficio de correr  5 días a la semana durante 30-40 minutos aumenta la longevidad a nivel celular. 
+          <img src={foto2} className="foto1" /> Si de manera individual hacer ejercicio ya tiene grandes beneficios (reduce la ansiedad y el estrés, mejora la concentración, previene el deterioro cognitivo, etc), el hecho de realizarlo en familia los multiplica.
+          <img src={foto3} className="foto1"/>La contracción y relajación de los músculos que realizamos al trabajar nuestros abdominales lleva consigo una mayor movilidad intestinal y una mejora del tránsito
         </div>
         <video src={video} autoPlay loop muted className="Video"/>
 
@@ -36,20 +41,7 @@ export default function HomeVisitor() {
           <h1 className="image2"></h1>
 
           <div className="AboutUs">
-            ABOUT US: Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Libero adipisci quaerat deserunt aut repellat corrupti et itaque rem
-            voluptatum, quis repellendus maiores fugit est iusto rerum beatae
-            saepe veniam ducimus.Lorem, ipsum dolor sit amet consectetur
-            adipisicing elit. Libero adipisci quaerat deserunt aut repellat
-            corrupti et itaque rem voluptatum, quis repellendus maiores fugit
-            est iusto rerum beatae saepe veniam ducimus.Lorem, ipsum dolor sit
-            amet consectetur adipisicing elit. Libero adipisci quaerat deserunt
-            aut repellat corrupti et itaque rem voluptatum, quis repellendus
-            maiores fugit est iusto rerum beatae saepe veniam ducimus.Lorem,
-            ipsum dolor sit amet consectetur adipisicing elit. Libero adipisci
-            quaerat deserunt aut repellat corrupti et itaque rem voluptatum,
-            quis repellendus maiores fugit est iusto rerum beatae saepe veniam
-            ducimus.
+            Somos un grupo de jóvenes y entusiastas programadores que desarrollamos aplicaciones web responsive. Nuestra meta es desarrollar la App mística que nos de ingresos pasivos de por vida para lograr así derrotar al sistema y no tener que hacer aportes para la jubilación.
           </div>
 
           <div>

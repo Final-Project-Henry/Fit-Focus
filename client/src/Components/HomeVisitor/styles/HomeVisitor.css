@@ -1,14 +1,19 @@
 
 .container{
 
-    background-color: rgb(241, 230, 230);
+    background-color: rgb(203, 105, 105);
+    width: 100%;
+
 }
 
-.bannerTop{
+.Carousel
+{
 
 margin: 200;
-background-color: red;
-height: 200px
+height: 100px;
+width: 1000px;
+margin-bottom: 50%;
+margin-bottom: 500px;
 }
 
 .buttonBanner{
@@ -37,10 +42,11 @@ flex: content;
     display: flex;
     flex-direction: row ;
     justify-content:space-around ;
-    margin: 30px;
-
+    margin: 10px;
+    margin-top: 1px;
 
 }
+
 
     .Video{
         height: 300px;
@@ -86,3 +92,8 @@ flex: content;
     background-color: rgb(110, 110, 126);
 }
 
+.AboutUs{
+    font-size: larger;
+    background-color: aqua; 
+
+}
