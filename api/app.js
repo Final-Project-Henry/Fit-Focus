@@ -1,6 +1,7 @@
 const express = require('express');
 const freeAccess = require('./routes/freeAccess.js');
 const authRoutes = require('./routes/authRoutes.js');
+const authGoogleRoutes = require('./routes/authGoogleRoutes.js')
 const jwt = require('jsonwebtoken');
 const querystring = require('node:querystring');
 
@@ -38,6 +39,7 @@ app.use((req, res, next) => {
 
   app.use('/', freeAccess); //Rutas que puede acceder sin estar registrado/logeado
 
+  app.use('/authGoogle', authGoogleRoutes); //Rutas para los que estan logeados con google
 
   app.use((req, res, next) => {
     const header = req.headers['authorization'];
@@ -51,6 +53,6 @@ app.use((req, res, next) => {
      })
   });
 
-  app.use('/authe', authRoutes); //Rutas para usuarios logeados, si queres acceder a estas rutas van a necesitar un JWT
+  app.use('/auth', authRoutes); //Rutas para usuarios logeados con credenciales, si queres acceder a estas rutas van a necesitar un JWT
 
  module.exports = app
