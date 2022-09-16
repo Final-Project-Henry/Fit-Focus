@@ -122,7 +122,7 @@ const Carousel: React.FC<Props> = ({ controls = true, velocity = "300", autoplay
 
     return (
 
-        <div className="max-w-screen-lg my-12 mx-auto overflow-hidden relative">
+        <div className="max-w-full overflow-hidden">
             {content.length >= 2 ?
                 <div>
                     <div className="flex flex-nowrap" ref={slideshow}>
@@ -143,11 +143,11 @@ const Carousel: React.FC<Props> = ({ controls = true, velocity = "300", autoplay
                         }
                     </div>
                     {controls &&
-                        <div className="absolute top-0 z-20 w-full h-full pointer-events-none" ref={buttons}>
+                        <div className="absolute top-5 z-20 w-full  h-full pointer-events-none" ref={buttons}>
                             <button className="pointer-events-auto bg-none border-none cursor-pointer outline-none w-12 h-full text-center absolute ease-linear duration-300 left-0 drop-shadow-[2px_0px_0px_#fff]">
                                 <ArrowLeft className="m-[6px]" onClick={() => timePrevius ? previus() : null} />
                             </button>
-                            <button className="pointer-events-auto border-none cursor-pointer outline-none w-12 h-full text-center absolute ease-linear duration-300 right-0 drop-shadow-[-2px_0px_0px_#fff]">
+                            <button className="pointer-events-auto border-none cursor-pointer outline-none h-full text-center absolute ease-linear duration-300 right-0 drop-shadow-[-2px_0px_0px_#fff]">
                                 <ArrowRight className="m-[16px]" onClick={next} />
                             </button>
                         </div>
