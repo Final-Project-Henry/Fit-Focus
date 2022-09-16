@@ -42,13 +42,14 @@ export function useSesion(){
           setuser(userlogin)
         }
       }
+      console.log(userJSON)
   },[]);
 
   useEffect(()=>{
       if (userStado.user) {
         setuser(userStado.user);
+
       }
   },[userStado])
-
   return user
 }
