@@ -38,8 +38,6 @@ export function useSesion() {
           let userlogin = JSON.parse(userJSON)
           setuser(userlogin)
       }
-    }
-  }, []);
 
   useEffect(() => {
     if (userStado.user) {
@@ -48,4 +46,5 @@ export function useSesion() {
   }, [userStado]);
 
   return user;
+
 }
