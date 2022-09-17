@@ -10,35 +10,46 @@ import { Link as Scroll } from "react-scroll";
 import { useAppDispatch, useSesion } from "../../app/hooks";
 import "./styles/Navbar.css";
 import { sigendOut } from "../../features/counter/counterSlice";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState<boolean>(false);
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [lenguage, setLenguage] = useState(false);
-  const [user , Set_user ] = useState(false);
+  const [user, setUser] = useState(false);
 
-  const dispatch = useAppDispatch()
-  const user_data = useSesion();
-  
+  const dispatch = useAppDispatch();
+  const userData = useSesion();
+
   useEffect(() => {
-      if (user_data) {
-        Set_user(true)
+    if (userData) {
+      setUser(true);
+    }
+  }, [userData]);
+
+  function signOut(): void {
+    Swal.fire({
+      title: "¿Desea cerrar sesión?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#000000",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Cerrar sesión",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(sigendOut(null));
+        setUser(!user);
+        setDropdown(false);
       }
-  },[user_data])
-  
-  
-  function sing_out():void{
-    console.log("s")
-    dispatch(sigendOut(null))
-    Set_user(false) 
-    setDropdown(false)
+    });
   }
 
   return (
     <div>
       <nav className=" border-gray-200 px-2 sm:px-4 py-2.5 bg-gray-900">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
-          <a href="https://flowbite.com/" className="flex items-center">
+          <div className="flex items-center">
             <img
               src={icon}
               className="mr-3 h-6 sm:h-9 cursor-default"
@@ -47,7 +58,7 @@ const Navbar = () => {
             <span className="self-center text-xl font-semibold whitespace-nowrap text-white cursor-default">
               Fit-Focus
             </span>
-          </a>
+          </div>
           <div className="flex items-center md:order-2">
             <li className="flex items-center md:order-2">
               <button
@@ -95,7 +106,7 @@ const Navbar = () => {
               data-dropdown-toggle="user-dropdown"
               data-dropdown-placement="bottom"
             >
-              {user? (
+              {user ? (
                 <div>
                   <span className="sr-only">Open user menu</span>
                   <img
@@ -141,10 +152,10 @@ const Navbar = () => {
               >
                 <div className="py-3 px-4">
                   <span className="block text-sm text-gray-900 dark:text-white">
-                    {user_data.name}
+                    {userData.name}
                   </span>
                   <span className="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">
-                    {user_data.email}
+                    {userData.email}
                   </span>
                 </div>
                 <ul className="py-1" aria-labelledby="user-menu-button">
@@ -172,10 +183,8 @@ const Navbar = () => {
                       Dashboard
                     </Link>
                   </li>
-                  <li onClick={sing_out}>
-                    <div
-                      className="block py-2 px-4 cursor-pointer text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                    >
+                  <li onClick={signOut}>
+                    <div className="block py-2 px-4 cursor-pointer text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                       Cerrar Sesión
                     </div>
                   </li>
