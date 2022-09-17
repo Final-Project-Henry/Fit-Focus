@@ -52,7 +52,7 @@ const Login:React.FC<Propos>=( {facebook, google, linkedin,loading_icon} )=>{
 
   return (
     <>
-      <div>{typeof user.user==="string"&&<Navigate to="/HomeRegister" />}</div>
+      <div>{typeof user.user==="string"&&<Navigate to="/home" />}</div>
   
       <form className="bg-white w-3/4 rounded-2xl p-11" onSubmit={handleSubmit}>
         <div className="flex-1">
