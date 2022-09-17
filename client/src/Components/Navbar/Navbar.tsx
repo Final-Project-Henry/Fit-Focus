@@ -1,20 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import icon from "../assets/icons/nav-icon.png";
 import defaultPhoto from "../assets/icons/monkey.jpg";
 import { Link as Scroll } from "react-scroll";
-import { useSesion } from "../../app/hooks";
+import { useAppDispatch, useSesion } from "../../app/hooks";
 import "./styles/Navbar.css";
+import { sigendOut } from "../../features/counter/counterSlice";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState<boolean>(false);
   const [showMenu, setShowMenu] = useState<boolean>(false);
-
-  const user = useSesion();
+  const dispatch = useAppDispatch()
+  const [user , Set_user ] = useState(false);
+  const user_data = useSesion();
+  
+  useEffect(() => {
+      if (user_data) {
+        Set_user(true)
+      }
+  },[user_data])
+  
+  
+  function sing_out():void{
+    console.log("s")
+    dispatch(sigendOut(null))
+    Set_user(false) 
+    setDropdown(false)
+  }
 
   return (
     <div>
-      <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+      <nav className=" border-gray-200 px-2 sm:px-4 py-2.5 bg-gray-900">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
           <a href="https://flowbite.com/" className="flex items-center">
             <img
@@ -22,20 +38,20 @@ const Navbar = () => {
               className="mr-3 h-6 sm:h-9 cursor-default"
               alt="FF Logo"
             />
-            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white cursor-default">
+            <span className="self-center text-xl font-semibold whitespace-nowrap text-white cursor-default">
               Fit-Focus
             </span>
           </a>
           <div className="flex items-center md:order-2">
             <button
               type="button"
-              className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+              className="flex mr-3 text-sm rounded-full md:mr-0 focus:border-none"
               id="user-menu-button"
               aria-expanded="false"
               data-dropdown-toggle="user-dropdown"
               data-dropdown-placement="bottom"
             >
-              {user ? (
+              {user? (
                 <div>
                   <span className="sr-only">Open user menu</span>
                   <img
@@ -46,17 +62,17 @@ const Navbar = () => {
                   />
                 </div>
               ) : (
-                <div className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <div className="flex flex-col p-4 mt-4  rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 ">
                   <Link
-                    to="/auth/login"
-                    className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                    to="/auth/sing-up"
+                    className="block py-2 pr-4 pl-3   hover:bg-gray-100 md:hover:bg-transparent  md:p-0 text-gray-400 md:hover:text-white "
                   >
                     Registrarse
                   </Link>
 
                   <Link
-                    to="/auth/sign-up"
-                    className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                    to="/auth/login"
+                    className="block py-2 pr-4 pl-3  hover:bg-gray-100 md:hover:bg-transparent  md:p-0 text-gray-400 md:hover:text-white  hover:text-white "
                   >
                     Iniciar sesión
                   </Link>
@@ -81,10 +97,10 @@ const Navbar = () => {
               >
                 <div className="py-3 px-4">
                   <span className="block text-sm text-gray-900 dark:text-white">
-                    {user.name}
+                    {user_data.name}
                   </span>
                   <span className="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">
-                    {user.email}
+                    {user_data.email}
                   </span>
                 </div>
                 <ul className="py-1" aria-labelledby="user-menu-button">
@@ -112,13 +128,12 @@ const Navbar = () => {
                       Dashboard
                     </Link>
                   </li>
-                  <li>
-                    <Link
-                      to="/"
-                      className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                  <li onClick={sing_out}>
+                    <div
+                      className="block py-2 px-4 cursor-pointer text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                     >
                       Cerrar Sesión
-                    </Link>
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -151,11 +166,11 @@ const Navbar = () => {
             className="text-center justify-between items-center w-full md:flex md:w-auto md:order-1"
             id="mobile-menu-2"
           >
-            <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul className="flex flex-col p-4 mt-4  rounded-lg border  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0  md:bg-gray-900 border-gra0">
               <li>
                 <Link
-                  to="/home"
-                  className="block py-2 pr-4 pl-3 text-white bg-blue-400 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+                  to={user?"/homeRegister":"/home"}
+                  className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white bg-blue-400 rounded md:bg-transparent  md:p-0 "
                   aria-current="page"
                 >
                   Inicio
@@ -168,7 +183,7 @@ const Navbar = () => {
                   offset={-100}
                   duration={500}
                   to="about"
-                  className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 cursor-pointer"
+                  className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white bg-blue-400 rounded md:bg-transparent  md:p-0 cursor-pointer"
                 >
                   Nosotros
                 </Scroll>
@@ -181,7 +196,7 @@ const Navbar = () => {
                     smooth={true}
                     offset={-100}
                     duration={500}
-                    className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 cursor-pointer"
+                    className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white bg-blue-400 rounded md:bg-transparent  md:p-0 cursor-pointer"
                   >
                     Ejercicios
                   </Scroll>
@@ -191,7 +206,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/feedbacks"
-                    className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 cursor-pointer"
+                    className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white bg-blue-400 rounded md:bg-transparent  md:p-0 cursor-pointer"
                   >
                     Opiniones
                   </Link>

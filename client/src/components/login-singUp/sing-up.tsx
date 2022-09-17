@@ -1,32 +1,25 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Navigate } from "react-router-dom";
-import jwt_deocde from "jwt-decode";
+
 import { useScript, useAppDispatch, useAppSelector } from "../../app/hooks";
 
 import {
   User_Register_State,
+  auth_Login_Google,
   selectUser,
   
 } from "../../features/counter/counterSlice";
-import facebook from "../assets/login-singup_media/icons8-facebook.svg";
-import google from "../assets/login-singup_media/icons8-google.svg";
-import linkedin from "../assets/login-singup_media/icons8-linkedin-circled.svg";
-const clientId:string="647787736227-gvt467rgdovggebhuu26n05c3f9a8ok7.apps.googleusercontent.com";
-
-interface payload {
-  email: string;
-  name: string;
-  picture: string;
+interface Propos{
+  facebook:string,
+  google:string,
+  linkedin:string,
+  loading_icon:string
 }
-export default function SingUp() {
 
-  const googlebuttonref = useRef<any>();
+const SingUp:React.FC<Propos>=( {facebook, google, linkedin,loading_icon} )=>{
+
   const user_logeao = useAppSelector(selectUser);
   const dispatch=useAppDispatch()
-  
-  const [user, setuser] = useState<boolean|object>(false);
-
-  const [data_user, set_data_user] = useState<payload | undefined>();
 
   const [Form_data, Set_form_data] = useState({
     name: "",
@@ -47,11 +40,10 @@ export default function SingUp() {
   function handleSubmit(event: React.FormEvent): void {
     event.preventDefault();
 
-    // setuser(Form_data);
     dispatch(User_Register_State(Form_data));
   }
+  console.log(user_logeao.status)
 
-  console.log(user);
   return (
 
    
@@ -71,7 +63,7 @@ export default function SingUp() {
               />
             </div>
             <div className="my-5">
-            <label>Email</label>
+            <label>Correo</label>
               <input type="email" 
                 name="email"
                 className="w-full px-1"
@@ -87,7 +79,7 @@ export default function SingUp() {
                 name="password"
                 autoComplete="off"
                 className="w-full px-1"
-                placeholder="***********"
+                placeholder="••••••••"
                 value={Form_data.password}
                 onChange={(event) => handleChange(event)}
               />
@@ -95,12 +87,19 @@ export default function SingUp() {
             </div>
 
             <div className="w-full bg-blue-700   text-white text-center">
-              <button className="w-full bg-blue-700   text-white text-center p-2 " type="submit" >Registrarse</button>
+              <button className="w-full bg-blue-700   text-white text-center p-2 " type="submit" >
+                {!user_logeao.status?"Registrarse":
+                   <span className=" flex justify-center">
+                   <img className="animate-spin w-5 mx-2" src={loading_icon} />
+                   Loading...
+                 </span>
+                }
+                </button>
             </div>
           </form>
 
             <div id="auth" className="flex ">
-              <div className="rounded p-3">
+              <div className="rounded p-3" onClick={()=>dispatch(auth_Login_Google())}>
                 <img src={google}/>
               </div>
               <div className="rounded p-3">
@@ -114,3 +113,5 @@ export default function SingUp() {
 
   );
 }
+
+export default SingUp
