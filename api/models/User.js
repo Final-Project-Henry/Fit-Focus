@@ -20,6 +20,7 @@ const userSchema = new Schema({
     avatar: {
       type: String
     },
+  
     plan: {
         type: String,
         enum: ['normal', 'premium'],
