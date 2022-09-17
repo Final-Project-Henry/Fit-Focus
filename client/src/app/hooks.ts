@@ -30,7 +30,7 @@ export function useScript(url: string, onload: any) {
 export function useSesion() {
   const userStado = useAppSelector(selectUser);
 
-  const [user, setuser] = useState<any>(false);
+  const [user, setuser] = useState<any>(true);
 
   useEffect(() => {
     let userJSON = window.localStorage.getItem("Login_userFit_Focus");
@@ -42,7 +42,7 @@ export function useSesion() {
       }
     }
   }, []);
-  
+
   useEffect(() => {
     if (typeof userStado.user === "string") {
       let userstore: string = userStado.user;
