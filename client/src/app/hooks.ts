@@ -29,6 +29,7 @@ export function useScript(url: string, onload: any) {
 
 export function useSesion() {
   const userStado = useAppSelector(selectUser);
+
   const [user, setuser] = useState<any>(false);
 
   useEffect(() => {

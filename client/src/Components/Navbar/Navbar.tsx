@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+// Icons
 import icon from "../assets/icons/nav-icon.png";
 import defaultPhoto from "../assets/icons/monkey.jpg";
+import spanish from "../../Components/assets/icons/spanish.png";
+import english from "../../Components/assets/icons/english.png";
+
 import { Link as Scroll } from "react-scroll";
 import { useAppDispatch, useSesion } from "../../app/hooks";
 import "./styles/Navbar.css";
@@ -10,8 +14,10 @@ import { sigendOut } from "../../features/counter/counterSlice";
 const Navbar = () => {
   const [dropdown, setDropdown] = useState<boolean>(false);
   const [showMenu, setShowMenu] = useState<boolean>(false);
-  const dispatch = useAppDispatch()
+  const [lenguage, setLenguage] = useState(false);
   const [user , Set_user ] = useState(false);
+
+  const dispatch = useAppDispatch()
   const user_data = useSesion();
   
   useEffect(() => {
@@ -42,6 +48,44 @@ const Navbar = () => {
               Fit-Focus
             </span>
           </a>
+          <div className="flex items-center md:order-2">
+            <li className="flex items-center md:order-2">
+              <button
+                onClick={() => setLenguage(!lenguage)}
+                type="button"
+                data-dropdown-toggle="language-dropdown-menu"
+                className="inline-flex justify-center items-center p-2 text-sm text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+              >
+                <img
+                  src={spanish}
+                  style={{ width: "20px", marginRight: "4px" }}
+                  alt=""
+                />
+                Spanish
+              </button>
+              {lenguage && (
+                <div
+                  className=" z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700"
+                  id="language-dropdown-menu"
+                >
+                  <ul className="py-1" role="none">
+                    <li>
+                      <a
+                        href="/"
+                        className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                        role="menuitem"
+                      >
+                        <div className="inline-flex items-center">
+                          <img src={english} width="20px" alt="" />
+                          English (US)
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </li>
+          </div>
           <div className="flex items-center md:order-2">
             <button
               type="button"
@@ -188,6 +232,7 @@ const Navbar = () => {
                   Nosotros
                 </Scroll>
               </li>
+
               {user && (
                 <li>
                   <Scroll
