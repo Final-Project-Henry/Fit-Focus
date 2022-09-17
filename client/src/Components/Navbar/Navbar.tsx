@@ -213,7 +213,7 @@ const Navbar = () => {
             <ul className="flex flex-col p-4 mt-4  rounded-lg border  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0  md:bg-gray-900 border-gra0">
               <li>
                 <Link
-                  to={user?"/homeRegister":"/home"}
+                  to="/home"
                   className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white bg-blue-400 rounded md:bg-transparent  md:p-0 "
                   aria-current="page"
                 >

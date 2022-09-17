@@ -42,7 +42,7 @@ export default function SingUp_Login() {
 
   return (
     <Div_img className="flex justify-center">
-      {user_existing && <Navigate to="/HomeRegister" />}
+      {user_existing && <Navigate to="/home" />}
       <Div_conteiner className=" flex rounded w-11/12 bg-gray-100 ">
         <Div_form>
           <div id="menu" className=" bg-gray-200 ">
