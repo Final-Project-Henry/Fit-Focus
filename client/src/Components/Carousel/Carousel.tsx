@@ -157,12 +157,13 @@ const Carousel: React.FC<Props> = ({
                         >
                             <button className="pointer-events-auto bg-none border-none cursor-pointer outline-none w-12 h-full text-center absolute ease-linear duration-300 left-0 drop-shadow-[2px_0px_0px_#fff]">
                                 <ArrowLeft
-                                    className="m-[6px] hover:scale-150 hover:duration-200 duration-700"
+                                    className="m-[6px] hover:scale-150 hover:duration-300 duration-700"
                                     onClick={() => (timePrevius ? previus() : null)}
                                 />
                             </button>
                             <button className="pointer-events-auto border-none cursor-pointer outline-none h-full text-center absolute ease-linear duration-300 right-0 drop-shadow-[-2px_0px_0px_#fff]">
-                                <ArrowRight className="m-[16px] hover:scale-150 hover:duration-200 duration-700" onClick={next} />
+                                <ArrowRight className="m-[16px] duration-700 hover:duration-300 hover:scale-150" onClick={next} />
+
                             </button>
                         </div>
                     )}
