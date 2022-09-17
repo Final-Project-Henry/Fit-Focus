@@ -1,49 +1,61 @@
-import React,{ useEffect, useRef,useState} from "react";
-import { Div_conteiner, Div_form, Div_img } from "./styles/styled_componet_login_singUp";
-import { useAppDispatch, useAppSelector  } from "../../app/hooks";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  Div_conteiner,
+  Div_form,
+  Div_img,
+} from "./styles/styled_componet_login_singUp";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { Navigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import jwtDecode from "jwt-decode";
+
 import {
   User_Login_State,
+  sigendOut,
+  selectUser,
+} from "../../features/counter/counterSlice";
 
-  selectUser
-} from '../../features/counter/counterSlice';
-
-import img_login from "../assets/login-singup_media/sport.jpg"
 import Login from "./Login";
 import SingUp from "./sing-up";
+import { Link } from "react-router-dom";
 
-export default function SingUp_Login(){
-  const {id}= useParams()
+export default function SingUp_Login() {
+  const { id } = useParams();
   let user = useAppSelector(selectUser);
-  const [componet, Set_componet]  = useState<string|boolean>(false) 
 
-  useEffect(()=>{
-    if (id=="login") {
-      Set_componet(true)
+  const [user_existing, setuser] = useState<boolean | object>(false);
+
+  useEffect(() => {
+    let userJSON = window.localStorage.getItem("Login_userFit_Focus");
+    if (userJSON) {
+      if (userJSON.length > 3) {
+        let user_exists = JSON.parse(userJSON);
+        setuser(user_exists);
+      }
     }
-  },[id])
+  }, []);
 
-  
-    return(
-      <div className="flex justify-center ">
-        <Div_conteiner className=" flex rounded w-11/12 bg-gray-100 " >
-        <Div_img className=" flex-1 border">
-          <img className="object-cover rounded"  src={img_login}/>
-        </Div_img>
-        <Div_form className="" >
-          <div id="menu" className=" bg-gray-200   ">
-            <p onClick={()=>Set_componet(true)}>iniciar sesión</p>
-            <p onClick={()=>Set_componet(false)}>registrarse</p>
+  return (
+    <Div_img className="flex justify-center">
+      {user_existing && <Navigate to="/HomeRegister" />}
+      <Div_conteiner className=" flex rounded w-11/12 bg-gray-100 ">
+        <Div_form>
+          <div id="menu" className=" bg-gray-200 ">
+            <Link to="/auth/login">
+              <p id="login">iniciar sesión</p>
+            </Link>
+            {!user.user ? (
+              <Link to="/auth/sign-up">
+                <p>registrarse</p>
+              </Link>
+            ) : (
+              <p id="singup">registrarse</p>
+            )}
           </div>
-          
-          {componet?<Login />:<SingUp/>}
-          
-    
+
+          {id == "login" ? <Login /> : <SingUp />}
         </Div_form>
-        </Div_conteiner>
-        <div>
-          <span>{user.status&&user.status.toString()}</span>
-        </div>
-      </div>
-    )
+      </Div_conteiner>
+    </Div_img>
+  );
 }

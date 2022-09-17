@@ -11,7 +11,6 @@ import {
 import facebook from "../assets/login-singup_media/icons8-facebook.svg";
 import google from "../assets/login-singup_media/icons8-google.svg";
 import linkedin from "../assets/login-singup_media/icons8-linkedin-circled.svg";
-import gymIcon_singUp from "../assets/login-singup_media/sport.jpg"
 const clientId:string="647787736227-gvt467rgdovggebhuu26n05c3f9a8ok7.apps.googleusercontent.com";
 
 interface payload {
@@ -28,71 +27,14 @@ export default function SingUp() {
   const [user, setuser] = useState<boolean|object>(false);
 
   const [data_user, set_data_user] = useState<payload | undefined>();
-  const [Auth_google, Set_Auth_Google] = useState<any>();
+
   const [Form_data, Set_form_data] = useState({
     name: "",
     email: "",
     password: "",
   });
 
-  //buscar usuario en el localStorage//////////////////////////////////////////////////////////////
 
-  useEffect(() => {
-    let userJSON = window.localStorage.getItem("Login_userFit_Focus");
-    if (userJSON) {
-      if (userJSON.length > 3) {
-        let user_exists = JSON.parse(userJSON);
-        setuser(user_exists);
-      }
-    }
-  }, []);
-
-  //guardar usuario en el localStorage////////////////////////////////////////////////////////////
-
-  useEffect(() => {
-    if (user_logeao.user) {
-      console.log(user_logeao)
-      window.localStorage.setItem(
-        "Login_userFit_Focus",
-        JSON.stringify(user_logeao.user)
-      );
-    }
-  }, [user_logeao.user]);
-  //////////recolectar data del user con goole//////////////////////////////////////////
-  const onGoogleSignIn = async (user: any) => {
-    let userCred = user.credential;
-    set_data_user(jwt_deocde(userCred));
-  };
-  //////////enviar al stado global la data del user obtenido por google//////////////////////////////////////////
-  useEffect(() => {
-    const data = {
-      email: data_user?.email,
-      name: data_user?.name,
-      photo: data_user?.picture,
-    };
-    if (data_user) {
-      dispatch(User_Register_State(data))
-    }
-  }, [data_user]);
-
-  //////////actializacion del windo para obtner la api de google//////////////////////////////////////////
-  useEffect(() => {
-    Set_Auth_Google(window);
-  }, [window]);
-  //////////hooks de google y su llamado//////////////////////////////////////////
-
-  useScript("https://accounts.google.com/gsi/client", (): void => {
-    Auth_google &&
-      Auth_google.google.accounts.id.initialize({
-        client_id: clientId,
-        callback: onGoogleSignIn,
-        auto_select: false,
-      });
-    Auth_google &&
-      Auth_google.google.accounts.id.renderButton(googlebuttonref.current, {
-        size: "medium",
-      });
-  });
   //////////obtencion de datos  por medio de los input//////////////////////////////////////////
 
   function handleChange(
@@ -105,55 +47,58 @@ export default function SingUp() {
   function handleSubmit(event: React.FormEvent): void {
     event.preventDefault();
 
-    setuser(Form_data);
+    // setuser(Form_data);
     dispatch(User_Register_State(Form_data));
   }
+
   console.log(user);
   return (
 
-      // <div className="w-1/2">
-      //   <div>{!user&&<div ref={googlebuttonref}></div>}</div>
-      //   
+   
         <>
-        <div>{user?<Navigate to="/HomeRegister" />:user}{user_logeao.user?<Navigate to="/HomeRegister" />:""}</div>
-           <form className="bg-white w-3/4 rounded-2xl p-11" onSubmit={handleSubmit}>
-
-          <div>
-            <label>Nombre</label>
-            <input type="text" 
-            name="name"
-            className="w-full px-1"
-            autoComplete="off"
-            placeholder="Alex"
-            value={Form_data.name}
-            onChange={(event) => handleChange(event)}
-            />
-          </div>
-          <div className="my-5">
-          <label>Email</label>
-            <input type="email" 
-              name="email"
+        {user_logeao.user&&<Navigate to="/auth/login"/>}
+          <form className="bg-white w-3/4 rounded-2xl p-11" onSubmit={handleSubmit}>
+          <div className="flex-1">
+            <div>
+              <label>Nombre</label>
+              <input type="text" 
+              name="name"
               className="w-full px-1"
               autoComplete="off"
-              placeholder="Alex@gmail.com"
-              value={Form_data.email}
-              onChange={(event) => handleChange(event)
-              }/>
-          </div>
-          <div className="my-5">
-            <label>Contraseña</label>
-            <input type="password"
-              name="password"
-              autoComplete="off"
-              className="w-full px-1"
-              placeholder="***********"
-              value={Form_data.password}
+              placeholder="Alex"
+              value={Form_data.name}
               onChange={(event) => handleChange(event)}
-            />
-          </div>
-          <div className="w-full bg-blue-700 my-16  text-white text-center p-2  ">
-              <button type="submit" >Registrarse</button>
+              />
             </div>
+            <div className="my-5">
+            <label>Email</label>
+              <input type="email" 
+                name="email"
+                className="w-full px-1"
+                autoComplete="off"
+                placeholder="Alex@gmail.com"
+                value={Form_data.email}
+                onChange={(event) => handleChange(event)
+                }/>
+            </div>
+            <div className="my-5">
+              <label>Contraseña</label>
+              <input type="password"
+                name="password"
+                autoComplete="off"
+                className="w-full px-1"
+                placeholder="***********"
+                value={Form_data.password}
+                onChange={(event) => handleChange(event)}
+              />
+              </div>
+            </div>
+
+            <div className="w-full bg-blue-700   text-white text-center">
+              <button className="w-full bg-blue-700   text-white text-center p-2 " type="submit" >Registrarse</button>
+            </div>
+          </form>
+
             <div id="auth" className="flex ">
               <div className="rounded p-3">
                 <img src={google}/>
@@ -165,7 +110,6 @@ export default function SingUp() {
                 <img src={linkedin}/>
               </div>
             </div>
-          </form>
       </>
 
   );
