@@ -3,9 +3,9 @@ import axios from 'axios';
 import { RootState, AppThunk } from '../../app/store';
 
 export interface State {
-  user: object|null;
+  user: null|string;
 
-  status :object|string;
+  status :string;
 
 }
 
@@ -49,9 +49,12 @@ export const StateSlice = createSlice({
   initialState,
 
   reducers: {
-    User: (state, action: PayloadAction<object>) => {
+    User: (state, action: PayloadAction<string>) => {
       state.user=action.payload
     },
+    sigendOut:(state, action: PayloadAction<null>) =>{
+      state.user=action.payload
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -62,7 +65,7 @@ export const StateSlice = createSlice({
         state.status = action.payload;
       })
       .addCase(User_Register_State.rejected, (state,action) => {
-        state.status = action.error;
+        state.status = "error";
       })
 
       .addCase(User_Login_State.pending, (state) => {
@@ -75,12 +78,12 @@ export const StateSlice = createSlice({
       })
       .addCase(User_Login_State.rejected, (state,action) => {
         console.log(action.payload)
-        state.status = action.error;
+        state.status = "error";
       });
   },
 });
 
-export const { User } = StateSlice.actions;
+export const { User,sigendOut } = StateSlice.actions;
 
 
 export const selectUser = (state: RootState) => state.user;

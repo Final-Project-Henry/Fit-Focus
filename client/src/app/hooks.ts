@@ -2,6 +2,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import type { RootState, AppDispatch } from "./store";
 import { useEffect, useState } from "react";
 import { selectUser } from "../features/counter/counterSlice";
+import jwtDecode from "jwt-decode";
 
 // Use throughout your app instead of plain `useDispatch` and `useSelector`
 export const useAppDispatch = () => useDispatch<AppDispatch>();
@@ -31,21 +32,22 @@ export function useSesion() {
 
   const [user, setuser] = useState<any>(false);
 
-  useEffect(()=>{
-      let userJSON = window.localStorage.getItem("Login_userFit_Focus");
-      if (userJSON) {
-        if (userJSON.length>3) {
-          let userlogin = JSON.parse(userJSON)
-          setuser(userlogin)
+  useEffect(() => {
+    let userJSON = window.localStorage.getItem("Login_userFit_Focus");
+    if (userJSON) {
+      if (userJSON.length > 3) {
+        let userlogin = JSON.parse(userJSON);
+        userlogin = jwtDecode(userlogin);
+        setuser(userlogin);
       }
     }
-  },[])
+  }, []);
   useEffect(() => {
-    if (userStado.user) {
-      setuser(userStado.user);
+    if (typeof userStado.user === "string") {
+      let userstore: string = userStado.user;
+      setuser(jwtDecode(userstore));
     }
   }, [userStado]);
 
   return user;
-
 }
