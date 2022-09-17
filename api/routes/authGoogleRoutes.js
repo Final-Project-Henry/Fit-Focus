@@ -22,9 +22,14 @@ router.get('/', async (req, res) => {
                Authorization : `Bearer ${access_token}`
            }
         })
+        const oldUser = await user.findOne({email : data.email});
+     if(!oldUser) {
          await user.create({email :data.email, name : data.name})
          const token = jwt.sign({email : data.email, name : data.name, id : data.id}, "" + SECRET)
-       res.status(200).send(token)
+         res.status(200).send(token)
+     } else{
+        return res.status(409).send('User already logged');
+     }
     } catch (error) {
        console.log(error.message) 
     }

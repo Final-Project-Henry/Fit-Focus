@@ -39,7 +39,7 @@ router.post('/login', async (req, res) => { // Validando las credenciales y devu
   
     const isValid = await bcrypt.compare(password, User.password);
     if(isValid) {
-      const token = jwt.sign({email: email, name : User.name, id : User._id}, "" + SECRET);
+      const token = jwt.sign({email: email, name : User.name, id : User._id}, "" + SECRET, { expiresIn : '12h'});
       return res.status(200).json(token)
     }else {
       return res.status(401).send('Password not valid')
