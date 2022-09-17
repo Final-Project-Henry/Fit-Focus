@@ -22,7 +22,8 @@ function App() {
         <Route path="/auth/:id" element={<SingUp_Login />} />
         <Route path="/home" element={<HomeVisitor />} />
         <Route path="/homeRegister" element={<HomeRegister />} />
-        <Route path="/rutinas" element={<Form_rutinas  />} />
+        <Route path="/feedbacks" element={<FormFeedback />} />
+        <Route path="/rutinas" element={<Form_rutinas />} />
       </Routes>
     </React.Fragment>
   );
