@@ -3,9 +3,9 @@ import axios from 'axios';
 import { RootState, AppThunk } from '../../app/store';
 
 export interface State {
-  user: object|null;
+  user: null|string;
 
-  status :object|string;
+  status :string|null;
 
 }
 
@@ -43,15 +43,37 @@ export const User_Login_State = createAsyncThunk(
     }
    }
 );
+export const auth_Login_Google = createAsyncThunk(
+  'user/auth_google',
+  async (_,thunkAPI) => {
+    try {
+      const response = await axios.get("http://localhost:3001/login/google");
+      const resp=response.data
+      thunkAPI.dispatch(User(resp))
+      return resp;
+    } catch (error) {
+      thunkAPI.rejectWithValue(error)
+      return
+    }
+   }
+);
 
 export const StateSlice = createSlice({
   name: 'user',
   initialState,
 
   reducers: {
-    User: (state, action: PayloadAction<object>) => {
+    User: (state, action: PayloadAction<string>) => {
+      state.status=null
       state.user=action.payload
     },
+    sigendOut:(state, action: PayloadAction<null>) =>{
+      state.status=null
+
+      window.localStorage.removeItem("Login_userFit_Focus");
+  
+      state.user=action.payload
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -62,7 +84,7 @@ export const StateSlice = createSlice({
         state.status = action.payload;
       })
       .addCase(User_Register_State.rejected, (state,action) => {
-        state.status = action.error;
+        state.status = "error";
       })
 
       .addCase(User_Login_State.pending, (state) => {
@@ -75,12 +97,12 @@ export const StateSlice = createSlice({
       })
       .addCase(User_Login_State.rejected, (state,action) => {
         console.log(action.payload)
-        state.status = action.error;
+        state.status = "error";
       });
   },
 });
 
-export const { User } = StateSlice.actions;
+export const { User,sigendOut } = StateSlice.actions;
 
 
 export const selectUser = (state: RootState) => state.user;
