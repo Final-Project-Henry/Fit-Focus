@@ -18,6 +18,11 @@ import {
 import Login from "./Login";
 import SingUp from "./sing-up";
 import { Link } from "react-router-dom";
+import facebook from "../assets/login-singup_media/icons8-facebook.svg";
+import google from "../assets/login-singup_media/icons8-google.svg";
+import linkedin from "../assets/login-singup_media/icons8-linkedin-circled.svg";
+import loading_icon from "../assets/icons/loading.svg"
+
 
 export default function SingUp_Login() {
   const { id } = useParams();
@@ -37,7 +42,7 @@ export default function SingUp_Login() {
 
   return (
     <Div_img className="flex justify-center">
-      {user_existing && <Navigate to="/HomeRegister" />}
+      {user_existing && <Navigate to="/home" />}
       <Div_conteiner className=" flex rounded w-11/12 bg-gray-100 ">
         <Div_form>
           <div id="menu" className=" bg-gray-200 ">
@@ -53,7 +58,10 @@ export default function SingUp_Login() {
             )}
           </div>
 
-          {id == "login" ? <Login /> : <SingUp />}
+          {id == "login" ? 
+          <Login facebook={facebook} google={google} linkedin={linkedin} loading_icon={loading_icon} /> :
+          <SingUp facebook={facebook} google={google} linkedin={linkedin} loading_icon={loading_icon}/>}
+          
         </Div_form>
       </Div_conteiner>
     </Div_img>

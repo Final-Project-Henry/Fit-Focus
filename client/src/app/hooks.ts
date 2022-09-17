@@ -30,26 +30,25 @@ export function useScript(url: string, onload: any) {
 export function useSesion() {
   const userStado = useAppSelector(selectUser);
 
-  const [user, setuser] = useState<any>(false);
+  const [user, setuser] = useState<any>(true);
 
-  useEffect(()=>{
-      let userJSON = window.localStorage.getItem("Login_userFit_Focus");
-      if (userJSON) {
-        if (userJSON.length>3) {
-          let userlogin = JSON.parse(userJSON)
-          userlogin = jwtDecode(userlogin)
-          setuser(userlogin)
+  useEffect(() => {
+    let userJSON = window.localStorage.getItem("Login_userFit_Focus");
+    if (userJSON) {
+      if (userJSON.length > 3) {
+        let userlogin = JSON.parse(userJSON);
+        userlogin = jwtDecode(userlogin);
+        setuser(userlogin);
       }
     }
-  },[])
+  }, []);
+
   useEffect(() => {
-    if (typeof userStado.user==="string") {
-      let userstore:string =userStado.user
+    if (typeof userStado.user === "string") {
+      let userstore: string = userStado.user;
       setuser(jwtDecode(userstore));
     }
-    
   }, [userStado]);
 
   return user;
-
 }
