@@ -42,6 +42,7 @@ export function useSesion() {
       }
     }
   }, []);
+  
   useEffect(() => {
     if (typeof userStado.user === "string") {
       let userstore: string = userStado.user;
