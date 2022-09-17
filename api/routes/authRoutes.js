@@ -30,4 +30,18 @@ try {
 }
 });
 
+router.put('/userfeedback', async (req, res) => {
+  try {
+   const {comment, email} = req.body
+   await user.updateOne({email : email}, {
+      $push : {
+         userinfo : {feedback : comment}
+      }
+   });
+  res.status(200).send('Feedback sent')
+  } catch (error) {
+   res.status(500).send(error.message)
+  }
+});
+
 module.exports = router
