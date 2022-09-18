@@ -42,8 +42,7 @@ const Navbar = () => {
         dispatch(sigendOut(null));
         setUser(false);
         setDropdown(false);
-       window.location.reload()
-
+        window.location.reload();
       }
     });
   }
@@ -61,6 +60,63 @@ const Navbar = () => {
             <span className="self-center text-xl font-semibold whitespace-nowrap text-white cursor-default">
               Fit-Focus
             </span>
+            <div
+              className="text-center justify-between items-center w-full md:flex md:w-auto md:order-1"
+              id="mobile-menu-2"
+            >
+              <ul className="flex flex-col p-4 mt-4  rounded-lg border  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0  md:bg-gray-900 border-gra0">
+                <li>
+                  <Link
+                    to="/home"
+                    className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white bg-blue-400 rounded md:bg-transparent  md:p-0 "
+                    aria-current="page"
+                  >
+                    Inicio
+                  </Link>
+                </li>
+                <li>
+                  <Scroll
+                    spy={true}
+                    smooth={true}
+                    offset={-100}
+                    duration={500}
+                    to="about"
+                    className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white bg-blue-400 rounded md:bg-transparent  md:p-0 cursor-pointer"
+                  >
+                    Nosotros
+                  </Scroll>
+                </li>
+
+                {user && (
+                  <li>
+                    <Scroll
+                      to="excercises"
+                      spy={true}
+                      smooth={true}
+                      offset={-100}
+                      duration={500}
+                      className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white bg-blue-400 rounded md:bg-transparent  md:p-0 cursor-pointer"
+                    >
+                      Ejercicios
+                    </Scroll>
+                  </li>
+                )}
+                {user && (
+                  <li>
+                    <Scroll
+                      to="feedbacks"
+                      spy={true}
+                      smooth={true}
+                      offset={-100}
+                      duration={500}
+                      className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white bg-blue-400 rounded md:bg-transparent  md:p-0 cursor-pointer"
+                    >
+                      Opiniones
+                    </Scroll>
+                  </li>
+                )}
+              </ul>
+            </div>
           </div>
           <div className="flex items-center md:order-2">
             <li className="flex items-center md:order-2">
@@ -186,14 +242,14 @@ const Navbar = () => {
                       Dashboard
                     </Link>
                   </li>
-                  <li onClick={()=>{
-                    signOut()
-                    
-                    }}>
+                  <li
+                    onClick={() => {
+                      signOut();
+                    }}
+                  >
                     <div className="block py-2 px-4 cursor-pointer text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                       Cerrar Sesión
                     </div>
-                      
                   </li>
                 </ul>
               </div>
@@ -221,59 +277,6 @@ const Navbar = () => {
                 />
               </svg>
             </button>
-          </div>
-          <div
-            className="text-center justify-between items-center w-full md:flex md:w-auto md:order-1"
-            id="mobile-menu-2"
-          >
-            <ul className="flex flex-col p-4 mt-4  rounded-lg border  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0  md:bg-gray-900 border-gra0">
-              <li>
-                <Link
-                  to="/home"
-                  className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white bg-blue-400 rounded md:bg-transparent  md:p-0 "
-                  aria-current="page"
-                >
-                  Inicio
-                </Link>
-              </li>
-              <li>
-                <Scroll
-                  spy={true}
-                  smooth={true}
-                  offset={-100}
-                  duration={500}
-                  to="about"
-                  className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white bg-blue-400 rounded md:bg-transparent  md:p-0 cursor-pointer"
-                >
-                  Nosotros
-                </Scroll>
-              </li>
-
-              {user && (
-                <li>
-                  <Scroll
-                    to="excercises"
-                    spy={true}
-                    smooth={true}
-                    offset={-100}
-                    duration={500}
-                    className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white bg-blue-400 rounded md:bg-transparent  md:p-0 cursor-pointer"
-                  >
-                    Ejercicios
-                  </Scroll>
-                </li>
-              )}
-              {user && (
-                <li>
-                  <Link
-                    to="/feedbacks"
-                    className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white bg-blue-400 rounded md:bg-transparent  md:p-0 cursor-pointer"
-                  >
-                    Opiniones
-                  </Link>
-                </li>
-              )}
-            </ul>
           </div>
         </div>
       </nav>

@@ -55,41 +55,38 @@ export function useSesion() {
 }
 //hook para obtener
 
-export  function  useToken(){
-  const [token, setToken] = useState<string>("") ;
+export function useToken() {
+  const [token, setToken] = useState<string>("");
 
-  useEffect(()=>{
+  useEffect(() => {
     let userJSON = window.localStorage.getItem("Login_userFit_Focus");
     if (userJSON) {
       if (userJSON.length > 3) {
         let userlogin = JSON.parse(userJSON);
-        setToken(userlogin)
+        setToken(userlogin);
       }
     }
-  },[])
+  }, []);
 
-    return token
+  return token;
 }
 
-export async function opiniom(token:string,feedback:object){
-  
+export async function opiniom(token: string, feedback: object) {
+  let headersList = {
+    Accept: "*/*",
+    Authorization: "Bearer " + token,
+    "Content-Type": "application/json",
+  };
 
-let headersList = {
- "Accept": "*/*",
- "Authorization": "Bearer "+ token,
- "Content-Type": "application/json" 
-}
+  let bodyContent = JSON.stringify(feedback);
 
-let bodyContent = JSON.stringify(feedback);
+  let reqOptions = {
+    url: "http://localhost:3001/auth/userfeedback",
+    method: "PUT",
+    headers: headersList,
+    data: bodyContent,
+  };
 
-let reqOptions = {
-  url: "http://localhost:3001/auth/userfeedback",
-  method: "PUT",
-  headers: headersList,
-  data: bodyContent,
-}
-
-let response = await axios.request(reqOptions);
-console.log(response.data);
-
+  let response = await axios.request(reqOptions);
+  console.log(response.data);
 }
