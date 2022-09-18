@@ -35,7 +35,7 @@ router.put('/userfeedback', async (req, res) => {
    const {comment, email} = req.body
 
    const check = await user.findOne({email : email}).select('feedback')
-   if(check.userinfo.length !== 0) {
+   if(check.feedback.length !== 0) {
      return res.status(409).send('Feedback already added')
    } 
    await user.updateOne({email : email}, {
