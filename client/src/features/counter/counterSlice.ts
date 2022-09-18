@@ -5,7 +5,7 @@ import { RootState, AppThunk } from '../../app/store';
 export interface State {
   user: null|string;
 
-  status :string;
+  status :string|null;
 
 }
 
@@ -43,6 +43,20 @@ export const User_Login_State = createAsyncThunk(
     }
    }
 );
+export const auth_Login_Google = createAsyncThunk(
+  'user/auth_google',
+  async (_,thunkAPI) => {
+    try {
+      const response = await axios.get("http://localhost:3001/login/google");
+      const resp=response.data
+      thunkAPI.dispatch(User(resp))
+      return resp;
+    } catch (error) {
+      thunkAPI.rejectWithValue(error)
+      return
+    }
+   }
+);
 
 export const StateSlice = createSlice({
   name: 'user',
@@ -50,9 +64,14 @@ export const StateSlice = createSlice({
 
   reducers: {
     User: (state, action: PayloadAction<string>) => {
+      state.status=null
       state.user=action.payload
     },
     sigendOut:(state, action: PayloadAction<null>) =>{
+      state.status=null
+
+      window.localStorage.removeItem("Login_userFit_Focus");
+  
       state.user=action.payload
     }
   },

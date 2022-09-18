@@ -42,6 +42,7 @@ export function useSesion() {
       }
     }
   }, []);
+
   useEffect(() => {
     if (typeof userStado.user === "string") {
       let userstore: string = userStado.user;
@@ -50,4 +51,21 @@ export function useSesion() {
   }, [userStado]);
 
   return user;
+}
+//hook para obtener
+
+export  function  useToken(){
+  const [token, setToken] = useState() ;
+
+  useEffect(()=>{
+    let userJSON = window.localStorage.getItem("Login_userFit_Focus");
+    if (userJSON) {
+      if (userJSON.length > 3) {
+        let userlogin = JSON.parse(userJSON);
+        setToken(userlogin)
+      }
+    }
+  },[])
+
+    return token
 }
