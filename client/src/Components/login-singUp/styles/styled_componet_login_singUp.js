@@ -1,34 +1,33 @@
 import styled from "styled-components";
 
 const Div_conteiner = styled.div`
-height: 40rem;
-margin: 50px;
-box-shadow: 0 4px 10px #000e3e55;
-
+  margin: 10px;
+  height: 90vh;
+  box-shadow: 0 4px 10px #000e3e55;
+  display: flex;
+  justify-content:center;
 `
 
 const Div_img = styled.div`
-  overflow: hidden;
-  img{
-    width: 100%;
-    height: 100%;
-  }
- 
+  
 `
 
 const Div_form = styled.div`
-  flex: 1;
   display: flex;
+  width: 48%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 50px 0;
+  margin:20px 0;
   form{
-    min-height: 10%;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
     position: relative;
     z-index: 20;
     box-shadow: 0 4px 10px #000e3e55;
   }
+
   input{
     border: none;
     border-bottom:solid 1px #ccc;
@@ -44,7 +43,10 @@ const Div_form = styled.div`
       flex-direction: row;
       border-radius: 1rem 1rem 0 0px;
       font-size:1.2rem;
-      
+      #singup{
+       color:#ccc;
+       cursor: not-allowed;
+      }
       p{
         padding:0.3rem 2rem ;
         padding-left:0rem ;
@@ -53,6 +55,7 @@ const Div_form = styled.div`
         position: relative;
         left: -7px;
       }
+      
 
       /* p:after{
         content:"";
@@ -65,9 +68,7 @@ const Div_form = styled.div`
       } */
   }
   #auth{
-    position: relative;
-    top: -50px;
-    left:-20px;
+      position:relative;
     img{
       width: 80%;
       cursor: pointer;

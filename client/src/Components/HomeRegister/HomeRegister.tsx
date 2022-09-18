@@ -12,8 +12,6 @@ import img3 from "../assets/homeRegister-media/Img3.jpg";
 const video1 = require("../assets/homeRegister-media/Video-Slide.mp4");
 const video2 = require("../assets/homeRegister-media/Video2.mp4");
 
-console.log(video2);
-
 const HomeRegister = () => {
   const [exercises, setExercises] = useState([
     {
