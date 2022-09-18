@@ -1,13 +1,16 @@
 import axios from "axios";
 import React, { useCallback } from "react";
 import { useState } from "react";
+import { useToken } from "../../app/hooks";
 
 interface FeedbackUsuario {
   comment: string;
   email: string;
 }
 
+
 const FormFeedback = () => {
+ const token = useToken()
   const [feedback, setFeedback] = useState<FeedbackUsuario>({
     comment: "",
     email: "",
@@ -26,11 +29,17 @@ const FormFeedback = () => {
     }
     if (comment && email) {
       window.alert("Tu comentario se ha cargado con éxito");
-      axios.put("http://localhost:3001/userfeedback", feedback);
+
+      const config={
+        headers: { Authorization: `Bearer ${token}` }
+      }
+  
+      axios.put("http://localhost:3001/auth/userfeedback",feedback,config)
+   
+      
     }
     event.preventDefault();
 
-    console.log(feedback);
   };
 
   return (
