@@ -14,6 +14,7 @@ const video1 = require("../assets/homeRegister-media/Video-Slide.mp4");
 const video2 = require("../assets/homeRegister-media/Video2.mp4");
 
 const HomeRegister = () => {
+  
   const [exercises, setExercises] = useState([
     {
       _id: "6320dc3eb7171b77e516e646",
@@ -165,25 +166,26 @@ const HomeRegister = () => {
   ]);
 
   return (
-    <div className="max-w-screen-2xl my-12 mx-auto overflow-hidden bg-slate-50 rounded-md shadow-lg">
+    <div className="max-w-full mb-12 mx-auto overflow-hidden bg-slate-50 rounded-md shadow-lg">
       <Carousel
         content={[
           {
-            src: "https://res.cloudinary.com/pozters/image/upload/w_700/v1534965023/prod_uploads/ld8w07zMjg0E1y91qp4RO",
-            text: "Hazte premium 15% de descuento",
+            src: "https://www.palco23.com/files/2020/18_recursos/fitness/dominada-728.jpg",
+            text: "Hazte premium para obtener rutinas personalizadas",
             stylesText:
-              "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-white",
+              "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
           },
           {
             src: video1,
-            text: "¡Entrena con nosotros!",
-            stylesText: "sm:bg-red-300 sm:opacity-60 sm:font-mono",
+            text: "Hazte premium para obtener rutinas personalizadas",
+            stylesText:
+              "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
           },
           {
-            src: img2,
-            text: "Hombre Fuerte 3",
+            src: "https://st4.depositphotos.com/3378831/41496/i/600/depositphotos_414960080-stock-photo-close-up-dumbbell-on-gym.jpg",
+            text: "Hazte premium para obtener rutinas personalizadas",
             stylesText:
-              "sm:bg-gray-300 sm:text-black sm:opacity-50 sm:font-bold",
+              "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
           },
         ]}
       />
