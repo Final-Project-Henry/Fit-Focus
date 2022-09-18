@@ -26,13 +26,9 @@ const userinfoSchema = new Schema({
         type: String,
         enum: ['beginner', 'medium', 'advanced']
     },
-    feedback: {
-        type: String
-  
-      },
-  
+   
 
 })
 
-// model('UserInfo', userinfoSchema);
+
 module.exports = userinfoSchema

@@ -16,7 +16,7 @@ try {
 
    const check = await user.findOne({email : email}).select('userinfo');
    if(check.userinfo.length !== 0) {
-      return res.status(409).send('Already added info')
+      return res.status(409).send('Info already added ')
    }
 
     await user.updateOne({email : email}, {
@@ -28,6 +28,25 @@ try {
 } catch (error) {
    res.status(500).send(error.message)
 }
+});
+
+router.put('/userfeedback', async (req, res) => {
+  try {
+   const {comment, email} = req.body
+
+   const check = await user.findOne({email : email}).select('feedback')
+   if(check.userinfo.length !== 0) {
+     return res.status(409).send('Feedback already added')
+   } 
+   await user.updateOne({email : email}, {
+      $push : {
+         feedback : {feedback : comment}
+      }
+   });
+  res.status(200).send('Feedback sent')
+  } catch (error) {
+   res.status(500).send(error.message)
+  }
 });
 
 module.exports = router
