@@ -9,6 +9,7 @@ import { useState } from "react";
 import img1 from "../assets/homeRegister-media/Img1.jpg";
 import img2 from "../assets/homeRegister-media/Img2.jpg";
 import img3 from "../assets/homeRegister-media/Img3.jpg";
+import Footer from "../footer/Footer";
 const video1 = require("../assets/homeRegister-media/Video-Slide.mp4");
 const video2 = require("../assets/homeRegister-media/Video2.mp4");
 
