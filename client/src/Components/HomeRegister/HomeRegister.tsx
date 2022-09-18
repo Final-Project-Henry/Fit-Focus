@@ -40,7 +40,7 @@ const HomeRegister = () => {
       difficulty: "hard",
       muscles: "upper_body",
       genre: "man",
-      description: "Las lagartijas de diamante son perfectas para ganar fuerza en los tríceps. Sin embargo, al igual que con las lagartijas tradicionales, tus pectorales, tus deltoides y tu corazon también estarán trabajando",
+      description: "Las lagartijas de diamante son perfectas para ganar fuerza en los tríceps. Sin embargo, al igual que con las lagartijas tradicionales, tus pectorales, tus deltoides y tu corazon también estarán trabajando.",
       video:
         "https://thumbs.gfycat.com/AffectionateImmenseIrishdraughthorse-size_restricted.gif",
       __v: 0,
@@ -62,7 +62,7 @@ const HomeRegister = () => {
       difficulty: "easy",
       muscles: "lower_body",
       genre: "both",
-      description: "Junta tus manos o estira tus brazos en un ángulo de 90 grados. Cuando vayas a bajar, mantén los glúteos hacia atrás. Haz como si fueras a sentarte en una silla imaginaria. Es importante que las rodillas no sobrepasen la punta de tus pies, siempre deben quedar por detrás",
+      description: "Junta tus manos o estira tus brazos en un ángulo de 90 grados. Cuando vayas a bajar, mantén los glúteos hacia atrás. Haz como si fueras a sentarte en una silla imaginaria. Es importante que las rodillas no sobrepasen la punta de tus pies, siempre deben quedar por detrás.",
       video:
         "https://c.tenor.com/g6XQ1z_Op0QAAAAC/squats-body-weight-training.gif",
       __v: 0,
@@ -136,7 +136,7 @@ const HomeRegister = () => {
       difficulty: "medium",
       muscles: "lower_body",
       genre: "both",
-      description: "La estocada es un ejercicio de resistencia corporal que trabaja los músculos de las piernas. Específicamente, trabaja los cuádriceps y los músculos isquiotibiales del muslo, los glúteos y, en menor medida, los músculos de la parte inferior de la pierna",
+      description: "La estocada es un ejercicio de resistencia corporal que trabaja los músculos de las piernas. Específicamente, trabaja los cuádriceps y los músculos isquiotibiales del muslo, los glúteos y, en menor medida, los músculos de la parte inferior de la pierna.",
       video: "https://thumbs.gfycat.com/AbleFondChick-size_restricted.gif",
       __v: 0,
     },
