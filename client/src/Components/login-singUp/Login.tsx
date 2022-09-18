@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 
 import {
   User_Login_State,
+  
   auth_Login_Google,
   selectUser,
 } from "../../features/counter/counterSlice";
@@ -29,7 +30,8 @@ const Login:React.FC<Propos>=( {facebook, google, linkedin,loading_icon} )=>{
   });
   useEffect(() => {
     console.log("entra", user);
-    if (typeof user.user === "string") {
+    if (typeof user.user === "string"&&user.user.length>50) {
+      console.log(user.user, user.user.length)
       window.localStorage.setItem(
         "Login_userFit_Focus",
         JSON.stringify(user.user)
@@ -52,7 +54,7 @@ const Login:React.FC<Propos>=( {facebook, google, linkedin,loading_icon} )=>{
 
   return (
     <>
-      <div>{typeof user.user==="string"&&<Navigate to="/home" />}</div>
+      <div>{(typeof user.user === "string"&&user.user.length>50)&&<Navigate to="/home" />}</div>
   
       <form className="bg-white w-3/4 rounded-2xl p-11" onSubmit={handleSubmit}>
         <div className="flex-1">
@@ -61,12 +63,15 @@ const Login:React.FC<Propos>=( {facebook, google, linkedin,loading_icon} )=>{
             <input
               type="email"
               name="email"
-              className="border-none w-full "
+              className="border-none w-full mb-2"
               autoComplete="off"
               placeholder="Alex@gmail.com"
               value={Form_data.email}
               onChange={(event) => handleChange(event)}
             />
+            <br/>
+            {user.status?.includes("User")&&<label className="text-red-500 absolute -mt-2">{user.status}</label>}
+
           </div>
           <div className="my-5">
             <label>contraseña</label>
@@ -79,6 +84,7 @@ const Login:React.FC<Propos>=( {facebook, google, linkedin,loading_icon} )=>{
               value={Form_data.password}
               onChange={(event) => handleChange(event)}
             />
+            {user.status?.includes("Password")&&<label className="text-red-500">{user.status}</label>}
           </div>
         </div>
         <div className="flex items-start my-2">
@@ -112,7 +118,7 @@ const Login:React.FC<Propos>=( {facebook, google, linkedin,loading_icon} )=>{
             className="w-full bg-blue-700   text-white text-center p-2 "
             type="submit"
           >
-            {!loagin?"iniciar sesión":
+            {user.status?"iniciar sesión":
             <span className=" flex justify-center">
               <img className="animate-spin w-5 mx-2" src={loading_icon} />
               Loading...
