@@ -24,8 +24,6 @@ const Div_cards = styled.div`
     }   
   }
   
-  
-  
 `
 const Div_video = styled.div`
   height: 650px;
@@ -46,16 +44,12 @@ const Div_video = styled.div`
   #video{
     opacity: 50%;
   }  
-
 `
-
-
 const Div_benefitsVisitor = styled.div`
   text-align: center;
   font-size: 50px;
   font-width: bold;
   margin:80px 0;
-  
 `
 
 export { Div_cards, Div_video,Div_benefitsVisitor }
