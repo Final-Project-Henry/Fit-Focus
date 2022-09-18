@@ -247,7 +247,7 @@ export default function HomeVisitor() {
           <p>
             <b className="text-2xl">Lautaro Franco</b>
             <br />
-            <a href="https://github.com/LautaroFranc">
+            <a href="https://github.com/LautaroFranc" target="_blank">
               <img src={github} width="10%" className="inline my-2" alt="img not found" /><span className="text-sm my-2"> Lautaro Franc</span>
             </a>
             <br />
