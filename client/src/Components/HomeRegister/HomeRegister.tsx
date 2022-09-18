@@ -9,7 +9,8 @@ import { useState } from "react";
 import img1 from "../assets/homeRegister-media/Img1.jpg";
 import img2 from "../assets/homeRegister-media/Img2.jpg";
 import img3 from "../assets/homeRegister-media/Img3.jpg";
-const video = require("../assets/homeRegister-media/Video-Slide.mp4");
+const video1 = require("../assets/homeRegister-media/Video-Slide.mp4");
+const video2 = require("../assets/homeRegister-media/Video2.mp4");
 
 const HomeRegister = () => {
   const [exercises, setExercises] = useState([
@@ -158,7 +159,7 @@ const HomeRegister = () => {
   ]);
 
   return (
-    <div className="max-w-screen-lg my-12 mx-auto overflow-hidden bg-slate-50 rounded-md shadow-lg">
+    <div className="max-w-screen-2xl my-12 mx-auto overflow-hidden bg-slate-50 rounded-md shadow-lg">
       <Carousel
         content={[
           {
@@ -168,7 +169,7 @@ const HomeRegister = () => {
               "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-white",
           },
           {
-            src: video,
+            src: video1,
             text: "¡Entrena con nosotros!",
             stylesText: "sm:bg-red-300 sm:opacity-60 sm:font-mono",
           },
@@ -335,15 +336,19 @@ const HomeRegister = () => {
       )}
       <br />
       <hr />
-      <div className="flex mt-7">
-        <div className="flex justify-center items-center w-3/5 h-72 bg-slate-500">
-          <h1>
-            «La confianza en uno mismo y el trabajo duro siempre le darán
-            éxito». Virat Kohli.
-          </h1>
+      <div className="flex mt-7 h-[400px] items-center overflow-hidden">
+        <div className="flex items-center w-[76%] h-72 bg-slate-500">
+          <video  src={video2} autoPlay loop muted />
         </div>
-        <div className="flex justify-center items-center w-2/5 h-72 bg-red-400">
-          <h1 className="text-3xl"> IMAGEN</h1>
+        <div className="flex justify-center items-center w-2/5 h-full ">
+          <div className="relative h-full w-full flex items-center p-2 bg-black">
+            <p
+              className="min-w-full w-full p-2 text-2xl font-bold text-center text-transparent rounded bg-clip-text
+               caret-pink-600 bg-gradient-to-t from-rose-600 via-neutral-100 to-cyan-400">
+              &lt; Dolor que sientas hoy... <br />
+              fueza que sentiras mañana &gt;
+            </p>
+          </div>
         </div>
       </div>
     </div>

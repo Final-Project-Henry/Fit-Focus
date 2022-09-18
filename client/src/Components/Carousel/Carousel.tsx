@@ -163,7 +163,6 @@ const Carousel: React.FC<Props> = ({
                             </button>
                             <button className="pointer-events-auto border-none cursor-pointer outline-none h-full text-center absolute ease-linear duration-300 right-0 drop-shadow-[-2px_0px_0px_#fff]">
                                 <ArrowRight className="m-[16px] duration-700 hover:duration-300 hover:scale-150" onClick={next} />
-
                             </button>
                         </div>
                     )}
