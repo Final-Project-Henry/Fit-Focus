@@ -52,8 +52,9 @@ export default function HomeVisitor() {
             <img src={foto1} className="foto1" alt="foto" />
           </div>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo id
-            dicta magni, deleniti
+          correr sin moverse del sitio es muy efectivo para quemar calorías. 
+          Ésto, es fácil de entender, ya que al estar realizando movimientos musculares 
+          y al estar haciendo esfuerzo, vamos a necesitar energía para mover esos músculos.
           </p>
         </div>
         <div id="card" className=" text-white bg-gray-900">
@@ -62,8 +63,9 @@ export default function HomeVisitor() {
             
           </div>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo id
-            dicta magni, deleniti
+          La plancha es uno de esos ejercicios que no pasan de moda 
+          y esto tiene una buena razón: cuando se trata de calificar entrenamientos, 
+          ningún ejercicio es mejor que la plancha en términos de tiempo y eficacia,
           </p>
         </div>
         <div id="card" className=" text-white bg-gray-900">
@@ -71,8 +73,9 @@ export default function HomeVisitor() {
             <img src={foto3} className="foto1" alt="foto" />
           </div>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo id
-            dicta magni, deleniti
+          hacer abdominales te permite fortalecer y activar la musculatura abdominal, 
+          central, permitiendo la eliminación no sólo de centímetros de volumen, 
+          sino también de gases y ayudando a que el tránsito intestinal fluya correctamente.
           </p>
         </div>
       </Div_cards>
