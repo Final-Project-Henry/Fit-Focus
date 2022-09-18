@@ -195,10 +195,9 @@ const HomeRegister = () => {
         EJERCICIOS DEL DIA
       </h1>
       <hr />
-      <br />
       {exercises.length && (
         <div>
-          <h1 className="font-bold text-center text-2xl">
+          <h1 className="font-bold text-center text-2xl mt-24">
             EJERCICIOS PARA TRONCO
           </h1>
           <Swiper
@@ -267,7 +266,7 @@ const HomeRegister = () => {
               }
             )}
           </Swiper>
-          <h1 className="font-bold text-center text-2xl" id="excercises">
+          <h1 className="font-bold text-center text-2xl mt-12" id="excercises">
             EJERCICIOS PARA PIERNAS
           </h1>
           <Swiper
@@ -345,12 +344,11 @@ const HomeRegister = () => {
           <video  src={video2} autoPlay loop muted />
         </div>
         <div className="flex justify-center items-center w-2/5 h-full ">
-          <div className="relative h-full w-full flex items-center p-2 bg-black">
+          <div className="relative h-full w-full flex items-center p-2 bg-gray-900">
             <p
-              className="min-w-full w-full p-2 text-2xl font-bold text-center text-transparent rounded bg-clip-text
-               caret-pink-600 bg-gradient-to-t from-rose-600 via-neutral-100 to-cyan-400">
-              &lt; Dolor que sientas hoy... <br />
-              fueza que sentiras mañana &gt;
+              className="min-w-full w-full p-2 text-3xl font-bold text-center text-transparent rounded text-[#fff]">
+               Dolor que sientas hoy... <br />
+              fueza que sentiras mañana;
             </p>
           </div>
         </div>
