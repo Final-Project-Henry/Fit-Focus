@@ -9,6 +9,7 @@ import { useState } from "react";
 import img1 from "../assets/homeRegister-media/Img1.jpg";
 import img2 from "../assets/homeRegister-media/Img2.jpg";
 import img3 from "../assets/homeRegister-media/Img3.jpg";
+import Footer from "../footer/Footer";
 const video1 = require("../assets/homeRegister-media/Video-Slide.mp4");
 const video2 = require("../assets/homeRegister-media/Video2.mp4");
 
@@ -20,6 +21,7 @@ const HomeRegister = () => {
       difficulty: "medium",
       muscles: "upper_body",
       genre: "man",
+      description: "Las lagartijas perfeccionan el pecho, los hombros y los brazos, en particular los músculos deltoides, tríceps y pectorales, pero en realidad son un movimiento de todo el cuerpo.",
       video: "https://c.tenor.com/gI-8qCUEko8AAAAC/pushup.gif",
       __v: 0,
     },
@@ -29,6 +31,7 @@ const HomeRegister = () => {
       difficulty: "easy",
       muscles: "upper_body",
       genre: "both",
+      description: "El ejercicio de flexiones de brazos con rodillas apoyadas es muy útil para trabajar los músculos pectorales, tríceps y zona media.",
       video: "https://c.tenor.com/W_cGMvJdlWQAAAAC/widegrip-pushups.gif",
       __v: 0,
     },
@@ -38,6 +41,7 @@ const HomeRegister = () => {
       difficulty: "hard",
       muscles: "upper_body",
       genre: "man",
+      description: "Las lagartijas de diamante son perfectas para ganar fuerza en los tríceps. Sin embargo, al igual que con las lagartijas tradicionales, tus pectorales, tus deltoides y tu corazon también estarán trabajando.",
       video:
         "https://thumbs.gfycat.com/AffectionateImmenseIrishdraughthorse-size_restricted.gif",
       __v: 0,
@@ -48,6 +52,7 @@ const HomeRegister = () => {
       difficulty: "hard",
       muscles: "upper_body",
       genre: "man",
+      description: "Manteniendo el torso completamente contraído, baje lentamente el cuerpo hacia el piso de forma uniforme.  Una vez que su torso haya llegado al suelo, tome fuerzas y eleve su cuerpo con un movimiento explosivo y dé un aplauso por abajo del torso, luego, rápidamente coloque las manos y brazos en la posición inicial.",
       video:
         "https://c.tenor.com/EbRmSXrs5JQAAAAd/clap-pushups-stephen-farrelly.gif",
       __v: 0,
@@ -58,6 +63,7 @@ const HomeRegister = () => {
       difficulty: "easy",
       muscles: "lower_body",
       genre: "both",
+      description: "Junta tus manos o estira tus brazos en un ángulo de 90 grados. Cuando vayas a bajar, mantén los glúteos hacia atrás. Haz como si fueras a sentarte en una silla imaginaria. Es importante que las rodillas no sobrepasen la punta de tus pies, siempre deben quedar por detrás.",
       video:
         "https://c.tenor.com/g6XQ1z_Op0QAAAAC/squats-body-weight-training.gif",
       __v: 0,
@@ -68,6 +74,7 @@ const HomeRegister = () => {
       difficulty: "medium",
       muscles: "lower_body",
       genre: "both",
+      description: "Las sentadillas sumo son un ejercicio de tonificación del tren inferior que no puede faltar en tu rutina de entrenamiento. Esta variación de la clásica sentadilla es uno de los ejercicios de glúteos más practicados, ya que es altamente efectivo para tonificar los músculos de la cara interna del muslo: los aductores.",
       video:
         "https://i.pinimg.com/originals/19/5b/a7/195ba798f4246ae9930a97ea2e084aae.gif",
       __v: 0,
@@ -78,25 +85,18 @@ const HomeRegister = () => {
       difficulty: "hard",
       muscles: "lower_body",
       genre: "both",
+      description: "La sentadilla lateral sirve para ejercitar los glúteos y piernas. Los músculos más implicados en este ejercicio son los glúteos (sobre todo glúteo medio), los cuádriceps y toda la musculatura interescapular para mantener una buena postura.",
       video:
         "https://workout-gifs.s3.amazonaws.com/routines/ecfc6c6f-8889-485b-85a2-b87b5a6c905a.gif",
       __v: 0,
     },
-    {
-      _id: "6320dc3eb7171b77e516e64d",
-      name: "BULGARIAN SQUAT",
-      difficulty: "medium",
-      muscles: "lower_body",
-      genre: "both",
-      video: "https://c.tenor.com/ajSFCn6kW9YAAAAC/fitness-girlfitness.gif",
-      __v: 0,
-    },
-    {
+     {
       _id: "6320dc3eb7171b77e516e64e",
       name: "JUMP SQUAT",
       difficulty: "hard",
       muscles: "lower_body",
       genre: "both",
+      description: "Las sentadillas con salto, conocidas como las sentadillas más explosivas, comienzan con los pies por fuera de las caderas y las rodillas en la misma dirección que las puntas de los pies. Luego echamos la cadera hacia atrás y flexionamos las caderas en 90 grados.",
       video: "https://c.tenor.com/KTAavalOAWQAAAAC/squat-jumps.gif",
       __v: 0,
     },
@@ -106,6 +106,7 @@ const HomeRegister = () => {
       difficulty: "easy",
       muscles: "functional",
       genre: "both",
+      description: "asdasdasd",
       video:
         "https://c.tenor.com/jPmY-vQLpeMAAAAd/jumping-jacks-home-workouts.gif",
       __v: 0,
@@ -116,6 +117,7 @@ const HomeRegister = () => {
       difficulty: "easy",
       muscles: "functional",
       genre: "both",
+      description: "asdasdasd",
       video: "https://c.tenor.com/NYyx3iSx_gwAAAAd/home-workouts-exercise.gif",
       __v: 0,
     },
@@ -125,6 +127,7 @@ const HomeRegister = () => {
       difficulty: "hard",
       muscles: "lower_body",
       genre: "both",
+      description: "Asume una posición de estocada colocando un pie delante del otro y doblando las rodillas. Usa las piernas para impulsarte en un salto. Mientras estés en el aire, cambia la posición de los pies, colocando la pierna delantera detrás de ti y la pierna trasera delante de ti. Cae suavemente.",
       video: "https://c.tenor.com/meIUZZ_2oZMAAAAC/lunge-jump.gif",
       __v: 0,
     },
@@ -134,6 +137,7 @@ const HomeRegister = () => {
       difficulty: "medium",
       muscles: "lower_body",
       genre: "both",
+      description: "La estocada es un ejercicio de resistencia corporal que trabaja los músculos de las piernas. Específicamente, trabaja los cuádriceps y los músculos isquiotibiales del muslo, los glúteos y, en menor medida, los músculos de la parte inferior de la pierna.",
       video: "https://thumbs.gfycat.com/AbleFondChick-size_restricted.gif",
       __v: 0,
     },
@@ -143,6 +147,7 @@ const HomeRegister = () => {
       difficulty: "medium",
       muscles: "lower_body",
       genre: "both",
+      description: "Para realizar este ejercicio sólo tendrás que apoyar la espalda por completo en una pared y bajar el cuerpo hasta que las rodillas y las caderas formen un ángulo recto. Mantén esta posición y durante medio minuto o el tiempo que puedas.",
       video: "https://cdn2.actitudfem.com/media/files/media/files/wall-sit.gif",
       __v: 0,
     },
@@ -152,6 +157,7 @@ const HomeRegister = () => {
       difficulty: "easy",
       muscles: "abs",
       genre: "both",
+      description: "asdasdasd",
       video:
         "https://c.tenor.com/vFqz6XYPKPIAAAAC/abdominal-supra-abdominal.gif",
       __v: 0,
@@ -207,7 +213,7 @@ const HomeRegister = () => {
             className="mySwiper flex content-center items-center justify-center"
           >
             {exercises.map(
-              ({ video, name, difficulty, muscles, genre, _id }) => {
+              ({ video, name, difficulty, muscles, genre, _id, description }) => {
                 if (muscles === "upper_body")
                   return (
                     <SwiperSlide className="bg-transparent h-auto">
@@ -225,9 +231,7 @@ const HomeRegister = () => {
                         <div className="px-6 py-4">
                           <div className="font-bold text-xl mb-2">{name}</div>
                           <p className="text-gray-700 text-base">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Voluptatibus quia, Nonea! Maiores et
-                            perferendis eaque, exercitationem praesentium nihil.{" "}
+                       {description}{" "}
                           </p>
                         </div>
                         <div className="px-6 pt-4 pb-2">
@@ -278,7 +282,7 @@ const HomeRegister = () => {
             className="mySwiper"
           >
             {exercises.map(
-              ({ video, name, difficulty, muscles, genre, _id }) => {
+              ({ video, name, difficulty, muscles, genre, _id, description }) => {
                 if (muscles === "lower_body")
                   return (
                     <SwiperSlide className="bg-transparent h-auto">
@@ -296,9 +300,7 @@ const HomeRegister = () => {
                         <div className="px-6 py-4">
                           <div className="font-bold text-xl mb-2">{name}</div>
                           <p className="text-gray-700 text-base">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Voluptatibus quia, Nonea! Maiores et
-                            perferendis eaque, exercitationem praesentium nihil.{" "}
+                            {description}{" "}
                           </p>
                         </div>
                         <div className="px-6 pt-4 pb-2">

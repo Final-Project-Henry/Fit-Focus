@@ -8,8 +8,7 @@ import {
 import img1 from "../assets/homeRegister-media/Img1.jpg";
 import img2 from "../assets/homeRegister-media/Img2.jpg";
 import img3 from "../assets/homeRegister-media/Img3.jpg";
-import FormFeedback from "../FormFeedback/FormFeedback";
-import { Form } from "react-router-dom";
+import Footer from "../footer/Footer";
 
 
 const foto1 = require("../assets/Fotos y Videos HomeVisitor/6Q26YGICPFBULGVJ2YO3RZN2F4.jpg");
@@ -147,11 +146,6 @@ export default function HomeVisitor() {
           derrotar al sistema y no tener que hacer aportes para la jubilación.
         </p>
       </div>
-      <footer className="bg-black">
-        <div className="text-white">
-          <p>PROYECTO FINAL SOY HENRY 2022</p>
-        </div>
-      </footer>
     </div>
   );
 }
