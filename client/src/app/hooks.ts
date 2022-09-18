@@ -3,6 +3,7 @@ import type { RootState, AppDispatch } from "./store";
 import { useEffect, useState } from "react";
 import { selectUser } from "../features/counter/counterSlice";
 import jwtDecode from "jwt-decode";
+import axios from "axios";
 
 // Use throughout your app instead of plain `useDispatch` and `useSelector`
 export const useAppDispatch = () => useDispatch<AppDispatch>();
@@ -55,7 +56,7 @@ export function useSesion() {
 //hook para obtener
 
 export  function  useToken(){
-  const [token, setToken] = useState() ;
+  const [token, setToken] = useState<string>("") ;
 
   useEffect(()=>{
     let userJSON = window.localStorage.getItem("Login_userFit_Focus");
@@ -68,4 +69,27 @@ export  function  useToken(){
   },[])
 
     return token
+}
+
+export async function opiniom(token:string,feedback:object){
+  
+
+let headersList = {
+ "Accept": "*/*",
+ "Authorization": "Bearer "+ token,
+ "Content-Type": "application/json" 
+}
+
+let bodyContent = JSON.stringify(feedback);
+
+let reqOptions = {
+  url: "http://localhost:3001/auth/userfeedback",
+  method: "PUT",
+  headers: headersList,
+  data: bodyContent,
+}
+
+let response = await axios.request(reqOptions);
+console.log(response.data);
+
 }
