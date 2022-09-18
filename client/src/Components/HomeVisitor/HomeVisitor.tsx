@@ -9,6 +9,9 @@ import img1 from "../assets/homeRegister-media/Img1.jpg";
 import img2 from "../assets/homeRegister-media/Img2.jpg";
 import img3 from "../assets/homeRegister-media/Img3.jpg";
 import Footer from "../footer/Footer";
+const img4 = require("../assets/Fotos y Videos HomeVisitor/img1.jpg");
+const img5 = require("../assets/Fotos y Videos HomeVisitor/img2.jpg");
+const img6 = require("../assets/Fotos y Videos HomeVisitor/img3.jpg");
 
 
 const foto1 = require("../assets/Fotos y Videos HomeVisitor/6Q26YGICPFBULGVJ2YO3RZN2F4.jpg");

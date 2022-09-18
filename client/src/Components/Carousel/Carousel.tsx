@@ -121,19 +121,19 @@ const Carousel: React.FC<Props> = ({
     }, [autoplay, interval, next, intervalSlides, buttons]);
 
     return (
-        <div className="max-w-full overflow-hidden">
+        <div className="max-w-full max-h-[750px] flex content-center overflow-hidden ">
             {content.length >= 2 ? (
-                <div className="relative">
-                    <div className="flex flex-nowrap items-center content-center" ref={slideshow}>
+                <div className="relative flex content-center">
+                    <div className="flex flex-nowrap max-h-full items-center content-center" ref={slideshow}>
                         {content.map(({ src, text, stylesContent, stylesImage, stylesText }) => {
                             return (
-                                <div className={`min-w-full overflow-hidden ease-linear duration-300 z-10 relative rounded-md ${stylesContent}`}>
+                                <div className={`min-w-full max-h-[750px] object-cover object-center ease-linear duration-300 z-10 relative rounded-md ${stylesContent}`}>
                                     {
                                         src.slice(-3) === "mp4"
                                             ? <video src={src} autoPlay loop muted />
                                             : <img
                                                 src={src}
-                                                className={`w-full aling-top ${stylesImage}`}
+                                                className={`w-full aling-top bg-cover ${stylesImage}`}
                                                 alt="Img to slide" />
                                     }
                                     {text && (
@@ -141,18 +141,13 @@ const Carousel: React.FC<Props> = ({
                                             {text}
                                         </p>
                                     )}
-                                    {/* <button className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
-                                        <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                                            Green to blue
-                                        </span>
-                                    </button> */}
                                 </div>
                             );
                         })}
                     </div>
                     {controls && (
                         <div
-                            className="absolute top-5 z-20 w-full  h-full pointer-events-none"
+                            className="absolute top-5 z-20 w-full h-full pointer-events-none"
                             ref={buttons}
                         >
                             <button className="pointer-events-auto bg-none border-none cursor-pointer outline-none w-12 h-full text-center absolute ease-linear duration-300 left-0 drop-shadow-[2px_0px_0px_#fff]">
