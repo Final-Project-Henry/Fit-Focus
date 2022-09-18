@@ -30,7 +30,7 @@ export function useScript(url: string, onload: any) {
 export function useSesion() {
   const userStado = useAppSelector(selectUser);
 
-  const [user, setuser] = useState<any>(true);
+  const [user, setuser] = useState<any>(false);
 
   useEffect(() => {
     let userJSON = window.localStorage.getItem("Login_userFit_Focus");
@@ -51,4 +51,21 @@ export function useSesion() {
   }, [userStado]);
 
   return user;
+}
+//hook para obtener
+
+export  function  useToken(){
+  const [token, setToken] = useState() ;
+
+  useEffect(()=>{
+    let userJSON = window.localStorage.getItem("Login_userFit_Focus");
+    if (userJSON) {
+      if (userJSON.length > 3) {
+        let userlogin = JSON.parse(userJSON);
+        setToken(userlogin)
+      }
+    }
+  },[])
+
+    return token
 }

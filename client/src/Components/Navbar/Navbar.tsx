@@ -23,6 +23,7 @@ const Navbar = () => {
 
   useEffect(() => {
     if (userData) {
+      console.log(userData);
       setUser(true);
     }
   }, [userData]);
@@ -39,8 +40,10 @@ const Navbar = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(sigendOut(null));
-        setUser(!user);
+        setUser(false);
         setDropdown(false);
+       window.location.reload()
+
       }
     });
   }
@@ -183,10 +186,14 @@ const Navbar = () => {
                       Dashboard
                     </Link>
                   </li>
-                  <li onClick={signOut}>
+                  <li onClick={()=>{
+                    signOut()
+                    
+                    }}>
                     <div className="block py-2 px-4 cursor-pointer text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                       Cerrar Sesión
                     </div>
+                      
                   </li>
                 </ul>
               </div>
