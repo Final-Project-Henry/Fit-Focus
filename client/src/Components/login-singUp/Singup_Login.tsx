@@ -7,11 +7,9 @@ import {
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { Navigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import jwtDecode from "jwt-decode";
 
 import {
-  User_Login_State,
-  sigendOut,
+
   selectUser,
 } from "../../features/counter/counterSlice";
 

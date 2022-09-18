@@ -42,7 +42,7 @@ const SingUp:React.FC<Propos>=( {facebook, google, linkedin,loading_icon} )=>{
 
     dispatch(User_Register_State(Form_data));
   }
-  console.log(user_logeao.status)
+
 
   return (
 
@@ -72,6 +72,7 @@ const SingUp:React.FC<Propos>=( {facebook, google, linkedin,loading_icon} )=>{
                 value={Form_data.email}
                 onChange={(event) => handleChange(event)
                 }/>
+                {user_logeao.status?.includes("User already exists")&&<label className="text-red-500">{user_logeao.status}</label>}
             </div>
             <div className="my-5">
               <label>Contraseña</label>
@@ -88,8 +89,8 @@ const SingUp:React.FC<Propos>=( {facebook, google, linkedin,loading_icon} )=>{
 
             <div className="w-full bg-blue-700   text-white text-center">
               <button className="w-full bg-blue-700   text-white text-center p-2 " type="submit" >
-                {!user_logeao.status?"Registrarse":
-                   <span className=" flex justify-center">
+                {user_logeao.status?"Registrarse":
+                  <span className=" flex justify-center">
                    <img className="animate-spin w-5 mx-2" src={loading_icon} />
                    Loading...
                  </span>
