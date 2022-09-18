@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
         const hashPassword = await bcrypt.hash(data.id, 10)
         oldUser = await user.create({email :data.email, name : data.name, avatar : data.picture, password : hashPassword});
      } 
-     const token = jwt.sign({email : oldUser.email, name : oldUser.name, id : oldUser.id}, "" + SECRET)
+     const token = jwt.sign({email : oldUser.email, name : oldUser.name, id : oldUser._id}, "" + SECRET)
      res.status(200).send(token)
     } catch (error) {
        console.log(error.message) 
