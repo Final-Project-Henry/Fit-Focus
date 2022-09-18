@@ -352,8 +352,6 @@ const HomeRegister = () => {
           </div>
         </div>
       </div>
-    <Footer/>
-
     </div>
   );
 };

@@ -103,7 +103,6 @@ export default function HomeVisitor() {
           derrotar al sistema y no tener que hacer aportes para la jubilación.
         </p>
       </div>
-     <Footer/>
     </div>
   );
 }
