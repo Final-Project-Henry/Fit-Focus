@@ -49,7 +49,7 @@ video {
     cursor: pointer;
     text-decoration: none;
     color: #000000;
-    background-color: #ffbb00;
+    background-color: #FFA000;
     border: none;
     border-radius: 40px;
     transition: all 0.4s;
@@ -58,7 +58,7 @@ video {
 
 .landingButton:hover {
     background-color: #000000;
-    color: #ffbb00;
+    color: #FFA000;
     width: 30%;
 }
 
@@ -74,7 +74,7 @@ video {
     justify-content: center;
     align-items: center;
     text-align: justify;
-    color: #ffbb00;
+    color: #FFA000;
 }
 
 .overlay {
@@ -101,7 +101,7 @@ video {
     justify-content: center;
     align-items: center;
     text-align: justify;
-    color: #ffbb00;
+    color: #FFA000;
 }
 
 .typewriterDiv {
