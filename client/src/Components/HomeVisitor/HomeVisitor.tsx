@@ -57,47 +57,34 @@ export default function HomeVisitor() {
           />
         </div>
         <Div_cards className="flex  ">
-          <div
-            id="card"
-            className=" rounded-lg overflow-hidden   text-white bg-gray-900"
-          >
+          <div id="card" className=" rounded-xl overflow-hidden  text-white bg-gray-900">
             <div id="img_card">
               <img src={foto1} className="foto1" alt="foto" />
             </div>
             <p>
-              Correr sin moverse del sitio es muy efectivo para quemar calorías.
-              Ésto, es fácil de entender, ya que al estar realizando movimientos
-              musculares y al estar haciendo esfuerzo, vamos a necesitar energía
-              para mover esos músculos
+             La combinación de ejercicio y comida saludable puede ayudarte a incrementar tu nivel
+             de energía y a sentirte más alerta y conciente, tanto mental como físicamente. 
             </p>
           </div>
 
-          <div
-            id="card"
-            className=" rounded-lg overflow-hidden text-white bg-gray-900"
-          >
+          <div id="card" className="rounded-xl overflow-hidden text-white bg-gray-900">
             <div id="img_card">
               <img src={foto2} className="foto1" />
             </div>
             <p>
-              La plancha es uno de esos ejercicios que no pasan de moda y esto
-              tiene una buena razón: cuando se trata de calificar
-              entrenamientos, ningún ejercicio es mejor que la plancha en
-              términos de tiempo y eficacia
+              El ejercicio estimula los químicos del cerebro que ayudan a generar 
+              sentimientos de felicidad, satisfacción y relajación, por lo que te sentirás mejor 
+              si haces ejercicio regularmente. 
             </p>
           </div>
-          <div
-            id="card"
-            className=" rounded-lg overflow-hidden text-white bg-gray-900"
-          >
+          <div id="card" className="rounded-xl overflow-hidden overflow-hidden text-white bg-gray-900">
             <div id="img_card">
               <img src={foto3} className="foto1" alt="foto" />
             </div>
             <p>
-              hacer abdominales te permite fortalecer y activar la musculatura
-              abdominal, central, permitiendo la eliminación no sólo de
-              centímetros de volumen, sino también de gases y ayudando a que el
-              tránsito intestinal fluya correctamente
+              El ejercicio y la dieta saludable pueden ayudarte a tener una vida más variada e interesante.
+              Busca formas creativas de mantenerte activo físicamente en tu vida diaria, 
+              y no hagas siempre la misma rutina de ejercicio.
             </p>
           </div>
         </Div_cards>
@@ -117,66 +104,57 @@ export default function HomeVisitor() {
         </Div_benefitsVisitor>
 
         <Div_benefitsVisitor2>
-          <p>
-           Por norma general y en todas las edades, las comodidades en las que vivimos hacen que veamos al ejercicio físico como algo "duro" e introducirlo de una 
+          <p className="benefitsVisitor2">
+          
+            Por norma general y en todas las edades, las comodidades en las que vivimos hacen que veamos al ejercicio físico como algo "duro" e introducirlo de una 
             forma regular en nuestra vida cotidiana no siempre resulta fácil debido a múltiples factores... 
             Es por ello que hemos decidido crear dicha aplicación para mostrarte algunos de los beneficios y asi comiences 
             a ejercitarte dónde quieras y cuando quieras.
-            Solo debes dirigirte a la parte superior derecha de la pagina en el boton de <b>Registrarse</b> y comienza con tus entrenamientos básicos.
-          </p>
+            Solo debes dirigirte a la parte superior derecha de la pagina en el boton de <b>Registrarse</b> y comienza con tus entrenamientos básicos.</p>
         </Div_benefitsVisitor2>
 
         <Div_cards className="flex  ">
-          <div
-            id="card"
-            className="rounded-lg overflow-hidden   text-white bg-gray-900"
-          >
+          <div id="card" className=" rounded-xl overflow-hidden  text-white bg-gray-900">
             <div id="img_card">
               <img src={brain} className="brainImg" alt="foto" />
             </div>
-            <p>Menor degeneración neuronal</p>
+            <p>
+              Menor degeneración neuronal.
+            </p>
           </div>
-          <div
-            id="card"
-            className="rounded-lg overflow-hidden text-white bg-gray-900"
-          >
+          <div id="card" className="rounded-xl overflow-hidden text-white bg-gray-900">
             <div id="img_card">
               <img src={heart} className="foto1" />
             </div>
-            <p>Mejora los factores de riesgo cardiovascular</p>
+            <p>
+              Mejora los factores de riesgo cardiovascular.
+            </p>
           </div>
-          <div
-            id="card"
-            className="rounded-lg overflow-hidden text-white bg-gray-900"
-          >
+          <div id="card" className="rounded-xl overflow-hidden text-white bg-gray-900">
             <div id="img_card">
               <img src={lungs} className="foto1" alt="foto" />
             </div>
-            <p>Aumenta la capacidad de oxígeno que los pulmones almacenan</p>
+            <p>
+              Aumenta la capacidad de oxígeno pulmonar.
+            </p>
           </div>
-          <div
-            id="card"
-            className="rounded-lg overflow-hidden text-white bg-gray-900"
-          >
+          <div id="card" className="rounded-xl overflow-hidden text-white bg-gray-900">
             <div id="img_card">
               <img src={sleep} className="foto1" alt="foto" />
             </div>
-            <p>Previene apnea del sueño</p>
+            <p>
+              Previene apnea del sueño.
+            </p>
           </div>
-          <div
-            id="card"
-            className="rounded-lg overflow-hidden text-white bg-gray-900"
-          >
+          <div id="card" className="rounded-xl overflow-hidden text-white bg-gray-900">
             <div id="img_card">
               <img src={strong} className="foto1" alt="foto" />
             </div>
             <p>
-              Mejora la densidad ósea y disminuye el posible riesgo de
-              osteoporosis
+              Mejora la densidad ósea y disminuye el riesgo de osteoporosis.
             </p>
           </div>
         </Div_cards>
-
         {/* ABOUT US */}
 
         <Div_about className="flex" id="about">
