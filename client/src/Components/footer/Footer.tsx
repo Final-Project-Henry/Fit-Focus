@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useCallback } from "react";
 import { useState } from "react";
+import Swal from "sweetalert2";
 import { opiniom, useToken } from "../../app/hooks";
 import icon from "../assets/icons/nav-icon.png";
 
@@ -15,56 +16,73 @@ const Footer = () => {
     comment: "",
     email: "",
   });
+  function handleChange(
+    event: React.ChangeEvent<HTMLFormElement | HTMLInputElement| HTMLTextAreaElement>
+  ): void {
+    setFeedback((pv) => ({ ...pv, [event.target.name]: event.target.value }));
+  }
 
   const handleSubmmit = async (event: React.FormEvent) => {
     event.preventDefault();
-     opiniom(token,feedback)
 
+    if(feedback.comment.length>0&&feedback.email.length>0){
+
+      Swal.fire({
+        title: "¿Desea enviar tu opinion?",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#006eff",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Eviar opinion",
+        cancelButtonText: "Cancelar",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          opiniom(token,feedback)
+          setFeedback({comment: "", email: "",})
+
+        }
+      });
+    }
   };
-
   return (
     <footer className="p-4 sm:p-6 bg-black">
       <div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0">
-          <a href="#"  target="_blank" className="flex items-center">
+          <div className="flex items-center hover: border-none">
             <img src={icon} className="mr-5 h-20" alt="Fit-Focus Logo" />
             <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
               Fit-Focus
             </span>
-          </a>
-          <div className="mt-5 md:mb-0">
+          </div>
+          <div id="feedbacks" className="mt-5 md:mb-0">
             <span className="self-center text-lg  text-white">
-              Danos tu opiniones
+              Danos tus opiniones
             </span>
             <form onSubmit={handleSubmmit}>
               <input
                 type="email"
+                name="email"
                 placeholder="correo..."
                 id="Nombre"
-                className="p-1 bg-white  rounded-lg"
-                onChange={(event) =>
-                  setFeedback({
-                    email: event.currentTarget?.value,
-                    comment: feedback.comment,
-                  })
-                }
-              ></input>
+                required
+                className="p-1 bg-white w-full  rounded-lg"
+                value={feedback.email}
+                onChange={handleChange}
+              />
 
               <textarea
-                id="message"
-                className="block rounded-lg"
-                placeholder="Your message..."
-                onChange={(event) =>
-                  setFeedback({
-                    comment: event.currentTarget?.value,
-                    email: feedback.email,
-                  })
-                }
-              ></textarea>
+                name="comment"
+                className="block rounded-lg w-full"
+                placeholder="Tú opinión.."
+                required
+                value={feedback.comment}
+                onChange={handleChange}
+
+              />
 
               <button
                 type="submit"
-                className="text-white focus:ring-4  font-medium rounded-lg text-sm px-5 py-1  mt-4 bg-amber-700 hover:bg-amber-800 focus:outline-none"
+                className="text-white active:scale-90 duration-100  font-medium rounded-lg text-sm px-7 py-1.5  mt-4 bg-amber-700 hover:bg-amber-800 focus:outline-none"
               >
                 Enviar
               </button>
@@ -86,7 +104,7 @@ const Footer = () => {
           </div>
           <div>
             <h2 className="mb-6 text-sm font-semibold  uppercase text-white">
-              SÍGANOS
+            sígannos
             </h2>
             <ul className="text-gray-400">
               <li className="mb-4">
