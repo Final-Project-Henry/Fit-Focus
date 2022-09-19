@@ -52,4 +52,12 @@ const Div_benefitsVisitor = styled.div`
   margin:80px 0;
 `
 
-export { Div_cards, Div_video,Div_benefitsVisitor }
+const Div_benefitsVisitor2 = styled.div`
+  text-align: justify;
+  font-size: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+  
+`
+
+export { Div_cards, Div_video,Div_benefitsVisitor, Div_benefitsVisitor2 }
