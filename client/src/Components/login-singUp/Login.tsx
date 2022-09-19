@@ -10,6 +10,7 @@ import {
 } from "../../features/counter/counterSlice";
 
 import { Link } from "react-router-dom";
+import GoogleAuth from "../GoogleAuth/GoogleAuth";
 
 interface Propos{
   facebook:string,
@@ -138,8 +139,11 @@ const Login:React.FC<Propos>=( {facebook, google, linkedin,loading_icon} )=>{
           </Link>
         </div>
       </form>
+      
+
       <div id="auth" className="flex ">
-        <div className="rounded p-3" onClick={()=>dispatch(auth_Login_Google())}>
+        <GoogleAuth />
+        {/* <div className="rounded p-3" onClick={()=>dispatch(auth_Login_Google())}>
           <img src={google} />
         </div>
         <div className="rounded p-3">
@@ -147,7 +151,7 @@ const Login:React.FC<Propos>=( {facebook, google, linkedin,loading_icon} )=>{
         </div>
         <div className="rounded p-3">
           <img src={linkedin} />
-        </div>
+        </div> */}
       </div>
     </>
   );
