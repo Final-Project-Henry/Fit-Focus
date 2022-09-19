@@ -1,6 +1,5 @@
 const { Schema, model } = require('mongoose');
 const userinfo = require('./UserInfo.js')
-const feedback = require ('./Feedback.js')
 
 const userSchema = new Schema({
 
@@ -15,7 +14,8 @@ const userSchema = new Schema({
       },
     password: {
         type: String,
-        unique : true
+        unique : true,
+        required: true
       },
     avatar: {
       type: String
@@ -42,7 +42,9 @@ const userSchema = new Schema({
       ref: 'Routines' 
     }],
     userinfo: [userinfo],
-    feedback: [feedback]
+    feedback: {
+      type : String
+    }
 
 
 })

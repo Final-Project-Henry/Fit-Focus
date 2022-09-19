@@ -1,13 +1,8 @@
 const { Router } = require('express');
-const user = require('../models/User.js')
+const user = require('../models/User.js');
+const exercise = require('../models/Exercise.js');
+const bcrypt = require('bcrypt');
 const router = Router();
-
-router.get('/getexercises', async (req,res) => { // Ruta de prueba. 
-   const {email} = req.user
-   const User = await user.findOne({email : email}).select('plan')
-   
-res.status(200).send(User)
-});
 
 router.put('/userinfo', async (req, res) =>{ // Ruta para actualizar la informacion del usuario para crear una rutina(PREMIUM)
 try {
@@ -35,17 +30,45 @@ router.put('/userfeedback', async (req, res) => {
    const {comment, email} = req.body
 
    const check = await user.findOne({email : email}).select('feedback')
-   if(check.feedback.length !== 0) {
-     return res.status(409).send('Feedback already added')
-   } 
    await user.updateOne({email : email}, {
-      $push : {
-         feedback : {feedback : comment}
-      }
+         feedback : comment
    });
   res.status(200).send('Feedback sent')
   } catch (error) {
    res.status(500).send(error.message)
+  }
+});
+
+router.get('/getroutine', async (req, res)=> {
+  try {
+    const Exercises = await exercise.find().limit(5)
+    res.status(200).send(Exercises)
+  } catch (error) {
+   res.status(500).send(error.message)
+  }
+});
+
+router.put('/changepassword', async (req, res) => {
+ try {
+    const {email} = req.user
+    const {password} = req.body 
+    const hashPassword = await bcrypt.hash(password, 10);
+    await user.updateOne({email : email}, {
+      password : hashPassword
+    });
+    res.status(200).send('Password changed succesfully')
+ } catch (error) {
+   res.status(500).send(error.message)
+ }
+});
+
+router.delete('/delete', async (req, res)=>{
+  try {
+      const {id} = req.user
+      await user.deleteOne({_id : id});
+      res.status(200).send('Deleted succesfully');
+  } catch (error) {
+    res.status(500).send(error.message)
   }
 });
 

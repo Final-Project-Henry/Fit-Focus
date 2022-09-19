@@ -6,7 +6,7 @@ const Div_cards = styled.div`
   #card{
     box-shadow: 0 4px 10px #000e3e55;
     width:100%;
-    margin:50px;
+    margin:40px;
     font-size:1.2rem;
       p{
           padding: 20px;
@@ -23,7 +23,6 @@ const Div_cards = styled.div`
 
     }   
   }
-  
   
 `
 const Div_video = styled.div`
@@ -45,18 +44,20 @@ const Div_video = styled.div`
   #video{
     opacity: 50%;
   }  
-
+`
+const Div_benefitsVisitor = styled.div`
+  text-align: center;
+  font-size: 50px;
+  font-width: bold;
+  margin:80px 0;
 `
 
-const Div_card_skill = styled.div`
-  display: flex;
-  position: relative;
-  justify-content: center;
-  margin:50px 0;
-  img{
-    border-radius: 50px;
-    box-shadow: 0 4px 10px #000e3e55;
-  }
+const Div_benefitsVisitor2 = styled.div`
+  text-align: justify;
+  font-size: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+  
 `
 
-export { Div_cards, Div_video,Div_card_skill }
+export { Div_cards, Div_video,Div_benefitsVisitor, Div_benefitsVisitor2 }

@@ -4,7 +4,7 @@ const authRoutes = require('./routes/authRoutes.js');
 const authGoogleRoutes = require('./routes/authGoogleRoutes.js')
 const jwt = require('jsonwebtoken');
 const querystring = require('node:querystring');
-
+const cors = require('cors')
 
 require('dotenv').config();
 const {SECRET, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, REDIRECT_URI} = process.env
@@ -13,6 +13,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended : true}))
+app.use(cors({origin: '*'}))
 app.use((req, res, next) => {  
     res.header('Access-Control-Allow-Origin', '*'); 
     res.header('Access-Control-Allow-Credentials', 'true');

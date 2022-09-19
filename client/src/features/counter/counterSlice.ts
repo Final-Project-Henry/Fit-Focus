@@ -3,59 +3,74 @@ import axios from 'axios';
 import { RootState, AppThunk } from '../../app/store';
 
 export interface State {
-  user: null|string;
+  user: null | string;
 
-  status :string|null;
+  status: string | null;
 
 }
 
 const initialState: State = {
   user: null,
-
-  status :""
+  status: "none"
 };
 
 export const User_Register_State = createAsyncThunk(
   'user/sing_upUser',
-  async (user:object ,thunkAPI) => {
+  async (user: object, thunkAPI) => {
     try {
-      const response = await axios.post("http://localhost:3001/register",user);
-      const resp=response.data
+      const response = await axios.post("http://localhost:3001/register", user);
+      const resp = response.data
       thunkAPI.dispatch(User(resp))
       return resp;
-    } catch (error) {
+    } catch (error: any) {
+      thunkAPI.dispatch(status(error.response.data))
       thunkAPI.rejectWithValue(error)
       return
     }
   }
 );
+
 export const User_Login_State = createAsyncThunk(
   'user/login',
-  async (user:object ,thunkAPI) => {
+  async (user: object, thunkAPI) => {
     try {
-      const response = await axios.post("http://localhost:3001/login",user);
-      const resp=response.data
+      const response = await axios.post("http://localhost:3001/login", user);
+      const resp = response.data
+      console.log(response);
+
       thunkAPI.dispatch(User(resp))
       return resp;
-    } catch (error) {
-      thunkAPI.rejectWithValue(error)
+    } catch (error: any) {
+      thunkAPI.dispatch(status(error.response.data))
+      thunkAPI.rejectWithValue(error.response.data)
+
       return
     }
-   }
+  }
 );
 export const auth_Login_Google = createAsyncThunk(
   'user/auth_google',
-  async (_,thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
       const response = await axios.get("http://localhost:3001/login/google");
-      const resp=response.data
+      const resp = response.data
       thunkAPI.dispatch(User(resp))
       return resp;
     } catch (error) {
-      thunkAPI.rejectWithValue(error)
       return
     }
-   }
+  }
+);
+
+export const authGoogle = createAsyncThunk('user/auth_google', async (code: {code:String}, thunkAPI) => {
+    console.log(code);
+    try {
+      const response = await axios.post("http://localhost:3001/authGoogle",code );
+      return response.data;
+    } catch (error) {
+      return
+    }
+  }
 );
 
 export const StateSlice = createSlice({
@@ -64,45 +79,45 @@ export const StateSlice = createSlice({
 
   reducers: {
     User: (state, action: PayloadAction<string>) => {
-      state.status=null
-      state.user=action.payload
+      state.status = "none"
+      state.user = action.payload
     },
-    sigendOut:(state, action: PayloadAction<null>) =>{
-      state.status=null
+    sigendOut: (state, action: PayloadAction<null>) => {
+      state.status = "none"
 
       window.localStorage.removeItem("Login_userFit_Focus");
-  
-      state.user=action.payload
+
+      state.user = action.payload
+    },
+    status: (state, action: PayloadAction<string>) => {
+      console.log(action.payload)
+      state.status = action.payload
     }
   },
   extraReducers: (builder) => {
     builder
       .addCase(User_Register_State.pending, (state) => {
-        state.status="panding"
-      })
-      .addCase(User_Register_State.fulfilled, (state, action) => {
-        state.status = action.payload;
-      })
-      .addCase(User_Register_State.rejected, (state,action) => {
-        state.status = "error";
+        state.status = null
       })
 
-      .addCase(User_Login_State.pending, (state) => {
-        state.status="panding"
+      .addCase(User_Login_State.pending, (state, action) => {
+        console.log("pending", action)
+        state.status = null
       })
-      .addCase(User_Login_State.fulfilled, (state, action) => {
-        console.log(action.payload)
 
-        state.status = action.payload;
+      .addCase(authGoogle.pending, (state, action) => {
+        console.log("pending", action.payload);
       })
-      .addCase(User_Login_State.rejected, (state,action) => {
-        console.log(action.payload)
-        state.status = "error";
-      });
+      .addCase(authGoogle.fulfilled, (state, action) => {
+        console.log("fulfilled", action.payload);
+        state.status= "load";
+        state.user = action.payload;
+      })
   },
+
 });
 
-export const { User,sigendOut } = StateSlice.actions;
+export const { User, sigendOut, status } = StateSlice.actions;
 
 
 export const selectUser = (state: RootState) => state.user;

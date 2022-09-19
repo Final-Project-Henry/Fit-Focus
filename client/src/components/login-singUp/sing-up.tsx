@@ -9,6 +9,7 @@ import {
   selectUser,
   
 } from "../../features/counter/counterSlice";
+import GoogleAuth from "../GoogleAuth/GoogleAuth";
 interface Propos{
   facebook:string,
   google:string,
@@ -42,7 +43,7 @@ const SingUp:React.FC<Propos>=( {facebook, google, linkedin,loading_icon} )=>{
 
     dispatch(User_Register_State(Form_data));
   }
-  console.log(user_logeao.status)
+
 
   return (
 
@@ -72,6 +73,7 @@ const SingUp:React.FC<Propos>=( {facebook, google, linkedin,loading_icon} )=>{
                 value={Form_data.email}
                 onChange={(event) => handleChange(event)
                 }/>
+                {user_logeao.status?.includes("User already exists")&&<label className="text-red-500">{user_logeao.status}</label>}
             </div>
             <div className="my-5">
               <label>Contraseña</label>
@@ -88,8 +90,8 @@ const SingUp:React.FC<Propos>=( {facebook, google, linkedin,loading_icon} )=>{
 
             <div className="w-full bg-blue-700   text-white text-center">
               <button className="w-full bg-blue-700   text-white text-center p-2 " type="submit" >
-                {!user_logeao.status?"Registrarse":
-                   <span className=" flex justify-center">
+                {user_logeao.status?"Registrarse":
+                  <span className=" flex justify-center">
                    <img className="animate-spin w-5 mx-2" src={loading_icon} />
                    Loading...
                  </span>
@@ -99,7 +101,8 @@ const SingUp:React.FC<Propos>=( {facebook, google, linkedin,loading_icon} )=>{
           </form>
 
             <div id="auth" className="flex ">
-              <div className="rounded p-3" onClick={()=>dispatch(auth_Login_Google())}>
+              <GoogleAuth />
+              {/* <div className="rounded p-3" onClick={()=>dispatch(auth_Login_Google())}>
                 <img src={google}/>
               </div>
               <div className="rounded p-3">
@@ -107,7 +110,7 @@ const SingUp:React.FC<Propos>=( {facebook, google, linkedin,loading_icon} )=>{
               </div>
               <div className="rounded p-3">
                 <img src={linkedin}/>
-              </div>
+              </div> */}
             </div>
       </>
 

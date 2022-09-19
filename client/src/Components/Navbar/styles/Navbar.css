@@ -1,0 +1,29 @@
+
+nav a {
+    display: block;
+    position: relative;
+    padding: 0.2em 0;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+  /* Fade in */
+ nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1em;
+    background-color: #b45309;
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+  }
+  
+  nav a:hover::after,
+  nav a:focus::after {
+    opacity: 1;
+    transform: translate3d(0, 0.2em, 0);
+  }
+  
+
