@@ -45,6 +45,7 @@ export default function HomeVisitor() {
   }
 
   return (
+    <>
     <div className="felx bg-slate-50">
       {/* <Navbar/> */}
       {/* Yo adrian he quitado de className la clase Carousel para que se vea, pero la pagina sirve asi que subire, ojo aqui */}
@@ -314,5 +315,8 @@ export default function HomeVisitor() {
         </div>
       </Div_cards>
     </div>
+    <Footer/>
+  </>
+
   );
 }
