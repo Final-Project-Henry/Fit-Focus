@@ -49,7 +49,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className=" border-gray-200 px-2 sm:px-4 py-2.5 bg-black border-b-4">
+      <nav className=" border-gray-200 px-2 sm:px-4 py-2.5 bg-gray-900 border-b-4">
         <div className="container-fluid w-full flex flex-wrap items-center justify-between px-8 p-4">
           <div className="flex items-center">
             <img
@@ -88,7 +88,7 @@ const Navbar = () => {
               className="text-center justify-between items-center w-full md:flex md:w-auto md:order-1"
               id="mobile-menu-2"
             >
-              <ul className="flex flex-col p-4 mt-4 ml-4 rounded-lg   md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0  md:bg-black border-gra0">
+              <ul className="flex flex-col p-4 mt-4 ml-4 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0  md:bg-gray-900 border-gra0">
                 <li>
                   <Link
                     to="/home"

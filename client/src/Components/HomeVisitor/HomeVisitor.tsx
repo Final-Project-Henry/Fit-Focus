@@ -67,7 +67,7 @@ export default function HomeVisitor() {
             <p>
               Correr sin moverse del sitio es muy efectivo para quemar calorías.
               Ésto, es fácil de entender, ya que al estar realizando movimientos musculares
-              y al estar haciendo esfuerzo, vamos a necesitar energía para mover esos músculos
+              y al estar haciendo esfuerzo, vamos a necesitar energía para mover esos músculos.
             </p>
           </div>
 
@@ -78,7 +78,7 @@ export default function HomeVisitor() {
             <p>
               La plancha es uno de esos ejercicios que no pasan de moda
               y esto tiene una buena razón: cuando se trata de calificar entrenamientos,
-              ningún ejercicio es mejor que la plancha en términos de tiempo y eficacia
+              ningún ejercicio es mejor que la plancha en términos de tiempo y eficacia.
             </p>
           </div>
           <div id="card" className=" text-white bg-gray-900">
@@ -86,9 +86,9 @@ export default function HomeVisitor() {
               <img src={foto3} className="foto1" alt="foto" />
             </div>
             <p>
-              hacer abdominales te permite fortalecer y activar la musculatura abdominal,
+              Hacer abdominales te permite fortalecer y activar la musculatura abdominal,
               central, permitiendo la eliminación no sólo de centímetros de volumen,
-              sino también de gases y ayudando a que el tránsito intestinal fluya correctamente
+              sino también de gases y ayudando a que el tránsito intestinal fluya correctamente.
             </p>
           </div>
         </Div_cards>
@@ -109,17 +109,14 @@ export default function HomeVisitor() {
 
         <Div_benefitsVisitor2>
           <p className="benefitsVisitor2">
-            Como sabemos, elejercicio físico es cualquier movimiento voluntario realizado por los músculos,
-            que gasta energía extra, además de la energía que nuestro cuerpo consume y necesita para mantener
-            la vida o actividad basal (dormir, respirar, procesos metabólicos, entre otros).
+          
             Por norma general y en todas las edades, el introducir el ejercicio físico de una forma regular en nuestra vida cotidiana
-            no siempre nos resulta fácil. Esto es debido a múltiples factores como son: la velocidad con que vivimos,
-            la utilización del coche o moto, estamos sentados la mayor parte del día viendo televisión o con los vídeo juegos...
-            Las comodidades con las que vivimos hacen que veamos el ejercicio físico como algo muy duro, y nos inventemos excusas como
+            no siempre nos resulta fácil debido a múltiples factores... 
+            Las comodidades con las que vivimos hacen que veamos al ejercicio físico como algo muy duro, y nos inventemos excusas como
             "no tengo tiempo" o "estoy cansada/o".
-            Es por ello que hemos decidido crear esta maravillosa aplicacion y mostrarte algunos de los beneficios del ejercicio para que comiences 
-            a ejercitarte desde tu hogar a cualquier hora que desees, 
-            solo debes dirigirte a la parte superior derecha de la pagina en el boton de <b>Registrarse</b> y comienza con tus entrenamientos básicos</p>
+            Es por ello que hemos decidido crear dicha aplicación para mostrarte algunos de los beneficios y asi comiences 
+            a ejercitarte dónde quieras y cuando quieras.
+            Solo debes dirigirte a la parte superior derecha de la pagina en el boton de <b>Registrarse</b> y comienza con tus entrenamientos básicos</p>
         </Div_benefitsVisitor2>
 
         <Div_cards className="flex  ">
@@ -128,7 +125,7 @@ export default function HomeVisitor() {
               <img src={brain} className="brainImg" alt="foto" />
             </div>
             <p>
-              Menor degeneración neuronal
+              Menor degeneración neuronal.
             </p>
           </div>
           <div id="card" className=" text-white bg-gray-900">
@@ -136,7 +133,7 @@ export default function HomeVisitor() {
               <img src={heart} className="foto1" />
             </div>
             <p>
-              Mejora los factores de riesgo cardiovascular
+              Mejora los factores de riesgo cardiovascular.
             </p>
           </div>
           <div id="card" className=" text-white bg-gray-900">
@@ -144,7 +141,7 @@ export default function HomeVisitor() {
               <img src={lungs} className="foto1" alt="foto" />
             </div>
             <p>
-              Aumenta la capacidad de oxígeno que los pulmones almacenan
+              Aumenta la capacidad de oxígeno pulmonar.
             </p>
           </div>
           <div id="card" className=" text-white bg-gray-900">
@@ -152,7 +149,7 @@ export default function HomeVisitor() {
               <img src={sleep} className="foto1" alt="foto" />
             </div>
             <p>
-              Previene apnea del sueño
+              Previene apnea del sueño.
             </p>
           </div>
           <div id="card" className=" text-white bg-gray-900">
@@ -160,7 +157,7 @@ export default function HomeVisitor() {
               <img src={strong} className="foto1" alt="foto" />
             </div>
             <p>
-              Mejora la densidad ósea y disminuye el posible riesgo de osteoporosis
+              Mejora la densidad ósea y disminuye el riesgo de osteoporosis.
             </p>
           </div>
         </Div_cards>
