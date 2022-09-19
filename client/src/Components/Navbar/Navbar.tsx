@@ -99,46 +99,45 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
+                  {!user ? (
+                    <Scroll
+                      spy={true}
+                      smooth={true}
+                      offset={-100}
+                      duration={500}
+                      to="about"
+                      className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                    >
+                      Nosotros
+                    </Scroll>
+                  ) : (
+                    <li>
+                      <Scroll
+                        to="excercises"
+                        spy={true}
+                        smooth={true}
+                        offset={-100}
+                        duration={500}
+                        className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                      >
+                        Ejercicios
+                      </Scroll>
+                    </li>
+                  )}
+                </li>
+
+                <li>
                   <Scroll
+                    to="feedbacks"
                     spy={true}
                     smooth={true}
                     offset={-100}
                     duration={500}
-                    to="about"
                     className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white  rounded md:bg-transparent  md:p-0 cursor-pointer"
                   >
-                    Nosotros
+                    Opiniones
                   </Scroll>
                 </li>
-
-                {user && (
-                  <li>
-                    <Scroll
-                      to="excercises"
-                      spy={true}
-                      smooth={true}
-                      offset={-100}
-                      duration={500}
-                      className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white  rounded md:bg-transparent  md:p-0 cursor-pointer"
-                    >
-                      Ejercicios
-                    </Scroll>
-                  </li>
-                )}
-                {user && (
-                  <li>
-                    <Scroll
-                      to="feedbacks"
-                      spy={true}
-                      smooth={true}
-                      offset={-100}
-                      duration={500}
-                      className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white  rounded md:bg-transparent  md:p-0 cursor-pointer"
-                    >
-                      Opiniones
-                    </Scroll>
-                  </li>
-                )}
               </ul>
             </div>
           </div>
