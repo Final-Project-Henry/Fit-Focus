@@ -232,7 +232,7 @@ export default function HomeVisitor() {
               <img src={github} width="10%" className="inline my-2" alt="img not found" /><span className="text-sm my-2"> Adr-AA</span>
             </a>
             <br />
-            <a href="https://www.linkedin.com/in/adrian-acurero/">
+            <a href="https://www.linkedin.com/in/adrian-acurero/" target="_blank">
               <img src={linkedIn} width="10%" className="inline my-2" alt="img not found" /><span className="text-sm my-2"> Adrian Acrurero</span>
             </a>
             <br />
