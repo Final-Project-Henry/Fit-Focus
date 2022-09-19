@@ -8,10 +8,12 @@ import {
   Div_benefitsVisitor2,
   Div_about,
 } from "./styles/styled_componet_homeVisite";
-import img1 from "../assets/homeRegister-media/Img1.jpg";
-import img2 from "../assets/homeRegister-media/Img2.jpg";
-import img3 from "../assets/homeRegister-media/Img3.jpg";
 import Footer from "../footer/Footer";
+
+const img2 = require("../assets/Fotos y Videos HomeVisitor/imgSlide2.2.jpeg");
+const img3 = require("../assets/Fotos y Videos HomeVisitor/imgSlide3.jpg");
+const img4 = require("../assets/Fotos y Videos HomeVisitor/imgSlide4.jpeg");
+const img5 = require("../assets/Fotos y Videos HomeVisitor/imgSlide5.jpeg");
 
 const foto1 = require("../assets/Fotos y Videos HomeVisitor/6Q26YGICPFBULGVJ2YO3RZN2F4.jpg");
 const foto2 = require("../assets/Fotos y Videos HomeVisitor/depositphotos_81858526-stock-photo-couple-doing-planking-exercises.jpg");
@@ -44,47 +46,61 @@ export default function HomeVisitor() {
 
   return (
     <>
-      <div className="felx bg-slate-50">
-        {/* <Navbar/> */}
-        {/* Yo adrian he quitado de className la clase Carousel para que se vea, pero la pagina sirve asi que subire, ojo aqui */}
-        <div className="w-screen">
-          <Carousel
-            content={[
-              { src: img1, text: "hombre fuerte" },
-              { src: img2, text: "Hombre fuerte 2" },
-              { src: img3, text: "Hombre Fuerte 3" },
-            ]}
-          />
-        </div>
+    <div className="felx bg-slate-50">
+      {/* <Navbar/> */}
+      {/* Yo adrian he quitado de className la clase Carousel para que se vea, pero la pagina sirve asi que subire, ojo aqui */}
+      <div className="w-screen">
+        <Carousel
+          content={[
+            { src: img2, },
+            { src: img3,},
+            { src: img4 },
+            { src: img5 },
+          ]}
+        />
+      </div>
         <Div_cards className="flex  ">
-          <div id="card" className=" rounded-xl overflow-hidden  text-white bg-gray-900">
+          <div
+            id="card"
+            className=" rounded-xl overflow-hidden  text-white bg-gray-900"
+          >
             <div id="img_card">
               <img src={foto1} className="foto1" alt="foto" />
             </div>
             <p>
-             La combinación de ejercicio y comida saludable puede ayudarte a incrementar tu nivel
-             de energía y a sentirte más alerta y conciente, tanto mental como físicamente. 
+              La combinación de ejercicio y comida saludable puede ayudarte a
+              incrementar tu nivel de energía y a sentirte más alerta y
+              conciente, tanto mental como físicamente.
             </p>
           </div>
 
-          <div id="card" className="rounded-xl overflow-hidden text-white bg-gray-900">
+          <div
+            id="card"
+            className="rounded-xl overflow-hidden text-white bg-gray-900"
+          >
             <div id="img_card">
               <img src={foto2} className="foto1" />
             </div>
             <p>
-              El ejercicio estimula los químicos del cerebro que ayudan a generar 
-              sentimientos de felicidad, satisfacción y relajación, por lo que te sentirás mejor 
-              si haces ejercicio regularmente. 
+              El ejercicio estimula los químicos del cerebro que ayudan a
+              generar sentimientos de felicidad, satisfacción y relajación, por
+              lo que te sentirás mejor si haces ejercicio regularmente.
             </p>
           </div>
-          <div id="card" className="rounded-xl overflow-hidden overflow-hidden text-white bg-gray-900">
+
+          <div
+            id="card"
+            className="rounded-xl overflow-hidden overflow-hidden text-white bg-gray-900"
+          >
+
             <div id="img_card">
               <img src={foto3} className="foto1" alt="foto" />
             </div>
             <p>
-              El ejercicio y la dieta saludable pueden ayudarte a tener una vida más variada e interesante.
-              Busca formas creativas de mantenerte activo físicamente en tu vida diaria, 
-              y no hagas siempre la misma rutina de ejercicio.
+              El ejercicio y la dieta saludable pueden ayudarte a tener una vida
+              más variada e interesante. Busca formas creativas de mantenerte
+              activo físicamente en tu vida diaria, y no hagas siempre la misma
+              rutina de ejercicio.
             </p>
           </div>
         </Div_cards>
@@ -105,48 +121,59 @@ export default function HomeVisitor() {
 
         <Div_benefitsVisitor2>
           <p className="benefitsVisitor2">
-          
-            Por norma general y en todas las edades, las comodidades en las que vivimos hacen que veamos al ejercicio físico como algo "duro" e introducirlo de una 
-            forma regular en nuestra vida cotidiana no siempre resulta fácil debido a múltiples factores... 
-            Es por ello que hemos decidido crear dicha aplicación para mostrarte algunos de los beneficios y asi comiences 
-            a ejercitarte dónde quieras y cuando quieras.
-            Solo debes dirigirte a la parte superior derecha de la pagina en el boton de <b>Registrarse</b> y comienza con tus entrenamientos básicos.</p>
+            Por norma general y en todas las edades, las comodidades en las que
+            vivimos hacen que veamos al ejercicio físico como algo "duro" e
+            introducirlo de una forma regular en nuestra vida cotidiana no
+            siempre resulta fácil debido a múltiples factores... Es por ello que
+            hemos decidido crear dicha aplicación para mostrarte algunos de los
+            beneficios y asi comiences a ejercitarte dónde quieras y cuando
+            quieras. Solo debes dirigirte a la parte superior derecha de la
+            pagina en el boton de <b>Registrarse</b> y comienza con tus
+            entrenamientos básicos.
+          </p>
         </Div_benefitsVisitor2>
 
         <Div_cards className="flex  ">
-          <div id="card" className=" rounded-xl overflow-hidden  text-white bg-gray-900">
+          <div
+            id="card"
+            className=" rounded-xl overflow-hidden  text-white bg-gray-900"
+          >
             <div id="img_card">
               <img src={brain} className="brainImg" alt="foto" />
             </div>
-            <p>
-              Menor degeneración neuronal.
-            </p>
+            <p>Menor degeneración neuronal.</p>
           </div>
-          <div id="card" className="rounded-xl overflow-hidden text-white bg-gray-900">
+          <div
+            id="card"
+            className="rounded-xl overflow-hidden text-white bg-gray-900"
+          >
             <div id="img_card">
               <img src={heart} className="foto1" />
             </div>
-            <p>
-              Mejora los factores de riesgo cardiovascular.
-            </p>
+            <p>Mejora los factores de riesgo cardiovascular.</p>
           </div>
-          <div id="card" className="rounded-xl overflow-hidden text-white bg-gray-900">
+          <div
+            id="card"
+            className="rounded-xl overflow-hidden text-white bg-gray-900"
+          >
             <div id="img_card">
               <img src={lungs} className="foto1" alt="foto" />
             </div>
-            <p>
-              Aumenta la capacidad de oxígeno pulmonar.
-            </p>
+            <p>Aumenta la capacidad de oxígeno pulmonar.</p>
           </div>
-          <div id="card" className="rounded-xl overflow-hidden text-white bg-gray-900">
+          <div
+            id="card"
+            className="rounded-xl overflow-hidden text-white bg-gray-900"
+          >
             <div id="img_card">
               <img src={sleep} className="foto1" alt="foto" />
             </div>
-            <p>
-              Previene apnea del sueño.
-            </p>
+            <p>Previene apnea del sueño.</p>
           </div>
-          <div id="card" className="rounded-xl overflow-hidden text-white bg-gray-900">
+          <div
+            id="card"
+            className="rounded-xl overflow-hidden text-white bg-gray-900"
+          >
             <div id="img_card">
               <img src={strong} className="foto1" alt="foto" />
             </div>
@@ -157,9 +184,9 @@ export default function HomeVisitor() {
         </Div_cards>
         {/* ABOUT US */}
 
-        <Div_about className="flex" id="about">
+        <Div_about className="flex border-b-4 bg-zinc-400 mt-8" id="about">
           <div id="text-about">
-            <div className="flex" id="titel-about">
+            <div className="flex " id="titel-about">
               <p id="abut">Acerca de nosotros</p>
             </div>
             <div id="text-description-about">
@@ -172,14 +199,14 @@ export default function HomeVisitor() {
               </p>
             </div>
           </div>
-          <div id="avatars-about" className=" text-white bg-amber-700">
+          <div id="avatars-about" className=" text-white bg-gray-900">
             <div id="card">
               <div id="img_card">
                 <img src={caterina} className="brainImg" alt="img not found" />
                 <div id="item-card">
                   <p>Caterina Aracil</p>
                   <div id="item-a">
-                    <a href="https://github.com/catearacil" target="_blank">
+                    <a href="https://github.com/catearacil" target="__blank">
                       <img
                         src={github}
                         className="inline my-2"
@@ -188,7 +215,7 @@ export default function HomeVisitor() {
                     </a>
                     <a
                       href="https://www.linkedin.com/in/caterina-aracil-42256722b/"
-                      target="_blank"
+                      target="__blank"
                     >
                       <img
                         src={linkedIn}
@@ -197,10 +224,7 @@ export default function HomeVisitor() {
                       />
                     </a>
 
-                    <a
-                      href="https://www.linkedin.com/in/rafaelgbetancourto/"
-                      target="_blank"
-                    >
+                    <a href="mailto:caterinaaracil@gmail.com" target="__blank">
                       <img
                         src={email}
                         className="inline my-2"
@@ -217,7 +241,7 @@ export default function HomeVisitor() {
                 <div id="item-card">
                   <p className="">Martín Angúlo</p>
                   <div id="item-a">
-                    <a href="https://github.com/MartinAngulo" target="_blank">
+                    <a href="https://github.com/MartinAngulo" target="__blank">
                       <img
                         src={github}
                         className="inline my-2"
@@ -227,7 +251,7 @@ export default function HomeVisitor() {
 
                     <a
                       href="https://www.linkedin.com/in/martinangulo1194/"
-                      target="_blank"
+                      target="___blank"
                     >
                       <img
                         src={linkedIn}
@@ -237,8 +261,8 @@ export default function HomeVisitor() {
                     </a>
 
                     <a
-                      href="https://www.linkedin.com/in/rafaelgbetancourto/"
-                      target="_blank"
+                      href="mailto:martinangulo1194@gmail.com"
+                      target="__blank"
                     >
                       <img
                         src={email}
@@ -256,7 +280,7 @@ export default function HomeVisitor() {
                 <div id="item-card">
                   <p className="">Sergio Garcia</p>
                   <div id="item-a">
-                    <a href="https://github.com/x1vaan" target="_blank">
+                    <a href="https://github.com/x1vaan" target="__blank">
                       <img
                         src={github}
                         className="inline my-2"
@@ -266,7 +290,7 @@ export default function HomeVisitor() {
 
                     <a
                       href="https://www.linkedin.com/in/sergio-ivan-garcia/"
-                      target="_blank"
+                      target="__blank"
                     >
                       <img
                         src={linkedIn}
@@ -277,7 +301,7 @@ export default function HomeVisitor() {
 
                     <a
                       href="https://www.linkedin.com/in/rafaelgbetancourto/"
-                      target="_blank"
+                      target="__blank"
                     >
                       <img
                         src={email}
@@ -295,7 +319,7 @@ export default function HomeVisitor() {
                 <div id="item-card">
                   <p className="">Adrian Acurero</p>
                   <div id="item-a">
-                    <a href="https://github.com/Adr-AA" target="_blank">
+                    <a href="https://github.com/Adr-AA" target="__blank">
                       <img
                         src={github}
                         className="inline my-2"
@@ -305,7 +329,7 @@ export default function HomeVisitor() {
 
                     <a
                       href="https://www.linkedin.com/in/adrian-acurero/"
-                      target="_blank"
+                      target="__blank"
                     >
                       <img
                         src={linkedIn}
@@ -316,7 +340,7 @@ export default function HomeVisitor() {
 
                     <a
                       href="https://www.linkedin.com/in/rafaelgbetancourto/"
-                      target="_blank"
+                      target="__blank"
                     >
                       <img
                         src={email}
@@ -336,7 +360,7 @@ export default function HomeVisitor() {
                 <div id="item-card">
                   <p className="">Lautaro Franco</p>
                   <div id="item-a">
-                    <a href="https://github.com/LautaroFranc" target="_blank">
+                    <a href="https://github.com/LautaroFranc" target="__blank">
                       <img
                         src={github}
                         className="inline my-2"
@@ -346,7 +370,7 @@ export default function HomeVisitor() {
 
                     <a
                       href="https://www.linkedin.com/in/lautaro-franco-a1358722b/"
-                      target="_blank"
+                      target="__blank"
                     >
                       <img
                         src={linkedIn}
@@ -355,10 +379,7 @@ export default function HomeVisitor() {
                       />
                     </a>
 
-                    <a
-                      href="https://www.linkedin.com/in/rafaelgbetancourto/"
-                      target="_blank"
-                    >
+                    <a href="mailto:Hola12lf@gmail.com" target="__blank">
                       <img
                         src={email}
                         className="inline my-2"
@@ -375,7 +396,7 @@ export default function HomeVisitor() {
                 <div id="item-card">
                   <p className="">Rodrigo Santesteban</p>
                   <div id="item-a">
-                    <a href="https://github.com/rodrisantes" target="_blank">
+                    <a href="https://github.com/rodrisantes" target="__blank">
                       <img
                         src={github}
                         className="inline my-2"
@@ -385,7 +406,7 @@ export default function HomeVisitor() {
 
                     <a
                       href="https://www.linkedin.com/in/rodrigo-santesteban-7334b5240/"
-                      target="_blank"
+                      target="__blank"
                     >
                       <img
                         src={linkedIn}
@@ -396,7 +417,7 @@ export default function HomeVisitor() {
 
                     <a
                       href="https://www.linkedin.com/in/rafaelgbetancourto/"
-                      target="_blank"
+                      target="__blank"
                     >
                       <img
                         src={email}
@@ -409,13 +430,17 @@ export default function HomeVisitor() {
               </div>
             </div>
 
+            {/* Rafa */}
             <div id="card">
               <div id="img_card">
                 <img src={david} className="foto1" alt="img not found" />
                 <div id="item-card">
                   <p className="">David Cicconi</p>
                   <div id="item-a">
-                    <a href="https://github.com/davidcicconi94" target="_blank">
+                    <a
+                      href="https://github.com/davidcicconi94"
+                      target="__blank"
+                    >
                       <img
                         src={github}
                         className="inline my-2"
@@ -425,7 +450,7 @@ export default function HomeVisitor() {
 
                     <a
                       href="https://www.linkedin.com/in/david-cicconi-dev/"
-                      target="_blank"
+                      target="__blank"
                     >
                       <img
                         src={linkedIn}
@@ -434,10 +459,7 @@ export default function HomeVisitor() {
                       />
                     </a>
 
-                    <a
-                      href="https://www.linkedin.com/in/rafaelgbetancourto/"
-                      target="_blank"
-                    >
+                    <a href="mailto:david.cicconi94@gmail.com" target="__blank">
                       <img
                         src={email}
                         className="inline my-2"
@@ -456,7 +478,7 @@ export default function HomeVisitor() {
                   <div id="item-a">
                     <a
                       href="https://github.com/RafaelBetancourt"
-                      target="_blank"
+                      target="__blank"
                     >
                       <img
                         src={github}
@@ -467,7 +489,7 @@ export default function HomeVisitor() {
 
                     <a
                       href="https://www.linkedin.com/in/rafaelgbetancourto/"
-                      target="_blank"
+                      target="__blank"
                     >
                       <img
                         src={linkedIn}
@@ -475,20 +497,13 @@ export default function HomeVisitor() {
                         alt="img not found"
                       />
                     </a>
-                    <a
-                      href="https://www.linkedin.com/in/rafaelgbetancourto/"
-                      target="_blank"
-                    >
-                      <a
-                        href="https://www.linkedin.com/in/rafaelgbetancourto/"
-                        target="_blank"
-                      >
-                        <img
-                          src={email}
-                          className="inline my-2"
-                          alt="img not found"
-                        />
-                      </a>
+
+                    <a href="mailto:rafael18282@gmail.com">
+                      <img
+                        src={email}
+                        className="inline my-2"
+                        alt="img not found"
+                      />
                     </a>
                   </div>
                 </div>
