@@ -115,7 +115,7 @@ flex-direction: row-reverse;
       #item-a{
         display: flex;
         justify-content: flex-end;
-        background-color: rgb(17, 24, 39);
+        background-color: rgb(180 ,83 ,9);
         position: relative;
         border-radius :0 4rem 4rem 0;
         left: -30px;

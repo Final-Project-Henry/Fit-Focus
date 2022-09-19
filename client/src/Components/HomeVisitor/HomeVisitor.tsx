@@ -172,7 +172,7 @@ export default function HomeVisitor() {
               </p>
             </div>
           </div>
-          <div id="avatars-about" className=" text-white bg-amber-700">
+          <div id="avatars-about" className=" text-white bg-gray-900">
             <div id="card">
               <div id="img_card">
                 <img src={caterina} className="brainImg" alt="img not found" />
