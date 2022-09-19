@@ -49,7 +49,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className=" border-gray-200 px-2 sm:px-4 py-2.5 bg-gray-900">
+      <nav className=" border-gray-200 px-2 sm:px-4 py-2.5 bg-black border-b-4">
         <div className="container-fluid w-full flex flex-wrap items-center justify-between px-8 p-4">
           <div className="flex items-center">
             <img
@@ -88,7 +88,7 @@ const Navbar = () => {
               className="text-center justify-between items-center w-full md:flex md:w-auto md:order-1"
               id="mobile-menu-2"
             >
-              <ul className="flex flex-col p-4 mt-4 ml-4 rounded-lg   md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0  md:bg-gray-900 border-gra0">
+              <ul className="flex flex-col p-4 mt-4 ml-4 rounded-lg   md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0  md:bg-black border-gra0">
                 <li>
                   <Link
                     to="/home"
@@ -99,46 +99,45 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
+                  {!user ? (
+                    <Scroll
+                      spy={true}
+                      smooth={true}
+                      offset={-100}
+                      duration={500}
+                      to="about"
+                      className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                    >
+                      Nosotros
+                    </Scroll>
+                  ) : (
+                    <li>
+                      <Scroll
+                        to="excercises"
+                        spy={true}
+                        smooth={true}
+                        offset={-100}
+                        duration={500}
+                        className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                      >
+                        Ejercicios
+                      </Scroll>
+                    </li>
+                  )}
+                </li>
+
+                <li>
                   <Scroll
+                    to="feedbacks"
                     spy={true}
                     smooth={true}
                     offset={-100}
                     duration={500}
-                    to="about"
                     className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white  rounded md:bg-transparent  md:p-0 cursor-pointer"
                   >
-                    Nosotros
+                    Opiniones
                   </Scroll>
                 </li>
-
-                {user && (
-                  <li>
-                    <Scroll
-                      to="excercises"
-                      spy={true}
-                      smooth={true}
-                      offset={-100}
-                      duration={500}
-                      className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white  rounded md:bg-transparent  md:p-0 cursor-pointer"
-                    >
-                      Ejercicios
-                    </Scroll>
-                  </li>
-                )}
-                {user && (
-                  <li>
-                    <Scroll
-                      to="feedbacks"
-                      spy={true}
-                      smooth={true}
-                      offset={-100}
-                      duration={500}
-                      className="block py-2 pr-4 pl-3 text-gray-400 hover:text-white  rounded md:bg-transparent  md:p-0 cursor-pointer"
-                    >
-                      Opiniones
-                    </Scroll>
-                  </li>
-                )}
               </ul>
             </div>
           </div>
@@ -194,7 +193,7 @@ const Navbar = () => {
                 <div>
                   <span className="sr-only">Open user menu</span>
                   <img
-                    className="w-8 h-8 rounded-full"
+                    className="w-10 h-10 rounded-full ml-4"
                     src={defaultPhoto}
                     onClick={() => setDropdown(!dropdown)}
                     alt="userphoto"
@@ -229,10 +228,9 @@ const Navbar = () => {
                 data-popper-placement="bottom"
                 style={{
                   position: "absolute",
-                  float: "right",
                   inset: "0px auto auto auto",
                   margin: "65px",
-                  transform: "translate(-100px, 0px)",
+                  transform: "translate(-50px, 20px)",
                 }}
               >
                 <div className="py-3 px-4">

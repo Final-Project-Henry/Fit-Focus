@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useCallback } from "react";
 import { useState } from "react";
+import Swal from "sweetalert2";
 import { opiniom, useToken } from "../../app/hooks";
 import icon from "../assets/icons/nav-icon.png";
 
@@ -15,56 +16,72 @@ const Footer = () => {
     comment: "",
     email: "",
   });
+  function handleChange(
+    event: React.ChangeEvent<
+      HTMLFormElement | HTMLInputElement | HTMLTextAreaElement
+    >
+  ): void {
+    setFeedback((pv) => ({ ...pv, [event.target.name]: event.target.value }));
+  }
 
   const handleSubmmit = async (event: React.FormEvent) => {
     event.preventDefault();
-     opiniom(token,feedback)
 
+    if (feedback.comment.length > 0 && feedback.email.length > 0) {
+      Swal.fire({
+        title: "¿Desea enviar tu opinion?",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#006eff",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Eviar opinion",
+        cancelButtonText: "Cancelar",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          opiniom(token, feedback);
+          setFeedback({ comment: "", email: "" });
+        }
+      });
+    }
   };
-
   return (
     <footer className="p-4 sm:p-6 bg-black">
       <div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0">
-          <a href="#"  target="_blank" className="flex items-center">
+          <div className="flex items-center hover: border-none">
             <img src={icon} className="mr-5 h-20" alt="Fit-Focus Logo" />
             <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
               Fit-Focus
             </span>
-          </a>
-          <div className="mt-5 md:mb-0">
-            <span className="self-center text-lg  text-white">
-              Danos tu opiniones
+          </div>
+          <div id="feedbacks" className="mt-5 md:mb-0">
+            <span className="mb-6 text-sm font-semibold uppercase text-white ml-5 ">
+              Dejanos tu opinión:
             </span>
             <form onSubmit={handleSubmmit}>
               <input
                 type="email"
-                placeholder="correo..."
+                name="email"
+                placeholder="Email..."
                 id="Nombre"
-                className="p-1 bg-white  rounded-lg"
-                onChange={(event) =>
-                  setFeedback({
-                    email: event.currentTarget?.value,
-                    comment: feedback.comment,
-                  })
-                }
-              ></input>
+                required
+                className="p-1 bg-white w-full mt-4 rounded-lg"
+                value={feedback.email}
+                onChange={handleChange}
+              />
 
               <textarea
-                id="message"
-                className="block rounded-lg"
-                placeholder="Your message..."
-                onChange={(event) =>
-                  setFeedback({
-                    comment: event.currentTarget?.value,
-                    email: feedback.email,
-                  })
-                }
-              ></textarea>
+                name="comment"
+                className="block rounded-lg w-full mt-4"
+                placeholder="Mensaje..."
+                required
+                value={feedback.comment}
+                onChange={handleChange}
+              />
 
               <button
                 type="submit"
-                className="text-white focus:ring-4  font-medium rounded-lg text-sm px-5 py-1  mt-4 bg-amber-700 hover:bg-amber-800 focus:outline-none"
+                className="text-white active:scale-90 duration-100  font-medium rounded-lg text-sm px-7 py-1.5  mt-4 bg-amber-700 hover:bg-amber-800 focus:outline-none"
               >
                 Enviar
               </button>
@@ -78,7 +95,11 @@ const Footer = () => {
             </h2>
             <ul className="text-gray-400">
               <li className="mb-4">
-                <a href="https://www.soyhenry.com/" target="_blank" className="hover:underline">
+                <a
+                  href="https://www.soyhenry.com/"
+                  target="_blank"
+                  className="hover:underline"
+                >
                   Henry
                 </a>
               </li>
@@ -86,7 +107,7 @@ const Footer = () => {
           </div>
           <div>
             <h2 className="mb-6 text-sm font-semibold  uppercase text-white">
-              SÍGANOS
+              sígannos
             </h2>
             <ul className="text-gray-400">
               <li className="mb-4">
@@ -127,7 +148,11 @@ const Footer = () => {
           todos los derechos.
         </span>
         <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-          <a href="#" target="_blank" className="text-gray-500 hover:text-white">
+          <a
+            href="#"
+            target="_blank"
+            className="text-gray-500 hover:text-white"
+          >
             <svg
               className="w-5 h-5"
               fill="currentColor"
@@ -135,14 +160,18 @@ const Footer = () => {
               aria-hidden="true"
             >
               <path
-                 fillRule="evenodd"
+                fillRule="evenodd"
                 d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
                 clipRule={"evenodd"}
               ></path>
             </svg>
             <span className="sr-only">Facebook page</span>
           </a>
-          <a href="#" target="_blank" className="text-gray-500 hover:text-white">
+          <a
+            href="#"
+            target="_blank"
+            className="text-gray-500 hover:text-white"
+          >
             <svg
               className="w-5 h-5"
               fill="currentColor"
@@ -157,7 +186,11 @@ const Footer = () => {
             </svg>
             <span className="sr-only">Instagram page</span>
           </a>
-          <a href="#"  target="_blank" className="text-gray-500 hover:text-white">
+          <a
+            href="#"
+            target="_blank"
+            className="text-gray-500 hover:text-white"
+          >
             <svg
               className="w-5 h-5"
               fill="currentColor"
@@ -168,16 +201,19 @@ const Footer = () => {
             </svg>
             <span className="sr-only">Twitter page</span>
           </a>
-          <a href="#" target="_blank" className="text-gray-500 hover:text-white">
+          <a
+            href="#"
+            target="_blank"
+            className="text-gray-500 hover:text-white"
+          >
             <svg
               className="w-5 h-5"
               fill="currentColor"
               viewBox="0 0 24 24"
               aria-hidden="true"
-              
             >
               <path
-                 fillRule="evenodd"
+                fillRule="evenodd"
                 d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
                 clipRule={"evenodd"}
               ></path>
