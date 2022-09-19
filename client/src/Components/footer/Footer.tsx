@@ -48,7 +48,7 @@ const Footer = () => {
     <footer className="p-4 sm:p-6 bg-gray-900">
       <div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0">
-          <div className="flex items-center hover: border-none">
+          <div className="flex items-center hover: border-none ml-9">
             <img src={icon} className="mr-5 h-20" alt="Fit-Focus Logo" />
             {/* <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
               Fit-Focus
@@ -58,23 +58,24 @@ const Footer = () => {
             <span className="mb-6 text-sm font-semibold uppercase text-white ml-5 ">
               Dejanos tu opinión:
             </span>
-            <form onSubmit={handleSubmmit}>
+            <form onSubmit={handleSubmmit} style={{ textAlign: "center" }}>
               <input
                 type="email"
                 name="email"
                 placeholder="Email..."
                 id="Nombre"
                 required
-                className="p-1 bg-white w-full mt-4 rounded-lg"
+                className="p-2 bg-white w-full mt-4 rounded-lg"
                 value={feedback.email}
                 onChange={handleChange}
               />
 
               <textarea
                 name="comment"
-                className="block rounded-lg w-full mt-4"
+                className="block rounded-lg w-full mt-4 resize-none"
                 placeholder="Mensaje..."
                 required
+                rows={8}
                 value={feedback.comment}
                 onChange={handleChange}
               />
