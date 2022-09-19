@@ -20,6 +20,7 @@ const Navbar = () => {
 
   const dispatch = useAppDispatch();
   const userData = useSesion();
+  console.log(userData);
 
   useEffect(() => {
     if (userData) {
@@ -57,9 +58,9 @@ const Navbar = () => {
               className="mr-3 h-6 sm:h-9 cursor-default"
               alt="FF Logo"
             />
-            <span className="self-center text-xl font-semibold whitespace-nowrap text-white cursor-default">
+            {/* <span className="self-center text-xl font-semibold whitespace-nowrap text-white cursor-default">
               Fit-Focus
-            </span>
+            </span> */}
             <button
               onClick={() => setShowMenu(!showMenu)}
               data-collapse-toggle="mobile-menu-2"

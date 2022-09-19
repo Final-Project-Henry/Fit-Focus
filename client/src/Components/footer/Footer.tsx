@@ -50,9 +50,9 @@ const Footer = () => {
         <div className="mb-6 md:mb-0">
           <div className="flex items-center hover: border-none">
             <img src={icon} className="mr-5 h-20" alt="Fit-Focus Logo" />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
+            {/* <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
               Fit-Focus
-            </span>
+            </span> */}
           </div>
           <div id="feedbacks" className="mt-5 md:mb-0">
             <span className="mb-6 text-sm font-semibold uppercase text-white ml-5 ">

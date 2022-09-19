@@ -109,12 +109,11 @@ export default function HomeVisitor() {
         <Div_benefitsVisitor2>
           <p className="benefitsVisitor2">
           
-            Por norma general y en todas las edades, el introducir el ejercicio físico de una forma regular en nuestra vida cotidiana
-            no siempre nos resulta fácil debido a múltiples factores... 
-            Las comodidades con las que vivimos hacen que veamos al ejercicio físico como algo muy duro.
+            Por norma general y en todas las edades, las comodidades en las que vivimos hacen que veamos al ejercicio físico como algo "duro" e introducirlo de una 
+            forma regular en nuestra vida cotidiana no siempre resulta fácil debido a múltiples factores... 
             Es por ello que hemos decidido crear dicha aplicación para mostrarte algunos de los beneficios y asi comiences 
             a ejercitarte dónde quieras y cuando quieras.
-            Solo debes dirigirte a la parte superior derecha de la pagina en el boton de <b>Registrarse</b> y comienza con tus entrenamientos básicos</p>
+            Solo debes dirigirte a la parte superior derecha de la pagina en el boton de <b>Registrarse</b> y comienza con tus entrenamientos básicos.</p>
         </Div_benefitsVisitor2>
 
         <Div_cards className="flex  ">
