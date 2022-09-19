@@ -9,6 +9,7 @@ import {
   selectUser,
   
 } from "../../features/counter/counterSlice";
+import GoogleAuth from "../GoogleAuth/GoogleAuth";
 interface Propos{
   facebook:string,
   google:string,
@@ -100,7 +101,8 @@ const SingUp:React.FC<Propos>=( {facebook, google, linkedin,loading_icon} )=>{
           </form>
 
             <div id="auth" className="flex ">
-              <div className="rounded p-3" onClick={()=>dispatch(auth_Login_Google())}>
+              <GoogleAuth />
+              {/* <div className="rounded p-3" onClick={()=>dispatch(auth_Login_Google())}>
                 <img src={google}/>
               </div>
               <div className="rounded p-3">
@@ -108,7 +110,7 @@ const SingUp:React.FC<Propos>=( {facebook, google, linkedin,loading_icon} )=>{
               </div>
               <div className="rounded p-3">
                 <img src={linkedin}/>
-              </div>
+              </div> */}
             </div>
       </>
 
