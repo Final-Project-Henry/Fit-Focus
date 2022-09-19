@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-oauth/google": "^0.2.8",
     "@reduxjs/toolkit": "^1.8.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -11,12 +12,20 @@
     "@types/node": "^17.0.45",
     "@types/react": "^18.0.19",
     "@types/react-dom": "^18.0.6",
+    "axios": "^0.27.2",
+    "jwt-decode": "^3.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",
+    "react-router-dom": "^6.4.0",
     "react-scripts": "5.0.1",
+    "react-scroll": "^1.8.7",
+    "react-ts-typewriter": "^0.1.8-b",
     "styled-components": "^5.3.5",
+    "sweetalert2": "^11.4.33",
+    "swiper": "^8.4.2",
     "typescript": "^4.8.3",
+    "typewriter-effect": "^2.19.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -42,5 +51,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/react-scroll": "^1.8.4",
+    "autoprefixer": "^10.4.10",
+    "postcss": "^8.4.16",
+    "tailwindcss": "^3.1.8"
   }
 }
