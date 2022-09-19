@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useCallback } from "react";
 import { useState } from "react";
+import Swal from "sweetalert2";
 import { opiniom, useToken } from "../../app/hooks";
 import icon from "../assets/icons/nav-icon.png";
 
@@ -15,56 +16,72 @@ const Footer = () => {
     comment: "",
     email: "",
   });
+  function handleChange(
+    event: React.ChangeEvent<
+      HTMLFormElement | HTMLInputElement | HTMLTextAreaElement
+    >
+  ): void {
+    setFeedback((pv) => ({ ...pv, [event.target.name]: event.target.value }));
+  }
 
   const handleSubmmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    opiniom(token, feedback)
 
+    if (feedback.comment.length > 0 && feedback.email.length > 0) {
+      Swal.fire({
+        title: "¿Desea enviar tu opinion?",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#006eff",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Eviar opinion",
+        cancelButtonText: "Cancelar",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          opiniom(token, feedback);
+          setFeedback({ comment: "", email: "" });
+        }
+      });
+    }
   };
-
   return (
-    <footer className="p-4 sm:p-6 bg-black">
+    <footer className="p-4 sm:p-6 bg-gray-900">
       <div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0">
-          <a href="#" target="_blank" className="flex items-center">
+          <div className="flex items-center hover: border-none">
             <img src={icon} className="mr-5 h-20" alt="Fit-Focus Logo" />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
+            {/* <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
               Fit-Focus
-            </span>
-          </a>
-          <div className="mt-5 md:mb-0">
-            <span className="self-center text-lg  text-white">
-              Danos tu opiniones
+            </span> */}
+          </div>
+          <div id="feedbacks" className="mt-5 md:mb-0">
+            <span className="mb-6 text-sm font-semibold uppercase text-white ml-5 ">
+              Dejanos tu opinión:
             </span>
             <form onSubmit={handleSubmmit}>
               <input
                 type="email"
-                placeholder="correo..."
+                name="email"
+                placeholder="Email..."
                 id="Nombre"
-                className="p-1 bg-white  rounded-lg"
-                onChange={(event) =>
-                  setFeedback({
-                    email: event.currentTarget?.value,
-                    comment: feedback.comment,
-                  })
-                }
-              ></input>
+                required
+                className="p-1 bg-white w-full mt-4 rounded-lg"
+                value={feedback.email}
+                onChange={handleChange}
+              />
 
               <textarea
-                id="message"
-                className="block rounded-lg"
-                placeholder="Your message..."
-                onChange={(event) =>
-                  setFeedback({
-                    comment: event.currentTarget?.value,
-                    email: feedback.email,
-                  })
-                }
-              ></textarea>
+                name="comment"
+                className="block rounded-lg w-full mt-4"
+                placeholder="Mensaje..."
+                required
+                value={feedback.comment}
+                onChange={handleChange}
+              />
 
               <button
                 type="submit"
-                className="text-white focus:ring-4  font-medium rounded-lg text-sm px-5 py-1  mt-4 bg-amber-700 hover:bg-amber-800 focus:outline-none"
+                className="text-white active:scale-90 duration-100  font-medium rounded-lg text-sm px-7 py-1.5  mt-4 bg-amber-700 hover:bg-amber-800 focus:outline-none"
               >
                 Enviar
               </button>
@@ -78,7 +95,11 @@ const Footer = () => {
             </h2>
             <ul className="text-gray-400">
               <li className="mb-4">
-                <a href="https://www.soyhenry.com/" target="_blank" className="hover:underline">
+                <a
+                  href="https://www.soyhenry.com/"
+                  target="_blank"
+                  className="hover:underline"
+                >
                   Henry
                 </a>
               </li>
@@ -86,7 +107,7 @@ const Footer = () => {
           </div>
           <div>
             <h2 className="mb-6 text-sm font-semibold  uppercase text-white">
-              SÍGANOS
+              sígannos
             </h2>
             <ul className="text-gray-400">
               <li className="mb-4">
@@ -127,7 +148,11 @@ const Footer = () => {
           todos los derechos.
         </span>
         <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-          <a href="#" target="_blank" className="text-gray-500 hover:text-white">
+          <a
+            href="#"
+            target="_blank"
+            className="text-gray-500 hover:text-white"
+          >
             <svg
               className="w-5 h-5"
               fill="currentColor"
@@ -142,7 +167,11 @@ const Footer = () => {
             </svg>
             <span className="sr-only">Facebook page</span>
           </a>
-          <a href="#" target="_blank" className="text-gray-500 hover:text-white">
+          <a
+            href="#"
+            target="_blank"
+            className="text-gray-500 hover:text-white"
+          >
             <svg
               className="w-5 h-5"
               fill="currentColor"
@@ -157,7 +186,11 @@ const Footer = () => {
             </svg>
             <span className="sr-only">Instagram page</span>
           </a>
-          <a href="#" target="_blank" className="text-gray-500 hover:text-white">
+          <a
+            href="#"
+            target="_blank"
+            className="text-gray-500 hover:text-white"
+          >
             <svg
               className="w-5 h-5"
               fill="currentColor"
@@ -168,13 +201,16 @@ const Footer = () => {
             </svg>
             <span className="sr-only">Twitter page</span>
           </a>
-          <a href="#" target="_blank" className="text-gray-500 hover:text-white">
+          <a
+            href="#"
+            target="_blank"
+            className="text-gray-500 hover:text-white"
+          >
             <svg
               className="w-5 h-5"
               fill="currentColor"
               viewBox="0 0 24 24"
               aria-hidden="true"
-
             >
               <path
                 fillRule="evenodd"

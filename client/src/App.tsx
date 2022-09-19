@@ -5,6 +5,11 @@ import HomeVisitor from "./Components/HomeVisitor/HomeVisitor";
 import HomeRegister from "./Components/HomeRegister/HomeRegister";
 import Navbar from "./Components/Navbar/Navbar";
 import { useSesion } from "./app/hooks";
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import GoogleAuth from "./Components/GoogleAuth/GoogleAuth";
+
+
+
 
 import Form_rutinas from "./Components/form_rutinas/From_rutina";
 
@@ -16,6 +21,7 @@ function App() {
   const user = useSesion();
 
   return (
+    <GoogleOAuthProvider clientId="553882700243-5u6lingb04c86igau7nr6kjpicu042cl.apps.googleusercontent.com">
     <React.Fragment>
       {pathname !== "/" && <Navbar />}
       <Routes>
@@ -27,8 +33,10 @@ function App() {
           <Route path="/home" element={<HomeVisitor />} />
         )}
         <Route path="/rutinas" element={<Form_rutinas />} />
+        <Route path="auth/google" element={<GoogleAuth />} />
       </Routes>
     </React.Fragment>
+    </GoogleOAuthProvider >
   );
 }
 
