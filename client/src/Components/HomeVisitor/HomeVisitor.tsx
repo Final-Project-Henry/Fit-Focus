@@ -8,10 +8,12 @@ import {
   Div_benefitsVisitor2,
   Div_about,
 } from "./styles/styled_componet_homeVisite";
-import img1 from "../assets/homeRegister-media/Img1.jpg";
-import img2 from "../assets/homeRegister-media/Img2.jpg";
-import img3 from "../assets/homeRegister-media/Img3.jpg";
 import Footer from "../footer/Footer";
+
+const img2 = require("../assets/Fotos y Videos HomeVisitor/imgSlide2.2.jpeg");
+const img3 = require("../assets/Fotos y Videos HomeVisitor/imgSlide3.jpg");
+const img4 = require("../assets/Fotos y Videos HomeVisitor/imgSlide4.jpeg");
+const img5 = require("../assets/Fotos y Videos HomeVisitor/imgSlide5.jpeg");
 
 const foto1 = require("../assets/Fotos y Videos HomeVisitor/6Q26YGICPFBULGVJ2YO3RZN2F4.jpg");
 const foto2 = require("../assets/Fotos y Videos HomeVisitor/depositphotos_81858526-stock-photo-couple-doing-planking-exercises.jpg");
@@ -44,18 +46,19 @@ export default function HomeVisitor() {
 
   return (
     <>
-      <div className="felx bg-slate-50">
-        {/* <Navbar/> */}
-        {/* Yo adrian he quitado de className la clase Carousel para que se vea, pero la pagina sirve asi que subire, ojo aqui */}
-        <div className="w-screen">
-          <Carousel
-            content={[
-              { src: img1, text: "hombre fuerte" },
-              { src: img2, text: "Hombre fuerte 2" },
-              { src: img3, text: "Hombre Fuerte 3" },
-            ]}
-          />
-        </div>
+    <div className="felx bg-slate-50">
+      {/* <Navbar/> */}
+      {/* Yo adrian he quitado de className la clase Carousel para que se vea, pero la pagina sirve asi que subire, ojo aqui */}
+      <div className="w-screen">
+        <Carousel
+          content={[
+            { src: img2, },
+            { src: img3,},
+            { src: img4 },
+            { src: img5 },
+          ]}
+        />
+      </div>
         <Div_cards className="flex  ">
           <div
             id="card"
@@ -84,10 +87,12 @@ export default function HomeVisitor() {
               lo que te sentirás mejor si haces ejercicio regularmente.
             </p>
           </div>
+
           <div
             id="card"
             className="rounded-xl overflow-hidden overflow-hidden text-white bg-gray-900"
           >
+
             <div id="img_card">
               <img src={foto3} className="foto1" alt="foto" />
             </div>
