@@ -166,6 +166,7 @@ const HomeRegister = () => {
   ]);
 
   return (
+    <>
     <div className="max-w-full mb-12 mx-auto overflow-hidden bg-slate-50 rounded-md shadow-lg">
       <Carousel
         content={[
@@ -354,6 +355,8 @@ const HomeRegister = () => {
         </div>
       </div>
     </div>
+    <Footer/>
+  </>
   );
 };
 

@@ -8,8 +8,6 @@ import { useSesion } from "./app/hooks";
 
 import Form_rutinas from "./Components/form_rutinas/From_rutina";
 
-import FormFeedback from "./Components/FormFeedback/FormFeedback";
-
 import SingUp_Login from "./Components/login-singUp/Singup_Login";
 
 function App() {
@@ -28,7 +26,6 @@ function App() {
         ) : (
           <Route path="/home" element={<HomeVisitor />} />
         )}
-        <Route path="/feedbacks" element={<FormFeedback />} />
         <Route path="/rutinas" element={<Form_rutinas />} />
       </Routes>
     </React.Fragment>
