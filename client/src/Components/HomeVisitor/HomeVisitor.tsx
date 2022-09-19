@@ -117,24 +117,12 @@ export default function HomeVisitor() {
         </Div_benefitsVisitor>
 
         <Div_benefitsVisitor2>
-          <p className="benefitsVisitor2">
-            Como sabemos, elejercicio físico es cualquier movimiento voluntario
-            realizado por los músculos, que gasta energía extra, además de la
-            energía que nuestro cuerpo consume y necesita para mantener la vida
-            o actividad basal (dormir, respirar, procesos metabólicos, entre
-            otros). Por norma general y en todas las edades, el introducir el
-            ejercicio físico de una forma regular en nuestra vida cotidiana no
-            siempre nos resulta fácil. Esto es debido a múltiples factores como
-            son: la velocidad con que vivimos, la utilización del coche o moto,
-            estamos sentados la mayor parte del día viendo televisión o con los
-            vídeo juegos... Las comodidades con las que vivimos hacen que veamos
-            el ejercicio físico como algo muy duro, y nos inventemos excusas
-            como "no tengo tiempo" o "estoy cansada/o". Es por ello que hemos
-            decidido crear esta maravillosa aplicacion y mostrarte algunos de
-            los beneficios del ejercicio para que comiences a ejercitarte desde
-            tu hogar a cualquier hora que desees, solo debes dirigirte a la
-            parte superior derecha de la pagina en el boton de{" "}
-            <b>Registrarse</b> y comienza con tus entrenamientos básicos
+          <p>
+           Por norma general y en todas las edades, las comodidades en las que vivimos hacen que veamos al ejercicio físico como algo "duro" e introducirlo de una 
+            forma regular en nuestra vida cotidiana no siempre resulta fácil debido a múltiples factores... 
+            Es por ello que hemos decidido crear dicha aplicación para mostrarte algunos de los beneficios y asi comiences 
+            a ejercitarte dónde quieras y cuando quieras.
+            Solo debes dirigirte a la parte superior derecha de la pagina en el boton de <b>Registrarse</b> y comienza con tus entrenamientos básicos.
           </p>
         </Div_benefitsVisitor2>
 
@@ -191,7 +179,7 @@ export default function HomeVisitor() {
 
         {/* ABOUT US */}
 
-        <Div_about className="flex">
+        <Div_about className="flex" id="about">
           <div id="text-about">
             <div className="flex" id="titel-about">
               <p id="abut">Acerca de nosotros</p>
