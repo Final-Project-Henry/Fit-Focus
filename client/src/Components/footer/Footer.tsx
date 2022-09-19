@@ -45,7 +45,7 @@ const Footer = () => {
     }
   };
   return (
-    <footer className="p-4 sm:p-6 bg-black">
+    <footer className="p-4 sm:p-6 bg-gray-900">
       <div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0">
           <div className="flex items-center hover: border-none">
