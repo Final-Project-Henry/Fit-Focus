@@ -3,8 +3,8 @@ nav a {
     display: block;
     position: relative;
     padding: 0.2em 0;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 18px;
+    font-size: 15px;
+    font-weight: bold;
   }
   
   /* Fade in */
