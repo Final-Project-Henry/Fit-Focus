@@ -26,7 +26,7 @@ const Footer = () => {
     <footer className="p-4 sm:p-6 bg-black">
       <div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0">
-          <a href="#" className="flex items-center">
+          <a href="#"  target="_blank" className="flex items-center">
             <img src={icon} className="mr-5 h-20" alt="Fit-Focus Logo" />
             <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
               Fit-Focus
@@ -64,7 +64,7 @@ const Footer = () => {
 
               <button
                 type="submit"
-                className="text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-1  mt-4 bg-amber-700 hover:bg-blue-700 focus:outline-none"
+                className="text-white focus:ring-4  font-medium rounded-lg text-sm px-5 py-1  mt-4 bg-amber-700 hover:bg-amber-800 focus:outline-none"
               >
                 Enviar
               </button>
@@ -78,7 +78,7 @@ const Footer = () => {
             </h2>
             <ul className="text-gray-400">
               <li className="mb-4">
-                <a href="https://www.soyhenry.com/" className="hover:underline">
+                <a href="https://www.soyhenry.com/" target="_blank" className="hover:underline">
                   Henry
                 </a>
               </li>
@@ -95,7 +95,7 @@ const Footer = () => {
                 </a>
               </li>
               <li className="mb-4">
-                <a href="#" className="hover:underline ">
+                <a href="#" target="_blank" className="hover:underline ">
                   instagram
                 </a>
               </li>
@@ -107,12 +107,12 @@ const Footer = () => {
             </h2>
             <ul className="text-gray-400">
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a href="#" target="_blank" className="hover:underline">
                   Política de Privacidad
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="#" target="_blank" className="hover:underline">
                   Términos y Condiciones
                 </a>
               </li>
@@ -127,7 +127,7 @@ const Footer = () => {
           todos los derechos.
         </span>
         <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-          <a href="#" className="text-gray-500 hover:text-white">
+          <a href="#" target="_blank" className="text-gray-500 hover:text-white">
             <svg
               className="w-5 h-5"
               fill="currentColor"
@@ -142,7 +142,7 @@ const Footer = () => {
             </svg>
             <span className="sr-only">Facebook page</span>
           </a>
-          <a href="#" className="text-gray-500 hover:text-white">
+          <a href="#" target="_blank" className="text-gray-500 hover:text-white">
             <svg
               className="w-5 h-5"
               fill="currentColor"
@@ -157,7 +157,7 @@ const Footer = () => {
             </svg>
             <span className="sr-only">Instagram page</span>
           </a>
-          <a href="#" className="text-gray-500 hover:text-white">
+          <a href="#"  target="_blank" className="text-gray-500 hover:text-white">
             <svg
               className="w-5 h-5"
               fill="currentColor"
@@ -168,7 +168,7 @@ const Footer = () => {
             </svg>
             <span className="sr-only">Twitter page</span>
           </a>
-          <a href="#" className="text-gray-500 hover:text-white">
+          <a href="#" target="_blank" className="text-gray-500 hover:text-white">
             <svg
               className="w-5 h-5"
               fill="currentColor"
