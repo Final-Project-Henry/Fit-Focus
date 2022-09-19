@@ -10,7 +10,6 @@ import {
 } from "./styles/styled_componet_homeVisite";
 import Footer from "../footer/Footer";
 
-const img1 = require("../assets/Fotos y Videos HomeVisitor/imgSlide1.1.jpeg");
 const img2 = require("../assets/Fotos y Videos HomeVisitor/imgSlide2.2.jpeg");
 const img3 = require("../assets/Fotos y Videos HomeVisitor/imgSlide3.jpg");
 const img4 = require("../assets/Fotos y Videos HomeVisitor/imgSlide4.jpeg");
@@ -53,7 +52,6 @@ export default function HomeVisitor() {
       <div className="w-screen">
         <Carousel
           content={[
-            { src: img1, },
             { src: img2, },
             { src: img3,},
             { src: img4 },
@@ -61,17 +59,6 @@ export default function HomeVisitor() {
           ]}
         />
       </div>
-      <Div_cards className="flex  ">
-        <div id="card" className="   text-white bg-gray-900">
-          <div id="img_card">
-            <img src={foto1} className="foto1" alt="foto" />
-          </div>
-          <p>
-            Correr sin moverse del sitio es muy efectivo para quemar calorías.
-            Ésto, es fácil de entender, ya que al estar realizando movimientos musculares
-            y al estar haciendo esfuerzo, vamos a necesitar energía para mover esos músculos
-          </p>
-        </div>
         <Div_cards className="flex  ">
           <div id="card" className=" rounded-xl overflow-hidden  text-white bg-gray-900">
             <div id="img_card">
@@ -93,7 +80,7 @@ export default function HomeVisitor() {
               si haces ejercicio regularmente. 
             </p>
           </div>
-          <div id="card" className="rounded-xl overflow-hidden overflow-hidden text-white bg-gray-900">
+          <div id="card" className="rounded-xl overflow-hidden text-white bg-gray-900">
             <div id="img_card">
               <img src={foto3} className="foto1" alt="foto" />
             </div>
