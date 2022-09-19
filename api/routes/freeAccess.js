@@ -54,7 +54,7 @@ router.get('/login/google', (req,res) => {
 });
 
 router.get('/exercises', async (req, res) =>{ // Devuelve unos ejercicios para mostrar
-  const Exercises = await exercise.find().limit(15);
+  const Exercises = await exercise.find();
   res.status(200).send(Exercises)
 });
 
