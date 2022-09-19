@@ -65,9 +65,8 @@ export default function HomeVisitor() {
               <img src={foto1} className="foto1" alt="foto" />
             </div>
             <p>
-              Correr sin moverse del sitio es muy efectivo para quemar calorías.
-              Ésto, es fácil de entender, ya que al estar realizando movimientos musculares
-              y al estar haciendo esfuerzo, vamos a necesitar energía para mover esos músculos.
+             La combinación de ejercicio y comida saludable puede ayudarte a incrementar tu nivel
+             de energía y a sentirte más alerta y conciente, tanto mental como físicamente. 
             </p>
           </div>
 
@@ -76,9 +75,9 @@ export default function HomeVisitor() {
               <img src={foto2} className="foto1" />
             </div>
             <p>
-              La plancha es uno de esos ejercicios que no pasan de moda
-              y esto tiene una buena razón: cuando se trata de calificar entrenamientos,
-              ningún ejercicio es mejor que la plancha en términos de tiempo y eficacia.
+              El ejercicio estimula los químicos del cerebro que ayudan a generar 
+              sentimientos de felicidad, satisfacción y relajación, por lo que te sentirás mejor 
+              si haces ejercicio regularmente. 
             </p>
           </div>
           <div id="card" className=" text-white bg-gray-900">
@@ -86,9 +85,9 @@ export default function HomeVisitor() {
               <img src={foto3} className="foto1" alt="foto" />
             </div>
             <p>
-              Hacer abdominales te permite fortalecer y activar la musculatura abdominal,
-              central, permitiendo la eliminación no sólo de centímetros de volumen,
-              sino también de gases y ayudando a que el tránsito intestinal fluya correctamente.
+              El ejercicio y la dieta saludable pueden ayudarte a tener una vida más variada e interesante.
+              Busca formas creativas de mantenerte activo físicamente en tu vida diaria, 
+              y no hagas siempre la misma rutina de ejercicio.
             </p>
           </div>
         </Div_cards>
@@ -112,8 +111,7 @@ export default function HomeVisitor() {
           
             Por norma general y en todas las edades, el introducir el ejercicio físico de una forma regular en nuestra vida cotidiana
             no siempre nos resulta fácil debido a múltiples factores... 
-            Las comodidades con las que vivimos hacen que veamos al ejercicio físico como algo muy duro, y nos inventemos excusas como
-            "no tengo tiempo" o "estoy cansada/o".
+            Las comodidades con las que vivimos hacen que veamos al ejercicio físico como algo muy duro.
             Es por ello que hemos decidido crear dicha aplicación para mostrarte algunos de los beneficios y asi comiences 
             a ejercitarte dónde quieras y cuando quieras.
             Solo debes dirigirte a la parte superior derecha de la pagina en el boton de <b>Registrarse</b> y comienza con tus entrenamientos básicos</p>
