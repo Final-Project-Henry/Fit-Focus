@@ -32,7 +32,7 @@ router.get('/', async (req, res) => {
      const token = jwt.sign({email : oldUser.email, name : oldUser.name, id : oldUser._id}, "" + SECRET)
      res.status(200).send(token)
     } catch (error) {
-       console.log(error.message) 
+       res.status(500).send(error.message) 
     }
 })
 
