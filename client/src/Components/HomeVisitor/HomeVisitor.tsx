@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import {
   Div_cards,
-  Div_video,
+  Div_screem2,
   Div_benefitsVisitor,
   Div_benefitsVisitor2,
   Div_about,
@@ -38,9 +38,15 @@ const opiniones = [{
 
 }]
 
+function ramdomMsj(){
+  let ramdomMsj=Math.floor(Math.random()*opiniones.length)
+return ramdomMsj
+}
 export default function HomeVisitor() {
-  const [data, setData] = useState<string>();
-
+  const [data, setData] = useState<number>(0);
+useEffect(() => {
+  return setData(ramdomMsj());
+},[ramdomMsj()])
   return (
     <>
       {/* screen 1  */}
@@ -62,24 +68,48 @@ export default function HomeVisitor() {
                 <img src="https://api.lorem.space/image/face?w=120&h=120&hash=bart89fe" />
               </div>
               <div id="card-text-opiniones">
-                <p>marcel</p>
-                <p>"hermosa app"</p>
+                <p>{opiniones[data].name}</p>
+                <p>{opiniones[data].opinion}</p>
               </div>
             </div>
           </div>
           <div></div>
         </Div_cards>
       </div>
-      {/* screen 2  rafa */}
-
-      <div className="h-screen">
-
+      {/* screen 2 */}
+      <div className="h-screen flex justify-center">
+        <Div_screem2>
+          <div id="text-screen2">
+            <h3>Nuetra app te ofrece</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ipsum voluptate, corporis blanditiis molestiae velit dolore? Maxime beatae natus dolorem repudiandae corrupti dolore vitae nisi adipisci commodi, ea ipsa nobis! </p>
+          </div>
+          <div id="img-screen2">
+            <div>
+            <img id="img-1" src={img9} alt="img" />
+            <img id="img-2" src={img10} alt="img" />
+            </div>
+          </div>
+        </Div_screem2>
       </div>
       {/* screen 3  */}
       <div className="h-screen">
 
       </div>
-      {/* screen 4  */}
+        {/* screen extra  */}
+
+        <div className="h-screen">
+          <div className="flex w-[90%]">
+            <div className="w-[100%]">
+                <img src={img11} alt="img" />
+            </div>
+            <div>
+              <h3 className="text-3xl">Fit focus palabras palabras</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, quasi minima nobis voluptatibus ratione doloremque itaque, sint tenetur, sed libero non ducimus dolorem voluptatem consectetur modi est illo commodi nihil.
+              </p>
+            </div>
+          </div>
+        </div>
       <div className="flex justify-center w-full ">
         <div className="max-w-[60%] flex justify-center w-full space-x-1.5 ">
           <div className="font-bold text-center text-2xl border border-indigo-400 max-w-[50%] rounded-md ">
@@ -112,3 +142,7 @@ export default function HomeVisitor() {
     </>
   );
 }
+
+
+
+

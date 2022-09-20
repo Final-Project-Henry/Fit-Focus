@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 const Div_cards = styled.div`
   display: flex;
+  background-color: #f8fafc;
+  background-image: linear-gradient(0deg, #f8fafc 0%, #6c63ff 100%);
   #text-container{
     padding: 10px;
     h1{
@@ -14,6 +16,7 @@ const Div_cards = styled.div`
     }
     button{
       background-color: #6c63ff;
+      box-shadow: 2px 10px 20px 0px #6c63ff75;
       padding: 10px 50px;
       margin: 50px 10px;
       color: #fff;
@@ -22,7 +25,6 @@ const Div_cards = styled.div`
   }
 
   #img-container{
-    
     #card-opiniones{
       display: flex;
       width:100%;
@@ -40,6 +42,7 @@ const Div_cards = styled.div`
         font-size: 1.5rem;
       }
     }
+
     #img{
         position:relative;
         top: 20px;
@@ -49,28 +52,32 @@ const Div_cards = styled.div`
         img{
           border-radius: 100%;
         }
-      }
+     }
   }
-
 `;
-const Div_video = styled.div`
-  height: 650px;
-  overflow: hidden;
+const Div_screem2 = styled.div`
   display: flex;
+  width: 98%;
+  box-shadow: 0px 5px 15px 0px #6c63ff75;
   justify-content: center;
-  align-items: center;
-  background-color: #000;
+  background-color: #fff;
+  border-radius: 20px;
+  #text-screen2{
+    font-size: 5rem;
+    width: 70%;
+  }
+  h3{
+    position: relative;
+    left: 70px;
+  }
   p {
+    width: 70%;
+    margin: 5px 100px;
+    font-size: 1.5rem;
+  }
+  #img-2{
     position: absolute;
-    font-size: 2rem;
-    z-index: 1;
-  }
-
-  #btm_video {
-    margin: 50px;
-  }
-  #video {
-    opacity: 50%;
+    margin:-10% -20%;
   }
 `;
 const Div_benefitsVisitor = styled.div`
@@ -156,10 +163,11 @@ const Div_about = styled.div`
     height: 100vh;
   }
 `;
+
 export {
   Div_about,
   Div_cards,
-  Div_video,
+  Div_screem2,
   Div_benefitsVisitor,
   Div_benefitsVisitor2,
 };
