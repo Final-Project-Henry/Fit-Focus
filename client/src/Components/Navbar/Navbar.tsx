@@ -49,7 +49,7 @@ const Navbar = () => {
   }
 
   return (
-    <div>
+    <div className="relative">
       <nav className=" border-gray-200 px-2 sm:px-4 py-2.5 bg-gray-900 ">
         <div className="container-fluid w-full flex flex-wrap items-center justify-between px-8 p-4">
           <div className="flex items-center">
