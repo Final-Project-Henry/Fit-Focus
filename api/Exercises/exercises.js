@@ -6,7 +6,8 @@ const exercises = [
      "muscles": "upper_body",
      "genre": "man",
      "video": "https://c.tenor.com/gI-8qCUEko8AAAAC/pushup.gif",
-     "premium": false
+     "premium": false,
+        "description": "La flexión de codos es un ejercicio que involucra los codos, también conocida como lagartijas, plancha, pechada o simplemente flexión, es un ejercicio físico realizado estando en posición inclinada, recostado hacia abajo, levantando el cuerpo únicamente con los brazos y bajando de nuevo al suelo."
     },
     {
      "name": "KNEE PUSH UPS",
@@ -15,7 +16,8 @@ const exercises = [
      "muscles": "upper_body",
      "genre": "both",
      "video": "https://c.tenor.com/W_cGMvJdlWQAAAAC/widegrip-pushups.gif",
-     "premium": false
+     "premium": false,
+         "description": 
     },
     {
      "name": "DIAMOND PUSH UPS",
@@ -24,7 +26,8 @@ const exercises = [
      "muscles": "upper_body",
      "genre": "man",
      "video": "https://thumbs.gfycat.com/AffectionateImmenseIrishdraughthorse-size_restricted.gif",
-      "premium": false
+      "premium": false,
+        "description":"“Este tipo de ejercicio es popularmente conocido en el mundo de gimnasio por ser la rutina idónea con la que conseguir una activación de los tríceps y obtener un mayor volumen de este músculo de forma rápida”"
     },
     {
      "name": "CLAP PUSH UPS",
@@ -33,7 +36,8 @@ const exercises = [
      "muscles": "upper_body",
      "genre": "man",
      "video": "https://c.tenor.com/EbRmSXrs5JQAAAAd/clap-pushups-stephen-farrelly.gif",
-     "premium": false
+     "premium": false,
+          "description":
     },
     {
      "name": "SQUATS",
@@ -42,7 +46,8 @@ const exercises = [
      "muscles": "lower_body",
      "genre": "both",
      "video": "https://c.tenor.com/g6XQ1z_Op0QAAAAC/squats-body-weight-training.gif",
-     "premium": false
+     "premium": false,
+          "description":
     },
     {
      "name": "SUMO SQUATS",
@@ -51,7 +56,8 @@ const exercises = [
      "muscles": "lower_body",
      "genre": "both",
      "video": "https://i.pinimg.com/originals/19/5b/a7/195ba798f4246ae9930a97ea2e084aae.gif",
-     "premium": false
+     "premium": false,
+          "description":
     },
     {
      "name": "SIDE TAP SQUAT",
@@ -60,7 +66,8 @@ const exercises = [
      "muscles": "lower_body",
      "genre": "both",
      "video": "https://workout-gifs.s3.amazonaws.com/routines/ecfc6c6f-8889-485b-85a2-b87b5a6c905a.gif",
-     "premium": false
+     "premium": false,
+          "description":
     },
     {
      "name": "BULGARIAN SQUAT",
@@ -69,7 +76,8 @@ const exercises = [
      "muscles": "lower_body",
      "genre": "both",
      "video": "https://www.historia.waszczyk.com/60865fa9e6169b29ad8e78a66069cc1f/bulgarian-split-squat.gif",
-     "premium": false
+     "premium": false,
+          "description":
     },
     {
      "name": "JUMP SQUAT",
@@ -78,7 +86,8 @@ const exercises = [
      "muscles": "lower_body",
      "genre": "both",
      "video": "https://c.tenor.com/KTAavalOAWQAAAAC/squat-jumps.gif",
-     "premium": false
+     "premium": false,
+          "description":
     },
     {
      "name": "JUMPING JACK",
@@ -87,7 +96,8 @@ const exercises = [
      "muscles": "functional",
      "genre": "both",
      "video": "https://c.tenor.com/jPmY-vQLpeMAAAAd/jumping-jacks-home-workouts.gif",
-     "premium": false
+     "premium": false,
+          "description":
     },
     {
      "name": "MOUNTAIN CLIMBERS",
@@ -96,7 +106,8 @@ const exercises = [
      "muscles": "functional",
      "genre": "both",
      "video": "https://c.tenor.com/NYyx3iSx_gwAAAAd/home-workouts-exercise.gif",
-     "premium": false
+     "premium": false,
+          "description":
     },
     {
      "name": "JUMP LUNGES",
@@ -105,7 +116,8 @@ const exercises = [
      "muscles": "lower_body",
      "genre": "both",
      "video": "https://c.tenor.com/meIUZZ_2oZMAAAAC/lunge-jump.gif",
-     "premium": false
+     "premium": false,
+          "description":
         
     },
     {
@@ -115,7 +127,8 @@ const exercises = [
      "muscles": "lower_body",
      "genre": "both",
      "video": "https://thumbs.gfycat.com/AbleFondChick-size_restricted.gif",
-     "premium": true
+     "premium": true,
+          "description":
     },
     {
      "name": "WALL SIT",
@@ -124,7 +137,8 @@ const exercises = [
      "muscles": "lower_body",
      "genre": "both",
      "video": "https://cdn2.actitudfem.com/media/files/media/files/wall-sit.gif",
-     "premium": false
+     "premium": false,
+          "description":
     },
     {
      "name": "SIT UPS",
@@ -133,7 +147,8 @@ const exercises = [
      "muscles": "abs",
      "genre": "both",
      "video": "https://c.tenor.com/vFqz6XYPKPIAAAAC/abdominal-supra-abdominal.gif",
-     "premium": false
+     "premium": false,
+          "description":
     },
     {
      "name": "KNEE LIFT",
@@ -142,7 +157,8 @@ const exercises = [
      "muscles": "functional",
      "genre": "both",
      "video": "https://c.tenor.com/8rrpHAyXEdMAAAAd/home-workouts-exercise.gif",
-     "premium": true
+     "premium": true,
+          "description":
     },
     {
      "name": "BURPEE",
@@ -151,7 +167,8 @@ const exercises = [
      "muscles": "functional",
      "genre": "both",
      "video": "https://c.tenor.com/e-BbzN3OQZIAAAAd/burpees-with-pushups-home-workouts.gif",
-     "premium": true
+     "premium": true,
+          "description":
     },
     {
      "name": "UP/DOWN PLANKS",
@@ -160,7 +177,8 @@ const exercises = [
      "muscles": "functional",
      "genre": "both",
      "video": "https://c.tenor.com/U1FRIHCpWP0AAAAd/up-and-down-planks-home-workouts.gif",
-     "premium": true
+     "premium": true,
+          "description":
     },
     {
      "name": "PLANK",
@@ -169,7 +187,8 @@ const exercises = [
      "muscles": "functional",
      "genre": "both",
      "video": "https://c.tenor.com/Ww5Ytjlx4QwAAAAC/prancha-treino-mestre.gif",
-     "premium": false
+     "premium": false,
+          "description":
     },
     {
      "name": "PLANK JACKS",
@@ -178,7 +197,8 @@ const exercises = [
      "muscles": "functional",
      "genre": "both",
      "video": "https://media3.giphy.com/media/2UqZvQq4p9DjTBDVRc/giphy.gif",
-     "premium": true
+     "premium": true,
+          "description":
     },
     {
      "name": "REVERSE LUNGE",
@@ -187,7 +207,8 @@ const exercises = [
      "muscles": "lower_body",
      "genre": "both",
      "video": "https://c.tenor.com/ahYtJQbVUP0AAAAd/reverse-lunges-home-workouts.gif",
-     "premium": true
+     "premium": true,
+          "description":
     },
     {
      "name": "GLUTE BRIDGE",
@@ -196,7 +217,8 @@ const exercises = [
      "muscles": "lower_body",
      "genre": "woman",
      "video": "https://c.tenor.com/DKzLlyBdRC0AAAAd/abs-work-out-female-abs.gif",
-     "premium": true
+     "premium": true,
+          "description":
     },
     {
      "name": "SINGLE LEG GLUTE BRIDGE",
@@ -205,7 +227,9 @@ const exercises = [
      "muscles": "lower_body",
      "genre": "woman",
      "video": "https://c.tenor.com/6e9R6ktpmjQAAAAC/single-leg-butt-bridge.gif",
-     "premium": true
+     "premium": true,
+         "description":
+        
     },
     {
      "name": "LEG RAISES",
@@ -214,7 +238,8 @@ const exercises = [
      "muscles": "abs",
      "genre": "both",
      "video": "https://c.tenor.com/ou75vnhll2oAAAAd/abs-and-legs-day-abs-work-out.gif",
-     "premium": true
+     "premium": true,
+         "description":
     },
     {
      "name": "CRUNCHES",
@@ -223,7 +248,8 @@ const exercises = [
      "muscles": "lower_body",
      "genre": "woman",
      "video": "https://c.tenor.com/aYQhqKS_fCQAAAAd/crunches-legs-day.gif",
-     "premium": false
+     "premium": false,
+         "description":
     },
     {
      "name": "BICYCLE CRUNCH",
@@ -232,7 +258,8 @@ const exercises = [
      "muscles": "abs",
      "genre": "both",
      "video": "https://c.tenor.com/_IMon7l-gkAAAAAd/bicycle-crunch-female-abs.gif",
-     "premium": false
+     "premium": false,
+         "description":
     },
     {
      "name": "TWISTING PISTON",
@@ -241,7 +268,8 @@ const exercises = [
      "muscles": "functional",
      "genre": "both",
      "video": "https://c.tenor.com/qf1ZBvUhAYoAAAAd/twisting-piston-legs-day.gif",
-     "premium": false
+     "premium": false,
+         "description":
     },
     {
      "name": "SCISSOR DROP",
@@ -250,7 +278,8 @@ const exercises = [
      "muscles": "abs",
      "genre": "both",
      "video": "https://c.tenor.com/7IIaeYzNZL4AAAAd/scissor-drop-legs-work-out.gif",
-     "premium": true
+     "premium": true,
+         "description":
     },
     {
      "name": "GROINER",
@@ -259,7 +288,8 @@ const exercises = [
      "muscles": "functional",
      "genre": "both",
      "video": "https://c.tenor.com/gS5cBcUsM4kAAAAC/groiner-leg-work-out.gif",
-     "premium": true
+     "premium": true,
+         "description":
     },
     {
      "name": "DEADLIFT",
@@ -268,7 +298,8 @@ const exercises = [
      "muscles": "lower_body",
      "genre": "both",
      "video": "https://c.tenor.com/APh12ekUwcIAAAAC/dumbbell-deadlift.gif",
-     "premium": false
+     "premium": false,
+         "description":
     },
     {
      "name": "JUMPING ROPE",
@@ -277,7 +308,8 @@ const exercises = [
      "muscles": "functional",
      "genre": "both",
      "video": "https://cdn2.actitudfem.com/media/files/media/files/saltar-la-cuerda.gif",
-     "premium": true
+     "premium": true,
+         "description":
     },
     {
      "name": "DUMBBELL HIP THRUST",
@@ -286,7 +318,8 @@ const exercises = [
      "muscles": "lower_body",
      "genre": "both",
      "video": "https://media.self.com/photos/6227cbe0a252d9c49d777962/master/w_1600%2Cc_limit/Jowan-hip-thrust-bench.gif",
-     "premium": false
+     "premium": false,
+         "description":
     },
     {
      "name": "WEIGHT SQUATS ",
@@ -295,7 +328,8 @@ const exercises = [
      "muscles": "lower_body",
      "genre": "both",
      "video": "https://static.wixstatic.com/media/c94d75_5da40ebd254249df861fb7cd7070fbcb~mv2.gif",
-     "premium": false
+     "premium": false,
+         "description":
     },
     {
      "name": "DUMBBELL PRESS",
@@ -304,7 +338,8 @@ const exercises = [
      "muscles": "upper_body",
      "genre": "both",
      "video": "https://c.tenor.com/JAzAnN89QNsAAAAd/station19-andy-herrera.gif",
-     "premium": true
+     "premium": true,
+         "description":
     },
     {
      "name": "PARALLEL DIPS",
@@ -313,7 +348,8 @@ const exercises = [
      "muscles": "upper_body",
      "genre": "both",
      "video": "https://c.tenor.com/Aq6euho3C5wAAAAC/dip-workout.gif",
-     "premium": false
+     "premium": false,
+         "description":
     },
     {
      "name": "DUMBBELL ROW",
@@ -322,7 +358,8 @@ const exercises = [
      "muscles": "upper_body",
      "genre": "man",
      "video": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dumbbell-single-arm-row-1547729333.gif",
-     "premium": false
+     "premium": false,
+         "description":
     },
     {
      "name": "MILITAR PRESS",
@@ -331,7 +368,8 @@ const exercises = [
      "muscles": "upper_body",
      "genre": "man",
      "video": "https://i.gifer.com/NRC9.gif",
-     "premium": true
+     "premium": true,
+         "description":
     },
     {
      "name": "ARNOLD PRESS",
@@ -340,7 +378,9 @@ const exercises = [
      "muscles": "upper_body",
      "genre": "man",
      "video": "https://c.tenor.com/ZR-_3Mxq0gYAAAAd/arnold-press.gif",
-     "premium": false
+     "premium": false,
+         "description":
+        
     },
     {
      "name": "FRONT SQUATS",
@@ -349,7 +389,8 @@ const exercises = [
      "muscles": "lower_body",
      "genre": "both",
      "video": "https://c.tenor.com/zDqpubY7520AAAAC/dumbbell-front.gif",
-     "premium": true
+     "premium": true,
+         "description":
     },
     {
      "name": "DUMBBELL ROMANIAN",
@@ -358,7 +399,8 @@ const exercises = [
      "muscles": "lower_body",
      "genre": "both",
      "video": "https://c.tenor.com/kyOyzUcfIpMAAAAC/dumbbell-romanian.gif",
-     "premium": false
+     "premium": false,
+         "description":
     },
     {
      "name": "CURL BICEP",
@@ -367,7 +409,8 @@ const exercises = [
      "muscles": "upper_body",
      "genre": "man",
      "video": "https://c.tenor.com/atXCbqe9KAYAAAAd/bicep-curls-sheamus.gif",
-     "premium": false
+     "premium": false,
+         "description":
     },
     {
      "name": "BULGARIAN SPLIT SQUAT",
@@ -376,7 +419,8 @@ const exercises = [
      "muscles": "lower_body",
      "genre": "both",
      "video": "https://c.tenor.com/8dUU3fffAp8AAAAd/db-bulgarian-split-squat.gif",
-     "premium": true
+     "premium": true,
+         "description":
     },
     {
      "name": "DROP SQUAT",
@@ -385,7 +429,8 @@ const exercises = [
      "muscles": "lower_body",
      "genre": "both",
      "video": "https://c.tenor.com/rVh_mO28wpMAAAAd/db-drop-squat.gif",
-     "premium": false
+     "premium": false,
+         "description":
     },
     {
      "name": "TRICEP KICK BACK",
@@ -394,7 +439,8 @@ const exercises = [
      "muscles": "upper_body",
      "genre": "man",
      "video": "https://c.tenor.com/jqwaOmRs-7gAAAAC/tricep-kick-back-tricep.gif",
-     "premium": false
+     "premium": false,
+         "description":
     },
     {
      "name": "BAND ROW",
@@ -403,7 +449,8 @@ const exercises = [
      "muscles": "upper_body",
      "genre": "both",
      "video": "https://c.tenor.com/o3DZFudV2gkAAAAd/bentoverrow-row.gif",
-     "premium": true
+     "premium": true,
+         "description":
     },
     {
      "name": "BACK EXTENSION",
@@ -412,7 +459,8 @@ const exercises = [
      "muscles": "functional",
      "genre": "woman",
      "video": "https://c.tenor.com/FdSmFsLOItMAAAAC/back-extension-exercise.gif",
-     "premium": false
+     "premium": false,
+         "description":
     },
     {
      "name": "BANDED TRICEP EXTENSION",
@@ -421,7 +469,8 @@ const exercises = [
      "muscles": "upper_body",
      "genre": "both",
      "video": "https://c.tenor.com/BiD98h7-kf0AAAAC/banded-tricep.gif",
-     "premium": true
+     "premium": true,
+         "description":
     },
     {
      "name": "BAND PULLS",
@@ -430,7 +479,8 @@ const exercises = [
      "muscles": "upper_body",
      "genre": "both",
      "video": "https://c.tenor.com/appGngmuNHAAAAAC/face-pulls.gif",
-     "premium": true
+     "premium": true,
+         "description":
     },
     {
      "name": "SUPERMAN",
@@ -439,7 +489,8 @@ const exercises = [
      "muscles": "upper_body",
      "genre": "both",
      "video": "https://c.tenor.com/BpWq8HxUxeAAAAAC/lumbaresms.gif",
-     "premium": true
+     "premium": true,
+         "description":
     },
     {
      "name": "STATIC SUPERMAN",
@@ -448,7 +499,8 @@ const exercises = [
      "muscles": "upper_body",
      "genre": "both",
      "video": "https://c.tenor.com/PRLfXaemvfwAAAAd/superman-est%C3%A1tico-treino-mestre.gif",
-     "premium": false
+     "premium": false,
+         "description":
     }
    ];
 
