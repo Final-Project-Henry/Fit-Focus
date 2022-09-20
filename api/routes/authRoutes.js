@@ -3,6 +3,7 @@ const user = require('../models/User.js');
 const exercise = require('../models/Exercise.js');
 const bcrypt = require('bcrypt');
 const router = Router();
+const get_Routine = require('../getRoutine.js');
 
 router.put('/userinfo', async (req, res) =>{ // Ruta para actualizar la informacion del usuario para crear una rutina(PREMIUM)
 try {
@@ -40,9 +41,18 @@ router.put('/userfeedback', async (req, res) => {
 });
 
 router.get('/getroutine', async (req, res)=> {
+  const {email} = req.query; 
+
   try {
-    const Exercises = await exercise.find().limit(5)
-    res.status(200).send(Exercises)
+    const user = await user.findOne({email : email}).select('routines');
+    const routine = get_Routine(user.userinfo, exercise);
+
+    await user.updateOne({email : email}, {
+      $push : {
+        routine : routine
+      }
+    });
+    res.status(200).json(routine);
   } catch (error) {
    res.status(500).send(error.message)
   }
