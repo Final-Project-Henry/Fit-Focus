@@ -1,20 +1,22 @@
 import styled from "styled-components";
+import decoration1 from "../../assets/Fotos y Videos HomeVisitor/decoration.svg";
+import decoration2 from "../../assets/Fotos y Videos HomeVisitor/decoration2.svg";
 
 const Div_cards = styled.div`
   display: flex;
   background-color: #f8fafc;
   background-image: linear-gradient(0deg, #f8fafc 0%, #6c63ff 100%);
-  #text-container{
+  #text-container {
     padding: 10px;
-    h1{
-      font-size:8rem;
-    } 
-    p{
-      width:60%;
+    h1 {
+      font-size: 8rem;
+    }
+    p {
+      width: 60%;
       padding: 10px;
       font-size: 1.5rem;
     }
-    button{
+    button {
       background-color: #6c63ff;
       box-shadow: 2px 10px 20px 0px #6c63ff75;
       padding: 10px 50px;
@@ -24,37 +26,44 @@ const Div_cards = styled.div`
     }
   }
 
-  #img-container{
-    #card-opiniones{
+  #img-container {
+    #card-opiniones {
       display: flex;
-      width:100%;
-      position:relative;
+      width: 100%;
+      position: relative;
       top: 5px;
       left: -300px;
       border-radius: 10px;
-      #card-text-opiniones{
-        background-color:#fff;
-        min-width:100%;
+      #card-text-opiniones {
+        background-color: #fff;
+        min-width: 100%;
         border-radius: 10px;
         padding: 0px 20px;
         box-shadow: 2px 10px 20px 0px #6c63ff75;
-        margin:0 5px;
+        margin: 0 5px;
         font-size: 1.5rem;
       }
     }
-
-    #img{
-        position:relative;
-        top: 20px;
-        min-width:70px;
-        height:70px;
+    #img {
+      position: relative;
+      top: 20px;
+      min-width: 70px;
+      height: 70px;
+      border-radius: 100%;
+      img {
         border-radius: 100%;
-        img{
-          border-radius: 100%;
-        }
-     }
+      }
+    }
   }
 `;
+
+const Div_screem3 = styled.div`
+  background: url(${decoration1});
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: 100% 70%;
+`;
+
 const Div_screem2 = styled.div`
   display: flex;
   width: 98%;
@@ -62,24 +71,55 @@ const Div_screem2 = styled.div`
   justify-content: center;
   background-color: #fff;
   border-radius: 20px;
-  #text-screen2{
+  #text-screen2 {
     font-size: 5rem;
     width: 70%;
   }
-  h3{
+  h3 {
+    font-size: 2.7rem;
     position: relative;
-    left: 70px;
+    z-index:50;
+    margin: 20px 100px;
   }
   p {
     width: 70%;
     margin: 5px 100px;
     font-size: 1.5rem;
   }
-  #img-2{
+  #img-2 {
     position: absolute;
-    margin:-10% -20%;
+    margin: -10% -20%;
+    
   }
 `;
+
+const Span_decoration = styled.div`
+width: 100%;
+height: 600px;
+position: absolute;
+z-index:10;
+margin:300px;
+background-color: transparent;
+background: url(${decoration2});
+background-repeat: no-repeat;
+background-size: 34%;
+background-position:1% 140px;
+  filter: blur(5px);
+
+`
+
+const Span_decoration2 = styled.div`
+width: 100%;
+height: 600px;
+position: absolute;
+z-index:10;
+margin:-100px;
+background-color: transparent;
+background: url(${decoration2});
+background-repeat: no-repeat;
+background-size: 20%;
+background-position:-30px 10px;
+`
 const Div_benefitsVisitor = styled.div`
   text-align: center;
   font-size: 2rem;
@@ -170,4 +210,7 @@ export {
   Div_screem2,
   Div_benefitsVisitor,
   Div_benefitsVisitor2,
+  Div_screem3,
+  Span_decoration,
+  Span_decoration2
 };
