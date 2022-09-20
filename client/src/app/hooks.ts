@@ -91,4 +91,3 @@ export async function opiniom(token: string, feedback: object) {
   console.log(response.data);
 }
 
-// Este es un comentario de davidcito
