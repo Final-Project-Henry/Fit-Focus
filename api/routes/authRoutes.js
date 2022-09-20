@@ -63,12 +63,12 @@ router.get('/getroutine', async (req, res) => {
 });
 
 router.put('/changepassword', async (req, res) => {
-  try {
-    const { email } = req.user
-    const { password } = req.body
+ try {
+    const {id} = req.user
+    const {password} = req.body 
     const hashPassword = await bcrypt.hash(password, 10);
-    await user.updateOne({ email: email }, {
-      password: hashPassword
+    await user.updateOne({_id : id}, {
+      password : hashPassword
     });
     res.status(200).send('Password changed succesfully')
   } catch (error) {
@@ -84,6 +84,17 @@ router.delete('/delete', async (req, res) => {
   } catch (error) {
     res.status(500).send(error.message)
   }
+});
+
+router.put('/addfav', async (req, res) => {
+  const {id} = req.user
+  const {name} = req.body
+   await user.updateOne({_id : id}, {
+     $push : {
+      fav : name
+     }
+   });
+   res.status(200).send('Exercise added to fav')
 });
 
 module.exports = router
