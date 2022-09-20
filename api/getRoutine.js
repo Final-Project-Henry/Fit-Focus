@@ -6,7 +6,8 @@ const get_Routine = (info, exercises) => {
     const av3 = info.experience === 'beginner' ? 1 : info.experience === 'medium' ? 2 : 3;
 
     const average = Math.round((av1 + av2 + av3) / (Object.keys(info).length - 2));
-    const filter = exercises.filter(e => e.difficulty <= average);
+    const difficulty= average == 3 ? "hard" : average == 2 ? "medium" : "easy";
+    const filter = exercises.filter(e => e.difficulty === difficulty)
 
     const cant = info.goal === 'gain muscles' ? 7 : 5;
 
