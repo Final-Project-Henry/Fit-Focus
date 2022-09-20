@@ -14,6 +14,10 @@ import img1 from "../assets/Fotos y Videos HomeVisitor/home_img1.svg";
 import img7 from "../assets/Fotos y Videos HomeVisitor/discount.svg";
 import img8 from "../assets/Fotos y Videos HomeVisitor/personaltrainer.svg";
 
+import img9 from "../assets/Fotos y Videos HomeVisitor/undraw_calculator_re_alsc.svg";
+import img10 from "../assets/Fotos y Videos HomeVisitor/undraw_my_personal_files_re_3q0p.svg";
+import img11 from "../assets/Fotos y Videos HomeVisitor/Pilates-amico.svg";
+
 
 const img6 = require("../assets/Fotos y Videos HomeVisitor/urban-913.png");
 
