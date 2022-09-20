@@ -11,17 +11,19 @@
 }
 
 .swiper {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  width: 0%;
+  height: 50%;
 }
 
 .swiper-slide {
+
   text-align: center;
   font-size: 18px;
   background: #fff;
 
   /* Center slide text vertically */
-  display: -webkit-box;
+  /* display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
@@ -32,12 +34,12 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   -webkit-align-items: center;
-  align-items: center;
+  align-items: center; */
 }
 
 .swiper-slide img {
   display: block;
-  width: 100%;
+  width: 10%;
   height: 100%;
   object-fit: cover;
 }

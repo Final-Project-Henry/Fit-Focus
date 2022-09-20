@@ -2,25 +2,53 @@ import styled from "styled-components";
 
 const Div_cards = styled.div`
   display: flex;
+  #text-container{
+    padding: 10px;
+    h1{
+      font-size:8rem;
+    } 
+    p{
+      border: 1px solid;
+      width:60%;
+      padding: 10px;
+      font-size: 1.5rem;
+    }
+    button{
+      background-color: #6c63ff;
+      padding: 10px 50px;
+      color: #fff;
 
-  #card {
-    box-shadow: 0 4px 10px #000e3e55;
-    width: 100%;
-    margin: 40px;
-    font-size: 1.2rem;
-    p {
-      padding: 20px;
+      border-radius: 10px;
     }
   }
-  #img_card {
-    width: 100%;
-    height: 250px;
-    overflow: hidden;
-    img {
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
+
+  #img-container{
+    
+    #card-opiniones{
+      display: flex;
+      width:100%;
+      position:relative;
+      top: 5px;
+      left: -300px;
+      border-radius: 10px;
+      #card-text-opiniones{
+      background-color:#fff;
+        width:100%;
+        border-radius: 10px;
+        padding: 0px 20px;
+        box-shadow: 2px 10px 20px 0px #6c63ff75;
+        margin:0 5px;
+        font-size: 1.5rem;
+      }
     }
+    #img{
+        position:relative;
+        top: 20px;
+        width:90px;
+        height:70px;
+        background-color:#000;
+        border-radius: 100%;
+      }
   }
 `;
 const Div_video = styled.div`
