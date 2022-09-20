@@ -8,7 +8,6 @@ const Div_cards = styled.div`
       font-size:8rem;
     } 
     p{
-      border: 1px solid;
       width:60%;
       padding: 10px;
       font-size: 1.5rem;
@@ -16,8 +15,8 @@ const Div_cards = styled.div`
     button{
       background-color: #6c63ff;
       padding: 10px 50px;
+      margin: 50px 10px;
       color: #fff;
-
       border-radius: 10px;
     }
   }
@@ -32,8 +31,8 @@ const Div_cards = styled.div`
       left: -300px;
       border-radius: 10px;
       #card-text-opiniones{
-      background-color:#fff;
-        width:100%;
+        background-color:#fff;
+        min-width:100%;
         border-radius: 10px;
         padding: 0px 20px;
         box-shadow: 2px 10px 20px 0px #6c63ff75;
@@ -44,12 +43,15 @@ const Div_cards = styled.div`
     #img{
         position:relative;
         top: 20px;
-        width:90px;
+        min-width:70px;
         height:70px;
-        background-color:#000;
         border-radius: 100%;
+        img{
+          border-radius: 100%;
+        }
       }
   }
+
 `;
 const Div_video = styled.div`
   height: 650px;

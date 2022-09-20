@@ -18,7 +18,26 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
 
 const img6 = require("../assets/Fotos y Videos HomeVisitor/urban-913.png");
+const opiniones = [{
+  name: "chacabuco",
+  opinion:"epico "
 
+},
+{
+  name: "juan",
+  opinion:"baje 80 kilos en 10 dias "
+
+},
+{
+  name: "roberto",
+  opinion:"encreible! desde q uses su app me siento mas saludable "
+
+},
+{
+  name: "fiona",
+  opinion:"maravilloso ahora todos los hombres me hablan "
+
+}]
 export default function HomeVisitor() {
   const [data, setData] = useState<string>();
 
@@ -35,12 +54,12 @@ export default function HomeVisitor() {
               nam eos expedita quae iusto minus, natus ea. Quod, iusto odio.{" "}
             </p>
             <button> Empiza ya </button>
-          </div>
-          <div id="img-container">
+          </div> 
+          <div id="img-container"> 
             <img src={img1} alt="img" />
             <div id="card-opiniones" >
               <div id="img">
-                <img src="" />
+                <img src="https://api.lorem.space/image/face?w=120&h=120&hash=bart89fe" />
               </div>
               <div id="card-text-opiniones">
                 <p>marcel</p>
