@@ -24,7 +24,14 @@ const exerciseSchema = new Schema({
     },
     video: {
         type: String
+    },
+    description: {
+        type: String
+    },
+    premium: {
+        type: String
     }
+
 
 })
 
