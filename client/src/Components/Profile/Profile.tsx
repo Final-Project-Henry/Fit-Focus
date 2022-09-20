@@ -1,145 +1,86 @@
+import "./styles/Profile.css"
+
 const Profile = () => {
     return (
-        <div
-            className="h-full flex flex-col bg-gray-100 dark:bg-gray-700 shadow-xl overflow-y-scroll">
-            <div className="ml-3 h-7 flex justify-end items-center">
-                <button type="button"
-                    className="bg-gray-100 dark:bg-gray-700 m-1 p-3 justify-end rounded-md text-gray-400 hover:text-gray-500 focus:ring-2 focus:ring-indigo-500">
-                    <span className="sr-only">Close panel</span>
-                    {/* Heroicon name: outline/x */}
-                    <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                        aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-            <div className="bg-green-300 shadow-lg pb-3 rounded-b-3xl">
-                <div
-                    className="flex  rounded-b-3xl bg-gray-100 dark:bg-gray-700 space-y-5 flex-col items-center py-7">
-                    <img className="h-28 w-28 rounded-full"
-                        src="https://api.lorem.space/image/face?w=120&h=120&hash=bart89fe"
-                        alt="User" />
-                    <a href="#"> <span
-                        className="text-h1">Michele</span></a>
+        <div className="container">
+            <div className="main">
+                <div className="topbar">
+                    <a href="">Logout</a>
+                    <a href="">Support</a>
+                    <a href="">Work</a>
+                    <a href="">Home</a>
                 </div>
-                <div
-                    className="grid px-7 py-2  items-center justify-around grid-cols-3 gap-4 divide-x divide-solid ">
-                    <div className="col-span-1 flex flex-col items-center ">
-                        <span className="text-2xl font-bold dark:text-gray-500">4</span>
-                        <span className="text-lg font-medium 0">Ranking</span>
+                <div className="row">
+                    <div className="col-md-4 mt-1">
+                        <div className="card text-center sidebar">
+                            <div className="card-body">
+                                <img src="image.jpg" className="rounded-full" />
+                                <div className="mt-3">
+                                    <h3>Adrian Acurero</h3>
+                                    <a href="">Home</a>
+                                    <a href="">Work</a>
+                                    <a href="">Support</a>
+                                    <a href="">Setting</a>
+                                    <a href="">Singout</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className="col-span-1 px-3 flex flex-col items-center ">
-                        <span className="text-2xl font-bold dark:text-gray-500">
-                            Free</span>
-                        <span className="text-lg font-medium">Plan</span>
-                    </div>
-                    <div className="col-span-1 px-3 flex flex-col items-center ">
-                        <span className="text-2xl font-bold dark:text-gray-500">
-                            546</span>
-                        <span className="text-lg font-medium">Puntos</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <div
-                className="grid rounded-2xl divide-y divide-dashed hover:divide-solid  justify-evenly bg-gray-50 dark:bg-gray-300 m-3 mt-10 grid-cols-3">
-                <div className="col-span-1  p-3">
-                    <div className="flex flex-col items-center ">
-                        <a href=""> <button
-                            className="tr-300">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                className="h-14 w-14 text-gray-500" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor"
-                                stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <span className="text-lg font-medium">Mi Perfil</span>
-                        </button></a>
-                    </div>
-                </div>
-                <div className="col-span-1  p-3">
-                    <div className="flex flex-col items-center ">
-                        <a href=""> <button
-                            className="tr-300">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                className="h-14 w-14 text-gray-500" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor"
-                                stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                            </svg>
-                            <span className="text-lg font-medium">Mis dinero</span>
-                        </button></a>
-                    </div>
-                </div>
-                <div className="col-span-1  p-3">
-                    <div className="flex flex-col items-center ">
-                        <a href=""> <button
-                            className="tr-300">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                className="h-14 w-14 text-gray-500" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor"
-                                stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
-                            </svg>
-                            <span className="text-lg font-medium">Mis referidos</span>
-                        </button></a>
+                    <div className="col-md-8 mt-1">
+                        <div className="card mb-3 content">
+                            <h1 className="m-3 pt-3">About</h1>
+                            <div className="card-body">
+                                <div className="row">
+                                    <div className="col-md-3">
+                                        <h5>Full Name</h5>
+                                    </div>
+                                    <div className="col-md-9 text-secondary">
+                                        Adrian Acurero
+                                    </div>
+                                </div>
+                                <hr />
+                                <div className="row">
+                                    <div className="col-md-3">
+                                        <h5>Email</h5>
+                                    </div>
+                                    <div className="col-md-9 text-secondary">
+                                        adrian@gmail.com
+                                    </div>
+                                </div>
+                                <hr />
+                                <div className="row">
+                                    <div className="col-md-3">
+                                        <h5>Phone</h5>
+                                    </div>
+                                    <div className="col-md-9 text-secondary">
+                                        04246633413
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-md-3">
+                                        <h5>Address</h5>
+                                    </div>
+                                    <div className="col-md-9 text secondary">
+                                        street no. 4, xyz
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="card mb-3 content">
+                            <h1 className="m-3">Recent Projects</h1>
+                            <div className="card-body">
+                                <div className="row">
+                                    <div className="col-md-3">
+                                        <h5>Project Name</h5>
+                                    </div>
+                                    <div className="col-md text-secondary">
+                                        Project Description
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className="col-span-1  p-3">
-                    <div className="flex flex-col items-center ">
-                        <a href="">
-                            <button className="tr-300">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    className="h-14 w-14 text-gray-500" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                <span className="text-lg font-medium">Mis facturas</span>
-                            </button></a>
-                    </div>
-                </div>
-                <div className="col-span-1  p-3">
-                    <div className="flex flex-col items-center ">
-                        <a href=""> <button className="tr-300">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                className="h-14 w-14 text-gray-500" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor"
-                                stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                            <span className="text-lg font-medium">Ayuda</span>
-                        </button></a>
-                    </div>
-                </div>
-                <div className="col-span-1 bg-red-50 p-3">
-                    <div className="flex  flex-col items-center ">
-                        <a href=""> <button className="tr-300">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                className="h-14 w-14 text-gray-500" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor"
-                                stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                            </svg>
-                            <span className="text-lg font-medium">Salir</span>
-                        </button></a>
-                    </div>
-                </div>
-            </div>
-
-            <div className="flex mx-auto mt-3 w-100 ">
-                <a href=""> <button
-                    className="p-2 shadow-lg rounded-xl tr-300 w-100 font-medium  bg-green-500  hover:bg-green-600 text-gray-50">Mejorar
-                    membresía</button></a>
             </div>
         </div>
     )

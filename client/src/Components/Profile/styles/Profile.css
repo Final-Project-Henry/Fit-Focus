@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    body {
+        @apply mt-5
+        bg-gray-400
+    }
+
+    .main {
+        @apply p-4
+        font-serif
+    }
+
+    .topbar {
+        @apply bg-teal-800
+        overflow-hidden
+    }
+
+    .topbar a {
+        @apply float-right
+        text-white
+        text-center
+        py-5 px-6
+        text-2xl
+    }
+
+    .sidebar {
+        @apply bg-[#333]
+        text-white
+        h-full
+    }
+
+    .sidebar a {
+        @apply ml-2
+        block
+        text-white
+        pb-2
+        text-3xl
+    }
+
+    .card {
+        @apply relative
+        flex
+        flex-col
+    }
+
+    .content {
+        @apply bg-white
+    }
+}
