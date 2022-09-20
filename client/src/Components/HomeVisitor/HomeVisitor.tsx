@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./styles/styles.css";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+
 import {
   Div_cards,
   Div_video,
