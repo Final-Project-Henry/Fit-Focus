@@ -21,6 +21,9 @@ import img9 from "../assets/Fotos y Videos HomeVisitor/undraw_calculator_re_alsc
 import img10 from "../assets/Fotos y Videos HomeVisitor/undraw_my_personal_files_re_3q0p.svg";
 import img11 from "../assets/Fotos y Videos HomeVisitor/Pilates-amico.svg";
 import img12 from "../assets/Fotos y Videos HomeVisitor/undraw_people_re_8spw.svg";
+import pilates from "../assets/Fotos y Videos HomeVisitor/pilates.svg";
+import womanweight from "../assets/Fotos y Videos HomeVisitor/womanweight.svg";
+import womanworkingout from "../assets/Fotos y Videos HomeVisitor/womanworkingout.svg";
 
 const img6 = require("../assets/Fotos y Videos HomeVisitor/urban-913.png");
 const img13 = require("../assets/Fotos y Videos HomeVisitor/allpeople.jpg");
@@ -125,59 +128,73 @@ export default function HomeVisitor() {
         </section>
       </Div_screem3>
       {/* screen extra  */}
-      <div className="h-screen">
-        <div className="flex w-[90%]">
-          <div className="w-[100%]">
-            <img src={img11} alt="img" />
-          </div>
-          <div>
-            <h3 className="text-3xl font-dark">Fit focus palabras palabras</h3>
+    
+      <div className="mt-32">
+        <section className="w-4/5 mx-auto flex justify-between items-center">
+          <div className="w-1/5 mr-auto " >
+            <h2 className="text-3xl font-dark text-black">
+              Beneficios
+            </h2>
             <div className="h-1 bg-gray-300 w-10 mt-2"></div>
-            <p className="font-normal">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
-              quasi minima nobis voluptatibus ratione doloremque itaque, sint
-              tenetur, sed libero non ducimus dolorem voluptatem consectetur
-              modi est illo commodi nihil.
+          </div>
+          <div className="w-1/2">
+            <p className="text-md text-gray-900 font-normal my-4 leading-loose text-justify">
+              ¡Transformamos lo complicado en simple! Porque pensamos en tu comodidad,
+              lo mejor de FIT FOCUS es que puedes programarla a tu ritmo de vida,
+              ya seas un experto haciendo ejercicio o una persona que apenas quiere
+              comenzar a entrenarse, sin importar la edad. Ademas, volvientote premium puedes
+              gozar de descuentos y rutinas personalizadas para mejores resultados.
             </p>
           </div>
-        </div>
-      </div>
-      {/* screen 5  */}
-      <div className="flex justify-center w-full ">
-        <div className="max-w-[60%] flex justify-center w-full space-x-1.5 ">
-          <div className="font-bold text-center text-2xl border border-indigo-400 max-w-[50%] rounded-md ">
-            <h1>Conviertete en Premium y obten un 20% de descuento</h1>
-            <img src={img7} alt="img not found" />
+        </section>
+        <section>
+          <div className="card relative">
+            <div className="display: inline-block border border-grey-400 ml-5">
+              <img src={pilates} className="object-fill h-80 w-full" alt="image not found" />
+              <div className="absolute overlay-text w-full flex flex-col items-center">
+                <p className="text-black text-2xl tracking-tight">Entrena desde la comodidad de tu casa</p>
+              </div>
+            </div>
+            <div className="display: inline-block border border-grey-400 ml-5">
+              <img src={img7} className="object-fill h-80 w-full " alt="image not found " />
+              <div className="absolute overlay-text w-full flex flex-col items-center">
+                <p className="text-black text-2xl tracking-tight">Obten descuentos por premium</p>
+              </div>
+            </div>
+            <div className="display: inline-block border border-grey-400 ml-5">
+              <img src={womanworkingout} className="object-fill h-80 w-full" alt="image not found" />
+              <div className="absolute overlay-text w-full flex flex-col items-center">
+                <p className="text-black text-2xl tracking-tight">Nunca sabrás de lo que eres capaz sino comienzas</p>
+              </div>
+            </div>
           </div>
-          <div className="font-bold text-center text-2xl border border-indigo-400 max-w-[50%] rounded-md">
-            <h1>Nunca sabras de lo que eres capaz, sino comienzas!</h1>
-            <img src={img8} alt="img not found" />
-          </div>
-        </div>
+        </section>
       </div>
 
-      {/* screen 6 */}
-      <div className="">
-        <div className="w-11/12 mr-auto mt-32 border border-indigo-400 max-w-[80%] ">
+      <br/>
+      <hr/>
+
+      {/* screen 5 */}
+      
+      <div className=" display: flex justify-content: center max-w-[100%]">
+        <div className="w-11/12 mr-auto mt-32 border border-black-500 max-w-[80%]" >
           <section className="flex items-center">
             <div className="w-1/2">
               <img src={img6} alt="img not found" />
             </div>
             <div className="w-2/5 ml-auto">
               <div>
-                <h2 className="text-3xl font-light">¿Que esperas?</h2>
+                <h2 className="text-3xl font-dark text-black">
+                  ¿Que esperas?
+                </h2>
                 <div className="h-1 bg-gray-300 w-10 mt-2"></div>
               </div>
-              <p className="text-sm text-gray-500 font-normal my-4 leading-loose">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Molestias mollitia enim aliquid debitis, dolor deserunt nihil in
-                culpa vitae quibusdam qui earum cum! Similique eveniet at magnam
-                laboriosam consequatur illo.
+              <p className="text-md text-gray-900 font-normal my-4 leading-loose text-justify mr-5">
+                Realiza tu registro en tan sólo 1 minuto y comienza tu entrenamiento en la mejor 
+                y mas comoda aplicación para ejercicios, asi que... ¡A ENTRENAR!
               </p>
               <Link to="/auth/sing-up">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                  REGISTRARSE
-                </button>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">REGISTRARSE</button>
               </Link>
             </div>
           </section>
