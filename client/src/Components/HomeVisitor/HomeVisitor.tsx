@@ -24,7 +24,6 @@ const img6 = require("../assets/Fotos y Videos HomeVisitor/urban-913.png");
 const opiniones = [{
   name: "chacabuco",
   opinion:"epico "
-
 },
 {
   name: "juan",
