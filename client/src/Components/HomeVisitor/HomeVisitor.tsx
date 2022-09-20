@@ -23,6 +23,7 @@ import img11 from "../assets/Fotos y Videos HomeVisitor/Pilates-amico.svg";
 import img12 from "../assets/Fotos y Videos HomeVisitor/undraw_people_re_8spw.svg";
 
 const img6 = require("../assets/Fotos y Videos HomeVisitor/urban-913.png");
+const img13 = require("../assets/Fotos y Videos HomeVisitor/allpeople.jpg");
 
 const opiniones = [
   {
@@ -119,7 +120,7 @@ export default function HomeVisitor() {
             </p>
           </div>
           <div className="ml-auto w-2/4 flex">
-            <img src={img12} className="max-w-[100%]" alt="img not found" />
+            <img src={img13} className="max-w-[100%]" alt="img not found" />
           </div>
         </section>
       </Div_screem3>
