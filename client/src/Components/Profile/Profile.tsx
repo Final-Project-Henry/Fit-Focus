@@ -41,10 +41,10 @@ const Profile = () => {
             setStyles({ ...styles, selected: "progress" })
         } else if (target.id === "remove") {
             setStyles({ ...styles, selected: "remove" })
-            /* handleRemoveAccount() */
         }
     }
 
+<<<<<<< HEAD
     function handleRemoveAccount(): void {
         Swal.fire({
             title: '¿Estas Seguro?',
@@ -70,6 +70,9 @@ const Profile = () => {
             }
         })
     }
+=======
+    
+>>>>>>> 21e3a9e65dcbff4e913d9715888f6c01a3c7fbbf
 
 
     return (

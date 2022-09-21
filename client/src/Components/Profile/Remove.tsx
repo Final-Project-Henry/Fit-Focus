@@ -1,8 +1,42 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
+import { sigendOut } from '../../features/counter/counterSlice'
+
 
 const Remove = () => {
-  return (
-    <div className="w-full p-3 mt-6 mx-auto removable">
+
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    function handleRemoveAccount(): void {
+        Swal.fire({
+            title: '¿Estas Seguro?',
+            text: "No podras revertir esta accion",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            cancelButtonText: "Cancelar",
+            confirmButtonText: 'Eliminar',
+        }).then((result: any) => {
+            if (result.isConfirmed) {
+                dispatch(sigendOut(null))
+                /* dispatch(removeAccount(dataUser)) */
+                navigate("/home")
+                window.location.reload();
+                Swal.fire(
+                    'Eliminado',
+                    'Tu cuenta ha sido eliminada exitosamente',
+                    'success'
+                )
+            }
+        })
+    }
+
+    return (
+        <div className="w-full p-3 mt-6 mx-auto removable">
             <div className="flex flex-wrap -mx-3">
                 <div className="w-full max-w-full px-3 lg-max:mt-6 xl:w-4/12 mb-4">
                     <div className="relative flex flex-col h-full min-w-0 break-words bg-white border-0 shadow-soft-xl rounded-2xl bg-clip-border">
@@ -21,16 +55,21 @@ const Remove = () => {
                         <div className="flex-auto p-4">
                             <hr className="h-px my-2 bg-transparent bg-gradient-horizontal-light" />
                             <ul className="flex flex-col pl-0 mb-0 rounded-lg">
-                                <li className="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-sm text-inherit"><strong className="text-slate-700">Eliminar cuenta</strong> &nbsp; </li>
-                                <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit"><strong className="text-slate-700">Esta accion es definitiva</strong> &nbsp; </li>
-                                <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit"><strong className="text-slate-700"></strong> &nbsp; Si eliminas tu cuenta de Facebook, no podrás recuperar el contenido ni la información que compartiste en Facebook. También se eliminarán Messenger y todos tus mensajes.</li>
+                                <li className="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-sm text-inherit"><strong className="text-slate-700">Esta accion es definitiva</strong> &nbsp; </li>
+                                <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit"><strong className="text-slate-700"></strong> &nbsp; Si eliminas tu cuenta de Fit-Focus, no podrás recuperar el progreso ni las rutinas obtenidas en la app. También se eliminara todo el registro que hayamos guardado de ti</li>
+                                <li className="relative flex justify-center px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit"><strong className="text-slate-700"></strong> &nbsp;
+                                    <button onClick={handleRemoveAccount} type="button" className="delay-100 duration-300 inline-block px-6 py-2.5 bg-gray-700 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-600 hover:shadow-lg focus:bg-red-900 focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg  ease-in-out">
+                                        Eliminar cuenta
+                                    </button>
+                                </li>
                             </ul>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-  )
+    )
 }
 
 export default Remove
