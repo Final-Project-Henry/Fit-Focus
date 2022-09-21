@@ -90,3 +90,4 @@ export async function opiniom(token: string, feedback: object) {
   let response = await axios.request(reqOptions);
   console.log(response.data);
 }
+
