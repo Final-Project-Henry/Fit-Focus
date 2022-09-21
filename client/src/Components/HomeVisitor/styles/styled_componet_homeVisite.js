@@ -126,23 +126,36 @@ background-size: 20%;
 background-position:50px 90px;
 opacity: 30%;
 `;
-const Div_benefitsVisitor = styled.div`
-  text-align: center;
-  font-size: 2rem;
-  margin: 80px 0;
+const Span_decoration3 = styled.div`
+width: 50%;
+height: 100vh;
+position: absolute;
+z-index:10;
+background-color: transparent;
+background: url(${decoration1});
+background-repeat: no-repeat;
+background-size: 100%;
+background-position:0px -70px;
+opacity: 50%;
+margin-top: 30%;
 `;
-
-const Div_benefitsVisitor2 = styled.div`
-  text-align: justify;
-  font-size: 20px;
-  margin-right: 20px;
-  margin-left: 20px;
+const Span_decoration4 = styled.div`
+width: 100%;
+min-height: 120vh;
+position: absolute;
+z-index:-1;
+transform: rotate(80deg);
+background-color: transparent;
+background: url(${decoration1});
+background-repeat: no-repeat;
+background-size: 70%;
+background-position:200px -70px;
+opacity: 80%;
 `;
 const Div_about = styled.div`
   flex-direction: row-reverse;
   #text-about {
     padding: 30px 0;
-
     flex: 1;
     #titel-about {
       justify-content: flex-end;
@@ -214,9 +227,9 @@ export {
   Div_about,
   Div_cards,
   Div_screem2,
-  Div_benefitsVisitor,
-  Div_benefitsVisitor2,
   Div_screem3,
   Span_decoration,
-  Span_decoration2
+  Span_decoration2,
+  Span_decoration3,
+  Span_decoration4
 };

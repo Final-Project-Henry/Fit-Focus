@@ -4,25 +4,20 @@ import { Link } from "react-router-dom";
 import {
   Div_cards,
   Div_screem2,
-  Div_benefitsVisitor,
-  Div_benefitsVisitor2,
   Div_about,
   Div_screem3,
   Span_decoration,
   Span_decoration2,
+  Span_decoration3,
+  Span_decoration4,
 } from "./styles/styled_componet_homeVisite";
 
 import Footer from "../footer/Footer";
 import img1 from "../assets/Fotos y Videos HomeVisitor/home_img1.svg";
-import img7 from "../assets/Fotos y Videos HomeVisitor/discount.svg";
-import img8 from "../assets/Fotos y Videos HomeVisitor/personaltrainer.svg";
-
-import img9 from "../assets/Fotos y Videos HomeVisitor/undraw_calculator_re_alsc.svg";
-import img10 from "../assets/Fotos y Videos HomeVisitor/undraw_my_personal_files_re_3q0p.svg";
-import img11 from "../assets/Fotos y Videos HomeVisitor/Pilates-amico.svg";
-import img12 from "../assets/Fotos y Videos HomeVisitor/undraw_people_re_8spw.svg";
+import img2 from "../assets/Fotos y Videos HomeVisitor/discount.svg";
+import img3 from "../assets/Fotos y Videos HomeVisitor/undraw_calculator_re_alsc.svg";
+import img4 from "../assets/Fotos y Videos HomeVisitor/undraw_my_personal_files_re_3q0p.svg";
 import pilates from "../assets/Fotos y Videos HomeVisitor/pilates.svg";
-import womanweight from "../assets/Fotos y Videos HomeVisitor/womanweight.svg";
 import womanworkingout from "../assets/Fotos y Videos HomeVisitor/womanworkingout.svg";
 
 const img6 = require("../assets/Fotos y Videos HomeVisitor/urban-913.png");
@@ -99,8 +94,8 @@ export default function HomeVisitor() {
           </div>
           <div id="img-screen2">
             <div>
-              <img id="img-1" src={img9} alt="img" />
-              <img id="img-2" src={img10} alt="img" />
+              <img id="img-1" src={img3} alt="img" />
+              <img id="img-2" src={img4} alt="img" />
             </div>
           </div>
         </Div_screem2>
@@ -131,7 +126,7 @@ export default function HomeVisitor() {
           </div>
         </section>
       </Div_screem3>
-      <hr />
+      
 
       {/* screen extra  */}
       <div className=" flex w-4/5 mx-auto justify-center  h-[62vh]">
@@ -151,9 +146,9 @@ export default function HomeVisitor() {
             </div>
           </div>
         </section>
-        <section className="flex flex-wrap w-[50%] h-[200px]  items-center justify-center">
+        <section className="flex flex-wrap w-[50%] h-[100px]  items-center justify-center">
           <div className="flex flex-wrap  ">
-            <div className=" w-[40%] border text-transparent hover:shadow-lg hover:text-black duration-[1s] border-grey-400 m-2">
+            <div className=" w-[40%] relative z-20 bg-white border text-transparent hover:shadow-lg hover:text-black duration-[1s] border-grey-400 m-2">
               <img
                 src={pilates}
                 className="object-fill "
@@ -163,9 +158,9 @@ export default function HomeVisitor() {
                 Entrena desde la comodidad de tu casa
               </p>
             </div>
-            <div className=" w-[40%] text-transparent hover:text-black  hover:shadow-lg duration-[1s] border border-grey-400 m-2 ">
+            <div className=" w-[40%] text-transparent relative z-20 bg-white hover:text-black  hover:shadow-lg duration-[1s] border border-grey-400 m-2 ">
               <img
-                src={img7}
+                src={img2}
                 className="object-fill  "
                 alt="image not found "
               />
@@ -173,7 +168,7 @@ export default function HomeVisitor() {
                 Obten descuentos por premium
               </p>
             </div>
-            <div className=" w-[40%] text-transparent hover:text-black  hover:shadow-lg duration-[1s] border border-grey-400 m-2">
+            <div className=" w-[40%] text-transparent relative z-20 bg-white hover:text-black  hover:shadow-lg duration-[1s] border border-grey-400 m-2">
               <img
                 src={womanworkingout}
                 className="object-fill"
@@ -188,18 +183,46 @@ export default function HomeVisitor() {
             type="button"
             className="text-white hover:shadow-lg bg-blue-600 hover:bg-blue-700 felx-1 focus:ring-2 focus:outline-none focus:ring-blue-200  font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
           >
-            Empieza Gratis!
+            Mas →
           </button>
+            </div>
+          </div>
+        <Span_decoration3></Span_decoration3>
+        </section>
+      </div>
+      
+      <div className="w-4/5 mx-auto px-4 mt-[30%] h-screen">
+        <section className="flex">
+          <div className="w-2/5">
+            <div>
+              <h2 className="text-3xl font-dark">Ofrecemos Ejercicos</h2>
+              <div className="h-1 bg-gray-300 w-10 mt-2"></div>
+            </div>
+            <p id="text-ofese" className="text-sm text-black font-normal text-justify my-4 leading-loose">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Molestias mollitia enim aliquid debitis, dolor deserunt nihil in
+              culpa vitae quibusdam qui earum cum! Similique eveniet at magnam
+              laboriosam consequatur illo. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Commodi dolorem numquam debitis accusamus cupiditate tempora minima nesciunt excepturi quam?
+              Eius soluta voluptatem quidem nulla aspernatur ea dolore quia molestias quaerat.
+            </p>
+          </div>
+          <div className="ml-auto w-2/4 flex">
+            <div>
+              <Link to="/auth/sing-up">
+                <img src="https://c.tenor.com/g6XQ1z_Op0QAAAAC/squats-body-weight-training.gif" className="max-w-[100%] hover:shadow-lg duration-[0.3s]" alt="img not found" />
+                <div className ="relative top-[-50px] px-10 ">
+                <p className="text-md font-light text-gray-700">SENTADILLAS</p>
+                <p className="text-md font-light text-gray-700">PRESIONA LA IMAGEN PARA COMENZAR</p>
+                </div>
+              </Link>
             </div>
           </div>
         </section>
       </div>
-
-      <br />
-      <hr />
-
       {/* screen 5 */}
       <div className="flex justify-center w-full items-center  h-screen space-x-5 ">
+      <Span_decoration4></Span_decoration4>
         <div className="p-4 w-full max-w-sm h-[500px] mt-[60px]   bg-white rounded-lg border shadow-md sm:p-8   ">
           <h5 className="mb-4 text-xl font-medium text-gray-500">Gratis!</h5>
           <div className="flex items-baseline text-gray-900">
@@ -337,7 +360,7 @@ export default function HomeVisitor() {
           <div className="flex items-baseline text-gray-900">
             <span className="text-3xl font-semibold">$</span>
             <span className="text-5xl font-extrabold tracking-tight">
-              900000
+              35
             </span>
             <span className="ml-1 text-xl font-normal text-gray-500 ">/99</span>
           </div>
@@ -484,8 +507,6 @@ export default function HomeVisitor() {
           </button>
         </div>
       </div>
-
-      <hr />
 
       {/* screen 6 */}
       <div  className=" m-auto w-full">
