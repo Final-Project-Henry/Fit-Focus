@@ -1,517 +1,549 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Carousel from "../Carousel/Carousel";
+
 import {
   Div_cards,
-  Div_video,
-  Div_benefitsVisitor,
-  Div_benefitsVisitor2,
+  Div_screem2,
   Div_about,
+  Div_screem3,
+  Span_decoration,
+  Span_decoration2,
+  Span_decoration3,
+  Span_decoration4,
 } from "./styles/styled_componet_homeVisite";
+
 import Footer from "../footer/Footer";
+import img1 from "../assets/Fotos y Videos HomeVisitor/home_img1.svg";
+import img2 from "../assets/Fotos y Videos HomeVisitor/discount.svg";
+import img3 from "../assets/Fotos y Videos HomeVisitor/undraw_calculator_re_alsc.svg";
+import img4 from "../assets/Fotos y Videos HomeVisitor/undraw_my_personal_files_re_3q0p.svg";
+import pilates from "../assets/Fotos y Videos HomeVisitor/pilates.svg";
+import womanworkingout from "../assets/Fotos y Videos HomeVisitor/womanworkingout.svg";
+import About from "./About";
 
-const img2 = require("../assets/Fotos y Videos HomeVisitor/imgSlide2.2.jpeg");
-const img3 = require("../assets/Fotos y Videos HomeVisitor/imgSlide3.jpg");
-const img4 = require("../assets/Fotos y Videos HomeVisitor/imgSlide4.jpeg");
-const img5 = require("../assets/Fotos y Videos HomeVisitor/imgSlide5.jpeg");
+const img6 = require("../assets/Fotos y Videos HomeVisitor/urban-913.png");
+const img13 = require("../assets/Fotos y Videos HomeVisitor/allpeople.jpg");
 
-const foto1 = require("../assets/Fotos y Videos HomeVisitor/6Q26YGICPFBULGVJ2YO3RZN2F4.jpg");
-const foto2 = require("../assets/Fotos y Videos HomeVisitor/depositphotos_81858526-stock-photo-couple-doing-planking-exercises.jpg");
-const foto3 = require("../assets/Fotos y Videos HomeVisitor/NikeNews_NTC_Jen_02_native_1600-640x360.jpg");
-const skille = require("../assets//Fotos y Videos HomeVisitor/Anillos_de_porcentajes.png");
-const video = require("../assets/Fotos y Videos HomeVisitor/pexels-tima-miroshnichenko-6388870.mp4");
-const brain = require("../assets/Fotos y Videos HomeVisitor/brain.png");
-const heart = require("../assets/Fotos y Videos HomeVisitor/heart.png");
-const lungs = require("../assets/Fotos y Videos HomeVisitor/lungs.png");
-const sleep = require("../assets/Fotos y Videos HomeVisitor/sueño.png");
-const strong = require("../assets/Fotos y Videos HomeVisitor/fuerza.png");
+const opiniones = [
+  {
+    name: "Chacabuco",
+    opinion: "epico ",
+  },
+  {
+    name: "Juan",
+    opinion: "baje 80 kilos en 10 dias ",
+  },
+  {
+    name: "Roberto",
+    opinion: "encreible! desde q uses su app me siento mas saludable ",
+  },
+  {
+    name: "Fiona",
+    opinion: "maravilloso ahora todos los hombres me hablan ",
+  },
+];
 
-const adrian = require("../assets/Fotos y Videos HomeVisitor/adrian.png");
-const caterina = require("../assets//Fotos y Videos HomeVisitor/caterina.png");
-const david = require("../assets/Fotos y Videos HomeVisitor/david.png");
-const ivan = require("../assets/Fotos y Videos HomeVisitor/ivan.png");
-const lautaro = require("../assets/Fotos y Videos HomeVisitor/marcel.png");
-const martin = require("../assets/Fotos y Videos HomeVisitor/martin.png");
-const rafael = require("../assets/Fotos y Videos HomeVisitor/rafael.png");
-const rodrigo = require("../assets/Fotos y Videos HomeVisitor/rodrigo.png");
-
-const email = require("../assets/Fotos y Videos HomeVisitor/email.png");
-const github = require("../assets/Fotos y Videos HomeVisitor/github.png");
-const linkedIn = require("../assets/Fotos y Videos HomeVisitor/linkedIn.png");
-
+function ramdomMsj() {
+  let ramdomMsj = Math.floor(Math.random() * opiniones.length);
+  return ramdomMsj;
+}
 export default function HomeVisitor() {
-  const [data, setData] = useState<any[]>();
-
-  const handleChange = () => {};
-
+  const [data, setData] = useState<number>(0);
+  useEffect(() => {
+    return setData(ramdomMsj());
+  }, [ramdomMsj()]);
   return (
     <>
-    <div className="felx bg-slate-50">
-      {/* <Navbar/> */}
-      {/* Yo adrian he quitado de className la clase Carousel para que se vea, pero la pagina sirve asi que subire, ojo aqui */}
-      <div className="w-screen">
-        <Carousel
-          content={[
-            { src: img2, },
-            { src: img3,},
-            { src: img4 },
-            { src: img5 },
-          ]}
-        />
+      {/* screen 1  */}
+      <div className="h-screen">
+        <Div_cards>
+          <div id="text-container">
+            <h1 className="font-dark">Fit focus</h1>
+            <p className=" text-gray-800 font-normal my-4 leading-loose">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+              quas et saepe cum earum? Nesciunt est mollitia distinctio laborum
+              nam eos expedita quae iusto minus, natus ea. Quod, iusto odio.{" "}
+            </p>
+            <Link  to="/auth/sing-up">
+              <button className="font-normal"> Empiza ya </button>
+            
+            </Link>
+          </div>
+          <div id="img-container">
+            <img src={img1} alt="img" />
+            <div id="card-opiniones">
+              <div id="img">
+                <img src="https://api.lorem.space/image/face?w=120&h=120&hash=bart89fe" />
+              </div>
+              <div id="card-text-opiniones">
+                <p>{opiniones[data].name}</p>
+                <p className="font-normal text-xl">{opiniones[data].opinion}</p>
+              </div>
+            </div>
+          </div>
+        </Div_cards>
       </div>
-        <Div_cards className="flex  ">
-          <div
-            id="card"
-            className=" rounded-xl overflow-hidden  text-white bg-gray-900"
-          >
-            <div id="img_card">
-              <img src={foto1} className="foto1" alt="foto" />
-            </div>
-            <p>
-              La combinación de ejercicio y comida saludable puede ayudarte a
-              incrementar tu nivel de energía y a sentirte más alerta y
-              conciente, tanto mental como físicamente.
+      {/* screen 2 */}
+
+      <div className="h-screen flex justify-center">
+        <Div_screem2>
+          <div id="text-screen2" className="font-dark mt-10">
+            <h3>Nuetra app te ofrece</h3>
+            <p className="font-normal  text-gray-600">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+              ipsum voluptate, corporis blanditiis molestiae velit dolore?
+              Maxime beatae natus dolorem repudiandae corrupti dolore vitae nisi
+              adipisci commodi, ea ipsa nobis!{" "}
             </p>
           </div>
-
-          <div
-            id="card"
-            className="rounded-xl overflow-hidden text-white bg-gray-900"
-          >
-            <div id="img_card">
-              <img src={foto2} className="foto1" />
+          <div id="img-screen2">
+            <div>
+              <img id="img-1" src={img3} alt="img" />
+              <img id="img-2" src={img4} alt="img" />
             </div>
-            <p>
-              El ejercicio estimula los químicos del cerebro que ayudan a
-              generar sentimientos de felicidad, satisfacción y relajación, por
-              lo que te sentirás mejor si haces ejercicio regularmente.
+          </div>
+        </Div_screem2>
+        <Span_decoration2></Span_decoration2>
+      </div>
+      <hr />
+
+      {/* screen 3  */}
+      <Div_screem3 className="w-4/5 mx-auto px-4 mt-[30%] h-[100vh]">
+        <section className="flex">
+          <div className="w-2/5">
+            <div>
+              <h2 className="text-3xl font-dark">¿Para quien es esta app?</h2>
+              <div className="h-1 bg-gray-300 w-10 mt-2"></div>
+            </div>
+            <p
+              id="text-ofese"
+              className="text-sm text-back font-normal my-4 leading-loose"
+            >
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Molestias mollitia enim aliquid debitis, dolor deserunt nihil in
+              culpa vitae quibusdam qui earum cum! Similique eveniet at magnam
+              laboriosam consequatur illo.
             </p>
           </div>
+          <div className="ml-auto w-2/4 flex">
+            <img src={img13} className="max-w-[100%]" alt="img not found" />
+          </div>
+        </section>
+      </Div_screem3>
+      
 
-          <div
-            id="card"
-            className="rounded-xl overflow-hidden overflow-hidden text-white bg-gray-900"
-          >
-
-            <div id="img_card">
-              <img src={foto3} className="foto1" alt="foto" />
-            </div>
-            <p>
-              El ejercicio y la dieta saludable pueden ayudarte a tener una vida
-              más variada e interesante. Busca formas creativas de mantenerte
-              activo físicamente en tu vida diaria, y no hagas siempre la misma
-              rutina de ejercicio.
-            </p>
-          </div>
-        </Div_cards>
-        <Div_video>
-          <p className="text-white">EL ÚNICO LÍMITE ERES TÚ</p>
-          <video id="video" src={video} autoPlay loop muted />
-          {/* <div id="btm_video" className="w-1/4  bg-blue-700 absolute text-white text-center p-2 my-5">
-          <button >Empieza a ENTRENAR</button>
-        </div> */}
-        </Div_video>
-        {/* 
-      <div className="FrasesMotivacionales">
-        <h1 className="image"></h1>
-      </div> */}
-        <Div_benefitsVisitor>
-          <p className="benefitsVisitor">Beneficios del ejercicio</p>
-        </Div_benefitsVisitor>
-
-        <Div_benefitsVisitor2>
-          <p className="benefitsVisitor2">
-            Por norma general y en todas las edades, las comodidades en las que
-            vivimos hacen que veamos al ejercicio físico como algo "duro" e
-            introducirlo de una forma regular en nuestra vida cotidiana no
-            siempre resulta fácil debido a múltiples factores... Es por ello que
-            hemos decidido crear dicha aplicación para mostrarte algunos de los
-            beneficios y asi comiences a ejercitarte dónde quieras y cuando
-            quieras. Solo debes dirigirte a la parte superior derecha de la
-            pagina en el boton de <b>Registrarse</b> y comienza con tus
-            entrenamientos básicos.
-          </p>
-        </Div_benefitsVisitor2>
-
-        <Div_cards className="flex  ">
-          <div
-            id="card"
-            className=" rounded-xl overflow-hidden  text-white bg-gray-900"
-          >
-            <div id="img_card">
-              <img src={brain} className="brainImg" alt="foto" />
-            </div>
-            <p>Menor degeneración neuronal.</p>
-          </div>
-          <div
-            id="card"
-            className="rounded-xl overflow-hidden text-white bg-gray-900"
-          >
-            <div id="img_card">
-              <img src={heart} className="foto1" />
-            </div>
-            <p>Mejora los factores de riesgo cardiovascular.</p>
-          </div>
-          <div
-            id="card"
-            className="rounded-xl overflow-hidden text-white bg-gray-900"
-          >
-            <div id="img_card">
-              <img src={lungs} className="foto1" alt="foto" />
-            </div>
-            <p>Aumenta la capacidad de oxígeno pulmonar.</p>
-          </div>
-          <div
-            id="card"
-            className="rounded-xl overflow-hidden text-white bg-gray-900"
-          >
-            <div id="img_card">
-              <img src={sleep} className="foto1" alt="foto" />
-            </div>
-            <p>Previene apnea del sueño.</p>
-          </div>
-          <div
-            id="card"
-            className="rounded-xl overflow-hidden text-white bg-gray-900"
-          >
-            <div id="img_card">
-              <img src={strong} className="foto1" alt="foto" />
-            </div>
-            <p>
-              Mejora la densidad ósea y disminuye el riesgo de osteoporosis.
-            </p>
-          </div>
-        </Div_cards>
-        {/* ABOUT US */}
-
-        <Div_about className="flex border-b-4 bg-zinc-400 mt-8" id="about">
-          <div id="text-about">
-            <div className="flex " id="titel-about">
-              <p id="abut">Acerca de nosotros</p>
-            </div>
-            <div id="text-description-about">
-              <p className="p-5 text-2xl">
-                Somos un grupo de jóvenes y entusiastas programadores que
-                desarrollamos aplicaciones web responsive. Nuestra meta en estos
-                momentos es desarrollar una aplicacion con fines saludables para
-                ayudar al publico que no tiene tiempo de ir al gimnasio o
-                simplemente le guste ejercitarse en la comodidad de su casa.
+      {/* screen extra  */}
+      <div className=" flex w-4/5 mx-auto justify-center  h-[62vh]">
+        <section className="w-4/5 mx-auto flex">
+          <div className="w-[80%]">
+            <h2 className="text-3xl font-dark text-black">Beneficios</h2>
+            <div className="h-1 bg-gray-300 w-10 mt-2"></div>
+            <div className="">
+              <p className="text-md  text-gray-900 font-normal my-4 leading-loose text-justify">
+                ¡Transformamos lo complicado en simple! Porque pensamos en tu
+                comodidad, lo mejor de FIT FOCUS es que puedes programarla a tu
+                ritmo de vida, ya seas un experto haciendo ejercicio o una
+                persona que apenas quiere comenzar a entrenarse, sin importar la
+                edad. Ademas, volvientote premium puedes gozar de descuentos y
+                rutinas personalizadas para mejores resultados.
               </p>
             </div>
           </div>
-          <div id="avatars-about" className=" text-white bg-gray-900">
-            <div id="card">
-              <div id="img_card">
-                <img src={caterina} className="brainImg" alt="img not found" />
-                <div id="item-card">
-                  <p>Caterina Aracil</p>
-                  <div id="item-a">
-                    <a href="https://github.com/catearacil" target="__blank">
-                      <img
-                        src={github}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/caterina-aracil-42256722b/"
-                      target="__blank"
-                    >
-                      <img
-                        src={linkedIn}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-
-                    <a href="mailto:caterinaaracil@gmail.com" target="__blank">
-                      <img
-                        src={email}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
+        </section>
+        <section className="flex flex-wrap w-[50%] h-[100px]  items-center justify-center">
+          <div className="flex flex-wrap  ">
+            <div className=" w-[40%] relative z-20 bg-white border text-transparent hover:shadow-lg hover:text-black duration-[1s] border-grey-400 m-2">
+              <img
+                src={pilates}
+                className="object-fill "
+                alt="image not found"
+              />
+              <p className=" text-[1rem] px-2 tracking-tight">
+                Entrena desde la comodidad de tu casa
+              </p>
             </div>
-            <div id="card">
-              <div id="img_card">
-                <img src={martin} className="foto1" alt="img not found" />
-                <div id="item-card">
-                  <p className="">Martín Angúlo</p>
-                  <div id="item-a">
-                    <a href="https://github.com/MartinAngulo" target="__blank">
-                      <img
-                        src={github}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-
-                    <a
-                      href="https://www.linkedin.com/in/martinangulo1194/"
-                      target="___blank"
-                    >
-                      <img
-                        src={linkedIn}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-
-                    <a
-                      href="mailto:martinangulo1194@gmail.com"
-                      target="__blank"
-                    >
-                      <img
-                        src={email}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
+            <div className=" w-[40%] text-transparent relative z-20 bg-white hover:text-black  hover:shadow-lg duration-[1s] border border-grey-400 m-2 ">
+              <img
+                src={img2}
+                className="object-fill  "
+                alt="image not found "
+              />
+              <p className=" text-[1rem]  px-2 tracking-tight">
+                Obten descuentos por premium
+              </p>
             </div>
-            <div id="card">
-              <div id="img_card">
-                <img src={ivan} className="foto1" alt="img not found" />
-                <div id="item-card">
-                  <p className="">Sergio Garcia</p>
-                  <div id="item-a">
-                    <a href="https://github.com/x1vaan" target="__blank">
-                      <img
-                        src={github}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-
-                    <a
-                      href="https://www.linkedin.com/in/sergio-ivan-garcia/"
-                      target="__blank"
-                    >
-                      <img
-                        src={linkedIn}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-
-                    <a
-                      href="https://www.linkedin.com/in/rafaelgbetancourto/"
-                      target="__blank"
-                    >
-                      <img
-                        src={email}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
+            <div className=" w-[40%] text-transparent relative z-20 bg-white hover:text-black  hover:shadow-lg duration-[1s] border border-grey-400 m-2">
+              <img
+                src={womanworkingout}
+                className="object-fill"
+                alt="image not found"
+              />
+              <p className="text-[1rem]  px-2 tracking-tight">
+                Nunca sabrás de lo que eres capaz sino comienzas
+              </p>
             </div>
-            <div id="card">
-              <div id="img_card">
-                <img src={adrian} className="foto1" alt="img not found" />
-                <div id="item-card">
-                  <p className="">Adrian Acurero</p>
-                  <div id="item-a">
-                    <a href="https://github.com/Adr-AA" target="__blank">
-                      <img
-                        src={github}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-
-                    <a
-                      href="https://www.linkedin.com/in/adrian-acurero/"
-                      target="__blank"
-                    >
-                      <img
-                        src={linkedIn}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-
-                    <a
-                      href="https://www.linkedin.com/in/rafaelgbetancourto/"
-                      target="__blank"
-                    >
-                      <img
-                        src={email}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div id="card">
-              <div id="img_card">
-                <img src={lautaro} className="brainImg" alt="img not found" />
-
-                <div id="item-card">
-                  <p className="">Lautaro Franco</p>
-                  <div id="item-a">
-                    <a href="https://github.com/LautaroFranc" target="__blank">
-                      <img
-                        src={github}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-
-                    <a
-                      href="https://www.linkedin.com/in/lautaro-franco-a1358722b/"
-                      target="__blank"
-                    >
-                      <img
-                        src={linkedIn}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-
-                    <a href="mailto:Hola12lf@gmail.com" target="__blank">
-                      <img
-                        src={email}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div id="card">
-              <div id="img_card">
-                <img src={rodrigo} className="foto1" alt="img not found" />
-                <div id="item-card">
-                  <p className="">Rodrigo Santesteban</p>
-                  <div id="item-a">
-                    <a href="https://github.com/rodrisantes" target="__blank">
-                      <img
-                        src={github}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-
-                    <a
-                      href="https://www.linkedin.com/in/rodrigo-santesteban-7334b5240/"
-                      target="__blank"
-                    >
-                      <img
-                        src={linkedIn}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-
-                    <a
-                      href="https://www.linkedin.com/in/rafaelgbetancourto/"
-                      target="__blank"
-                    >
-                      <img
-                        src={email}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Rafa */}
-            <div id="card">
-              <div id="img_card">
-                <img src={david} className="foto1" alt="img not found" />
-                <div id="item-card">
-                  <p className="">David Cicconi</p>
-                  <div id="item-a">
-                    <a
-                      href="https://github.com/davidcicconi94"
-                      target="__blank"
-                    >
-                      <img
-                        src={github}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-
-                    <a
-                      href="https://www.linkedin.com/in/david-cicconi-dev/"
-                      target="__blank"
-                    >
-                      <img
-                        src={linkedIn}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-
-                    <a href="mailto:david.cicconi94@gmail.com" target="__blank">
-                      <img
-                        src={email}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div id="card">
-              <div id="img_card">
-                <img src={rafael} className="foto1" alt="img not found" />
-                <div id="item-card">
-                  <p className="">Rafael Betancourt</p>
-                  <div id="item-a">
-                    <a
-                      href="https://github.com/RafaelBetancourt"
-                      target="__blank"
-                    >
-                      <img
-                        src={github}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-
-                    <a
-                      href="https://www.linkedin.com/in/rafaelgbetancourto/"
-                      target="__blank"
-                    >
-                      <img
-                        src={linkedIn}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-
-                    <a href="mailto:rafael18282@gmail.com">
-                      <img
-                        src={email}
-                        className="inline my-2"
-                        alt="img not found"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
+            <div className=" w-[40%]  relative z-20 flex items-center duration-[1s] m-2">
+              <Link className="w-[100%]" to="/auth/sing-up">
+                <button
+                type="button"
+                className="text-white  hover:shadow-lg bg-blue-600 hover:bg-blue-700 felx-1 focus:ring-2 focus:outline-none focus:ring-blue-200  font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
+              >
+                Mas →
+              </button>
+              
+              </Link>
             </div>
           </div>
-        </Div_about>
+        <Span_decoration3></Span_decoration3>
+        </section>
       </div>
+      
+      <div className="w-4/5 mx-auto px-4 mt-[30%] h-screen">
+        <section className="flex">
+          <div className="w-2/5">
+            <div>
+              <h2 className="text-3xl font-dark">Ofrecemos Ejercicos</h2>
+              <div className="h-1 bg-gray-300 w-10 mt-2"></div>
+            </div>
+            <p id="text-ofese" className="text-sm text-black font-normal text-justify my-4 leading-loose">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Molestias mollitia enim aliquid debitis, dolor deserunt nihil in
+              culpa vitae quibusdam qui earum cum! Similique eveniet at magnam
+              laboriosam consequatur illo. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Commodi dolorem numquam debitis accusamus cupiditate tempora minima nesciunt excepturi quam?
+              Eius soluta voluptatem quidem nulla aspernatur ea dolore quia molestias quaerat.
+            </p>
+          </div>
+          <div className="ml-auto w-2/4 flex">
+            <div>
+              <Link to="/auth/sing-up">
+                <img src="https://c.tenor.com/g6XQ1z_Op0QAAAAC/squats-body-weight-training.gif" className="max-w-[100%] hover:shadow-lg duration-[0.3s]" alt="img not found" />
+                <div className ="relative top-[-50px] px-10 ">
+                <p className="text-md font-light text-gray-700">SENTADILLAS</p>
+                <p className="text-md font-light text-gray-700">PRESIONA LA IMAGEN PARA COMENZAR</p>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+      </div>
+      {/* screen 5 */}
+      <div className="flex justify-center w-full items-center  h-screen space-x-5 ">
+      <Span_decoration4></Span_decoration4>
+        <div className="p-4 w-full max-w-sm h-[500px] mt-[60px]   bg-white rounded-lg border shadow-md sm:p-8   ">
+          <h5 className="mb-4 text-xl font-medium text-gray-500">Gratis!</h5>
+          <div className="flex items-baseline text-gray-900">
+            <span className="text-3xl font-semibold">$</span>
+            <span className="text-5xl font-extrabold tracking-tight">0</span>
+            <span className="ml-1 text-xl font-normal text-gray-500 ">/00</span>
+          </div>
+          <ul role="list" className="my-7 space-y-5">
+            <li className="flex space-x-3">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 text-blue-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal text-gray-500  ">
+                20 ejercicio por mes
+              </span>
+            </li>
+            <li className="flex space-x-3">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 h-5 text-blue-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal leading-tight text-gray-500 ">
+                calculadora
+              </span>
+            </li>
+            <li className="flex space-x-3">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 h-5 text-blue-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal leading-tight text-gray-500">
+                nada..., Compra el premiun YA !
+              </span>
+            </li>
+            <li className="flex space-x-3 line-through decoration-gray-500">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal leading-tight text-gray-500">
+                rutinas
+              </span>
+            </li>
+            <li className="flex space-x-3 line-through decoration-gray-500">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal leading-tight text-gray-500">
+                ejercicio y su filtros
+              </span>
+            </li>
+            <li className="flex space-x-3 line-through decoration-gray-500">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal leading-tight text-gray-500">
+                24×7 soporte
+              </span>
+            </li>
+          </ul>
+          <button
+            type="button"
+            className="text-white bg-blue-600 hover:bg-blue-700 felx-1 focus:ring-2 focus:outline-none focus:ring-blue-200  font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
+          >
+            Empieza Gratis!
+          </button>
+        </div>
+        <div className="p-4 w-full max-w-sm bg-white h-[600px] rounded-lg border shadow-md sm:p-8   ">
+          <h5 className="mb-4 text-xl font-medium text-gray-500">
+            Pago unico!
+          </h5>
+          <div className="flex items-baseline text-gray-900">
+            <span className="text-3xl font-semibold">$</span>
+            <span className="text-5xl font-extrabold tracking-tight">
+              35
+            </span>
+            <span className="ml-1 text-xl font-normal text-gray-500 ">/99</span>
+          </div>
+          <ul role="list" className="my-7 space-y-5">
+            <li className="flex space-x-3">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 text-blue-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal text-gray-500  ">
+                Rutinas personalizadas
+              </span>
+            </li>
+            <li className="flex space-x-3">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 h-5 text-blue-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal leading-tight text-gray-500 ">
+                Todos los ejercicio desbloqueados
+              </span>
+            </li>
+            <li className="flex space-x-3">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 h-5 text-blue-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal leading-tight text-gray-500">
+                Calculadora
+              </span>
+            </li>
+            <li className="flex space-x-3 line-through decoration-gray-500">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal leading-tight text-gray-500">
+                rutinas
+              </span>
+            </li>
+            <li className="flex space-x-3 line-through decoration-gray-500">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal leading-tight text-gray-500">
+                ejercicio y su filtros
+              </span>
+            </li>
+            <li className="flex space-x-3 line-through decoration-gray-500">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal leading-tight text-gray-500">
+                50 ejercicio por mes
+              </span>
+            </li>
+            <li className="flex space-x-3 line-through decoration-gray-500">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal leading-tight text-gray-500">
+                24×7 soporte
+              </span>
+            </li>
+          </ul>
+          <button
+            type="button"
+            className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:outline-none focus:ring-blue-200  font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
+          >
+            Haste Premiun ya
+          </button>
+        </div>
+      </div>
+
+      {/* screen 6 */}
+      <div  className=" m-auto w-full h-screen">
+      <div>
+        <div className="w-11/12 m-auto mt-32 max-w-[80%]">
+          <section className="flex items-center">
+            <div className="w-1/2">
+              <img src={img6} alt="img not found" />
+            </div>
+            <div className="w-2/5 ml-auto">
+              <div>
+                <h2 className="text-3xl font-dark text-black">¿Que esperas?</h2>
+                <div className="h-1 bg-gray-300 w-10 mt-2"></div>
+              </div>
+              <p className="text-md text-gray-900 font-normal my-4 leading-loose text-justify mr-5">
+                Realiza tu registro en tan sólo 1 minuto y comienza tu
+                entrenamiento en la mejor y mas comoda aplicación para
+                ejercicios, asi que... ¡A ENTRENAR!
+              </p>
+              <Link to="/auth/sing-up">
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  REGISTRARSE
+                </button>
+              </Link>
+            </div>
+          </section>
+        </div>
+      </div>
+      </div>
+      <About/>
       <Footer />
     </>
   );

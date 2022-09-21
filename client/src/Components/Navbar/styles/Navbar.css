@@ -18,12 +18,15 @@ nav a {
     background-color: #b45309;
     opacity: 0;
     transition: opacity 300ms, transform 300ms;
+    
   }
   
   nav a:hover::after,
   nav a:focus::after {
+
     opacity: 1;
     transform: translate3d(0, 0.2em, 0);
+
   }
   
 
