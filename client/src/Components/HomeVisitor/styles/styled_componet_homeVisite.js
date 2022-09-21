@@ -7,7 +7,7 @@ const Div_cards = styled.div`
   background-color: #f8fafc;
   background-image: linear-gradient(0deg, #f8fafc 0%, #6c63ff 100%);
   #text-container {
-    padding: 10px;
+    padding: 20px;
     h1 {
       font-size: 8rem;
     }
@@ -60,13 +60,17 @@ const Div_cards = styled.div`
 const Div_screem3 = styled.div`
   background: url(${decoration1});
   background-repeat: no-repeat;
-  background-size: 70%;
-  background-position: 100% 70%;
+  background-size: 56%;
+  background-position: 100% -500%;
+
+  img{
+     margin:10px;
+  }
 `;
 
 const Div_screem2 = styled.div`
   display: flex;
-  width: 98%;
+  width: 90%;
   box-shadow: 0px 5px 15px 0px #6c63ff75;
   justify-content: center;
   background-color: #fff;
@@ -82,6 +86,8 @@ const Div_screem2 = styled.div`
     margin: 20px 100px;
   }
   p {
+    position: relative;
+    z-index:10;
     width: 70%;
     margin: 5px 100px;
     font-size: 1.5rem;
@@ -103,9 +109,8 @@ background-color: transparent;
 background: url(${decoration2});
 background-repeat: no-repeat;
 background-size: 34%;
-background-position:1% 140px;
-  filter: blur(5px);
-
+opacity: 20%;
+background-position:1% 300px;
 `
 
 const Span_decoration2 = styled.div`
@@ -118,8 +123,9 @@ background-color: transparent;
 background: url(${decoration2});
 background-repeat: no-repeat;
 background-size: 20%;
-background-position:-30px 10px;
-`
+background-position:50px 90px;
+opacity: 30%;
+`;
 const Div_benefitsVisitor = styled.div`
   text-align: center;
   font-size: 2rem;

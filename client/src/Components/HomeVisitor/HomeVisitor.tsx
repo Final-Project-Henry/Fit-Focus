@@ -62,8 +62,8 @@ export default function HomeVisitor() {
       <div className="h-screen">
         <Div_cards>
           <div id="text-container">
-            <h1>Fit focus</h1>
-            <p className="text-sm text-gray-800 font-normal my-4 leading-loose">
+            <h1 className="font-dark">Fit focus</h1>
+            <p className=" text-gray-800 font-normal my-4 leading-loose">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
               quas et saepe cum earum? Nesciunt est mollitia distinctio laborum
               nam eos expedita quae iusto minus, natus ea. Quod, iusto odio.{" "}
@@ -82,15 +82,15 @@ export default function HomeVisitor() {
               </div>
             </div>
           </div>
-        
         </Div_cards>
       </div>
       {/* screen 2 */}
+
       <div className="h-screen flex justify-center">
         <Div_screem2>
           <div id="text-screen2" className="font-dark mt-10">
             <h3>Nuetra app te ofrece</h3>
-            <p className="font-normal text-gray-600">
+            <p className="font-normal  text-gray-600">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
               ipsum voluptate, corporis blanditiis molestiae velit dolore?
               Maxime beatae natus dolorem repudiandae corrupti dolore vitae nisi
@@ -104,18 +104,22 @@ export default function HomeVisitor() {
             </div>
           </div>
         </Div_screem2>
-        <Span_decoration></Span_decoration>
         <Span_decoration2></Span_decoration2>
       </div>
+      <hr />
+
       {/* screen 3  */}
-      <Div_screem3 className="w-4/5 mx-auto px-4 mt-[30%] h-screen">
+      <Div_screem3 className="w-4/5 mx-auto px-4 mt-[30%] h-[100vh]">
         <section className="flex">
           <div className="w-2/5">
             <div>
               <h2 className="text-3xl font-dark">¿Para quien es esta app?</h2>
               <div className="h-1 bg-gray-300 w-10 mt-2"></div>
             </div>
-            <p id="text-ofese" className="text-sm text-back font-normal my-4 leading-loose">
+            <p
+              id="text-ofese"
+              className="text-sm text-back font-normal my-4 leading-loose"
+            >
               Lorem, ipsum dolor sit amet consectetur adipisicing elit.
               Molestias mollitia enim aliquid debitis, dolor deserunt nihil in
               culpa vitae quibusdam qui earum cum! Similique eveniet at magnam
@@ -127,78 +131,389 @@ export default function HomeVisitor() {
           </div>
         </section>
       </Div_screem3>
+      <hr />
+
       {/* screen extra  */}
-    
-      <div className="mt-32">
-        <section className="w-4/5 mx-auto flex justify-between items-center">
-          <div className="w-1/5 mr-auto " >
-            <h2 className="text-3xl font-dark text-black">
-              Beneficios
-            </h2>
+      <div className=" flex w-4/5 mx-auto justify-center  h-[62vh]">
+        <section className="w-4/5 mx-auto flex">
+          <div className="w-[80%]">
+            <h2 className="text-3xl font-dark text-black">Beneficios</h2>
             <div className="h-1 bg-gray-300 w-10 mt-2"></div>
-          </div>
-          <div className="w-1/2">
-            <p className="text-md text-gray-900 font-normal my-4 leading-loose text-justify">
-              ¡Transformamos lo complicado en simple! Porque pensamos en tu comodidad,
-              lo mejor de FIT FOCUS es que puedes programarla a tu ritmo de vida,
-              ya seas un experto haciendo ejercicio o una persona que apenas quiere
-              comenzar a entrenarse, sin importar la edad. Ademas, volvientote premium puedes
-              gozar de descuentos y rutinas personalizadas para mejores resultados.
-            </p>
+            <div className="">
+              <p className="text-md  text-gray-900 font-normal my-4 leading-loose text-justify">
+                ¡Transformamos lo complicado en simple! Porque pensamos en tu
+                comodidad, lo mejor de FIT FOCUS es que puedes programarla a tu
+                ritmo de vida, ya seas un experto haciendo ejercicio o una
+                persona que apenas quiere comenzar a entrenarse, sin importar la
+                edad. Ademas, volvientote premium puedes gozar de descuentos y
+                rutinas personalizadas para mejores resultados.
+              </p>
+            </div>
           </div>
         </section>
-        <section>
-          <div className="card relative">
-            <div className="display: inline-block border border-grey-400 ml-5">
-              <img src={pilates} className="object-fill h-80 w-full" alt="image not found" />
-              <div className="absolute overlay-text w-full flex flex-col items-center">
-                <p className="text-black text-2xl tracking-tight">Entrena desde la comodidad de tu casa</p>
-              </div>
+        <section className="flex flex-wrap w-[50%] h-[200px]  items-center justify-center">
+          <div className="flex flex-wrap  ">
+            <div className=" w-[40%] border text-transparent hover:shadow-lg hover:text-black duration-[1s] border-grey-400 m-2">
+              <img
+                src={pilates}
+                className="object-fill "
+                alt="image not found"
+              />
+              <p className=" text-[1rem] px-2 tracking-tight">
+                Entrena desde la comodidad de tu casa
+              </p>
             </div>
-            <div className="display: inline-block border border-grey-400 ml-5">
-              <img src={img7} className="object-fill h-80 w-full " alt="image not found " />
-              <div className="absolute overlay-text w-full flex flex-col items-center">
-                <p className="text-black text-2xl tracking-tight">Obten descuentos por premium</p>
-              </div>
+            <div className=" w-[40%] text-transparent hover:text-black  hover:shadow-lg duration-[1s] border border-grey-400 m-2 ">
+              <img
+                src={img7}
+                className="object-fill  "
+                alt="image not found "
+              />
+              <p className=" text-[1rem]  px-2 tracking-tight">
+                Obten descuentos por premium
+              </p>
             </div>
-            <div className="display: inline-block border border-grey-400 ml-5">
-              <img src={womanworkingout} className="object-fill h-80 w-full" alt="image not found" />
-              <div className="absolute overlay-text w-full flex flex-col items-center">
-                <p className="text-black text-2xl tracking-tight">Nunca sabrás de lo que eres capaz sino comienzas</p>
-              </div>
+            <div className=" w-[40%] text-transparent hover:text-black  hover:shadow-lg duration-[1s] border border-grey-400 m-2">
+              <img
+                src={womanworkingout}
+                className="object-fill"
+                alt="image not found"
+              />
+              <p className="text-[1rem]  px-2 tracking-tight">
+                Nunca sabrás de lo que eres capaz sino comienzas
+              </p>
+            </div>
+            <div className=" w-[40%] flex items-center duration-[1s] m-2">
+            <button
+            type="button"
+            className="text-white hover:shadow-lg bg-blue-600 hover:bg-blue-700 felx-1 focus:ring-2 focus:outline-none focus:ring-blue-200  font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
+          >
+            Empieza Gratis!
+          </button>
             </div>
           </div>
         </section>
       </div>
 
-      <br/>
-      <hr/>
+      <br />
+      <hr />
 
       {/* screen 5 */}
-      
-      <div className=" display: flex justify-content: center max-w-[100%]">
-        <div className="w-11/12 mr-auto mt-32 border border-black-500 max-w-[80%]" >
+      <div className="flex justify-center w-full items-center  h-screen space-x-5 ">
+        <div className="p-4 w-full max-w-sm h-[500px] mt-[60px]   bg-white rounded-lg border shadow-md sm:p-8   ">
+          <h5 className="mb-4 text-xl font-medium text-gray-500">Gratis!</h5>
+          <div className="flex items-baseline text-gray-900">
+            <span className="text-3xl font-semibold">$</span>
+            <span className="text-5xl font-extrabold tracking-tight">0</span>
+            <span className="ml-1 text-xl font-normal text-gray-500 ">/00</span>
+          </div>
+          <ul role="list" className="my-7 space-y-5">
+            <li className="flex space-x-3">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 text-blue-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal text-gray-500  ">
+                20 ejercicio por mes
+              </span>
+            </li>
+            <li className="flex space-x-3">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 h-5 text-blue-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal leading-tight text-gray-500 ">
+                calculadora
+              </span>
+            </li>
+            <li className="flex space-x-3">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 h-5 text-blue-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal leading-tight text-gray-500">
+                nada..., Compra el premiun YA !
+              </span>
+            </li>
+            <li className="flex space-x-3 line-through decoration-gray-500">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal leading-tight text-gray-500">
+                rutinas
+              </span>
+            </li>
+            <li className="flex space-x-3 line-through decoration-gray-500">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal leading-tight text-gray-500">
+                ejercicio y su filtros
+              </span>
+            </li>
+            <li className="flex space-x-3 line-through decoration-gray-500">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal leading-tight text-gray-500">
+                24×7 soporte
+              </span>
+            </li>
+          </ul>
+          <button
+            type="button"
+            className="text-white bg-blue-600 hover:bg-blue-700 felx-1 focus:ring-2 focus:outline-none focus:ring-blue-200  font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
+          >
+            Empieza Gratis!
+          </button>
+        </div>
+        <div className="p-4 w-full max-w-sm bg-white h-[600px] rounded-lg border shadow-md sm:p-8   ">
+          <h5 className="mb-4 text-xl font-medium text-gray-500">
+            Pago unico!
+          </h5>
+          <div className="flex items-baseline text-gray-900">
+            <span className="text-3xl font-semibold">$</span>
+            <span className="text-5xl font-extrabold tracking-tight">
+              900000
+            </span>
+            <span className="ml-1 text-xl font-normal text-gray-500 ">/99</span>
+          </div>
+          <ul role="list" className="my-7 space-y-5">
+            <li className="flex space-x-3">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 text-blue-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal text-gray-500  ">
+                Rutinas personalizadas
+              </span>
+            </li>
+            <li className="flex space-x-3">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 h-5 text-blue-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal leading-tight text-gray-500 ">
+                Todos los ejercicio desbloqueados
+              </span>
+            </li>
+            <li className="flex space-x-3">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 h-5 text-blue-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal leading-tight text-gray-500">
+                Calculadora
+              </span>
+            </li>
+            <li className="flex space-x-3 line-through decoration-gray-500">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal leading-tight text-gray-500">
+                rutinas
+              </span>
+            </li>
+            <li className="flex space-x-3 line-through decoration-gray-500">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal leading-tight text-gray-500">
+                ejercicio y su filtros
+              </span>
+            </li>
+            <li className="flex space-x-3 line-through decoration-gray-500">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal leading-tight text-gray-500">
+                50 ejercicio por mes
+              </span>
+            </li>
+            <li className="flex space-x-3 line-through decoration-gray-500">
+              <svg
+                aria-hidden="true"
+                className="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Check icon</title>
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span className="text-base font-normal leading-tight text-gray-500">
+                24×7 soporte
+              </span>
+            </li>
+          </ul>
+          <button
+            type="button"
+            className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:outline-none focus:ring-blue-200  font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
+          >
+            Haste Premiun ya
+          </button>
+        </div>
+      </div>
+
+      <hr />
+
+      {/* screen 6 */}
+      <div  className=" m-auto w-full">
+      <div>
+        <div className="w-11/12 m-auto mt-32 max-w-[80%]">
           <section className="flex items-center">
             <div className="w-1/2">
               <img src={img6} alt="img not found" />
             </div>
             <div className="w-2/5 ml-auto">
               <div>
-                <h2 className="text-3xl font-dark text-black">
-                  ¿Que esperas?
-                </h2>
+                <h2 className="text-3xl font-dark text-black">¿Que esperas?</h2>
                 <div className="h-1 bg-gray-300 w-10 mt-2"></div>
               </div>
               <p className="text-md text-gray-900 font-normal my-4 leading-loose text-justify mr-5">
-                Realiza tu registro en tan sólo 1 minuto y comienza tu entrenamiento en la mejor 
-                y mas comoda aplicación para ejercicios, asi que... ¡A ENTRENAR!
+                Realiza tu registro en tan sólo 1 minuto y comienza tu
+                entrenamiento en la mejor y mas comoda aplicación para
+                ejercicios, asi que... ¡A ENTRENAR!
               </p>
               <Link to="/auth/sing-up">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">REGISTRARSE</button>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  REGISTRARSE
+                </button>
               </Link>
             </div>
           </section>
         </div>
+      </div>
       </div>
       <Footer />
     </>
