@@ -5,6 +5,8 @@ const bcrypt = require('bcrypt');
 const router = Router();
 const get_Routine = require('../getRoutine.js');
 const validation = require('../validations/validations');
+const mercadopago = require('../service/mercadoPago.js');
+const {get_preference} = require('../additional/preference.js')
 
 router.put('/userinfo', async (req, res) => { // Ruta para actualizar la informacion del usuario para crear una rutina(PREMIUM)
   if(!validation.userinfo(req.body))res.status(500).send('Invalid info');
@@ -101,5 +103,34 @@ router.get('/profile', async (req, res) => {
   const {id} = req.user
   const User = await user.findOne({_id : id});
   res.status(200).send(User)
+});
+
+router.get('/payment', async (req, res) => {
+  try {
+    const {email,name,id} = req.user
+    const preferences = get_preference(name,email,id);
+  const response = await mercadopago.preferences.create(preferences);
+  res.status(200).json({id: response.body.id, collector_id : response.body.collector_id, response});
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+});
+
+router.get('/confirmation', async (req, res) =>{
+  try {
+    const {payment_id} = req.query
+    const {id} = req.user
+    const response = await mercadopago.payment.findById(payment_id);
+    if(response.body.payer.last_name === id && response.body.status === 'approved'){
+      await user.updateOne({_id : id},{
+       plan : 'premium'
+      });
+      res.status(200).send('Ya eres premium!!')
+    }
+    res.status(403).send('Pago rechazado')
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
 })
+
 module.exports = router
