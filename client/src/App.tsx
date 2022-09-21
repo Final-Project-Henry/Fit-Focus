@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { useSesion } from "./app/hooks";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+
 /* Componentes */
 import HomeRegister from "./Components/HomeRegister/HomeRegister";
 import SingUp_Login from "./Components/login-singUp/Singup_Login";
