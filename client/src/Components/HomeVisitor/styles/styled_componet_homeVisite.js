@@ -23,6 +23,12 @@ const Div_cards = styled.div`
       margin: 50px 10px;
       color: #fff;
       border-radius: 10px;
+      transition: all 0.3s;
+    }
+
+    button:hover {
+      background-color: #0a3fFc;
+
     }
   }
 

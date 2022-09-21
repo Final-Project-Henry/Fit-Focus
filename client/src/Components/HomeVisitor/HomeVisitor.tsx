@@ -63,7 +63,10 @@ export default function HomeVisitor() {
               quas et saepe cum earum? Nesciunt est mollitia distinctio laborum
               nam eos expedita quae iusto minus, natus ea. Quod, iusto odio.{" "}
             </p>
-            <button className="font-normal"> Empiza ya </button>
+            <Link  to="/auth/sing-up">
+              <button className="font-normal"> Empiza ya </button>
+            
+            </Link>
           </div>
           <div id="img-container">
             <img src={img1} alt="img" />
@@ -178,13 +181,16 @@ export default function HomeVisitor() {
                 Nunca sabrás de lo que eres capaz sino comienzas
               </p>
             </div>
-            <div className=" w-[40%] flex items-center duration-[1s] m-2">
-            <button
-            type="button"
-            className="text-white hover:shadow-lg bg-blue-600 hover:bg-blue-700 felx-1 focus:ring-2 focus:outline-none focus:ring-blue-200  font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
-          >
-            Mas →
-          </button>
+            <div className=" w-[40%]  relative z-20 flex items-center duration-[1s] m-2">
+              <Link className="w-[100%]" to="/auth/sing-up">
+                <button
+                type="button"
+                className="text-white  hover:shadow-lg bg-blue-600 hover:bg-blue-700 felx-1 focus:ring-2 focus:outline-none focus:ring-blue-200  font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
+              >
+                Mas →
+              </button>
+              
+              </Link>
             </div>
           </div>
         <Span_decoration3></Span_decoration3>
