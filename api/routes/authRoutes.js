@@ -97,4 +97,9 @@ router.put('/addfav', async (req, res) => {
    res.status(200).send('Exercise added to fav')
 });
 
+router.get('/profile', async (req, res) => {
+  const {id} = req.user
+  const User = await user.findOne({_id : id});
+  res.status(200).send(User)
+})
 module.exports = router
