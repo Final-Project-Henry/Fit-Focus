@@ -20,6 +20,10 @@ import {
 } from "../../features/counter/counterSlice"
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> bbd149100786f0eb00eb82172849884b60a0ba68
 const video1 = require("../assets/homeRegister-media/Video-Slide.mp4");
 const video2 = require("../assets/homeRegister-media/Video2.mp4");
 
