@@ -16,6 +16,7 @@ const Profile = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate()
 
+
     const [styles, setStyles] = useState({
         selected: "profile",
         a: "shadow-soft-xl rounded-lg bg-white font-semibold text-slate-700",
@@ -23,6 +24,7 @@ const Profile = () => {
         path: "fill-slate-800"
     })
     const { name } = useSesion();
+
 
 
 
@@ -41,9 +43,11 @@ const Profile = () => {
             navigate("/home");
             window.location.reload();
         }
+
         else if (target.id === "progress") setStyles({ ...styles, selected: "progress" })
         else if (target.id === "remove") setStyles({ ...styles, selected: "remove" })
         else if (target.id === "billing") setStyles({ ...styles, selected: "billing" })
+
     }
 
 
