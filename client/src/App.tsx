@@ -11,7 +11,6 @@ import HomeVisitor from "./Components/HomeVisitor/HomeVisitor";
 import GoogleAuth from "./Components/GoogleAuth/GoogleAuth";
 import Profile from "./Components/Profile/Profile";
 import Navbar from "./Components/Navbar/Navbar";
-import ProfileEdit from "./Components/ProfileEdit/ProfileEdit";
 
 function App() {
   const { pathname } = useLocation();
@@ -33,9 +32,6 @@ function App() {
           <Route path="/rutinas" element={<Form_rutinas />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="auth/google" element={<GoogleAuth />} />
-
-          {/* Una vez funcionando el upload a Cloudinary, este componente se va a eliminar para combinarse con el de Adrian, es decir, <Profile /> */}
-          <Route path="/myprofile" element={<ProfileEdit />} />
         </Routes>
       </React.Fragment>
     </GoogleOAuthProvider>
