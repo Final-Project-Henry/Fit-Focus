@@ -19,6 +19,7 @@ import img3 from "../assets/Fotos y Videos HomeVisitor/undraw_calculator_re_alsc
 import img4 from "../assets/Fotos y Videos HomeVisitor/undraw_my_personal_files_re_3q0p.svg";
 import pilates from "../assets/Fotos y Videos HomeVisitor/pilates.svg";
 import womanworkingout from "../assets/Fotos y Videos HomeVisitor/womanworkingout.svg";
+import About from "./About";
 
 const img6 = require("../assets/Fotos y Videos HomeVisitor/urban-913.png");
 const img13 = require("../assets/Fotos y Videos HomeVisitor/allpeople.jpg");
@@ -515,7 +516,7 @@ export default function HomeVisitor() {
       </div>
 
       {/* screen 6 */}
-      <div  className=" m-auto w-full">
+      <div  className=" m-auto w-full h-screen">
       <div>
         <div className="w-11/12 m-auto mt-32 max-w-[80%]">
           <section className="flex items-center">
@@ -542,6 +543,7 @@ export default function HomeVisitor() {
         </div>
       </div>
       </div>
+      <About/>
       <Footer />
     </>
   );
