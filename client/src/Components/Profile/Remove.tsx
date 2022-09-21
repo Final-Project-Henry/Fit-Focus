@@ -2,13 +2,15 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
-import { sigendOut } from '../../features/counter/counterSlice'
+import { useAppDispatch, useToken } from '../../app/hooks'
+import { removeAccount, sigendOut } from '../../features/counter/counterSlice'
 
 
 const Remove = () => {
 
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
+    const dispatch = useAppDispatch ();
+    const navigate = useNavigate();
+    const token = useToken()
 
     function handleRemoveAccount(): void {
         Swal.fire({
@@ -23,7 +25,8 @@ const Remove = () => {
         }).then((result: any) => {
             if (result.isConfirmed) {
                 dispatch(sigendOut(null))
-                /* dispatch(removeAccount(dataUser)) */
+                dispatch(removeAccount(token))
+
                 navigate("/home")
                 window.location.reload();
                 Swal.fire(
@@ -34,6 +37,7 @@ const Remove = () => {
             }
         })
     }
+
 
     return (
         <div className="w-full p-3 mt-6 mx-auto removable">

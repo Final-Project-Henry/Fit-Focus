@@ -12,8 +12,6 @@ import Remove from "./Remove"
 
 const Profile = () => {
 
-    const dispatch = useAppDispatch ();
-    const navigate = useNavigate();
 
     const [styles, setStyles] = useState({
         selected: "profile",
@@ -22,7 +20,6 @@ const Profile = () => {
         path: "fill-slate-800"
     })
     const {name} = useSesion();
-    const token = useToken()
 
 
 
@@ -44,35 +41,6 @@ const Profile = () => {
         }
     }
 
-<<<<<<< HEAD
-    function handleRemoveAccount(): void {
-        Swal.fire({
-            title: '¿Estas Seguro?',
-            text: "No podras revertir esta accion",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            cancelButtonText: "Cancelar",
-            confirmButtonText: 'Eliminar',
-        }).then((result: any) => {
-            if (result.isConfirmed) {
-                dispatch(sigendOut(null))
-                dispatch(removeAccount(token))
-
-                navigate("/home")
-                window.location.reload();
-                Swal.fire(
-                    'Eliminado',
-                    'Tu cuenta ha sido eliminada exitosamente',
-                    'success'
-                )
-            }
-        })
-    }
-=======
-    
->>>>>>> 21e3a9e65dcbff4e913d9715888f6c01a3c7fbbf
 
 
     return (
