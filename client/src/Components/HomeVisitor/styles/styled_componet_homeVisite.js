@@ -1,65 +1,167 @@
 import styled from "styled-components";
+import decoration1 from "../../assets/Fotos y Videos HomeVisitor/decoration.svg";
+import decoration2 from "../../assets/Fotos y Videos HomeVisitor/decoration2.svg";
 
 const Div_cards = styled.div`
   display: flex;
-
-  #card {
-    box-shadow: 0 4px 10px #000e3e55;
-    width: 100%;
-    margin: 40px;
-    font-size: 1.2rem;
+  background-color: #f8fafc;
+  background-image: linear-gradient(0deg, #f8fafc 0%, #6c63ff 100%);
+  #text-container {
+    padding: 20px;
+    h1 {
+      font-size: 8rem;
+    }
     p {
-      padding: 20px;
+      width: 60%;
+      padding: 10px;
+      font-size: 1.5rem;
+    }
+    button {
+      background-color: #6c63ff;
+      box-shadow: 2px 10px 20px 0px #6c63ff75;
+      padding: 10px 50px;
+      margin: 50px 10px;
+      color: #fff;
+      border-radius: 10px;
+      transition: all 0.3s;
+    }
+
+    button:hover {
+      background-color: #0a3fFc;
+
     }
   }
-  #img_card {
-    width: 100%;
-    height: 250px;
-    overflow: hidden;
-    img {
-      object-fit: cover;
+
+  #img-container {
+    #card-opiniones {
+      display: flex;
       width: 100%;
-      height: 100%;
+      position: relative;
+      top: 5px;
+      left: -300px;
+      border-radius: 10px;
+      #card-text-opiniones {
+        background-color: #fff;
+        min-width: 100%;
+        border-radius: 10px;
+        padding: 0px 20px;
+        box-shadow: 2px 10px 20px 0px #6c63ff75;
+        margin: 0 5px;
+        font-size: 1.5rem;
+      }
+    }
+    #img {
+      position: relative;
+      top: 20px;
+      min-width: 70px;
+      height: 70px;
+      border-radius: 100%;
+      img {
+        border-radius: 100%;
+      }
     }
   }
 `;
-const Div_video = styled.div`
-  height: 650px;
-  overflow: hidden;
+
+const Div_screem3 = styled.div`
+  background: url(${decoration1});
+  background-repeat: no-repeat;
+  background-size: 56%;
+  background-position: 100% -500%;
+
+  img{
+     margin:10px;
+  }
+`;
+
+const Div_screem2 = styled.div`
   display: flex;
+  width: 90%;
+  box-shadow: 0px 5px 15px 0px #6c63ff75;
   justify-content: center;
-  align-items: center;
-  background-color: #000;
+  background-color: #fff;
+  border-radius: 20px;
+  #text-screen2 {
+    font-size: 5rem;
+    width: 70%;
+  }
+  h3 {
+    font-size: 2.7rem;
+    position: relative;
+    z-index:50;
+    margin: 20px 100px;
+  }
   p {
+    position: relative;
+    z-index:10;
+    width: 70%;
+    margin: 5px 100px;
+    font-size: 1.5rem;
+  }
+  #img-2 {
     position: absolute;
-    font-size: 2rem;
-    z-index: 1;
-  }
-
-  #btm_video {
-    margin: 50px;
-  }
-  #video {
-    opacity: 50%;
+    margin: -10% -20%;
+    
   }
 `;
-const Div_benefitsVisitor = styled.div`
-  text-align: center;
-  font-size: 2rem;
-  margin: 80px 0;
-`;
 
-const Div_benefitsVisitor2 = styled.div`
-  text-align: justify;
-  font-size: 20px;
-  margin-right: 20px;
-  margin-left: 20px;
+const Span_decoration = styled.div`
+width: 100%;
+height: 600px;
+position: absolute;
+z-index:10;
+margin:300px;
+background-color: transparent;
+background: url(${decoration2});
+background-repeat: no-repeat;
+background-size: 34%;
+opacity: 20%;
+background-position:1% 300px;
+`
+
+const Span_decoration2 = styled.div`
+width: 100%;
+height: 600px;
+position: absolute;
+z-index:10;
+margin:-100px;
+background-color: transparent;
+background: url(${decoration2});
+background-repeat: no-repeat;
+background-size: 20%;
+background-position:50px 90px;
+opacity: 30%;
+`;
+const Span_decoration3 = styled.div`
+width: 50%;
+height: 100vh;
+position: absolute;
+z-index:10;
+background-color: transparent;
+background: url(${decoration1});
+background-repeat: no-repeat;
+background-size: 100%;
+background-position:0px -70px;
+opacity: 50%;
+margin-top: 30%;
+`;
+const Span_decoration4 = styled.div`
+width: 100%;
+min-height: 120vh;
+position: absolute;
+z-index:-1;
+transform: rotate(80deg);
+background-color: transparent;
+background: url(${decoration1});
+background-repeat: no-repeat;
+background-size: 70%;
+background-position:200px -70px;
+opacity: 80%;
 `;
 const Div_about = styled.div`
   flex-direction: row-reverse;
   #text-about {
     padding: 30px 0;
-
     flex: 1;
     #titel-about {
       justify-content: flex-end;
@@ -126,10 +228,14 @@ const Div_about = styled.div`
     height: 100vh;
   }
 `;
+
 export {
   Div_about,
   Div_cards,
-  Div_video,
-  Div_benefitsVisitor,
-  Div_benefitsVisitor2,
+  Div_screem2,
+  Div_screem3,
+  Span_decoration,
+  Span_decoration2,
+  Span_decoration3,
+  Span_decoration4
 };
