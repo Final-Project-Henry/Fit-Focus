@@ -20,14 +20,15 @@ export default function About(){
     <div className="w-full m-auto h-screen  px-[100px]">
     
       <div className="text-4xl py-[100px] font-dark">
-        <p className="text-center" id="abut">Conose a nuestros equipo</p>
+        <p className="text-center" id="abut">Conoce a nuestro equipo</p>
       </div>
     
     <div  className=" mx-[40px] px-[100px] w-[100%]">
       <div className=" flex flex-wrap justify-center">
-      <div className="w-[20%] mx-[5px]">
+      <div className="w-[20%] mx-[5px] mb-5">
         <div>
           <img src={caterina} className="w-[50%]" alt="img not found" />
+          <div className="w-[70%]">
             <div className="bg-[#6c63ff] rounded-xl relative left-[10px]">
               <a href="https://github.com/catearacil" target="__blank">
                 <img
@@ -55,11 +56,13 @@ export default function About(){
                 />
               </a>
             </div>
+            </div>
         </div>
       </div>
       <div className="w-[20%]">
         <div>
           <img src={martin} className="w-[50%]" alt="img not found" />
+          <div className="w-[70%]">
         
           <div className="bg-[#6c63ff] rounded-xl">
               <a href="https://github.com/MartinAngulo" target="__blank">
@@ -92,18 +95,20 @@ export default function About(){
                 />
               </a>
             </div>
+          </div>
+
         </div>
       </div>
       <div className="w-[20%]">
         <div>
           <img src={ivan} className="w-[50%]" alt="img not found" />
-          <div>
-  
-            <div >
+          <div className="w-[70%]">
+          
+          <div className="bg-[#6c63ff] rounded-xl relative left-[10px]">
               <a href="https://github.com/x1vaan" target="__blank">
                 <img
                   src={github}
-                  className="inline my-2"
+                  className="inline w-[20%] mx-1"
                   alt="img not found"
                 />
               </a>
@@ -114,7 +119,7 @@ export default function About(){
               >
                 <img
                   src={linkedIn}
-                  className="inline my-2"
+                  className="inline w-[20%] mx-1"
                   alt="img not found"
                 />
               </a>
@@ -125,23 +130,24 @@ export default function About(){
               >
                 <img
                   src={email}
-                  className="inline my-2"
+                  className="inline w-[20%] mx-1"
                   alt="img not found"
                 />
               </a>
-            </div>
+          </div>
           </div>
         </div>
       </div>
       <div className="w-[20%]">
         <div>
           <img src={adrian} className="w-[50%]" alt="img not found" />
-          <div>
-            <div>
+          <div className="w-[70%]">
+          
+          <div className="bg-[#6c63ff] rounded-xl relative left-[10px]">
               <a href="https://github.com/Adr-AA" target="__blank">
                 <img
                   src={github}
-                  className="inline my-2"
+                  className="inline w-[20%] mx-1"
                   alt="img not found"
                 />
               </a>
@@ -152,7 +158,7 @@ export default function About(){
               >
                 <img
                   src={linkedIn}
-                  className="inline my-2"
+                  className="inline w-[20%] mx-1"
                   alt="img not found"
                 />
               </a>
@@ -163,25 +169,25 @@ export default function About(){
               >
                 <img
                   src={email}
-                  className="inline my-2"
+                  className="inline w-[20%] mx-1"
                   alt="img not found"
                 />
               </a>
             </div>
-          </div>
+            </div>
         </div>
       </div>
 
       <div className="w-[20%]">
         <div>
           <img src={lautaro} className="w-[50%]" alt="img not found" />
-          <div>
-        
-            <div id="item-a">
+          <div className="w-[70%]">
+          <div className="bg-[#6c63ff] rounded-xl relative left-[10px]">
+
               <a href="https://github.com/LautaroFranc" target="__blank">
                 <img
                   src={github}
-                  className="inline my-2"
+                  className="inline w-[20%] mx-1"
                   alt="img not found"
                 />
               </a>
@@ -192,7 +198,7 @@ export default function About(){
               >
                 <img
                   src={linkedIn}
-                  className="inline my-2"
+                  className="inline w-[20%] mx-1"
                   alt="img not found"
                 />
               </a>
@@ -200,7 +206,7 @@ export default function About(){
               <a href="mailto:Hola12lf@gmail.com" target="__blank">
                 <img
                   src={email}
-                  className="inline my-2"
+                  className="inline w-[20%] mx-1"
                   alt="img not found"
                 />
               </a>
@@ -209,15 +215,16 @@ export default function About(){
         </div>
       </div>
       <div className="w-[20%]">
+
         <div>
           <img src={rodrigo} className="w-[50%]" alt="img not found" />
-          <div >
-
-            <div >
+          <div className="w-[70%]">
+          
+          <div className="bg-[#6c63ff] rounded-xl relative left-[10px]">
               <a href="https://github.com/rodrisantes" target="__blank">
                 <img
                   src={github}
-                  className="inline my-2"
+                  className="inline w-[20%] mx-1"
                   alt="img not found"
                 />
               </a>
@@ -228,7 +235,7 @@ export default function About(){
               >
                 <img
                   src={linkedIn}
-                  className="inline my-2"
+                  className="inline w-[20%] mx-1"
                   alt="img not found"
                 />
               </a>
@@ -239,7 +246,7 @@ export default function About(){
               >
                 <img
                   src={email}
-                  className="inline my-2"
+                  className="inline w-[20%] mx-1"
                   alt="img not found"
                 />
               </a>
@@ -252,15 +259,17 @@ export default function About(){
       <div className="w-[20%]">
         <div>
           <img src={david} className="w-[50%]" alt="img not found" />
-          <div>
-            <div >
+          <div className="w-[70%]">
+          
+          <div className="bg-[#6c63ff] rounded-xl relative left-[10px]">
+
               <a
                 href="https://github.com/davidcicconi94"
                 target="__blank"
               >
                 <img
                   src={github}
-                  className="inline my-2"
+                  className="inline w-[20%] mx-1"
                   alt="img not found"
                 />
               </a>
@@ -271,7 +280,7 @@ export default function About(){
               >
                 <img
                   src={linkedIn}
-                  className="inline my-2"
+                  className="inline w-[20%] mx-1"
                   alt="img not found"
                 />
               </a>
@@ -279,7 +288,7 @@ export default function About(){
               <a href="mailto:david.cicconi94@gmail.com" target="__blank">
                 <img
                   src={email}
-                  className="inline my-2"
+                  className="inline w-[20%] mx-1"
                   alt="img not found"
                 />
               </a>
@@ -290,15 +299,15 @@ export default function About(){
       <div className="w-[20%]">
         <div>
           <img src={rafael} className="w-[50%]" alt="img not found" />
-          <div>
-            <div>
+          <div className="w-[70%]">
+          <div className="bg-[#6c63ff] rounded-xl relative left-[10px]">
               <a
                 href="https://github.com/RafaelBetancourt"
                 target="__blank"
               >
                 <img
                   src={github}
-                  className="inline my-2"
+                  className="inline w-[20%] mx-1"
                   alt="img not found"
                 />
               </a>
@@ -309,7 +318,7 @@ export default function About(){
               >
                 <img
                   src={linkedIn}
-                  className="inline my-2"
+                  className="inline w-[20%] mx-1"
                   alt="img not found"
                 />
               </a>
@@ -317,7 +326,7 @@ export default function About(){
               <a href="mailto:rafael18282@gmail.com">
                 <img
                   src={email}
-                  className="inline my-2"
+                  className="inline w-[20%] mx-1"
                   alt="img not found"
                 />
               </a>
