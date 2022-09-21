@@ -1,6 +1,7 @@
 import "./styles/Profile.css"
 import "./styles/Loople.css"
 import { useRef, useState } from "react"
+import { useSesion } from "../../app/hooks"
 
 const Profile = () => {
 
@@ -10,20 +11,23 @@ const Profile = () => {
         div: "bg-gradient-fuchsia",
         path: "fill-slate-800"
     })
+    const {name, email} = useSesion()
 
     const profile = useRef<HTMLAnchorElement | null>(null)
-    const settings = useRef<HTMLAnchorElement | null>(null)
+    const logOut = useRef<HTMLAnchorElement | null>(null)
     const progress = useRef<HTMLAnchorElement | null>(null)
+    const remove = useRef<HTMLAnchorElement | null>(null)
 
-    const handleClickAside = (e: any) => {
-        console.log(e.target.id)
+    const handleClickAside = ({ target }: any) => {
 
-        if (e.target.id === "profile") {
+        if (target.id === "profile") {
             setStyles({ ...styles, selected: "profile" })
-        } else if (e.target.id === "settings") {
-            setStyles({ ...styles, selected: "settings" })
-        } else {
+        } else if (target.id === "logOut") {
+            setStyles({ ...styles, selected: "logOut" })
+        } else if (target.id === "progress") {
             setStyles({ ...styles, selected: "progress" })
+        } else if (target.id === "remove") {
+            setStyles({ ...styles, selected: "remove" })
         }
 
 
@@ -34,11 +38,11 @@ const Profile = () => {
         <div className="relative">
             <aside className="max-w-62.5 ease-nav-brand z-990 absolute inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent text-slate-500" id="sidenav-main">
                 <hr className="h-px mt-0 bg-transparent bg-gradient-horizontal-dark" />
-                <div className="items-center block w-auto max-h-screen overflow-auto grow basis-full">
+                <div className="items-center block w-auto max-h-screen overflow-auto grow basis-full pb-2">
                     <ul className="flex flex-col pl-0 mb-0">
                         <li className="mt-0.5 w-full">
                             <a ref={profile} id="profile" onClick={handleClickAside} className={`${styles.selected === "profile" && styles.a} duration-500 py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors cursor-pointer`}>
-                                <div className={`${styles.selected === "profile" && styles.div} duration-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5`}>
+                                <div onClick={() => handleClickAside({ target: { id: "profile" } })} className={`${styles.selected === "profile" && styles.div} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5`}>
                                     <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                                         <title>customer-support</title>
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -58,29 +62,8 @@ const Profile = () => {
                             </a>
                         </li>
                         <li className="mt-0.5 w-full">
-                            <a ref={settings} id="settings" onClick={handleClickAside} className={`${styles.selected === "settings" && styles.a} duration-500 py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors `} href="javascript:;">
-                                <div className={`${styles.selected === "settings" && styles.div} duration-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5`}>
-                                    <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-                                        <title>settings</title>
-                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <g transform="translate(-2020.000000, -442.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                                                <g transform="translate(1716.000000, 291.000000)">
-                                                    <g transform="translate(304.000000, 151.000000)">
-                                                        <polygon className={`${styles.selected !== "settings" && styles.path} duration-500 opacity-60`} points="18.0883333 15.7316667 11.1783333 8.82166667 13.3333333 6.66666667 6.66666667 0 0 6.66666667 6.66666667 13.3333333 8.82166667 11.1783333 15.315 17.6716667"></polygon>
-                                                        <path className={`${styles.selected !== "settings" && styles.path} opacity-60`} d="M31.5666667,23.2333333 C31.0516667,23.2933333 30.53,23.3333333 30,23.3333333 C29.4916667,23.3333333 28.9866667,23.3033333 28.48,23.245 L22.4116667,30.7433333 L29.9416667,38.2733333 C32.2433333,40.575 35.9733333,40.575 38.275,38.2733333 L38.275,38.2733333 C40.5766667,35.9716667 40.5766667,32.2416667 38.275,29.94 L31.5666667,23.2333333 Z"></path>
-                                                        <path className={`${styles.selected !== "settings" && styles.path} duration-500`} d="M33.785,11.285 L28.715,6.215 L34.0616667,0.868333333 C32.82,0.315 31.4483333,0 30,0 C24.4766667,0 20,4.47666667 20,10 C20,10.99 20.1483333,11.9433333 20.4166667,12.8466667 L2.435,27.3966667 C0.95,28.7083333 0.0633333333,30.595 0.00333333333,32.5733333 C-0.0583333333,34.5533333 0.71,36.4916667 2.11,37.89 C3.47,39.2516667 5.27833333,40 7.20166667,40 C9.26666667,40 11.2366667,39.1133333 12.6033333,37.565 L27.1533333,19.5833333 C28.0566667,19.8516667 29.01,20 30,20 C35.5233333,20 40,15.5233333 40,10 C40,8.55166667 39.685,7.18 39.1316667,5.93666667 L33.785,11.285 Z"></path>
-                                                    </g>
-                                                </g>
-                                            </g>
-                                        </g>
-                                    </svg>
-                                </div>
-                                <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Configuracion</span>
-                            </a>
-                        </li>
-                        <li className="mt-0.5 w-full">
                             <a ref={progress} id="progress" onClick={handleClickAside} className={`${styles.selected === "progress" && styles.a} py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors duration-500`} href="javascript:;">
-                                <div className={`${styles.selected === "progress" && styles.div} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5 duration-500`}>
+                                <div onClick={() => handleClickAside({ target: { id: "progress" } })} className={`${styles.selected === "progress" && styles.div} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5`}>
                                     <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                                         <title>office</title>
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -100,7 +83,7 @@ const Profile = () => {
                         </li>
                         <li className="mt-0.5 w-full">
                             <a className="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="javascript:;">
-                                <div className="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
+                                <div onClick={() => handleClickAside({ target: { id: "billing" } })} className="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
                                     <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                                         <title>credit-card</title>
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -118,6 +101,36 @@ const Profile = () => {
                                 <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Billing</span>
                             </a>
                         </li>
+                        <li className="mt-0.5 w-full">
+                            <a ref={logOut} id="logOut" onClick={handleClickAside} className={`${styles.selected === "logOut" && styles.a} duration-500 py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors `}>
+                                <div onClick={() => handleClickAside({ target: { id: "logOut" } })} className={`${styles.selected === "logOut" && styles.div} duration-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2`}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path className={`${styles.selected === "logOut" && "fill-white"} duration-500`} d="M14 19v-.083c-1.178.685-2.542 1.083-4 1.083-4.411 0-8-3.589-8-8s3.589-8 8-8c1.458 0 2.822.398 4 1.083v-2.245c-1.226-.536-2.576-.838-4-.838-5.522 0-10 4.477-10 10s4.478 10 10 10c1.424 0 2.774-.302 4-.838v-2.162zm4-9.592l2.963 2.592-2.963 2.592v-1.592h-8v-2h8v-1.592zm-2-4.408v4h-8v6h8v4l8-7-8-7z" />
+                                    </svg>
+                                </div>
+                                <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Cerrar Sesion</span>
+                            </a>
+                        </li>
+                        <li className="mt-0.5 w-full">
+                            <a ref={remove} id="remove" onClick={handleClickAside} className={`${styles.selected === "remove" && styles.a} duration-500 py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors `} href="javascript:;">
+                                <div onClick={() => handleClickAside({ target: { id: "remove" } })} className={`${styles.selected === "remove" && styles.div} duration-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-[7px]`}>
+                                    <svg id="Layer_1" version="1.1" viewBox="0 0 64 64" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><style type="text/css">
+                                    </style>
+                                        <g>
+                                            <g className="" id="Icon-Trash" transform="translate(232.000000, 228.000000)">
+                                                <polygon className={`${styles.selected === "remove" && "fill-white"} duration-500`} id="Fill-6" points="-207.5,-205.1 -204.5,-205.1 -204.5,-181.1 -207.5,-181.1" />
+                                                <polygon className={`${styles.selected === "remove" && "fill-white"} duration-500`} id="Fill-7" points="-201.5,-205.1 -198.5,-205.1 -198.5,-181.1 -201.5,-181.1    " />
+                                                <polygon className={`${styles.selected === "remove" && "fill-white"} duration-500`} id="Fill-8" points="-195.5,-205.1 -192.5,-205.1 -192.5,-181.1 -195.5,-181.1    " />
+                                                <polygon className={`${styles.selected === "remove" && "fill-white"} opacity-70 duration-500`} id="Fill-9" points="-219.5,-214.1 -180.5,-214.1 -180.5,-211.1 -219.5,-211.1    " />
+                                                <path className={`${styles.selected === "remove" && "fill-white"} opacity-70 duration-500`} d="M-192.6-212.6h-2.8v-3c0-0.9-0.7-1.6-1.6-1.6h-6c-0.9,0-1.6,0.7-1.6,1.6v3h-2.8v-3 c0-2.4,2-4.4,4.4-4.4h6c2.4,0,4.4,2,4.4,4.4V-212.6" id="Fill-10" />
+                                                <path className={`${styles.selected === "remove" && "fill-white"} duration-500`} d="M-191-172.1h-18c-2.4,0-4.5-2-4.7-4.4l-2.8-36l3-0.2l2.8,36c0.1,0.9,0.9,1.6,1.7,1.6h18 c0.9,0,1.7-0.8,1.7-1.6l2.8-36l3,0.2l-2.8,36C-186.5-174-188.6-172.1-191-172.1" id="Fill-11" />
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Eliminar cuenta</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </aside>
@@ -132,7 +145,7 @@ const Profile = () => {
                             </div>
                             <div className="flex-none w-auto max-w-full px-3 my-auto">
                                 <div className="h-full">
-                                    <h5 className="mb-1">Alec Thompson</h5>
+                                    <h5 className="mb-1">Adrian Acurero</h5>
                                     <p className="mb-0 font-semibold leading-normal text-size-sm">CEO / Co-Founder</p>
                                 </div>
                             </div>
@@ -147,39 +160,21 @@ const Profile = () => {
                                     <div className="p-4 pb-0 mb-0 bg-white border-b-0 rounded-t-2xl">
                                         <div className="flex flex-wrap -mx-3">
                                             <div className="flex items-center w-full max-w-full px-3 shrink-0 md:w-8/12 md:flex-none">
-                                                <h6 className="mb-0">Profile Information</h6>
+                                                <h6 className="mb-0 font-bold text-lg">Profile Information</h6>
                                             </div>
                                             <div className="w-full max-w-full px-3 text-right shrink-0 md:w-4/12 md:flex-none">
                                                 <a data-target="tooltip_trigger" data-placement="top">
                                                     <i className="leading-normal fas fa-user-edit text-size-sm text-slate-400" aria-hidden="true"></i>
                                                 </a>
-                                                <div data-target="tooltip" className="px-2 py-1 text-center text-white bg-black rounded-lg text-size-sm hidden" role="tooltip" data-popper-placement="top" style={{ position: "absolute", inset: "auto auto 0px 0px", margin: 0, transform: "translate3d(869.5px, -417.5px, 0px)" }}>
-                                                    Edit Profile
-                                                    <div className="invisible absolute h-2 w-2 bg-inherit before:visible before:absolute before:h-2 before:w-2 before:rotate-45 before:bg-inherit before:content-['']" data-popper-arrow="" style={{ position: "absolute", left: 0, transform: "translate3d(0px, 0px, 0px)" }}></div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="flex-auto p-4">
-                                        <p className="leading-normal text-size-sm">Hi, I’m Alec Thompson, Decisions: If you can’t decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality).</p>
-                                        <hr className="h-px my-6 bg-transparent bg-gradient-horizontal-light" />
+                                        <hr className="h-px my-2 bg-transparent bg-gradient-horizontal-light" />
                                         <ul className="flex flex-col pl-0 mb-0 rounded-lg">
-                                            <li className="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-sm text-inherit"><strong className="text-slate-700">Full Name:</strong> &nbsp; Alec M. Thompson</li>
-                                            <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit"><strong className="text-slate-700">Mobile:</strong> &nbsp; (44) 123 1234 123</li>
-                                            <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit"><strong className="text-slate-700">Email:</strong> &nbsp; alecthompson@mail.com</li>
-                                            <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit"><strong className="text-slate-700">Location:</strong> &nbsp; USA</li>
-                                            <li className="relative block px-4 py-2 pb-0 pl-0 bg-white border-0 border-t-0 rounded-b-lg text-inherit">
-                                                <strong className="leading-normal text-size-sm text-slate-700">Social:</strong> &nbsp;
-                                                <a className="inline-block py-0 pl-1 pr-2 mb-0 font-bold text-center text-blue-800 align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer leading-pro text-size-xs ease-soft-in bg-none" href="javascript:;">
-                                                    <i className="fab fa-facebook fa-lg" aria-hidden="true"></i>
-                                                </a>
-                                                <a className="inline-block py-0 pl-1 pr-2 mb-0 font-bold text-center align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer leading-pro text-size-xs ease-soft-in bg-none text-sky-600" href="javascript:;">
-                                                    <i className="fab fa-twitter fa-lg" aria-hidden="true"></i>
-                                                </a>
-                                                <a className="inline-block py-0 pl-1 pr-2 mb-0 font-bold text-center align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer leading-pro text-size-xs ease-soft-in bg-none text-sky-900" href="javascript:;">
-                                                    <i className="fab fa-instagram fa-lg" aria-hidden="true"></i>
-                                                </a>
-                                            </li>
+                                            <li className="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-sm text-inherit"><strong className="text-slate-700">Nombre:</strong> &nbsp; {name}</li>
+                                            <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit"><strong className="text-slate-700">Correo:</strong> &nbsp; {email}</li>
+                                            <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit text-[#efb810]"><strong className="text-slate-700">Tipo de cuenta</strong> &nbsp; Premium</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -213,7 +208,6 @@ const Profile = () => {
                     </div>
                 </footer>
             </div>
-            <div className="loopple-badge">Made with<a href="https://www.loopple.com"><img src="https://www.loopple.com/img/loopple-logo.png" className="loopple-ml-1" style={{ width: "55px" }} /></a></div>
             {/* <script src="https://demos.creative-tim.com/soft-ui-dashboard-tailwind/assets/js/plugins/chartjs.min.js" async></script>
 
     <script src="https://demos.creative-tim.com/soft-ui-dashboard-tailwind/assets/js/plugins/perfect-scrollbar.min.js" async></script>

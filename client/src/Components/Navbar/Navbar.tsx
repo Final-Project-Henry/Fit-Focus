@@ -20,11 +20,9 @@ const Navbar = () => {
 
   const dispatch = useAppDispatch();
   const userData = useSesion();
-  console.log(userData);
 
   useEffect(() => {
     if (userData) {
-      console.log(userData);
       setUser(true);
     }
   }, [userData]);
