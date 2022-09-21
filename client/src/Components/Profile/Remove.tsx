@@ -60,7 +60,7 @@ const Remove = () => {
                             <hr className="h-px my-2 bg-transparent bg-gradient-horizontal-light" />
                             <ul className="flex flex-col pl-0 mb-0 rounded-lg">
                                 <li className="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-sm text-inherit"><strong className="text-slate-700">Esta accion es definitiva</strong> &nbsp; </li>
-                                <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit"><strong className="text-slate-700"></strong> &nbsp; Si eliminas tu cuenta de Fit-Focus, no podrás recuperar el progreso ni las rutinas obtenidas en la app. También se eliminara todo el registro que hayamos guardado de ti</li>
+                                <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit"> Si eliminas tu cuenta de Fit-Focus, no podrás recuperar el progreso ni las rutinas obtenidas en la app. También se eliminara todo el registro que hayamos guardado de ti</li>
                                 <li className="relative flex justify-center px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit"><strong className="text-slate-700"></strong> &nbsp;
                                     <button onClick={handleRemoveAccount} type="button" className="delay-100 duration-300 inline-block px-6 py-2.5 bg-gray-700 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-600 hover:shadow-lg focus:bg-red-900 focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg  ease-in-out">
                                         Eliminar cuenta

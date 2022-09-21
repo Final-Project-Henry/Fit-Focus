@@ -43,13 +43,13 @@
   --tw-content: '';
 }
 
-#profile, #lotOut, #progress, #remove {
+#profile, #logOut, #progress, #remove, #billing {
     transition-duration: 300ms;
     transition-delay: 120ms;
     transition-property: all;
 }
 
-#profile:hover, #logOut:hover, #progress:hover, #remove:hover {
+#profile:hover, #logOut:hover, #progress:hover, #remove:hover, #billing:hover {
     transition-duration: 300ms;
     transition-property: all;
     transition-delay: 130ms;

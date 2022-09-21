@@ -5,13 +5,16 @@ import { useAppDispatch, useSesion, useToken } from "../../app/hooks"
 import ProfileDetails from "./ProfileDetails"
 import imgProfile from "../assets/Profile-media/IMG-20220914-WA0007.jpg"
 import Swal from "sweetalert2"
-import { removeAccount, sigendOut } from "../../features/counter/counterSlice"
+import { sigendOut } from "../../features/counter/counterSlice"
+import Remove from "./Remove"
+import Progress from "./Progress"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import Remove from "./Remove"
 
 const Profile = () => {
 
+    const dispatch = useDispatch();
+    const navigate = useNavigate()
 
     const [styles, setStyles] = useState({
         selected: "profile",
@@ -19,7 +22,7 @@ const Profile = () => {
         div: "bg-gradient-fuchsia",
         path: "fill-slate-800"
     })
-    const {name} = useSesion();
+    const { name } = useSesion();
 
 
 
@@ -30,15 +33,17 @@ const Profile = () => {
 
     const handleClickAside = ({ target }: any) => {
 
-        if (target.id === "profile") {
-            setStyles({ ...styles, selected: "profile" })
-        } else if (target.id === "logOut") {
+        if (target.id === "profile") setStyles({ ...styles, selected: "profile" })
+
+        else if (target.id === "logOut") {
             setStyles({ ...styles, selected: "logOut" })
-        } else if (target.id === "progress") {
-            setStyles({ ...styles, selected: "progress" })
-        } else if (target.id === "remove") {
-            setStyles({ ...styles, selected: "remove" })
+            dispatch(sigendOut(null));
+            navigate("/home");
+            window.location.reload();
         }
+        else if (target.id === "progress") setStyles({ ...styles, selected: "progress" })
+        else if (target.id === "remove") setStyles({ ...styles, selected: "remove" })
+        else if (target.id === "billing") setStyles({ ...styles, selected: "billing" })
     }
 
 
@@ -91,16 +96,16 @@ const Profile = () => {
                             </a>
                         </li>
                         <li className="mt-0.5 w-full">
-                            <a className="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="javascript:;">
-                                <div onClick={() => handleClickAside({ target: { id: "billing" } })} className="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
+                            <a id="billing" onClick={handleClickAside} className={`${styles.selected === "billing" && styles.a} py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors duration-500`} href="javascript:;">
+                                <div onClick={() => handleClickAside({ target: { id: "billing" } })} className={`${styles.selected === "billing" && styles.div} duration-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5`}>
                                     <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                                         <title>credit-card</title>
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
                                                 <g transform="translate(1716.000000, 291.000000)">
                                                     <g transform="translate(453.000000, 454.000000)">
-                                                        <path className="fill-slate-800 opacity-60" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"></path>
-                                                        <path className="fill-slate-800" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
+                                                        <path className={`${styles.selected !== "billing" && styles.path} duration-500 opacity-60`} d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"></path>
+                                                        <path className={`${styles.selected !== "billing" && styles.path} duration-500`} d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
                                                     </g>
                                                 </g>
                                             </g>
@@ -164,9 +169,10 @@ const Profile = () => {
                     </div>
                     {
                         styles.selected === "profile" ? <ProfileDetails />
-                            : styles.selected === "process" ? <ProfileDetails />
-                            : styles.selected === "logOut" ? <ProfileDetails />
-                            : styles.selected === "remove" ? <Remove/> : null
+                            : styles.selected === "progress" ? <Progress />
+                                : styles.selected === "remove" ? <Remove />
+                                    : styles.selected === "logOut" ? <ProfileDetails />
+                                        : styles.selected === "billing" && <ProfileDetails />
                     }
                 </div>
                 {/* <!-- Footer --> */}
