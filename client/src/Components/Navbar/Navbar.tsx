@@ -20,11 +20,9 @@ const Navbar = () => {
 
   const dispatch = useAppDispatch();
   const userData = useSesion();
-  console.log(userData);
 
   useEffect(() => {
     if (userData) {
-      console.log(userData);
       setUser(true);
     }
   }, [userData]);
@@ -49,6 +47,7 @@ const Navbar = () => {
   }
 
   return (
+
     <div>
       <nav className=" border-gray-200 px-2 sm:px-4  bg-transparent  w-full border-b-4">
         <div className="container-fluid w-full flex flex-wrap items-center justify-between px-8 p-4">

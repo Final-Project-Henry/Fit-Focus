@@ -1,18 +1,78 @@
+
+ 
+
+
+
+
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { RootState, AppThunk } from '../../app/store';
 
 export interface State {
   user: null | string;
-
   status: string | null;
+  rutines : Array<any> | null;
+  exercises : Array<any> | null;
 
 }
 
 const initialState: State = {
   user: null,
-  status: "none"
+  status: "none",
+  rutines : [],
+  exercises:[]
 };
+
+export const Rutines_Get = createAsyncThunk(
+  'user/rutinesSlice',
+  async (token : string, thunkAPI) => {
+    console.log(token)
+    try {
+
+      let headersList = {
+        Accept: "/",
+        Authorization: "Bearer " + token,
+        "Content-Type": "application/json",
+      };
+    
+      let reqOptions = {
+        url: "http://localhost:3001/getroutine",
+        method: "GET",
+        headers: headersList,
+      };
+    
+      let response = await axios.request(reqOptions);
+      const resp = response.data
+      console.log(resp)
+
+      thunkAPI.dispatch(Rutines(resp))
+      return resp;
+    } catch (error: any) {
+      thunkAPI.dispatch(status(error.response.data))
+      thunkAPI.rejectWithValue(error)
+      return
+    }
+  }
+);
+
+export const Exercises_Get = createAsyncThunk(
+  'user/exercices',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get("http://localhost:3001/exercises");
+      const resp = response.data
+      thunkAPI.dispatch(Exercises(resp))
+      return resp;
+    } catch (error: any) {
+      thunkAPI.dispatch(status(error.response.data))
+      thunkAPI.rejectWithValue(error)
+      return
+    }
+  }
+);
+
+
+
 
 export const User_Register_State = createAsyncThunk(
   'user/sing_upUser',
@@ -77,7 +137,19 @@ export const StateSlice = createSlice({
   name: 'user',
   initialState,
 
+
   reducers: {
+    Rutines:  (state, action: PayloadAction<[]>) => {
+      state.status = "none"
+      state.rutines = action.payload
+      },
+
+      Exercises:  (state, action: PayloadAction<[]>) => {
+        state.status = "none"
+        state.exercises = action.payload
+        },
+
+
     User: (state, action: PayloadAction<string>) => {
       state.status = "none"
       state.user = action.payload
@@ -117,10 +189,9 @@ export const StateSlice = createSlice({
 
 });
 
-export const { User, sigendOut, status } = StateSlice.actions;
+export const { User, sigendOut, status, Rutines, Exercises } = StateSlice.actions;
 
 
 export const selectUser = (state: RootState) => state.user;
 
 export default StateSlice.reducer;
-

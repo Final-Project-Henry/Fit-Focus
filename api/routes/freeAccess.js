@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const user = require('../models/User.js');
 const exercise = require('../models/Exercise.js');
 const jwt = require('jsonwebtoken');
+const validation = require('../validations/validations.js')
 
 require('dotenv').config();
 
@@ -11,6 +12,9 @@ const {SECRET} = process.env
 const router = Router();
 
 router.post('/register', async (req, res) => {
+
+  if(!validation.register(req.body))res.status(500).send('Invalid parameters');
+
   try {
     const {name, email ,password} = req.body;
     
@@ -30,6 +34,8 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => { // Validando las credenciales y devuelve el token.
   
+  if(!validation.register(req.body))res.status(500).send('Invalid parameters');
+
   try {
     const {email , password} = req.body
     
@@ -49,12 +55,8 @@ router.post('/login', async (req, res) => { // Validando las credenciales y devu
   }
 });
 
-router.get('/login/google', (req,res) => {
-  res.redirect('https://accounts.google.com/o/oauth2/v2/auth?redirect_uri=http%3A%2F%2Flocalhost%3A3001%2FauthGoogle&client_id=553882700243-5u6lingb04c86igau7nr6kjpicu042cl.apps.googleusercontent.com&access_type=offline&response_type=code&prompt=consent&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email')
-});
-
 router.get('/exercises', async (req, res) =>{ // Devuelve unos ejercicios para mostrar
-  const Exercises = await exercise.find().limit(15);
+  const Exercises = await exercise.find();
   res.status(200).send(Exercises)
 });
 

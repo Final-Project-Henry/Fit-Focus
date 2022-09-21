@@ -1,19 +1,17 @@
 import React from "react";
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
-import LandingPage from "./Components/LandingPage/LandingPage";
-import HomeVisitor from "./Components/HomeVisitor/HomeVisitor";
-import HomeRegister from "./Components/HomeRegister/HomeRegister";
-import Navbar from "./Components/Navbar/Navbar";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { useSesion } from "./app/hooks";
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import GoogleAuth from "./Components/GoogleAuth/GoogleAuth";
-
-
-
-
-import Form_rutinas from "./Components/form_rutinas/From_rutina";
-
+/* Componentes */
+import HomeRegister from "./Components/HomeRegister/HomeRegister";
 import SingUp_Login from "./Components/login-singUp/Singup_Login";
+import Form_rutinas from "./Components/form_rutinas/From_rutina";
+import LandingPage from "./Components/LandingPage/LandingPage";
+import HomeVisitor from "./Components/HomeVisitor/HomeVisitor";
+import GoogleAuth from "./Components/GoogleAuth/GoogleAuth";
+import Profile from "./Components/Profile/Profile";
+import Navbar from "./Components/Navbar/Navbar";
+
 
 function App() {
   const { pathname } = useLocation();
@@ -22,20 +20,21 @@ function App() {
 
   return (
     <GoogleOAuthProvider clientId="553882700243-5u6lingb04c86igau7nr6kjpicu042cl.apps.googleusercontent.com">
-    <React.Fragment>
-      {pathname !== "/" && <Navbar />}
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/auth/:id" element={<SingUp_Login />} />
-        {user ? (
-          <Route path="/home" element={<HomeRegister />} />
-        ) : (
-          <Route path="/home" element={<HomeVisitor />} />
-        )}
-        <Route path="/rutinas" element={<Form_rutinas />} />
-        <Route path="auth/google" element={<GoogleAuth />} />
-      </Routes>
-    </React.Fragment>
+      <React.Fragment>
+        {pathname !== "/" && <Navbar />}
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/auth/:id" element={<SingUp_Login />} />
+          {user ? (
+            <Route path="/home" element={<HomeRegister />} />
+          ) : (
+            <Route path="/home" element={<HomeVisitor />} />
+          )}
+          <Route path="/rutinas" element={<Form_rutinas />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="auth/google" element={<GoogleAuth />} />
+        </Routes>
+      </React.Fragment>
     </GoogleOAuthProvider >
   );
 }
