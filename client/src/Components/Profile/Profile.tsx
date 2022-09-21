@@ -1,9 +1,17 @@
 import "./styles/Profile.css"
 import "./styles/Loople.css"
 import { useRef, useState } from "react"
-import { useSesion } from "../../app/hooks"
+import { useAppDispatch, useSesion, useToken } from "../../app/hooks"
+import ProfileDetails from "./ProfileDetails"
+import imgProfile from "../assets/Profile-media/IMG-20220914-WA0007.jpg"
+import Swal from "sweetalert2"
+import { removeAccount, sigendOut } from "../../features/counter/counterSlice"
+import { useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import Remove from "./Remove"
 
 const Profile = () => {
+
 
     const [styles, setStyles] = useState({
         selected: "profile",
@@ -11,7 +19,9 @@ const Profile = () => {
         div: "bg-gradient-fuchsia",
         path: "fill-slate-800"
     })
-    const {name, email} = useSesion()
+    const {name} = useSesion();
+
+
 
     const profile = useRef<HTMLAnchorElement | null>(null)
     const logOut = useRef<HTMLAnchorElement | null>(null)
@@ -29,9 +39,8 @@ const Profile = () => {
         } else if (target.id === "remove") {
             setStyles({ ...styles, selected: "remove" })
         }
-
-
     }
+
 
 
     return (
@@ -140,12 +149,12 @@ const Profile = () => {
                         <div className="flex flex-wrap -mx-3">
                             <div className="flex-none w-auto max-w-full px-3">
                                 <div className="text-size-base ease-soft-in-out h-18.5 w-18.5 relative inline-flex items-center justify-center rounded-xl text-white transition-all duration-200">
-                                    <img src="https://demos.creative-tim.com/soft-ui-dashboard-tailwind/assets/img/bruce-mars.jpg" alt="profile_image" className="w-full shadow-soft-sm rounded-xl" />
+                                    <img src={imgProfile} /* "https://demos.creative-tim.com/soft-ui-dashboard-tailwind/assets/img/bruce-mars.jpg" */ alt="profile_image" className="w-full shadow-soft-sm rounded-xl" />
                                 </div>
                             </div>
                             <div className="flex-none w-auto max-w-full px-3 my-auto">
                                 <div className="h-full">
-                                    <h5 className="mb-1">Adrian Acurero</h5>
+                                    <h5 className="mb-1">{name}</h5>
                                     <p className="mb-0 font-semibold leading-normal text-size-sm">CEO / Co-Founder</p>
                                 </div>
                             </div>
@@ -153,34 +162,12 @@ const Profile = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="w-full p-3 mt-6 mx-auto removable">
-                        <div className="flex flex-wrap -mx-3">
-                            <div className="w-full max-w-full px-3 lg-max:mt-6 xl:w-4/12 mb-4">
-                                <div className="relative flex flex-col h-full min-w-0 break-words bg-white border-0 shadow-soft-xl rounded-2xl bg-clip-border">
-                                    <div className="p-4 pb-0 mb-0 bg-white border-b-0 rounded-t-2xl">
-                                        <div className="flex flex-wrap -mx-3">
-                                            <div className="flex items-center w-full max-w-full px-3 shrink-0 md:w-8/12 md:flex-none">
-                                                <h6 className="mb-0 font-bold text-lg">Profile Information</h6>
-                                            </div>
-                                            <div className="w-full max-w-full px-3 text-right shrink-0 md:w-4/12 md:flex-none">
-                                                <a data-target="tooltip_trigger" data-placement="top">
-                                                    <i className="leading-normal fas fa-user-edit text-size-sm text-slate-400" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="flex-auto p-4">
-                                        <hr className="h-px my-2 bg-transparent bg-gradient-horizontal-light" />
-                                        <ul className="flex flex-col pl-0 mb-0 rounded-lg">
-                                            <li className="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-sm text-inherit"><strong className="text-slate-700">Nombre:</strong> &nbsp; {name}</li>
-                                            <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit"><strong className="text-slate-700">Correo:</strong> &nbsp; {email}</li>
-                                            <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit text-[#efb810]"><strong className="text-slate-700">Tipo de cuenta</strong> &nbsp; Premium</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {
+                        styles.selected === "profile" ? <ProfileDetails />
+                            : styles.selected === "process" ? <ProfileDetails />
+                            : styles.selected === "logOut" ? <ProfileDetails />
+                            : styles.selected === "remove" ? <Remove/> : null
+                    }
                 </div>
                 {/* <!-- Footer --> */}
                 <footer className="pt-4">
