@@ -1,6 +1,3 @@
-
-
-
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -16,156 +13,121 @@ import {
   Exercises,
   Exercises_Get,
   selectUser,
-} from "../../features/counter/counterSlice"
+} from "../../features/counter/counterSlice";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-
 
 const video1 = require("../assets/homeRegister-media/Video-Slide.mp4");
 const video2 = require("../assets/homeRegister-media/Video2.mp4");
 
 interface ejercicios {
-  _id: string
-  name: string
-  difficulty: string
-  muscles: string
-  genre: string
-  video: string
-  description: string 
-  premium: boolean
-}    
-
-
-
-
+  _id: string;
+  name: string;
+  difficulty: string;
+  muscles: string;
+  genre: string;
+  video: string;
+  description: string;
+  premium: boolean;
+}
 
 const HomeRegister = () => {
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(Exercises_Get());
+  }, []);
 
-  const dispatch= useAppDispatch()
-useEffect(()=>{
-dispatch(Exercises_Get())
-},[])
-
-const selector = useAppSelector(selectUser)
-const ejercicios : Array<ejercicios> | null = selector.exercises
-
-
+  const selector = useAppSelector(selectUser);
+  const ejercicios: Array<ejercicios> | null = selector.exercises;
 
   return (
     <>
       <div className="max-w-full mb-12 mx-auto overflow-hidden bg-slate-50 rounded-md shadow-lg">
-        <Carousel
-          content={[
-            {
-              src: "https://www.palco23.com/files/2020/18_recursos/fitness/dominada-728.jpg",
-              text: "Hazte premium para obtener rutinas personalizadas",
-              stylesText:
-                "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
-            },
-            {
-              src: video1,
-              text: "Hazte premium para obtener rutinas personalizadas",
-              stylesText:
-                "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
-            },
-            {
-              src: "https://st4.depositphotos.com/3378831/41496/i/600/depositphotos_414960080-stock-photo-close-up-dumbbell-on-gym.jpg",
-              text: "Hazte premium para obtener rutinas personalizadas",
-              stylesText:
-                "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
-            },
-          ]}
-        />
-        <br />
-        <hr />
-        <h1
-          className="text-center text-3xl mt-10 font-semibold"
-          id="excercises"
-        >
-          EJERCICIOS DEL DIA
-        </h1>
-        <hr />
-        {ejercicios?.length && (
-          <div>
-            <h1 className="font-bold text-center text-2xl mt-24">
-              EJERCICIOS PARA TRONCO
-            </h1>
-            <Swiper
-              slidesPerView={3}
-              spaceBetween={30}
-              slidesPerGroup={3}
-              loop={true}
-              loopFillGroupWithBlank={true}
-              pagination={{
-                clickable: true,
-              }}
-              navigation={true}
-              modules={[Pagination, Navigation]}
-              className="mySwiper flex content-center items-center justify-center"
-            >
-              {ejercicios.map(
-                ({
-                  video,
-                  name,
-                  difficulty,
-                  muscles,
-                  genre,
-                  _id,
-                  description,
-                  premium
-                }) => {
-                 
-                 
-                 
-                    return (
-                      <SwiperSlide className="bg-transparent h-auto">
-                        <div
-                          key={_id}
-                          className={` scale-90 rounded overflow-hidden shadow-lg cursor-pointer duration-300 hover:duration-200 hover:scale-95 hover:outline hover:outline-offset-1 ${
-                            difficulty == "easy"
-                              ? "outline-green-400"
-                              : difficulty == "medium"
-                              ? "outline-yellow-400"
-                              : "outline-red-400"
-                          }`}
-                        >
-                          <img className="w-full" src={video} alt={name} />
-                          <div className="px-6 py-4">
-                            <div className="font-bold text-xl mb-2">{name}</div>
-                            <p className="text-gray-700 text-base">
-                              {description}{" "}
-                            </p>
-                          </div>
-                          <div className="px-6 pt-4 pb-2">
-                            <span
-                              className={`inline-block ${
-                                difficulty == "easy"
-                                  ? "bg-green-200"
-                                  : difficulty == "medium"
-                                  ? "bg-yellow-200"
-                                  : "bg-red-200"
-                              } rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
-                            >
-                              {difficulty}
-                            </span>
-                            <span
-                              className={`inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
-                            >
-                              {muscles}
-                            </span>
-                            <span
-                              className={`inline-block ${
-                                genre === "man" ? "bg-blue-200" : "bg-pink-200"
-                              } rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
-                            >
-                              {genre}
-                            </span>
-                          </div>
-                        </div>
-                      </SwiperSlide>
-                    );
-                }
-              )}
-            </Swiper>
+        <div className="w-full mb-12 m-auto">
+          {/* <Carousel
+            content={[
+              {
+                src: "https://www.palco23.com/files/2020/18_recursos/fitness/dominada-728.jpg",
+                text: "Hazte premium para obtener rutinas personalizadas",
+                stylesText:
+                  "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
+              },
+              {
+                src: video1,
+                text: "Hazte premium para obtener rutinas personalizadas",
+                stylesText:
+                  "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
+              },
+              {
+                src: "https://st4.depositphotos.com/3378831/41496/i/600/depositphotos_414960080-stock-photo-close-up-dumbbell-on-gym.jpg",
+                text: "Hazte premium para obtener rutinas personalizadas",
+                stylesText:
+                  "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
+              },
+            ]}
+          /> */}
+        </div>
+        <section>
+
+
+        {ejercicios?.map(
+          ({
+            video,
+            name,
+            difficulty,
+            muscles,
+            genre,
+            _id,
+            description,
+            premium,
+          }) => {
+            return (
+              <>
+                <div key={_id} className={` scale-90 rounded overflow-hidden shadow-lg cursor-pointer duration-300 hover:duration-200 hover:scale-95 hover:outline hover:outline-offset-1 ${
+                    difficulty == "easy"
+                      ? "outline-green-400"
+                      : difficulty == "medium"
+                      ? "outline-yellow-400"
+                      : "outline-red-400"
+                  }`}
+                >
+                  <img className="w-full" src={video} alt={name} />
+                  <div className="px-6 py-4">
+                    <div className="font-bold text-xl mb-2">{name}</div>
+                    <p className="text-gray-700 text-base">{description} </p>
+                  </div>
+                  <div className="px-6 pt-4 pb-2">
+                    <span
+                      className={`inline-block ${
+                        difficulty == "easy"
+                          ? "bg-green-200"
+                          : difficulty == "medium"
+                          ? "bg-yellow-200"
+                          : "bg-red-200"
+                      } rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
+                    >
+                      {difficulty}
+                    </span>
+                    <span
+                      className={`inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
+                    >
+                      {muscles}
+                    </span>
+                    <span
+                      className={`inline-block ${
+                        genre === "man" ? "bg-blue-200" : "bg-pink-200"
+                      } rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
+                    >
+                      {genre}
+                    </span>
+                  </div>
+                </div>
+              </>
+            );
+          }
+        )}
+        </section>
+
+        {/*               
             <h1
               className="font-bold text-center text-2xl mt-12"
               id="excercises"
@@ -262,7 +224,7 @@ const ejercicios : Array<ejercicios> | null = selector.exercises
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <Footer />
     </>

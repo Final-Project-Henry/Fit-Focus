@@ -139,6 +139,37 @@ export const removeAccount = createAsyncThunk(
   }
 );
 
+export const Rutinas = createAsyncThunk(
+  'user/remove',
+  async (tokenUser:string, thunkAPI) => {
+    
+    try {
+      let headersList = {
+        Accept: "*/*",
+        Authorization: "Bearer " + tokenUser,
+        "Content-Type": "application/json",
+      };
+    
+      let userData = jwtDecode(tokenUser)
+    
+      let reqOptions = {
+        url: "http://localhost:3001/auth/delete",
+        method: "delete",
+        headers: headersList,
+        data: userData,
+      };
+    
+      let response = await axios.request(reqOptions);
+      console.log(response.data);
+      return response.data;
+      
+    } catch (error: any) {
+      console.log(error)
+      return error
+    }
+  }
+);
+
 export const auth_Login_Google = createAsyncThunk(
   'user/auth_google',
   async (_, thunkAPI) => {

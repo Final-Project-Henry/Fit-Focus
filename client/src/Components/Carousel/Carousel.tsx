@@ -143,7 +143,7 @@ const Carousel: React.FC<Props> = ({
                     <p
                       className={`bg-black sm:bg-white sm:opacity-30 relative sm:absolute text-white sm:text-black w-full py-3 px-16 text-center bottom-0 ${stylesText}`}
                     >
-                      {text}
+                    {text}
                     </p>
                   )}
                 </div>
