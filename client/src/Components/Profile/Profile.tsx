@@ -39,34 +39,10 @@ const Profile = () => {
             setStyles({ ...styles, selected: "progress" })
         } else if (target.id === "remove") {
             setStyles({ ...styles, selected: "remove" })
-            /* handleRemoveAccount() */
         }
     }
 
-    function handleRemoveAccount(): void {
-        Swal.fire({
-            title: '¿Estas Seguro?',
-            text: "No podras revertir esta accion",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            cancelButtonText: "Cancelar",
-            confirmButtonText: 'Eliminar',
-        }).then((result: any) => {
-            if (result.isConfirmed) {
-                dispatch(sigendOut(null))
-                /* dispatch(removeAccount(dataUser)) */
-                navigate("/home")
-                window.location.reload();
-                Swal.fire(
-                    'Eliminado',
-                    'Tu cuenta ha sido eliminada exitosamente',
-                    'success'
-                )
-            }
-        })
-    }
+    
 
 
     return (
