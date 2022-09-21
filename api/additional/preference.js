@@ -1,10 +1,10 @@
 module.exports={
-    get_preference: (name, email)=>{
+    get_preference: (name, email, id)=>{
         return {
             binary_mode: true,
             payer: {
                 name: name,
-                surname: "optional",
+                surname: id,
                 email: email,
                 phone: {
                     number: 99999999999,
@@ -28,7 +28,7 @@ module.exports={
                     country_name: 'argentina',
                 }
             },
-            additional_info: {info1:'prueba1'},
+            additional_info: 'prueba1',
             items: [
                 {
                     picture_url: 'https://w7.pngwing.com/pngs/483/429/png-transparent-quality-assurance-emblem-label-logo.png',

@@ -6,7 +6,7 @@ const exercises = [
      "muscles": "upper_body",
      "genre": "man",
      "video": "https://c.tenor.com/gI-8qCUEko8AAAAC/pushup.gif",
-     
+     "premium": false
     },
     {
      "name": "KNEE PUSH UPS",

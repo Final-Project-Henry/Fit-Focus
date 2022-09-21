@@ -24,8 +24,13 @@ const exerciseSchema = new Schema({
     },
     video: {
         type: String
+    },
+    premium : {
+        type : Boolean
+    },
+    description : {
+        type : String
     }
-
 })
 
 module.exports = model('Exercise', exerciseSchema);
