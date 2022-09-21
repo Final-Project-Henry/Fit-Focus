@@ -87,7 +87,6 @@ const Carousel: React.FC<Props> = ({
     };
 
     useEffect(() => {
-        console.log("Hola")
         if (autoplay) {
             intervalSlides.current = setInterval(() => {
                 next();

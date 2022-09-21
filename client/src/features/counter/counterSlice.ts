@@ -13,7 +13,6 @@ export interface State {
   status: string | null;
   rutines : Array<any> | null;
   exercises : Array<any> | null;
-
 }
 
 const initialState: State = {
@@ -103,11 +102,25 @@ export const User_Login_State = createAsyncThunk(
     } catch (error: any) {
       thunkAPI.dispatch(status(error.response.data))
       thunkAPI.rejectWithValue(error.response.data)
-
       return
     }
   }
 );
+
+export const removeAccount = createAsyncThunk(
+  'user/remove',
+  async (user:object, thunkAPI) => {
+    try {
+      const response = await axios.delete("http://localhost:3001/delete", user);
+      console.log(response, "??")
+      return response.data;
+    } catch (error: any) {
+      console.log(error)
+      return error
+    }
+  }
+);
+
 export const auth_Login_Google = createAsyncThunk(
   'user/auth_google',
   async (_, thunkAPI) => {
@@ -133,6 +146,8 @@ export const authGoogle = createAsyncThunk('user/auth_google', async (code: {cod
   }
 );
 
+
+
 export const StateSlice = createSlice({
   name: 'user',
   initialState,
@@ -155,6 +170,8 @@ export const StateSlice = createSlice({
       state.user = action.payload
     },
     sigendOut: (state, action: PayloadAction<null>) => {
+
+      console.log(action.payload)
       state.status = "none"
 
       window.localStorage.removeItem("Login_userFit_Focus");
