@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const user = require('../models/User.js');
 const exercise = require('../models/Exercise.js');
 const jwt = require('jsonwebtoken');
+const validation = require('../validations/validations.js')
 
 require('dotenv').config();
 
@@ -11,6 +12,9 @@ const {SECRET} = process.env
 const router = Router();
 
 router.post('/register', async (req, res) => {
+
+  if(!validation.register(req.body))res.status(500).send('Invalid parameters');
+
   try {
     const {name, email ,password} = req.body;
     
@@ -30,6 +34,8 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => { // Validando las credenciales y devuelve el token.
   
+  if(!validation.register(req.body))res.status(500).send('Invalid parameters');
+
   try {
     const {email , password} = req.body
     

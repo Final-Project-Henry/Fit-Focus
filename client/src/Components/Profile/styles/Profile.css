@@ -43,6 +43,20 @@
   --tw-content: '';
 }
 
+#profile, #lotOut, #progress, #remove {
+    transition-duration: 300ms;
+    transition-delay: 120ms;
+    transition-property: all;
+}
+
+#profile:hover, #logOut:hover, #progress:hover, #remove:hover {
+    transition-duration: 300ms;
+    transition-property: all;
+    transition-delay: 130ms;
+    transform: perspective(380px) translate3d(7px, 5px, 15px)
+}
+
+
 /*
 1. Use a consistent sensible line-height in all browsers.
 2. Prevent adjustments of font size after orientation changes in iOS.

@@ -44,9 +44,10 @@ const userSchema = new Schema({
     userinfo: [userinfo],
     feedback: {
       type : String
-    }
-
-
+    },
+    fav : [{
+      type : String
+    }]
 })
 
 
