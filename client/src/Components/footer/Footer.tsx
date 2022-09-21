@@ -46,8 +46,8 @@ const Footer = () => {
   };
   return (
     <footer className="p-4 sm:p-6 bg-gray-900">
-      <div className="md:flex md:justify-between">
-        <div className="mb-6 md:mb-0">
+      <div className="md:flex md:justify-between h-80"> 
+        <div className="mb-6 md:mb-0 ">
           <div className="flex items-center hover: border-none ml-9">
             <img src={icon} className="mr-5 h-20" alt="Fit-Focus Logo" />
             {/* <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
@@ -58,7 +58,7 @@ const Footer = () => {
             <span className="mb-6 text-sm font-semibold uppercase text-white ml-5 ">
               Dejanos tu opinión:
             </span>
-            <form onSubmit={handleSubmmit} style={{ textAlign: "center" }}>
+            <form onSubmit={handleSubmmit} style={{ textAlign: "center", width: "400%", height:"100%" }}>
               <input
                 type="email"
                 name="email"
@@ -72,7 +72,7 @@ const Footer = () => {
 
               <textarea
                 name="comment"
-                className="block rounded-lg w-full mt-4 resize-none"
+                className="block rounded-lg w-full  mt-4 h-20 resize-none"
                 placeholder="Mensaje..."
                 required
                 rows={8}
@@ -95,6 +95,17 @@ const Footer = () => {
               Colaboración
             </h2>
             <ul className="text-gray-400">
+            
+            <li className="mb-4">
+                <a
+                  href="https://www.soyhenry.com/"
+                  target="_blank"
+                  className="hover:underline"
+                >
+                  Nosotros
+                </a>
+              </li>
+             
               <li className="mb-4">
                 <a
                   href="https://www.soyhenry.com/"
@@ -104,6 +115,7 @@ const Footer = () => {
                   Henry
                 </a>
               </li>
+
             </ul>
           </div>
           <div>
