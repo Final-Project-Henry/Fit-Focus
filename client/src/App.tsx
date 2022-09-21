@@ -1,7 +1,8 @@
 import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { useSesion } from "./app/hooks";
-import { GoogleOAuthProvider } from '@react-oauth/google';
+import { GoogleOAuthProvider } from "@react-oauth/google";
+
 /* Componentes */
 import HomeRegister from "./Components/HomeRegister/HomeRegister";
 import SingUp_Login from "./Components/login-singUp/Singup_Login";
@@ -11,7 +12,6 @@ import HomeVisitor from "./Components/HomeVisitor/HomeVisitor";
 import GoogleAuth from "./Components/GoogleAuth/GoogleAuth";
 import Profile from "./Components/profile/Profile";
 import Navbar from "./Components/Navbar/Navbar";
-
 
 function App() {
   const { pathname } = useLocation();
@@ -35,7 +35,7 @@ function App() {
           <Route path="auth/google" element={<GoogleAuth />} />
         </Routes>
       </React.Fragment>
-    </GoogleOAuthProvider >
+    </GoogleOAuthProvider>
   );
 }
 
