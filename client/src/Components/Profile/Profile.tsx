@@ -1,7 +1,7 @@
 import "./styles/Profile.css"
 import "./styles/Loople.css"
 import { useRef, useState } from "react"
-import { useSesion } from "../../app/hooks"
+import { useAppDispatch, useSesion, useToken } from "../../app/hooks"
 import ProfileDetails from "./ProfileDetails"
 import imgProfile from "../assets/Profile-media/IMG-20220914-WA0007.jpg"
 import Swal from "sweetalert2"
@@ -12,7 +12,7 @@ import Remove from "./Remove"
 
 const Profile = () => {
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch ();
     const navigate = useNavigate();
 
     const [styles, setStyles] = useState({
@@ -21,8 +21,10 @@ const Profile = () => {
         div: "bg-gradient-fuchsia",
         path: "fill-slate-800"
     })
-    const { name, email, id } = useSesion()
-    const dataUser = useSesion()
+    const {name} = useSesion();
+    const token = useToken()
+
+
 
     const profile = useRef<HTMLAnchorElement | null>(null)
     const logOut = useRef<HTMLAnchorElement | null>(null)
@@ -56,7 +58,8 @@ const Profile = () => {
         }).then((result: any) => {
             if (result.isConfirmed) {
                 dispatch(sigendOut(null))
-                /* dispatch(removeAccount(dataUser)) */
+                dispatch(removeAccount(token))
+
                 navigate("/home")
                 window.location.reload();
                 Swal.fire(

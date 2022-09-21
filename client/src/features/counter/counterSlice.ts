@@ -6,6 +6,7 @@
 
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
+import jwtDecode from 'jwt-decode';
 import { RootState, AppThunk } from '../../app/store';
 
 export interface State {
@@ -109,11 +110,28 @@ export const User_Login_State = createAsyncThunk(
 
 export const removeAccount = createAsyncThunk(
   'user/remove',
-  async (user:object, thunkAPI) => {
+  async (tokenUser:string, thunkAPI) => {
+    
     try {
-      const response = await axios.delete("http://localhost:3001/delete", user);
-      console.log(response, "??")
+      let headersList = {
+        Accept: "*/*",
+        Authorization: "Bearer " + tokenUser,
+        "Content-Type": "application/json",
+      };
+    
+      let userData = jwtDecode(tokenUser)
+    
+      let reqOptions = {
+        url: "http://localhost:3001/auth/delete",
+        method: "delete",
+        headers: headersList,
+        data: userData,
+      };
+    
+      let response = await axios.request(reqOptions);
+      console.log(response.data);
       return response.data;
+      
     } catch (error: any) {
       console.log(error)
       return error
