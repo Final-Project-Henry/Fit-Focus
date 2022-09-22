@@ -1,33 +1,38 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector, useSesion, useToken } from '../../app/hooks';
-import { get_payment,  verify_payment } from '../../features/mercadopago/mercadopago';
+import { get_payment, verify_payment } from '../../features/mercadopago/mercadopago';
+import styles from './MercadoPago.module.css';
+import Plan_normal from './Plans/Plan_normal';
+import Plan_premium from './Plans/Plan_premium';
 
 export default function MercadoPago() {
     const id = useParams().payment_id;
     const token = useToken();
-    const mercadoData = useAppSelector(state=>state.mercadopago);
+    const mercadoData = useAppSelector(state => state.mercadopago);
     const dispatch = useAppDispatch();
     const [pay, setPay] = useState(false);
+    const url = `https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=${mercadoData.id}`
 
-    const onClick =()=> {
-        setPay(true);
-        console.log(token);
-        console.log(mercadoData);
-        dispatch(get_payment({token:token, id:null}));
-    }
-
-    useEffect(()=>{
-        if(id){
-            dispatch(verify_payment({token, id}))
+    useEffect(() => {
+        if (token.length > 0 && mercadoData.id === '') {
+            console.log(token);
+            dispatch(get_payment({ token: token, id: null }));
         }
-    },[pay, mercadoData])
-  return (
-    <div>
-        <button onClick={onClick}>Solictar Pago</button><br/>
-        {pay&&mercadoData.id.length>0&&<a href={`https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=
-${mercadoData.id}`}>PAGAR</a>}
-    </div>
-  )
+        if (mercadoData.id !== '') {
+            setPay(true);
+        }
+    }, [token, mercadoData])
+    return (
+        <div className={styles.container}>
+            <div className={styles.tittle}>
+                <h1 style={{color:'#111827'}}>Tu trayectoria con Fit Focus</h1>
+                <h1 style={{color:'#111827'}}>comienza ahora</h1>
+            </div>
+            <div className={styles.planes}>
+                <div>{token.length === 0 && <Plan_normal />}</div>
+                <div><Plan_premium url={url} pay={pay} /></div>
+            </div>
+        </div>
+    )
 }
