@@ -10,7 +10,7 @@ import Form_rutinas from "./Components/form_rutinas/From_rutina";
 import LandingPage from "./Components/LandingPage/LandingPage";
 import HomeVisitor from "./Components/HomeVisitor/HomeVisitor";
 import GoogleAuth from "./Components/GoogleAuth/GoogleAuth";
-import Profile from "./Components/profile/Profile";
+import Profile from "./Components/Profile/Profile";
 import Navbar from "./Components/Navbar/Navbar";
 
 function App() {
