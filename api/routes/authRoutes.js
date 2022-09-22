@@ -110,7 +110,8 @@ router.get('/payment', async (req, res) => {
     const {email,name,id} = req.user
     const preferences = get_preference(name,email,id);
   const response = await mercadopago.preferences.create(preferences);
-  res.status(200).json({id: response.body.id, collector_id : response.body.collector_id, response});
+  res.status(200).json({id: response.body.id});
+  // res.status(200).json(response);
   } catch (error) {
     res.status(500).send(error.message)
   }

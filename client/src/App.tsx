@@ -11,6 +11,7 @@ import HomeVisitor from "./Components/HomeVisitor/HomeVisitor";
 import GoogleAuth from "./Components/GoogleAuth/GoogleAuth";
 import Profile from "./Components/Profile/Profile";
 import Navbar from "./Components/Navbar/Navbar";
+import MercadoPago from "./Components/Mercadopago/Mercadopago";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path="/rutinas" element={<Form_rutinas />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="auth/google" element={<GoogleAuth />} />
+          <Route path="mercadopago" element={<MercadoPago />} />
         </Routes>
       </React.Fragment>
     </GoogleOAuthProvider >
