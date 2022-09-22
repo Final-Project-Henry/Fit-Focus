@@ -230,36 +230,28 @@ interface ejerciciosData {
 
 const HomeRegister = () => {
   const dispatch = useAppDispatch();
-  const [cards , Setcards] = useState<ejerciciosData | []>([])
+  const [cards, Setcards] = useState<ejerciciosData | []>([]);
   useEffect(() => {
     dispatch(Exercises_Get());
-
   }, []);
 
   const selector = useAppSelector(selectUser);
   const ejercicios: Array<ejerciciosData> | [] = selector.exercises;
   const [filtrado, setFiltrado] = useState<Array<ejerciciosData> | null>([]);
 
- 
   useEffect(() => {
     dispatch(Exercises_Get());
-
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {}, [ejercicios]);
 
-},[ejercicios])
-
-
-  const paginado = () => {
-    
-  };
+  const paginado = () => {};
   return (
     <>
       <div className="grid grid-cols-5 sm:grid-cols-11 gap-5 bg-slate-200  shadow-lg">
         {/* filtro */}
-        <div className="bg-white rounded-xl  shadow-lg border col-span-1  h-screen">
-          <div className="p-2">
+        <div className="col-span-1 min-h-screen">
+          <div className="p-5 top-0 fixed bg-white  shadow-lg col-span-1  h-screen">
             <div className="py-2">Ejercicios</div>
             <div className="py-2">calculadora</div>
             <div className="py-2">Noticias</div>
@@ -267,7 +259,7 @@ const HomeRegister = () => {
           </div>
         </div>
         {/* carousel */}
-        <div className="w-full col-span-7 border h-screen ">
+        <div className="w-full col-span-9 border  min-h-screen ">
           <div className="min-w-[100%] mx-[100px] m-5   h-[250px] ">
             <Carousel
               content={[
@@ -293,100 +285,12 @@ const HomeRegister = () => {
             />
           </div>
           {/* card de ejercicios */}
-          <FilterExercises />
-          <section className="grid grid-cols-3">
-            {ejercicios?.map(
-              ({
-                video,
-                name,
-                difficulty,
-                muscles,
-                genre,
-                premium,
-              }) => {
-                return (
-                  <>
-                    <div className={`max-w-sm flex flex-col bg-white rounded-lg shadow-md duration-150 cursor-pointer scale-90 hover:scale-95  hover:outline hover:outline-offset-1 ${
-                        premium
-                          ? "outline-blue-400"
-                          : difficulty == "easy"
-                          ? "outline-green-400"
-                          : difficulty == "medium"
-                          ? "outline-yellow-400"
-                          : "outline-red-400"
-                      }
-                      ${
-                        premium ? "bg-slate-100" : "bg-slate-50"
-                      } ${
-                        premium ? "blur-[5px]" : "blur-0"
-                      }`}
-                    >
-                      <div className="h-[160px] overflow-hidden">
-                      <img
-                          className="rounded-t-lg"
-                          src={video}
-                          alt=""
-                        />
-                      </div>
-                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                            {name}
-                      </h5> 
-                       
-                      <div className="p-3">
-                        <span
-                          className={`inline-block ${
-                            difficulty == "easy"
-                              ? "bg-green-200"
-                              : difficulty == "medium"
-                              ? "bg-yellow-200"
-                              : "bg-red-200"
-                          } rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
-                        >
-                          {difficulty}
-                        </span>
-                        <span
-                          className={`inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
-                        >
-                          {muscles}
-                        </span>
-                        <span
-                          className={`inline-block ${
-                            genre === "man" ? "bg-blue-400" : "bg-pink-300"
-                          } rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
-                        >
-                          {genre}
-                        </span>
-                      </div>
-                      <div className="p-4">
-                        <a
-                          href="#"
-                          className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-[#6c63ff] duration-150 rounded-lg hover:bg-blue-800"
-                        >
-                          Empezar
-                          <svg
-                            aria-hidden="true"
-                            className="ml-2 -mr-1 w-4 h-4"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                              clip-rule="evenodd"
-                            ></path>
-                          </svg>
-                        </a>
-                      </div>
-                    </div>
-                    </>
-                );
-              }
-            )}
-          </section>
-        </div>
-
-        <div className="w-full h-[98vh]  col-span-3  mt-[5px] rounded-xl bg-white">
+          <div>
+            <h3 className="font-dark py-[5px] px-[20px] text-gray-700 text-3xl ">
+              Ejercicios
+            </h3>
+            <FilterExercises />
+            {/* <div className="w-full h-[98vh]  col-span-5  mt-[5px] rounded-xl bg-white">
           <p className="text-gray-700 text-2xl p-5 font-black">
             ejercicios populares
           </p>
@@ -407,9 +311,38 @@ const HomeRegister = () => {
               </div>
             );
           })}
+        </div> */}
+            
+              <footer className="p-4 mx-40   rounded-lg md:flex md:items-center md:justify-between md:p-6 ">
+                <span className="text-sm text-gray-800 sm:text-center ">
+                  © 2022{" "}
+                  <span className="hover:underline">
+                    Fit Focus™
+                  </span>
+                  . All Rights Reserved.
+                </span>
+                <ul className="flex flex-wrap items-center mt-3 text-sm text-gray-800 sm:mt-0">
+                  <li>
+                    <Link to="/about" className="mr-4 hover:underline md:mr-6 ">
+                      Nosotros
+                    </Link>
+                  </li>
+                  <li>
+                    <a href="#" className="mr-4 hover:underline md:mr-6">
+                    Política de Privacidad
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:underline">
+                      Contact
+                    </a>
+                  </li>
+                </ul>
+              </footer>
+            </div>
+          </div>
         </div>
-      </div>
-      <Footer />
+      
     </>
   );
 };
