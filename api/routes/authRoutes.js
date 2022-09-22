@@ -81,7 +81,9 @@ router.put('/changepassword', async (req, res) => {
 router.delete('/delete', async (req, res) => {
   try {
     const { id } = req.user
-    await user.deleteOne({ _id: id });
+    await user.updateOne({ _id: id }, {
+      status : 'desactivated'
+    });
     res.status(200).send('Deleted succesfully');
   } catch (error) {
     res.status(500).send(error.message)
@@ -121,13 +123,12 @@ router.get('/confirmation', async (req, res) =>{
     const {payment_id} = req.query
     const {id} = req.user
     const response = await mercadopago.payment.findById(payment_id);
-    if(response.body.payer.last_name === id && response.body.status === 'approved'){
+    if(response.response.additional_info.payer.last_name === id && response.body.status === 'approved'){
       await user.updateOne({_id : id},{
        plan : 'premium'
       });
       res.status(200).send('Ya eres premium!!')
-    }
-    res.status(403).send('Pago rechazado')
+    }else res.status(403).send('Pago rechazado')
   } catch (error) {
     res.status(500).send(error.message)
   }
