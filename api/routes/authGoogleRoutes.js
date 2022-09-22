@@ -1,43 +1,29 @@
 const { Router } = require('express');
-const getGoogleToken = require('../service/userService.js');
+// const getGoogleToken = require('../service/userService.js');
 const jwt = require('jsonwebtoken');
-const axios = require('axios');
 const user = require('../models/User.js')
 const bcrypt = require('bcrypt');
-const nodemailer = require('nodemailer')
-
-
+const mailSettings = require('../additional/nodemailer');
 
 require('dotenv').config();
 
-const { SECRET, NODEMAILER } = process.env
+const { SECRET} = process.env
 
 const router = Router();
+
+
 
 router.post('/', async (req, res) => {
   try {
     const { code } = req.body
     const data = jwt.decode(code);
-    let transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: 'fitfocushenry@gmail.com',
-        pass: NODEMAILER,
-      },
-
-    });
-
-    let mailDetails = {
-      from: 'fitfocushenry@gmail.com',
-      to: data.email,
-      subject: '¡Bienvenido a Fit Focus!',
-      html: "<b> ¡Su usuario ha sido creado con éxito! Nos alegra que te hayas unido a esta nueva aventura </b>",
-    };
+    const transporter = mailSettings.transporter;
+    const mailDetails = mailSettings.mailDetails(data.email);
+    
     let oldUser = await user.findOne({ email: data.email });
     if (!oldUser) {
       const hashPassword = await bcrypt.hash(data.sub, 10)
       oldUser = await user.create({ email: data.email, name: data.name, avatar: data.picture, password: hashPassword });
-      console.log(data.email)
 
       transporter.sendMail(mailDetails, (error, info) => {
         if(error)console.log('error: ',error);

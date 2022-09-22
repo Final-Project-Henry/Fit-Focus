@@ -4,19 +4,18 @@ const user = require('../models/User.js');
 const exercise = require('../models/Exercise.js');
 const jwt = require('jsonwebtoken');
 const validation = require('../validations/validations.js')
-const nodemailer = require('nodemailer')
+const mailSettings = require('../additional/nodemailer');
 
 
 require('dotenv').config();
 
 const {SECRET} = process.env
-const {NODEMAILER} = process.env
 
 const router = Router();
 
 router.post('/register', async (req, res) => {
 
-  if(!validation.register(req.body))res.status(500).send('Invalid parameters');
+  if(!validation.register(req.body))return res.status(500).send('Invalid parameters');
 
   try {
     const {name, email ,password} = req.body;
@@ -27,23 +26,10 @@ router.post('/register', async (req, res) => {
     const hashPassword = await bcrypt.hash(password, 10);
 
     const User = await user.create({name,email,password : hashPassword});
-    
-    let transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: 'fitfocushenry@gmail.com',
-        pass: NODEMAILER,
-      },
-    
-    });
 
-    let mailDetails = {
-      from: 'fitfocushenry@gmail.com',
-      to: email,
-      subject: '¡Bienvenido a Fit Focus!',
-      html:"<b> ¡Su usuario ha sido creado con éxito! Nos alegra que te hayas unido a esta nueva aventura </b>",
-    };
-
+    const transporter = mailSettings.transporter;
+    const mailDetails = mailSettings.mailDetails(email);
+    
     transporter.sendMail(mailDetails, (error, info) => {
       if (error) {
         res.status(500).send(error.message);
