@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom"
 const Profile = () => {
 
     const dispatch = useAppDispatch();
-    const perfil:any = useAppSelector( selectUser )
+    const perfil: any = useAppSelector(selectUser)
     const token = useToken();
 
     const navigate = useNavigate()
@@ -26,16 +26,16 @@ const Profile = () => {
     })
 
     useEffect(() => {
-      console.log(perfil)
+        console.log(perfil)
     }, [perfil])
-    
+
 
     useEffect(() => {
-        if(token){
-            dispatch(getProfileInfo( token ))
+        if (token) {
+            dispatch(getProfileInfo(token))
 
         }
-    },[token])
+    }, [token])
 
     const profile = useRef<HTMLAnchorElement | null>(null)
     const logOut = useRef<HTMLAnchorElement | null>(null)
@@ -45,7 +45,7 @@ const Profile = () => {
     const handleClickAside = ({ target }: any) => {
 
         if (target.id === "profile") setStyles({ ...styles, selected: "profile" })
-        
+
         else if (target.id === "logOut") {
             setStyles({ ...styles, selected: "logOut" })
             Swal.fire({
@@ -56,15 +56,15 @@ const Profile = () => {
                 cancelButtonColor: "#d33",
                 confirmButtonText: "Cerrar sesión",
                 cancelButtonText: "Cancelar",
-              }).then((result) => {
+            }).then((result) => {
                 if (result.isConfirmed) {
-                  dispatch(sigendOut(null));
-                  navigate("/home");
-                  window.location.reload();
+                    dispatch(sigendOut(null));
+                    navigate("/home");
+                    window.location.reload();
                 } else setStyles({ ...styles, selected: "profile" })
-              })
-            
-            
+            })
+
+
         }
 
         else if (target.id === "progress") setStyles({ ...styles, selected: "progress" })
@@ -73,6 +73,37 @@ const Profile = () => {
 
     }
 
+    // Constantes
+    const CLOUD_NAME = "dvazw12uq";
+    const UPLOAD_PRESET = "nfyapxvy";
+
+    const [imageUrl, setImageUrl] = useState("");
+
+    const handleClickImage = async () => {
+        const { files }: any = document.querySelector(".app_uploadInput");
+        const formData = new FormData();
+        formData.append("file", files[0]);
+        formData.append("upload_preset", UPLOAD_PRESET);
+        const options = {
+            method: "POST",
+            body: formData,
+        };
+        try {
+            const res = await fetch(
+                `https://api.Cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
+                options
+            );
+            const res_1 = await res.json();
+            setImageUrl(res_1.secure_url);
+            return console.log(res_1);
+        } catch (err) {
+            return console.log(err);
+        }
+    };
+
+    const handlePreview = () => {
+        
+    }
 
 
     return (
@@ -181,7 +212,21 @@ const Profile = () => {
                         <div className="flex flex-wrap -mx-3">
                             <div className="flex-none w-auto max-w-full px-3">
                                 <div className="text-size-base ease-soft-in-out h-18.5 w-18.5 relative inline-flex items-center justify-center rounded-xl text-white transition-all duration-200">
-                                    <img src={imgProfile} /* "https://demos.creative-tim.com/soft-ui-dashboard-tailwind/assets/img/bruce-mars.jpg" */ alt="profile_image" className="w-full shadow-soft-sm rounded-xl" />
+                                    <img src={imageUrl} className="rounded-3xl border-solid app_uploadButton w-full shadow-soft-sm" /* "https://demos.creative-tim.com/soft-ui-dashboard-tailwind/assets/img/bruce-mars.jpg" */ />
+                                    <div className="rounded-full absolute bottom-0 right-0 bg-red-500 w-6 h-6 leading-8 overflow-hidden flex justify-center content-center">
+                                        <input type="file" accept="image/*" onChange={handlePreview} className="app_uploadInput absolute scale-110 opacity-0" />
+                                        <svg height="19px" width="19px" className="mt-[2px]" id="Layer_1" /* style="enableBackground: "new 0 0 512 512"}} */ version="1.1" viewBox="0 0 512 512" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+                                            <g>
+                                                <path className="fill-white" d="M430.4,147h-67.5l-40.4-40.8c0,0-0.2-0.2-0.3-0.2l-0.2-0.2v0c-6-6-14.1-9.8-23.3-9.8h-84c-9.8,0-18.5,4.2-24.6,10.9l0,0.1   l-39.5,40H81.6C63,147,48,161.6,48,180.2v202.1c0,18.6,15,33.7,33.6,33.7h348.8c18.5,0,33.6-15.1,33.6-33.7V180.2   C464,161.6,448.9,147,430.4,147z M256,365.5c-50.9,0-92.4-41.6-92.4-92.6c0-51.1,41.5-92.6,92.4-92.6c51,0,92.4,41.5,92.4,92.6   C348.4,323.9,307,365.5,256,365.5z M424.1,200.5c-7.7,0-14-6.3-14-14.1s6.3-14.1,14-14.1c7.7,0,14,6.3,14,14.1   S431.8,200.5,424.1,200.5z" />
+                                                <path className="fill-white" d="M256,202.9c-38.6,0-69.8,31.3-69.8,70c0,38.6,31.2,70,69.8,70c38.5,0,69.8-31.3,69.8-70C325.8,234.2,294.5,202.9,256,202.9   z" />
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div className="app">
+                                    <button className="app_uploadButton" onClick={handleClickImage}>
+                                        Upload
+                                    </button>
                                 </div>
                             </div>
                             <div className="flex-none w-auto max-w-full px-3 my-auto">
@@ -239,4 +284,4 @@ const Profile = () => {
     )
 }
 
-export default Profile
+export default Profile;
