@@ -39,9 +39,9 @@ module.exports={
                 }
             ],
             back_urls: {
-                'success': 'http://localhost:300/mercadopago',
-                'failure': 'http://localhost:300/mercadopago',
-                'pending': 'http://localhost:300/mercadopago',
+                'success': 'http://localhost:3001/feedback',
+                'failure': 'http://localhost:3001/feedback',
+                'pending': 'http://localhost:3001/feedback',
             },
             auto_return: 'approved',
         }

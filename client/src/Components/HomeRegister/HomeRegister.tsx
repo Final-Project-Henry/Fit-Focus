@@ -18,11 +18,8 @@ import {
   selectUser,
 } from "../../features/counter/counterSlice"
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import FilterExercises from "./FilterExercises";
 
-<<<<<<< HEAD
-=======
-
->>>>>>> bbd149100786f0eb00eb82172849884b60a0ba68
 const video1 = require("../assets/homeRegister-media/Video-Slide.mp4");
 const video2 = require("../assets/homeRegister-media/Video2.mp4");
 
@@ -56,7 +53,8 @@ const ejercicios : Array<ejercicios> | null = selector.exercises
   return (
     <>
       <div className="max-w-full mb-12 mx-auto overflow-hidden bg-slate-50 rounded-md shadow-lg">
-        <Carousel
+        <FilterExercises/>
+        {/* <Carousel
           content={[
             {
               src: "https://www.palco23.com/files/2020/18_recursos/fitness/dominada-728.jpg",
@@ -77,8 +75,8 @@ const ejercicios : Array<ejercicios> | null = selector.exercises
                 "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
             },
           ]}
-        />
-        <br />
+        /> */}
+        {/* <br />
         <hr />
         <h1
           className="text-center text-3xl mt-10 font-semibold"
@@ -252,7 +250,7 @@ const ejercicios : Array<ejercicios> | null = selector.exercises
           </div>
         )}
         <br />
-        <hr />
+        <hr /> */}
         <div className="flex mt-7 h-[400px] items-center overflow-hidden">
           <div className="flex items-center w-[76%] h-72 bg-slate-500">
             <video src={video2} autoPlay loop muted />
