@@ -19,6 +19,7 @@ import {
 } from "../../features/counter/counterSlice"
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import FilterExercises from "./FilterExercises";
+import { useNavigate } from "react-router-dom";
 
 const video1 = require("../assets/homeRegister-media/Video-Slide.mp4");
 const video2 = require("../assets/homeRegister-media/Video2.mp4");
@@ -39,6 +40,10 @@ interface ejercicios {
 
 
 const HomeRegister = () => {
+  const navigate = useNavigate();
+  const onClick = ()=>{
+    navigate('/mercadopago');
+  }
 
   const dispatch= useAppDispatch()
 useEffect(()=>{
@@ -53,7 +58,9 @@ const ejercicios : Array<ejercicios> | null = selector.exercises
   return (
     <>
     <FilterExercises/>
-      <div className="max-w-full mb-12 mx-auto overflow-hidden bg-slate-50 rounded-md shadow-lg">
+      <div 
+      onClick={onClick}
+      className="max-w-full mb-12 mx-auto overflow-hidden bg-slate-50 rounded-md shadow-lg">
         <Carousel
           content={[
             {
