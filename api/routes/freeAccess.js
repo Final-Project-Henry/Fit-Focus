@@ -109,4 +109,14 @@ router.put('/account', async (req, res) =>{
   }
 })
 
+router.get('/feedback', async (req, res) =>{
+  try {
+    const {payment_id} = req.query
+    
+    return res.redirect(payment_id?`http://localhost:3000/mercadopago/${payment_id}`:'http://localhost:3000/mercadopago');
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+})
+
 module.exports = router
