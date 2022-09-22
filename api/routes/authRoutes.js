@@ -128,8 +128,7 @@ router.get('/confirmation', async (req, res) =>{
        plan : 'premium'
       });
       res.status(200).send('Ya eres premium!!')
-    }
-    res.status(403).send('Pago rechazado')
+    }else res.status(403).send('Pago rechazado')
   } catch (error) {
     res.status(500).send(error.message)
   }
