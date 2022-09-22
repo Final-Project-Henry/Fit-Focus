@@ -1,9 +1,21 @@
 import "./styles/Profile.css"
 import "./styles/Loople.css"
 import { useRef, useState } from "react"
-import { useSesion } from "../../app/hooks"
+import { useAppDispatch, useSesion, useToken } from "../../app/hooks"
+import ProfileDetails from "./ProfileDetails"
+import imgProfile from "../assets/Profile-media/IMG-20220914-WA0007.jpg"
+import Swal from "sweetalert2"
+import { sigendOut } from "../../features/counter/counterSlice"
+import Remove from "./Remove"
+import Progress from "./Progress"
+import { useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom"
 
 const Profile = () => {
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate()
+
 
     const [styles, setStyles] = useState({
         selected: "profile",
@@ -11,7 +23,10 @@ const Profile = () => {
         div: "bg-gradient-fuchsia",
         path: "fill-slate-800"
     })
-    const {name, email} = useSesion()
+    const { name } = useSesion();
+
+
+
 
     const profile = useRef<HTMLAnchorElement | null>(null)
     const logOut = useRef<HTMLAnchorElement | null>(null)
@@ -20,18 +35,35 @@ const Profile = () => {
 
     const handleClickAside = ({ target }: any) => {
 
-        if (target.id === "profile") {
-            setStyles({ ...styles, selected: "profile" })
-        } else if (target.id === "logOut") {
+        if (target.id === "profile") setStyles({ ...styles, selected: "profile" })
+
+        else if (target.id === "logOut") {
             setStyles({ ...styles, selected: "logOut" })
-        } else if (target.id === "progress") {
-            setStyles({ ...styles, selected: "progress" })
-        } else if (target.id === "remove") {
-            setStyles({ ...styles, selected: "remove" })
+            Swal.fire({
+                title: "¿Desea cerrar sesión?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#000000",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Cerrar sesión",
+                cancelButtonText: "Cancelar",
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  dispatch(sigendOut(null));
+                  navigate("/home");
+                  window.location.reload();
+                } else setStyles({ ...styles, selected: "profile" })
+              })
+            
+            
         }
 
+        else if (target.id === "progress") setStyles({ ...styles, selected: "progress" })
+        else if (target.id === "remove") setStyles({ ...styles, selected: "remove" })
+        else if (target.id === "billing") setStyles({ ...styles, selected: "billing" })
 
     }
+
 
 
     return (
@@ -82,16 +114,16 @@ const Profile = () => {
                             </a>
                         </li>
                         <li className="mt-0.5 w-full">
-                            <a className="py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="javascript:;">
-                                <div onClick={() => handleClickAside({ target: { id: "billing" } })} className="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
+                            <a id="billing" onClick={handleClickAside} className={`${styles.selected === "billing" && styles.a} py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors duration-500`} href="javascript:;">
+                                <div onClick={() => handleClickAside({ target: { id: "billing" } })} className={`${styles.selected === "billing" && styles.div} duration-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5`}>
                                     <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                                         <title>credit-card</title>
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
                                                 <g transform="translate(1716.000000, 291.000000)">
                                                     <g transform="translate(453.000000, 454.000000)">
-                                                        <path className="fill-slate-800 opacity-60" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"></path>
-                                                        <path className="fill-slate-800" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
+                                                        <path className={`${styles.selected !== "billing" && styles.path} duration-500 opacity-60`} d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"></path>
+                                                        <path className={`${styles.selected !== "billing" && styles.path} duration-500`} d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
                                                     </g>
                                                 </g>
                                             </g>
@@ -140,12 +172,12 @@ const Profile = () => {
                         <div className="flex flex-wrap -mx-3">
                             <div className="flex-none w-auto max-w-full px-3">
                                 <div className="text-size-base ease-soft-in-out h-18.5 w-18.5 relative inline-flex items-center justify-center rounded-xl text-white transition-all duration-200">
-                                    <img src="https://demos.creative-tim.com/soft-ui-dashboard-tailwind/assets/img/bruce-mars.jpg" alt="profile_image" className="w-full shadow-soft-sm rounded-xl" />
+                                    <img src={imgProfile} /* "https://demos.creative-tim.com/soft-ui-dashboard-tailwind/assets/img/bruce-mars.jpg" */ alt="profile_image" className="w-full shadow-soft-sm rounded-xl" />
                                 </div>
                             </div>
                             <div className="flex-none w-auto max-w-full px-3 my-auto">
                                 <div className="h-full">
-                                    <h5 className="mb-1">Adrian Acurero</h5>
+                                    <h5 className="mb-1">{name}</h5>
                                     <p className="mb-0 font-semibold leading-normal text-size-sm">CEO / Co-Founder</p>
                                 </div>
                             </div>
@@ -153,34 +185,13 @@ const Profile = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="w-full p-3 mt-6 mx-auto removable">
-                        <div className="flex flex-wrap -mx-3">
-                            <div className="w-full max-w-full px-3 lg-max:mt-6 xl:w-4/12 mb-4">
-                                <div className="relative flex flex-col h-full min-w-0 break-words bg-white border-0 shadow-soft-xl rounded-2xl bg-clip-border">
-                                    <div className="p-4 pb-0 mb-0 bg-white border-b-0 rounded-t-2xl">
-                                        <div className="flex flex-wrap -mx-3">
-                                            <div className="flex items-center w-full max-w-full px-3 shrink-0 md:w-8/12 md:flex-none">
-                                                <h6 className="mb-0 font-bold text-lg">Profile Information</h6>
-                                            </div>
-                                            <div className="w-full max-w-full px-3 text-right shrink-0 md:w-4/12 md:flex-none">
-                                                <a data-target="tooltip_trigger" data-placement="top">
-                                                    <i className="leading-normal fas fa-user-edit text-size-sm text-slate-400" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="flex-auto p-4">
-                                        <hr className="h-px my-2 bg-transparent bg-gradient-horizontal-light" />
-                                        <ul className="flex flex-col pl-0 mb-0 rounded-lg">
-                                            <li className="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-sm text-inherit"><strong className="text-slate-700">Nombre:</strong> &nbsp; {name}</li>
-                                            <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit"><strong className="text-slate-700">Correo:</strong> &nbsp; {email}</li>
-                                            <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit text-[#efb810]"><strong className="text-slate-700">Tipo de cuenta</strong> &nbsp; Premium</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {
+                        styles.selected === "profile" ? <ProfileDetails />
+                            : styles.selected === "progress" ? <Progress />
+                                : styles.selected === "remove" ? <Remove />
+                                    : styles.selected === "logOut" ? <ProfileDetails />
+                                        : styles.selected === "billing" && <ProfileDetails />
+                    }
                 </div>
                 {/* <!-- Footer --> */}
                 <footer className="pt-4">

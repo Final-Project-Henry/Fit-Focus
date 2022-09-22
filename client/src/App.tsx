@@ -1,7 +1,8 @@
 import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { useSesion } from "./app/hooks";
-import { GoogleOAuthProvider } from '@react-oauth/google';
+import { GoogleOAuthProvider } from "@react-oauth/google";
+
 /* Componentes */
 import HomeRegister from "./Components/HomeRegister/HomeRegister";
 import SingUp_Login from "./Components/login-singUp/Singup_Login";
@@ -9,10 +10,9 @@ import Form_rutinas from "./Components/form_rutinas/From_rutina";
 import LandingPage from "./Components/LandingPage/LandingPage";
 import HomeVisitor from "./Components/HomeVisitor/HomeVisitor";
 import GoogleAuth from "./Components/GoogleAuth/GoogleAuth";
-import Profile from "./Components/Profile/Profile";
+import Profile from "./Components/profile/Profile";
 import Navbar from "./Components/Navbar/Navbar";
 import MercadoPago from "./Components/Mercadopago/Mercadopago";
-
 
 function App() {
   const { pathname } = useLocation();
@@ -37,7 +37,7 @@ function App() {
           <Route path="mercadopago" element={<MercadoPago />} />
         </Routes>
       </React.Fragment>
-    </GoogleOAuthProvider >
+    </GoogleOAuthProvider>
   );
 }
 

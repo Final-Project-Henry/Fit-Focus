@@ -75,6 +75,8 @@ const Carousel: React.FC<Props> = ({
       const slice = slideshow.current.children[0] as HTMLElement;
       const sliceSize = slice.offsetWidth;
 
+
+
       slideshow.current.style.transform = `translateX(-${sliceSize}px)`;
 
       setTimeout(() => {
