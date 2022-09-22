@@ -17,6 +17,7 @@ import {
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { Link } from "react-router-dom";
 import FilterExercises from "./FilterExercises";
+import Navbar from "../Navbar/NavbarHome";
 
 const video1 = require("../assets/homeRegister-media/Video-Slide.mp4");
 const video2 = require("../assets/homeRegister-media/Video2.mp4");
@@ -237,7 +238,7 @@ const HomeRegister = () => {
 
   const selector = useAppSelector(selectUser);
   const ejercicios: Array<ejerciciosData> | [] = selector.exercises;
-  const [filtrado, setFiltrado] = useState<Array<ejerciciosData> | null>([]);
+  
 
   useEffect(() => {
     dispatch(Exercises_Get());
@@ -248,14 +249,16 @@ const HomeRegister = () => {
   const paginado = () => {};
   return (
     <>
+      <Navbar/>
+
       <div className="grid grid-cols-5 sm:grid-cols-11 gap-5 bg-slate-200  shadow-lg">
         {/* filtro */}
         <div className="col-span-1 min-h-screen">
           <div className="p-5 top-0 fixed bg-white  shadow-lg col-span-1  h-screen">
-            <div className="py-2">Ejercicios</div>
-            <div className="py-2">calculadora</div>
-            <div className="py-2">Noticias</div>
-            <div className="py-2">Rutinas</div>
+          <Link to="/ejercicios" ><div className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent md:p-0 mb-[5px]">Ejercicios</div></Link>
+            <Link to="/calculadora"><div className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent md:p-0 mb-[5px]">Calculadora</div></Link>
+            <Link to="/noticias"><div className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent md:p-0 mb-[5px]">Noticias</div></Link>
+            <Link to="/rutinasPersonales"><div className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent md:p-0 mb-[5px]">Rutinas</div></Link>
           </div>
         </div>
         {/* carousel */}

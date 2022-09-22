@@ -48,26 +48,18 @@ const Navbar = () => {
 
   return (
 
-    <div>
-      <nav className=" border-gray-200 px-2 sm:px-4  bg-transparent  w-full border-b-4">
-        <div className="container-fluid w-full flex flex-wrap items-center justify-between px-8 p-4">
+    <div className="w-full">
+      <nav className="  px-2 w-full z-10 sm:px-4 fixed   bg-transparent  ">
+        <div className="container-fluid  flex flex-wrap items-center justify-between px-8 p-4">
           <div className="flex items-center">
-            <img
-              src={icon}
-              className="mr-3 h-6 sm:h-9 cursor-default"
-              alt="FF Logo"
-            />
-            {/* <span className="self-center text-xl font-semibold whitespace-nowrap text-white cursor-default">
-              Fit-Focus
-            </span> */}
             <button
               onClick={() => setShowMenu(!showMenu)}
               data-collapse-toggle="mobile-menu-2"
               type="button"
-              className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden"
+              className="inline-flex items-center bg-white p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden"
               aria-controls="mobile-menu-2"
               aria-expanded="false"
-            >
+             >
               <span className="sr-only">Open main menu</span>
               <svg
                 className="w-6 h-6"
@@ -85,62 +77,13 @@ const Navbar = () => {
             </button>
 
             <div
-              className="text-center justify-between items-center w-full md:flex md:w-auto md:order-1"
+              className="text-center bg-white justify-between items-center w-full md:flex md:w-auto md:order-1"
               id="mobile-menu-2"
             >
-              <ul className="flex flex-col p-4 mt-4 ml-4 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
-                <li>
-                  <Link
-                    to="/home"
-                    className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent md:p-0 "
-                    aria-current="page"
-                  >
-                    Inicio
-                  </Link>
-                </li>
-                <li>
-                  {!user ? (
-                    <Scroll
-                      spy={true}
-                      smooth={true}
-                      offset={-100}
-                      duration={500}
-                      to="about"
-                      className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
-                    >
-                      Nosotros
-                    </Scroll>
-                  ) : (
-                    <li>
-                      <Scroll
-                        to="excercises"
-                        spy={true}
-                        smooth={true}
-                        offset={-100}
-                        duration={500}
-                        className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
-                      >
-                        Ejercicios
-                      </Scroll>
-                    </li>
-                  )}
-                </li>
-                <li>
-                  <Scroll
-                    to="feedbacks"
-                    spy={true}
-                    smooth={true}
-                    offset={-100}
-                    duration={500}
-                    className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent  md:p-0 cursor-pointer"
-                  >
-                    Opiniones
-                  </Scroll>
-                </li>
-              </ul>
+        
             </div>
           </div>
-          <div className="flex items-center md:order-2 ">
+          <div className="flex bg-white  h-[50px] rounded-xl   items-center justify-end p-5 md:order-2 ">
             <div>
               <li className="flex items-center md:order-2">
                 <button
@@ -154,7 +97,7 @@ const Navbar = () => {
                     style={{ width: "20px", marginRight: "4px" }}
                     alt=""
                   />
-                  Spanish
+                  Español
                 </button>
                 {lenguage && (
                   <div
@@ -179,16 +122,8 @@ const Navbar = () => {
                 )}
               </li>
             </div>
-            <button
-              type="button"
-              className="flex mr-3 text-sm rounded-full md:mr-0 focus:border-none"
-              id="user-menu-button"
-              aria-expanded="false"
-              data-dropdown-toggle="user-dropdown"
-              data-dropdown-placement="bottom"
-            >
-              {user ? (
-                <div>
+            
+                <div className="cursor-pointer">
                   <span className="sr-only">Open user menu</span>
                   <img
                     className="w-10 h-10 rounded-full ml-4"
@@ -197,29 +132,12 @@ const Navbar = () => {
                     alt="userphoto"
                   />
                 </div>
-              ) : (
-                <div className="flex flex-col p-4 mt-4 rounded-lg border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 ">
-                  <Link
-                    to="/auth/sing-up"
-                    className="block py-2 pr-4 pl-3  md:hover:bg-transparent  md:p-0 text-gray-400 md:hover:text-black"
-                  >
-                    Registrarse
-                  </Link>
-
-                  <Link
-                    to="/auth/login"
-                    className="block py-2 pr-4 pl-3 md:hover:bg-transparent  md:p-0 text-gray-400 md:hover:text-black"
-                  >
-                    Iniciar sesión
-                  </Link>
-                </div>
-              )}
-            </button>
+            
 
             {/* Menu de Usuario Registrado */}
             {dropdown && (
               <div
-                className=" z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow"
+                className=" z-50  text-base list-none bg-white rounded divide-y divide-gray-100 "
                 id="user-dropdown"
                 data-popper-reference-hidden
                 data-popper-escaped
@@ -227,11 +145,11 @@ const Navbar = () => {
                 style={{
                   position: "absolute",
                   inset: "0px auto auto auto",
-                  margin: "65px",
-                  transform: "translate(-50px, 20px)",
+                  margin: "50px 0",
+                  transform: "translate(0px, 20px)",
                 }}
               >
-           <div className="py-3 px-4">
+                <div className="py-3 px-4">
                   <span className="block text-sm text-gray-900 ">
                     {userData.name}
                   </span>
@@ -273,7 +191,7 @@ const Navbar = () => {
                       Cerrar Sesión
                     </div>
                   </li>
-                  </ul>
+                </ul>
               </div>
             )}
           </div>
