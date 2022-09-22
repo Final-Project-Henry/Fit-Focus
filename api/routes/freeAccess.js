@@ -4,10 +4,13 @@ const user = require('../models/User.js');
 const exercise = require('../models/Exercise.js');
 const jwt = require('jsonwebtoken');
 const validation = require('../validations/validations.js')
+const nodemailer = require('nodemailer')
+
 
 require('dotenv').config();
 
 const {SECRET} = process.env
+const {NODEMAILER} = process.env
 
 const router = Router();
 
@@ -24,6 +27,31 @@ router.post('/register', async (req, res) => {
     const hashPassword = await bcrypt.hash(password, 10);
 
     const User = await user.create({name,email,password : hashPassword});
+    
+    let transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'fitfocus43@gmail.com',
+        pass: NODEMAILER,
+      },
+    
+    });
+
+    let mailDetails = {
+      from: 'fitfocus43@gmail.com',
+      to: email,
+      subject: 'Confirmación de registro',
+      html:"<b> Su usuario fue creado con éxito </b>",
+    };
+
+    transporter.sendMail(mailDetails, (error, info) => {
+      if (error) {
+        res.status(500).send(error.message);
+      } else {
+        console.log('Email enviado');
+        res.status(200).json(req.body);
+      }
+    });
 
     res.status(201).send(User);
   } catch (error) {
@@ -59,5 +87,7 @@ router.get('/exercises', async (req, res) =>{ // Devuelve unos ejercicios para m
   const Exercises = await exercise.find();
   res.status(200).send(Exercises)
 });
+
+
 
 module.exports = router
