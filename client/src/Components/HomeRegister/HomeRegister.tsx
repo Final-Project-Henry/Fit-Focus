@@ -18,11 +18,176 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 
 const video1 = require("../assets/homeRegister-media/Video-Slide.mp4");
 const video2 = require("../assets/homeRegister-media/Video2.mp4");
+let ejercicios = [
+
+  {
+   name: "SUPERMAN",
+   difficulty: "easy",
+   equipment: true,
+   muscles: "upper_body",
+   genre: "both",
+   video: "https://c.tenor.com/BpWq8HxUxeAAAAAC/lumbaresms.gif",
+   premium: true,
+     
+  },
+  {
+   name: "STATIC SUPERMAN",
+   difficulty: "medium",
+   equipment: true,
+   muscles: "upper_body",
+   genre: "both",
+   video: "https://c.tenor.com/PRLfXaemvfwAAAAd/superman-est%C3%A1tico-treino-mestre.gif",
+   premium: false,
+       
+  },
+  
+  {
+    name: "SUPERMAN",
+    difficulty: "easy",
+    equipment: true,
+    muscles: "upper_body",
+    genre: "both",
+    video: "https://c.tenor.com/BpWq8HxUxeAAAAAC/lumbaresms.gif",
+    premium: true,
+      
+   },
+   {
+    name: "STATIC SUPERMAN",
+    difficulty: "medium",
+    equipment: true,
+    muscles: "upper_body",
+    genre: "both",
+    video: "https://c.tenor.com/PRLfXaemvfwAAAAd/superman-est%C3%A1tico-treino-mestre.gif",
+    premium: false,
+        
+   },
+   {
+    name: "SUPERMAN",
+    difficulty: "easy",
+    equipment: true,
+    muscles: "upper_body",
+    genre: "both",
+    video: "https://c.tenor.com/BpWq8HxUxeAAAAAC/lumbaresms.gif",
+    premium: true,
+      
+   },
+   {
+    name: "STATIC SUPERMAN",
+    difficulty: "medium",
+    equipment: true,
+    muscles: "upper_body",
+    genre: "both",
+    video: "https://c.tenor.com/PRLfXaemvfwAAAAd/superman-est%C3%A1tico-treino-mestre.gif",
+    premium: false,
+        
+   },
+   {
+    name: "SUPERMAN",
+    difficulty: "easy",
+    equipment: true,
+    muscles: "upper_body",
+    genre: "both",
+    video: "https://c.tenor.com/BpWq8HxUxeAAAAAC/lumbaresms.gif",
+    premium: true,
+      
+   },
+   {
+    name: "STATIC SUPERMAN",
+    difficulty: "medium",
+    equipment: true,
+    muscles: "upper_body",
+    genre: "both",
+    video: "https://c.tenor.com/PRLfXaemvfwAAAAd/superman-est%C3%A1tico-treino-mestre.gif",
+    premium: false,
+        
+   },
+   {
+    name: "SUPERMAN",
+    difficulty: "easy",
+    equipment: true,
+    muscles: "upper_body",
+    genre: "both",
+    video: "https://c.tenor.com/BpWq8HxUxeAAAAAC/lumbaresms.gif",
+    premium: true,
+      
+   },
+   {
+    name: "STATIC SUPERMAN",
+    difficulty: "medium",
+    equipment: true,
+    muscles: "upper_body",
+    genre: "both",
+    video: "https://c.tenor.com/PRLfXaemvfwAAAAd/superman-est%C3%A1tico-treino-mestre.gif",
+    premium: false,
+        
+   },
+   {
+    name: "SUPERMAN",
+    difficulty: "easy",
+    equipment: true,
+    muscles: "upper_body",
+    genre: "both",
+    video: "https://c.tenor.com/BpWq8HxUxeAAAAAC/lumbaresms.gif",
+    premium: true,
+      
+   },
+   {
+    name: "STATIC SUPERMAN",
+    difficulty: "medium",
+    equipment: true,
+    muscles: "upper_body",
+    genre: "both",
+    video: "https://c.tenor.com/PRLfXaemvfwAAAAd/superman-est%C3%A1tico-treino-mestre.gif",
+    premium: false,
+        
+   },
+   {
+    name: "SUPERMAN",
+    difficulty: "easy",
+    equipment: true,
+    muscles: "upper_body",
+    genre: "both",
+    video: "https://c.tenor.com/BpWq8HxUxeAAAAAC/lumbaresms.gif",
+    premium: true,
+      
+   },
+   {
+    name: "STATIC SUPERMAN",
+    difficulty: "medium",
+    equipment: true,
+    muscles: "upper_body",
+    genre: "both",
+    video: "https://c.tenor.com/PRLfXaemvfwAAAAd/superman-est%C3%A1tico-treino-mestre.gif",
+    premium: false,
+        
+   },
+   {
+    name: "SUPERMAN",
+    difficulty: "easy",
+    equipment: true,
+    muscles: "upper_body",
+    genre: "both",
+    video: "https://c.tenor.com/BpWq8HxUxeAAAAAC/lumbaresms.gif",
+    premium: true,
+      
+   },
+   {
+    name: "STATIC SUPERMAN",
+    difficulty: "medium",
+    equipment: true,
+    muscles: "upper_body",
+    genre: "both",
+    video: "https://c.tenor.com/PRLfXaemvfwAAAAd/superman-est%C3%A1tico-treino-mestre.gif",
+    premium: false,
+        
+   },
+ ];
 
 interface ejercicios {
   _id: string;
   name: string;
   difficulty: string;
+  equipment: true;
   muscles: string;
   genre: string;
   video: string;
@@ -37,13 +202,20 @@ const HomeRegister = () => {
   }, []);
 
   const selector = useAppSelector(selectUser);
-  const ejercicios: Array<ejercicios> | null = selector.exercises;
+  // const ejercicios: Array<ejercicios> | null = selector.exercises;
 
   return (
     <>
-      <div className="max-w-full mb-12 mx-auto overflow-hidden bg-slate-50 rounded-md shadow-lg">
-        <div className="w-full mb-12 m-auto">
-          {/* <Carousel
+
+      <div className="grid grid-cols-1 sm:grid-cols-5 gap-5 bg-slate-200  shadow-lg">
+         {/* filtro */}
+          <div className = "bg-[#287acc]  shadow-lg border col-span-1  h-screen">
+                  
+          </div>
+         {/* carousel */}
+        <div className="w-full col-span-4 overflow-scroll border h-screen "> 
+        <div className="min-w-[100%] mx-[100px] m-5   h-[250px] ">
+        <Carousel
             content={[
               {
                 src: "https://www.palco23.com/files/2020/18_recursos/fitness/dominada-728.jpg",
@@ -64,11 +236,10 @@ const HomeRegister = () => {
                   "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
               },
             ]}
-          /> */}
+          />
         </div>
-        <section>
-
-
+        {/* card de ejercicios */}
+        <section className="grid grid-cols-1">
         {ejercicios?.map(
           ({
             video,
@@ -76,24 +247,26 @@ const HomeRegister = () => {
             difficulty,
             muscles,
             genre,
-            _id,
-            description,
+            equipment,
             premium,
           }) => {
             return (
               <>
-                <div key={_id} className={` scale-90 rounded overflow-hidden shadow-lg cursor-pointer duration-300 hover:duration-200 hover:scale-95 hover:outline hover:outline-offset-1 ${
-                    difficulty == "easy"
+                <div key={name} className={` rounded felx flex-row ${premium?"bg-slate-100":"bg-slate-50"} ${premium?"blur-[5px]":"blur-0"} overflow-hidden shadow-lg cursor-pointer duration-300 hover:duration-200 scale-90 hover:scale-95  hover:outline hover:outline-offset-1 ${
+                  premium?"outline-gray-700":
+                   difficulty == "easy"
                       ? "outline-green-400"
                       : difficulty == "medium"
                       ? "outline-yellow-400"
                       : "outline-red-400"
                   }`}
-                >
-                  <img className="w-full" src={video} alt={name} />
+                > 
+                <div className="w-[30%] min-h-5 overflow-hidden">
+                  <img className="w-[30%] min-h-5 object-cover" src={video} />
+                </div>
                   <div className="px-6 py-4">
                     <div className="font-bold text-xl mb-2">{name}</div>
-                    <p className="text-gray-700 text-base">{description} </p>
+                    <p className="text-gray-700 text-base">{""} </p>
                   </div>
                   <div className="px-6 pt-4 pb-2">
                     <span
@@ -120,111 +293,16 @@ const HomeRegister = () => {
                       {genre}
                     </span>
                   </div>
+                  <div>
+                    <span>{premium}</span>
+                  </div>
                 </div>
               </>
             );
           }
         )}
         </section>
-
-        {/*               
-            <h1
-              className="font-bold text-center text-2xl mt-12"
-              id="excercises"
-            >
-              EJERCICIOS PARA PIERNAS
-            </h1>
-            <Swiper
-              slidesPerView={3}
-              spaceBetween={30}
-              slidesPerGroup={3}
-              loop={true}
-              loopFillGroupWithBlank={true}
-              pagination={{
-                clickable: true,
-              }}
-              navigation={true}
-              modules={[Pagination, Navigation]}
-              className="mySwiper"
-            >
-              {ejercicios.map(
-                ({
-                  video,
-                  name,
-                  difficulty,
-                  muscles,
-                  genre,
-                  _id,
-                  description,
-                }) => {
-                  if (muscles === "lower_body")
-                    return (
-                      <SwiperSlide className="bg-transparent h-auto">
-                        <div
-                          key={_id}
-                          className={`scale-90 rounded overflow-hidden shadow-lg cursor-pointer duration-300 hover:duration-200 hover:scale-95 hover:outline hover:outline-offset-1 ${
-                            difficulty == "easy"
-                              ? "outline-green-400"
-                              : difficulty == "medium"
-                              ? "outline-yellow-400"
-                              : "outline-red-400"
-                          }`}
-                        >
-                          <img className="w-full" src={video} alt={name} />
-                          <div className="px-6 py-4">
-                            <div className="font-bold text-xl mb-2">{name}</div>
-                            <p className="text-gray-700 text-base">
-                              {description}{" "}
-                            </p>
-                          </div>
-                          <div className="px-6 pt-4 pb-2">
-                            <span
-                              className={`inline-block ${
-                                difficulty == "easy"
-                                  ? "bg-green-200"
-                                  : difficulty == "medium"
-                                  ? "bg-yellow-200"
-                                  : "bg-red-200"
-                              } rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
-                            >
-                              {difficulty}
-                            </span>
-                            <span
-                              className={`inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
-                            >
-                              {muscles}
-                            </span>
-                            <span
-                              className={`inline-block ${
-                                genre === "man" ? "bg-blue-200" : "bg-pink-200"
-                              } rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
-                            >
-                              {genre}
-                            </span>
-                          </div>
-                        </div>
-                      </SwiperSlide>
-                    );
-                }
-              )}
-            </Swiper>
-          </div>
-        )}
-        <br />
-        <hr />
-        <div className="flex mt-7 h-[400px] items-center overflow-hidden">
-          <div className="flex items-center w-[76%] h-72 bg-slate-500">
-            <video src={video2} autoPlay loop muted />
-          </div>
-          <div className="flex justify-center items-center w-2/5 h-full ">
-            <div className="relative h-full w-full flex items-center p-2 bg-gray-900">
-              <p className="min-w-full w-full p-2 text-3xl font-bold text-center text-transparent rounded text-[#fff]">
-                Dolor que sientas hoy... <br />
-                fueza que sentiras mañana;
-              </p>
-            </div>
-          </div>
-        </div> */}
+      </div>
       </div>
       <Footer />
     </>

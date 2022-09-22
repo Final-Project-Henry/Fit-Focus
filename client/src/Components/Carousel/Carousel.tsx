@@ -118,27 +118,23 @@ const Carousel: React.FC<Props> = ({
   }, [autoplay, interval, next, intervalSlides, buttons]);
 
   return (
-    <div className="w-2/4 max-h-[750px] flex content-center overflow-hidden ">
+    <div className="w-[80%] rounded-[10px]  flex  overflow-hidden ">
       <div className="relative flex content-center">
         <div
-          className="flex flex-nowrap max-h-full items-center content-center"
+          className="flex flex-nowrap max-h-full items-center"
           ref={slideshow}
         >
           {content.map(
             ({ src, text, stylesContent, stylesImage, stylesText }) => {
               return (
                 <div
-                  className={`min-w-full max-h-[750px] object-cover object-center ease-linear duration-300 z-10 relative rounded-md ${stylesContent}`}
+                  className={`min-w-full ease-linear duration-300  rounded-md ${stylesContent}`}
                 >
-                  {src.slice(-3) === "mp4" ? (
-                    <video src={src} autoPlay loop muted />
-                  ) : (
-                    <img
-                      src={src}
-                      className={`w-full aling-top bg-cover ${stylesImage}`}
-                      alt="Img to slide"
-                    />
-                  )}
+                 <img
+                    src={src}
+                    className={`w-full h-[250px] object-cover   ${stylesImage}`}
+                    alt="Img to slide"
+                  />
                   {text && (
                     <p
                       className={`bg-black sm:bg-white sm:opacity-30 relative sm:absolute text-white sm:text-black w-full py-3 px-16 text-center bottom-0 ${stylesText}`}
