@@ -37,6 +37,7 @@ const Progress = () => {
                             <div className="flex flex-wrap -mx-3">
                                 <div className="flex items-center w-full max-w-full px-3 shrink-0 md:w-8/12 md:flex-none">
                                     <h6 className="mb-0 font-bold text-lg">Progreso de la semana</h6>
+
                                 </div>
                                 <div className="w-full max-w-full px-3 text-right shrink-0 md:w-4/12 md:flex-none">
                                     <a data-target="tooltip_trigger" data-placement="top">

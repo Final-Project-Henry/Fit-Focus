@@ -19,7 +19,6 @@ import {
 } from "../../features/counter/counterSlice"
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 
-
 const video1 = require("../assets/homeRegister-media/Video-Slide.mp4");
 const video2 = require("../assets/homeRegister-media/Video2.mp4");
 
