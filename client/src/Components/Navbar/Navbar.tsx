@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // Icons
-import icon from "../assets/icons/nav-icon.png";
+import icon from "../assets/icons/nav-icon2.png";
 import defaultPhoto from "../assets/icons/monkey.jpg";
 import spanish from "../../Components/assets/icons/spanish.png";
 import english from "../../Components/assets/icons/english.png";
@@ -54,7 +54,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <img
               src={icon}
-              className="mr-3 h-6 sm:h-9 cursor-default"
+              className="mr-3 h-10 sm:h-10 cursor-default"
               alt="FF Logo"
             />
             {/* <span className="self-center text-xl font-semibold whitespace-nowrap text-white cursor-default">
