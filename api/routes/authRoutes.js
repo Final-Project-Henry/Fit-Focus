@@ -81,7 +81,9 @@ router.put('/changepassword', async (req, res) => {
 router.delete('/delete', async (req, res) => {
   try {
     const { id } = req.user
-    await user.deleteOne({ _id: id });
+    await user.updateOne({ _id: id }, {
+      status : 'desactivated'
+    });
     res.status(200).send('Deleted succesfully');
   } catch (error) {
     res.status(500).send(error.message)

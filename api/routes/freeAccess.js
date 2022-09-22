@@ -69,8 +69,9 @@ router.post('/login', async (req, res) => { // Validando las credenciales y devu
     
     const User = await user.findOne({email : email})
   
-    if(!User) return res.status(404).send('User not found')
-  
+    if(!User) return res.status(404).send('User not found');
+    if(User.status === 'desactivated') return res.status(401).send('User desactivated');
+
     const isValid = await bcrypt.compare(password, User.password);
     if(isValid) {
       const token = jwt.sign({email: email, name : User.name, id : User._id}, "" + SECRET, { expiresIn : '12h'});
@@ -88,6 +89,24 @@ router.get('/exercises', async (req, res) =>{ // Devuelve unos ejercicios para m
   res.status(200).send(Exercises)
 });
 
-
+router.put('/account', async (req, res) =>{
+  try {
+    const {email, password} = req.body
+    const User = await user.findOne({email : email});
+    if(!User) return res.status(404).send('User not found');
+  
+    const Checked = await bcrypt.compare(password, User.password);
+    if(Checked) {
+      if(User.status === 'activated') return res.status(400).send('User already activated');
+       User.status = 'activated'
+       await User.save()
+       res.status(200).send('Account activated')
+    }else {
+     res.status(403).send('Password not valid')
+    }
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+})
 
 module.exports = router
