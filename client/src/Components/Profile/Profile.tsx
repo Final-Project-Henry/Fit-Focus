@@ -52,7 +52,7 @@ const Profile = () => {
                   dispatch(sigendOut(null));
                   navigate("/home");
                   window.location.reload();
-                }
+                } else setStyles({ ...styles, selected: "profile" })
               })
             
             
