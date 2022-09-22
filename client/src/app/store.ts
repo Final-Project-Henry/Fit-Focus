@@ -8,7 +8,7 @@ export const store = configureStore({
   reducer: {
     user: UserReducer,
     auth: AuthNavReducer,
-    image: ImageReducer
+    image: ImageReducer,
     mercadopago: MercadoReducer,
   },
 });
