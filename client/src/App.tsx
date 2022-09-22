@@ -12,6 +12,9 @@ import HomeVisitor from "./Components/HomeVisitor/HomeVisitor";
 import GoogleAuth from "./Components/GoogleAuth/GoogleAuth";
 import Profile from "./Components/Profile/Profile";
 import Navbar from "./Components/Navbar/Navbar";
+import Calculadora from "./Components/HomeRegister/Calculadora";
+import Noticias from "./Components/Noticias/Noticias";
+import RutinasPersonales from "./Components/RutinasPersonales/RutinasPersonales";
 
 function App() {
   const { pathname } = useLocation();
@@ -21,7 +24,7 @@ function App() {
   return (
     <GoogleOAuthProvider clientId="553882700243-5u6lingb04c86igau7nr6kjpicu042cl.apps.googleusercontent.com">
       <React.Fragment>
-        {pathname !== "/" && <Navbar /> }
+        {pathname !== "/" && <Navbar />}
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/auth/:id" element={<SingUp_Login />} />
@@ -32,6 +35,10 @@ function App() {
           )}
           <Route path="/rutinas" element={<Form_rutinas />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/calculadora" element={<Calculadora />} />
+          <Route path="/ejercicios" element={<Ejercicios />} />
+          <Route path="/noticias" element={<Noticias />} />
+          <Route path="/rutinasPersonales" element={<RutinasPersonales/>} />
           <Route path="auth/google" element={<GoogleAuth />} />
         </Routes>
       </React.Fragment>
