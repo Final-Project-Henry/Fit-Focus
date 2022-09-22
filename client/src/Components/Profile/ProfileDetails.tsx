@@ -12,7 +12,7 @@ const ProfileDetails = () => {
                         <div className="p-4 pb-0 mb-0 bg-white border-b-0 rounded-t-2xl">
                             <div className="flex flex-wrap -mx-3">
                                 <div className="flex items-center w-full max-w-full px-3 shrink-0 md:w-8/12 md:flex-none">
-                                    <h6 className="mb-0 font-bold text-lg">Weight</h6>
+                                    <h6 className="mb-0 font-bold text-lg">Detalles del perfil</h6>
                                 </div>
                                 <div className="w-full max-w-full px-3 text-right shrink-0 md:w-4/12 md:flex-none">
                                     <a data-target="tooltip_trigger" data-placement="top">

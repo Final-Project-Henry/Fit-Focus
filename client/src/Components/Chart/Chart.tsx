@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, FC, useState } from "react";
 import { useRef } from "react";
 import {
     Chart as ChartJS,
@@ -24,21 +24,27 @@ ChartJS.register(
     Filler
 )
 
-const weight = [80, 82, 79, 75, 76, 74, 80, 83, 82, 79, 78, 73]
-const months = ["ja", "fe", "ma", "ap", "ma", "ju", "ju", "ag", "se", "oc", "no", "de"];
-console.log(Math.min.apply(Math, weight) - 20)
-
-const options = {
-    fill: true,
-    scales: {
-        y: {
-            min: Math.min.apply(Math, weight) - 5
-        }
-    },
-    responsive: true
+interface props {
+    label: string
+    borderColor: string
+    backgroundColor: string
+    ejeY: Array<number>
+    ejeX: Array<string | number>
 }
 
-const ChartLine = () => {
+
+
+const ChartLine: FC<props> = ({ejeX, ejeY, label, backgroundColor, borderColor}) => {
+
+    const options = {
+        fill: true,
+        scales: {
+            y: {
+                min: Math.min.apply(Math, ejeY) - 5
+            }
+        },
+        responsive: true
+    }
 
     const chartRef = useRef<ChartJS>(null)
     const [chartData, setChartData] = useState<any>({
@@ -64,17 +70,17 @@ const ChartLine = () => {
         setChartData({
                 datasets: [
                     {
-                        label: "Peso",
-                        data: weight,
+                        label,
+                        data: ejeY,
                         tension: 0.4,
-                        borderColor: "#0a3fFc",
+                        borderColor,
                         pointRadius: 4,
                         pointBorderColor: "#0000008c",
                         pointBackgroundColor: "white",
-                        backgroundColor: createGradientColor("#0a3fFc4c")
+                        backgroundColor: createGradientColor(backgroundColor)
                     }
                 ],
-                labels: months
+                labels: ejeX
             })
 
     }, [])

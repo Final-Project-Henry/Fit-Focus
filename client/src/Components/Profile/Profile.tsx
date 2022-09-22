@@ -39,9 +39,23 @@ const Profile = () => {
 
         else if (target.id === "logOut") {
             setStyles({ ...styles, selected: "logOut" })
-            dispatch(sigendOut(null));
-            navigate("/home");
-            window.location.reload();
+            Swal.fire({
+                title: "¿Desea cerrar sesión?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#000000",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Cerrar sesión",
+                cancelButtonText: "Cancelar",
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  dispatch(sigendOut(null));
+                  navigate("/home");
+                  window.location.reload();
+                }
+              })
+            
+            
         }
 
         else if (target.id === "progress") setStyles({ ...styles, selected: "progress" })
