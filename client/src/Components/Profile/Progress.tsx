@@ -27,7 +27,7 @@ const Progress = () => {
                         </div>
                         <div className="flex-auto p-4">
                             <hr className="h-px my-2 bg-transparent bg-gradient-horizontal-light" />
-                            <ChartLine ejeY={ejeY} ejeX={ejeX} backgroundColor="#0a3fFc4c" borderColor="#0a3fFc" label="Peso"/>
+                            <ChartLine ejeY={ejeY} ejeX={ejeX} backgroundColor="#0a3fFc4c" borderColor="#0a3fFc" label="Peso" />
                         </div>
                     </div>
                 </div>
