@@ -31,17 +31,17 @@ router.post('/register', async (req, res) => {
     let transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'fitfocus43@gmail.com',
+        user: 'fitfocushenry@gmail.com',
         pass: NODEMAILER,
       },
     
     });
 
     let mailDetails = {
-      from: 'fitfocus43@gmail.com',
+      from: 'fitfocushenry@gmail.com',
       to: email,
-      subject: 'Confirmación de registro',
-      html:"<b> Su usuario fue creado con éxito </b>",
+      subject: '¡Bienvenido a Fit Focus!',
+      html:"<b> ¡Su usuario ha sido creado con éxito! Nos alegra que te hayas unido a esta nueva aventura </b>",
     };
 
     transporter.sendMail(mailDetails, (error, info) => {
