@@ -36,7 +36,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="auth/google" element={<GoogleAuth />} />
           <Route path="mercadopago" element={<MercadoPago/>} />
-          <Route path="mercadopago/feedback/:payment_id" element={<MercadoFeedback/>} />
+          <Route path="mercadopago/:payment_id" element={<MercadoFeedback/>} />
         </Routes>
       </React.Fragment>
     </GoogleOAuthProvider>
