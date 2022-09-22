@@ -207,13 +207,13 @@ const HomeRegister = () => {
   return (
     <>
 
-      <div className="grid grid-cols-1 sm:grid-cols-5 gap-5 bg-slate-200  shadow-lg">
+      <div className="grid grid-cols-5 sm:grid-cols-10 gap-5 bg-slate-200  shadow-lg">
          {/* filtro */}
           <div className = "bg-[#287acc]  shadow-lg border col-span-1  h-screen">
                   
           </div>
          {/* carousel */}
-        <div className="w-full col-span-4 overflow-scroll border h-screen "> 
+        <div className="w-full col-span-7 border h-screen "> 
         <div className="min-w-[100%] mx-[100px] m-5   h-[250px] ">
         <Carousel
             content={[
@@ -253,7 +253,7 @@ const HomeRegister = () => {
             return (
               <>
                 <div key={name} className={` rounded felx flex-row ${premium?"bg-slate-100":"bg-slate-50"} ${premium?"blur-[5px]":"blur-0"} overflow-hidden shadow-lg cursor-pointer duration-300 hover:duration-200 scale-90 hover:scale-95  hover:outline hover:outline-offset-1 ${
-                  premium?"outline-gray-700":
+                  premium?"outline-blue-400":
                    difficulty == "easy"
                       ? "outline-green-400"
                       : difficulty == "medium"
@@ -261,8 +261,8 @@ const HomeRegister = () => {
                       : "outline-red-400"
                   }`}
                 > 
-                <div className="w-[30%] min-h-5 overflow-hidden">
-                  <img className="w-[30%] min-h-5 object-cover" src={video} />
+                <div className="w-[100%] h-[100px] overflow-hidden">
+                  <img className="w-[100%] h-[100px] object-cover" src={video} />
                 </div>
                   <div className="px-6 py-4">
                     <div className="font-bold text-xl mb-2">{name}</div>
@@ -302,6 +302,9 @@ const HomeRegister = () => {
           }
         )}
         </section>
+      </div>
+      <div className="w-full h-[80vh]  col-span-2  bg-blue-500">
+          
       </div>
       </div>
       <Footer />
