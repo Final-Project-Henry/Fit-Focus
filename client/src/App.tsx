@@ -21,7 +21,7 @@ function App() {
   return (
     <GoogleOAuthProvider clientId="553882700243-5u6lingb04c86igau7nr6kjpicu042cl.apps.googleusercontent.com">
       <React.Fragment>
-        {pathname !== "/" && <Navbar />}
+        {pathname !== "/" && <Navbar /> }
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/auth/:id" element={<SingUp_Login />} />

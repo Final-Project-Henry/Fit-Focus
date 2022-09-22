@@ -16,6 +16,7 @@ import {
 } from "../../features/counter/counterSlice";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { Link } from "react-router-dom";
+import FilterExercises from "./FilterExercises";
 
 const video1 = require("../assets/homeRegister-media/Video-Slide.mp4");
 const video2 = require("../assets/homeRegister-media/Video2.mp4");
@@ -215,7 +216,7 @@ let populare = [
   },
 ];
 
-interface ejercicios {
+interface ejerciciosData {
   _id: string;
   name: string;
   difficulty: string;
@@ -229,13 +230,26 @@ interface ejercicios {
 
 const HomeRegister = () => {
   const dispatch = useAppDispatch();
-  const [cards , Setcards] = useState<ejercicios | []>([])
+  const [cards , Setcards] = useState<ejerciciosData | []>([])
   useEffect(() => {
     dispatch(Exercises_Get());
+
   }, []);
 
   const selector = useAppSelector(selectUser);
-  const ejercicios: Array<ejercicios> | null = selector.exercises;
+  const ejercicios: Array<ejerciciosData> | [] = selector.exercises;
+  const [filtrado, setFiltrado] = useState<Array<ejerciciosData> | null>([]);
+
+ 
+  useEffect(() => {
+    dispatch(Exercises_Get());
+
+  }, []);
+
+  useEffect(()=>{
+
+},[ejercicios])
+
 
   const paginado = () => {
     
@@ -279,6 +293,7 @@ const HomeRegister = () => {
             />
           </div>
           {/* card de ejercicios */}
+          <FilterExercises />
           <section className="grid grid-cols-3">
             {ejercicios?.map(
               ({
