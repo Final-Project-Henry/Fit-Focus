@@ -47,7 +47,11 @@ const userSchema = new Schema({
     },
     fav : [{
       type : String
-    }]
+    }],
+    status : {
+      type : String,
+      default : 'activated'
+    }
 })
 
 
