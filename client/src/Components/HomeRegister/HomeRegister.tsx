@@ -58,9 +58,8 @@ const ejercicios : Array<ejercicios> | null = selector.exercises
   return (
     <>
     <FilterExercises/>
-      <div 
-      onClick={onClick}
-      className="max-w-full mb-12 mx-auto overflow-hidden bg-slate-50 rounded-md shadow-lg">
+      <div className="max-w-full mb-12 mx-auto overflow-hidden bg-slate-50 rounded-md shadow-lg">
+        <div  onClick={onClick}>
         <Carousel
           content={[
             {
@@ -83,6 +82,7 @@ const ejercicios : Array<ejercicios> | null = selector.exercises
             },
           ]}
         />
+        </div>
         <br />
         <hr />
        
