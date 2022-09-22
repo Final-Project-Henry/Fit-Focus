@@ -148,17 +148,17 @@ export default function FilterExercises() {
                     {premium && (
                       <div className="flex flex-col justify-center  items-center">
                       <div className="absolute flex min-h-[10px] justify-center items-center z-10 w-full">
+                      <br />
                       <img
-                        className="absolute z-10 w-[30%]"
+                        className="absolute z-10  w-[20%]"
                         src={notPremiunImg}
                         alt=""
                       />
                       <button className=" absolute z-10 m-[50px] py-2 px-3 text-sm font-medium text-center text-white bg-[#6c63ff] duration-150 rounded-lg hover:bg-blue-800">
                         Premium
                       </button>
-
                       </div>
-                                            </div>
+                    </div>
                     )}
 
                     <div
