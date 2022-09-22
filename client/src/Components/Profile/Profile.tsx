@@ -1,21 +1,22 @@
 import "./styles/Profile.css"
 import "./styles/Loople.css"
-import { useRef, useState } from "react"
-import { useAppDispatch, useSesion, useToken } from "../../app/hooks"
+import { useEffect, useRef, useState } from "react"
+import { useAppDispatch, useAppSelector, useSesion, useToken } from "../../app/hooks"
 import ProfileDetails from "./ProfileDetails"
 import imgProfile from "../assets/Profile-media/IMG-20220914-WA0007.jpg"
 import Swal from "sweetalert2"
-import { sigendOut } from "../../features/counter/counterSlice"
+import { getProfileInfo, selectUser, sigendOut } from "../../features/counter/counterSlice"
 import Remove from "./Remove"
 import Progress from "./Progress"
-import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 const Profile = () => {
 
-    const dispatch = useDispatch();
-    const navigate = useNavigate()
+    const dispatch = useAppDispatch();
+    const perfil:any = useAppSelector( selectUser )
+    const token = useToken();
 
+    const navigate = useNavigate()
 
     const [styles, setStyles] = useState({
         selected: "profile",
@@ -23,10 +24,18 @@ const Profile = () => {
         div: "bg-gradient-fuchsia",
         path: "fill-slate-800"
     })
-    const { name } = useSesion();
 
+    useEffect(() => {
+      console.log(perfil)
+    }, [perfil])
+    
 
+    useEffect(() => {
+        if(token){
+            dispatch(getProfileInfo( token ))
 
+        }
+    },[token])
 
     const profile = useRef<HTMLAnchorElement | null>(null)
     const logOut = useRef<HTMLAnchorElement | null>(null)
@@ -36,7 +45,7 @@ const Profile = () => {
     const handleClickAside = ({ target }: any) => {
 
         if (target.id === "profile") setStyles({ ...styles, selected: "profile" })
-
+        
         else if (target.id === "logOut") {
             setStyles({ ...styles, selected: "logOut" })
             Swal.fire({
@@ -72,7 +81,7 @@ const Profile = () => {
                 <hr className="h-px mt-0 bg-transparent bg-gradient-horizontal-dark" />
                 <div className="items-center block w-auto max-h-screen overflow-auto grow basis-full pb-2">
                     <ul className="flex flex-col pl-0 mb-0">
-                        <li className="mt-0.5 w-full">
+                        <li className="my-0.5 w-full">
                             <a ref={profile} id="profile" onClick={handleClickAside} className={`${styles.selected === "profile" && styles.a} duration-500 py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors cursor-pointer`}>
                                 <div onClick={() => handleClickAside({ target: { id: "profile" } })} className={`${styles.selected === "profile" && styles.div} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5`}>
                                     <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
@@ -93,7 +102,7 @@ const Profile = () => {
                                 <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Perfil</span>
                             </a>
                         </li>
-                        <li className="mt-0.5 w-full">
+                        <li className="my-0.5 w-full">
                             <a ref={progress} id="progress" onClick={handleClickAside} className={`${styles.selected === "progress" && styles.a} py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors duration-500`} href="javascript:;">
                                 <div onClick={() => handleClickAside({ target: { id: "progress" } })} className={`${styles.selected === "progress" && styles.div} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5`}>
                                     <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
@@ -113,7 +122,7 @@ const Profile = () => {
                                 <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Progreso</span>
                             </a>
                         </li>
-                        <li className="mt-0.5 w-full">
+                        <li className="my-0.5 w-full">
                             <a id="billing" onClick={handleClickAside} className={`${styles.selected === "billing" && styles.a} py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors duration-500`} href="javascript:;">
                                 <div onClick={() => handleClickAside({ target: { id: "billing" } })} className={`${styles.selected === "billing" && styles.div} duration-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5`}>
                                     <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
@@ -133,7 +142,7 @@ const Profile = () => {
                                 <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Billing</span>
                             </a>
                         </li>
-                        <li className="mt-0.5 w-full">
+                        <li className="cursor-pointer my-0.5 w-full">
                             <a ref={logOut} id="logOut" onClick={handleClickAside} className={`${styles.selected === "logOut" && styles.a} duration-500 py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors `}>
                                 <div onClick={() => handleClickAside({ target: { id: "logOut" } })} className={`${styles.selected === "logOut" && styles.div} duration-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2`}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -143,7 +152,7 @@ const Profile = () => {
                                 <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Cerrar Sesion</span>
                             </a>
                         </li>
-                        <li className="mt-0.5 w-full">
+                        <li className="my-0.5 w-full">
                             <a ref={remove} id="remove" onClick={handleClickAside} className={`${styles.selected === "remove" && styles.a} duration-500 py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors `} href="javascript:;">
                                 <div onClick={() => handleClickAside({ target: { id: "remove" } })} className={`${styles.selected === "remove" && styles.div} duration-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-[7px]`}>
                                     <svg id="Layer_1" version="1.1" viewBox="0 0 64 64" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><style type="text/css">
@@ -177,7 +186,7 @@ const Profile = () => {
                             </div>
                             <div className="flex-none w-auto max-w-full px-3 my-auto">
                                 <div className="h-full">
-                                    <h5 className="mb-1">{name}</h5>
+                                    <h5 className="mb-1">{perfil.user?.name}</h5>
                                     <p className="mb-0 font-semibold leading-normal text-size-sm">CEO / Co-Founder</p>
                                 </div>
                             </div>
@@ -201,7 +210,7 @@ const Profile = () => {
                                 <div className="leading-normal text-center text-size-sm text-slate-500 lg:text-left">
                                     © 2022,
                                     made with <i className="fa fa-heart" aria-hidden="true"></i> by
-                                    <a href="https://www.creative-tim.com" className="font-semibold text-slate-700" target="_blank"> Adrian Acurero </a>
+                                    <a href="https://www.facebook.com/Adrian.Alejandro.Acurero.1" className="font-semibold text-slate-700" target="_blank"> Adrian Acurero </a>
                                     the more crack
                                 </div>
                             </div>
