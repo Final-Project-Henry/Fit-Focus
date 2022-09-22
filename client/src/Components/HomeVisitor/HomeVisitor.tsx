@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import {
   Div_cards,
@@ -48,6 +48,10 @@ function ramdomMsj() {
   return ramdomMsj;
 }
 export default function HomeVisitor() {
+  const navigate = useNavigate();
+  const onClick = ()=>{
+    navigate('/mercadopago');
+  }
   const [data, setData] = useState<number>(0);
   useEffect(() => {
     return setData(ramdomMsj());
@@ -507,6 +511,7 @@ export default function HomeVisitor() {
             </ul>
             <button
               type="button"
+              onClick={onClick}
               className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:outline-none focus:ring-blue-200  font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
             >
               Hazte Premium ya
