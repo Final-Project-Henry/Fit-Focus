@@ -88,6 +88,15 @@ router.get('/exercises', async (req, res) =>{ // Devuelve unos ejercicios para m
   res.status(200).send(Exercises)
 });
 
+router.get('/feedback', async (req, res) =>{
+  try {
+    const {payment_id} = req.query
+    
+    return res.redirect(payment_id?`http://localhost:3000/mercadopago/${payment_id}`:'http://localhost:3000/mercadopago');
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+})
 
 
 module.exports = router

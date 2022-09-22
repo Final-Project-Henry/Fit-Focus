@@ -121,7 +121,7 @@ router.get('/confirmation', async (req, res) =>{
     const {payment_id} = req.query
     const {id} = req.user
     const response = await mercadopago.payment.findById(payment_id);
-    if(response.body.payer.last_name === id && response.body.status === 'approved'){
+    if(response.response.additional_info.payer.last_name === id && response.body.status === 'approved'){
       await user.updateOne({_id : id},{
        plan : 'premium'
       });
