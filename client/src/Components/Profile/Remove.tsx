@@ -1,4 +1,4 @@
-import React from 'react'
+import "./styles/Remove.css"
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
@@ -8,7 +8,7 @@ import { removeAccount, sigendOut } from '../../features/counter/counterSlice'
 
 const Remove = () => {
 
-    const dispatch = useAppDispatch ();
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const token = useToken()
 

@@ -1,8 +1,10 @@
-import { useSesion } from "../../app/hooks"
+interface Props {
+    name: string
+    email: string
+    plan: string
+}
 
-const ProfileDetails = () => {
-
-    const { name, email } = useSesion()
+const ProfileDetails = ({name, email, plan}:Props) => {
 
     return (
         <div className="w-full p-3 mt-6 mx-auto removable">
@@ -24,9 +26,9 @@ const ProfileDetails = () => {
                         <div className="flex-auto p-4">
                             <hr className="h-px my-2 bg-transparent bg-gradient-horizontal-light" />
                             <ul className="flex flex-col pl-0 mb-0 rounded-lg">
-                                <li className="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-sm text-inherit"><strong className="text-slate-700">Nombre:</strong> &nbsp; {name}</li>
-                                <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit"><strong className="text-slate-700">Correo:</strong> &nbsp; {email}</li>
-                                <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit text-[#efb810]"><strong className="text-slate-700">Tipo de cuenta</strong> &nbsp; Premium</li>
+                                <li className="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-base text-inherit"><strong className="text-slate-700">Nombre:</strong> &nbsp; {name}</li>
+                                <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-base text-inherit"><strong className="text-slate-700">Correo:</strong> &nbsp; {email}</li>
+                                <li className={`relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-base text-inherit ${plan === "normal" ? "text-[#46b357]" : "text-[#efb810]" }`}><strong className="text-slate-700">Tipo de cuenta</strong> &nbsp; <span className="font-semibold">{plan}</span></li>
                             </ul>
                         </div>
                     </div>
