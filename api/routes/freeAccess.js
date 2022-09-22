@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt');
 const user = require('../models/User.js');
 const exercise = require('../models/Exercise.js');
 const jwt = require('jsonwebtoken');
-const validation = require('../validations/validations.js');
 
 
 require('dotenv').config();
