@@ -4,7 +4,6 @@ const user = require('../models/User.js');
 const exercise = require('../models/Exercise.js');
 const jwt = require('jsonwebtoken');
 const validation = require('../validations/validations.js');
-const mercadopago = require('../service/mercadoPago');
 
 require('dotenv').config();
 
