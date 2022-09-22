@@ -119,16 +119,17 @@ router.get('/payment', async (req, res) => {
 
 router.get('/confirmation', async (req, res) =>{
   try {
-    const {payment_id} = req.query
+    const {payment_id} = req.query;
     const {id} = req.user
+    
     const response = await mercadopago.payment.findById(payment_id);
-    if(response.body.payer.last_name === id && response.body.status === 'approved'){
+    if(response.response.additional_info.payer.last_name === id && response.body.status === 'approved'){
       await user.updateOne({_id : id},{
        plan : 'premium'
       });
       res.status(200).send('Ya eres premium!!')
     }
-    res.status(403).send('Pago rechazado')
+    else res.status(403).send('pago rechazado');
   } catch (error) {
     res.status(500).send(error.message)
   }

@@ -3,7 +3,8 @@ const bcrypt = require('bcrypt');
 const user = require('../models/User.js');
 const exercise = require('../models/Exercise.js');
 const jwt = require('jsonwebtoken');
-const validation = require('../validations/validations.js')
+const validation = require('../validations/validations.js');
+const mercadopago = require('../service/mercadoPago');
 
 require('dotenv').config();
 
@@ -59,5 +60,15 @@ router.get('/exercises', async (req, res) =>{ // Devuelve unos ejercicios para m
   const Exercises = await exercise.find();
   res.status(200).send(Exercises)
 });
+
+router.get('/feedback', async (req, res) =>{
+  try {
+    const {payment_id} = req.query
+    
+    return res.redirect(payment_id?`http://localhost:3000/mercadopago/${payment_id}`:'http://localhost:3000/mercadopago');
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+})
 
 module.exports = router
