@@ -1,7 +1,7 @@
 /* Left side */
 .container {
     background-image: url('../../assets/visitors/fondo_visitor_1.png');
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
     height: 80vh;
@@ -30,7 +30,7 @@
 .text {
     height: 50vh;
     color: white;
-    font-size: 3rem;
+    font-size: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,13 +38,13 @@
     margin-right: 3vw;
 }
 .text_1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .btn {
     background-color: white;
     color: #111828;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     padding: 10px;
     font-weight: 800;
 }

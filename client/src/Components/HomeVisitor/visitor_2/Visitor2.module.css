@@ -21,7 +21,7 @@
 
 .animation::before {
     content: "";
-    width: 31vw;
+    width: 28vw;
     height: 32vh;
     background-image: url('../../assets/visitors/React\ Redux\ App\ -\ Google\ Chrome\ 2022-09-23\ 02-41-41.gif');
     background-size: cover;
@@ -29,7 +29,7 @@
     position: relative;
     z-index: 1;
     display: flex;
-    margin-left: -4vw;
+    margin-left: -8vw;
     margin-top: 2vh;
     border: 1px solid #111828;
 }
