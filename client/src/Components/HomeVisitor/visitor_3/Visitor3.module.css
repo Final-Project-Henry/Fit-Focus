@@ -1,0 +1,43 @@
+.container {
+    width: 100%;
+    height: 100 vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 60vh;
+    background-color: #59656F;
+    z-index: -1;
+    align-self: center;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.tittle {
+    font-size: 3.5rem;
+    font-weight: 500;
+    color: white;
+}
+.p {
+    font-size: 2rem;
+}
+
+.img {
+    background-image: url('../../assets/visitors/visitor3_img.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 10vw;
+    margin-top: 25vh;
+    width: 35vw;
+    height: 100vh;
+}

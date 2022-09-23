@@ -2,6 +2,7 @@
 .container {
     background-image: url('../../assets/visitors/fondo_visitor_1.png');
     background-size: contain;
+    background-repeat: no-repeat;
     width: 100%;
     height: 80vh;
     display: flex;
@@ -34,6 +35,7 @@
     flex-direction: column;
     align-items: center;
     gap: 50px;
+    margin-right: 3vw;
 }
 .text_1 {
     font-size: 1.5rem;

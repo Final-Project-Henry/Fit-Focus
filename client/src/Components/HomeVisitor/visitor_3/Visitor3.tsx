@@ -1,14 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styles from './Visitor3.module.css';
 
 export default function Visitor3() {
   return (
-    <div>
-      <div>
-        <h1>¿Tienes entre 20 y 50 años?</h1>
-        <p>Entonces esta app esta hecha a tu medida</p>
-        <Link to={'/'}></Link>
+    <div className={styles.container}>
+      <div className={styles.text}>
+        <h1 className={styles.tittle}>¿Tienes entre 20 y 50 años?</h1>
+        <p className={styles.p}>Entonces esta app esta hecha a tu medida</p>
+        <Link to={'/auth/sing-up'}>Empieza a cambiar tu vida ya!</Link>
       </div>
+      <p className={styles.img}> </p>
     </div>
   )
 }

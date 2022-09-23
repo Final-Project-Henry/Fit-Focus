@@ -1,0 +1,22 @@
+.container {
+    background-image: url('../../assets/visitors/visitor_5_img.png');
+    background-size: cover;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_2 {
+    background-image: url('../../assets/visitors/visitor_5_fondo.png');
+    width: 40vw;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: 500;
+    justify-content: center;
+}
