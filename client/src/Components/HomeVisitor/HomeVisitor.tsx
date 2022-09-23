@@ -50,26 +50,28 @@ function ramdomMsj() {
 }
 export default function HomeVisitor() {
   const navigate = useNavigate();
-  const onClick = ()=>{
-    navigate('/mercadopago');
-  }
+  const onClick = () => {
+    navigate("/mercadopago");
+  };
   const [data, setData] = useState<number>(0);
   useEffect(() => {
     return setData(ramdomMsj());
   }, [ramdomMsj()]);
   return (
     <>
-    <Navbar/>
+      <Navbar />
+
       {/* screen 1  */}
       <div className="bg-indigo-50">
-        <div className="h-screen" >
+        <div className="h-screen">
           <Div_cards>
             <div id="text-container">
               <h1 className="font-dark">Fit focus</h1>
               <p className=" text-gray-800 font-normal my-4 leading-loose">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
-                quas et saepe cum earum? Nesciunt est mollitia distinctio laborum
-                nam eos expedita quae iusto minus, natus ea. Quod, iusto odio.{" "}
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Eligendi quas et saepe cum earum? Nesciunt est mollitia
+                distinctio laborum nam eos expedita quae iusto minus, natus ea.
+                Quod, iusto odio.{" "}
               </p>
               <Link to="/auth/sing-up">
                 <button className="font-normal"> REGISTRATE YA </button>
@@ -83,7 +85,9 @@ export default function HomeVisitor() {
                 </div>
                 <div id="card-text-opiniones">
                   <p>{opiniones[data].name}</p>
-                  <p className="font-normal text-xl">{opiniones[data].opinion}</p>
+                  <p className="font-normal text-xl">
+                    {opiniones[data].opinion}
+                  </p>
                 </div>
               </div>
             </div>
@@ -98,8 +102,8 @@ export default function HomeVisitor() {
               <p className="font-normal  text-gray-600">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
                 ipsum voluptate, corporis blanditiis molestiae velit dolore?
-                Maxime beatae natus dolorem repudiandae corrupti dolore vitae nisi
-                adipisci commodi, ea ipsa nobis!{" "}
+                Maxime beatae natus dolorem repudiandae corrupti dolore vitae
+                nisi adipisci commodi, ea ipsa nobis!{" "}
               </p>
             </div>
             <div id="img-screen2">
@@ -145,11 +149,11 @@ export default function HomeVisitor() {
               <div className="">
                 <p className="text-md  text-gray-900 font-normal my-4 leading-loose text-justify">
                   ¡Transformamos lo complicado en simple! Porque pensamos en tu
-                  comodidad, lo mejor de FIT FOCUS es que puedes programarla a tu
-                  ritmo de vida, ya seas un experto haciendo ejercicio o una
-                  persona que apenas quiere comenzar a entrenarse, sin importar la
-                  edad. Ademas, volvientote premium puedes gozar de descuentos y
-                  rutinas personalizadas para mejores resultados.
+                  comodidad, lo mejor de FIT FOCUS es que puedes programarla a
+                  tu ritmo de vida, ya seas un experto haciendo ejercicio o una
+                  persona que apenas quiere comenzar a entrenarse, sin importar
+                  la edad. Ademas, volvientote premium puedes gozar de
+                  descuentos y rutinas personalizadas para mejores resultados.
                 </p>
               </div>
             </div>
@@ -207,22 +211,35 @@ export default function HomeVisitor() {
                 <h2 className="text-3xl font-dark">Ofrecemos Ejercicos</h2>
                 <div className="h-1 bg-gray-300 w-10 mt-2"></div>
               </div>
-              <p id="text-ofese" className="text-sm text-black font-normal text-justify my-4 leading-loose">
+              <p
+                id="text-ofese"
+                className="text-sm text-black font-normal text-justify my-4 leading-loose"
+              >
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Molestias mollitia enim aliquid debitis, dolor deserunt nihil in
                 culpa vitae quibusdam qui earum cum! Similique eveniet at magnam
-                laboriosam consequatur illo. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Commodi dolorem numquam debitis accusamus cupiditate tempora minima nesciunt excepturi quam?
-                Eius soluta voluptatem quidem nulla aspernatur ea dolore quia molestias quaerat.
+                laboriosam consequatur illo. Lorem ipsum dolor sit, amet
+                consectetur adipisicing elit. Commodi dolorem numquam debitis
+                accusamus cupiditate tempora minima nesciunt excepturi quam?
+                Eius soluta voluptatem quidem nulla aspernatur ea dolore quia
+                molestias quaerat.
               </p>
             </div>
             <div className="ml-auto w-2/4 flex">
               <div>
                 <Link to="/auth/sing-up">
-                  <img src="https://c.tenor.com/g6XQ1z_Op0QAAAAC/squats-body-weight-training.gif" className="max-w-[100%] hover:shadow-lg duration-[0.3s]" alt="img not found" />
+                  <img
+                    src="https://c.tenor.com/g6XQ1z_Op0QAAAAC/squats-body-weight-training.gif"
+                    className="max-w-[100%] hover:shadow-lg duration-[0.3s]"
+                    alt="img not found"
+                  />
                   <div className="relative top-[-50px] px-10 ">
-                    <p className="text-md font-light text-gray-700">SENTADILLAS</p>
-                    <p className="text-md font-light text-gray-700">PRESIONA LA IMAGEN PARA COMENZAR</p>
+                    <p className="text-md font-light text-gray-700">
+                      SENTADILLAS
+                    </p>
+                    <p className="text-md font-light text-gray-700">
+                      PRESIONA LA IMAGEN PARA COMENZAR
+                    </p>
                   </div>
                 </Link>
               </div>
@@ -238,7 +255,9 @@ export default function HomeVisitor() {
             <div className="flex items-baseline text-gray-900">
               <span className="text-3xl font-semibold">$</span>
               <span className="text-5xl font-extrabold tracking-tight">0</span>
-              <span className="ml-1 text-xl font-normal text-gray-500 ">/00</span>
+              <span className="ml-1 text-xl font-normal text-gray-500 ">
+                /00
+              </span>
             </div>
             <ul role="list" className="my-7 space-y-5">
               <li className="flex space-x-3">
@@ -371,10 +390,10 @@ export default function HomeVisitor() {
             </h5>
             <div className="flex items-baseline text-gray-900">
               <span className="text-3xl font-semibold">$</span>
-              <span className="text-5xl font-extrabold tracking-tight">
-                35
+              <span className="text-5xl font-extrabold tracking-tight">35</span>
+              <span className="ml-1 text-xl font-normal text-gray-500 ">
+                /99
               </span>
-              <span className="ml-1 text-xl font-normal text-gray-500 ">/99</span>
             </div>
             <ul role="list" className="my-7 space-y-5">
               <li className="flex space-x-3">
@@ -531,7 +550,9 @@ export default function HomeVisitor() {
                 </div>
                 <div className="w-2/5 ml-auto ">
                   <div>
-                    <h2 className="text-3xl font-dark text-black">¿Que esperas?</h2>
+                    <h2 className="text-3xl font-dark text-black">
+                      ¿Que esperas?
+                    </h2>
                     <div className="h-1 bg-gray-300 w-10 mt-2"></div>
                   </div>
                   <p className="text-md text-gray-900 font-normal my-4 leading-loose text-justify mr-5">
@@ -549,6 +570,7 @@ export default function HomeVisitor() {
             </div>
           </div>
         </div>
+
         <About />
         <Footer />
       </div>

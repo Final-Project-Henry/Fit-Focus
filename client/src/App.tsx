@@ -16,15 +16,15 @@ import Profile from "./Components/Profile/Profile";
 
 import MercadoFeedback from "./Components/MercadoPago/MercadoFeedback";
 import HomeVisitor_2 from "./Components/HomeVisitor/HomeVisitor2";
+import ScrollButton from "./Components/ScrollUp/ScrollButton";
 
 function App() {
-  
   const user = useSesion();
 
   return (
     <GoogleOAuthProvider clientId="553882700243-5u6lingb04c86igau7nr6kjpicu042cl.apps.googleusercontent.com">
       <React.Fragment>
-      
+        <ScrollButton />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/auth/:id" element={<SingUp_Login />} />
@@ -36,8 +36,8 @@ function App() {
           <Route path="/rutinas" element={<Form_rutinas />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="auth/google" element={<GoogleAuth />} />
-          <Route path="mercadopago" element={<MercadoPago/>} />
-          <Route path="mercadopago/:payment_id" element={<MercadoFeedback/>} />
+          <Route path="mercadopago" element={<MercadoPago />} />
+          <Route path="mercadopago/:payment_id" element={<MercadoFeedback />} />
           <Route path="/home2" element={<HomeVisitor />} />
         </Routes>
       </React.Fragment>
