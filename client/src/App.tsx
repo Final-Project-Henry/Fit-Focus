@@ -31,14 +31,14 @@ function App() {
           {user ? (
             <Route path="/home" element={<HomeRegister />} />
           ) : (
-            <Route path="/home" element={<HomeVisitor />} />
+            <Route path="/home" element={<HomeVisitor_2 />} />
           )}
           <Route path="/rutinas" element={<Form_rutinas />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="auth/google" element={<GoogleAuth />} />
           <Route path="mercadopago" element={<MercadoPago/>} />
           <Route path="mercadopago/:payment_id" element={<MercadoFeedback/>} />
-          <Route path="/home2" element={<HomeVisitor_2 />} />
+          <Route path="/home2" element={<HomeVisitor />} />
         </Routes>
       </React.Fragment>
     </GoogleOAuthProvider>

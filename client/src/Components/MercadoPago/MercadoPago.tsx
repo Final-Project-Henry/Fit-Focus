@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector, useSesion, useToken } from '../../app/hooks';
 import { get_payment, verify_payment } from '../../features/mercadopago/mercadopago';
+import Navbar from '../Navbar/Navbar';
 import styles from './MercadoPago.module.css';
 import Plan_normal from './Plans/Plan_normal';
 import Plan_premium from './Plans/Plan_premium';
@@ -24,6 +25,8 @@ export default function MercadoPago() {
         }
     }, [token, mercadoData])
     return (
+        <Fragment>
+        <Navbar/>
         <div className={styles.container}>
             <div className={styles.tittle}>
                 <h1 style={{color:'#111827'}}>Tu trayectoria con Fit Focus</h1>
@@ -34,5 +37,6 @@ export default function MercadoPago() {
                 <div><Plan_premium url={url} pay={pay} /></div>
             </div>
         </div>
+        </Fragment>
     )
 }
