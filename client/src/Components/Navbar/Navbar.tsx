@@ -48,7 +48,7 @@ const Navbar = () => {
 
   return (
 
-    <div>
+    <div style={{backgroundColor:"white"}}>
       <nav className=" border-gray-200 px-2 sm:px-4  bg-transparent  w-full border-b-4">
         <div className="container-fluid w-full flex flex-wrap items-center justify-between px-8 p-4">
           <div className="flex items-center">
@@ -125,7 +125,6 @@ const Navbar = () => {
                     </li>
                   )}
                 </li>
-
                 <li>
                   <Scroll
                     to="feedbacks"
@@ -141,7 +140,6 @@ const Navbar = () => {
               </ul>
             </div>
           </div>
-
           <div className="flex items-center md:order-2 ">
             <div>
               <li className="flex items-center md:order-2">
@@ -221,7 +219,7 @@ const Navbar = () => {
             {/* Menu de Usuario Registrado */}
             {dropdown && (
               <div
-                className=" z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+                className=" z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow"
                 id="user-dropdown"
                 data-popper-reference-hidden
                 data-popper-escaped
@@ -233,11 +231,11 @@ const Navbar = () => {
                   transform: "translate(-50px, 20px)",
                 }}
               >
-                <div className="py-3 px-4">
-                  <span className="block text-sm text-gray-900 dark:text-white">
+           <div className="py-3 px-4">
+                  <span className="block text-sm text-gray-900 ">
                     {userData.name}
                   </span>
-                  <span className="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">
+                  <span className="block text-sm font-medium text-gray-500 truncate ">
                     {userData.email}
                   </span>
                 </div>
@@ -245,7 +243,7 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/profile"
-                      className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                      className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 "
                     >
                       Mi Perfil
                     </Link>
@@ -253,7 +251,7 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/settings"
-                      className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                      className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 "
                     >
                       Configuraciones
                     </Link>
@@ -261,7 +259,7 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/dashboard"
-                      className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                      className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 "
                     >
                       Dashboard
                     </Link>
@@ -271,11 +269,11 @@ const Navbar = () => {
                       signOut();
                     }}
                   >
-                    <div className="block py-2 px-4 cursor-pointer text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                    <div className="block py-2 px-4 cursor-pointer text-sm text-gray-700 hover:bg-gray-100  ">
                       Cerrar Sesión
                     </div>
                   </li>
-                </ul>
+                  </ul>
               </div>
             )}
           </div>

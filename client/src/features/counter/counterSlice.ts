@@ -1,9 +1,3 @@
-
- 
-
-
-
-
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
@@ -13,7 +7,7 @@ export interface State {
   user: null | string;
   status: string | null;
   rutines : Array<any> | null;
-  exercises : Array<any> | null;
+  exercises : Array<any> | [];
 }
 
 const initialState: State = {
@@ -70,9 +64,6 @@ export const Exercises_Get = createAsyncThunk(
     }
   }
 );
-
-
-
 
 export const User_Register_State = createAsyncThunk(
   'user/sing_upUser',
@@ -134,6 +125,35 @@ export const removeAccount = createAsyncThunk(
       
     } catch (error: any) {
       console.log(error)
+      return error
+    }
+  }
+);
+
+export const getProfileInfo = createAsyncThunk(
+  'user/getProfileInfo',
+  async (tokenUser: string, thunkAPI) => {
+    try {
+      let headersList = {
+        Accept: "*/*",
+        Authorization: "Bearer " + tokenUser,
+        "Content-Type": "application/json",
+      };
+      console.log(tokenUser)
+      let userData = jwtDecode(tokenUser)
+
+      let reqOptions = {
+        url: "http://localhost:3001/auth/profile",
+        method: "GET",
+        headers: headersList,
+        data: userData
+      };
+
+      let response = await axios.request(reqOptions);
+      thunkAPI.dispatch(User(response.data))
+      return
+    } catch (error: any) {
+      console.log(error) 
       return error
     }
   }

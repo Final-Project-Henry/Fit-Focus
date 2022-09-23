@@ -1,0 +1,53 @@
+.container {
+    border: 2px solid #111827;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    /* border-radius: 5px; */
+    box-shadow: 0 0 20px 5px #111827;
+}
+
+.tittle {
+    color: #111827;
+    font-size: 1.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    font-weight: bold;
+}
+
+.text {
+    font-size: 1rem;
+    color: #59656F;
+}
+
+.precio {
+    display: flex;
+    align-items: flex-end;
+    font-weight: 500;
+}
+
+.monto {
+    font-size: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+.cuota {
+    font-size: 0.7rem;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 0.3rem;
+    color: #59656F;
+}
+
+.btn{
+    background-color: #111827;
+    color: white;
+    width: 80%;
+    /* border-radius: 5px; */
+    padding: 5px 0 5px 0;
+    margin-top: 10px;
+}

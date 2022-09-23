@@ -1,6 +1,3 @@
-
-
-
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -16,256 +13,162 @@ import {
   Exercises,
   Exercises_Get,
   selectUser,
-} from "../../features/counter/counterSlice"
+} from "../../features/counter/counterSlice";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { Link } from "react-router-dom";
+import FilterExercises from "./FilterExercises";
 
+import { TbBarbell, TbFolder } from "react-icons/tb";
+import { BsNewspaper } from "react-icons/bs";
+import { ImCalculator } from "react-icons/im";
+import { CgGym } from "react-icons/cg";
+import iconDrak from "../assets/icons/nav-icon2.png";
+import Ejercicios from "./Ejercicios";
+import Calculadora from "./Calculadora";
+import Noticias from "./Noticias";
+import RutinasPersonales from "./RutinasPersonales";
+import NavbarHome from "../Navbar/NavbarHome";
+import Favoritos from "./Favorito";
 const video1 = require("../assets/homeRegister-media/Video-Slide.mp4");
 const video2 = require("../assets/homeRegister-media/Video2.mp4");
 
-interface ejercicios {
-  _id: string
-  name: string
-  difficulty: string
-  muscles: string
-  genre: string
-  video: string
-  description: string 
-  premium: boolean
-}    
-
-
-
-
+interface ejerciciosData {
+  _id: string;
+  name: string;
+  difficulty: string;
+  equipment: true;
+  muscles: string;
+  genre: string;
+  video: string;
+  description: string;
+  premium: boolean;
+}
 
 const HomeRegister = () => {
+  const dispatch = useAppDispatch();
+  const [Render, SetRender] = useState({
+    rejercisio: true,
+    rcalculadora: false,
+    rnoticia: false,
+    rfav: false,
+    rrutinas: false,
+  });
 
-  const dispatch= useAppDispatch()
-useEffect(()=>{
-dispatch(Exercises_Get())
-},[])
+  useEffect(() => {
+    dispatch(Exercises_Get());
+  }, []);
 
-const selector = useAppSelector(selectUser)
-const ejercicios : Array<ejercicios> | null = selector.exercises
+  const selector = useAppSelector(selectUser);
 
 
+  const getRenderComponet = (event:React.MouseEvent<HTMLDivElement, MouseEvent>| { [x: string]: any; name: string }) => {
+    SetRender({
+      rejercisio: false,
+      rcalculadora: false,
+      rnoticia: false,
+      rfav: false,
+      rrutinas: false,
+    });
+    console.log(event.target.id)
 
+    SetRender((pv) => ({ ...pv, [event.target.id]: true }));
+  };
   return (
     <>
-      <div className="max-w-full mb-12 mx-auto overflow-hidden bg-slate-50 rounded-md shadow-lg">
-        <Carousel
-          content={[
-            {
-              src: "https://www.palco23.com/files/2020/18_recursos/fitness/dominada-728.jpg",
-              text: "Hazte premium para obtener rutinas personalizadas",
-              stylesText:
-                "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
-            },
-            {
-              src: video1,
-              text: "Hazte premium para obtener rutinas personalizadas",
-              stylesText:
-                "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
-            },
-            {
-              src: "https://st4.depositphotos.com/3378831/41496/i/600/depositphotos_414960080-stock-photo-close-up-dumbbell-on-gym.jpg",
-              text: "Hazte premium para obtener rutinas personalizadas",
-              stylesText:
-                "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
-            },
-          ]}
-        />
-        <br />
-        <hr />
-        <h1
-          className="text-center text-3xl mt-10 font-semibold"
-          id="excercises"
-        >
-          EJERCICIOS DEL DIA
-        </h1>
-        <hr />
-        {ejercicios?.length && (
-          <div>
-            <h1 className="font-bold text-center text-2xl mt-24">
-              EJERCICIOS PARA TRONCO
-            </h1>
-            <Swiper
-              slidesPerView={3}
-              spaceBetween={30}
-              slidesPerGroup={3}
-              loop={true}
-              loopFillGroupWithBlank={true}
-              pagination={{
-                clickable: true,
-              }}
-              navigation={true}
-              modules={[Pagination, Navigation]}
-              className="mySwiper flex content-center items-center justify-center"
-            >
-              {ejercicios.map(
-                ({
-                  video,
-                  name,
-                  difficulty,
-                  muscles,
-                  genre,
-                  _id,
-                  description,
-                  premium
-                }) => {
-                 
-                 
-                 
-                    return (
-                      <SwiperSlide className="bg-transparent h-auto">
-                        <div
-                          key={_id}
-                          className={` scale-90 rounded overflow-hidden shadow-lg cursor-pointer duration-300 hover:duration-200 hover:scale-95 hover:outline hover:outline-offset-1 ${
-                            difficulty == "easy"
-                              ? "outline-green-400"
-                              : difficulty == "medium"
-                              ? "outline-yellow-400"
-                              : "outline-red-400"
-                          }`}
-                        >
-                          <img className="w-full" src={video} alt={name} />
-                          <div className="px-6 py-4">
-                            <div className="font-bold text-xl mb-2">{name}</div>
-                            <p className="text-gray-700 text-base">
-                              {description}{" "}
-                            </p>
-                          </div>
-                          <div className="px-6 pt-4 pb-2">
-                            <span
-                              className={`inline-block ${
-                                difficulty == "easy"
-                                  ? "bg-green-200"
-                                  : difficulty == "medium"
-                                  ? "bg-yellow-200"
-                                  : "bg-red-200"
-                              } rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
-                            >
-                              {difficulty}
-                            </span>
-                            <span
-                              className={`inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
-                            >
-                              {muscles}
-                            </span>
-                            <span
-                              className={`inline-block ${
-                                genre === "man" ? "bg-blue-200" : "bg-pink-200"
-                              } rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
-                            >
-                              {genre}
-                            </span>
-                          </div>
-                        </div>
-                      </SwiperSlide>
-                    );
-                }
-              )}
-            </Swiper>
-            <h1
-              className="font-bold text-center text-2xl mt-12"
-              id="excercises"
-            >
-              EJERCICIOS PARA PIERNAS
-            </h1>
-            <Swiper
-              slidesPerView={3}
-              spaceBetween={30}
-              slidesPerGroup={3}
-              loop={true}
-              loopFillGroupWithBlank={true}
-              pagination={{
-                clickable: true,
-              }}
-              navigation={true}
-              modules={[Pagination, Navigation]}
-              className="mySwiper"
-            >
-              {ejercicios.map(
-                ({
-                  video,
-                  name,
-                  difficulty,
-                  muscles,
-                  genre,
-                  _id,
-                  description,
-                }) => {
-                  if (muscles === "lower_body")
-                    return (
-                      <SwiperSlide className="bg-transparent h-auto">
-                        <div
-                          key={_id}
-                          className={`scale-90 rounded overflow-hidden shadow-lg cursor-pointer duration-300 hover:duration-200 hover:scale-95 hover:outline hover:outline-offset-1 ${
-                            difficulty == "easy"
-                              ? "outline-green-400"
-                              : difficulty == "medium"
-                              ? "outline-yellow-400"
-                              : "outline-red-400"
-                          }`}
-                        >
-                          <img className="w-full" src={video} alt={name} />
-                          <div className="px-6 py-4">
-                            <div className="font-bold text-xl mb-2">{name}</div>
-                            <p className="text-gray-700 text-base">
-                              {description}{" "}
-                            </p>
-                          </div>
-                          <div className="px-6 pt-4 pb-2">
-                            <span
-                              className={`inline-block ${
-                                difficulty == "easy"
-                                  ? "bg-green-200"
-                                  : difficulty == "medium"
-                                  ? "bg-yellow-200"
-                                  : "bg-red-200"
-                              } rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
-                            >
-                              {difficulty}
-                            </span>
-                            <span
-                              className={`inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
-                            >
-                              {muscles}
-                            </span>
-                            <span
-                              className={`inline-block ${
-                                genre === "man" ? "bg-blue-200" : "bg-pink-200"
-                              } rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
-                            >
-                              {genre}
-                            </span>
-                          </div>
-                        </div>
-                      </SwiperSlide>
-                    );
-                }
-              )}
-            </Swiper>
-          </div>
-        )}
-        <br />
-        <hr />
-        <div className="flex mt-7 h-[400px] items-center overflow-hidden">
-          <div className="flex items-center w-[76%] h-72 bg-slate-500">
-            <video src={video2} autoPlay loop muted />
-          </div>
-          <div className="flex justify-center items-center w-2/5 h-full ">
-            <div className="relative h-full w-full flex items-center p-2 bg-gray-900">
-              <p className="min-w-full w-full p-2 text-3xl font-bold text-center text-transparent rounded text-[#fff]">
-                Dolor que sientas hoy... <br />
-                fueza que sentiras mañana;
-              </p>
+      <NavbarHome />
+      <div className="grid grid-cols-1 sm:grid-cols-11 gap-4 bg-slate-100  shadow-lg">
+        {/* menu */}
+        <div className="col-span-2  bg-white min-h-screen">
+          <div className="p-5 top-0 fixed w-[17%]  z-20  bg-white  h-screen">
+            <div className=" flex justify-center">
+              <img src={iconDrak} className="w-[50%]" alt="icon" />
             </div>
+            <hr className="bg-gray-500 h-[1px]" />
+            <div className="py-5">
+
+              <div
+                id="rejercisio"
+                onClick={(e) => getRenderComponet(e)}
+                className={`flex ${Render.rejercisio&&"bg-[#351F91]"} cursor-pointer  py-2 pr-5 ${Render.rejercisio?"text-gray-50":"text-gray-400"}  ${Render.rejercisio?"shadow-lg":"shadow"} hover:text-gray-50  hover:bg-blue-700 hover:shadow-lg hover:scale-110 duration-[0.2s] rounded mb-[10px]`}
+              >
+                <span className="pr-5 pl-2 text-2xl">
+                  <CgGym />
+                </span>
+                Ejercicios
+              </div>
+
+              <div
+                id="rcalculadora"
+                onClick={(e) => getRenderComponet(e)}
+                className={`flex ${Render.rcalculadora&&"bg-[#351F91]"} cursor-pointer my-5 py-2 pr-5 ${Render.rcalculadora?"text-gray-50":"text-gray-400"} ${Render.rcalculadora?"scale-110":"scale-100 "} ${Render.rcalculadora?"shadow-lg":"shadow"}  hover:text-gray-50 hover:bg-blue-700 hover:shadow-lg hover:scale-110 duration-[0.2s] rounded mb-[10px]`}
+              >
+                <span className="pr-5 pl-2 text-2xl">
+                  <ImCalculator />
+                </span>
+                Calculadora
+              </div>
+
+              <div
+                id="rnoticia"
+                onClick={(e) => getRenderComponet(e)}
+                className={`flex ${Render.rnoticia&&"bg-[#351F91]"} cursor-pointer my-5 py-2 pr-5 ${Render.rnoticia?"text-gray-50":"text-gray-400"} ${Render.rnoticia?"scale-110":"scale-100 "} ${Render.rnoticia?"shadow-lg":"shadow"} hover:text-gray-50 hover:bg-blue-700 hover:shadow-lg hover:scale-110 duration-[0.2s] rounded mb-[10px]`}
+              >
+                <span className="pr-5 pl-2 text-2xl">
+                  <BsNewspaper />
+                </span>
+                Noticias
+              </div>
+              <div
+                id="rrutinas"
+                onClick={(e) => getRenderComponet(e)}
+                className={`flex ${Render.rrutinas&&"bg-[#351F91]"} cursor-pointer py-2 my-5 pr-5 ${Render.rrutinas?"text-gray-50":"text-gray-400"} ${Render.rrutinas?"scale-110":"scale-100 "} ${Render.rrutinas?"shadow-lg":"shadow"} hover:text-gray-50  hover:bg-blue-700 hover:shadow-lg hover:scale-110 duration-[0.2s] rounded mb-[10px]`}
+              >
+                <span className="pr-5 pl-2 text-2xl">
+                  <TbFolder />
+                </span>
+                Rutinas
+              </div>
+
+              <div
+                id="rfav"
+                onClick={(e) => getRenderComponet(e)}
+                className={`flex ${Render.rfav&&"bg-[#351F91]"} cursor-pointer py-2 my-5 pr-5 ${Render.rfav?"text-gray-50":"text-gray-400"} ${Render.rfav?"scale-110":"scale-100 "} ${Render.rfav?"shadow-lg":"shadow"} hover:text-gray-50  hover:bg-blue-700 hover:shadow-lg hover:scale-110 duration-[0.2s] rounded mb-[10px]`}
+              >
+                <span className="pr-5 pl-2 text-2xl">
+                  <TbFolder />
+                </span>
+                 favoritos
+              </div>
+            </div>
+            <hr className="bg-gray-500 h-[1px]" />
           </div>
         </div>
-      </div>
-      <Footer />
+        {/* carousel */}
+        <div className="w-full col-span-7  min-h-screen ">
+          <div className="min-w-[100%]  my-5  min-h-[250px] ">
+          {Render.rejercisio&&<Ejercicios/>}
+          {Render.rcalculadora&&<Calculadora/>}
+          {Render.rnoticia&&<Noticias/>}
+          {Render.rrutinas&&<RutinasPersonales/>}
+          {Render.rfav&&<Favoritos/>}
+          </div>
+          </div>
+          </div>
     </>
   );
 };
 
 export default HomeRegister;
+
+{
+  /*     lo voy a usar                   <svg
+                      aria-hidden="true"
+                      className="w-5 h-5 text-yellow-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>Rating star</title>
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg> */
+}

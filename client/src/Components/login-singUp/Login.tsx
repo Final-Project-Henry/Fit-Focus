@@ -65,7 +65,7 @@ const Login:React.FC<Propos>=( {facebook, google, linkedin,loading_icon} )=>{
               type="email"
               name="email"
               className="border-none w-full mb-2"
-              autoComplete="off"
+             
               placeholder="Alex@gmail.com"
               value={Form_data.email}
               onChange={(event) => handleChange(event)}

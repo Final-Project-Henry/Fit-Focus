@@ -1,40 +1,42 @@
 const { Router } = require('express');
-const getGoogleToken = require('../service/userService.js');
+// const getGoogleToken = require('../service/userService.js');
 const jwt = require('jsonwebtoken');
-const axios = require('axios');
 const user = require('../models/User.js')
 const bcrypt = require('bcrypt');
+const mailSettings = require('../additional/nodemailer');
 
 require('dotenv').config();
 
-const {SECRET} = process.env
+const { SECRET} = process.env
 
 const router = Router();
 
-router.post('/', async (req, res) => {
-    try {
-        const {code} = req.body
 
-         const data = jwt.decode(code);
-      //   const { id_token, access_token } = await getGoogleToken({code});
-      //   const url = 'https://www.googleapis.com/oauth2/v2/userinfo'
-        
-      //   const {data} = await axios.get(url,{
-      //      headers : {
-      //          Authorization : `Bearer ${access_token}`
-      //      }
-      //   })
-      //   console.log(data)
-        let oldUser = await user.findOne({email : data.email});
-     if(!oldUser) {
-        const hashPassword = await bcrypt.hash(data.sub, 10)
-        oldUser = await user.create({email :data.email, name : data.name, avatar : data.picture, password : hashPassword});
-     } 
-     const token = jwt.sign({email : oldUser.email, name : oldUser.name, id : oldUser._id}, "" + SECRET)
-     res.status(200).send(token)
-    } catch (error) {
-       res.status(500).send(error.message) 
+
+router.post('/', async (req, res) => {
+  try {
+    const { code } = req.body
+    const data = jwt.decode(code);
+    const transporter = mailSettings.transporter;
+    const mailDetails = mailSettings.mailDetails(data.email);
+    
+    let oldUser = await user.findOne({ email: data.email });
+    if (!oldUser) {
+      const hashPassword = await bcrypt.hash(data.sub, 10)
+      oldUser = await user.create({ email: data.email, name: data.name, avatar: data.picture, password: hashPassword });
+
+      transporter.sendMail(mailDetails, (error, info) => {
+        if(error)console.log('error: ',error);
+        else console.log('mensaje enviado con exito');
+      });
+
     }
+    const token = jwt.sign({ email: oldUser.email, name: oldUser.name, id: oldUser._id }, "" + SECRET)
+
+    res.status(200).send(token)
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
 })
 
 module.exports = router

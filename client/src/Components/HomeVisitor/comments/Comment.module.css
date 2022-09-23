@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    width: 35vw;
+    height: 15vh;
+    background-color: white;
+    gap: 15px;
+    align-items: center;
+    margin: 15px;
+}
+
+.img {
+    height: 10vh;
+    margin: 0 10px 0 20px;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.comment {
+    font-size: 0.8rem;
+    width: 25vw;
+}

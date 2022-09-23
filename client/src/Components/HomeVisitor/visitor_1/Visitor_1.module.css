@@ -1,0 +1,78 @@
+/* Left side */
+.container {
+    background-image: url('../../assets/visitors/fondo_visitor_1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+}
+
+.container_2 {
+    background-image: url('../../assets/visitors/fondo_visitor_1-2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 65vw;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 5vw;
+    justify-content: space-around;
+}
+
+.tittle {
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.text {
+    height: 50vh;
+    color: white;
+    font-size: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    margin-right: 3vw;
+}
+.text_1 {
+    font-size: 1.5rem;
+}
+
+.btn {
+    background-color: white;
+    color: #111828;
+    font-size: 1.8rem;
+    padding: 10px;
+    font-weight: 800;
+}
+.btn:hover {
+    background-color: #FF7D00;
+    color: white;
+}
+
+/* Right side */
+
+.container_3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80vh;
+}
+
+.tittle_2 {
+    margin-top: 50px;
+    background-color: #111828;
+    color: white;
+    font-size: 1.8rem;
+    align-self: flex-end;
+    position: absolute;
+    right: 0;
+    padding: 0 80px 0 10px;
+}
+
+.comments {
+    margin-top: 20vh;
+}
