@@ -20,6 +20,7 @@ import img4 from "../assets/Fotos y Videos HomeVisitor/undraw_my_personal_files_
 import pilates from "../assets/Fotos y Videos HomeVisitor/pilates.svg";
 import womanworkingout from "../assets/Fotos y Videos HomeVisitor/womanworkingout.svg";
 import About from "./About";
+import Navbar from "../Navbar/Navbar";
 
 const img6 = require("../assets/Fotos y Videos HomeVisitor/urban-913.png");
 const img13 = require("../assets/Fotos y Videos HomeVisitor/allpeople.jpg");
@@ -58,6 +59,7 @@ export default function HomeVisitor() {
   }, [ramdomMsj()]);
   return (
     <>
+    <Navbar/>
       {/* screen 1  */}
       <div className="bg-indigo-50">
         <div className="h-screen" >
