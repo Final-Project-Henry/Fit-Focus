@@ -1,0 +1,31 @@
+.container {
+    position: absolute;
+    top: 0;
+    background-image: url('../assets/mercadoPago/fondo\ mercadopago.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tittle {
+    margin-top: 120px;
+    font-size: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50vw;
+    margin-bottom: 50px;
+    font-weight: 800;
+}
+
+.planes {
+    display: flex;
+    gap: 30px;
+    align-items: flex-end;
+    margin-left: 30vw;
+}

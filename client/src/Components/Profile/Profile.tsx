@@ -169,7 +169,7 @@ const Profile = () => {
                     {
                         styles.selected === "profile" ? <ProfileDetails />
                             : styles.selected === "process" ? <ProfileDetails />
-                            : styles.selected === "logOut" ? <ProfileDetails/>
+                            : styles.selected === "logOut" ? <ProfileDetails />
                             : styles.selected === "remove" ? <Remove/> : null
                     }
                 </div>
