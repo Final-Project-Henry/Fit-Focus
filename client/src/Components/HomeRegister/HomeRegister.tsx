@@ -17,13 +17,18 @@ import {
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { Link } from "react-router-dom";
 import FilterExercises from "./FilterExercises";
-import Navbar from "../Navbar/NavbarHome";
+
 import { TbBarbell, TbFolder } from "react-icons/tb";
 import { BsNewspaper } from "react-icons/bs";
 import { ImCalculator } from "react-icons/im";
 import { CgGym } from "react-icons/cg";
 import iconDrak from "../assets/icons/logo_black.png";
 import Ejercicios from "./Ejercicios";
+import Calculadora from "./Calculadora";
+import Noticias from "./Noticias";
+import RutinasPersonales from "./RutinasPersonales";
+import NavbarHome from "../Navbar/NavbarHome";
+import Favoritos from "./Favorito";
 const video1 = require("../assets/homeRegister-media/Video-Slide.mp4");
 const video2 = require("../assets/homeRegister-media/Video2.mp4");
 
@@ -70,7 +75,7 @@ const HomeRegister = () => {
   };
   return (
     <>
-      <Navbar />
+      <NavbarHome />
       <div className="grid grid-cols-1 sm:grid-cols-11 gap-4 bg-slate-100  shadow-lg">
         {/* menu */}
         <div className="col-span-2  bg-white min-h-screen">
@@ -141,9 +146,11 @@ const HomeRegister = () => {
         {/* carousel */}
         <div className="w-full col-span-7  min-h-screen ">
           <div className="min-w-[100%]  my-5  min-h-[250px] ">
-                
-          <Ejercicios/>
-
+          {Render.rejercisio&&<Ejercicios/>}
+          {Render.rcalculadora&&<Calculadora/>}
+          {Render.rnoticia&&<Noticias/>}
+          {Render.rrutinas&&<RutinasPersonales/>}
+          {Render.rfav&&<Favoritos/>}
           </div>
           </div>
           </div>
