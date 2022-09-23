@@ -20,6 +20,7 @@ import facebook from "../assets/login-singup_media/icons8-facebook.svg";
 import google from "../assets/login-singup_media/icons8-google.svg";
 import linkedin from "../assets/login-singup_media/icons8-linkedin-circled.svg";
 import loading_icon from "../assets/icons/loading.svg"
+import Navbar from "../Navbar/Navbar";
 
 
 export default function SingUp_Login() {
@@ -39,6 +40,9 @@ export default function SingUp_Login() {
   }, []);
 
   return (
+    <>
+    <Navbar/>
+    
     <Div_img className="flex justify-center">
       {user_existing && <Navigate to="/home" />}
       <Div_conteiner className=" flex rounded w-11/12 bg-gray-100 ">
@@ -63,5 +67,6 @@ export default function SingUp_Login() {
         </Div_form>
       </Div_conteiner>
     </Div_img>
+    </>
   );
 }

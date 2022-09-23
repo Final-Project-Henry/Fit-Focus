@@ -7,7 +7,7 @@ export interface State {
   user: null | string;
   status: string | null;
   rutines : Array<any> | null;
-  exercises : Array<any> | null;
+  exercises : Array<any> | [];
 }
 
 const initialState: State = {

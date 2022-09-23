@@ -10,20 +10,20 @@ import Form_rutinas from "./Components/form_rutinas/From_rutina";
 import LandingPage from "./Components/LandingPage/LandingPage";
 import HomeVisitor from "./Components/HomeVisitor/HomeVisitor";
 import GoogleAuth from "./Components/GoogleAuth/GoogleAuth";
-import Profile from "./Components/Profile/Profile";
-import Navbar from "./Components/Navbar/Navbar";
 import MercadoPago from "./Components/MercadoPago/MercadoPago";
+
+import Profile from "./Components/Profile/Profile";
+
 import MercadoFeedback from "./Components/MercadoPago/MercadoFeedback";
 
 function App() {
-  const { pathname } = useLocation();
-
+  
   const user = useSesion();
 
   return (
     <GoogleOAuthProvider clientId="553882700243-5u6lingb04c86igau7nr6kjpicu042cl.apps.googleusercontent.com">
       <React.Fragment>
-        {pathname !== "/" && <Navbar />}
+      
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/auth/:id" element={<SingUp_Login />} />
