@@ -7,17 +7,34 @@ import { useSelector } from "react-redux";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { Exercises_Get, selectUser } from "../../features/counter/counterSlice";
 import notPremiunImg from "../assets/homeRegister-media/padlock.png";
+
+interface ejerciciosData {
+  _id: string;
+  name: string;
+  difficulty: string;
+  equipment: true;
+  muscles: string;
+  genre: string;
+  video: string;
+  description: string;
+  premium: boolean;
+}
+
+interface selectData {
+    genre:string|boolean,
+    muscle: string|boolean,
+    difficulty: string|boolean,
+}
 export default function FilterExercises() {
+
   const dispatch = useAppDispatch();
   const { exercises } = useAppSelector(selectUser);
-  const [filtrado, setFiltrado] = useState([]);
-  const [selected, setSelected] = useState({
+  const [filtrado, setFiltrado] = useState<Array<ejerciciosData>| [] >([]);
+  const [selected, setSelected] = useState<selectData>({
     genre: "none",
     muscle: "none",
     difficulty: "none",
   });
-
-  console.log(exercises);
 
   useEffect(() => {
     dispatch(Exercises_Get());
@@ -28,39 +45,42 @@ export default function FilterExercises() {
   }, [exercises]);
 
   useEffect(() => {
-    setFiltrado(
-      exercises.filter((e) => {
-        let { muscle, genre, difficulty } = false;
 
-        if (selected.muscle === "none") muscle = true;
-        else muscle = selected.muscle === e.muscles;
+      setFiltrado( exercises.filter(e => {
+        let {muscle, genre, difficulty,} = selected;
+        muscle=false
+        genre=false
+        difficulty=false
+  
+        if(selected.muscle === "none" ) muscle = true
+        else muscle = selected.muscle === e.muscles
+  
+        if(selected.genre === "none" ) genre = true
+        else genre = selected.genre === e.genre
+  
+        if(selected.difficulty === "none" ) difficulty = true
+        else difficulty = selected.difficulty === e.difficulty
+  
+        return genre && muscle && difficulty
+      }))
 
-        if (selected.genre === "none") genre = true;
-        else genre = selected.genre === e.genre;
-
-        if (selected.difficulty === "none") difficulty = true;
-        else difficulty = selected.difficulty === e.difficulty;
-
-        return genre && muscle && difficulty;
-      })
-    );
   }, [selected]);
 
   /* handleSelecteds */
 
-  const handleSelectGenre = ({ target }) => {
-    setSelected({ ...selected, genre: target.value });
+  const handleSelectGenre = (event:React.MouseEvent<HTMLSelectElement, MouseEvent>| { [x: string]: any; value: string }) => {
+    setSelected({ ...selected, genre: event.target.value });
   };
 
-  const handleSelectMuscle = ({ target }) => {
-    setSelected({ ...selected, muscle: target.value });
+  const handleSelectMuscle = (event:React.MouseEvent<HTMLSelectElement, MouseEvent>| { [x: string]: any; value: string })=> {
+    setSelected({ ...selected, muscle: event.target.value });
   };
 
-  const handleSelectDifficulty = ({ target }) => {
-    setSelected({ ...selected, difficulty: target.value });
+  const handleSelectDifficulty = (event:React.MouseEvent<HTMLSelectElement, MouseEvent>| { [x: string]: any; value: string }) => {
+    setSelected({ ...selected, difficulty:event.target.value });
   };
-  const handleSelectPremiun = ({ target }) => {
-    setSelected({ ...selected, difficulty: target.value });
+  const handleSelectPremiun = (event:React.MouseEvent<HTMLSelectElement, MouseEvent>| { [x: string]: any; value: string }) => {
+    setSelected({ ...selected, difficulty: event.target.value });
   };
 
   return (
@@ -68,8 +88,9 @@ export default function FilterExercises() {
       <div>
         <select
           className="cursor-pointer rounded-xl m-5  text-sm text-back font-normal leading-loose border-none outline-none py-0 shadow-md"
-          onChange={handleSelectGenre}
+          onClick={(e)=>handleSelectGenre(e)}
         >
+
           {selected.genre !== "none" ? (
             <option value="none" className="option cancel">
               Todos
@@ -86,7 +107,7 @@ export default function FilterExercises() {
 
         <select
           className=" cursor-pointer rounded-xl text-sm text-back font-normal leading-loose border-none py-0 outline-none shadow-md"
-          onChange={handleSelectMuscle}
+          onClick={(e)=>handleSelectMuscle(e)}
         >
           {selected.muscle !== "none" ? (
             <option value="none" className="option cancel">
@@ -105,7 +126,7 @@ export default function FilterExercises() {
 
         <select
           className="cursor-pointer m-5 py-0 rounded-xl  text-sm text-back font-normal leading-loose  border-none outline-none  shadow-md"
-          onChange={handleSelectDifficulty}
+          onClick={handleSelectDifficulty}
         >
           {selected.difficulty !== "none" ? (
             <option value="none" className="option cancel">
@@ -131,10 +152,10 @@ export default function FilterExercises() {
         <section className="grid grid-cols-3">
           {filtrado?.map(
             ({ video, name, difficulty, muscles, genre, premium }) => {
+            
               return (
                 <>
-                  <div
-                    className={`max-w-xl flex flex-col bg-white rounded-lg shadow-md duration-150 cursor-pointer scale-90 hover:scale-95  hover:outline hover:outline-offset-1 ${
+                  <div  className={`max-w-xl flex flex-col bg-white rounded-lg shadow-md duration-150 cursor-pointer scale-90 hover:scale-95  hover:outline hover:outline-offset-1 ${
                       premium
                         ? "outline-blue-400"
                         : difficulty == "easy"
@@ -162,7 +183,7 @@ export default function FilterExercises() {
                     )}
 
                     <div
-                      className={`h-[160px] overflow-hidden  ${
+                      className={`h-[150px] overflow-hidden  ${
                         premium ? "blur-[5px]" : "blur-0"
                       }`}
                     >

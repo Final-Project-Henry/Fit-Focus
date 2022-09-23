@@ -18,204 +18,14 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { Link } from "react-router-dom";
 import FilterExercises from "./FilterExercises";
 import Navbar from "../Navbar/NavbarHome";
-
+import { TbBarbell, TbFolder } from "react-icons/tb";
+import { BsNewspaper } from "react-icons/bs";
+import { ImCalculator } from "react-icons/im";
+import { CgGym } from "react-icons/cg";
+import iconDrak from "../assets/icons/logo_black.png";
+import Ejercicios from "./Ejercicios";
 const video1 = require("../assets/homeRegister-media/Video-Slide.mp4");
 const video2 = require("../assets/homeRegister-media/Video2.mp4");
-// let ejercicios = [
-
-//   {
-//    name: "SUPERMAN",
-//    difficulty: "easy",
-//    equipment: true,
-//    muscles: "upper_body",
-//    genre: "both",
-//    video: "https://c.tenor.com/BpWq8HxUxeAAAAAC/lumbaresms.gif",
-//    premium: true,
-
-//   },
-//   {
-//    name: "STATIC SUPERMAN",
-//    difficulty: "medium",
-//    equipment: true,
-//    muscles: "upper_body",
-//    genre: "both",
-//    video: "https://c.tenor.com/PRLfXaemvfwAAAAd/superman-est%C3%A1tico-treino-mestre.gif",
-//    premium: false,
-
-//   },
-
-//   {
-//     name: "SUPERMAN",
-//     difficulty: "easy",
-//     equipment: true,
-//     muscles: "upper_body",
-//     genre: "both",
-//     video: "https://c.tenor.com/BpWq8HxUxeAAAAAC/lumbaresms.gif",
-//     premium: true,
-
-//    },
-//    {
-//     name: "STATIC SUPERMAN",
-//     difficulty: "medium",
-//     equipment: true,
-//     muscles: "upper_body",
-//     genre: "both",
-//     video: "https://c.tenor.com/PRLfXaemvfwAAAAd/superman-est%C3%A1tico-treino-mestre.gif",
-//     premium: false,
-
-//    },
-//    {
-//     name: "SUPERMAN",
-//     difficulty: "easy",
-//     equipment: true,
-//     muscles: "upper_body",
-//     genre: "both",
-//     video: "https://c.tenor.com/BpWq8HxUxeAAAAAC/lumbaresms.gif",
-//     premium: true,
-
-//    },
-//    {
-//     name: "STATIC SUPERMAN",
-//     difficulty: "medium",
-//     equipment: true,
-//     muscles: "upper_body",
-//     genre: "both",
-//     video: "https://c.tenor.com/PRLfXaemvfwAAAAd/superman-est%C3%A1tico-treino-mestre.gif",
-//     premium: false,
-
-//    },
-//    {
-//     name: "SUPERMAN",
-//     difficulty: "easy",
-//     equipment: true,
-//     muscles: "upper_body",
-//     genre: "both",
-//     video: "https://c.tenor.com/BpWq8HxUxeAAAAAC/lumbaresms.gif",
-//     premium: true,
-
-//    },
-//    {
-//     name: "STATIC SUPERMAN",
-//     difficulty: "medium",
-//     equipment: true,
-//     muscles: "upper_body",
-//     genre: "both",
-//     video: "https://c.tenor.com/PRLfXaemvfwAAAAd/superman-est%C3%A1tico-treino-mestre.gif",
-//     premium: false,
-
-//    },
-//    {
-//     name: "SUPERMAN",
-//     difficulty: "easy",
-//     equipment: true,
-//     muscles: "upper_body",
-//     genre: "both",
-//     video: "https://c.tenor.com/BpWq8HxUxeAAAAAC/lumbaresms.gif",
-//     premium: true,
-
-//    },
-//    {
-//     name: "STATIC SUPERMAN",
-//     difficulty: "medium",
-//     equipment: true,
-//     muscles: "upper_body",
-//     genre: "both",
-//     video: "https://c.tenor.com/PRLfXaemvfwAAAAd/superman-est%C3%A1tico-treino-mestre.gif",
-//     premium: false,
-
-//    },
-//    {
-//     name: "SUPERMAN",
-//     difficulty: "easy",
-//     equipment: true,
-//     muscles: "upper_body",
-//     genre: "both",
-//     video: "https://c.tenor.com/BpWq8HxUxeAAAAAC/lumbaresms.gif",
-//     premium: true,
-
-//    },
-//    {
-//     name: "STATIC SUPERMAN",
-//     difficulty: "medium",
-//     equipment: true,
-//     muscles: "upper_body",
-//     genre: "both",
-//     video: "https://c.tenor.com/PRLfXaemvfwAAAAd/superman-est%C3%A1tico-treino-mestre.gif",
-//     premium: false,
-
-//    },
-//    {
-//     name: "SUPERMAN",
-//     difficulty: "easy",
-//     equipment: true,
-//     muscles: "upper_body",
-//     genre: "both",
-//     video: "https://c.tenor.com/BpWq8HxUxeAAAAAC/lumbaresms.gif",
-//     premium: true,
-
-//    },
-//    {
-//     name: "STATIC SUPERMAN",
-//     difficulty: "medium",
-//     equipment: true,
-//     muscles: "upper_body",
-//     genre: "both",
-//     video: "https://c.tenor.com/PRLfXaemvfwAAAAd/superman-est%C3%A1tico-treino-mestre.gif",
-//     premium: false,
-
-//    },
-//    {
-//     name: "SUPERMAN",
-//     difficulty: "easy",
-//     equipment: true,
-//     muscles: "upper_body",
-//     genre: "both",
-//     video: "https://c.tenor.com/BpWq8HxUxeAAAAAC/lumbaresms.gif",
-//     premium: true,
-
-//    },
-//    {
-//     name: "STATIC SUPERMAN",
-//     difficulty: "medium",
-//     equipment: true,
-//     muscles: "upper_body",
-//     genre: "both",
-//     video: "https://c.tenor.com/PRLfXaemvfwAAAAd/superman-est%C3%A1tico-treino-mestre.gif",
-//     premium: false,
-
-//    },
-//  ];
-let populare = [
-  {
-    name: "STATIC SUPERMAN",
-    difficulty: "medium",
-    equipment: true,
-    muscles: "upper_body",
-    genre: "both",
-    video:
-      "https://c.tenor.com/PRLfXaemvfwAAAAd/superman-est%C3%A1tico-treino-mestre.gif",
-    premium: false,
-  },
-  {
-    name: "SUPERMAN",
-    difficulty: "easy",
-    equipment: true,
-    muscles: "upper_body",
-    genre: "both",
-    video: "https://c.tenor.com/BpWq8HxUxeAAAAAC/lumbaresms.gif",
-    premium: true,
-  },
-  {
-    name: "STATIC SUPERMAN",
-    difficulty: "medium",
-    equipment: true,
-    muscles: "upper_body",
-    genre: "both",
-    video:
-      "https://c.tenor.com/PRLfXaemvfwAAAAd/superman-est%C3%A1tico-treino-mestre.gif",
-    premium: false,
-  },
-];
 
 interface ejerciciosData {
   _id: string;
@@ -231,121 +41,112 @@ interface ejerciciosData {
 
 const HomeRegister = () => {
   const dispatch = useAppDispatch();
-  const [cards, Setcards] = useState<ejerciciosData | []>([]);
+  const [Render, SetRender] = useState({
+    rejercisio: true,
+    rcalculadora: false,
+    rnoticia: false,
+    rfav: false,
+    rrutinas: false,
+  });
+
   useEffect(() => {
     dispatch(Exercises_Get());
   }, []);
 
   const selector = useAppSelector(selectUser);
-  const ejercicios: Array<ejerciciosData> | [] = selector.exercises;
-  
 
-  useEffect(() => {
-    dispatch(Exercises_Get());
-  }, []);
 
-  useEffect(() => {}, [ejercicios]);
+  const getRenderComponet = (event:React.MouseEvent<HTMLDivElement, MouseEvent>| { [x: string]: any; name: string }) => {
+    SetRender({
+      rejercisio: false,
+      rcalculadora: false,
+      rnoticia: false,
+      rfav: false,
+      rrutinas: false,
+    });
+    console.log(event.target.id)
 
-  const paginado = () => {};
+    SetRender((pv) => ({ ...pv, [event.target.id]: true }));
+  };
   return (
     <>
-      <Navbar/>
+      <Navbar />
+      <div className="grid grid-cols-1 sm:grid-cols-11 gap-4 bg-slate-100  shadow-lg">
+        {/* menu */}
+        <div className="col-span-2  bg-white min-h-screen">
+          <div className="p-5 top-0 fixed w-[17%]  z-20  bg-white  h-screen">
+            <div className=" flex justify-center">
+              <img src={iconDrak} className="w-[50%]" alt="icon" />
+            </div>
+            <hr className="bg-gray-500 h-[1px]" />
+            <div className="py-5">
 
-      <div className="grid grid-cols-5 sm:grid-cols-11 gap-5 bg-slate-200  shadow-lg">
-        {/* filtro */}
-        <div className="col-span-1 min-h-screen">
-          <div className="p-5 top-0 fixed bg-white  shadow-lg col-span-1  h-screen">
-          <Link to="/ejercicios" ><div className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent md:p-0 mb-[5px]">Ejercicios</div></Link>
-            <Link to="/calculadora"><div className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent md:p-0 mb-[5px]">Calculadora</div></Link>
-            <Link to="/noticias"><div className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent md:p-0 mb-[5px]">Noticias</div></Link>
-            <Link to="/rutinasPersonales"><div className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent md:p-0 mb-[5px]">Rutinas</div></Link>
+              <div
+                id="rejercisio"
+                onClick={(e) => getRenderComponet(e)}
+                className={`flex ${Render.rejercisio&&"bg-[#351F91]"} cursor-pointer  py-2 pr-5 ${Render.rejercisio?"text-gray-50":"text-gray-400"}  ${Render.rejercisio?"shadow-lg":"shadow"} hover:text-gray-50  hover:bg-blue-700 hover:shadow-lg hover:scale-110 duration-[0.2s] rounded mb-[10px]`}
+              >
+                <span className="pr-5 pl-2 text-2xl">
+                  <CgGym />
+                </span>
+                Ejercicios
+              </div>
+
+              <div
+                id="rcalculadora"
+                onClick={(e) => getRenderComponet(e)}
+                className={`flex ${Render.rcalculadora&&"bg-[#351F91]"} cursor-pointer my-5 py-2 pr-5 ${Render.rcalculadora?"text-gray-50":"text-gray-400"} ${Render.rcalculadora?"scale-110":"scale-100 "} ${Render.rcalculadora?"shadow-lg":"shadow"}  hover:text-gray-50 hover:bg-blue-700 hover:shadow-lg hover:scale-110 duration-[0.2s] rounded mb-[10px]`}
+              >
+                <span className="pr-5 pl-2 text-2xl">
+                  <ImCalculator />
+                </span>
+                Calculadora
+              </div>
+
+              <div
+                id="rnoticia"
+                onClick={(e) => getRenderComponet(e)}
+                className={`flex ${Render.rnoticia&&"bg-[#351F91]"} cursor-pointer my-5 py-2 pr-5 ${Render.rnoticia?"text-gray-50":"text-gray-400"} ${Render.rnoticia?"scale-110":"scale-100 "} ${Render.rnoticia?"shadow-lg":"shadow"} hover:text-gray-50 hover:bg-blue-700 hover:shadow-lg hover:scale-110 duration-[0.2s] rounded mb-[10px]`}
+              >
+                <span className="pr-5 pl-2 text-2xl">
+                  <BsNewspaper />
+                </span>
+                Noticias
+              </div>
+              <div
+                id="rrutinas"
+                onClick={(e) => getRenderComponet(e)}
+                className={`flex ${Render.rrutinas&&"bg-[#351F91]"} cursor-pointer py-2 my-5 pr-5 ${Render.rrutinas?"text-gray-50":"text-gray-400"} ${Render.rrutinas?"scale-110":"scale-100 "} ${Render.rrutinas?"shadow-lg":"shadow"} hover:text-gray-50  hover:bg-blue-700 hover:shadow-lg hover:scale-110 duration-[0.2s] rounded mb-[10px]`}
+              >
+                <span className="pr-5 pl-2 text-2xl">
+                  <TbFolder />
+                </span>
+                Rutinas
+              </div>
+
+              <div
+                id="rfav"
+                onClick={(e) => getRenderComponet(e)}
+                className={`flex ${Render.rfav&&"bg-[#351F91]"} cursor-pointer py-2 my-5 pr-5 ${Render.rfav?"text-gray-50":"text-gray-400"} ${Render.rfav?"scale-110":"scale-100 "} ${Render.rfav?"shadow-lg":"shadow"} hover:text-gray-50  hover:bg-blue-700 hover:shadow-lg hover:scale-110 duration-[0.2s] rounded mb-[10px]`}
+              >
+                <span className="pr-5 pl-2 text-2xl">
+                  <TbFolder />
+                </span>
+                 favoritos
+              </div>
+            </div>
+            <hr className="bg-gray-500 h-[1px]" />
           </div>
         </div>
         {/* carousel */}
-        <div className="w-full col-span-9 border  min-h-screen ">
-          <div className="min-w-[100%] mx-[100px] m-5   h-[250px] ">
-            <Carousel
-              content={[
-                {
-                  src: "https://www.palco23.com/files/2020/18_recursos/fitness/dominada-728.jpg",
-                  text: "Hazte premium para obtener rutinas personalizadas",
-                  stylesText:
-                    "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
-                },
-                {
-                  src: video1,
-                  text: "Hazte premium para obtener rutinas personalizadas",
-                  stylesText:
-                    "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
-                },
-                {
-                  src: "https://st4.depositphotos.com/3378831/41496/i/600/depositphotos_414960080-stock-photo-close-up-dumbbell-on-gym.jpg",
-                  text: "Hazte premium para obtener rutinas personalizadas",
-                  stylesText:
-                    "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
-                },
-              ]}
-            />
+        <div className="w-full col-span-7  min-h-screen ">
+          <div className="min-w-[100%]  my-5  min-h-[250px] ">
+                
+          <Ejercicios/>
+
           </div>
-          {/* card de ejercicios */}
-          <div>
-            <h3 className="font-dark py-[5px] px-[20px] text-gray-700 text-3xl ">
-              Ejercicios
-            </h3>
-            <FilterExercises />
-            {/* <div className="w-full h-[98vh]  col-span-5  mt-[5px] rounded-xl bg-white">
-          <p className="text-gray-700 text-2xl p-5 font-black">
-            ejercicios populares
-          </p>
-          {populare.map((e) => {
-            return (
-              <div className="flex bg-white p-2 mt-4 outline outline-blue-400 shadow-lg mx-[20px] my-[10px] rounded-xl">
-                <div className="w-[20%] h-[50px]  overflow-hidden rounded-xl">
-                  <img
-                    className=" w-[100%] min-h-[50px] rounded-xl"
-                    src={e.video}
-                  />
-                </div>
-                <div className="px-5">
-                  <p>{e.name} </p>
-                  <p>{e.difficulty} </p>
-                  <div className="flex items-center"></div>
-                </div>
-              </div>
-            );
-          })}
-        </div> */}
-            
-              <footer className="p-4 mx-40   rounded-lg md:flex md:items-center md:justify-between md:p-6 ">
-                <span className="text-sm text-gray-800 sm:text-center ">
-                  © 2022{" "}
-                  <span className="hover:underline">
-                    Fit Focus™
-                  </span>
-                  . All Rights Reserved.
-                </span>
-                <ul className="flex flex-wrap items-center mt-3 text-sm text-gray-800 sm:mt-0">
-                  <li>
-                    <Link to="/about" className="mr-4 hover:underline md:mr-6 ">
-                      Nosotros
-                    </Link>
-                  </li>
-                  <li>
-                    <a href="#" className="mr-4 hover:underline md:mr-6">
-                    Política de Privacidad
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="hover:underline">
-                      Contact
-                    </a>
-                  </li>
-                </ul>
-              </footer>
-            </div>
           </div>
-        </div>
-      
+          </div>
     </>
   );
 };
