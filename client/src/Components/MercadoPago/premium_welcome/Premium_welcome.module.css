@@ -1,0 +1,48 @@
+.container {
+    background-image: url('../../assets/mercadoPago/fondo.png');
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10vh;
+    padding-top: 15vh;
+}
+
+.tittle {
+    background-image: url('../../assets/mercadoPago/tittle_fondo.png');
+    font-size: 3.5rem;
+    color: #111828;
+    font-weight: 500;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    background-image: url('../../assets/mercadoPago/text_fondo.png');
+    width: 50vw;
+    height: 35vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vh;
+    padding-top: 5vh;
+    font-size: 1.2rem;
+}
+
+.btn {
+    background-color: white;
+    color: #111828;
+    font-weight: 700;
+    width: 15vw;
+    height: 50px;
+}
+
+.btn:hover {
+    background-color: #FF7D00;
+    color: white;
+}

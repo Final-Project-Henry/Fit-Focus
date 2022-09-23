@@ -1,0 +1,20 @@
+.img {
+    background-image: url('../assets/icons/error.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 40vw;
+    height: 50vh;
+    margin-left: 10vw;
+}
+
+.btn {
+    background-color: #111828;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    width: 15vw;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
