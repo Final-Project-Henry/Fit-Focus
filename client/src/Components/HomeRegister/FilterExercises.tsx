@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { Exercises_Get, selectUser } from "../../features/counter/counterSlice";
 import notPremiunImg from "../assets/homeRegister-media/padlock.png";
+import { Link } from "react-router-dom";
 
 interface ejerciciosData {
   _id: string;
@@ -79,8 +80,8 @@ export default function FilterExercises() {
   const handleSelectDifficulty = (event:React.ChangeEvent<HTMLSelectElement>| { [x: string]: any; value: string }) => {
     setSelected({ ...selected, difficulty:event.target.value });
   };
-  const handleSelectPremiun = (event:React.ChangeEvent<HTMLSelectElement>| { [x: string]: any; value: string }) => {
-    setSelected({ ...selected, difficulty: event.target.value });
+  const handleSelectPremiun = () => {
+    setFiltrado( exercises.filter(e => e.premium === true))
   };
 
   return (
@@ -147,15 +148,18 @@ export default function FilterExercises() {
             Hard
           </option>
         </select>
+        <button className="  py-1 px-3 text-sm text-back font-normal leading-loose text-black bg-white duration-150 rounded-lg shadow-md hover:bg-blue-200" onClick={handleSelectPremiun}>
+          premiun
+        </button>
       </div>
       <div>
         <section className="grid grid-cols-3">
           {filtrado?.map(
-            ({ video, name, difficulty, muscles, genre, premium }) => {
+            ({_id, video, name, difficulty, muscles, genre, premium }) => {
             
               return (
                 <>
-                  <div  className={`max-w-xl flex flex-col bg-white rounded-lg shadow-md duration-150 cursor-pointer scale-90 hover:scale-95  hover:outline hover:outline-offset-1 ${
+                  <Link to={premium?`/mercadopago`:`/home/${_id}`} className={`max-w-xl flex flex-col bg-white rounded-lg shadow-md duration-150 cursor-pointer scale-90 hover:scale-95  hover:outline hover:outline-offset-1 ${
                       premium
                         ? "outline-blue-400"
                         : difficulty == "easy"
@@ -175,9 +179,9 @@ export default function FilterExercises() {
                         src={notPremiunImg}
                         alt=""
                       />
-                      <button className=" absolute z-10 m-[50px] py-2 px-3 text-sm font-medium text-center text-white bg-[#6c63ff] duration-150 rounded-lg hover:bg-blue-800">
+                      <Link to="/mercadopago" className=" absolute z-10 m-[50px] py-2 px-3 text-sm font-medium text-center text-white bg-[#6c63ff] duration-150 rounded-lg hover:bg-blue-800">
                         Premium
-                      </button>
+                      </Link>
                       </div>
                     </div>
                     )}
@@ -245,7 +249,7 @@ export default function FilterExercises() {
                         </svg>
                       </a>
                     </div>
-                  </div>
+                  </Link>
                 </>
               );
             }

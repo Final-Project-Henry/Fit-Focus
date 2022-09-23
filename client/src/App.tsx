@@ -17,8 +17,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import MercadoFeedback from "./Components/MercadoPago/MercadoFeedback";
 
 function App() {
-  const { pathname } = useLocation();
-
+  
   const user = useSesion();
 
   return (
