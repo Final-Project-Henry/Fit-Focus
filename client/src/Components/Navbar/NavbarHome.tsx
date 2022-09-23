@@ -12,7 +12,7 @@ import "./styles/Navbar.css";
 import { sigendOut } from "../../features/counter/counterSlice";
 import Swal from "sweetalert2";
 
-const Navbar = () => {
+const NavbarHome = () => {
   const [dropdown, setDropdown] = useState<boolean>(false);
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [lenguage, setLenguage] = useState(false);
@@ -201,4 +201,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarHome;
