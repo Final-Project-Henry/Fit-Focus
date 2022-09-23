@@ -14,6 +14,7 @@ import Profile from "./Components/Profile/Profile";
 import Navbar from "./Components/Navbar/Navbar";
 import MercadoPago from "./Components/MercadoPago/MercadoPago";
 import MercadoFeedback from "./Components/MercadoPago/MercadoFeedback";
+import HomeVisitor_2 from "./Components/HomeVisitor/HomeVisitor2";
 
 function App() {
   const { pathname } = useLocation();
@@ -37,6 +38,7 @@ function App() {
           <Route path="auth/google" element={<GoogleAuth />} />
           <Route path="mercadopago" element={<MercadoPago/>} />
           <Route path="mercadopago/:payment_id" element={<MercadoFeedback/>} />
+          <Route path="/home2" element={<HomeVisitor_2 />} />
         </Routes>
       </React.Fragment>
     </GoogleOAuthProvider>
