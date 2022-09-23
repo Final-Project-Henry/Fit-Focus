@@ -24,6 +24,7 @@
     "react-scripts": "5.0.1",
     "react-scroll": "^1.8.7",
     "react-ts-typewriter": "^0.1.8-b",
+    "scrollreveal": "^4.0.9",
     "styled-components": "^5.3.5",
     "sweetalert2": "^11.4.33",
     "swiper": "^8.4.2",

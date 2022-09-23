@@ -31,11 +31,11 @@ const LandingPage = () => {
             speed={20}
           />
         </div>
-      </div>
       <div className="buttonDiv">
         <Link to="/home">
           <button  className="landingButton">COMENCEMOS</button>
         </Link>
+      </div>
       </div>
     </div>
   );

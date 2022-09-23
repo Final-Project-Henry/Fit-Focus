@@ -29,12 +29,12 @@ video {
 .buttonDiv {
     display: flex;
     width: 50%;
+    position: relative;
     align-items: center;
     justify-content: center;
 }
 
 .landingButton {
-    position: absolute;
     width: 30%;
     margin-top: 40%;
     margin-left: 10%;
