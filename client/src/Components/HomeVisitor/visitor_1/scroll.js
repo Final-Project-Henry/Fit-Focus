@@ -2,10 +2,10 @@ import ScrollReveal from 'scrollreveal';
 
 const sr = ScrollReveal({ reset: true });
 export const config = {
-  origin: 'right',
+  origin: 'top',
   duration: 1500,
   delay: 150,
-  distance: '500px',
+  distance: '300px',
   scale: 1,
   easing: 'ease',
 };

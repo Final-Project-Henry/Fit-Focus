@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // Icons
-import icon from "../assets/icons/nav-icon.png";
+import icon from "../assets/icons/nav-icon2.png";
 import defaultPhoto from "../assets/icons/monkey.jpg";
 import spanish from "../../Components/assets/icons/spanish.png";
 import english from "../../Components/assets/icons/english.png";

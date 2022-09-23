@@ -21,7 +21,7 @@
 
 .animation::before {
     content: "";
-    width: 28vw;
+    width: 30vw;
     height: 32vh;
     background-image: url('../../assets/visitors/React\ Redux\ App\ -\ Google\ Chrome\ 2022-09-23\ 02-41-41.gif');
     background-size: cover;
@@ -29,7 +29,7 @@
     position: relative;
     z-index: 1;
     display: flex;
-    margin-left: -8vw;
+    margin-left: -5vw;
     margin-top: 2vh;
     border: 1px solid #111828;
 }
@@ -52,4 +52,21 @@
     flex-direction: column;
     align-items: center;
     font-size: 2rem;
+}
+
+@media screen and (max-width: 1366px){
+    .animation::before {
+        content: "";
+        width: 28vw;
+        height: 32vh;
+        background-image: url('../../assets/visitors/React\ Redux\ App\ -\ Google\ Chrome\ 2022-09-23\ 02-41-41.gif');
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        margin-left: -8vw;
+        margin-top: 2vh;
+        border: 1px solid #111828;
+    }
 }

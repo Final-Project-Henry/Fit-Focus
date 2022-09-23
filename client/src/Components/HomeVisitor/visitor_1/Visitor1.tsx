@@ -40,9 +40,9 @@ export default function Visitor1() {
     
     useLayoutEffect(() => {
         sr.reveal(divComment1.current, config);
-        sr.reveal(divComment2.current, config);
-        sr.reveal(divComment3.current, config);
-      },[comments])
+        // sr.reveal(divComment2.current, config);
+        // sr.reveal(divComment3.current, config);
+      },[])
 
     return (
         <div className={styles.container} >
@@ -59,13 +59,13 @@ export default function Visitor1() {
             </div>
             <div className={styles.container_3}>
                 <p className={styles.tittle_2}>Lo que opinan algunos miembros:</p>
-                <div className={styles.comments}>
-                    {/* {comments.map((comment: string, index: number) => (
+                <div className={styles.comments} ref={divComment1}>
+                    {comments.map((comment: string, index: number) => (
                         <Comment data={(datos as data)[comment]} />
-                    ))} */}
-                    {comments&&<div ref={divComment1}><Comment data={(datos as data)[comments[0]]} /></div>}
+                    ))}
+                    {/* {comments&&<div ref={divComment1}><Comment data={(datos as data)[comments[0]]} /></div>}
                     {comments&&<div ref={divComment2}><Comment data={(datos as data)[comments[1]]} /></div>}
-                    {comments&&<div ref={divComment3}><Comment data={(datos as data)[comments[2]]} /></div>}
+                    {comments&&<div ref={divComment3}><Comment data={(datos as data)[comments[2]]} /></div>} */}
                 </div>
             </div>
         </div>
