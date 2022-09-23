@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useLayoutEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import functions from '../../../additional_info/functions';
 import datos from '../../../additional_info/comments';
 import Comment from '../comments/Comment';
 import styles from './Visitor_1.module.css';
+import sr, { config } from './scroll';
+
 
 interface data {
     [key: string]: {
@@ -15,6 +17,9 @@ interface data {
 
 export default function Visitor1() {
     const navigate = useNavigate();
+    const divComment1 = useRef<HTMLHeadingElement>(null);
+    const divComment2 = useRef<HTMLHeadingElement>(null);
+    const divComment3 = useRef<HTMLHeadingElement>(null);
 
     const initialValue = functions.random(datos);
     const [comments, setComments] = useState(initialValue);
@@ -22,7 +27,7 @@ export default function Visitor1() {
     const onClick = () => {
         navigate('/auth/sing-up')
     }
-
+    
 
     useEffect(() => {
         let interval = setInterval(() => {
@@ -31,7 +36,13 @@ export default function Visitor1() {
         return () => {
             clearInterval(interval)
         }
-    }, [])
+    }, []);
+    
+    useLayoutEffect(() => {
+        sr.reveal(divComment1.current, config);
+        sr.reveal(divComment2.current, config);
+        sr.reveal(divComment3.current, config);
+      },[comments])
 
     return (
         <div className={styles.container} >
@@ -49,9 +60,12 @@ export default function Visitor1() {
             <div className={styles.container_3}>
                 <p className={styles.tittle_2}>Lo que opinan algunos miembros:</p>
                 <div className={styles.comments}>
-                    {comments.map((comment: string, index: number) => (
+                    {/* {comments.map((comment: string, index: number) => (
                         <Comment data={(datos as data)[comment]} />
-                    ))}
+                    ))} */}
+                    {comments&&<div ref={divComment1}><Comment data={(datos as data)[comments[0]]} /></div>}
+                    {comments&&<div ref={divComment2}><Comment data={(datos as data)[comments[1]]} /></div>}
+                    {comments&&<div ref={divComment3}><Comment data={(datos as data)[comments[2]]} /></div>}
                 </div>
             </div>
         </div>
