@@ -45,14 +45,14 @@ export default function FilterExercises() {
   }, [exercises]);
 
   useEffect(() => {
-
       setFiltrado( exercises.filter(e => {
-        let {muscle, genre, difficulty,} = selected;
-        muscle=false
-        genre=false
-        difficulty=false
-  
+        let {muscle, genre, difficulty} =  selected;
+       muscle =false
+       genre =false
+       difficulty =false
+
         if(selected.muscle === "none" ) muscle = true
+
         else muscle = selected.muscle === e.muscles
   
         if(selected.genre === "none" ) genre = true
@@ -68,18 +68,18 @@ export default function FilterExercises() {
 
   /* handleSelecteds */
 
-  const handleSelectGenre = (event:React.MouseEvent<HTMLSelectElement, MouseEvent>| { [x: string]: any; value: string }) => {
+  const handleSelectGenre = (event:React.ChangeEvent<HTMLSelectElement>| { [x: string]: any; value: string }) => {
     setSelected({ ...selected, genre: event.target.value });
   };
 
-  const handleSelectMuscle = (event:React.MouseEvent<HTMLSelectElement, MouseEvent>| { [x: string]: any; value: string })=> {
+  const handleSelectMuscle = (event:React.ChangeEvent<HTMLSelectElement>| { [x: string]: any; value: string })=> {
     setSelected({ ...selected, muscle: event.target.value });
   };
 
-  const handleSelectDifficulty = (event:React.MouseEvent<HTMLSelectElement, MouseEvent>| { [x: string]: any; value: string }) => {
+  const handleSelectDifficulty = (event:React.ChangeEvent<HTMLSelectElement>| { [x: string]: any; value: string }) => {
     setSelected({ ...selected, difficulty:event.target.value });
   };
-  const handleSelectPremiun = (event:React.MouseEvent<HTMLSelectElement, MouseEvent>| { [x: string]: any; value: string }) => {
+  const handleSelectPremiun = (event:React.ChangeEvent<HTMLSelectElement>| { [x: string]: any; value: string }) => {
     setSelected({ ...selected, difficulty: event.target.value });
   };
 
@@ -88,7 +88,7 @@ export default function FilterExercises() {
       <div>
         <select
           className="cursor-pointer rounded-xl m-5  text-sm text-back font-normal leading-loose border-none outline-none py-0 shadow-md"
-          onClick={(e)=>handleSelectGenre(e)}
+          onChange={(e)=>handleSelectGenre(e)}
         >
 
           {selected.genre !== "none" ? (
@@ -107,7 +107,7 @@ export default function FilterExercises() {
 
         <select
           className=" cursor-pointer rounded-xl text-sm text-back font-normal leading-loose border-none py-0 outline-none shadow-md"
-          onClick={(e)=>handleSelectMuscle(e)}
+          onChange={(e)=>handleSelectMuscle(e)}
         >
           {selected.muscle !== "none" ? (
             <option value="none" className="option cancel">
@@ -126,7 +126,7 @@ export default function FilterExercises() {
 
         <select
           className="cursor-pointer m-5 py-0 rounded-xl  text-sm text-back font-normal leading-loose  border-none outline-none  shadow-md"
-          onClick={handleSelectDifficulty}
+          onChange={handleSelectDifficulty}
         >
           {selected.difficulty !== "none" ? (
             <option value="none" className="option cancel">
