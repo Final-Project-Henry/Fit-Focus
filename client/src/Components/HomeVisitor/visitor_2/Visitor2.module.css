@@ -8,10 +8,10 @@
 }
 
 .animation {
-    background-image: url('../../assets/visitors/animation.png');
+    /* background-image: url('../../assets/visitors/animation.png'); */
     background-size: contain;
     background-repeat: no-repeat;
-    width: 50vw;
+    width: 45vw;
     height: 50vh;
     margin-left: 3vw;
     margin-top: 8vh;
