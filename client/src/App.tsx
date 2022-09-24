@@ -17,6 +17,7 @@ import Profile from "./Components/Profile/Profile";
 import MercadoFeedback from "./Components/MercadoPago/MercadoFeedback";
 import HomeVisitor_2 from "./Components/HomeVisitor/HomeVisitor2";
 import ScrollButton from "./Components/ScrollUp/ScrollButton";
+import DecriptionEjer from "./Components/HomeRegister/DecritionEje";
 
 function App() {
   const user = useSesion();
@@ -29,12 +30,13 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/auth/:id" element={<SingUp_Login />} />
           {user ? (
-            <Route path="/home" element={<HomeRegister />} />
+              <Route path="/fitFocus/:id" element={<HomeRegister />} />
           ) : (
             <Route path="/home" element={<HomeVisitor_2 />} />
           )}
           <Route path="/rutinas" element={<Form_rutinas />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/ejercicio/:id" element={<DecriptionEjer />} />
           <Route path="auth/google" element={<GoogleAuth />} />
           <Route path="mercadopago" element={<MercadoPago />} />
           <Route path="mercadopago/:payment_id" element={<MercadoFeedback />} />
