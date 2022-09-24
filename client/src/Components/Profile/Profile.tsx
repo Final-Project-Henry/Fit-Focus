@@ -163,7 +163,7 @@ const Profile = () => {
                 <div className="items-center block w-auto max-h-screen overflow-auto grow basis-full pb-2">
                     <ul className="flex flex-col pl-0 mb-0">
                         <li className="my-0.5 w-full">
-                            <a ref={profile} id="profile" onClick={handleClickAside} className={`${styles.selected === "profile" && styles.a} rounded-lg duration-500 py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors cursor-pointer`}>
+                            <a ref={profile} id="profile" onClick={handleClickAside} className={`${styles.selected === "profile" && styles.a} rounded-lg duration-500 py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors cursor-pointer sidebar`}>
                                 <div onClick={() => handleClickAside({ target: { id: "profile" } })} className={`${styles.selected === "profile" && styles.div} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg  bg-center stroke-0 text-center xl:p-2.5`}>
                                     <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                                         <title>customer-support</title>
@@ -184,7 +184,7 @@ const Profile = () => {
                             </a>
                         </li>
                         <li className="my-0.5 w-full">
-                            <a ref={progress} id="progress" onClick={handleClickAside} className={`${styles.selected === "progress" && styles.a} rounded-lg py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors duration-500`} href="javascript:;">
+                            <a ref={progress} id="progress" onClick={handleClickAside} className={`${styles.selected === "progress" && styles.a} rounded-lg py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors duration-500 sidebar`}>
                                 <div onClick={() => handleClickAside({ target: { id: "progress" } })} className={`${styles.selected === "progress" && styles.div} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5`}>
                                     <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                                         <title>office</title>
@@ -204,7 +204,7 @@ const Profile = () => {
                             </a>
                         </li>
                         <li className="my-0.5 w-full">
-                            <a id="billing" onClick={handleClickAside} className={`${styles.selected === "billing" && styles.a} rounded-lg py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors duration-500`} href="javascript:;">
+                            <a id="billing" onClick={handleClickAside} className={`${styles.selected === "billing" && styles.a} rounded-lg py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors duration-500 sidebar`}>
                                 <div onClick={() => handleClickAside({ target: { id: "billing" } })} className={`${styles.selected === "billing" && styles.div} duration-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center fill-current stroke-0 text-center xl:p-2.5`}>
                                     <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                                         <title>credit-card</title>
@@ -224,7 +224,7 @@ const Profile = () => {
                             </a>
                         </li>
                         <li className="cursor-pointer my-0.5 w-full">
-                            <a ref={logOut} id="logOut" onClick={handleClickAside} className={`${styles.selected === "logOut" && styles.a} rounded-lg duration-500 py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors `}>
+                            <a ref={logOut} id="logOut" onClick={handleClickAside} className={`${styles.selected === "logOut" && styles.a} rounded-lg duration-500 py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors sidebar`}>
                                 <div onClick={() => handleClickAside({ target: { id: "logOut" } })} className={`${styles.selected === "logOut" && styles.div} duration-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2`}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                         <path className={`${styles.selected === "logOut" && "fill-white"} duration-500`} d="M14 19v-.083c-1.178.685-2.542 1.083-4 1.083-4.411 0-8-3.589-8-8s3.589-8 8-8c1.458 0 2.822.398 4 1.083v-2.245c-1.226-.536-2.576-.838-4-.838-5.522 0-10 4.477-10 10s4.478 10 10 10c1.424 0 2.774-.302 4-.838v-2.162zm4-9.592l2.963 2.592-2.963 2.592v-1.592h-8v-2h8v-1.592zm-2-4.408v4h-8v6h8v4l8-7-8-7z" />
@@ -234,7 +234,7 @@ const Profile = () => {
                             </a>
                         </li>
                         <li className="my-0.5 w-full">
-                            <a ref={remove} id="remove" onClick={handleClickAside} className={`${styles.selected === "remove" && styles.a} rounded-lg duration-500 py-2.7 text-size-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors `} href="javascript:;">
+                            <a ref={remove} id="remove" onClick={handleClickAside} className={`${styles.selected === "remove" && styles.a} rounded-lg duration-500 py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors sidebar`}>
                                 <div onClick={() => handleClickAside({ target: { id: "remove" } })} className={`${styles.selected === "remove" && styles.div} duration-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-[7px]`}>
                                     <svg id="Layer_1" version="1.1" viewBox="0 0 64 64" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><style type="text/css">
                                     </style>
