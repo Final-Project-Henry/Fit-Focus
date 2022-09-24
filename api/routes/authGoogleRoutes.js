@@ -11,8 +11,6 @@ const { SECRET} = process.env
 
 const router = Router();
 
-
-
 router.post('/', async (req, res) => {
   try {
     const { code } = req.body

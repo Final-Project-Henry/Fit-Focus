@@ -46,7 +46,9 @@ const userSchema = new Schema({
       type : String
     },
     fav : [{
-      type : String
+      name : {
+        type : String
+      }
     }],
     status : {
       type : String,
