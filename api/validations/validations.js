@@ -14,10 +14,10 @@ module.exports = {
     userinfo: ({genre, age, weight, height, goal, experience })=>{
         let pass = true;
 
-        if(!/^([2-6][0-9])$/.test(age))pass=false;
+        if(!/^([2-9][0-9])$/.test(age))pass=false;
         if(!['man', 'woman', 'other'].includes(genre))pass=false;
-        if(!/^([5-9][0-9])$/.test(weight))pass=false;
-        if(height<150||height>200)pass=false;
+        if(!/^([0-9])*$/.test(weight))pass=false;
+        if(height<150||height>215)pass=false;
         if(!['gain muscles', 'lower fat percentage'].includes(goal))pass=false;
         if(!['beginner', 'medium', 'advanced'].includes(experience))pass=false;
 
