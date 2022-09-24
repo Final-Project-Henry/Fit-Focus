@@ -1,5 +1,3 @@
-import "./styles/Remove.css"
-import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { useAppDispatch, useToken } from '../../app/hooks'
