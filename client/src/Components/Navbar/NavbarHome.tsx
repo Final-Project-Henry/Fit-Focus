@@ -41,8 +41,8 @@ const NavbarHome = () => {
         dispatch(sigendOut(null));
         setUser(false);
         setDropdown(false);
-        Navegation("/home")
-       
+        Navegation("/home");
+        window.location.reload();
       }
     });
   }
