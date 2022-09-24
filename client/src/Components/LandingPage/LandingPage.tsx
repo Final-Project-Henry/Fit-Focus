@@ -13,7 +13,7 @@ const LandingPage = () => {
     <div className="main">
       <div className="overlay"></div>
 
-      <video src={landingTrain} width="100%" autoPlay loop muted />
+      <video src={landingTrain} height='100vh' autoPlay loop muted />
 
       <div className="titleApp">
         <h1>FIT FOCUS</h1>

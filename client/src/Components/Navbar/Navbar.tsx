@@ -105,7 +105,7 @@ const Navbar = () => {
                       smooth={true}
                       offset={-100}
                       duration={500}
-                      to="about"
+                      to="Nosotros"
                       className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
                     >
                       Nosotros
