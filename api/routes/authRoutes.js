@@ -54,9 +54,7 @@ router.get('/getroutine', async (req, res) => {
     const routine = get_Routine(check.userinfo[0], exercises);
     
     await user.updateOne({ email: email }, {
-      $push: {
         routines: routine.exercises
-      }
     });
     res.status(200).json(routine);
   } catch (error) {
