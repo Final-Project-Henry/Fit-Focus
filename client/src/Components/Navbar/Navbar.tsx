@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // Icons
 import icon from "../assets/icons/nav-icon2.png";
 import defaultPhoto from "../assets/icons/monkey.jpg";
@@ -20,6 +20,8 @@ const Navbar = () => {
 
   const dispatch = useAppDispatch();
   const userData = useSesion();
+ const Navegation=  useNavigate()
+
 
   useEffect(() => {
     if (userData) {
@@ -41,7 +43,8 @@ const Navbar = () => {
         dispatch(sigendOut(null));
         setUser(false);
         setDropdown(false);
-        window.location.reload();
+        Navegation("/home")
+       
       }
     });
   }
@@ -91,7 +94,7 @@ const Navbar = () => {
               <ul className="flex flex-col p-4 mt-4 ml-4 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
                 <li>
                   <Link
-                    to="/home"
+                    to={user?`/fitFocus/home`:`/home`}
                     className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent md:p-0 "
                     aria-current="page"
                   >

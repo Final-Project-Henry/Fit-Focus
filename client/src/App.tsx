@@ -30,7 +30,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/auth/:id" element={<SingUp_Login />} />
           {user ? (
-                     <Route path="/fitFocus/:id" element={<HomeRegister />} />
+              <Route path="/fitFocus/:id" element={<HomeRegister />} />
           ) : (
             <Route path="/home" element={<HomeVisitor_2 />} />
           )}

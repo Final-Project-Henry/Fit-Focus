@@ -19,21 +19,29 @@ import plancha from '../assets/homeRegister-media/plancha.png'
     <>
     <div>
         <div className={`flex items-center justify-center h-screen`} >
-         {dataUser?.plan=="normal"? <>
-         <img src={plancha}  className=" absolute w-[80%] "/>
-          <div className="absolute flex items-center justify-center w-[40%] bg-indigo-300 border-solid border-2 border-indigo-600 rounded-md" >
-            <h1 className='text-white text-3xl text-center'>
-              Para visualizar tus <b>Rutinas Personales</b>
-              < br />
-              debes tener una cuenta <Link to="/mercadopago" className="text-indigo-800">PREMIUM</Link>
-            </h1>
-          </div>
-          </>:
-        <div className=" flex flex-col justify-center text-center item-center">
-          <h2 className="text-lg " >Aun no tienes rutinas</h2>
-          <div className="text-[7rem] "><BsEmojiFrown/></div>
-          <Link to="/fitFocus/form_user" className="  py-1 px-3 text-sm text-back font-normal leading-loose text-black bg-white duration-150 rounded-lg shadow-md hover:bg-blue-200">Crear rutinas personalizadas</Link>
-        </div>}
+         {dataUser?.userinfo.length>0?
+    
+         <div>
+          rutinas
+         </div>:
+         <>
+            {dataUser?.plan=="normal"? <>
+            <img src={plancha}  className=" absolute w-[80%] "/>
+            <div className="absolute flex items-center justify-center w-[40%] bg-indigo-300 border-solid border-2 border-indigo-600 rounded-md" >
+              <h1 className='text-white text-3xl text-center'>
+                Para visualizar tus <b>Rutinas Personales</b>
+                < br />
+                debes tener una cuenta <Link to="/mercadopago" className="text-indigo-800">PREMIUM</Link>
+              </h1>
+            </div>
+            </>:
+          <div className=" flex flex-col justify-center text-center item-center">
+            <h2 className="text-lg " >Aun no tienes rutinas</h2>
+            <div className="text-[7rem] "><BsEmojiFrown/></div>
+            <Link to="/fitFocus/form_user" className="  py-1 px-3 text-sm text-back font-normal leading-loose text-black bg-white duration-150 rounded-lg shadow-md hover:bg-blue-200">Crear rutinas personalizadas</Link>
+          </div>}
+         </>
+         }
         </div>
     </div>
     </>
