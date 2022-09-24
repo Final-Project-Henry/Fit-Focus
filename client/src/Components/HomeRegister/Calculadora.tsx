@@ -106,4 +106,3 @@ function Calculadora() {
 }
 
 export default Calculadora;
-
