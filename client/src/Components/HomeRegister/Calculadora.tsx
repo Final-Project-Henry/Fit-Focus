@@ -66,6 +66,8 @@ function Calculadora() {
   function onReset() {
     setMensaje("");
     setImcMensaje("");
+    setPeso("");
+    setAltura("");
   }
 
   return (
