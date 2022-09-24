@@ -3,12 +3,13 @@ import { Link  } from "react-router-dom";
 import './styles/LandingPage.css';
 import Typewriter from "react-ts-typewriter";
 import HomeVisitor from "../HomeVisitor/HomeVisitor";
+import { useToken } from "../../app/hooks";
 //import Home from "./Home";
 const landingTrain = require("../assets/landing-media/landingTrain.mp4");
 
 
 const LandingPage = () => {
-  
+  let user=useToken()
   return (
     <div className="main">
       <div className="overlay"></div>
@@ -32,7 +33,7 @@ const LandingPage = () => {
           />
         </div>
       <div className="buttonDiv">
-        <Link to="/home">
+        <Link to={user?`/fitFocus/home`:`/home`}>
           <button  className="landingButton">COMENCEMOS</button>
         </Link>
       </div>
