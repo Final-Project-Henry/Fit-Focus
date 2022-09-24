@@ -65,6 +65,36 @@ export const Rutines_Get = createAsyncThunk(
   }
 );
 
+export const EditUser = createAsyncThunk(
+  "user/Edit",
+  async ({token,data}:any, thunkAPI) => {
+
+    try {
+      let headersList = {
+        Accept: "/",
+        Authorization: "Bearer " + token,
+        "Content-Type": "application/json",
+      };
+
+      let reqOptions = {
+        url: `http://localhost:3001/auth/changeinfo?prop=${data.prop}&value=${data.value}`,
+        method: "PUT",
+        headers: headersList,
+      };
+
+      let response = await axios.request(reqOptions);
+      const resp = response.data;
+      console.log(resp);
+      thunkAPI.dispatch(status(response.data));
+      return resp;
+    } catch (error: any) {
+      thunkAPI.dispatch(status(error.response.data));
+      thunkAPI.rejectWithValue(error);
+      return;
+    }
+  }
+);
+
 export const Exercises_Get = createAsyncThunk(
   "user/exercices",
   async (_, thunkAPI) => {

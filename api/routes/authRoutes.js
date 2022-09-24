@@ -66,6 +66,7 @@ router.put('/changeinfo', async (req, res) => {
  try {
     const {id} = req.user
     const {prop, value} = req.query
+    console.log(prop, value)
     if(prop === 'password'){
       const hashPassword = await bcrypt.hash(value, 10);
       await user.updateOne({_id : id}, {
@@ -117,6 +118,7 @@ router.put('/addfav', async (req, res) => {
 router.get('/profile', async (req, res) => {
   const {id} = req.user
   const User = await user.findOne({_id : id});
+  console.log(User)
   res.status(200).send(User)
 });
 

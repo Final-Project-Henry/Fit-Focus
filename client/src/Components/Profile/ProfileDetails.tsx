@@ -1,30 +1,30 @@
 import React, { useEffect, useState } from "react"
 import ContentEditable from 'react-contenteditable'
 import { useNavigate } from "react-router-dom"
+import { useAppDispatch, useToken } from "../../app/hooks"
+import { EditUser } from "../../features/counter/counterSlice"
 
 interface Props {
     name: string
     email: string
-    plan: string
+    plan?: string
 }
 
 const regularExpressionEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
 
 const ProfileDetails = ({ name, email, plan }: Props) => {
-
+    const dispatch = useAppDispatch();
     const navigate = useNavigate()
-
+const token = useToken()
     const [editable, setEditable] = useState<boolean>(false)
     const [errorName, setErrorName] = useState(false)
     const [errorEmail, setErrorEmail] = useState<boolean>(false)
     const [infoUser, setInfoUser] = useState<Props>({
         name: name,
         email: email,
-        plan: plan
     })
 
     const handleChange = (e: any) => {
-
         const {target, currentTarget}:any = e
 
         setInfoUser({
@@ -47,10 +47,12 @@ const ProfileDetails = ({ name, email, plan }: Props) => {
         if (target.id === "save" && infoUser.name.length < 3) return setErrorName(true)
 
         if (target.id === "save" && infoUser.email.match(regularExpressionEmail)) {
+            console.log(infoUser)
+           
+            dispatch(EditUser({token,infoUser}))
             setEditable(false)
         }
         else setErrorEmail(true)
-
     }
 
     useEffect(() => {
