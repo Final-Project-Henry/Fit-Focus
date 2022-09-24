@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector, useToken } from '../../app/hooks';
 import { verify_payment } from '../../features/mercadopago/mercadopago';
+import Error_page from '../error/Error_page';
+import Premium_welcome from './premium_welcome/Premium_welcome';
 
 export default function Mercadoresponse() {
   const id = useParams().payment_id;
@@ -17,7 +19,7 @@ export default function Mercadoresponse() {
   },[mercadoData]);
   return (
     <div>
-      {mercadoData.premium&&(<h1>Ya eres premium</h1>)}
+      {mercadoData.premium?(<Premium_welcome />):(<Error_page/>)}
     </div>
   )
 }

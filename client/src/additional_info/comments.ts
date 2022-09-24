@@ -25,7 +25,7 @@ export default {
     "comment_3": {
         avatar: avatar_3,
         name: "Franco Miño",
-        comment: "Esta app me ayudo a bajar mi porcentaje de grasa"
+        comment: "Gracias a esta app me converti en un macho alfa"
     },
     "comment_4": {
         avatar: avatar_4,
