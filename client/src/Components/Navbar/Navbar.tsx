@@ -44,7 +44,7 @@ const Navbar = () => {
         setUser(false);
         setDropdown(false);
         Navegation("/home")
-       
+        window.location.reload();
       }
     });
   }
