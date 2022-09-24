@@ -35,7 +35,6 @@ router.put('/userfeedback', async (req, res) => {
   try {
     const { comment, email } = req.body
 
-    const check = await user.findOne({ email: email }).select('feedback')
     await user.updateOne({ email: email }, {
       feedback: comment
     });
@@ -64,15 +63,21 @@ router.get('/getroutine', async (req, res) => {
   }
 });
 
-router.put('/changepassword', async (req, res) => {
+router.put('/changeinfo', async (req, res) => {
  try {
     const {id} = req.user
-    const {password} = req.body 
-    const hashPassword = await bcrypt.hash(password, 10);
-    await user.updateOne({_id : id}, {
-      password : hashPassword
-    });
-    res.status(200).send('Password changed succesfully')
+    const {prop, value} = req.query
+    if(prop === 'password'){
+      const hashPassword = await bcrypt.hash(value, 10);
+      await user.updateOne({_id : id}, {
+        [prop] : hashPassword 
+      });
+    } else {
+      await user.updateOne({_id : id}, {
+        [prop] : value
+      })
+    }
+    res.status(200).send('Info changed succesfully')
   } catch (error) {
     res.status(500).send(error.message)
   }
@@ -95,7 +100,7 @@ router.put('/addfav', async (req, res) => {
   const {name} = req.body
    await user.updateOne({_id : id}, {
      $push : {
-      fav : name
+      fav : {name: name}
      }
    });
    res.status(200).send('Exercise added to fav')
