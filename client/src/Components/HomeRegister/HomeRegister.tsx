@@ -4,7 +4,7 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Carousel from "../Carousel/Carousel";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import img1 from "../assets/homeRegister-media/Img1.jpg";
 import img2 from "../assets/homeRegister-media/Img2.jpg";
 import img3 from "../assets/homeRegister-media/Img3.jpg";
@@ -12,11 +12,11 @@ import Footer from "../footer/Footer";
 import {
   Exercises,
   Exercises_Get,
+  getProfileInfo,
   selectUser,
 } from "../../features/counter/counterSlice";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { Link } from "react-router-dom";
-import FilterExercises from "./FilterExercises";
+import { useAppDispatch, useAppSelector, useToken } from "../../app/hooks";
+import { Link, useParams } from "react-router-dom";
 
 import { TbBarbell, TbFolder } from "react-icons/tb";
 import { BsNewspaper } from "react-icons/bs";
@@ -29,23 +29,14 @@ import Noticias from "./Noticias";
 import RutinasPersonales from "./RutinasPersonales";
 import NavbarHome from "../Navbar/NavbarHome";
 import Favoritos from "./Favorito";
-const video1 = require("../assets/homeRegister-media/Video-Slide.mp4");
-const video2 = require("../assets/homeRegister-media/Video2.mp4");
+import Form_rutinas from "../form_rutinas/From_rutina";
 
-interface ejerciciosData {
-  _id: string;
-  name: string;
-  difficulty: string;
-  equipment: true;
-  muscles: string;
-  genre: string;
-  video: string;
-  description: string;
-  premium: boolean;
-}
 
 const HomeRegister = () => {
   const dispatch = useAppDispatch();
+  const State:any = useAppSelector(selectUser);
+  const { id } = useParams();
+  let token= useToken()
   const [Render, SetRender] = useState({
     rejercisio: true,
     rcalculadora: false,
@@ -53,15 +44,19 @@ const HomeRegister = () => {
     rfav: false,
     rrutinas: false,
   });
-
-  useEffect(() => {
+  useMemo(() => {
     dispatch(Exercises_Get());
+    console.log("entra a home")
   }, []);
+  useMemo(() => {
+    if(token){
+      dispatch(getProfileInfo(token));
+    }
+    
 
-  const selector = useAppSelector(selectUser);
+  },[token])
 
-
-  const getRenderComponet = (event:React.MouseEvent<HTMLDivElement, MouseEvent>| { [x: string]: any; name: string }) => {
+  const getRenderComponet = (event:React.MouseEvent<HTMLDivElement, MouseEvent>| any) => {
     SetRender({
       rejercisio: false,
       rcalculadora: false,
@@ -69,8 +64,6 @@ const HomeRegister = () => {
       rfav: false,
       rrutinas: false,
     });
-    console.log(event.target.id)
-
     SetRender((pv) => ({ ...pv, [event.target.id]: true }));
   };
   return (
@@ -86,7 +79,7 @@ const HomeRegister = () => {
             <hr className="bg-gray-500 h-[1px]" />
             <div className="py-5">
 
-              <div
+              <Link to="/fitFocus/home"
                 id="rejercisio"
                 onClick={(e) => getRenderComponet(e)}
                 className={`flex ${Render.rejercisio&&"bg-[#351F91]"} cursor-pointer  py-2 pr-5 ${Render.rejercisio?"text-gray-50":"text-gray-400"}  ${Render.rejercisio?"shadow-lg":"shadow"} hover:text-gray-50  hover:bg-blue-700 hover:shadow-lg hover:scale-110 duration-[0.2s] rounded mb-[10px]`}
@@ -95,9 +88,9 @@ const HomeRegister = () => {
                   <CgGym />
                 </span>
                 Ejercicios
-              </div>
+              </Link>
 
-              <div
+              <Link to="/fitFocus/calculadora"
                 id="rcalculadora"
                 onClick={(e) => getRenderComponet(e)}
                 className={`flex ${Render.rcalculadora&&"bg-[#351F91]"} cursor-pointer my-5 py-2 pr-5 ${Render.rcalculadora?"text-gray-50":"text-gray-400"} ${Render.rcalculadora?"scale-110":"scale-100 "} ${Render.rcalculadora?"shadow-lg":"shadow"}  hover:text-gray-50 hover:bg-blue-700 hover:shadow-lg hover:scale-110 duration-[0.2s] rounded mb-[10px]`}
@@ -106,9 +99,9 @@ const HomeRegister = () => {
                   <ImCalculator />
                 </span>
                 Calculadora
-              </div>
+              </Link>
 
-              <div
+              <Link to="/fitFocus/Noticias"
                 id="rnoticia"
                 onClick={(e) => getRenderComponet(e)}
                 className={`flex ${Render.rnoticia&&"bg-[#351F91]"} cursor-pointer my-5 py-2 pr-5 ${Render.rnoticia?"text-gray-50":"text-gray-400"} ${Render.rnoticia?"scale-110":"scale-100 "} ${Render.rnoticia?"shadow-lg":"shadow"} hover:text-gray-50 hover:bg-blue-700 hover:shadow-lg hover:scale-110 duration-[0.2s] rounded mb-[10px]`}
@@ -117,8 +110,8 @@ const HomeRegister = () => {
                   <BsNewspaper />
                 </span>
                 Noticias
-              </div>
-              <div
+              </Link>
+              <Link to="/fitFocus/Rutinas"
                 id="rrutinas"
                 onClick={(e) => getRenderComponet(e)}
                 className={`flex ${Render.rrutinas&&"bg-[#351F91]"} cursor-pointer py-2 my-5 pr-5 ${Render.rrutinas?"text-gray-50":"text-gray-400"} ${Render.rrutinas?"scale-110":"scale-100 "} ${Render.rrutinas?"shadow-lg":"shadow"} hover:text-gray-50  hover:bg-blue-700 hover:shadow-lg hover:scale-110 duration-[0.2s] rounded mb-[10px]`}
@@ -127,9 +120,9 @@ const HomeRegister = () => {
                   <TbFolder />
                 </span>
                 Rutinas
-              </div>
+              </Link>
 
-              <div
+              <Link to="/fitFocus/Fav"
                 id="rfav"
                 onClick={(e) => getRenderComponet(e)}
                 className={`flex ${Render.rfav&&"bg-[#351F91]"} cursor-pointer py-2 my-5 pr-5 ${Render.rfav?"text-gray-50":"text-gray-400"} ${Render.rfav?"scale-110":"scale-100 "} ${Render.rfav?"shadow-lg":"shadow"} hover:text-gray-50  hover:bg-blue-700 hover:shadow-lg hover:scale-110 duration-[0.2s] rounded mb-[10px]`}
@@ -138,19 +131,22 @@ const HomeRegister = () => {
                   <TbFolder />
                 </span>
                  favoritos
-              </div>
+              </Link>
             </div>
             <hr className="bg-gray-500 h-[1px]" />
           </div>
         </div>
         {/* carousel */}
-        <div className="w-full col-span-7  min-h-screen ">
+        <div className="w-full col-span-9  min-h-screen ">
           <div className="min-w-[100%]  my-5  min-h-[250px] ">
-          {Render.rejercisio&&<Ejercicios/>}
-          {Render.rcalculadora&&<Calculadora/>}
-          {Render.rnoticia&&<Noticias/>}
-          {Render.rrutinas&&<RutinasPersonales/>}
-          {Render.rfav&&<Favoritos/>}
+
+          {id=="home"&&<Ejercicios />}
+          {id=="calculadora"&&<Calculadora />}
+          {id=="Noticias"&&<Noticias />}
+          {id=="Rutinas"&&<RutinasPersonales user={State.user}/>}
+          {id=="form_user"&&<Form_rutinas/>}
+          {id=="Fav"&&<Favoritos fav={State.user.fav} />}
+
           </div>
           </div>
           </div>
