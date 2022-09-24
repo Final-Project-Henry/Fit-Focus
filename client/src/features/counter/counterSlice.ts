@@ -174,7 +174,6 @@ export const auth_Login_Google = createAsyncThunk(
 );
 
 export const authGoogle = createAsyncThunk('user/auth_google', async (code: {code:String}, thunkAPI) => {
-    console.log(code);
     try {
       const response = await axios.post("http://localhost:3001/authGoogle",code );
       return response.data;
