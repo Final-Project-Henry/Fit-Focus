@@ -31,12 +31,11 @@ import Navbar from "../Navbar/Navbar";
 import Favoritos from "./Favorito";
 import Form_rutinas from "../form_rutinas/From_rutina";
 
-
 const HomeRegister = () => {
   const dispatch = useAppDispatch();
-  const State:any = useAppSelector(selectUser);
+  const State: any = useAppSelector(selectUser);
   const { id } = useParams();
-  let token= useToken()
+  let token = useToken();
   const [Render, SetRender] = useState({
     rejercisio: true,
     rcalculadora: false,
@@ -46,17 +45,17 @@ const HomeRegister = () => {
   });
   useMemo(() => {
     dispatch(Exercises_Get());
-    console.log("entra a home")
+    console.log("entra a home");
   }, []);
   useMemo(() => {
-    if(token){
+    if (token) {
       dispatch(getProfileInfo(token));
     }
-    
+  }, [token]);
 
-  },[token])
-
-  const getRenderComponet = (event:React.MouseEvent<HTMLDivElement, MouseEvent>| any) => {
+  const getRenderComponet = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent> | any
+  ) => {
     SetRender({
       rejercisio: false,
       rcalculadora: false,
@@ -69,23 +68,274 @@ const HomeRegister = () => {
   return (
     <>
       <Navbar />
-      <div className="grid grid-cols-1 sm:grid-cols-11 gap-4 bg-slate-100  shadow-lg">
+
+      <div className="bg-slate-100">
         {/* menu */}
-
         {/* carousel */}
-        <div className="w-full col-span-9  min-h-screen ">
-          <div className="min-w-[100%]  my-5  min-h-[250px] ">
+        <div>
+          {
+            <Carousel
+              content={[
+                {
+                  src: "https://www.palco23.com/files/2020/18_recursos/fitness/dominada-728.jpg",
+                  text: "Hazte premium para obtener rutinas personalizadas",
+                  stylesText:
+                    "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
+                },
+                {
+                  src: "https://st4.depositphotos.com/3378831/41496/i/600/depositphotos_414960080-stock-photo-close-up-dumbbell-on-gym.jpg",
+                  text: "Hazte premium para obtener rutinas personalizadas",
+                  stylesText:
+                    "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
+                },
+              ]}
+            />
+          }
+        </div>
 
-          {id=="home"&&<Ejercicios />}
-          {id=="calculadora"&&<Calculadora />}
-          {id=="Noticias"&&<Noticias />}
-          {id=="Rutinas"&&<RutinasPersonales user={State.user}/>}
-          {id=="form_user"&&<Form_rutinas/>}
-          {id=="Fav"&&<Favoritos fav={State.user.fav} />}
+        {/* cartas de ejercicios */}
+        <div className="flex mt-[5%] flex-col bg-gray-200 ">
 
+          <div className="flex content-center justify-center w-full h-10 bg-gray-200">
+            <h1 className=" text-3xl font-dark w-[90%] mx-[20px]">
+              Ejercicios de la semana:
+            </h1>
+            <button className="text-xl font-dark decoration-slice text-red-900 w-80 h-10 shadow-soft-2xl mr-2 flex p-[20px] items-center justify-center  
+                               bg-center stroke-0 text-center xl:p-2.5 shadow-soft-xl bg-white font-semibold hover:scale-110 duration-50 mt-[4px]">
+              <Link to="/fitFocus/ejercicios" className="px-3 py-1 ">
+                Ver todos{""}
+              </Link>
+            </button>
           </div>
+
+          {/* Div padre de las cartas */}
+          <div className="grid grid-cols-4 grid-row-1  content-center my-[60px] bg-gray-200 mt-[30px]">
+
+            {/* CARD I */}
+            <div className="mx-[10%] max-w-sm bg-white border border-gray-200 hover:shadow-xl shadow-md dark:bg-gray-800 dark:border-gray-700 ml-[10%] mt-[5%]">
+              <a href="#">
+                <img
+                  className=""
+                  src="https://img.freepik.com/vector-gratis/ilustracion-concepto-hacer-deporte_114360-1120.jpg?w=2000"
+                  alt=""
+                />
+              </a>
+              <div className="p-5">
+                <a href="#">
+                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Ejercicio 1
+                  </h5>
+                </a>
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                  Pequeña descripcion o dificultad
+                </p>
+              </div>
+            </div>
+            
+            {/* CARD II */}
+            <div className="mx-[10%] max-w-sm bg-white border border-gray-200 hover:shadow-xl shadow-md dark:bg-gray-800 dark:border-gray-700 ml-[10%] mt-[5%]">
+              <a href="#">
+                <img
+                  className=""
+                  src="https://img.freepik.com/vector-gratis/ilustracion-concepto-hacer-deporte_114360-1120.jpg?w=2000"
+                  alt=""
+                />
+              </a>
+              <div className="p-5">
+                <a href="#">
+                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Ejercicio 1
+                  </h5>
+                </a>
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                  Pequeña descripcion o dificultad
+                </p>
+              </div>
+            </div>
+
+            {/* CARD III */}
+            <div className="mx-[10%] max-w-sm bg-white border border-gray-200 hover:shadow-xl shadow-md dark:bg-gray-800 dark:border-gray-700 ml-[10%] mt-[5%]">
+              <a href="#">
+                <img
+                  className=""
+                  src="https://img.freepik.com/vector-gratis/ilustracion-concepto-hacer-deporte_114360-1120.jpg?w=2000"
+                  alt=""
+                />
+              </a>
+              <div className="p-5">
+                <a href="#">
+                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Ejercicio 1
+                  </h5>
+                </a>
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                  Pequeña descripcion o dificultad
+                </p>
+              </div>
+            </div>
+
+            {/* CARD IV */}
+            <div className="mx-[10%] max-w-sm bg-white border border-gray-200 hover:shadow-xl shadow-md dark:bg-gray-800 dark:border-gray-700 ml-[10%] mt-[5%]">
+              <a href="#">
+                <img
+                  className=""
+                  src="https://img.freepik.com/vector-gratis/ilustracion-concepto-hacer-deporte_114360-1120.jpg?w=2000"
+                  alt=""
+                />
+              </a>
+              <div className="p-5">
+                <a href="#">
+                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Ejercicio 1
+                  </h5>
+                </a>
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                  Pequeña descripcion o dificultad
+                </p>
+              </div>
+            </div>
           </div>
+
+          {/* Second row of excercises */}
+          <div className="bg-gray-500">
+
+            <div className="flex content-center justify-center w-full h-10 bg-gray-500">
+              <h1 className=" text-3xl text-white font-dark  w-[90%] mx-[20px]">
+                Ejercicios con mejor calificación:
+              </h1>
+              <button className="text-xl font-dark decoration-slice text-red-900 w-80 h-10 mt-[3px] shadow-soft-2xl mr-2 flex p-[20px] items-center justify-center  
+                                 bg-center stroke-0 text-center xl:p-2.5 shadow-soft-xl bg-white font-semibold hover:scale-110 duration-50 ">
+                <Link to="/fitFocus/ejercicios" className="px-3 py-1 ">
+                  Ver todos{""}
+                </Link>
+              </button>
+            </div>
+
+            {/* div padre cards row II */}
+            <div className="grid grid-cols-4 grid-row-1 my-[60px] bg-gray-500 mt-[30px]">
+
+              {/* CARD I */}
+              <div className="mx-[10%] max-w-sm bg-white border border-gray-200 hover:shadow-xl shadow-md dark:bg-gray-800 dark:border-gray-700 ml-[10%] mt-[5%]">
+                <a href="#">
+                  <img
+                    className=""
+                    src="https://img.freepik.com/vector-gratis/ilustracion-concepto-hacer-deporte_114360-1120.jpg?w=2000"
+                    alt=""
+                  />
+                </a>
+                <div className="p-5">
+                  <a href="#">
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                      Ejercicio 1
+                    </h5>
+                  </a>
+                  <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                    Pequeña descripcion o dificultad
+                  </p>
+                </div>
+              </div>
+
+              {/* CARD II */}
+              <div className="mx-[10%] max-w-sm bg-white border border-gray-200 hover:shadow-xl shadow-md dark:bg-gray-800 dark:border-gray-700 ml-[10%] mt-[5%]">
+                <a href="#">
+                  <img
+                    className=""
+                    src="https://img.freepik.com/vector-gratis/ilustracion-concepto-hacer-deporte_114360-1120.jpg?w=2000"
+                    alt=""
+                  />
+                </a>
+                <div className="p-5">
+                  <a href="#">
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                      Ejercicio 1
+                    </h5>
+                  </a>
+                  <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                    Pequeña descripcion o dificultad
+                  </p>
+                </div>
+              </div>
+
+              {/* CARD III */}
+              <div className="mx-[10%] max-w-sm bg-white border border-gray-200 hover:shadow-xl shadow-md dark:bg-gray-800 dark:border-gray-700 ml-[10%] mt-[5%]">
+                <a href="#">
+                  <img
+                    className=""
+                    src="https://img.freepik.com/vector-gratis/ilustracion-concepto-hacer-deporte_114360-1120.jpg?w=2000"
+                    alt=""
+                  />
+                </a>
+                <div className="p-5">
+                  <a href="#">
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                      Ejercicio 1
+                    </h5>
+                  </a>
+                  <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                    Pequeña descripcion o dificultad
+                  </p>
+                </div>
+              </div>
+
+              {/* CARD IV */}
+              <div className="mx-[10%] max-w-sm bg-white border border-gray-200 hover:shadow-xl shadow-md dark:bg-gray-800 dark:border-gray-700 ml-[10%] mt-[5%]">
+                <a href="#">
+                  <img
+                    className=""
+                    src="https://img.freepik.com/vector-gratis/ilustracion-concepto-hacer-deporte_114360-1120.jpg?w=2000"
+                    alt=""
+                  />
+                </a>
+                <div className="p-5">
+                  <a href="#">
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                      Ejercicio 1
+                    </h5>
+                  </a>
+                  <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                    Pequeña descripcion o dificultad
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+
+        {/* div de carusel con 3 Noticias */}
+        <div className="flex content-center justify-center w-full h-10 bg-gray-100 mt-[50px]">
+          <h1 className=" text-5xl text-gray-800 font-dark w-[90%] mx-[20px]">
+            Noticias de interes:
+          </h1>
+          <button className="text-xl font-dark decoration-slice text-red-900 w-80 h-10 mt-[3px] shadow-soft-2xl mr-2 flex p-[20px] items-center justify-center  
+                                 bg-center stroke-0 text-center xl:p-2.5 shadow-soft-xl bg-white font-semibold hover:scale-110 duration-50 ">
+            <Link to="/news" className="px-3 py-1 ">
+              Ver todos{""}
+            </Link>
+          </button>
+        </div>
+
+        <div className="mt-[20px] mb-[10px]">
+          {
+            <Carousel
+              content={[
+                {
+                  src: "https://www.palco23.com/files/2020/18_recursos/fitness/dominada-728.jpg",
+                  text: "Hazte premium para obtener rutinas personalizadas",
+                  stylesText:
+                    "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
+                },
+                {
+                  src: "https://st4.depositphotos.com/3378831/41496/i/600/depositphotos_414960080-stock-photo-close-up-dumbbell-on-gym.jpg",
+                  text: "Hazte premium para obtener rutinas personalizadas",
+                  stylesText:
+                    "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
+                },
+              ]}
+            />
+          }
+        </div>
+      </div>
+      <Footer />
     </>
   );
 };
