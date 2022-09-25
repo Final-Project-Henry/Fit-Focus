@@ -36,7 +36,7 @@ const News6 = () => {
                                         imperativo mantenerse hidratado. La hidratación adecuada te
                                         ayuda a alcanzar objetivos de rendimiento específicos y, lo que
                                         es más importante, a garantizar que tu cuerpo funcione de manera
-                                        óptima.{" "}
+                                        óptima.
                                     </p>
                                 </div>
                             </div>
@@ -84,24 +84,24 @@ const News6 = () => {
                                         La definición más simple de deshidratación es “cuando pierdes el
                                         equilibrio de agua en el cuerpo”, explica Hannah Kittrell,
                                         maestría en ciencias, R.D., dietista/nutricionista certificada y
-                                        directora del{" "}
+                                        directora del
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="21350457-d9a1-47cb-9786-43c73eb1d7c7"
                                             href="https://www.mountsinai.org/locations/physiolab"
                                         >
                                             Mount Sinai Physiolab
-                                        </a>{" "}
+                                        </a>
                                         en la ciudad de Nueva York. Está directamente relacionada con la
                                         sed y ocurre cuando no estás bebiendo suficientes líquidos para
                                         cubrir la cantidad de agua que estás perdiendo en la vida
-                                        diaria, dice.{" "}
+                                        diaria, dice.
                                     </p>
                                     <p>
                                         “La deshidratación ocurre cuando la cantidad de agua que se ha
                                         perdido en un período de tiempo determinado supera la cantidad
                                         de líquido con la que se la ha reemplazado”, explica Kaitlyn
-                                        Baird, fisióloga clínica del ejercicio en el{" "}
+                                        Baird, fisióloga clínica del ejercicio en el
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="aab98498-aefd-4935-9ccf-bb216c3d9e61"
@@ -109,23 +109,23 @@ const News6 = () => {
                                         >
                                             centro de rendimiento deportivo Langone de la NYU
                                         </a>
-                                        , en la ciudad de Nueva York.{" "}
+                                        , en la ciudad de Nueva York.
                                     </p>
                                     <p>
                                         Para abordar mejor la deshidratación, es importante comprender
                                         la función de los riñones. Este órgano vital equilibra la
                                         cantidad de agua en el cuerpo y asegura que la sangre tenga la
-                                        concentración adecuada de{" "}
+                                        concentración adecuada de
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="914ce9d6-6d73-4008-8148-753a5c6004b5"
                                             href="https://www.nike.com/us/es/a/que-son-los-electrolitos"
                                         >
                                             electrolitos
-                                        </a>{" "}
+                                        </a>
                                         y otros minerales y nutrientes, explica Kittrell. En resumen:
                                         cuando te deshidratas, pierdes agua en la sangre, lo que puede
-                                        provocar desequilibrios de líquidos y de diferentes minerales.{" "}
+                                        provocar desequilibrios de líquidos y de diferentes minerales.
                                     </p>
                                 </div>
                             </div>
@@ -163,7 +163,7 @@ const News6 = () => {
                                     data-qa="title"
                                     className="si35-ISy -dzJvCiA headline-1 _2svRm8bR text-color-primary-dark"
                                 >
-                                    Síntomas clave de deshidratación a tener en cuenta{" "}
+                                    Síntomas clave de deshidratación a tener en cuenta
                                 </h4>
                                 <div
                                     data-qa="body"
@@ -187,28 +187,17 @@ const News6 = () => {
                                         que te has deshidratado".
                                     </p>
                                     <p>
-                                        RELACIONADO:{" "}
-                                        <a
-                                            target="_blank"
-                                            data-analytics-action-id="6f350b9b-ae99-4138-9023-1651a1db7bb4"
-                                            href="https://www.nike.com/us/es/a/agua-salada-ayuda-hidratacion"
-                                        >
-                                            ¿Beber agua salada te hidratará más eficazmente que el agua
-                                            normal?
-                                        </a>
-                                    </p>
-                                    <p>
                                         Otros síntomas de deshidratación en adultos pueden ser la
                                         fatiga, el estado letárgico y el cansancio. Algunos síntomas no
                                         tan obvios incluyen dolores de cabeza, mareos, aturdimiento,
-                                        confusión y pérdida de memoria. Según Baird, tener un{" "}
+                                        confusión y pérdida de memoria. Según Baird, tener un
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="b2021614-dd43-4200-be45-cbfb0ef15a97"
                                             href="https://www.nike.com/us/es/a/frecuencia-cardiaca-normal-running"
                                         >
                                             ritmo cardíaco alto
-                                        </a>{" "}
+                                        </a>
                                         (específicamente, que el corazón lata más rápido de lo normal),
                                         los pies hinchados, el estreñimiento y, en ocasiones, los
                                         calambres musculares también son síntomas menos obvios de
@@ -294,10 +283,10 @@ const News6 = () => {
                                         de deshidratación pueden provocar enfermedades inducidas por el
                                         calor, golpes de calor, náuseas, vómitos, confusión y
                                         desorientación, e incluso pueden ser fatales en los casos
-                                        graves.{" "}
+                                        graves.
                                     </p>
                                     <p>
-                                        Por el contrario, beber demasiada agua puede provocar{" "}
+                                        Por el contrario, beber demasiada agua puede provocar
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="1e4ffe5c-4234-4770-b6a9-9b86f3ee5ee2"
@@ -307,7 +296,7 @@ const News6 = () => {
                                         </a>
                                         , una afección que ocurre debido a la falta de suficiente sodio
                                         en la sangre, y puede presentar síntomas similares a los de la
-                                        deshidratación, como el cansancio, la hinchazón y las náuseas.{" "}
+                                        deshidratación, como el cansancio, la hinchazón y las náuseas.
                                     </p>
                                 </div>
                             </div>
@@ -353,17 +342,17 @@ const News6 = () => {
                                 >
                                     <p>
                                         Debido a que la sensación de sed a menudo se atenúa con el
-                                        ejercicio,{" "}
+                                        ejercicio,
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="f076f7fe-eecc-4ccb-93e6-1e7f1014f66f"
                                             href="https://www.nike.com/us/es/a/cuanta-agua-hay-que-beber-diariamente"
                                         >
                                             se recomienda tener un enfoque proactivo con la hidratación
-                                        </a>{" "}
+                                        </a>
                                         y beber mucho líquido antes de tener sed, "porque si esperas a
                                         tener sed para tomar líquidos, probablemente ya te hayas
-                                        deshidratado un poco”, dice Kittrell.{" "}
+                                        deshidratado un poco”, dice Kittrell.
                                     </p>
                                     <p>
                                         Una manera fácil de mantenerse hidratado es comer alimentos con
@@ -470,7 +459,7 @@ const News6 = () => {
                                     </p>
                                     <p>
                                         Antes de entrenar, Kittrell dice que el objetivo es asegurarse
-                                        de comenzar en un estado fluido y equilibrado.{" "}
+                                        de comenzar en un estado fluido y equilibrado.
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="76bdefb2-f3e3-438c-aee1-41394873ada0"
@@ -479,26 +468,26 @@ const News6 = () => {
                                             A medida que surgen más investigaciones
                                         </a>
                                         , además de la noción de cuán individualizado es el estado
-                                        físico, los expertos ahora hacen{" "}
+                                        físico, los expertos ahora hacen
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="c203e09b-f9e3-4276-ad7c-734415a0660e"
                                             href="https://www.mdpi.com/2072-6643/11/6/1289/htm"
                                         >
                                             recomendaciones según el peso corporal
-                                        </a>{" "}
+                                        </a>
                                         para la hidratación en lugar de prescribir una cantidad
                                         generalizada de ingesta de líquidos. Kittrell admite que estas
                                         recomendaciones individuales son más complicadas, pero enfatiza
                                         que es la mejor forma de hacerlo, ya que se utiliza un enfoque
-                                        personalizado.{" "}
+                                        personalizado.
                                     </p>
                                     <p>
                                         De tres a cuatro horas antes de hacer ejercicio, Kittrell
                                         recomienda consumir de cuatro a siete mililitros de agua por
                                         kilogramo de peso corporal. Luego, entre cinco y 15 minutos
                                         antes de empezar a hacer ejercicio, se recomienda beber unos
-                                        sorbos de agua.{" "}
+                                        sorbos de agua.
                                     </p>
                                     <p>
                                         Otra clave para mantener la hidratación es conocer tu tasa de
@@ -520,17 +509,7 @@ const News6 = () => {
                                         variables a considerar al decidir si tomar o no una bebida
                                         deportiva. Para aquellos que participan en actividades donde se
                                         requiere el uso de un equipo, como el fútbol, se recomienda una
-                                        bebida deportiva, ya que este hará que sudes más.{" "}
-                                    </p>
-                                    <p>
-                                        ARTÍCULO RELACIONADO:{" "}
-                                        <a
-                                            target="_blank"
-                                            data-analytics-action-id="66b6c73f-f648-4c5e-bc49-73edb50862c8"
-                                            href="https://www.nike.com/us/es/a/que-es-el-sindrome-de-sobreentrenamiento"
-                                        >
-                                            Qué es el síndrome de sobreentrenamiento y cómo evitarlo
-                                        </a>
+                                        bebida deportiva, ya que este hará que sudes más.
                                     </p>
                                 </div>
                             </div>
@@ -585,26 +564,26 @@ const News6 = () => {
                                         el ejercicio, te has deshidratado. Perder más del dos por ciento
                                         significa que has alcanzado una deshidratación excesiva, lo que
                                         también puede conducir a impedimentos significativos en el
-                                        ejercicio aeróbico, explica Kittrell.{" "}
+                                        ejercicio aeróbico, explica Kittrell.
                                     </p>
                                     <p>
                                         “Por cada kilogramo perdido durante el ejercicio, bebe del 80 al
                                         100 por ciento de esa pérdida en agua”, aconseja Kittrell. Un
                                         kilogramo equivale alrededor de un litro, así que por cada
                                         kilogramo que pierdas durante el ejercicio, bebe de 800 ml a un
-                                        litro de agua, dice.{" "}
+                                        litro de agua, dice.
                                     </p>
                                     <p>
                                         Estas son solo recomendaciones, y Kittrell aconseja experimentar
                                         con la ingesta de líquidos, especialmente si no bebes mucho
                                         durante las sesiones de entrenamiento para evitar problemas
-                                        gastrointestinales.{" "}
+                                        gastrointestinales.
                                     </p>
                                     <p>
                                         “Como con cualquier otra cosa, no recomendamos implementar algo
                                         nuevo el día del juego o el día de la carrera. Es mejor que
                                         tengas experiencia previa en tus entrenamientos y prácticas para
-                                        ver cuál es ideal para ti”, dice.{" "}
+                                        ver cuál es ideal para ti”, dice.
                                     </p>
                                 </div>
                             </div>
@@ -659,7 +638,7 @@ const News6 = () => {
                                         colocar una toalla fría alrededor del cuello o la cabeza. Toma
                                         una bebida fría (agua o una bebida deportiva) y cuéntale a
                                         alguien lo que te está pasando. Estas tácticas pueden ayudarte a
-                                        evitar entrar en la zona del golpe de calor.{" "}
+                                        evitar entrar en la zona del golpe de calor.
                                     </p>
                                     <p>
                                         “Sé que a veces es difícil notar la diferencia [entre la

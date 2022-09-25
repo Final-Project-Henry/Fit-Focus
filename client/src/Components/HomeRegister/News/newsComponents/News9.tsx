@@ -38,19 +38,19 @@ const News9 = () => {
                                         condición física, pero solo hasta cierto punto. Los músculos
                                         doloridos no solo pueden sabotear tu motivación para tu próximo
                                         entrenamiento, sino que también pueden inhibir temporalmente tu
-                                        movilidad y rendimiento físico.{" "}
+                                        movilidad y rendimiento físico.
                                     </p>
                                     <p>
                                         Lo que tiendes a sentir entre 24 y 72 horas después de un
                                         entrenamiento se llama dolor muscular de aparición tardía o
-                                        DOMS. Puede ir desde sensibilidad hasta un dolor más grave, y{" "}
+                                        DOMS. Puede ir desde sensibilidad hasta un dolor más grave, y
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="5f43a4cc-c3de-4d38-95ac-3d8e71d46974"
                                             href="https://pubmed.ncbi.nlm.nih.gov/12617692/"
                                         >
                                             las investigaciones han sugerido
-                                        </a>{" "}
+                                        </a>
                                         que sucede con más frecuencia cuando no estás acostumbrado a una
                                         actividad o no la has practicado durante un tiempo. Por ejemplo,
                                         los atletas que regresan al entrenamiento después de un tiempo
@@ -135,7 +135,7 @@ const News9 = () => {
                                                         Después de un entrenamiento duro, los movimientos suaves
                                                         son el mejor método para mitigar el dolor", afirma Mack,
                                                         y agrega que actividades como una caminata lenta de 20
-                                                        minutos, una{" "}
+                                                        minutos, una
                                                         <a
                                                             target="_blank"
                                                             data-analytics-action-id="6be94ae8-d3e5-46b2-878f-c620ed89bc74"
@@ -150,24 +150,14 @@ const News9 = () => {
                                                         se enfríen lentamente.
                                                     </p>
                                                     <p>
-                                                        RELACIONADO:{" "}
-                                                        <a
-                                                            target="_blank"
-                                                            data-analytics-action-id="4e899d51-8017-4e3a-91dc-33e36ca36f90"
-                                                            href="https://www.nike.com/us/es/a/deberias-ejercitar-si-sientes-dolor"
-                                                        >
-                                                            Entonces, ¿deberías ejercitar si sientes dolor?
-                                                        </a>
-                                                    </p>
-                                                    <p>
-                                                        Por ejemplo,{" "}
+                                                        Por ejemplo,
                                                         <a
                                                             target="_blank"
                                                             data-analytics-action-id="19643d21-a4fe-4310-a6b9-08c47cdf25bc"
                                                             href="https://pubmed.ncbi.nlm.nih.gov/12617692/"
                                                         >
                                                             una investigación
-                                                        </a>{" "}
+                                                        </a>
                                                         en una edición de 2003 de la revista Sports Medicine
                                                         halló que este tipo de ejercicio es el medio más
                                                         efectivo para aliviar el DOMS, pero los investigadores
@@ -248,7 +238,7 @@ const News9 = () => {
                                                     className="FaRDqXgS responsive-body-2-1 mt6-sm text-color-primary-dark"
                                                 >
                                                     <p>
-                                                        Si sabes que te espera un{" "}
+                                                        Si sabes que te espera un
                                                         <a
                                                             target="_blank"
                                                             data-analytics-action-id="fdfcf5b0-ccf2-46b8-80c3-6219dbc1d6cd"
@@ -257,18 +247,18 @@ const News9 = () => {
                                                             entrenamiento duro
                                                         </a>
                                                         , programar un masaje para después podría ser un gran
-                                                        plan. Una{" "}
+                                                        plan. Una
                                                         <a
                                                             target="_blank"
                                                             data-analytics-action-id="45ef949c-0827-4067-8222-705bd497c00c"
                                                             href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5623674/"
                                                         >
                                                             revisión de una investigación
-                                                        </a>{" "}
+                                                        </a>
                                                         de 2017 en Frontiers in Physiology halló que la terapia
                                                         de masaje después de hacer un ejercicio extenuante puede
                                                         ser eficaz para aliviar el DOMS y mejorar el rendimiento
-                                                        muscular.{" "}
+                                                        muscular.
                                                     </p>
                                                     <p>
                                                         Los investigadores notaron que el alivio podría estar
@@ -329,14 +319,14 @@ const News9 = () => {
                                                         entrenamiento y combinar proteínas y carbohidratos; por
                                                         lo general, eso significa 25 gramos de proteína y 50
                                                         gramos de carbohidratos. Los ejemplos serían una taza de
-                                                        yogur griego y fruta, un{" "}
+                                                        yogur griego y fruta, un
                                                         <a
                                                             target="_blank"
                                                             data-analytics-action-id="d746f169-16a9-46c8-a18d-f4b5cbdb2571"
                                                             href="https://www.nike.com/us/es/a/el-mejor-momento-para-tomar-batidos-de-proteinas"
                                                         >
                                                             batido rico en proteínas
-                                                        </a>{" "}
+                                                        </a>
                                                         o un sándwich de atún.
                                                     </p>
                                                     <p>
@@ -349,7 +339,7 @@ const News9 = () => {
                                                         rápido".
                                                     </p>
                                                     <p>
-                                                        No te pierdas{" "}
+                                                        No te pierdas
                                                         <a
                                                             target="_blank"
                                                             data-analytics-action-id="6a45d20b-7737-4255-a266-6e1348414dba"
@@ -402,17 +392,17 @@ const News9 = () => {
                                                     </p>
                                                     <p>
                                                         Pero eso tampoco significa que el rodillo de espuma no
-                                                        tenga ningún tipo de efecto. Una{" "}
+                                                        tenga ningún tipo de efecto. Una
                                                         <a
                                                             target="_blank"
                                                             data-analytics-action-id="5e1146a1-6bfc-4a8b-88db-7981aecd7adf"
                                                             href="https://www.jssm.org/jssm-20-535.xml%3EFulltext"
                                                         >
                                                             investigación
-                                                        </a>{" "}
+                                                        </a>
                                                         en una edición de 2021 del Journal of Sports Science
                                                         &amp; Medicine halló que utilizar un rodillo de espuma
-                                                        antes de un entrenamiento, junto con el{" "}
+                                                        antes de un entrenamiento, junto con el
                                                         <a
                                                             target="_blank"
                                                             data-analytics-action-id="caf2eb09-c686-4a83-9d42-b76403c958b1"
@@ -425,14 +415,14 @@ const News9 = () => {
                                                         Esto se debe a que facilita la liberación miofascial, lo
                                                         que significa que las membranas resistentes que
                                                         envuelven los músculos y las articulaciones pueden
-                                                        volverse más elásticas,{" "}
+                                                        volverse más elásticas,
                                                         <a
                                                             target="_blank"
                                                             data-analytics-action-id="635a170e-0c4e-44bf-b8fc-08e6ea8c9723"
                                                             href="https://www.mayoclinic.org/diseases-conditions/back-pain/expert-answers/myofascial-release/faq-20058136"
                                                         >
                                                             según Mayo Clinic.
-                                                        </a>{" "}
+                                                        </a>
                                                         Cuando esto sucede, hay menos restricciones en tu
                                                         movimiento.
                                                     </p>
@@ -480,12 +470,12 @@ const News9 = () => {
                                                         "La única estrategia comprobada para reducir el dolor
                                                         muscular posterior al ejercicio y mejorar la
                                                         recuperación es adoptar un enfoque progresivo del
-                                                        ejercicio", dice Millar.{" "}
+                                                        ejercicio", dice Millar.
                                                     </p>
                                                     <p>
                                                         ¿Cómo saber si te estás esforzando demasiado todo el
                                                         tiempo? Mack dice que, además del dolor, es probable que
-                                                        experimentes otros{" "}
+                                                        experimentes otros
                                                         <a
                                                             target="_blank"
                                                             data-analytics-action-id="e5ffca55-34be-43f3-be38-80a6d194a670"
@@ -510,7 +500,6 @@ const News9 = () => {
                                                         comúnmente se encuentran fracturas por estrés, esguinces
                                                         u otras lesiones por uso excesivo.
                                                     </p>
-                                                    <p>Redacción: Elizabeth Millard</p>
                                                 </div>
                                             </div>
                                         </div>

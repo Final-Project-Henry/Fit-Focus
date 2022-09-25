@@ -643,7 +643,7 @@ const News4 = () => {
                         </a>
                         . Cuando te marcas objetivos inalcanzables, el riesgo es
                         el fracaso. Los intentos repetidos y fallidos para
-                        perder peso pueden
+                        perder peso pueden 
                         <a
                           target="_blank"
                           data-analytics-action-id="e96e2c95-f89e-4ce4-858b-ee22ad23cb60"
@@ -680,22 +680,12 @@ const News4 = () => {
                         <br />
                         <br />
                         Por ejemplo: es posible que hayas
-                        <a
-                          target="_blank"
-                          data-analytics-action-id="a0862bc3-53c0-4af6-bf79-762eebe9b68d"
-                          href="https://www.nike.com/us/es/running/como-empiezo-a-correr"
-                        >
                           empezado un programa de running
-                        </a>
                         y que en la primera semana no logres correr un kilómetro
                         y medio. Pero en la segunda o tercera semana, lo logras
                         y te sobra energía para seguir. Date crédito por ese
                         éxito. Incluso aunque la báscula no lo muestre, estás
                         más en forma y más fuerte.
-                      </p>
-                      <p>
-                        ¿Necesitas ayuda para empezar? Puedes descargar la Nike
-                        Run Club App.
                       </p>
                     </div>
                   </div>

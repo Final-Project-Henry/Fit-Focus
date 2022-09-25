@@ -109,17 +109,6 @@ const News8 = () => {
                                         .
                                     </p>
                                     <p>
-                                        RELACIONADO:
-                                        <a
-                                            target="_blank"
-                                            data-analytics-action-id="e5a0e56d-1a2e-4a2e-8cc2-c735458d0370"
-                                            href="https://www.nike.com/us/es/a/beneficios-del-ejercicio-con-tu-peso-corporal"
-                                        >
-                                            Diez beneficios de hacer ejercicio con tu peso corporal según
-                                            los expertos
-                                        </a>
-                                    </p>
-                                    <p>
                                         A continuación, Torde y Artzi comparten sus ejercicios favoritos
                                         para todo el cuerpo que puedes hacer sin equipo. Los dividimos
                                         en función de la zona del cuerpo a la que se dirigen, pero todos
