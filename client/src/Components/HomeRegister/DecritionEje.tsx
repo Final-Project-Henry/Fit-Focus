@@ -9,6 +9,7 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 interface ejerciciosData {
   _id: string;
@@ -25,22 +26,73 @@ interface ejerciciosData {
 export default function DecriptionEjer() {
   const { id } = useParams();
    const token= useToken()
-  console.log(id);
+
   const dispacht = useAppDispatch();
-  const [addFav, SetAddfav]=useState("")
-  const { descripcionEjersicio } = useAppSelector(selectUser);
-console.log(addFav)
+  const [addFav, SetAddfav]=useState<boolean|string>("default");
+  const { descripcionEjersicio,user } = useAppSelector(selectUser);
+
   useEffect(() => {
     dispacht(EjerciciosDecription(id));
   }, [id]);
-  async function  AddFavorite(){
-    const rep  = await axios.put("http://localhost:3001/auth/addfav",descripcionEjersicio,{
-      headers: { Authorization: "Bearer " + token},
-    })
 
-    SetAddfav(rep.data)
+  useEffect(() => {
+    if (addFav==true) {
+      Swal.fire({
+        title: `${descripcionEjersicio.name} fue agregado a tus favoritos `,
+        icon: "success",
+        showCancelButton: false,
+        confirmButtonColor: "#6c63ff",
+        confirmButtonText: "Aceptar",
+    })
+    }else if(addFav=="error"){
+      Swal.fire({
+        title: `Ups algo salio mal 😢`,
+        icon: "error",
+        showCancelButton: false,
+        confirmButtonColor: "#6c63ff",
+        confirmButtonText: "Aceptar",
+      })
+    }
+  },[addFav]);
+
+   function  AddFavorite(){
+      const favExisited = user.fav.find((x: any)=>x.name === descripcionEjersicio.name)
+      if (favExisited || addFav ==="Exercise added to fav"){
+        Swal.fire({
+          title: `Tu Ejercicio ya esta en tus Favoritos!❤️`,
+          icon: "success",
+          showCancelButton: false,
+          confirmButtonColor: "#6c63ff",
+          confirmButtonText: "Aceptar",
+        }).then(async (result) => {
+          SetAddfav("default")
+        })
+        return
+      }
+      Swal.fire({
+        title: `¿Desea agreguar ${descripcionEjersicio.name} a tus favoritos ?`,
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#6c63ff",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Agregar",
+        cancelButtonText: "Cancelar",
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          try {
+             const res= await axios.put("http://localhost:3001/auth/addfav",descripcionEjersicio,{
+              headers: { Authorization: "Bearer " + token},
+            })
+          if(res.data){
+            SetAddfav(res.data)
+          }
+          } catch (error) {
+            SetAddfav("error")
+          }
+        }
+    });
   }
-  console.table(descripcionEjersicio);
+
   return (
     <>
       <Navbar />
@@ -52,8 +104,8 @@ console.log(addFav)
             className="rounded-t-lg w-[50%]"
             src={descripcionEjersicio?.video}
           />
-          <p>
-              {descripcionEjersicio?.description}
+          <p className="p-5">
+            {descripcionEjersicio?.description}
           </p>
         </div>
         <div
@@ -94,7 +146,7 @@ console.log(addFav)
           </span>
           <div className={`p-4`}>
             <button onClick={()=>AddFavorite()} className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-[#6c63ff] duration-150 rounded-lg hover:bg-blue-800">
-              Agregar a favoritos
+              Agregar a favoritos❤️
             </button>
           </div>
           
