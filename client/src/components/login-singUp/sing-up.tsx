@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Navigate } from "react-router-dom";
 
-import { useScript, useAppDispatch, useAppSelector } from "../../app/hooks";
+import {  useAppDispatch, useAppSelector } from "../../app/hooks";
 
 import {
   User_Register_State,

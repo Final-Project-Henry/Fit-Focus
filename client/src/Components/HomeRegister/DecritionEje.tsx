@@ -53,10 +53,7 @@ console.log(addFav)
             src={descripcionEjersicio?.video}
           />
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit rem
-            natus illo quidem architecto tenetur omnis, explicabo excepturi
-            exercitationem a expedita sequi laboriosam debitis libero cum
-            aliquid quam repellat! Consequatur.{" "}
+              {descripcionEjersicio?.description}
           </p>
         </div>
         <div

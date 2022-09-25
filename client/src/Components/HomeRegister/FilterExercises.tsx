@@ -81,7 +81,7 @@ console.log("entro")
     setFiltrado( exercises.filter(e => e.premium === true))
   };
 
-
+console.log(filtrado)
   return (
     <>
       <div>
