@@ -7,25 +7,26 @@ import spanish from "../../Components/assets/icons/spanish.png";
 import english from "../../Components/assets/icons/english.png";
 
 import { Link as Scroll } from "react-scroll";
-import { useAppDispatch, useSesion } from "../../app/hooks";
+import { useAppDispatch, useAppSelector, useSesion } from "../../app/hooks";
 import "./styles/Navbar.css";
-import { sigendOut } from "../../features/counter/counterSlice";
+import { selectUser, sigendOut } from "../../features/counter/counterSlice";
 import Swal from "sweetalert2";
 
 const NavbarHome = () => {
   const [dropdown, setDropdown] = useState<boolean>(false);
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [lenguage, setLenguage] = useState(false);
-  const [user, setUser] = useState(false);
+  const [userData, setUser] = useState(false);
 
   const dispatch = useAppDispatch();
-  const userData = useSesion();
+  const {user} = useAppSelector( selectUser )
+
   const Navegation=  useNavigate()
   useEffect(() => {
-    if (userData) {
+    if (user) {
       setUser(true);
     }
-  }, [userData]);
+  }, [user]);
 
   function signOut(): void {
     Swal.fire({
@@ -128,9 +129,9 @@ const NavbarHome = () => {
                   <span className="sr-only">Open user menu</span>
                   <img
                     className="w-10 h-10 rounded-full ml-4"
-                    src={defaultPhoto}
+                    src={user?.avatar}
                     onClick={() => setDropdown(!dropdown)}
-                    alt="userphoto"
+                    alt=""
                   />
                 </div>
             
@@ -152,10 +153,10 @@ const NavbarHome = () => {
               >
                 <div className="py-3 px-4">
                   <span className="block text-sm text-gray-900 ">
-                    {userData.name}
+                    {user?.name}
                   </span>
                   <span className="block text-sm font-medium text-gray-500 truncate ">
-                    {userData.email}
+                    {user?.email}
                   </span>
                 </div>
                 <ul className="py-1" aria-labelledby="user-menu-button">
