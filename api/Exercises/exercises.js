@@ -17,7 +17,7 @@ const exercises = [
      "genre": "both",
      "video": "https://c.tenor.com/W_cGMvJdlWQAAAAC/widegrip-pushups.gif",
      "premium": false,
-     "description":"Arrodíllate en el suelo. Extiende los brazos y separa las manos a la anchura de los hombros en el suelo frente a ti. Apriete los abdominales mientras dobla los brazos, bajando el torso hasta que el pecho roce el suelo. Empuje el torso hacia arriba enderezando los brazos. Lento y constante, bebé. Enjuague y repita."
+     "description":"Arrodíllate en el suelo. Extiende los brazos y separa las manos a la anchura de los hombros en el suelo frente a ti. Apriete los abdominales mientras dobla los brazos, bajando el torso hasta que el pecho roce el suelo. Empuje el torso hacia arriba enderezando los brazos. Lento, constante y repita."
         
     },
     {
