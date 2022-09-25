@@ -17,6 +17,8 @@ import Profile from "./Components/Profile/Profile";
 import MercadoFeedback from "./Components/MercadoPago/MercadoFeedback";
 import HomeVisitor_2 from "./Components/HomeVisitor/HomeVisitor2";
 import ScrollButton from "./Components/ScrollUp/ScrollButton";
+import News from "./Components/HomeRegister/News/News";
+import NewsBlog from "./Components/HomeRegister/News/NewsBlog";
 import DecriptionEjer from "./Components/HomeRegister/DecritionEje";
 import Loading from "./Components/loading/Loading";
 
@@ -42,6 +44,8 @@ function App() {
           <Route path="mercadopago" element={<MercadoPago />} />
           <Route path="mercadopago/:payment_id" element={<MercadoFeedback />} />
           <Route path="/home2" element={<HomeVisitor />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/newsBlog/:id" element={<NewsBlog />}/>
           <Route path="loading" element ={<Loading />} />
         </Routes>
       </React.Fragment>
