@@ -1,10 +1,13 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8vh;
+}
+
 .img {
-    background-image: url('../assets/icons/error.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 40vw;
-    height: 50vh;
-    margin-left: 10vw;
+    width: 15vw;
+    height: 20vh;
 }
 
 .btn {
@@ -17,4 +20,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.bad {
+    width: 40vw;
+    height: 30vw;
+    margin-left: 5vw;
+}
+
+.error {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.text {
+    font-size: 1.2rem;
 }

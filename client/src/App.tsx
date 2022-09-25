@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { useSesion } from "./app/hooks";
+import { useSesion, useToken } from "./app/hooks";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
 /* Componentes */
@@ -18,6 +18,7 @@ import MercadoFeedback from "./Components/MercadoPago/MercadoFeedback";
 import HomeVisitor_2 from "./Components/HomeVisitor/HomeVisitor2";
 import ScrollButton from "./Components/ScrollUp/ScrollButton";
 import DecriptionEjer from "./Components/HomeRegister/DecritionEje";
+import Loading from "./Components/loading/Loading";
 
 function App() {
   const user = useSesion();
@@ -41,6 +42,7 @@ function App() {
           <Route path="mercadopago" element={<MercadoPago />} />
           <Route path="mercadopago/:payment_id" element={<MercadoFeedback />} />
           <Route path="/home2" element={<HomeVisitor />} />
+          <Route path="loading" element ={<Loading />} />
         </Routes>
       </React.Fragment>
     </GoogleOAuthProvider>
