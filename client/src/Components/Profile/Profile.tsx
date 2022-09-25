@@ -124,10 +124,10 @@ const Profile = () => {
             );
             const res_1 = await res.json();
             console.log(res_1)
-            const data={prop:"avatar", value:res_1.secure_url}
+            const data={avatar:res_1.secure_url}
 
             dispatch(EditUser({token,data}))
-          
+
             setImagePreview(null)        
         return console.log(res_1); 
         } catch (err) {
@@ -139,7 +139,13 @@ const Profile = () => {
     useEffect(() => {
         if(state.status=="Info changed succesfully"){
             dispatch(getProfileInfo(token))
-
+            Swal.fire({
+                title: `Su foto de perfil fue actualizada `,
+                icon: "success",
+                showCancelButton: false,
+                confirmButtonColor: "#6c63ff",
+                confirmButtonText: "Aceptar",
+            })
         }
     },[state])
     useEffect(() => {

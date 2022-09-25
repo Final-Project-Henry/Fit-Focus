@@ -22,12 +22,6 @@ return(
               "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
           },
           {
-            src: video1,
-            text: "Hazte premium para obtener rutinas personalizadas",
-            stylesText:
-              "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
-          },
-          {
             src: "https://st4.depositphotos.com/3378831/41496/i/600/depositphotos_414960080-stock-photo-close-up-dumbbell-on-gym.jpg",
             text: "Hazte premium para obtener rutinas personalizadas",
             stylesText:
@@ -37,29 +31,29 @@ return(
         />
         </div>
         <div>
-        <h3 className="font-dark py-[5px] px-[20px] text-gray-700 text-3xl ">
-        Ejercicios
+        <h3 className="font-extrabold  py-[10px] px-[20px] dark:text-gray-50 text-3xl ">
+        EJERCICIOS
         </h3>
         <FilterExercises />
                   
         <footer className="p-4 mx-40   rounded-lg md:flex md:items-center md:justify-between md:p-6 ">
-              <span className="text-sm text-gray-800 sm:text-center ">
+              <span className="text-sm dark:text-gray-100 sm:text-center ">
                 © 2022 <span className="hover:underline">Fit Focus™</span>. All
                 Rights Reserved.
               </span>
-              <ul className="flex flex-wrap items-center mt-3 text-sm text-gray-800 sm:mt-0">
+              <ul className="flex flex-wrap items-center mt-3 text-sm dark:text-gray-800 sm:mt-0">
                 <li>
-                  <Link to="/about" className="mr-4 hover:underline md:mr-6 ">
+                  <Link to="/about" className="mr-4 hover:underline md:mr-6 dark:text-white ">
                     Nosotros
                   </Link>
                 </li>
                 <li>
-                  <a href="#" className="mr-4 hover:underline md:mr-6">
+                  <a href="#" className="mr-4 dark:text-white hover:underline md:mr-6">
                     Política de Privacidad
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline">
+                  <a href="#" className="hover:underline dark:text-white">
                     Contact
                   </a>
                 </li>

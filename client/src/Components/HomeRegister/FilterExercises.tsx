@@ -86,7 +86,7 @@ console.log("entro")
     <>
       <div>
         <select
-          className="cursor-pointer rounded-xl m-5  text-sm text-back font-normal leading-loose border-none outline-none py-0 shadow-md"
+          className="cursor-pointer rounded-xl m-5 text-white bg-gray-800  text-sm text-back font-normal leading-loose border-none outline-none py-0 "
           onChange={(e)=>handleSelectGenre(e)}
         >
 
@@ -105,7 +105,7 @@ console.log("entro")
         </select>
 
         <select
-          className=" cursor-pointer rounded-xl text-sm text-back font-normal leading-loose border-none py-0 outline-none shadow-md"
+          className=" cursor-pointer rounded-xl text-sm text-back text-white bg-gray-800 font-normal leading-loose border-none py-0 outline-none "
           onChange={(e)=>handleSelectMuscle(e)}
         >
           {selected.muscle !== "none" ? (
@@ -124,7 +124,7 @@ console.log("entro")
         </select>
 
         <select
-          className="cursor-pointer m-5 py-0 rounded-xl  text-sm text-back font-normal leading-loose  border-none outline-none  shadow-md"
+          className="cursor-pointer m-5 py-0 rounded-xl  text-sm text-back font-normal leading-loose text-white bg-gray-800 border-none outline-none "
           onChange={handleSelectDifficulty}
         >
           {selected.difficulty !== "none" ? (
@@ -146,7 +146,7 @@ console.log("entro")
             Hard
           </option>
         </select>
-        <button className="  py-1 px-3 text-sm text-back font-normal leading-loose text-black bg-white duration-150 rounded-lg shadow-md hover:bg-blue-200" onClick={handleSelectPremiun}>
+        <button className="  py-1 px-3 text-sm text-back font-normal leading-loose text-white bg-gray-800 duration-150 rounded-lg hover:bg-blue-200" onClick={handleSelectPremiun}>
           premiun
         </button>
       </div>
@@ -156,7 +156,7 @@ console.log("entro")
             ({_id, video, name, difficulty, muscles, genre, premium }) => {
               return (
                 <>
-                  <Link key={_id} to={(premium&&user?.plan=="normal")?`/mercadopago`:`/ejercicio/${_id}`} className={`max-w-xl flex flex-col bg-white rounded-lg shadow-md duration-150 cursor-pointer scale-90 hover:scale-95  hover:outline hover:outline-offset-1 ${
+                  <Link key={_id} to={(premium&&user?.plan=="normal")?`/mercadopago`:`/ejercicio/${_id}`} className={`max-w-xl flex flex-col bg-white dark:bg-black rounded-lg shadow-md duration-150 cursor-pointer scale-90 hover:scale-95  hover:outline hover:outline-offset-1 ${
                       premium
                         ? "outline-blue-400"
                         : difficulty == "easy"
@@ -191,7 +191,7 @@ console.log("entro")
                       <img className="rounded-t-lg" src={(premium&&user?.plan=="normal")?notPremiunImg2:video} alt="" />
                     </div>
                     <div className={`${(premium&&user?.plan=="normal")? "blur-[5px]" : "blur-0"}`}>
-                      <h5 className="p-2 text-2xl font-bold tracking-tight text-gray-900">
+                      <h5 className="p-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         {name}
                       </h5>
                     </div>
@@ -206,19 +206,19 @@ console.log("entro")
                             : difficulty == "medium"
                             ? "bg-yellow-200"
                             : "bg-red-200"
-                        } rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
+                        } rounded-full px-3 py-1 text-sm font-semibold text-gray-700 dark:text-white mr-2 mb-2`}
                       >
                         {difficulty}
                       </span>
                       <span
-                        className={`inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
+                        className={`inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold  text-gray-700 dark:text-white mr-2 mb-2`}
                       >
                         {muscles}
                       </span>
                       <span
                         className={`inline-block ${
                           genre === "man" ? "bg-blue-400" : "bg-pink-300"
-                        } rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
+                        } rounded-full px-3 py-1 text-sm font-semibold text-gray-700  mr-2 mb-2`}
                       >
                         {genre}
                       </span>

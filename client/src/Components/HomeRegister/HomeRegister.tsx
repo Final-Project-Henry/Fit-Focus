@@ -69,10 +69,10 @@ const HomeRegister = () => {
   return (
     <>
       <NavbarHome />
-      <div className="grid grid-cols-1 sm:grid-cols-11 gap-4 bg-slate-100  shadow-lg">
+      <div className="grid grid-cols-1 sm:grid-cols-11 gap-4 bg-gray-900  dark:bg-gray-900  shadow-lg">
         {/* menu */}
-        <div className="col-span-2  bg-white min-h-screen">
-          <div className="p-5 top-0 fixed w-[17%]  z-20  bg-white  h-screen">
+        <div className="col-span-2  dark:bg-gray-800 min-h-screen">
+          <div className="p-5 top-0 fixed w-[17%]  z-20  dark:bg-gray-800  h-screen">
             <div className=" flex justify-center">
               <img src={iconDrak} className="w-[50%]" alt="icon" />
             </div>

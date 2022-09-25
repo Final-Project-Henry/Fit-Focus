@@ -197,7 +197,7 @@ const Navbar = () => {
                     className="w-10 h-10 rounded-full ml-4"
                     src={user?.avatar}
                     onClick={() => setDropdown(!dropdown)}
-                    alt="userphoto"
+                    alt=""
                   />
                 </div>
               ) : (
@@ -236,10 +236,10 @@ const Navbar = () => {
               >
            <div className="py-3 px-4">
                   <span className="block text-sm text-gray-900 ">
-                    {user.name}
+                    {user?.name}
                   </span>
                   <span className="block text-sm font-medium text-gray-500 truncate ">
-                    {user.email}
+                    {user?.email}
                   </span>
                 </div>
                 <ul className="py-1" aria-labelledby="user-menu-button">

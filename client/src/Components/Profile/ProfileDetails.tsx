@@ -1,3 +1,4 @@
+import axios from "axios"
 import React, { useEffect, useState } from "react"
 import ContentEditable from 'react-contenteditable'
 import { useNavigate } from "react-router-dom"
@@ -23,6 +24,10 @@ const token = useToken()
         name: name,
         email: email,
     })
+    // const[infoBeforeChange, setInfoBeforeChange] = useState<Props>({
+      /*   name: name,
+        email: email
+    }) */
 
     const handleChange = (e: any) => {
         const {target, currentTarget}:any = e
@@ -36,7 +41,7 @@ const token = useToken()
         currentTarget.id === "email" && errorEmail && setErrorEmail(false)
     }
 
-    const handleClick = ({ target }: any) => {
+    const handleClick = async ({ target }: any) => {
 
         if (target.id === "cancel") {
             setEditable(false)
@@ -47,9 +52,10 @@ const token = useToken()
         if (target.id === "save" && infoUser.name.length < 3) return setErrorName(true)
 
         if (target.id === "save" && infoUser.email.match(regularExpressionEmail)) {
-            console.log(infoUser)
-           
-            dispatch(EditUser({token,infoUser}))
+       
+            let data={token,data:infoUser}
+            dispatch(EditUser(data))
+        
             setEditable(false)
         }
         else setErrorEmail(true)

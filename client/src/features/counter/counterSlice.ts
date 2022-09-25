@@ -77,14 +77,15 @@ export const EditUser = createAsyncThunk(
       };
 
       let reqOptions = {
-        url: `http://localhost:3001/auth/changeinfo?prop=${data.prop}&value=${data.value}`,
+        url: `http://localhost:3001/auth/changeinfo`,
         method: "PUT",
         headers: headersList,
+        data:data
       };
 
       let response = await axios.request(reqOptions);
       const resp = response.data;
-      console.log(resp);
+
       thunkAPI.dispatch(status(response.data));
       return resp;
     } catch (error: any) {

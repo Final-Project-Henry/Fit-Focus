@@ -63,21 +63,28 @@ router.get('/getroutine', async (req, res) => {
 });
 
 router.put('/changeinfo', async (req, res) => {
+
+
+  const {id} = req.user
+  const {prop, value} = req.query
+  const {name, email, avatar} = req.body
  try {
-    const {id} = req.user
-    const {prop, value} = req.query
-    console.log(prop, value)
+
+        let modification = {};
+        if (name) modification = {...modification, name};
+        if (email) modification = {...modification, email}
+        if (avatar) modification = {...modification, avatar}
+
+
     if(prop === 'password'){
       const hashPassword = await bcrypt.hash(value, 10);
       await user.updateOne({_id : id}, {
         [prop] : hashPassword 
       });
-    } else {
-      await user.updateOne({_id : id}, {
-        [prop] : value
-      })
     }
-    res.status(200).send('Info changed succesfully')
+    else await user.updateMany({_id : id}, modification )
+
+    res.status(200).send("Info changed succesfully")
   } catch (error) {
     res.status(500).send(error.message)
   }
@@ -118,7 +125,6 @@ router.put('/addfav', async (req, res) => {
 router.get('/profile', async (req, res) => {
   const {id} = req.user
   const User = await user.findOne({_id : id});
-  console.log(User)
   res.status(200).send(User)
 });
 

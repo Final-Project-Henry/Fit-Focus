@@ -72,8 +72,8 @@ function Calculadora() {
 
   return (
 
-    <div className="app">
-      <div className="area-input">
+    <div className="app dark:bg-gray-700">
+      <div className="area-input ">
         <h1 className='title'>Calculadora de IMC </h1>
         <span className='text'>Vamos a calcular tu indice de masa corporal </span>
 
