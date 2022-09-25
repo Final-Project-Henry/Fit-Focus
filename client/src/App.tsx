@@ -38,6 +38,7 @@ function App() {
           <Route path="auth/google" element={<GoogleAuth />} />
           <Route path="/home2" element={<HomeVisitor />} />
           <Route path="loading" element={<Loading />} />
+          <Route path="mercadopago" element={<MercadoPago />} />
 
           {/* Rutas privadas */}
           <Route element={<ProtectedRoute user={user} />}>
@@ -45,7 +46,6 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/ejercicio/:id" element={<DecriptionEjer />} />
             <Route path="/rutinas" element={<Form_rutinas />} />
-            <Route path="mercadopago" element={<MercadoPago />} />
             <Route
               path="mercadopago/:payment_id"
               element={<MercadoFeedback />}

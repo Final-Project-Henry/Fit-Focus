@@ -7,27 +7,27 @@ import spanish from "../../Components/assets/icons/spanish.png";
 import english from "../../Components/assets/icons/english.png";
 
 import { Link as Scroll } from "react-scroll";
-import { useAppDispatch, useSesion } from "../../app/hooks";
+import { useAppDispatch, useAppSelector, useSesion } from "../../app/hooks";
 import "./styles/Navbar.css";
-import { sigendOut } from "../../features/counter/counterSlice";
+import { sigendOut, selectUser } from "../../features/counter/counterSlice";
 import Swal from "sweetalert2";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState<boolean>(false);
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [lenguage, setLenguage] = useState(false);
-  const [user, setUser] = useState(false);
+  const [userData, setUser] = useState(false);
 
   const dispatch = useAppDispatch();
-  const userData = useSesion();
- const Navegation=  useNavigate()
+  const {user} = useAppSelector( selectUser )
+ const Navegation=  useNavigate()  
 
 
   useEffect(() => {
-    if (userData) {
+    if (user) {
       setUser(true);
     }
-  }, [userData]);
+  }, [user]);
 
   function signOut(): void {
     Swal.fire({
@@ -52,7 +52,7 @@ const Navbar = () => {
   return (
 
     <div style={{backgroundColor:"white"}}>
-      <nav className=" border-gray-200 px-2 sm:px-4  bg-transparent  w-full border-b-4">
+      <nav className="fixed z-50 border-gray-200 px-2 sm:px-4  bg-white  w-full border-b-4">
         <div className="container-fluid w-full flex flex-wrap items-center justify-between px-8 p-4">
           <div className="flex items-center">
             <img
@@ -94,7 +94,7 @@ const Navbar = () => {
               <ul className="flex flex-col p-4 mt-4 ml-4 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
                 <li>
                   <Link
-                    to={user?`/fitFocus/home`:`/home`}
+                    to={userData?`/fitFocus/home`:`/home`}
                     className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent md:p-0 "
                     aria-current="page"
                   >
@@ -102,7 +102,7 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  {!user ? (
+                  {!userData ? (
                     <Scroll
                       spy={true}
                       smooth={true}
@@ -190,14 +190,14 @@ const Navbar = () => {
               data-dropdown-toggle="user-dropdown"
               data-dropdown-placement="bottom"
             >
-              {user ? (
+              {userData ? (
                 <div>
                   <span className="sr-only">Open user menu</span>
                   <img
                     className="w-10 h-10 rounded-full ml-4"
-                    src={defaultPhoto}
+                    src={user?.avatar}
                     onClick={() => setDropdown(!dropdown)}
-                    alt="userphoto"
+                    alt=""
                   />
                 </div>
               ) : (
@@ -236,10 +236,10 @@ const Navbar = () => {
               >
            <div className="py-3 px-4">
                   <span className="block text-sm text-gray-900 ">
-                    {userData.name}
+                    {user?.name}
                   </span>
                   <span className="block text-sm font-medium text-gray-500 truncate ">
-                    {userData.email}
+                    {user?.email}
                   </span>
                 </div>
                 <ul className="py-1" aria-labelledby="user-menu-button">

@@ -14,4 +14,14 @@ export default {
         }
         return result;
     },
+    get_exercises: (data:Array<any>) => {
+        const result = [];
+        let random;
+        for (let i = 1; i < 5; i++) {
+          random  = Math.round(Math.random()*(data.length - 1));
+          result.push(data[random]);
+        }
+        return result;
+      },
+
 }

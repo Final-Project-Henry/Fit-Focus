@@ -65,6 +65,37 @@ export const Rutines_Get = createAsyncThunk(
   }
 );
 
+export const EditUser = createAsyncThunk(
+  "user/Edit",
+  async ({token,data}:any, thunkAPI) => {
+
+    try {
+      let headersList = {
+        Accept: "/",
+        Authorization: "Bearer " + token,
+        "Content-Type": "application/json",
+      };
+
+      let reqOptions = {
+        url: `http://localhost:3001/auth/changeinfo`,
+        method: "PUT",
+        headers: headersList,
+        data:data
+      };
+
+      let response = await axios.request(reqOptions);
+      const resp = response.data;
+
+      thunkAPI.dispatch(status(response.data));
+      return resp;
+    } catch (error: any) {
+      thunkAPI.dispatch(status(error.response.data));
+      thunkAPI.rejectWithValue(error);
+      return;
+    }
+  }
+);
+
 export const Exercises_Get = createAsyncThunk(
   "user/exercices",
   async (_, thunkAPI) => {
@@ -222,6 +253,7 @@ export const auth_Login_Google = createAsyncThunk(
 export const authGoogle = createAsyncThunk(
   "user/auth_google",
   async (code: { code: String }, thunkAPI) => {
+    console.log(code);
     try {
       const response = await axios.post(
         "http://localhost:3001/authGoogle",
