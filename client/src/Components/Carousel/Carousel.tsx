@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { ReactComponent as ArrowLeft } from "../assets/homeRegister-media/iconmonstr-angel-left-thin.svg";
 import { ReactComponent as ArrowRight } from "../assets/homeRegister-media/iconmonstr-angel-right-thin.svg";
 
@@ -122,41 +123,48 @@ const Carousel: React.FC<Props> = ({
   }, [autoplay, interval, next, intervalSlides, buttons]);
 
   return (
-    <div className="w-2/4 max-h-[750px] flex content-center overflow-hidden ">
-      <div className="relative flex content-center">
-        <div
-          className="flex flex-nowrap max-h-full items-center content-center"
-          ref={slideshow}
-        >
-          {content.map(
-            ({ src, text, stylesContent, stylesImage, stylesText }) => {
-              return (
-                <div
-                  className={`min-w-full max-h-[750px] object-cover object-center ease-linear duration-300 z-10 relative rounded-md ${stylesContent}`}
-                >
-                  {src.slice(-3) === "mp4" ? (
-                    <video src={src} autoPlay loop muted />
-                  ) : (
-                    <img
-                      src={src}
-                      className={`w-full aling-top bg-cover ${stylesImage}`}
-                      alt="Img to slide"
-                    />
-                  )}
-                  {text && (
-                    <p
-                      className={`bg-black sm:bg-white sm:opacity-30 relative sm:absolute text-white sm:text-black w-full py-3 px-16 text-center bottom-0 ${stylesText}`}
-                    >
-                      {text}
+    <div className="w-[98%] mx-auto max-h-[400px] flex justify-center content-center overflow-hidden rounded-xl ">
+    <div className="relative flex z-[1] content-center">
+      <div
+        className="flex flex-nowrap max-h-full items-center content-center"
+        ref={slideshow}
+      >
+        {content.map(
+          ({ src, text, stylesContent, stylesImage, stylesText }) => {
+            
+            return (
+              <div
+                className={` min-w-full  ease-linear duration-300  flex items-center  rounded-2xl ${stylesContent}`}
+              >
+                {text && (
+                  <div
+                    className="absolute bg-[#111828c4] flex flex-col  w-full py-60 px-10 text-white z-10"
+                  >
+                    <p className="font-extrabold  py-5 w-[50%] text-[2rem]">
+                    {text}
                     </p>
-                  )}
-                </div>
-              );
-            }
-          )}
-        </div>
+                  <Link to="/mercadopago" className="inline-flex items-center py-2 px-[2rem] w-40 text-2xl font-black text-center text-white bg-[#004cff] duration-150 rounded-lg hover:bg-blue-800">
+                    Premium
+                  </Link>
+                  </div>
+                )}
+                {src.slice(-3) === "mp4" ? (
+                  <video src={src} autoPlay loop muted />
+                ) : (
+                  <img
+                    src={src}
+                    className={`w-full aling-top bg-cover ${stylesImage}`}
+                    alt="Img to slide"
+                  />
+                  
+                )}
+              </div>
+            );
+          }
+        )}
       </div>
     </div>
+  </div>
   );
 };
 

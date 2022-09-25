@@ -84,7 +84,7 @@ console.log("entro")
 console.log(filtrado)
   return (
     <>
-      <div>
+      <div className="bg-[#111828] rounded-xl relative left-[10px]">
         <select
           className="cursor-pointer rounded-xl m-5  text-sm text-back font-normal leading-loose border-none outline-none py-0 shadow-md"
           onChange={(e)=>handleSelectGenre(e)}

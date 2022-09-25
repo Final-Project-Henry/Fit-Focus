@@ -70,7 +70,7 @@ const HomeRegister = () => {
   return (
     <>
       <Navbar />
-      <div className="grid grid-cols-1 sm:grid-cols-11 gap-4 bg-slate-100  shadow-lg">
+      <div className=" bg-slate-100  shadow-lg">
         <div className="w-full col-span-9  min-h-screen ">
           <div className="min-w-[100%]  my-5  min-h-[250px] ">
 
