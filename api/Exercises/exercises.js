@@ -116,6 +116,7 @@ const exercises = [
      "genre": "both",
      "video": "https://c.tenor.com/NYyx3iSx_gwAAAAd/home-workouts-exercise.gif",
      "premium": false,
+     "description":"Ponte en una posición de tablón, asegurándote de distribuir tu peso uniformemente entre las manos y los dedos de los pies. Revise su forma: sus manos deben estar separadas aproximadamente del ancho de los hombros, la espalda plana, los abdominales comprometidos y la cabeza alineada. Tira de la rodilla derecha hacia el pecho hasta donde puedas. Cambia de piernas, sacando una rodilla y metiendo la otra rodilla."
        
     },
     {
@@ -126,6 +127,7 @@ const exercises = [
      "genre": "both",
      "video": "https://c.tenor.com/meIUZZ_2oZMAAAAC/lunge-jump.gif",
      "premium": false,
+     "description":"Párese con los pies separados a la anchura de los hombros, con el núcleo comprometido. Da un gran paso adelante con la pierna derecha. Mantén los brazos a tu lado. Mueva su peso hacia adelante con esta pierna, para que su talón toque primero el piso. Luego baje el cuerpo hasta que la pierna delantera esté paralela al suelo. Esta es la posición inferior. Salta hacia arriba, cambiando rápidamente la posición de tus pies mientras estás en el aire para que tu pierna derecha se mueva hacia atrás detrás de ti y tu pierna izquierda se adelante."
          
         
     },
@@ -137,6 +139,7 @@ const exercises = [
      "genre": "both",
      "video": "https://thumbs.gfycat.com/AbleFondChick-size_restricted.gif",
      "premium": true,
+     "description":"Párese alto con los pies separados por el ancho de la cadera. Involucra a tu núcleo. Da un gran paso adelante con la pierna derecha. Comience a mover su peso hacia adelante para que el talón golpee el piso primero. Baje su cuerpo hasta que el muslo derecho esté paralelo al piso y la espinilla derecha sea vertical. Está bien si la rodilla se desplaza un poco hacia adelante, siempre y cuando no pase del dedo del pie derecho. Si la movilidad lo permite, golpee ligeramente la rodilla izquierda contra el suelo mientras mantiene el peso en el talón derecho. Presione en el talón derecho para volver a la posición inicial."
           
     },
     {
@@ -147,6 +150,7 @@ const exercises = [
      "genre": "both",
      "video": "https://cdn2.actitudfem.com/media/files/media/files/wall-sit.gif",
      "premium": false,
+     "description":"Comience con la espalda contra una pared con los pies al ancho de los hombros y a unos 2 pies de la pared. Involucra los músculos abdominales y desliza lentamente la espalda por la pared hasta que los muslos estén paralelos al suelo. Ajuste los pies para que las rodillas estén directamente por encima de los tobillos (en lugar de sobre los dedos de los pies). Deslice lentamente hacia arriba de la pared hasta una posición de pie."
           
     },
     {
@@ -157,6 +161,7 @@ const exercises = [
      "genre": "both",
      "video": "https://c.tenor.com/vFqz6XYPKPIAAAAC/abdominal-supra-abdominal.gif",
      "premium": false,
+     "description":"Acuéstese boca arriba con las rodillas dobladas y los pies anclados.Meta la barbilla en el pecho para alargar la parte posterior del cuello.Entrelaza los dedos en la base del cráneo, cruza los brazos con las manos sobre hombros opuestos o coloca las palmas de las manos junto al cuerpo.Exhala mientras levantas la parte superior del cuerpo hacia los muslos. Inhala mientras te bajas lentamente hacia el suelo."
         
     },
     {
@@ -167,6 +172,7 @@ const exercises = [
      "genre": "both",
      "video": "https://c.tenor.com/8rrpHAyXEdMAAAAd/home-workouts-exercise.gif",
      "premium": true,
+     "description":"Dobla lentamente las rodillas y levántalas hacia el pecho mientras exhalas. El movimiento debe ser controlado y deliberado a medida que levanta las rodillas hasta que los muslos estén paralelos al suelo. Continúe levantando las rodillas lo más alto que pueda sin redondear la parte superior de la espalda del respaldo y mirar hacia abajo."
          
     },
     {
@@ -177,6 +183,7 @@ const exercises = [
      "genre": "both",
      "video": "https://c.tenor.com/e-BbzN3OQZIAAAAd/burpees-with-pushups-home-workouts.gif",
      "premium": true,
+     "description":"Comience en una posTan pronto como aterrices con las rodillas dobladas, ponte en cuclillas y haz otra repetición."
           
     },
     {
@@ -187,6 +194,7 @@ const exercises = [
      "genre": "both",
      "video": "https://c.tenor.com/U1FRIHCpWP0AAAAd/up-and-down-planks-home-workouts.gif",
      "premium": true,
+     "description":"Mantenga las palmas de las manos planas en el suelo, con los brazos rectos. Piensa en mantener las manos debajo de los hombros. Sujete su núcleo mientras deja caer el codo izquierdo hacia el suelo, seguido de su derecho. Todavía debe estar en una posición de tabla, con su peso en los codos. Haga una pausa aquí, luego presione la palma de la mano izquierda en el piso y vuelva a subir a una posición de tablón alto"
          
     },
     {
@@ -197,6 +205,7 @@ const exercises = [
      "genre": "both",
      "video": "https://c.tenor.com/Ww5Ytjlx4QwAAAAC/prancha-treino-mestre.gif",
      "premium": false,
+     "description":"Mantenga su torso recto y rígido y su cuerpo en línea recta desde las orejas hasta los dedos de los pies sin flacidez ni flexión. Esta es la posición neutral de la columna vertebral. Asegúrese de que sus hombros estén hacia abajo, no arrastrándose hacia sus oídos. Tus talones deben estar sobre las bolas de tus pies."
         
     },
     {
@@ -207,6 +216,7 @@ const exercises = [
      "genre": "both",
      "video": "https://media3.giphy.com/media/2UqZvQq4p9DjTBDVRc/giphy.gif",
      "premium": true,
+     "description":"Comience en posición de tabla con los brazos extendidos y las manos debajo de los hombros, los pies juntos. Su cuerpo debe estar en línea recta desde la cabeza hasta los talones.Salta ambos pies hacia cada lado como si estuvieras haciendo un salto horizontal. Manténgase en posición de tablón mientras salta rápidamente los pies de nuevo juntos. Continúe saltando hacia adentro y hacia afuera. Mantén la espalda plana y no dejes que las caderas caigan durante todo el movimiento. Sus brazos deben permanecer estables."
           
     },
     {
