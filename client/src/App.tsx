@@ -21,6 +21,7 @@ import News from "./Components/HomeRegister/News/News";
 import NewsBlog from "./Components/HomeRegister/News/NewsBlog";
 import DecriptionEjer from "./Components/HomeRegister/DecritionEje";
 import Loading from "./Components/loading/Loading";
+import Ejercicios from "./Components/HomeRegister/Ejercicios";
 
 function App() {
   const user = useSesion();
@@ -33,11 +34,12 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/auth/:id" element={<SingUp_Login />} />
           {user ? (
-              <Route path="/fitFocus/:id" element={<HomeRegister />} />
+              <Route path="/fitFocus" element={<HomeRegister />} />
           ) : (
             <Route path="/home" element={<HomeVisitor_2 />} />
           )}
           <Route path="/rutinas" element={<Form_rutinas />} />
+          <Route path="/ejercicios" element={<Ejercicios />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/ejercicio/:id" element={<DecriptionEjer />} />
           <Route path="auth/google" element={<GoogleAuth />} />
