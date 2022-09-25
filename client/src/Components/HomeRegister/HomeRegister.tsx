@@ -102,7 +102,7 @@ const HomeRegister = () => {
             </h1>
             <button className="text-xl font-dark decoration-slice text-red-900 w-80 h-10 shadow-soft-2xl mr-2 flex p-[20px] items-center justify-center  
                                bg-center stroke-0 text-center xl:p-2.5 shadow-soft-xl bg-white font-semibold hover:scale-110 duration-50 mt-[4px]">
-              <Link to="/fitFocus/ejercicios" className="px-3 py-1 ">
+              <Link to="/ejercicios" className="px-3 py-1 ">
                 Ver todos{""}
               </Link>
             </button>

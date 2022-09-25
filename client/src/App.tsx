@@ -22,6 +22,7 @@ import NewsBlog from "./Components/HomeRegister/News/NewsBlog";
 import DecriptionEjer from "./Components/HomeRegister/DecritionEje";
 import Loading from "./Components/loading/Loading";
 import ProtectedRoute from "./routes/ProtectedRoute";
+import Ejercicios from "./Components/HomeRegister/Ejercicios";
 
 function App() {
   const user = useSesion();
@@ -42,9 +43,10 @@ function App() {
 
           {/* Rutas privadas */}
           <Route element={<ProtectedRoute user={user} />}>
-            <Route path="/fitFocus/:id" element={<HomeRegister />} />
+            <Route path="/fitFocus" element={<HomeRegister />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/ejercicio/:id" element={<DecriptionEjer />} />
+            <Route path="/ejercicios" element={<Ejercicios />} />
             <Route path="/rutinas" element={<Form_rutinas />} />
             <Route
               path="mercadopago/:payment_id"
