@@ -28,40 +28,55 @@ interface selectData {
     muscle: string|boolean,
     difficulty: string|boolean,
 }
+let num  = 8
+let nuevoArray : Array<ejerciciosData> = []
 export default function FilterExercises() {
 
   const { exercises ,user} = useAppSelector(selectUser);
   const [filtrado, setFiltrado] = useState<Array<ejerciciosData>| [] >([]);
+
   const [selected, setSelected] = useState<selectData>({
     genre: "none",
     muscle: "none",
     difficulty: "none",
   });
 
+  const sumaDeAOcho= ()=>{
+    num = num + 8
+    //filtrado = 8
+
+    let ochoFiltrados2 = nuevoArray.slice(0,num)
+    setFiltrado(ochoFiltrados2)
+  }
+
   useEffect(() => {
-    setFiltrado([...exercises]);
+    const ochoFiltrados2 = exercises.slice(0,8)
+    setFiltrado(ochoFiltrados2);
+    nuevoArray=exercises
   }, [exercises]);
 
   useEffect(() => {
-      setFiltrado( exercises.filter(e => {
-        let {muscle, genre, difficulty} =  selected;
-       muscle =false
-       genre =false
-       difficulty =false
+    let filt= exercises.filter(e => {
+      let {muscle, genre, difficulty} =  selected;
+     muscle =false
+     genre =false
+     difficulty =false
 
-        if(selected.muscle === "none" ) muscle = true
+      if(selected.muscle === "none" ) muscle = true
 
-        else muscle = selected.muscle === e.muscles
-  
-        if(selected.genre === "none" ) genre = true
-        else genre = selected.genre === e.genre
-  
-        if(selected.difficulty === "none" ) difficulty = true
-        else difficulty = selected.difficulty === e.difficulty
-  
-        return genre && muscle && difficulty
-      }))
+      else muscle = selected.muscle === e.muscles
 
+      if(selected.genre === "none" ) genre = true
+      else genre = selected.genre === e.genre
+
+      if(selected.difficulty === "none" ) difficulty = true
+      else difficulty = selected.difficulty === e.difficulty
+
+      return genre && muscle && difficulty
+    })
+    nuevoArray=filt
+    const ochoFiltrados2 = filt.slice(0,8)
+    setFiltrado( ochoFiltrados2)
   }, [selected]);
 
   /* handleSelecteds */
@@ -81,10 +96,9 @@ console.log("entro")
     setFiltrado( exercises.filter(e => e.premium === true))
   };
 
-
   return (
     <>
-      <div>
+      <div className="bg-white">
         <select
           className="cursor-pointer rounded-xl m-5  text-sm text-back font-normal leading-loose border-none outline-none py-0 shadow-md"
           onChange={(e)=>handleSelectGenre(e)}
@@ -147,11 +161,13 @@ console.log("entro")
           </option>
         </select>
         <button className="  py-1 px-3 text-sm text-back font-normal leading-loose text-black bg-white duration-150 rounded-lg shadow-md hover:bg-blue-200" onClick={handleSelectPremiun}>
-          premiun
+          Premium
         </button>
+
+     
       </div>
       <div>
-        <section className="grid grid-cols-3">
+        <section className="grid grid-cols-4">
           {filtrado?.map(
             ({_id, video, name, difficulty, muscles, genre, premium }) => {
               return (
@@ -247,11 +263,17 @@ console.log("entro")
                       </Link>
                     </div>
                   </Link>
+
                 </>
               );
             }
           )}
         </section>
+        <div className="w-fill border flex">
+            <button onClick={sumaDeAOcho}>Ver Mas</button>
+        </div>
+
+
       </div>
     </>
   );
