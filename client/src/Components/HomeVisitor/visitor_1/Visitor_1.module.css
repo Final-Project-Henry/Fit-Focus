@@ -13,8 +13,8 @@
     background-image: url('../../assets/visitors/fondo_visitor_1-2.png');
     background-size: contain;
     background-repeat: no-repeat;
-    width: 65vw;
-    height: 85vh;
+    width: 55vw;
+    height: 75vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,7 +60,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 80vh;
+    height: 70vh;
 }
 
 .tittle_2 {
@@ -75,5 +75,5 @@
 }
 
 .comments {
-    margin-top: 20vh;
+    margin-top: 15vh;
 }
