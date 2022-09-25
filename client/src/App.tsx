@@ -21,6 +21,7 @@ import News from "./Components/HomeRegister/News/News";
 import NewsBlog from "./Components/HomeRegister/News/NewsBlog";
 import DecriptionEjer from "./Components/HomeRegister/DecritionEje";
 import Loading from "./Components/loading/Loading";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
   const user = useSesion();
@@ -30,23 +31,28 @@ function App() {
       <React.Fragment>
         <ScrollButton />
         <Routes>
+          {/* Rutas públicas */}
           <Route path="/" element={<LandingPage />} />
           <Route path="/auth/:id" element={<SingUp_Login />} />
-          {user ? (
-              <Route path="/fitFocus/:id" element={<HomeRegister />} />
-          ) : (
-            <Route path="/home" element={<HomeVisitor_2 />} />
-          )}
-          <Route path="/rutinas" element={<Form_rutinas />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/ejercicio/:id" element={<DecriptionEjer />} />
+          <Route path="/home" element={<HomeVisitor_2 />} />
           <Route path="auth/google" element={<GoogleAuth />} />
-          <Route path="mercadopago" element={<MercadoPago />} />
-          <Route path="mercadopago/:payment_id" element={<MercadoFeedback />} />
           <Route path="/home2" element={<HomeVisitor />} />
-          <Route path="/news" element={<News />} />
-          <Route path="/newsBlog/:id" element={<NewsBlog />}/>
-          <Route path="loading" element ={<Loading />} />
+          <Route path="loading" element={<Loading />} />
+
+          {/* Rutas privadas */}
+          <Route element={<ProtectedRoute user={user} />}>
+            <Route path="/fitFocus/:id" element={<HomeRegister />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/ejercicio/:id" element={<DecriptionEjer />} />
+            <Route path="/rutinas" element={<Form_rutinas />} />
+            <Route path="mercadopago" element={<MercadoPago />} />
+            <Route
+              path="mercadopago/:payment_id"
+              element={<MercadoFeedback />}
+            />
+            <Route path="/news" element={<News />} />
+            <Route path="/newsBlog/:id" element={<NewsBlog />} />
+          </Route>
         </Routes>
       </React.Fragment>
     </GoogleOAuthProvider>
