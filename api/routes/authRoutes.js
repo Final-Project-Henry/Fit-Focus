@@ -63,28 +63,21 @@ router.get('/getroutine', async (req, res) => {
 });
 
 router.put('/changeinfo', async (req, res) => {
-
-
   const {id} = req.user
-  const {prop, value} = req.query
-  const {name, email, avatar} = req.body
+ 
+  const {name, email, avatar,password} = req.body
  try {
 
         let modification = {};
         if (name) modification = {...modification, name};
         if (email) modification = {...modification, email}
         if (avatar) modification = {...modification, avatar}
+        if (avatar) modification = {...modification, password}
 
-
-    if(prop === 'password'){
-      const hashPassword = await bcrypt.hash(value, 10);
-      await user.updateOne({_id : id}, {
-        [prop] : hashPassword 
-      });
-    }
-    else await user.updateMany({_id : id}, modification )
+    await user.updateMany({_id : id}, modification )
 
     res.status(200).send("Info changed succesfully")
+
   } catch (error) {
     res.status(500).send(error.message)
   }
