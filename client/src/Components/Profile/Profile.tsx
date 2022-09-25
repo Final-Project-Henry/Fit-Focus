@@ -22,7 +22,7 @@ const Profile = () => {
 
     const [styles, setStyles] = useState({
         selected: "profile",
-        a: "shadow-soft-xl bg-white font-semibold text-slate-700",
+        a: "",
         div: "bg-gradient-fuchsia",
         path: "fill-slate-800"
     })

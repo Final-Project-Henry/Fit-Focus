@@ -52,7 +52,7 @@ const Navbar = () => {
   return (
 
     <div style={{backgroundColor:"white"}}>
-      <nav className=" border-gray-200 px-2 sm:px-4  bg-transparent  w-full border-b-4">
+      <nav className="fixed z-50 border-gray-200 px-2 sm:px-4  bg-white  w-full border-b-4">
         <div className="container-fluid w-full flex flex-wrap items-center justify-between px-8 p-4">
           <div className="flex items-center">
             <img

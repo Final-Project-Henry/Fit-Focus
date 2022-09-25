@@ -35,7 +35,7 @@ const Ejercicios = () => {
             },
           ]}
         />} */}
-        <img style={{width:'80vw', marginTop:'10vh'}} src="https://www.palco23.com/files/2020/18_recursos/fitness/dominada-728.jpg"></img>
+      
       </div>
       <div>
         <h3 className="font-dark py-[5px] px-[20px] text-gray-700 text-3xl ">
