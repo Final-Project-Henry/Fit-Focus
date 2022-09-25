@@ -1,18 +1,30 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useToken } from '../../app/hooks';
 import styles from './Error_page.module.css';
+import logo from '../assets/icons/nav-icon2.png';
+import bad from '../assets/icons/bad_request.png';
 
-export default function Error_page() {
-    const navigate = useNavigate();
+export default function Error_page(props:{error:string, numb_error: string}) {
+  const token = useToken();
+  const navigate = useNavigate();
 
-    const onClick=()=>{
-        navigate('/home');
-    }
+  const onClick = () => {
+    navigate(token?'/fitfocus/home':'/home');
+  }
   return (
-    <div style={{display:'flex', flexDirection:"column", gap:"50px", alignItems:'center', marginTop:"10vh"}}>
-        <h1 style={{color:"#111828", fontSize:"3.5rem", fontWeight:"500"}}>Ocurrio un error inesperado</h1>
-        <p className={styles.img}> </p>
-        <button className={styles.btn} onClick={onClick}>Regresar a home</button>
+    <div style={{ display: 'flex',gap: "50px", justifyContent:"center", alignItems: 'center', marginTop: "10vh" }}>
+      <div className={styles.container}>
+        <img className={styles.img} src={logo}></img>
+        <div className={styles.error}><p style={{fontSize:"2rem", fontWeight:"500"}}>{props.numb_error}.</p><p style={{paddingTop:"10px", fontSize:"1.2rem"}}> Ha ocurrido un problema.</p></div>
+        <div className={styles.text}>
+          <p>Su cliente no tiene permiso para acceder a esta URL.</p>
+          <p>Si el problema persiste, pongase en contacto con servicio tecnico.</p>
+          <p>Error: {props.error}</p>
+        </div>
+        <button className={styles.btn} onClick={onClick}>Ir a Home</button>
+      </div>
+      <img className={styles.bad} src={bad}></img>
     </div>
   )
 }

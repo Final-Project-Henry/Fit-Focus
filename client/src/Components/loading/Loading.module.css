@@ -1,0 +1,11 @@
+.animation {
+    width: 30vw;
+    height: 60vh;
+    margin-top: 10vh;
+}
+
+.text {
+    font-size: 1.5rem;
+    color: #111827;
+    font-weight: 500;
+}
