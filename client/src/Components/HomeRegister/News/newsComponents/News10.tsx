@@ -133,16 +133,6 @@ const News10 = () => {
                                         enfriamiento no funciona bien".
                                     </p>
                                     <p>
-                                        CONTENIDO RELACIONADO:
-                                        <a
-                                            target="_blank"
-                                            data-analytics-action-id="49ea28cc-dfed-4476-955d-be9838ddcc4f"
-                                            href="https://www.nike.com/us/es/a/beneficios-de-correr-en-la-manana"
-                                        >
-                                            Siete beneficios de correr por la mañana
-                                        </a>
-                                    </p>
-                                    <p>
                                         Si sufres de deshidratación, ingeriste grandes cantidades de
                                         alcohol o usas ropa que no permite que el sudor se evapore
                                         fácilmente (más en: Prueba
@@ -254,16 +244,6 @@ const News10 = () => {
                                         ejercitas y la evaporación del sudor enfría el cuerpo. En
                                         condiciones climáticas cálidas y húmedas, este sistema de
                                         enfriamiento no funciona bien".
-                                    </p>
-                                    <p>
-                                        CONTENIDO RELACIONADO:
-                                        <a
-                                            target="_blank"
-                                            data-analytics-action-id="49ea28cc-dfed-4476-955d-be9838ddcc4f"
-                                            href="https://www.nike.com/us/es/a/beneficios-de-correr-en-la-manana"
-                                        >
-                                            Siete beneficios de correr por la mañana
-                                        </a>
                                     </p>
                                     <p>
                                         Si sufres de deshidratación, ingeriste grandes cantidades de
@@ -484,7 +464,6 @@ const News10 = () => {
                                         momento para descansar, encontrar sombra, beber un poco de agua
                                         y restablecerte antes de volver a la acción.
                                     </p>
-                                    <p>Redacción: Elizabeth Millard</p>
                                 </div>
                             </div>
                         </div>

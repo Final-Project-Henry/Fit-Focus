@@ -34,16 +34,16 @@ const News3 = () => {
                                     className="FaRDqXgS responsive-body-2-1 mt6-sm text-color-primary-dark"
                                 >
                                     <p>
-                                        Existen un par de métodos probados para{" "}
+                                        Existen un par de métodos probados para
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="9c46dc1d-0e3f-4aff-82f5-42e408f989d9"
                                             href="https://www.nike.com/us/es/a/recuperacion-banos-hielo"
                                         >
                                             acelerar la recuperación
-                                        </a>{" "}
+                                        </a>
                                         cuando no te sientes bien. El más común incluye descansar mucho
-                                        y beber{" "}
+                                        y beber
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="39c3cf4d-0067-4388-a40d-9282f2a5149c"
@@ -60,14 +60,14 @@ const News3 = () => {
                                         entrenar aunque no te sientas del todo bien. Sin embargo,
                                         incluso en esas circunstancias, debes ir con cuidado. Los
                                         expertos explican si (y cuándo) es seguro entrenar durante una
-                                        enfermedad y{" "}
+                                        enfermedad y
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="a09842c2-b359-4cd2-bec8-37ed39952fc8"
                                             href="https://www.nike.com/us/es/a/como-retomar-el-running"
                                         >
                                             cómo retomar el ejercicio físico
-                                        </a>{" "}
+                                        </a>
                                         cuando ya estés mejor. Además, descubre cómo la actividad física
                                         afecta el sistema inmunitario.
                                     </p>
@@ -116,7 +116,7 @@ const News3 = () => {
                                     <p>
                                         "La decisión de ejercitarte o no mientras no te encuentras bien
                                         o te estás recuperando de una enfermedad depende del tipo de
-                                        enfermedad y la gravedad de los síntomas", dice{" "}
+                                        enfermedad y la gravedad de los síntomas", dice
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="187c8e66-204b-43ed-8cd8-057d6cbe94ff"
@@ -125,7 +125,7 @@ const News3 = () => {
                                             Anjali Bharati, doctora en medicina osteopática
                                         </a>
                                         , médica de emergencia en Lenox Health Greenwich Village en la
-                                        ciudad de Nueva York.{" "}
+                                        ciudad de Nueva York.
                                     </p>
                                     <p>
                                         Por lo general, ejercitarte si los síntomas se sitúan por encima
@@ -139,12 +139,12 @@ const News3 = () => {
                                         Sin embargo, si te diagnosticaron COVID-19 o si los síntomas
                                         incluyen fiebre, dolor corporal, dificultad para respirar,
                                         debilidad o mareos, pon en pausa el entrenamiento para darle
-                                        tiempo al cuerpo para que se recupere.{" "}
+                                        tiempo al cuerpo para que se recupere.
                                     </p>
                                     <p>
                                         Una de las mayores preocupaciones respecto al ejercicio físico
                                         cuando el cuerpo se enferma son los riesgos que puede implicar
-                                        para el corazón, dice{" "}
+                                        para el corazón, dice
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="9aa20711-c0cf-4ea7-b72a-2be864ed0dea"
@@ -157,10 +157,10 @@ const News3 = () => {
                                         Los expertos creen que hacer ejercicio físico cuando se está
                                         enfermo, especialmente si la enfermedad es COVID-19, puede
                                         aumentar el riesgo de desarrollar miocarditis, una infección
-                                        viral del músculo cardíaco.{" "}
+                                        viral del músculo cardíaco.
                                     </p>
                                     <p>
-                                        De acuerdo con la{" "}
+                                        De acuerdo con la
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="65df8c27-c69d-452a-8df1-723b05f8a30a"
@@ -172,7 +172,7 @@ const News3 = () => {
                                         bombear sangre. Esto provoca que este órgano trabaje a un ritmo
                                         acelerado o irregular y produce dolor pectoral, falta de aire y
                                         fatiga. En casos severos, la miocarditis puede causar un paro
-                                        cardíaco repentino, incluso en atletas jóvenes, indica el{" "}
+                                        cardíaco repentino, incluso en atletas jóvenes, indica el
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="8f073d55-30bb-4c7e-8d3a-f4a3e7e3e707"
@@ -183,17 +183,17 @@ const News3 = () => {
                                         . Piensa en ello: cuando una enfermedad se instala, el cuerpo
                                         tiene que encargarse de muchas cosas. Agregar ejercicio físico a
                                         todos esos elementos estresantes probablemente te hará sentir
-                                        peor.{" "}
+                                        peor.
                                     </p>
                                     <p>
-                                        Cuando te ejercitas, el cuerpo usa energía, agua y{" "}
+                                        Cuando te ejercitas, el cuerpo usa energía, agua y
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="96a69be2-9588-4da4-b364-610f6ef1ea05"
                                             href="https://www.nike.com/us/es/a/que-son-los-electrolitos"
                                         >
                                             electrolitos
-                                        </a>{" "}
+                                        </a>
                                         para alimentar el corazón, los pulmones y los músculos. Pero un
                                         cuerpo enfermo ya está consumiendo mucha energía, agua y
                                         electrolitos para combatir la enfermedad. Entrenar cuando el
@@ -201,7 +201,7 @@ const News3 = () => {
                                         dice Bharati. Esto va a retrasar la recuperación.
                                     </p>
                                     <p>
-                                        No te pierdas{" "}
+                                        No te pierdas
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="6b2c2f43-4cad-4189-bfa8-cc5318d66780"
@@ -265,7 +265,7 @@ const News3 = () => {
                                     <p>
                                         Sin embargo, si todavía sientes cierto aturdimiento, dolor,
                                         fatiga o falta de aire, date más tiempo para recuperarte antes
-                                        de retomar tu{" "}
+                                        de retomar tu
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="c1717879-c23d-4d5f-82f1-e5d4647d491e"
@@ -286,14 +286,14 @@ const News3 = () => {
                                         primero que debes resolver es entrenar lejos del gimnasio y de
                                         otras personas. Y si te diagnosticaron COVID-19, asegúrate de
                                         descansar y aislarte por al menos cinco días antes de volver al
-                                        ejercicio físico. De acuerdo con los{" "}
+                                        ejercicio físico. De acuerdo con los
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="7597738b-b69c-459c-bf7b-409a4ed41837"
                                             href="https://www.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html#:~:text=If%20you%20have%20COVID%2D19,for%20at%20least%205%20days.&text=Stay%20home%20for%205%20days,Do%20not%20travel."
                                         >
                                             Centros para el Control y la Prevención de Enfermedades
-                                        </a>{" "}
+                                        </a>
                                         (CDC), debes considerar el primer día de síntomas o el día en
                                         que recibiste el resultado positivo como el día uno.
                                         <br />
@@ -316,7 +316,7 @@ const News3 = () => {
                                     <p>
                                         Por ejemplo, si corres, al volver después de una enfermedad,
                                         divide tus kilómetros semanales entre dos y corre a un ritmo más
-                                        suave. Considera agregar opciones de cardio de bajo impacto{" "}
+                                        suave. Considera agregar opciones de cardio de bajo impacto
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="d46b1ae9-0a16-4319-a08a-f851de361fd2"
@@ -330,17 +330,6 @@ const News3 = () => {
                                         impacto no sean recomendables si tu única opción es ir al
                                         gimnasio y correr el riesgo de exponer a otras personas a tus
                                         gérmenes.
-                                    </p>
-                                    <p>
-                                        RELACIONADO:{" "}
-                                        <a
-                                            target="_blank"
-                                            data-analytics-action-id="1cf352e0-124d-4b01-8470-caf1235edb8e"
-                                            href="https://www.nike.com/us/es/a/running-elíptica-caminadora"
-                                        >
-                                            La elíptica, la cinta para correr o el running al aire libre,
-                                            ¿cuál es el mejor entrenamiento?
-                                        </a>
                                     </p>
                                     <p>
                                         Si tu elección de entrenamiento implica el levantamiento de
@@ -375,7 +364,7 @@ const News3 = () => {
                                                 href="https://www.nike.com/us/es/a/beneficios-running-entrenamiento-intervalos"
                                             >
                                                 Intervalos de alta intensidad
-                                            </a>{" "}
+                                            </a>
                                             (HIIT)
                                         </li>
                                         <li>Running de resistencia</li>
@@ -445,13 +434,13 @@ const News3 = () => {
                                         a hidratarte más de lo normal, especialmente si planeas hacer
                                         ejercicio físico. "A menudo, las personas dejan de hidratarse
                                         bien mientras están enfermas, por lo que es importante aumentar
-                                        la ingestión de líquidos", dice Cardone.{" "}
+                                        la ingestión de líquidos", dice Cardone.
                                     </p>
                                     <p>
                                         La manera más fácil de calibrar tu nivel de hidratación es
                                         controlar el color de la orina. "Debe ser de un color amarillo
                                         muy claro o transparente. Si es color ámbar o amarillo oscuro,
-                                        es una indicación de que debes hidratarte más", dice Cardone.{" "}
+                                        es una indicación de que debes hidratarte más", dice Cardone.
                                     </p>
                                 </div>
                             </div>
@@ -498,7 +487,7 @@ const News3 = () => {
                                     <p>
                                         El ejercicio físico de una intensidad moderada normal puede
                                         ofrecer beneficios a largo plazo para el sistema inmunitario.
-                                        Según un estudio de 2016 publicado en{" "}
+                                        Según un estudio de 2016 publicado en
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="b5cda08b-b769-4d5d-8b25-a2ce5f6587e6"
@@ -524,7 +513,7 @@ const News3 = () => {
                                         Muchos expertos creen que el sistema inmunitario es vulnerable
                                         durante un par de horas posteriores al ejercicio físico,
                                         especialmente si es de alta intensidad. Según un artículo de
-                                        evaluación de 2018, publicado en{" "}
+                                        evaluación de 2018, publicado en
                                         <a
                                             target="_blank"
                                             data-analytics-action-id="e5174058-a2d1-49a9-baf8-eeca7e367b8f"
@@ -596,11 +585,6 @@ const News3 = () => {
                                         tiempo (y dáselo también al sistema inmunitario) antes de
                                         retomar el ejercicio físico.
                                     </p>
-                                    <p>
-                                        Para obtener algunas sugerencias de ejercicios de bajo impacto,
-                                        descarga la Nike Training Club App.
-                                    </p>
-                                    <p>Texto redactado por Lauren Bedosky</p>
                                 </div>
                             </div>
                         </div>

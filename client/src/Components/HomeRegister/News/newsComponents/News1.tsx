@@ -677,23 +677,6 @@ const News1 = () => {
                                         radical en tu vida.
                                     </p>
                                 </div>
-                                <div className="cta-container Yjk73vve" data-qa="cta-container">
-                                    <a
-                                        href="https://www.nike.com/ntc-app"
-                                        target="_blank"
-                                        rel="noopener"
-                                        data-analytics-action-id="64460cfc-ef1f-4dd5-b26b-f449af54da8c"
-                                        data-analytics-allow="false"
-                                        className="dz_xjzja _2minRfAM ncss-btn-primary-dark bihGx79a"
-                                        data-qa="cta-button"
-                                        tabIndex={0}
-                                        data-actiontext="Para más consejos de nutrición y bienestar, descargar la NTC App "
-                                        data-button-type="button"
-                                        aria-label="Para más consejos de nutrición y bienestar, descargar la NTC App  (https://www.nike.com/ntc-app)"
-                                    >
-                                        Para más consejos de nutrición y bienestar, descargar la NTC App
-                                    </a>
-                                </div>
                             </div>
                         </div>
                     </div>
