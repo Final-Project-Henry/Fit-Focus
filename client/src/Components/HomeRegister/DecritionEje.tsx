@@ -29,7 +29,7 @@ export default function DecriptionEjer() {
 
   const dispacht = useAppDispatch();
   const [addFav, SetAddfav]=useState<boolean|string>("default");
-  const { descripcionEjersicio,user } = useAppSelector(selectUser);
+  const { descripcionEjersicio,user }= useAppSelector(selectUser);
 
   useEffect(() => {
     dispacht(EjerciciosDecription(id));

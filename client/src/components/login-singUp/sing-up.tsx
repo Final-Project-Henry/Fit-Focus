@@ -42,7 +42,6 @@ const SingUp: React.FC<Propos> = ({
   //////////enviar de datos  por medio de los input//////////////////////////////////////////
   function handleSubmit(event: React.FormEvent): void {
     event.preventDefault();
-
     dispatch(User_Register_State(Form_data));
   }
 

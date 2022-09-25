@@ -134,7 +134,7 @@ const Carousel: React.FC<Props> = ({
             
             return (
               <div
-                className={` min-w-full  ease-linear duration-300  flex items-center  rounded-2xl ${stylesContent}`}
+                className={` min-w-full  ease-linear  duration-300  flex items-center  rounded-2xl ${stylesContent}`}
               >
                 {text && (
                   <div

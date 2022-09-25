@@ -10,7 +10,9 @@ import notPremiunImg from "../assets/homeRegister-media/padlock.png";
 import notPremiunImg2 from "../assets/homeRegister-media/Img3.jpg";
 import { Link } from "react-router-dom";
 
+//Linia 261  etiquetas de card (deficualtad, etc)
 
+ 
 interface ejerciciosData {
   _id: string;
   name: string;
@@ -27,69 +29,103 @@ interface selectData {
     genre:string|boolean,
     muscle: string|boolean,
     difficulty: string|boolean,
+    premium:string|boolean,
 }
+let num  = 8
+let nuevoArray : Array<ejerciciosData> = []
 export default function FilterExercises() {
 
   const { exercises ,user} = useAppSelector(selectUser);
   const [filtrado, setFiltrado] = useState<Array<ejerciciosData>| [] >([]);
+
   const [selected, setSelected] = useState<selectData>({
     genre: "none",
     muscle: "none",
     difficulty: "none",
+    premium: "none",
   });
 
+  const sumaDeAOcho= ()=>{
+    num = num + 8
+    let ochoFiltrados2 = nuevoArray.slice(0,num)
+    setFiltrado(ochoFiltrados2)
+  }
+
   useEffect(() => {
-    setFiltrado([...exercises]);
+    const ochoFiltrados2 = exercises.slice(0,8)
+    setFiltrado(ochoFiltrados2);
+    nuevoArray=exercises
   }, [exercises]);
 
   useEffect(() => {
-      setFiltrado( exercises.filter(e => {
-        let {muscle, genre, difficulty} =  selected;
-       muscle =false
-       genre =false
-       difficulty =false
+    let filt= exercises.filter(e => {
+      let {muscle, genre, difficulty,premium} =  selected;
+     muscle =false
+     genre =false
+     difficulty =false
+     premium =false
 
-        if(selected.muscle === "none" ) muscle = true
+      if(selected.muscle === "none" ) muscle = true
+      else muscle = selected.muscle === e.muscles
 
-        else muscle = selected.muscle === e.muscles
-  
-        if(selected.genre === "none" ) genre = true
-        else genre = selected.genre === e.genre
-  
-        if(selected.difficulty === "none" ) difficulty = true
-        else difficulty = selected.difficulty === e.difficulty
-  
-        return genre && muscle && difficulty
-      }))
+      if(selected.genre === "none" ) genre = true
+      else genre = selected.genre === e.genre
 
+      if(selected.difficulty === "none" ) difficulty = true
+      else difficulty = selected.difficulty === e.difficulty
+
+      if(selected.premium === "none" ) premium = true
+      else premium = selected.premium === e.premium
+
+      return genre && muscle && difficulty && premium
+
+    })
+    nuevoArray=filt
+    const ochoFiltrados2 = filt.slice(0,8)
+    setFiltrado( ochoFiltrados2)
   }, [selected]);
-
   /* handleSelecteds */
-console.log("entro")
   const handleSelectGenre = (event:React.ChangeEvent<HTMLSelectElement>| { [x: string]: any; value: string }) => {
     setSelected({ ...selected, genre: event.target.value });
   };
 
-  const handleSelectMuscle = (event:React.ChangeEvent<HTMLSelectElement>| { [x: string]: any; value: string })=> {
+ const handleSelectMusc = (event:React.ChangeEvent<HTMLSelectElement>| { [x: string]: any; value: string }) => {
     setSelected({ ...selected, muscle: event.target.value });
   };
 
-  const handleSelectDifficulty = (event:React.ChangeEvent<HTMLSelectElement>| { [x: string]: any; value: string }) => {
-    setSelected({ ...selected, difficulty:event.target.value });
+  const handleSelectDific = (event:React.ChangeEvent<HTMLSelectElement>| { [x: string]: any; value: string }) => {
+    setSelected({ ...selected, difficulty: event.target.value });
   };
-  const handleSelectPremiun = () => {
-    setFiltrado( exercises.filter(e => e.premium === true))
+  
+  const handleSelectPlan = (event:any) => {
+    if(event.target.value=="true"){
+      setSelected({ ...selected, premium:true});
+
+    }else if(event.target.value=="false"){
+      setSelected({ ...selected, premium:false});
+    }else{
+      setSelected({ ...selected, premium: event.target.value });
+    }
+  };
+  
+  const handleSelectLimpiar = () => {
+    setSelected({
+      genre: "none",
+      muscle: "none",
+      difficulty: "none",
+      premium: "none",
+    })
   };
 
-console.log(filtrado)
   return (
     <>
-      <div className="bg-[#111828] rounded-xl relative left-[10px]">
+
+      <div className="bg-white flex shadow  justify-around items-center w-[80%] m-auto">
+        <div>
         <select
-          className="cursor-pointer rounded-xl m-5  text-sm text-back font-normal leading-loose border-none outline-none py-0 shadow-md"
+          className="cursor-pointer  m-5  text-sm text-back font-normal leading-loose border-none outline-none py-0 shadow-md"
           onChange={(e)=>handleSelectGenre(e)}
         >
-
           {selected.genre !== "none" ? (
             <option value="none" className="option cancel">
               Todos
@@ -105,8 +141,8 @@ console.log(filtrado)
         </select>
 
         <select
-          className=" cursor-pointer rounded-xl text-sm text-back font-normal leading-loose border-none py-0 outline-none shadow-md"
-          onChange={(e)=>handleSelectMuscle(e)}
+          className=" cursor-pointer text-sm text-back font-normal leading-loose border-none py-0 outline-none shadow-md"
+          onChange={(e)=>handleSelectMusc(e)}
         >
           {selected.muscle !== "none" ? (
             <option value="none" className="option cancel">
@@ -124,8 +160,8 @@ console.log(filtrado)
         </select>
 
         <select
-          className="cursor-pointer m-5 py-0 rounded-xl  text-sm text-back font-normal leading-loose  border-none outline-none  shadow-md"
-          onChange={handleSelectDifficulty}
+          className="cursor-pointer m-5 py-0   text-sm text-back font-normal leading-loose  border-none outline-none  shadow-md"
+          onChange={handleSelectDific}
         >
           {selected.difficulty !== "none" ? (
             <option value="none" className="option cancel">
@@ -146,17 +182,41 @@ console.log(filtrado)
             Hard
           </option>
         </select>
-        <button className="  py-1 px-3 text-sm text-back font-normal leading-loose text-black bg-white duration-150 rounded-lg shadow-md hover:bg-blue-200" onClick={handleSelectPremiun}>
-          premiun
-        </button>
+
+        <select
+          className="cursor-pointer m-5 py-0   text-sm text-back font-normal leading-loose  border-none outline-none  shadow-md"
+          onChange={handleSelectPlan}
+        >
+          {selected.premium !== "none" ? (
+            <option value="none" className="option cancel">
+              Cancel
+            </option>
+          ) : (
+            <option className="options" hidden>
+              Plan
+            </option>
+          )}
+          <option className="options" value="true">
+            Premium
+          </option>
+          <option className="options" value="false">
+            Gratis
+          </option>
+        </select>
+        </div>
+        <div>
+          <button className=" text-red-500 p-2 cursor-pointer m-5 py-0   text-sm text-back font-normal leading-loose  border-none outline-none  shadow-md active:shadow" onClick={()=> handleSelectLimpiar()}>
+            Limpiar filtro
+          </button>
+        </div>
       </div>
       <div>
-        <section className="grid grid-cols-3">
+        <section className="grid grid-cols-4">
           {filtrado?.map(
             ({_id, video, name, difficulty, muscles, genre, premium }) => {
               return (
                 <>
-                  <Link key={_id} to={(premium&&user?.plan=="normal")?`/mercadopago`:`/ejercicio/${_id}`} className={`max-w-xl flex flex-col bg-white rounded-lg shadow-md duration-150 cursor-pointer scale-90 hover:scale-95  hover:outline hover:outline-offset-1 ${
+                  <Link key={_id} to={(premium&&user?.plan=="normal")?`/mercadopago`:`/ejercicio/${_id}`} className={`max-w-[75%] min-h-[240px] m-10 flex flex-col bg-white  shadow-md duration-150 cursor-pointer  hover:outline hover:outline-offset-1 ${
                       premium
                         ? "outline-blue-400"
                         : difficulty == "easy"
@@ -169,10 +229,10 @@ console.log(filtrado)
                   >
                     {(premium&&user?.plan=="normal") && (
                       <div className="flex flex-col justify-center  items-center">
-                      <div className="absolute flex min-h-[10px] justify-center items-center z-10 w-full">
+                      <div className="absolute flex min-h-[10px] w-[10%] justify-center items-center z-10 ">
                       <br />
                       <img
-                        className="absolute z-10  w-[20%]"
+                        className="absolute z-10  w-[50%]"
                         src={notPremiunImg}
                         alt=""
                       />
@@ -184,20 +244,20 @@ console.log(filtrado)
                     )}
 
                     <div
-                      className={`h-[150px] overflow-hidden  ${
+                      className={`h-[200px] overflow-hidden  ${
                         (premium&&user?.plan=="normal") ? "blur-[5px]" : "blur-0"
                       }`}
                     >
-                      <img className="rounded-t-lg" src={(premium&&user?.plan=="normal")?notPremiunImg2:video} alt="" />
+                      <img className="object-cover h-[200px] w-full" src={(premium&&user?.plan=="normal")?notPremiunImg2:video} alt="" />
                     </div>
                     <div className={`${(premium&&user?.plan=="normal")? "blur-[5px]" : "blur-0"}`}>
-                      <h5 className="p-2 text-2xl font-bold tracking-tight text-gray-900">
+                      <h5 className="p-2 text-center text-xl font-bold -tracking-widest text-gray-900">
                         {name}
                       </h5>
                     </div>
 
                     <div
-                      className={`p-3  ${(premium&&user?.plan=="normal") ? "blur-[5px]" : "blur-0"}`}
+                      className={` text-center ${(premium&&user?.plan=="normal") ? "blur-[5px]" : "blur-0"}`}
                     >
                       <span
                         className={`inline-block ${
@@ -206,7 +266,7 @@ console.log(filtrado)
                             : difficulty == "medium"
                             ? "bg-yellow-200"
                             : "bg-red-200"
-                        } rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
+                        } rounded-full px-2 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
                       >
                         {difficulty}
                       </span>
@@ -218,33 +278,10 @@ console.log(filtrado)
                       <span
                         className={`inline-block ${
                           genre === "man" ? "bg-blue-400" : "bg-pink-300"
-                        } rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
+                        } rounded-full px-2 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
                       >
                         {genre}
                       </span>
-                    </div>
-                    <div
-                      className={`p-4  ${(premium&&user?.plan=="normal") ? "blur-[5px]" : "blur-0"}`}
-                    >
-                      <Link
-                        to={(premium&&user?.plan=="normal")?`/mercadopago`:`/ejercicio/${_id}`}
-                        className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-[#6c63ff] duration-150 rounded-lg hover:bg-blue-800"
-                      >
-                        Empezar
-                        <svg
-                          aria-hidden="true"
-                          className="ml-2 -mr-1 w-4 h-4"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                            clip-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </Link>
                     </div>
                   </Link>
                 </>
@@ -252,7 +289,12 @@ console.log(filtrado)
             }
           )}
         </section>
+        
       </div>
+      {filtrado.length<50?
+        <div className="w-fill border flex shadow-[0 0 5px #111828e8] justify-center">
+         <button className="p-4" onClick={sumaDeAOcho}>Ver Mas ▽</button>
+        </div>:""}
     </>
   );
 }
