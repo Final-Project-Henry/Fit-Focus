@@ -1,5 +1,5 @@
 import "./styles/HomeRegister.css";
-import React from "react";
+import React, { useMemo } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
@@ -7,7 +7,9 @@ import { useSelector } from "react-redux";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { Exercises_Get, selectUser } from "../../features/counter/counterSlice";
 import notPremiunImg from "../assets/homeRegister-media/padlock.png";
+import notPremiunImg2 from "../assets/homeRegister-media/Img3.jpg";
 import { Link } from "react-router-dom";
+
 
 interface ejerciciosData {
   _id: string;
@@ -18,7 +20,7 @@ interface ejerciciosData {
   genre: string;
   video: string;
   description: string;
-  premium: boolean;
+  premium: string;
 }
 
 interface selectData {
@@ -28,18 +30,13 @@ interface selectData {
 }
 export default function FilterExercises() {
 
-  const dispatch = useAppDispatch();
-  const { exercises } = useAppSelector(selectUser);
+  const { exercises ,user} = useAppSelector(selectUser);
   const [filtrado, setFiltrado] = useState<Array<ejerciciosData>| [] >([]);
   const [selected, setSelected] = useState<selectData>({
     genre: "none",
     muscle: "none",
     difficulty: "none",
   });
-
-  useEffect(() => {
-    dispatch(Exercises_Get());
-  }, []);
 
   useEffect(() => {
     setFiltrado([...exercises]);
@@ -68,7 +65,7 @@ export default function FilterExercises() {
   }, [selected]);
 
   /* handleSelecteds */
-
+console.log("entro")
   const handleSelectGenre = (event:React.ChangeEvent<HTMLSelectElement>| { [x: string]: any; value: string }) => {
     setSelected({ ...selected, genre: event.target.value });
   };
@@ -83,6 +80,7 @@ export default function FilterExercises() {
   const handleSelectPremiun = () => {
     setFiltrado( exercises.filter(e => e.premium === true))
   };
+
 
   return (
     <>
@@ -156,10 +154,9 @@ export default function FilterExercises() {
         <section className="grid grid-cols-3">
           {filtrado?.map(
             ({_id, video, name, difficulty, muscles, genre, premium }) => {
-            
               return (
                 <>
-                  <Link to={premium?`/mercadopago`:`/home/${_id}`} className={`max-w-xl flex flex-col bg-white rounded-lg shadow-md duration-150 cursor-pointer scale-90 hover:scale-95  hover:outline hover:outline-offset-1 ${
+                  <Link key={_id} to={(premium&&user?.plan=="normal")?`/mercadopago`:`/ejercicio/${_id}`} className={`max-w-xl flex flex-col bg-white rounded-lg shadow-md duration-150 cursor-pointer scale-90 hover:scale-95  hover:outline hover:outline-offset-1 ${
                       premium
                         ? "outline-blue-400"
                         : difficulty == "easy"
@@ -168,9 +165,9 @@ export default function FilterExercises() {
                         ? "outline-yellow-400"
                         : "outline-red-400"
                     }
-                      ${premium ? "bg-slate-100" : "bg-slate-50"}`}
+                      ${(premium&&user?.plan=="normal") ? "bg-slate-100" : "bg-slate-50"}`}
                   >
-                    {premium && (
+                    {(premium&&user?.plan=="normal") && (
                       <div className="flex flex-col justify-center  items-center">
                       <div className="absolute flex min-h-[10px] justify-center items-center z-10 w-full">
                       <br />
@@ -188,19 +185,19 @@ export default function FilterExercises() {
 
                     <div
                       className={`h-[150px] overflow-hidden  ${
-                        premium ? "blur-[5px]" : "blur-0"
+                        (premium&&user?.plan=="normal") ? "blur-[5px]" : "blur-0"
                       }`}
                     >
-                      <img className="rounded-t-lg" src={video} alt="" />
+                      <img className="rounded-t-lg" src={(premium&&user?.plan=="normal")?notPremiunImg2:video} alt="" />
                     </div>
-                    <div className={`${premium ? "blur-[5px]" : "blur-0"}`}>
+                    <div className={`${(premium&&user?.plan=="normal")? "blur-[5px]" : "blur-0"}`}>
                       <h5 className="p-2 text-2xl font-bold tracking-tight text-gray-900">
                         {name}
                       </h5>
                     </div>
 
                     <div
-                      className={`p-3  ${premium ? "blur-[5px]" : "blur-0"}`}
+                      className={`p-3  ${(premium&&user?.plan=="normal") ? "blur-[5px]" : "blur-0"}`}
                     >
                       <span
                         className={`inline-block ${
@@ -227,10 +224,10 @@ export default function FilterExercises() {
                       </span>
                     </div>
                     <div
-                      className={`p-4  ${premium ? "blur-[5px]" : "blur-0"}`}
+                      className={`p-4  ${(premium&&user?.plan=="normal") ? "blur-[5px]" : "blur-0"}`}
                     >
-                      <a
-                        href="#"
+                      <Link
+                        to={(premium&&user?.plan=="normal")?`/mercadopago`:`/ejercicio/${_id}`}
                         className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-[#6c63ff] duration-150 rounded-lg hover:bg-blue-800"
                       >
                         Empezar
@@ -247,7 +244,7 @@ export default function FilterExercises() {
                             clip-rule="evenodd"
                           ></path>
                         </svg>
-                      </a>
+                      </Link>
                     </div>
                   </Link>
                 </>

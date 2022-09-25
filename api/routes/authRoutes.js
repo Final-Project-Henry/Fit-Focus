@@ -6,7 +6,8 @@ const router = Router();
 const get_Routine = require('../getRoutine.js');
 const validation = require('../validations/validations');
 const mercadopago = require('../service/mercadoPago.js');
-const {get_preference} = require('../additional/preference.js')
+const {get_preference} = require('../additional/preference.js');
+const mailSettings = require('../additional/nodemailer');
 
 router.put('/userinfo', async (req, res) => { // Ruta para actualizar la informacion del usuario para crear una rutina(PREMIUM)
   if(!validation.userinfo(req.body))res.status(500).send('Invalid info');
@@ -35,7 +36,6 @@ router.put('/userfeedback', async (req, res) => {
   try {
     const { comment, email } = req.body
 
-    const check = await user.findOne({ email: email }).select('feedback')
     await user.updateOne({ email: email }, {
       feedback: comment
     });
@@ -54,9 +54,7 @@ router.get('/getroutine', async (req, res) => {
     const routine = get_Routine(check.userinfo[0], exercises);
     
     await user.updateOne({ email: email }, {
-      $push: {
         routines: routine.exercises
-      }
     });
     res.status(200).json(routine);
   } catch (error) {
@@ -64,15 +62,21 @@ router.get('/getroutine', async (req, res) => {
   }
 });
 
-router.put('/changepassword', async (req, res) => {
+router.put('/changeinfo', async (req, res) => {
  try {
     const {id} = req.user
-    const {password} = req.body 
-    const hashPassword = await bcrypt.hash(password, 10);
-    await user.updateOne({_id : id}, {
-      password : hashPassword
-    });
-    res.status(200).send('Password changed succesfully')
+    const {prop, value} = req.query
+    if(prop === 'password'){
+      const hashPassword = await bcrypt.hash(value, 10);
+      await user.updateOne({_id : id}, {
+        [prop] : hashPassword 
+      });
+    } else {
+      await user.updateOne({_id : id}, {
+        [prop] : value
+      })
+    }
+    res.status(200).send('Info changed succesfully')
   } catch (error) {
     res.status(500).send(error.message)
   }
@@ -80,9 +84,18 @@ router.put('/changepassword', async (req, res) => {
 
 router.delete('/delete', async (req, res) => {
   try {
-    const { id } = req.user
+    const { id, email} = req.user
     await user.updateOne({ _id: id }, {
       status : 'desactivated'
+    });
+    const transporter = mailSettings.transporter;
+    const mailDetails = mailSettings.mailDelete(email);
+    transporter.sendMail(mailDetails, (error, info) => {
+      if (error) {
+        console.log(error)
+      } else {
+        console.log('Email enviado');
+      }
     });
     res.status(200).send('Deleted succesfully');
   } catch (error) {
@@ -95,7 +108,7 @@ router.put('/addfav', async (req, res) => {
   const {name} = req.body
    await user.updateOne({_id : id}, {
      $push : {
-      fav : name
+      fav : {name: name}
      }
    });
    res.status(200).send('Exercise added to fav')

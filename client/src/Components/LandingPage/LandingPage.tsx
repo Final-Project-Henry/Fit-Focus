@@ -3,22 +3,20 @@ import { Link  } from "react-router-dom";
 import './styles/LandingPage.css';
 import Typewriter from "react-ts-typewriter";
 import HomeVisitor from "../HomeVisitor/HomeVisitor";
+import { useToken } from "../../app/hooks";
 //import Home from "./Home";
 const landingTrain = require("../assets/landing-media/landingTrain.mp4");
 
 
 const LandingPage = () => {
-  
+  let user=useToken()
   return (
     <div className="main">
       <div className="overlay"></div>
-
       <video src={landingTrain} height='100vh' autoPlay loop muted />
-
       <div className="titleApp">
         <h1>FIT FOCUS</h1>
       </div>
-
       <div className="content">
         <div className="noPainDiv">
           <p>NO PAIN, NO GAIN!</p>
@@ -32,7 +30,7 @@ const LandingPage = () => {
           />
         </div>
       <div className="buttonDiv">
-        <Link to="/home">
+        <Link to={user?`/fitFocus/home`:`/home`}>
           <button  className="landingButton">COMENCEMOS</button>
         </Link>
       </div>

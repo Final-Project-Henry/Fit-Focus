@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // Icons
 import icon from "../assets/icons/nav-icon.png";
 import defaultPhoto from "../assets/icons/monkey.jpg";
@@ -20,7 +20,7 @@ const NavbarHome = () => {
 
   const dispatch = useAppDispatch();
   const userData = useSesion();
-
+  const Navegation=  useNavigate()
   useEffect(() => {
     if (userData) {
       setUser(true);
@@ -41,6 +41,7 @@ const NavbarHome = () => {
         dispatch(sigendOut(null));
         setUser(false);
         setDropdown(false);
+        Navegation("/home");
         window.location.reload();
       }
     });

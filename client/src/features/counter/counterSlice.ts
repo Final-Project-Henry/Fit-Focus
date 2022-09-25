@@ -1,137 +1,122 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import axios from 'axios';
-import jwtDecode from 'jwt-decode';
-import { RootState, AppThunk } from '../../app/store';
-
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import axios from "axios";
+import jwtDecode from "jwt-decode";
+import { RootState, AppThunk } from "../../app/store";
+interface ejerciciosData {
+  _id: string;
+  name: string;
+  difficulty: string;
+  equipment: true;
+  muscles: string;
+  genre: string;
+  video: string;
+  description: string;
+  plan: string;
+}
 export interface State {
-  user: null | string;
+  user: null | string |any;
   status: string | null;
-  rutines : Array<any> | null;
-  exercises : Array<any> | [];
+  rutines: Array<any> | null;
+  exercises: Array<any> | [];
+  descripcionEjersicio:any;
+}
+
+export interface infoRutina {
+  token: string;
+  form_data: object;
 }
 
 const initialState: State = {
   user: null,
   status: "none",
-  rutines : [],
-  exercises:[]
+  rutines: [],
+  exercises: [],
+  descripcionEjersicio:{}
 };
 
 export const Rutines_Get = createAsyncThunk(
-  'user/rutinesSlice',
-  async (token : string, thunkAPI) => {
-    console.log(token)
+  "user/rutinesSlice",
+  async (token: string, thunkAPI) => {
+    console.log(token);
     try {
-
       let headersList = {
         Accept: "/",
         Authorization: "Bearer " + token,
         "Content-Type": "application/json",
       };
-    
+
       let reqOptions = {
         url: "http://localhost:3001/getroutine",
         method: "GET",
         headers: headersList,
       };
-    
-      let response = await axios.request(reqOptions);
-      const resp = response.data
-      console.log(resp)
 
-      thunkAPI.dispatch(Rutines(resp))
+      let response = await axios.request(reqOptions);
+      const resp = response.data;
+      console.log(resp);
+
+      thunkAPI.dispatch(Rutines(resp));
       return resp;
     } catch (error: any) {
-      thunkAPI.dispatch(status(error.response.data))
-      thunkAPI.rejectWithValue(error)
-      return
+      thunkAPI.dispatch(status(error.response.data));
+      thunkAPI.rejectWithValue(error);
+      return;
     }
   }
 );
 
 export const Exercises_Get = createAsyncThunk(
-  'user/exercices',
+  "user/exercices",
   async (_, thunkAPI) => {
     try {
       const response = await axios.get("http://localhost:3001/exercises");
-      const resp = response.data
-      thunkAPI.dispatch(Exercises(resp))
+      const resp = response.data;
+      thunkAPI.dispatch(Exercises(resp));
       return resp;
     } catch (error: any) {
-      thunkAPI.dispatch(status(error.response.data))
-      thunkAPI.rejectWithValue(error)
-      return
+      thunkAPI.dispatch(status(error.response.data));
+      thunkAPI.rejectWithValue(error);
+      return;
     }
   }
 );
 
 export const User_Register_State = createAsyncThunk(
-  'user/sing_upUser',
+  "user/sing_upUser",
   async (user: object, thunkAPI) => {
     try {
       const response = await axios.post("http://localhost:3001/register", user);
-      const resp = response.data
-      thunkAPI.dispatch(User(resp))
+      const resp = response.data;
+      thunkAPI.dispatch(User(resp));
       return resp;
     } catch (error: any) {
-      thunkAPI.dispatch(status(error.response.data))
-      thunkAPI.rejectWithValue(error)
-      return
+      thunkAPI.dispatch(status(error.response.data));
+      thunkAPI.rejectWithValue(error);
+      return;
     }
   }
 );
 
 export const User_Login_State = createAsyncThunk(
-  'user/login',
+  "user/login",
   async (user: object, thunkAPI) => {
     try {
       const response = await axios.post("http://localhost:3001/login", user);
-      const resp = response.data
+      const resp = response.data;
       console.log(response);
 
-      thunkAPI.dispatch(User(resp))
+      thunkAPI.dispatch(User(resp));
       return resp;
     } catch (error: any) {
-      thunkAPI.dispatch(status(error.response.data))
-      thunkAPI.rejectWithValue(error.response.data)
-      return
+      thunkAPI.dispatch(status(error.response.data));
+      thunkAPI.rejectWithValue(error.response.data);
+      return;
     }
   }
 );
 
 export const removeAccount = createAsyncThunk(
-  'user/remove',
-  async (tokenUser:string, thunkAPI) => {
-    
-    try {
-      let headersList = {
-        Accept: "*/*",
-        Authorization: "Bearer " + tokenUser,
-        "Content-Type": "application/json",
-      };
-    
-      let userData = jwtDecode(tokenUser)
-    
-      let reqOptions = {
-        url: "http://localhost:3001/auth/delete",
-        method: "delete",
-        headers: headersList,
-        data: userData,
-      };
-    
-      let response = await axios.request(reqOptions);
-      console.log(response.data);
-      return response.data;
-      
-    } catch (error: any) {
-      console.log(error)
-      return error
-    }
-  }
-);
-
-export const getProfileInfo = createAsyncThunk(
-  'user/getProfileInfo',
+  "user/remove",
   async (tokenUser: string, thunkAPI) => {
     try {
       let headersList = {
@@ -139,96 +124,161 @@ export const getProfileInfo = createAsyncThunk(
         Authorization: "Bearer " + tokenUser,
         "Content-Type": "application/json",
       };
-      console.log(tokenUser)
-      let userData = jwtDecode(tokenUser)
+
+      let userData = jwtDecode(tokenUser);
+
+      let reqOptions = {
+        url: "http://localhost:3001/auth/delete",
+        method: "delete",
+        headers: headersList,
+        data: userData,
+      };
+
+      let response = await axios.request(reqOptions);
+      console.log(response.data);
+      return response.data;
+    } catch (error: any) {
+      console.log(error);
+
+      return error;
+    }
+  }
+);
+
+export const getProfileInfo = createAsyncThunk(
+  "user/getProfileInfo",
+  async (tokenUser: string, thunkAPI) => {
+    try {
+      let headersList = {
+        Accept: "*/*",
+        Authorization: "Bearer " + tokenUser,
+        "Content-Type": "application/json",
+      };
+      console.log(tokenUser);
+      let userData = jwtDecode(tokenUser);
 
       let reqOptions = {
         url: "http://localhost:3001/auth/profile",
         method: "GET",
         headers: headersList,
-        data: userData
+        data: userData,
       };
 
       let response = await axios.request(reqOptions);
-      thunkAPI.dispatch(User(response.data))
-      return
+      thunkAPI.dispatch(User(response.data));
+      console.log(response.data);
+
+      return;
     } catch (error: any) {
-      console.log(error) 
-      return error
+      console.log(error);
+      return error;
     }
   }
 );
 
+export const infoUserRutina = createAsyncThunk(
+  "user/DataRutinas",
+  async (data: infoRutina, thunkAPI) => {
+    try {
+      let headersList = {
+        Accept: "*/*",
+        Authorization: "Bearer " + data.token,
+        "Content-Type": "application/json",
+      };
+
+      let reqOptions = {
+        url: "http://localhost:3001/auth/userinfo",
+        method: "PUT",
+        headers: headersList,
+        data: data.form_data,
+      };
+
+      let response = await axios.request(reqOptions);
+      thunkAPI.dispatch(status("success"));
+      return;
+    } catch (error: any) {
+      thunkAPI.dispatch(status(error.response.data));
+      console.log(error);
+      return error;
+    }
+  }
+);
+
+
 export const auth_Login_Google = createAsyncThunk(
-  'user/auth_google',
+  "user/auth_google",
   async (_, thunkAPI) => {
     try {
       const response = await axios.get("http://localhost:3001/login/google");
-      const resp = response.data
-      thunkAPI.dispatch(User(resp))
+      const resp = response.data;
+      thunkAPI.dispatch(User(resp));
       return resp;
     } catch (error) {
-      return
+      return;
     }
   }
 );
 
-export const authGoogle = createAsyncThunk('user/auth_google', async (code: {code:String}, thunkAPI) => {
+export const authGoogle = createAsyncThunk(
+  "user/auth_google",
+  async (code: { code: String }, thunkAPI) => {
     try {
-      const response = await axios.post("http://localhost:3001/authGoogle",code );
+      const response = await axios.post(
+        "http://localhost:3001/authGoogle",
+        code
+      );
       return response.data;
     } catch (error) {
-      return
+      return;
     }
   }
 );
 
-
-
 export const StateSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState,
 
-
   reducers: {
-    Rutines:  (state, action: PayloadAction<[]>) => {
-      state.status = "none"
-      state.rutines = action.payload
-      },
+    Rutines: (state, action: PayloadAction<[]>) => {
+      state.status = "none";
+      state.rutines = action.payload;
+    },
 
-      Exercises:  (state, action: PayloadAction<[]>) => {
-        state.status = "none"
-        state.exercises = action.payload
-        },
-
+    Exercises: (state, action: PayloadAction<[]>) => {
+      state.status = "none";
+      state.exercises = action.payload;
+    },
 
     User: (state, action: PayloadAction<string>) => {
-      state.status = "none"
-      state.user = action.payload
+      state.status = "none";
+      state.user = action.payload;
     },
     sigendOut: (state, action: PayloadAction<null>) => {
-
-      console.log(action.payload)
-      state.status = "none"
+      console.log(action.payload);
+      state.status = "none";
 
       window.localStorage.removeItem("Login_userFit_Focus");
 
-      state.user = action.payload
+      state.user = action.payload;
     },
     status: (state, action: PayloadAction<string>) => {
-      console.log(action.payload)
-      state.status = action.payload
-    }
+      console.log(action.payload);
+      state.status = action.payload;
+    },
+    EjerciciosDecription:  (state, action: PayloadAction<string| undefined>) => {
+      state.descripcionEjersicio  =  state.exercises.find(e => e._id===action.payload)
+       
+    },
   },
   extraReducers: (builder) => {
     builder
       .addCase(User_Register_State.pending, (state) => {
-        state.status = null
+        state.status = null;
       })
 
       .addCase(User_Login_State.pending, (state, action) => {
-        console.log("pending", action)
-        state.status = null
+        console.log("pending", action);
+        state.status = null;
       })
 
       .addCase(authGoogle.pending, (state, action) => {
@@ -236,15 +286,14 @@ export const StateSlice = createSlice({
       })
       .addCase(authGoogle.fulfilled, (state, action) => {
         console.log("fulfilled", action.payload);
-        state.status= "load";
+        state.status = "load";
         state.user = action.payload;
-      })
+      });
   },
-
 });
 
-export const { User, sigendOut, status, Rutines, Exercises } = StateSlice.actions;
-
+export const { User, sigendOut,EjerciciosDecription, status, Rutines, Exercises } =
+  StateSlice.actions;
 
 export const selectUser = (state: RootState) => state.user;
 

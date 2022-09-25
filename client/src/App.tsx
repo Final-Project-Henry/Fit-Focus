@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { useSesion } from "./app/hooks";
+import { useSesion, useToken } from "./app/hooks";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
 /* Componentes */
@@ -19,6 +19,8 @@ import HomeVisitor_2 from "./Components/HomeVisitor/HomeVisitor2";
 import ScrollButton from "./Components/ScrollUp/ScrollButton";
 import News from "./Components/HomeRegister/News/News";
 import NewsBlog from "./Components/HomeRegister/News/NewsBlog";
+import DecriptionEjer from "./Components/HomeRegister/DecritionEje";
+import Loading from "./Components/loading/Loading";
 
 function App() {
   const user = useSesion();
@@ -31,18 +33,20 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/auth/:id" element={<SingUp_Login />} />
           {user ? (
-            <Route path="/home" element={<HomeRegister />} />
+              <Route path="/fitFocus/:id" element={<HomeRegister />} />
           ) : (
             <Route path="/home" element={<HomeVisitor_2 />} />
           )}
           <Route path="/rutinas" element={<Form_rutinas />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/ejercicio/:id" element={<DecriptionEjer />} />
           <Route path="auth/google" element={<GoogleAuth />} />
           <Route path="mercadopago" element={<MercadoPago />} />
           <Route path="mercadopago/:payment_id" element={<MercadoFeedback />} />
           <Route path="/home2" element={<HomeVisitor />} />
           <Route path="/news" element={<News />} />
           <Route path="/newsBlog/:id" element={<NewsBlog />}/>
+          <Route path="loading" element ={<Loading />} />
         </Routes>
       </React.Fragment>
     </GoogleOAuthProvider>
