@@ -44,7 +44,7 @@ export default function SingUp_Login() {
     <Navbar/>
     
     <Div_img className="flex justify-center">
-      {user_existing && <Navigate to="/fitFocus/home" />}
+      {user_existing && <Navigate to="/fitFocus" />}
       <Div_conteiner className=" flex rounded w-11/12 bg-gray-100 ">
         <Div_form>
           <div id="menu" className=" bg-gray-200 ">
