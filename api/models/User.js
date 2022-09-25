@@ -18,7 +18,9 @@ const userSchema = new Schema({
         required: true
       },
     avatar: {
-      type: String
+      type: String,
+      default: 'https://i0.wp.com/www.repol.copl.ulaval.ca/wp-content/uploads/2019/01/default-user-icon.jpg',
+      required: false
     },
   
     plan: {

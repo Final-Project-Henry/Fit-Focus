@@ -9,22 +9,6 @@ import axios from "axios";
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
-///auth google
-export function useScript(url: string, onload: any) {
-  useEffect(() => {
-    let existing = document.getElementById("googleidentityservice");
-    let script: any;
-
-    if (existing === null) {
-      script = document.createElement("script");
-      script.src = url;
-      script.onload = onload;
-      document.head.appendChild(script);
-
-      return () => document.head.removeChild(script);
-    }
-  }, [url, onload]);
-}
 
 //Hooks para el manteniminedo de seccion del usuario
 
