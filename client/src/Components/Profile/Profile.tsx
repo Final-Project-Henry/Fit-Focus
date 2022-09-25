@@ -291,7 +291,7 @@ const Profile = () => {
                             <div className="flex-none w-auto max-w-full px-3 my-auto">
                                 <div className="h-full">
                                     <h5 className="mb-1">{state.user?.name}</h5>
-                                    <p className="mb-0 font-semibold leading-normal text-size-sm">CEO / Co-Founder</p>
+                                    <p className="mb-0 font-semibold leading-normal text-size-sm"></p>
                                     {
                                         hiddenButtons &&
                                         <div className="w-[200px] flex justify-between">
