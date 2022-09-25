@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { useToken } from '../../app/hooks';
 import { RootState, AppThunk } from '../../app/store';
 
 export interface State {
@@ -13,7 +14,7 @@ const initialState: State = {
     status: "default",
     id: '',
     premium: false,
-    payment: 'default'
+    payment: 'pending'
 };
 
 interface pay {
@@ -23,31 +24,23 @@ interface pay {
 
 
 export const get_payment = createAsyncThunk('user/get_payment', async (data: (pay), thunkAPI) => {
-    try {
         const response = await axios.get("http://localhost:3001/auth/payment", {
             headers: {
                 Authorization: `Bearer ${data.token}`,
             }
         });
         return response.data;
-    } catch (error) {
-        return error;
-    }
 }
 );
 export const verify_payment = createAsyncThunk('user/verify_payment', async (data: (pay), thunkAPI) => {
-    try {
-        const response = await axios.get(`http://localhost:3001/auth/confirmation?payment_id=${data.id}`, {
-            headers: {
-                Authorization: `Bearer ${data.token}`,
-            }
-        });
-        return response.data;
-    } catch (error) {
-        return error;
-    }
-}
-);
+
+    const response = await axios.get(`http://localhost:3001/auth/confirmation?payment_id=${data.id}`, {
+        headers: {
+            Authorization: `Bearer ${data.token}`,
+        }
+    });
+    return await response.data;
+});
 
 
 export const StateSlice = createSlice({
@@ -66,12 +59,15 @@ export const StateSlice = createSlice({
                 state.status = 'rejected';
             })
             .addCase(verify_payment.fulfilled, (state, action) => {
+                console.log(action);
+                state.premium = true;
                 state.payment = 'fulfilled';
-                if(action.payload.length>0)state.premium = true;
             })
             .addCase(verify_payment.rejected, (state, action) => {
+                console.log(action);
                 state.payment = 'rejected';
             })
+
     }
 });
 

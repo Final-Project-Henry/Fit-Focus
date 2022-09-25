@@ -166,7 +166,7 @@ const Profile = () => {
                             <a ref={profile} id="profile" onClick={handleClickAside} className={`${styles.selected === "profile" && styles.a} rounded-lg duration-500 py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors cursor-pointer sidebar`}>
                                 <div onClick={() => handleClickAside({ target: { id: "profile" } })} className={`${styles.selected === "profile" && styles.div} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg  bg-center stroke-0 text-center xl:p-2.5`}>
                                     <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-                                        <title>customer-support</title>
+                                        <title>Profile</title>
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <g transform="translate(-1717.000000, -291.000000)" fill="#FFFFFF" fill-rule="nonzero">
                                                 <g transform="translate(1716.000000, 291.000000)">
@@ -184,10 +184,10 @@ const Profile = () => {
                             </a>
                         </li>
                         <li className="my-0.5 w-full">
-                            <a ref={progress} id="progress" onClick={handleClickAside} className={`${styles.selected === "progress" && styles.a} rounded-lg py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors duration-500 sidebar`}>
+                            <a ref={progress} id="progress" onClick={handleClickAside} className={`${styles.selected === "progress" && styles.a} rounded-lg py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors duration-500 sidebar cursor-pointer`}>
                                 <div onClick={() => handleClickAside({ target: { id: "progress" } })} className={`${styles.selected === "progress" && styles.div} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5`}>
                                     <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-                                        <title>office</title>
+                                        <title>Progress</title>
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF" fill-rule="nonzero">
                                                 <g transform="translate(1716.000000, 291.000000)">
@@ -204,7 +204,7 @@ const Profile = () => {
                             </a>
                         </li>
                         <li className="my-0.5 w-full">
-                            <a id="billing" onClick={handleClickAside} className={`${styles.selected === "billing" && styles.a} rounded-lg py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors duration-500 sidebar`}>
+                            <a id="billing" onClick={handleClickAside} className={`${styles.selected === "billing" && styles.a} rounded-lg py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors duration-500 sidebar cursor-pointer`}>
                                 <div onClick={() => handleClickAside({ target: { id: "billing" } })} className={`${styles.selected === "billing" && styles.div} duration-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center fill-current stroke-0 text-center xl:p-2.5`}>
                                     <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                                         <title>credit-card</title>
@@ -234,7 +234,7 @@ const Profile = () => {
                             </a>
                         </li>
                         <li className="my-0.5 w-full">
-                            <a ref={remove} id="remove" onClick={handleClickAside} className={`${styles.selected === "remove" && styles.a} rounded-lg duration-500 py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors sidebar`}>
+                            <a ref={remove} id="remove" onClick={handleClickAside} className={`${styles.selected === "remove" && styles.a} rounded-lg duration-500 py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors sidebar cursor-pointer`}>
                                 <div onClick={() => handleClickAside({ target: { id: "remove" } })} className={`${styles.selected === "remove" && styles.div} duration-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-[7px]`}>
                                     <svg id="Layer_1" version="1.1" viewBox="0 0 64 64" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><style type="text/css">
                                     </style>
@@ -262,10 +262,10 @@ const Profile = () => {
                         <div className="flex flex-wrap -mx-3">
                             <div className="flex-none w-auto max-w-full px-3">
                                 <div className="text-size-base ease-soft-in-out h-18.5 w-18.5 relative inline-flex items-center justify-center rounded-xl text-white transition-all duration-200">
-                                    <img src={imageUrl} className="rounded-3xl border-solid app_uploadButton w-[74px] h-[74px] shadow-soft-sm object-cover" /* "https://demos.creative-tim.com/soft-ui-dashboard-tailwind/assets/img/bruce-mars.jpg" */ />
+                                    <img src={imageUrl} className="rounded-3xl border-solid app_uploadButton w-[74px] h-[74px] shadow-soft-sm object-cover" />
                                     <div onMouseEnter={() => handleHover(true, "camera")} onMouseLeave={() => handleHover(false, "camera")} className={`${hover.hoverCamera && hover.div} rounded-full absolute hover:duration-500 bottom-0 right-0 bg-white delay-100 duration-500 w-6 h-6 leading-8 overflow-hidden flex justify-center content-center`}>
                                         <input type="file" accept="image/*" onChange={handlePreview} className="app_uploadInput absolute scale-110 opacity-0" />
-                                        <svg height="19px" width="19px" className="mt-[2px]" id="Layer_1" /* style="enableBackground: "new 0 0 512 512"}} */ version="1.1" viewBox="0 0 512 512" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+                                        <svg height="19px" width="19px" className="mt-[2px]" id="Layer_1" enableBackground="new 0 0 512 512" version="1.1" viewBox="0 0 512 512" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                                             <g>
                                                 <path className={`${hover.hoverCamera && hover.pathCamera} duration-500 delay-100 `} d="M430.4,147h-67.5l-40.4-40.8c0,0-0.2-0.2-0.3-0.2l-0.2-0.2v0c-6-6-14.1-9.8-23.3-9.8h-84c-9.8,0-18.5,4.2-24.6,10.9l0,0.1   l-39.5,40H81.6C63,147,48,161.6,48,180.2v202.1c0,18.6,15,33.7,33.6,33.7h348.8c18.5,0,33.6-15.1,33.6-33.7V180.2   C464,161.6,448.9,147,430.4,147z M256,365.5c-50.9,0-92.4-41.6-92.4-92.6c0-51.1,41.5-92.6,92.4-92.6c51,0,92.4,41.5,92.4,92.6   C348.4,323.9,307,365.5,256,365.5z M424.1,200.5c-7.7,0-14-6.3-14-14.1s6.3-14.1,14-14.1c7.7,0,14,6.3,14,14.1   S431.8,200.5,424.1,200.5z" />
                                                 <path className={`${hover.hoverCamera && hover.pathCamera} duration-500 delay-100 `} d="M256,202.9c-38.6,0-69.8,31.3-69.8,70c0,38.6,31.2,70,69.8,70c38.5,0,69.8-31.3,69.8-70C325.8,234.2,294.5,202.9,256,202.9   z" />
@@ -277,7 +277,7 @@ const Profile = () => {
                             <div className="flex-none w-auto max-w-full px-3 my-auto">
                                 <div className="h-full">
                                     <h5 className="mb-1">{user?.name}</h5>
-                                    <p className="mb-0 font-semibold leading-normal text-size-sm">CEO / Co-Founder</p>
+                                    <p className="mb-0 font-semibold leading-normal text-size-sm">{/* Posible Texto */}</p>
                                     {
                                         hiddenButtons &&
                                         <div className="w-[200px] flex justify-between">
@@ -331,8 +331,8 @@ const Profile = () => {
                                 <div className="leading-normal text-center text-size-sm text-slate-500 lg:text-left">
                                     © 2022,
                                     made with <i className="fa fa-heart" aria-hidden="true"></i> by
-                                    <a href="https://www.facebook.com/Adrian.Alejandro.Acurero.1" className="font-semibold text-slate-700" target="_blank"> Adrian Acurero </a>
-                                    the more crack
+                                    <a href="https://www.facebook.com/Adrian.Alejandro.Acurero.1" className="font-semibold text-slate-700" target="_blank"> Team Fit-Focus </a>
+                                    studenst to Henry
                                 </div>
                             </div>
                             <div className="w-full max-w-full px-3 mt-0 shrink-0 lg:w-1/2 lg:flex-none">

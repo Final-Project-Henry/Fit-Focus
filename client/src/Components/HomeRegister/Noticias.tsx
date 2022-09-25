@@ -1,10 +1,11 @@
 import React from 'react'
+import News from './News/News';
 
 type Props = {}
 
 const Noticias = (props: Props) => {
   return (
-    <div>Noticias aun por implementar</div>
+      <News />
   )
 }
 
