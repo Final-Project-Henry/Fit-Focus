@@ -68,6 +68,7 @@ const HomeRegister = () => {
   return (
     <>
       <Navbar />
+
       <div className="bg-slate-100">
         {/* menu */}
         {/* carousel */}
@@ -130,7 +131,7 @@ const HomeRegister = () => {
                 </p>
               </div>
             </div>
-
+            
             {/* CARD II */}
             <div className="mx-[10%] max-w-sm bg-white border border-gray-200 hover:shadow-xl shadow-md dark:bg-gray-800 dark:border-gray-700 ml-[10%] mt-[5%]">
               <a href="#">
