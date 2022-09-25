@@ -27,7 +27,7 @@ import Ejercicios from "./Ejercicios";
 import Calculadora from "./Calculadora";
 import Noticias from "./Noticias";
 import RutinasPersonales from "./RutinasPersonales";
-import NavbarHome from "../Navbar/NavbarHome";
+import Navbar from "../Navbar/Navbar";
 import Favoritos from "./Favorito";
 import Form_rutinas from "../form_rutinas/From_rutina";
 
@@ -68,74 +68,10 @@ const HomeRegister = () => {
   };
   return (
     <>
-      <NavbarHome />
+      <Navbar />
       <div className="grid grid-cols-1 sm:grid-cols-11 gap-4 bg-slate-100  shadow-lg">
         {/* menu */}
-        <div className="col-span-2  bg-white min-h-screen">
-          <div className="p-5 top-0 fixed w-[17%]  z-20  bg-white  h-screen">
-            <div className=" flex justify-center">
-              <img src={iconDrak} className="w-[50%]" alt="icon" />
-            </div>
-            <hr className="bg-gray-500 h-[1px]" />
-            <div className="py-5">
 
-              <Link to="/fitFocus/home"
-                id="rejercisio"
-                onClick={(e) => getRenderComponet(e)}
-                className={`flex ${Render.rejercisio&&"bg-[#351F91]"} cursor-pointer  py-2 pr-5 ${Render.rejercisio?"text-gray-50":"text-gray-400"}  ${Render.rejercisio?"shadow-lg":"shadow"} hover:text-gray-50  hover:bg-blue-700 hover:shadow-lg hover:scale-110 duration-[0.2s] rounded mb-[10px]`}
-              >
-                <span className="pr-5 pl-2 text-2xl">
-                  <CgGym />
-                </span>
-                Ejercicios
-              </Link>
-
-              <Link to="/fitFocus/calculadora"
-                id="rcalculadora"
-                onClick={(e) => getRenderComponet(e)}
-                className={`flex ${Render.rcalculadora&&"bg-[#351F91]"} cursor-pointer my-5 py-2 pr-5 ${Render.rcalculadora?"text-gray-50":"text-gray-400"} ${Render.rcalculadora?"scale-110":"scale-100 "} ${Render.rcalculadora?"shadow-lg":"shadow"}  hover:text-gray-50 hover:bg-blue-700 hover:shadow-lg hover:scale-110 duration-[0.2s] rounded mb-[10px]`}
-              >
-                <span className="pr-5 pl-2 text-2xl">
-                  <ImCalculator />
-                </span>
-                Calculadora
-              </Link>
-
-              <Link to="/fitFocus/Noticias"
-                id="rnoticia"
-                onClick={(e) => getRenderComponet(e)}
-                className={`flex ${Render.rnoticia&&"bg-[#351F91]"} cursor-pointer my-5 py-2 pr-5 ${Render.rnoticia?"text-gray-50":"text-gray-400"} ${Render.rnoticia?"scale-110":"scale-100 "} ${Render.rnoticia?"shadow-lg":"shadow"} hover:text-gray-50 hover:bg-blue-700 hover:shadow-lg hover:scale-110 duration-[0.2s] rounded mb-[10px]`}
-              >
-                <span className="pr-5 pl-2 text-2xl">
-                  <BsNewspaper />
-                </span>
-                Noticias
-              </Link>
-              <Link to="/fitFocus/Rutinas"
-                id="rrutinas"
-                onClick={(e) => getRenderComponet(e)}
-                className={`flex ${Render.rrutinas&&"bg-[#351F91]"} cursor-pointer py-2 my-5 pr-5 ${Render.rrutinas?"text-gray-50":"text-gray-400"} ${Render.rrutinas?"scale-110":"scale-100 "} ${Render.rrutinas?"shadow-lg":"shadow"} hover:text-gray-50  hover:bg-blue-700 hover:shadow-lg hover:scale-110 duration-[0.2s] rounded mb-[10px]`}
-              >
-                <span className="pr-5 pl-2 text-2xl">
-                  <TbFolder />
-                </span>
-                Rutinas
-              </Link>
-
-              <Link to="/fitFocus/Fav"
-                id="rfav"
-                onClick={(e) => getRenderComponet(e)}
-                className={`flex ${Render.rfav&&"bg-[#351F91]"} cursor-pointer py-2 my-5 pr-5 ${Render.rfav?"text-gray-50":"text-gray-400"} ${Render.rfav?"scale-110":"scale-100 "} ${Render.rfav?"shadow-lg":"shadow"} hover:text-gray-50  hover:bg-blue-700 hover:shadow-lg hover:scale-110 duration-[0.2s] rounded mb-[10px]`}
-              >
-                <span className="pr-5 pl-2 text-2xl">
-                  <TbFolder />
-                </span>
-                 favoritos
-              </Link>
-            </div>
-            <hr className="bg-gray-500 h-[1px]" />
-          </div>
-        </div>
         {/* carousel */}
         <div className="w-full col-span-9  min-h-screen ">
           <div className="min-w-[100%]  my-5  min-h-[250px] ">
