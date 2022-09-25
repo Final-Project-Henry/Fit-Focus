@@ -1,0 +1,4 @@
+# Fit-Focus Proyecto Final-Henry
+"¿No tienes tiempo para ir al gimnasio? ¿No sabes cómo comenzar tu vida fit?
+FIT FOCUS® es ideal para ti, esta aplicación nace como una iniciativa deportiva para aquellos que desean mantener un cuerpo fuerte y saludable ya que la modificación de hábitos y estilos de vida conlleva grandes beneficios para la salud y todo esto lo puedes hacer desde la comodidad de tu casa.
+Además, vas a poder ver y crear tu estilo de entrenamiento adecuado a través de nuestra biblioteca de ejercicios y rutinas, ¡¡vamos a entrenar!!"
