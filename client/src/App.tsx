@@ -32,7 +32,7 @@ import Calculadora from "./Components/HomeRegister/Calculadora";
 import Navbar from "./Components/Navbar/Navbar";
 import Favoritos from "./Components/HomeRegister/Favorito";
 import RutinasPersonales from "./Components/HomeRegister/RutinasPersonales";
-import { selectUser, ValidToken } from "./features/counter/counterSlice";
+import { getProfileInfo, selectUser, ValidToken } from "./features/counter/counterSlice";
 
 function App() {
   const { pathname } = useLocation();
@@ -44,7 +44,10 @@ function App() {
   useEffect(() => {
     if (token) {
       console.log(token)
+
       dispacht(ValidToken(token));
+      dispacht(getProfileInfo(token));
+
     }
   }, [token]);
   useEffect(() => {
