@@ -1,6 +1,5 @@
 import { useAppDispatch, useAppSelector, useToken } from "../../app/hooks";
 import {
-  EjerciciosDecription,
   selectUser,
 } from "../../features/counter/counterSlice";
 import notPremiunImg from "../assets/homeRegister-media/padlock.png";
@@ -27,18 +26,32 @@ export default function DecriptionEjer() {
   const { id } = useParams();
    const token= useToken()
 
-  const dispacht = useAppDispatch();
   const [addFav, SetAddfav]=useState<boolean|string>("default");
-  const { descripcionEjersicio,user }= useAppSelector(selectUser);
+  const { user }= useAppSelector(selectUser);
+  const [descripcionEjersicio , setdescripcionEjersicio ]=useState<ejerciciosData>()
 
-  useEffect(() => {
-    dispacht(EjerciciosDecription(id));
-  }, [id]);
+  useEffect( () => {
+    if(token && id){
+      
+        let headersList = {
+          Accept: "*/*",
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        };
+        let reqOptions = {
+          url: `http://localhost:3001/auth/exercise?id=${id}`,
+          method: "GET",
+          headers: headersList,
+        };
+    
+        axios.request(reqOptions).then(e=>setdescripcionEjersicio(e.data));
+    }
+  }, [id,token]);
 
   useEffect(() => {
     if (addFav==true) {
       Swal.fire({
-        title: `${descripcionEjersicio.name} fue agregado a tus favoritos `,
+        title: `${descripcionEjersicio?.name} fue agregado a tus favoritos `,
         icon: "success",
         showCancelButton: false,
         confirmButtonColor: "#6c63ff",
@@ -56,7 +69,7 @@ export default function DecriptionEjer() {
   },[addFav]);
 
    function  AddFavorite(){
-      const favExisited = user.fav.find((x: any)=>x.name === descripcionEjersicio.name)
+      const favExisited = user.fav.find((x: any)=>x._id === descripcionEjersicio?._id)
       if (favExisited || addFav ==="Exercise added to fav"){
         Swal.fire({
           title: `Tu Ejercicio ya esta en tus Favoritos!❤️`,
@@ -70,7 +83,7 @@ export default function DecriptionEjer() {
         return
       }
       Swal.fire({
-        title: `¿Desea agreguar ${descripcionEjersicio.name} a tus favoritos ?`,
+        title: `¿Desea agreguar ${descripcionEjersicio?.name} a tus favoritos ?`,
         icon: "info",
         showCancelButton: true,
         confirmButtonColor: "#6c63ff",
@@ -80,6 +93,7 @@ export default function DecriptionEjer() {
       }).then(async (result) => {
         if (result.isConfirmed) {
           try {
+      
              const res= await axios.put("http://localhost:3001/auth/addfav",descripcionEjersicio,{
               headers: { Authorization: "Bearer " + token},
             })
