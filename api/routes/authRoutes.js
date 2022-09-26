@@ -64,10 +64,8 @@ router.get('/getroutine', async (req, res) => {
 
 router.get('/exercise', async (req, res) => {
   const {id} = req.query;
-  console.log(id)
 
   const exerciseFind = await exercise.findById(id);
-  console.log(exerciseFind)
   if(exerciseFind){
     res.status(200).send(exerciseFind);
   }else{
@@ -120,10 +118,11 @@ router.delete('/delete', async (req, res) => {
 
 router.put('/addfav', async (req, res) => {
   const {id} = req.user
-  const {name} = req.body
+  const {_id,name} = req.body
+  
    await user.updateOne({_id : id}, {
      $push : {
-      fav : {name: name}
+      fav : {id: _id, name:name}
      }
    });
    res.status(200).send('Exercise added to fav')

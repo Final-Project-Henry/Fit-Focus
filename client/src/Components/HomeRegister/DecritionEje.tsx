@@ -31,7 +31,7 @@ export default function DecriptionEjer() {
   const [descripcionEjersicio , setdescripcionEjersicio ]=useState<ejerciciosData>()
 
   useEffect( () => {
-    if(token &&id){
+    if(token && id){
       
         let headersList = {
           Accept: "*/*",
@@ -69,7 +69,7 @@ export default function DecriptionEjer() {
   },[addFav]);
 
    function  AddFavorite(){
-      const favExisited = user.fav.find((x: any)=>x.name === descripcionEjersicio?.name)
+      const favExisited = user.fav.find((x: any)=>x._id === descripcionEjersicio?._id)
       if (favExisited || addFav ==="Exercise added to fav"){
         Swal.fire({
           title: `Tu Ejercicio ya esta en tus Favoritos!❤️`,
@@ -93,6 +93,7 @@ export default function DecriptionEjer() {
       }).then(async (result) => {
         if (result.isConfirmed) {
           try {
+      
              const res= await axios.put("http://localhost:3001/auth/addfav",descripcionEjersicio,{
               headers: { Authorization: "Bearer " + token},
             })
