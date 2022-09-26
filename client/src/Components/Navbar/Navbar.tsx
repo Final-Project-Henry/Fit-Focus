@@ -21,8 +21,16 @@ const Navbar = () => {
 
   const dispatch = useAppDispatch();
   const {user} = useAppSelector( selectUser )
+
   const userSeccion = useSesion()
  const Navegation=  useNavigate()  
+
+ 
+ const onClick = ()=>{
+  window.scrollTo(0,0);
+  Navegation(userData?'/fitFocus':'/home')
+ }
+
 
 
  
@@ -57,10 +65,7 @@ const Navbar = () => {
       }
     });
   }
-  const onClickNavegation = (page:any) => {
-  
 
-  }
   return (
 
     <div style={{backgroundColor:"white"}}>
@@ -105,13 +110,15 @@ const Navbar = () => {
             >
               <ul className="flex flex-col p-4 mt-4 ml-4 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
                 <li>
-                  <Link
+                  {/* <Link
                     to={userData?`/fitFocus`:`/home`}
                     className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent md:p-0 "
                     aria-current="page"
                   >
                     Inicio
-                  </Link>
+                  </Link> */}
+                  <button onClick={onClick} className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent md:p-0 "
+                    aria-current="page">Inicio</button>
                 </li>
               
                     <li>
