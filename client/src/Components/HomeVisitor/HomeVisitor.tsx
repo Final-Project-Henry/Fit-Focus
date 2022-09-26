@@ -59,8 +59,7 @@ export default function HomeVisitor() {
   }, [ramdomMsj()]);
   return (
     <>
-      <Navbar />
-
+     
       {/* screen 1  */}
       <div className="bg-indigo-50">
         <div className="h-screen">
