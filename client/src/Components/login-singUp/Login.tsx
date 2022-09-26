@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 
 import {
@@ -26,6 +26,7 @@ const Login: React.FC<Propos> = ({
 }) => {
   let user = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
+  const Navegation=  useNavigate()  
   const [loagin, Set_loagin] = useState(false);
   const [Form_data, Set_form_data] = useState({
     email: "",
