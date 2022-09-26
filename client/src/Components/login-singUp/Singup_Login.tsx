@@ -30,14 +30,22 @@ export default function SingUp_Login() {
   const [user_existing, setuser] = useState<boolean | object>(false);
 
   useEffect(() => {
-    let userJSON = window.localStorage.getItem("Login_userFit_Focus");
-    if (userJSON) {
-      if (userJSON.length > 3) {
-        let user_exists = JSON.parse(userJSON);
-        setuser(user_exists);
-      }
-    }
+     
   }, []);
+
+
+    useEffect(() => {
+      if(user.statusToken!=="token invalido"){
+          console.log("enrooo",user)
+        let userJSON = window.localStorage.getItem("Login_userFit_Focus");
+        if (userJSON) {
+          if (userJSON.length > 3) {
+            let user_exists = JSON.parse(userJSON);
+            setuser(user_exists);
+          }
+        }
+      }    
+  }, [user.statusToken]);
 
   return (
     <>
