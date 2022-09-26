@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8vh;
+}
+
+.img {
+    width: 15vw;
+    height: 20vh;
+}
+
+.btn {
+    background-color: #111828;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    width: 15vw;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bad {
+    width: 40vw;
+    height: 30vw;
+    margin-left: 5vw;
+}
+
+.error {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.text {
+    font-size: 1.2rem;
+}

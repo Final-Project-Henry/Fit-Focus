@@ -27,16 +27,17 @@ import Calculadora from "./Components/HomeRegister/Calculadora";
 import Navbar from "./Components/Navbar/Navbar";
 import Favoritos from "./Components/HomeRegister/Favorito";
 import RutinasPersonales from "./Components/HomeRegister/RutinasPersonales";
+import Error_page from "./Components/error/Error_page";
 
 function App() {
-  const {pathname} = useLocation();
+  const { pathname } = useLocation();
   const user = useSesion();
 
   return (
     <GoogleOAuthProvider clientId="553882700243-5u6lingb04c86igau7nr6kjpicu042cl.apps.googleusercontent.com">
       <React.Fragment>
         <ScrollButton />
-        {pathname!=="/"  &&  <Navbar />}
+        {pathname !== "/" && <Navbar />}
         <Routes>
           {/* Rutas públicas */}
           <Route path="/" element={<LandingPage />} />
@@ -46,6 +47,10 @@ function App() {
           <Route path="/home2" element={<HomeVisitor />} />
           <Route path="loading" element={<Loading />} />
           <Route path="mercadopago" element={<MercadoPago />} />
+          <Route
+            path={"*"}
+            element={<Error_page error="URL inexistente." numb_error="404" />}
+          />
 
           {/* Rutas privadas */}
           <Route element={<ProtectedRoute user={user} />}>
