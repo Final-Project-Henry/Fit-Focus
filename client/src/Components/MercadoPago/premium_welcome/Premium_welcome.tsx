@@ -6,7 +6,7 @@ export default function Premium_welcome() {
     const navigate = useNavigate();
 
     const onClick=()=>{
-        navigate('/fitFocus/home');
+        navigate('/fitFocus');
     }
   return (
     <div className={styles.container}>

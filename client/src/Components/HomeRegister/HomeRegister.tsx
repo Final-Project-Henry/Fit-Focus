@@ -66,9 +66,6 @@ const HomeRegister = () => {
   }, []);
 
 
-  useMemo(() => {
-    if (token) dispatch(getProfileInfo(token));
-  }, [token]);
 
 
   const getRenderComponet = (
@@ -87,8 +84,7 @@ const HomeRegister = () => {
 
   return (
     <>
-      <Navbar />
-
+    
       <div className="bg-slate-100">
         {/* menu */}
         {/* carousel */}
