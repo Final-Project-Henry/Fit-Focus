@@ -189,7 +189,7 @@ export default function Form_rutinas() {
         
               checked={form_data.experience=="advanced"?true:false }
             />
-            <label>Avansado</label>
+            <label>Avanzado</label>
             <br />
           </div>
 

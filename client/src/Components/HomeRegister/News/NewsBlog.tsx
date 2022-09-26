@@ -19,7 +19,6 @@ const NewsBlog = () => {
 
     return (
         <div>
-            <Navbar />
             {/* component */}
             <div className="max-w-screen-lg mx-auto mb-32">
                 <main className="mt-10">
