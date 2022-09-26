@@ -82,17 +82,17 @@ export default function Form_rutinas(props:{function:{():void}}) {
               onChange={handleChange}
               checked={form_data.genre=="man"?true:false }
             />
-            <label> Masculio </label>
+            <label> Masculino </label>
             <br />
             <input
               type="checkbox"
               autoComplete="off"
               name="genre"
-              value="women"
+              value="woman"
               className="m-3 rounded-full p-2 cursor-pointer"
           
               onChange={handleChange}
-              checked={form_data.genre=="women"?true:false }
+              checked={form_data.genre=="woman"?true:false }
 
             />
             <label>Femenino</label>
