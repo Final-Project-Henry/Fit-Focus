@@ -117,9 +117,30 @@ router.put('/addfav', async (req, res) => {
 
 router.get('/profile', async (req, res) => {
   const {id} = req.user
+
   const User = await user.findOne({_id : id});
-  res.status(200).send(User)
+  if(User){
+    res.status(200).send(User)
+
+  }else{
+    res.status(400).send("Token invalido")
+  }
+
 });
+
+router.get('/ValidToken', async (req, res) => {
+  const {id} = req.user
+  const User = await user.findOne({_id : id});
+  if(User){
+    res.status(200).send("perfecto")
+
+  }else{
+    res.status(400).send("Token invalido")
+  }
+
+});
+
+  
 
 router.get('/payment', async (req, res) => {
   try {

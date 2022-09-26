@@ -20,7 +20,7 @@ const Navbar = () => {
   const [userInfo, setUserInfo] = useState<any>();
 
   const dispatch = useAppDispatch();
-  const {user} = useAppSelector( selectUser )
+  const {user, statusToken} = useAppSelector( selectUser )
 
   const userSeccion = useSesion()
  const Navegation=  useNavigate()  
@@ -31,20 +31,28 @@ const Navbar = () => {
   Navegation(userData?'/fitFocus':'/home')
  }
 
-
-
  
   useEffect(() => {
-    if (user) {
-      setUserInfo(user)
-      setUser(true);
-        
-    }else if(userSeccion){
-      setUserInfo(userSeccion)
-      setUser(true);
+    console.log(userSeccion)
+
+    if(
+      statusToken!=="token invalido"
+    ){
+      if (typeof user === "object" && user!==null ) {
+    console.log(user)
+
+        setUserInfo(user)
+        setUser(true);
+      }else if(userSeccion){
+        console.log(userSeccion)
+        setUserInfo(userSeccion)
+        setUser(true);
+      }
+    }else{
+      setUser(false);
+
     }
-    console.log(user,userSeccion)
-  }, [user,userSeccion]);
+  }, [user,userSeccion, statusToken]);
 
   function signOut(): void {
     Swal.fire({
