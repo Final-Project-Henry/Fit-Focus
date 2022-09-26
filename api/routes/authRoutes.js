@@ -69,10 +69,15 @@ router.put('/changeinfo', async (req, res) => {
  try {
 
         let modification = {};
-        if (name) modification = {...modification, name};
+
+        for (const key in req.body)
+          if (req.body[key] !== undefined)
+            modification = {...modification, [key]: req.body[key]}
+
+        /* if (name) modification = {...modification, name};
         if (email) modification = {...modification, email}
         if (avatar) modification = {...modification, avatar}
-        if (avatar) modification = {...modification, password}
+        if (avatar) modification = {...modification, password} */
 
     await user.updateMany({_id : id}, modification )
 
