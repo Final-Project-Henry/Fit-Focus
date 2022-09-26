@@ -17,7 +17,7 @@ const CardNews = ({ title, description, author, date, image, tags, id }: newsInt
                         <a className="relative block group" href="#0">
                             <div className="absolute inset-0 bg-gray-800 hidden md:block transform md:translate-y-2 md:translate-x-4 xl:translate-y-4 xl:translate-x-8 group-hover:translate-x-0 group-hover:translate-y-0 transition duration-700 ease-out pointer-events-none" aria-hidden="true"></div>
                             <figure className="relative h-0 pb-[56.25%] md:pb-[75%] lg:pb-[56.25%] overflow-hidden transform md:-translate-y-2 xl:-translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition duration-700 ease-out">
-                                <img className="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out" onClick={() => navigate(`/newsBlog/${id}`)} src={image} width="540" height="303" alt="Blog post" />
+                                <img className="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out" onClick={() => navigate(`/newsBlog/${id}`)}  src={image} width="540" height="303" alt="Blog post" />
                             </figure>
                         </a>
                         <div>
@@ -28,8 +28,8 @@ const CardNews = ({ title, description, author, date, image, tags, id }: newsInt
                                             tags &&
                                             tags.map(({text, color, colorHover}) => {
                                                 return (
-                                                    <li className="m-1">
-                                                        <a className={`${color + " " + colorHover} inline-flex text-center text-gray-100 py-1 px-3 rounded-full transition duration-150 ease-in-out`} href="#0">{text}</a>
+                                                    <li className={`${color + " " + colorHover} m-1 rounded-full `}>
+                                                        <a className={`inline-flex text-center text-gray-100 py-1 px-3 rounded-full transition duration-150 ease-in-out`} href="#0">{text}</a>
                                                     </li>
                                                 )
                                             })
