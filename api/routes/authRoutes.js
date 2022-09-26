@@ -62,6 +62,18 @@ router.get('/getroutine', async (req, res) => {
   }
 });
 
+router.get('/exercise', async (req, res) => {
+  const {id} = req.query;
+
+  const exerciseFind = await exercise.findById(id);
+  if(exerciseFind){
+    res.status(200).send(exerciseFind);
+  }else{
+    res.status(400).send("Token invalido");
+  }
+
+});
+
 router.put('/changeinfo', async (req, res) => {
   const {id} = req.user
  
@@ -106,10 +118,12 @@ router.delete('/delete', async (req, res) => {
 
 router.put('/addfav', async (req, res) => {
   const {id} = req.user
-  const {name} = req.body
+
+  const {_id,name} = req.body
+  
    await user.updateOne({_id : id}, {
      $push : {
-      fav : {name: name}
+      fav : {id: _id, name:name}
      }
    });
    res.status(200).send('Exercise added to fav')
@@ -139,8 +153,6 @@ router.get('/ValidToken', async (req, res) => {
   }
 
 });
-
-  
 
 router.get('/payment', async (req, res) => {
   try {

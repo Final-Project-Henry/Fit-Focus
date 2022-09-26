@@ -32,32 +32,36 @@ import Calculadora from "./Components/HomeRegister/Calculadora";
 import Navbar from "./Components/Navbar/Navbar";
 import Favoritos from "./Components/HomeRegister/Favorito";
 import RutinasPersonales from "./Components/HomeRegister/RutinasPersonales";
-import { getProfileInfo, selectUser, ValidToken } from "./features/counter/counterSlice";
+import {
+  getProfileInfo,
+  selectUser,
+  ValidToken,
+} from "./features/counter/counterSlice";
+import Error_page from "./Components/error/Error_page";
 
 function App() {
   const { pathname } = useLocation();
   const user = useSesion();
   const dispacht = useAppDispatch();
-  const Navegation=  useNavigate()  
-    let token = useToken();
+  const Navegation = useNavigate();
+  let token = useToken();
   const { statusToken } = useAppSelector(selectUser);
   useEffect(() => {
     if (token) {
-      console.log(token)
+      console.log(token);
 
       dispacht(ValidToken(token));
       dispacht(getProfileInfo(token));
-
     }
   }, [token]);
   useEffect(() => {
-    if(statusToken==="token invalido"){
-      console.log("entro")
-      Navegation("/auth/login")
-    }else{
+    if (statusToken === "token invalido") {
+      console.log("entro");
+      Navegation("/auth/login");
+    } else {
       dispacht(ValidToken(token));
     }
-  },[statusToken])
+  }, [statusToken]);
   return (
     <GoogleOAuthProvider clientId="553882700243-5u6lingb04c86igau7nr6kjpicu042cl.apps.googleusercontent.com">
       <React.Fragment>
@@ -72,6 +76,10 @@ function App() {
           <Route path="/home2" element={<HomeVisitor />} />
           <Route path="loading" element={<Loading />} />
           <Route path="mercadopago" element={<MercadoPago />} />
+          <Route
+            path={"*"}
+            element={<Error_page error="URL inexistente." numb_error="404" />}
+          />
 
           {/* Rutas privadas */}
           <Route element={<ProtectedRoute user={user} />}>
@@ -81,6 +89,7 @@ function App() {
             <Route path="/Calculadora" element={<Calculadora />} />
             <Route path="/ejercicios" element={<Ejercicios />} />
             <Route path="/rutinas" element={<RutinasPersonales />} />
+            <Route path="/Favoritos" element={<Favoritos />} />
             {/* <Route path="/form_user" element={<Form_rutinas />} /> */}
             <Route
               path="mercadopago/:payment_id"

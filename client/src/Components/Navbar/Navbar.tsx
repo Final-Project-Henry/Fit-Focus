@@ -82,9 +82,7 @@ const Navbar = () => {
               className="mr-3 h-6 sm:h-9 cursor-default"
               alt="FF Logo"
             />
-            {/* <span className="self-center text-xl font-semibold whitespace-nowrap text-white cursor-default">
-              Fit-Focus
-            </span> */}
+      
             <button
               onClick={() => setShowMenu(!showMenu)}
               data-collapse-toggle="mobile-menu-2"
@@ -166,6 +164,14 @@ const Navbar = () => {
                         </Link>
                       </li>
 
+                      <li>
+                        <Link
+                            to={userData?`/Favoritos`:`/auth/sing-up`}
+                          className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                        >
+                          Favoritos
+                        </Link>
+                      </li>
                       <li>
                         <Link
                             to={userData?`/rutinas`:`/auth/sing-up`}
