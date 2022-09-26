@@ -157,7 +157,7 @@ const HomeRegister = () => {
             Noticias de interés:
           </h1>
           <Link
-            to="/news"
+            to="/noticias"
             className="px-3 py-1 underline text-red-600 hover:text-red-200"
           >
             Ver todos{">>"}

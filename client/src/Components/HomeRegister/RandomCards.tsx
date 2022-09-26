@@ -5,8 +5,9 @@ import { useAppSelector } from "../../app/hooks";
 import { selectUser } from "../../features/counter/counterSlice";
 import notPremiunImg from "../assets/homeRegister-media/padlock.png";
 import notPremiunImg2 from "../assets/homeRegister-media/Img3.jpg";
-interface Props {
 
+
+interface Props {
   _id: string;
   name: string;
   difficulty: string;
@@ -28,13 +29,6 @@ const RandomCards = ({
 }: Props) => {
   const { exercises, user } = useAppSelector(selectUser);
 
-  title?: string
-  image?: string
-  description?: string
-}
-
-const RandomCards = (props:Props) => {
-
   return (
     <div>
       <Link
@@ -44,15 +38,14 @@ const RandomCards = (props:Props) => {
             ? `/mercadopago`
             : `/ejercicio/${_id}`
         }
-        className={`max-w-[75%] min-h-[300px] m-10 flex flex-col bg-white  shadow-md duration-150 cursor-pointer  hover:outline hover:outline-offset-1 ${
-          premium
+        className={`max-w-[75%] min-h-[300px] m-10 flex flex-col bg-white  shadow-md duration-150 cursor-pointer  hover:outline hover:outline-offset-1 ${premium
             ? "outline-blue-400"
             : difficulty == "easy"
-            ? "outline-green-400"
-            : difficulty == "medium"
-            ? "outline-yellow-400"
-            : "outline-red-400"
-        }
+              ? "outline-green-400"
+              : difficulty == "medium"
+                ? "outline-yellow-400"
+                : "outline-red-400"
+          }
       ${premium && user?.plan == "normal" ? "bg-slate-100" : "bg-slate-50"}`}
       >
         {premium && user?.plan == "normal" && (
@@ -75,9 +68,8 @@ const RandomCards = (props:Props) => {
         )}
 
         <div
-          className={`h-[300px] overflow-hidden  ${
-            premium && user?.plan == "normal" ? "blur-[5px]" : "blur-0"
-          }`}
+          className={`h-[300px] overflow-hidden  ${premium && user?.plan == "normal" ? "blur-[5px]" : "blur-0"
+            }`}
         >
           <img
             className="object-cover h-[300px] w-full"
@@ -86,9 +78,8 @@ const RandomCards = (props:Props) => {
           />
         </div>
         <div
-          className={`${
-            premium && user?.plan == "normal" ? "blur-[5px]" : "blur-0"
-          }`}
+          className={`${premium && user?.plan == "normal" ? "blur-[5px]" : "blur-0"
+            }`}
         >
           <h5 className="p-2 text-center text-xl font-bold -tracking-widest text-gray-900">
             {name}
@@ -97,18 +88,16 @@ const RandomCards = (props:Props) => {
 
 
         <div
-          className={` text-center ${
-            premium && user?.plan == "normal" ? "blur-[5px]" : "blur-0"
-          }`}
+          className={` text-center ${premium && user?.plan == "normal" ? "blur-[5px]" : "blur-0"
+            }`}
         >
           <span
-            className={`inline-block ${
-              difficulty == "easy"
+            className={`inline-block ${difficulty == "easy"
                 ? "bg-green-200"
                 : difficulty == "medium"
-                ? "bg-yellow-200"
-                : "bg-red-200"
-            } rounded-full px-2 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
+                  ? "bg-yellow-200"
+                  : "bg-red-200"
+              } rounded-full px-2 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
           >
             {difficulty}
           </span>
@@ -118,9 +107,8 @@ const RandomCards = (props:Props) => {
             {muscles}
           </span>
           <span
-            className={`inline-block ${
-              genre === "man" ? "bg-blue-400" : "bg-pink-300"
-            } rounded-full px-2 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
+            className={`inline-block ${genre === "man" ? "bg-blue-400" : "bg-pink-300"
+              } rounded-full px-2 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
           >
             {genre}
           </span>
@@ -129,28 +117,6 @@ const RandomCards = (props:Props) => {
     </div>
   );
 };
-
-    <div className="mx-[10%] max-w-sm bg-white border border-gray-200 hover:shadow-xl shadow-md dark:bg-gray-800 dark:border-gray-700 ml-[10%] mt-[5%]">
-      <a href="#">
-        <img
-          className=""
-          src={props.image}
-          alt=""
-        />
-      </a>
-      <div className="p-5">
-        <a href="#">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            {props.title}
-          </h5>
-        </a>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          {props.description}
-        </p>
-      </div>
-    </div>
-  )
-}
 
 
 export default RandomCards;
