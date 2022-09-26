@@ -1,7 +1,6 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { useToken } from '../../app/hooks';
-import { RootState, AppThunk } from '../../app/store';
+import { RootState } from '../../app/store';
 
 export interface State {
     status: string | null,

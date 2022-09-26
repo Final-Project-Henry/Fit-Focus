@@ -23,6 +23,10 @@ const Footer = () => {
   ): void {
     setFeedback((pv) => ({ ...pv, [event.target.name]: event.target.value }));
   }
+  const validation = ()=>{
+    if(token)return false;
+    else return true;
+  }
 
   const handleSubmmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -68,6 +72,7 @@ const Footer = () => {
                 className="p-2 bg-white w-full mt-4 rounded-lg"
                 value={feedback.email}
                 onChange={handleChange}
+                disabled={validation()}
               />
 
               <textarea
@@ -78,11 +83,13 @@ const Footer = () => {
                 rows={8}
                 value={feedback.comment}
                 onChange={handleChange}
+                disabled={validation()}
               />
 
               <button
                 type="submit"
                 className="text-white active:scale-90 duration-100  font-medium rounded-lg text-sm px-7 py-1.5  mt-4 bg-amber-700 hover:bg-amber-800 focus:outline-none"
+                disabled={validation()}
               >
                 Enviar
               </button>

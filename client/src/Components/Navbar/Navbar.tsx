@@ -17,17 +17,34 @@ const Navbar = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [lenguage, setLenguage] = useState(false);
   const [userData, setUser] = useState(false);
+  const [userInfo, setUserInfo] = useState<any>();
 
   const dispatch = useAppDispatch();
   const {user} = useAppSelector( selectUser )
+
+  const userSeccion = useSesion()
  const Navegation=  useNavigate()  
 
+ 
+ const onClick = ()=>{
+  window.scrollTo(0,0);
+  Navegation(userData?'/fitFocus':'/home')
+ }
 
+
+
+ 
   useEffect(() => {
     if (user) {
+      setUserInfo(user)
+      setUser(true);
+        
+    }else if(userSeccion){
+      setUserInfo(userSeccion)
       setUser(true);
     }
-  }, [user]);
+    console.log(user,userSeccion)
+  }, [user,userSeccion]);
 
   function signOut(): void {
     Swal.fire({
@@ -52,7 +69,7 @@ const Navbar = () => {
   return (
 
     <div style={{backgroundColor:"white"}}>
-      <nav className="fixed z-50 border-gray-200 px-2 sm:px-4  bg-white  w-full border-b-4">
+      <nav className=" border-gray-200 px-2 sm:px-4  bg-white  w-full border-b-4">
         <div className="container-fluid w-full flex flex-wrap items-center justify-between px-8 p-4">
           <div className="flex items-center">
             <img
@@ -93,53 +110,78 @@ const Navbar = () => {
             >
               <ul className="flex flex-col p-4 mt-4 ml-4 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
                 <li>
-                  <Link
+                  {/* <Link
                     to={userData?`/fitFocus`:`/home`}
                     className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent md:p-0 "
                     aria-current="page"
                   >
                     Inicio
-                  </Link>
+                  </Link> */}
+                  <button onClick={onClick} className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent md:p-0 "
+                    aria-current="page">Inicio</button>
                 </li>
-                <li>
-                  {!userData ? (
-                    <Scroll
+              
+                    <li>
+                      <Scroll
+                      to="feedbacks"
                       spy={true}
                       smooth={true}
                       offset={-100}
                       duration={500}
+                      className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent  md:p-0 cursor-pointer"
+                    >
+                      Opiniones
+                    </Scroll>
+                    </li>
+            
+                      <li>
+                        <Link
+                           to={userData?`/ejercicios`:`/auth/sing-up`}
+                          className="block py-2 p pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                        >
+                          Ejercicios
+                        </Link>
+                      </li>
+                      
+                      <li>
+                        <Link
+                           to={userData?`/calculadora`:`/auth/sing-up`}
+                          className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                        >
+                          Calculadora
+                        </Link>
+                      </li>
+                      
+                      <li>
+                        <Link
+                            to={userData?`/noticias`:`/auth/sing-up`}
+                          className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                        >
+                          Noticias
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link
+                            to={userData?`/rutinas`:`/auth/sing-up`}
+                          className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                        >
+                          Rutinas personalizadas
+                        </Link>
+                      </li>
+                  {!userData&&
+                      <li>
+                      <Scroll
                       to="Nosotros"
-                      className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                      spy={true}
+                      smooth={true}
+                      offset={-100}
+                      duration={500}
+                      className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent  md:p-0 cursor-pointer"
                     >
                       Nosotros
                     </Scroll>
-                  ) : (
-                    <li>
-                      <Scroll
-                        to="excercises"
-                        spy={true}
-                        smooth={true}
-                        offset={-100}
-                        duration={500}
-                        className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
-                      >
-                        Ejercicios
-                      </Scroll>
-                    </li>
-                  )}
-                </li>
-                <li>
-                  <Scroll
-                    to="feedbacks"
-                    spy={true}
-                    smooth={true}
-                    offset={-100}
-                    duration={500}
-                    className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent  md:p-0 cursor-pointer"
-                  >
-                    Opiniones
-                  </Scroll>
-                </li>
+                    </li>}
               </ul>
             </div>
           </div>
@@ -195,7 +237,7 @@ const Navbar = () => {
                   <span className="sr-only">Open user menu</span>
                   <img
                     className="w-10 h-10 rounded-full ml-4"
-                    src={user?.avatar}
+                    src={userInfo?.avatar}
                     onClick={() => setDropdown(!dropdown)}
                     alt=""
                   />
@@ -236,10 +278,10 @@ const Navbar = () => {
               >
            <div className="py-3 px-4">
                   <span className="block text-sm text-gray-900 ">
-                    {user?.name}
+                    {userInfo?.name}
                   </span>
                   <span className="block text-sm font-medium text-gray-500 truncate ">
-                    {user?.email}
+                    {userInfo?.email}
                   </span>
                 </div>
                 <ul className="py-1" aria-labelledby="user-menu-button">
