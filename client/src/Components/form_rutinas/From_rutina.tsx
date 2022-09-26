@@ -18,7 +18,7 @@ interface data_user {
   goal: string;
 }
 
-export default function Form_rutinas() {
+export default function Form_rutinas(props:{function:{():void}}) {
   let user = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
   let token = useToken();
@@ -57,6 +57,7 @@ export default function Form_rutinas() {
   function handleSubmit(event: React.FormEvent): void {
     event.preventDefault();
     dispatch(infoUserRutina({ token, form_data }));
+    props.function();
     console.log(form_data);
   }
 

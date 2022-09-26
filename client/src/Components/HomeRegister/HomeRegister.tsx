@@ -131,9 +131,9 @@ const HomeRegister = () => {
             }
           </div>
 
-          <div className="bg-gray-500">
-            <div className="flex content-center justify-center w-full h-10 bg-gray-500">
-              <h1 className="ml-0 text-5xl text-white font-dark  w-[80%] mx-[20px]">
+          <div className="bg-[#59656F]">
+            <div className="flex items-end w-full h-24">
+              <h1 className="ml-0 text-5xl text-white font-dark w-[80%] mx-[20px] ml-12">
                 Ejercicios con mejor calificación
               </h1>
               <Link
@@ -144,7 +144,7 @@ const HomeRegister = () => {
               </Link>
             </div>
 
-            <div className="grid grid-cols-4 grid-row-1 my-[60px] bg-gray-500 mt-[30px]">
+            <div className="grid grid-cols-4 grid-row-1 my-[60px] bg-[#59656F] mt-[30px]">
               {
                 exercises?.map(({ _id, video, name, difficulty, muscles, genre, premium }) => <RandomCards _id={_id} video={video} name={name} difficulty={difficulty} genre={genre} muscles={muscles} premium={premium} equipment={true} />)
               }
@@ -152,8 +152,8 @@ const HomeRegister = () => {
           </div>
         </div>
 
-        <div className="flex content-center justify-center w-full h-10 bg-gray-100 mt-[50px]">
-          <h1 className="ml-0 text-6xl text-gray-800 font-dark w-[80%] mx-[20px] ">
+        <div className="flex items-end w-full h-24">
+          <h1 className="ml-0 text-5xl font-dark w-[80%] mx-[20px] ml-12">
             Noticias de interés:
           </h1>
           <Link

@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
+import { exercises } from "../../additional_info/exercises";
 import { RootState, AppThunk } from "../../app/store";
 interface ejerciciosData {
   _id: string;
@@ -16,7 +17,7 @@ interface ejerciciosData {
 export interface State {
   user: null | string |any;
   status: string | null;
-  rutines: Array<any> | null;
+  rutines: any | null;
   exercises: Array<any> | [];
   descripcionEjersicio:any;
 }
@@ -29,7 +30,7 @@ export interface infoRutina {
 const initialState: State = {
   user: null,
   status: "none",
-  rutines: [],
+  rutines: {},
   exercises: [],
   descripcionEjersicio:{}
 };
@@ -46,7 +47,7 @@ export const Rutines_Get = createAsyncThunk(
       };
 
       let reqOptions = {
-        url: "http://localhost:3001/getroutine",
+        url: "http://localhost:3001/auth/getroutine",
         method: "GET",
         headers: headersList,
       };

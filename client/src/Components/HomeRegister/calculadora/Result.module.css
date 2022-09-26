@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    align-items: center;
+}
+
+.btn {
+    display: flex;
+    color: red;
+    align-self: flex-end;
+    margin-right: 5vw;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    font-size: 1.8rem;
+    width: 60%;
+    margin-left: 5vw;
+    gap: 5vh;
+    color: #111827;
+}
+
+.img {
+    width: 20vw;
+}
+
+.end {
+    width: 100%;
+    background-color: #111827;
+    margin-bottom: 10vh;
+}
+
+.message {
+    color: white;
+    font-size: 1.5rem;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
