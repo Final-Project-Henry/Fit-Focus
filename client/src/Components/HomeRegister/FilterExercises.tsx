@@ -37,7 +37,7 @@ export default function FilterExercises() {
 
   const { exercises ,user} = useAppSelector(selectUser);
   const [filtrado, setFiltrado] = useState<Array<ejerciciosData>| [] >([]);
-
+console.log(exercises)
   const [selected, setSelected] = useState<selectData>({
     genre: "none",
     muscle: "none",

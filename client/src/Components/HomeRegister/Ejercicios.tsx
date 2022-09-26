@@ -8,9 +8,17 @@ import { Link } from "react-router-dom";
 import slice from "../assets/homeRegister-media/slic2.jpg";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../footer/Footer";
+import { useMemo } from "react";
+import { Exercises_Get } from "../../features/counter/counterSlice";
+import { useAppDispatch } from "../../app/hooks";
 
 
 const Ejercicios = () => {
+  const dispatch = useAppDispatch();
+  useMemo(() => {
+    dispatch(Exercises_Get());
+  }, []);
+
   return (
     <>
       <div className="flex justify-center w-full overflow-hidden h-[500px]">
