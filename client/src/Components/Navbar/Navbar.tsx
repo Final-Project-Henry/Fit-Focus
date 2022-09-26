@@ -39,8 +39,6 @@ const Navbar = () => {
       statusToken!=="token invalido"
     ){
       if (typeof user === "object" && user!==null ) {
-    console.log(user)
-
         setUserInfo(user)
         setUser(true);
       }else if(userSeccion){
@@ -50,7 +48,6 @@ const Navbar = () => {
       }
     }else{
       setUser(false);
-
     }
   }, [user,userSeccion, statusToken]);
 
