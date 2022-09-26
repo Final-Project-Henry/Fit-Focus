@@ -41,8 +41,8 @@ export default function RutinasPersonales() {
             <>
               {dataUser?.plan == "normal" ? (
                 <>
-                  <img src={plancha} className="absolute w-[80%]" />
-                  <div className="absolute flex items-center justify-center w-[40%] bg-indigo-300 border-solid border-2 border-indigo-600 rounded-md">
+                  <img src={plancha} className=" w-[80%] h-[80vh]" />
+          <div className="absolute flex items-center justify-center w-[40%] bg-indigo-300 border-solid border-2 border-indigo-600 rounded-md">
                     <h1 className="text-white text-3xl text-center">
                       Para visualizar tus <b>Rutinas Personales</b>
                       <br />

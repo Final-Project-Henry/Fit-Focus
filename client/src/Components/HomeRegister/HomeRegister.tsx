@@ -36,6 +36,19 @@ import { exitCode } from "process";
 import RandomCards from "./RandomCards";
 import baner from '../assets/homeRegister-media/ejerc.jpg';
 
+interface card {
+  _id: string;
+  name: string;
+  difficulty: string;
+  equipment: true;
+  muscles: string;
+  genre: string;
+  video: string;
+  description: string;
+  premium: string;
+}
+
+
 const HomeRegister = () => {
 
   let token = useToken();
@@ -43,7 +56,9 @@ const HomeRegister = () => {
   const dispatch = useAppDispatch();
   const State = useAppSelector(selectUser);
 
-  const [exercises, setExercises] = useState<Array<any>>([])
+
+  const [exercises, setExercises] = useState<Array<card>>([])
+
 
   const [Render, SetRender] = useState({
     rejercisio: true,
@@ -53,21 +68,15 @@ const HomeRegister = () => {
     rrutinas: false,
   });
 
-
   useEffect(() => {
-    console.log(State.exercises)
-    setExercises(funcion.get_exercises(State.exercises))
-  }, [State])
-
-
-
+    if (State.exercises.length > 0) {
+      setExercises(funcion.get_exercises(State.exercises))
+    }
+  }, [State.exercises])
 
   useMemo(() => {
     dispatch(Exercises_Get());
   }, []);
-
-
-
 
   const getRenderComponet = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent> | any
@@ -82,10 +91,9 @@ const HomeRegister = () => {
     SetRender((pv) => ({ ...pv, [event.target.id]: true }));
   };
 
-
   return (
     <>
-    
+
       <div className="bg-slate-100">
         <div className=" w-full ">
           <Link to="/mercadopago">
@@ -115,23 +123,19 @@ const HomeRegister = () => {
             </Link>
           </div>
 
-          {/* Div padre de las cartas */}
           <div className="grid grid-cols-4 grid-row-1  content-center my-[60px] bg-gray-200 mt-[30px]">
-            {/* CARD I */}
             {
-            exercises.length>0
-            ? exercises.map((exer:any) => <RandomCards title={exer?.name} image={exer?.video}  description={exer?.description}/>)
-            : null
+
+              exercises?.map(({ _id, video, name, difficulty, muscles, genre, premium }) => <RandomCards _id={_id} video={video} name={name} difficulty={difficulty} genre={genre} muscles={muscles} premium={premium} equipment={true} />)
+
             }
           </div>
 
-          {/* Second row of excercises */}
           <div className="bg-gray-500">
             <div className="flex content-center justify-center w-full h-10 bg-gray-500">
               <h1 className="ml-0 text-5xl text-white font-dark  w-[80%] mx-[20px]">
                 Ejercicios con mejor calificación
               </h1>
-
               <Link
                 to="/ejercicios"
                 className="px-3 py-1 underline text-red-600 hover:text-gray-900"
@@ -140,29 +144,18 @@ const HomeRegister = () => {
               </Link>
             </div>
 
-            {/* div padre cards row II */}
             <div className="grid grid-cols-4 grid-row-1 my-[60px] bg-gray-500 mt-[30px]">
-              {/* CARD I */}
-
-
-              {/* CARD II */}
-
-
-              {/* CARD III */}
-
-
-              {/* CARD IV */}
-
+              {
+                exercises?.map(({ _id, video, name, difficulty, muscles, genre, premium }) => <RandomCards _id={_id} video={video} name={name} difficulty={difficulty} genre={genre} muscles={muscles} premium={premium} equipment={true} />)
+              }
             </div>
           </div>
         </div>
 
-        {/* div de carusel con 3 Noticias */}
         <div className="flex content-center justify-center w-full h-10 bg-gray-100 mt-[50px]">
           <h1 className="ml-0 text-6xl text-gray-800 font-dark w-[80%] mx-[20px] ">
             Noticias de interés:
           </h1>
-
           <Link
             to="/news"
             className="px-3 py-1 underline text-red-600 hover:text-red-200"
@@ -170,7 +163,6 @@ const HomeRegister = () => {
             Ver todos{">>"}
           </Link>
         </div>
-
         <div className=" flex justify-center mt-[20px] mb-[10px]">
           <div>
             <CardNews
