@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 import slice from "../assets/homeRegister-media/slic2.jpg";
 import Navbar from "../Navbar/Navbar";
+import Footer from "../footer/Footer";
 
 
 const Ejercicios = () => {
@@ -22,6 +23,7 @@ const Ejercicios = () => {
       <div>
         <FilterExercises />
       </div>
+      <Footer/>
     </>
   );
 }

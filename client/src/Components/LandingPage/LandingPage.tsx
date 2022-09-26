@@ -30,7 +30,7 @@ const LandingPage = () => {
           />
         </div>
       <div className="buttonDiv">
-        <Link to={user?`/fitFocus/home`:`/home`}>
+        <Link to={user?`/fitFocus`:`/home`}>
           <button  className="landingButton">COMENCEMOS</button>
         </Link>
       </div>

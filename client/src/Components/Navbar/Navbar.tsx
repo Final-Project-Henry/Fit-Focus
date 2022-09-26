@@ -52,7 +52,7 @@ const Navbar = () => {
   return (
 
     <div style={{backgroundColor:"white"}}>
-      <nav className="fixed z-50 border-gray-200 px-2 sm:px-4  bg-white  w-full border-b-4">
+      <nav className=" border-gray-200 px-2 sm:px-4  bg-white  w-full border-b-4">
         <div className="container-fluid w-full flex flex-wrap items-center justify-between px-8 p-4">
           <div className="flex items-center">
             <img
@@ -101,45 +101,59 @@ const Navbar = () => {
                     Inicio
                   </Link>
                 </li>
-                <li>
-                  {!userData ? (
-                    <Scroll
+              
+                    <li>
+                      <Scroll
+                      to="feedbacks"
                       spy={true}
                       smooth={true}
                       offset={-100}
                       duration={500}
+                      className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent  md:p-0 cursor-pointer"
+                    >
+                      Opiniones
+                    </Scroll>
+                    </li>
+            
+                      <li>
+                        <Link
+                           to={userData?`/ejercicios`:`/auth/sing-up`}
+                          className="block py-2 p pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                        >
+                          Ejercicios
+                        </Link>
+                      </li>
+                      
+                      <li>
+                        <Link
+                           to={userData?`/calculadora`:`/auth/sing-up`}
+                          className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                        >
+                          Calculadora
+                        </Link>
+                      </li>
+                      
+                      <li>
+                        <Link
+                            to={userData?`/noticias`:`/auth/sing-up`}
+                          className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                        >
+                          Noticias
+                        </Link>
+                      </li>
+                  {!userData&&
+                      <li>
+                      <Scroll
                       to="Nosotros"
-                      className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                      spy={true}
+                      smooth={true}
+                      offset={-100}
+                      duration={500}
+                      className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent  md:p-0 cursor-pointer"
                     >
                       Nosotros
                     </Scroll>
-                  ) : (
-                    <li>
-                      <Scroll
-                        to="excercises"
-                        spy={true}
-                        smooth={true}
-                        offset={-100}
-                        duration={500}
-                        className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
-                      >
-                        Ejercicios
-                      </Scroll>
-                    </li>
-                  )}
-                </li>
-                <li>
-                  <Scroll
-                    to="feedbacks"
-                    spy={true}
-                    smooth={true}
-                    offset={-100}
-                    duration={500}
-                    className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent  md:p-0 cursor-pointer"
-                  >
-                    Opiniones
-                  </Scroll>
-                </li>
+                    </li>}
               </ul>
             </div>
           </div>
