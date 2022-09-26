@@ -81,6 +81,7 @@ function App() {
             <Route path="/Calculadora" element={<Calculadora />} />
             <Route path="/ejercicios" element={<Ejercicios />} />
             <Route path="/rutinas" element={<RutinasPersonales />} />
+            <Route path="/Favoritos" element={<Favoritos />} />
             {/* <Route path="/form_user" element={<Form_rutinas />} /> */}
             <Route
               path="mercadopago/:payment_id"

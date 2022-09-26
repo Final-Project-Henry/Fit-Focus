@@ -84,6 +84,8 @@ export default function DecriptionEjer() {
               headers: { Authorization: "Bearer " + token},
             })
           if(res.data){
+            console.log(res)
+
             SetAddfav(res.data)
           }
           } catch (error) {
