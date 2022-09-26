@@ -34,6 +34,7 @@ import CardNews from "./News/CardNews";
 import funcion from "../../additional_info/functions";
 import { exitCode } from "process";
 import RandomCards from "./RandomCards";
+import baner from '../assets/homeRegister-media/ejerc.jpg';
 
 const HomeRegister = () => {
 
@@ -42,7 +43,7 @@ const HomeRegister = () => {
   const dispatch = useAppDispatch();
   const State = useAppSelector(selectUser);
 
-  const [exercises, setExercises] = useState<Array<any>>()
+  const [exercises, setExercises] = useState<Array<any>>([])
 
   const [Render, SetRender] = useState({
     rejercisio: true,
@@ -86,37 +87,14 @@ const HomeRegister = () => {
     <>
     
       <div className="bg-slate-100">
-        {/* menu */}
-        {/* carousel */}
-        {/* <div>
-          {
-            <Carousel
-              content={[
-                {
-                  src: "https://www.palco23.com/files/2020/18_recursos/fitness/dominada-728.jpg",
-                  text: "Hazte premium para obtener rutinas personalizadas",
-                  stylesText:
-                    "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
-                },
-                {
-                  src: "https://st4.depositphotos.com/3378831/41496/i/600/depositphotos_414960080-stock-photo-close-up-dumbbell-on-gym.jpg",
-                  text: "Hazte premium para obtener rutinas personalizadas",
-                  stylesText:
-                    "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
-                },
-              ]}
-            />
-          }
-        </div> */}
-
         <div className=" w-full ">
           <Link to="/mercadopago">
             <img
-              src="https://www.palco23.com/files/2020/18_recursos/fitness/dominada-728.jpg"
+              src={baner}
               alt=""
-              className="object-cover h-[80vh] w-full"
+              className="object-cover h-[55vh] w-full"
             />
-            <h1 className="sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white h-10 text-center">
+            <h1 className="h-12 w-full bg-gray-900 flex items-center text-white font-medium justify-center text-2xl">
               Hazte premium para obtener rutinas personalizadas
             </h1>
           </Link>
@@ -124,14 +102,14 @@ const HomeRegister = () => {
 
         {/* cartas de ejercicios */}
         <div className="flex mt-[5%] flex-col bg-gray-200 ">
-          <div className="flex content-center justify-center w-full h-10 bg-gray-200">
-            <h1 className="ml-0 text-6xl font-dark w-[80%] mx-[20px]">
-              Ejercicios de la semana:
+          <div className="flex items-end w-full h-24">
+            <h1 className="ml-0 text-5xl font-dark w-[80%] mx-[20px] ml-12">
+              Ejercicios de la semana
             </h1>
 
             <Link
               to="/ejercicios"
-              className="px-3 py-1 underline text-red-600 hover:text-red-200"
+              className="p-0 text-red-700 underline hover:text-gray-900"
             >
               Ver todos{">>"}
             </Link>
@@ -141,8 +119,8 @@ const HomeRegister = () => {
           <div className="grid grid-cols-4 grid-row-1  content-center my-[60px] bg-gray-200 mt-[30px]">
             {/* CARD I */}
             {
-            exercises?.length
-            ? exercises.map((exer:any) => <RandomCards title={exer.name} image={exer.video}  description={exer.description}/>)
+            exercises.length>0
+            ? exercises.map((exer:any) => <RandomCards title={exer?.name} image={exer?.video}  description={exer?.description}/>)
             : null
             }
           </div>
@@ -150,13 +128,13 @@ const HomeRegister = () => {
           {/* Second row of excercises */}
           <div className="bg-gray-500">
             <div className="flex content-center justify-center w-full h-10 bg-gray-500">
-              <h1 className="ml-0 text-6xl text-white font-dark  w-[80%] mx-[20px]">
-                Ejercicios con mejor calificación:
+              <h1 className="ml-0 text-5xl text-white font-dark  w-[80%] mx-[20px]">
+                Ejercicios con mejor calificación
               </h1>
 
               <Link
                 to="/ejercicios"
-                className="px-3 py-1 underline text-red-600 hover:text-red-200"
+                className="px-3 py-1 underline text-red-600 hover:text-gray-900"
               >
                 Ver todos{">>"}
               </Link>

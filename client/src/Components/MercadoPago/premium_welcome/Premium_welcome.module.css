@@ -1,4 +1,7 @@
 .container {
+    position: absolute;
+    top: 0;
+    z-index: -1;
     background-image: url('../../assets/mercadoPago/fondo.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -21,6 +24,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 10vh;
 }
 
 .text {
