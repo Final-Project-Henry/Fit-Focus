@@ -142,7 +142,7 @@ const HomeRegister = () => {
             {/* CARD I */}
             {
             exercises?.length
-            ? exercises.map(({name,description}) => <RandomCards title={name}  description={description}/>)
+            ? exercises.map((exer:any) => <RandomCards title={exer.name} image={exer.video}  description={exer.description}/>)
             : null
             }
           </div>
