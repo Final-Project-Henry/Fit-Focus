@@ -92,9 +92,9 @@ const HomeRegister = () => {
             <img
               src={baner}
               alt=""
-              className="object-cover h-[55vh] w-full"
+              className="object-cover h-[450px] w-full"
             />
-            <h1 className="h-12 w-full bg-gray-900 flex items-center text-white font-medium justify-center text-2xl">
+            <h1 className="h-[50px] w-full bg-[#111827] flex items-center text-white font-medium justify-center text-2xl">
               Hazte premium para obtener rutinas personalizadas
             </h1>
           </Link>

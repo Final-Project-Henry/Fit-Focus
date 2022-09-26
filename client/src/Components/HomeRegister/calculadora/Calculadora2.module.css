@@ -10,22 +10,10 @@
     background-color: rgb(252, 244, 244);
 }
 
-.title {
-    font-size: 40px;
-    color: #dedddd;
-}
-
-.text {
-    margin: 12px 0;
-    font-size: 20px;
-    color: #dedddd;
-}
-
-.area-input {
-    display: flow-root;
+.area_input {
+    display: flex;
     width: 70%;
     height: 70%;
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -34,7 +22,12 @@
     opacity: 0.70;
 }
 
-.area-input input {
+.btns_group {
+    display: flex;
+    gap: 20px;
+}
+
+.input{
     width: 80%;
     margin-bottom: 12px;
     height: 46px;
@@ -47,7 +40,7 @@
     font-size: 18px;
 }
 
-.area-input button {
+.btns {
     color: rgba(255, 255, 255, 0.9) !important;
     font-size: 20px;
     font-weight: 500;
@@ -59,15 +52,8 @@
     position: relative;
 }
 
-.area-input button:hover {
+.btns:hover {
     color: rgba(255, 255, 255, 1) !important;
     box-shadow: 0 4px 16px #357AFF;
     transition: all 0.2s ease;
-}
-
-.mensajes {
-    margin-top: 30px;
-    font-size: 16px;
-    text-align: center;
-    color: #dedddd;
 }
