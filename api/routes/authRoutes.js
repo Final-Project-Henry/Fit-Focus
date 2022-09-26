@@ -62,6 +62,20 @@ router.get('/getroutine', async (req, res) => {
   }
 });
 
+router.get('/exercise', async (req, res) => {
+  const {id} = req.query;
+  console.log(id)
+
+  const exerciseFind = await exercise.findById(id);
+  console.log(exerciseFind)
+  if(exerciseFind){
+    res.status(200).send(exerciseFind);
+  }else{
+    res.status(400).send("Token invalido");
+  }
+
+});
+
 router.put('/changeinfo', async (req, res) => {
   const {id} = req.user
  
@@ -139,8 +153,6 @@ router.get('/ValidToken', async (req, res) => {
   }
 
 });
-
-  
 
 router.get('/payment', async (req, res) => {
   try {

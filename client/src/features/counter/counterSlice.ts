@@ -20,7 +20,8 @@ export interface State {
   statusToken: string | null;
   rutines: any | null;
   exercises: Array<any> | [];
-  descripcionEjersicio:any;
+ 
+
 }
 
 export interface infoRutina {
@@ -34,7 +35,8 @@ const initialState: State = {
   status: "none",
   rutines: {},
   exercises: [],
-  descripcionEjersicio:{}
+
+ 
 };
 
 export const Rutines_Get = createAsyncThunk(
@@ -211,6 +213,7 @@ export const getProfileInfo = createAsyncThunk(
 );
 
 
+
 export const ValidToken = createAsyncThunk(
   "user/validToken",
   async (tokenUser: string, thunkAPI) => {
@@ -315,6 +318,7 @@ export const StateSlice = createSlice({
       state.exercises = action.payload;
     },
 
+
     User: (state, action: PayloadAction<string>) => {
       state.status = "none";
       state.user = action.payload;
@@ -334,10 +338,6 @@ export const StateSlice = createSlice({
     statusToken: (state, action: PayloadAction<string>) => {
       console.log(action.payload);
       state.statusToken = action.payload;
-    },
-    EjerciciosDecription:  (state, action: PayloadAction<string| undefined>) => {
-      state.descripcionEjersicio  =  state.exercises.find(e => e._id===action.payload)
-       
     },
   },
   extraReducers: (builder) => {
@@ -362,7 +362,7 @@ export const StateSlice = createSlice({
   },
 });
 
-export const { User, sigendOut,EjerciciosDecription, status, Rutines, Exercises,statusToken } =
+export const { User, sigendOut, status, Rutines, Exercises,statusToken } =
   StateSlice.actions;
 
 export const selectUser = (state: RootState) => state.user;
