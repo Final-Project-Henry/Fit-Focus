@@ -113,14 +113,14 @@ const token = useToken()
                                     <strong className="text-slate-700 ">
                                         {editable ? "Editar nombre:" : "Nombre:"}
                                     </strong> &nbsp;
-                                    <ContentEditable id="name" html={infoUser.name ? infoUser.name : "Cargando..."} onChange={handleChange} disabled={!editable} spellCheck={false} className={`${errorName && "border-b-2 border-red-400 hover:border-red-500 focus:border-red-600"} ${editable && "border-b-2 border-gray-200 hover:border-gray-500 focus:border-gray-800"}  duration-200 rounded-b-lg outline-none px-2 inline`} />
+                                    <ContentEditable id="name" html={infoUser.name !== undefined ? infoUser.name : "Cargando..."} onChange={handleChange} disabled={!editable} spellCheck={false} className={`${errorName && "border-b-2 border-red-400 hover:border-red-500 focus:border-red-600"} ${editable && "border-b-2 border-gray-200 hover:border-gray-500 focus:border-gray-800"}  duration-200 rounded-b-lg outline-none px-2 inline`} />
                                 </li>
                                 {/*  */}
                                 <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-base text-inherit">
                                     <strong className="text-slate-700">
                                         {editable ? "Editar correo:" : "Correo:"}
                                     </strong> &nbsp;
-                                    <ContentEditable id="email" html={infoUser.email ? infoUser.email : "Cargando..."} onChange={handleChange} disabled={!editable} spellCheck={false} className={`${errorEmail && "border-b-2 border-red-400 hover:border-red-500 focus:border-red-600"} ${editable && "border-b-2 border-gray-200 hover:border-gray-500 focus:border-gray-800"}  duration-200 rounded-b-lg outline-none px-2 inline`} />
+                                    <ContentEditable id="email" html={infoUser.email !== undefined ? infoUser.email : "Cargando..."} onChange={handleChange} disabled={!editable} spellCheck={false} className={`${errorEmail && "border-b-2 border-red-400 hover:border-red-500 focus:border-red-600"} ${editable && "border-b-2 border-gray-200 hover:border-gray-500 focus:border-gray-800"}  duration-200 rounded-b-lg outline-none px-2 inline`} />
                                 </li>
                                 {/*  */}
                                 <li className={`relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-base text-inherit `}>

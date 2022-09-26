@@ -34,6 +34,20 @@ import CardNews from "./News/CardNews";
 import funcion from "../../additional_info/functions";
 import { exitCode } from "process";
 import RandomCards from "./RandomCards";
+import baner from '../assets/homeRegister-media/ejerc.jpg';
+
+interface card {
+  _id: string;
+  name: string;
+  difficulty: string;
+  equipment: true;
+  muscles: string;
+  genre: string;
+  video: string;
+  description: string;
+  premium: string;
+}
+
 
 const HomeRegister = () => {
 
@@ -42,7 +56,9 @@ const HomeRegister = () => {
   const dispatch = useAppDispatch();
   const State = useAppSelector(selectUser);
 
-  const [exercises, setExercises] = useState<Array<any>>()
+
+  const [exercises, setExercises] = useState<Array<card>>([])
+
 
   const [Render, SetRender] = useState({
     rejercisio: true,
@@ -52,21 +68,15 @@ const HomeRegister = () => {
     rrutinas: false,
   });
 
-
   useEffect(() => {
-    console.log(State.exercises)
-    setExercises(funcion.get_exercises(State.exercises))
-  }, [State])
-
-
-
+    if (State.exercises.length > 0) {
+      setExercises(funcion.get_exercises(State.exercises))
+    }
+  }, [State.exercises])
 
   useMemo(() => {
     dispatch(Exercises_Get());
   }, []);
-
-
-
 
   const getRenderComponet = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent> | any
@@ -81,42 +91,18 @@ const HomeRegister = () => {
     SetRender((pv) => ({ ...pv, [event.target.id]: true }));
   };
 
-
   return (
     <>
-    
-      <div className="bg-slate-100">
-        {/* menu */}
-        {/* carousel */}
-        {/* <div>
-          {
-            <Carousel
-              content={[
-                {
-                  src: "https://www.palco23.com/files/2020/18_recursos/fitness/dominada-728.jpg",
-                  text: "Hazte premium para obtener rutinas personalizadas",
-                  stylesText:
-                    "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
-                },
-                {
-                  src: "https://st4.depositphotos.com/3378831/41496/i/600/depositphotos_414960080-stock-photo-close-up-dumbbell-on-gym.jpg",
-                  text: "Hazte premium para obtener rutinas personalizadas",
-                  stylesText:
-                    "sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white",
-                },
-              ]}
-            />
-          }
-        </div> */}
 
+      <div className="bg-slate-100">
         <div className=" w-full ">
           <Link to="/mercadopago">
             <img
-              src="https://www.palco23.com/files/2020/18_recursos/fitness/dominada-728.jpg"
+              src={baner}
               alt=""
-              className="object-cover h-[80vh] w-full"
+              className="object-cover h-[450px] w-full"
             />
-            <h1 className="sm:bg-blue-400 sm:opacity-90 sm:font-semibold sm:text-2xl sm:text-white h-10 text-center">
+            <h1 className="h-[50px] w-full bg-[#111827] flex items-center text-white font-medium justify-center text-2xl">
               Hazte premium para obtener rutinas personalizadas
             </h1>
           </Link>
@@ -124,75 +110,59 @@ const HomeRegister = () => {
 
         {/* cartas de ejercicios */}
         <div className="flex mt-[5%] flex-col bg-gray-200 ">
-          <div className="flex content-center justify-center w-full h-10 bg-gray-200">
-            <h1 className="ml-0 text-6xl font-dark w-[80%] mx-[20px]">
+          <div className="flex items-end w-full h-24">
+            <h1 className="ml-9 text-5xl font-dark w-[80%] mx-[20px]">
               Ejercicios de la semana:
             </h1>
 
             <Link
               to="/ejercicios"
-              className="px-3 py-1 underline text-red-600 hover:text-red-200"
+              className="p-0 text-red-700 underline hover:text-gray-900"
             >
               Ver todos{">>"}
             </Link>
           </div>
 
-          {/* Div padre de las cartas */}
           <div className="grid grid-cols-4 grid-row-1  content-center my-[60px] bg-gray-200 mt-[30px]">
-            {/* CARD I */}
             {
-            exercises?.length
-            ? exercises.map((exer:any) => <RandomCards title={exer.name} image={exer.video}  description={exer.description}/>)
-            : null
+
+              exercises?.map(({ _id, video, name, difficulty, muscles, genre, premium }) => <RandomCards _id={_id} video={video} name={name} difficulty={difficulty} genre={genre} muscles={muscles} premium={premium} equipment={true} />)
+
             }
           </div>
 
-          {/* Second row of excercises */}
-          <div className="bg-gray-500">
-            <div className="flex content-center justify-center w-full h-10 bg-gray-500">
-              <h1 className="ml-0 text-6xl text-white font-dark  w-[80%] mx-[20px]">
+          <div className="bg-[#59656F]">
+            <div className="flex items-end w-full h-24">
+              <h1 className="ml-9 text-5xl text-white font-dark w-[80%] mx-[20px] ">
                 Ejercicios con mejor calificación:
               </h1>
-
               <Link
                 to="/ejercicios"
-                className="px-3 py-1 underline text-red-600 hover:text-red-200"
+                className="px-3 py-1 underline text-red-600 hover:text-gray-900"
               >
                 Ver todos{">>"}
               </Link>
             </div>
 
-            {/* div padre cards row II */}
-            <div className="grid grid-cols-4 grid-row-1 my-[60px] bg-gray-500 mt-[30px]">
-              {/* CARD I */}
-
-
-              {/* CARD II */}
-
-
-              {/* CARD III */}
-
-
-              {/* CARD IV */}
-
+            <div className="grid grid-cols-4 grid-row-1 my-[60px] bg-[#59656F] mt-[30px]">
+              {
+                exercises?.map(({ _id, video, name, difficulty, muscles, genre, premium }) => <RandomCards _id={_id} video={video} name={name} difficulty={difficulty} genre={genre} muscles={muscles} premium={premium} equipment={true} />)
+              }
             </div>
           </div>
         </div>
 
-        {/* div de carusel con 3 Noticias */}
-        <div className="flex content-center justify-center w-full h-10 bg-gray-100 mt-[50px]">
-          <h1 className="ml-0 text-6xl text-gray-800 font-dark w-[80%] mx-[20px] ">
+        <div className="flex items-end w-full h-24">
+          <h1 className="ml-0 text-5xl font-dark w-[80%] mx-[20px] ">
             Noticias de interés:
           </h1>
-
           <Link
-            to="/news"
+            to="/noticias"
             className="px-3 py-1 underline text-red-600 hover:text-red-200"
           >
             Ver todos{">>"}
           </Link>
         </div>
-
         <div className=" flex justify-center mt-[20px] mb-[10px]">
           <div>
             <CardNews

@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+}
+
+.container_2 {
+    background-image: url('../assets/homeRegister-media/rutin_baner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tittle {
+    color: white;
+    background-image: url("../assets/homeRegister-media/tittle_fondo.png");
+    width: 40vw;
+    height: 80px;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.25rem;
+    font-weight: 400;
+}
+
+.tittle_2 {
+    font-size: 3rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+}

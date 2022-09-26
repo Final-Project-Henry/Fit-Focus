@@ -26,18 +26,7 @@ const news: Array<news> = [
         image: "https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_1768,c_limit/fc12f163-87ce-40bb-9db2-f279e1a4fb5f/dieta-o-ejercicio-%C2%BFcu%C3%A1l-es-m%C3%A1s-importante-para-perder-peso.jpg",
         info: "",
         date: 'abril 26, 2022',
-        tags: [
-            {
-                text: "Deport",
-                color: "bg-blue-600",
-                colorHover: "hover:bg-blue-700"
-            },
-            {
-                text: "health",
-                color: "bg-green-600",
-                colorHover: "hover:bg-green-700",
-            }
-        ]
+        tags: []
     },
     {
         id: 1,

@@ -62,6 +62,18 @@ router.get('/getroutine', async (req, res) => {
   }
 });
 
+router.get('/exercise', async (req, res) => {
+  const {id} = req.query;
+
+  const exerciseFind = await exercise.findById(id);
+  if(exerciseFind){
+    res.status(200).send(exerciseFind);
+  }else{
+    res.status(400).send("Token invalido");
+  }
+
+});
+
 router.put('/changeinfo', async (req, res) => {
   const {id} = req.user
  
@@ -106,10 +118,10 @@ router.delete('/delete', async (req, res) => {
 
 router.put('/addfav', async (req, res) => {
   const {id} = req.user
-  const {name} = req.body
+  const {_id} = req.body
    await user.updateOne({_id : id}, {
      $push : {
-      fav : {name: name}
+      fav : {id: _id}
      }
    });
    res.status(200).send('Exercise added to fav')
@@ -117,8 +129,27 @@ router.put('/addfav', async (req, res) => {
 
 router.get('/profile', async (req, res) => {
   const {id} = req.user
+
   const User = await user.findOne({_id : id});
-  res.status(200).send(User)
+  if(User){
+    res.status(200).send(User)
+
+  }else{
+    res.status(400).send("Token invalido")
+  }
+
+});
+
+router.get('/ValidToken', async (req, res) => {
+  const {id} = req.user
+  const User = await user.findOne({_id : id});
+  if(User){
+    res.status(200).send("perfecto")
+
+  }else{
+    res.status(400).send("Token invalido")
+  }
+
 });
 
 router.get('/payment', async (req, res) => {

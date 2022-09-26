@@ -1,0 +1,50 @@
+.container {
+display: flex;
+flex-direction: column;
+gap: 10vh;
+align-items: center;
+}
+
+.container_2 {
+    background-image: url('../../assets/homeRegister-media/calculadora_baner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tittle {
+    color: white;
+    background-image: url("../../assets/homeRegister-media/tittle_fondo.png");
+    width: 30vw;
+    height: 80px;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.25rem;
+    font-weight: 400;
+}
+
+.tittle_2 {
+    color: white;
+    background-color: #111827;
+    font-size: 3rem;
+    height: 80px;
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    font-size: 1.8rem;
+    align-self: flex-start;
+    margin-left: 5vw;
+    gap: 5vh;
+    display: flex;
+    flex-direction: column;
+}

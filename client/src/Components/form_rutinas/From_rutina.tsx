@@ -18,7 +18,7 @@ interface data_user {
   goal: string;
 }
 
-export default function Form_rutinas() {
+export default function Form_rutinas(props:{function:{():void}}) {
   let user = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
   let token = useToken();
@@ -57,6 +57,7 @@ export default function Form_rutinas() {
   function handleSubmit(event: React.FormEvent): void {
     event.preventDefault();
     dispatch(infoUserRutina({ token, form_data }));
+    props.function();
     console.log(form_data);
   }
 
@@ -81,17 +82,17 @@ export default function Form_rutinas() {
               onChange={handleChange}
               checked={form_data.genre=="man"?true:false }
             />
-            <label> Masculio </label>
+            <label> Masculino </label>
             <br />
             <input
               type="checkbox"
               autoComplete="off"
               name="genre"
-              value="women"
+              value="woman"
               className="m-3 rounded-full p-2 cursor-pointer"
           
               onChange={handleChange}
-              checked={form_data.genre=="women"?true:false }
+              checked={form_data.genre=="woman"?true:false }
 
             />
             <label>Femenino</label>
@@ -189,7 +190,7 @@ export default function Form_rutinas() {
         
               checked={form_data.experience=="advanced"?true:false }
             />
-            <label>Avansado</label>
+            <label>Avanzado</label>
             <br />
           </div>
 

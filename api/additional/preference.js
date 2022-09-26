@@ -40,7 +40,7 @@ module.exports={
             ],
             back_urls: {
                 'success': 'http://localhost:3001/feedback',
-                'failure': 'http://localhost:3001/feedback',
+                'failure': 'http://localhost:3000',
                 'pending': 'http://localhost:3001/feedback',
             },
             auto_return: 'approved',
