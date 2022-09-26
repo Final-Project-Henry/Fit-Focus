@@ -60,7 +60,7 @@ function App() {
               path="mercadopago/:payment_id"
               element={<MercadoFeedback />}
             />
-            <Route path="/news" element={<News />} />
+            <Route path="/noticias" element={<News />} />
             <Route path="/newsBlog/:id" element={<NewsBlog />} />
           </Route>
         </Routes>
