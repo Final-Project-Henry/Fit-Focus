@@ -59,7 +59,7 @@ const Login: React.FC<Propos> = ({
     <>
       <div>
         {typeof user.user === "string" && user.user.length > 50 && (
-          <Navigate to="/fitFocus/home" />
+          <Navigate to="/fitFocus" />
         )}
       </div>
 

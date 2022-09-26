@@ -123,11 +123,9 @@ const Profile = () => {
                 options
             );
             const res_1 = await res.json();
-            console.log(res_1)
             const data={avatar:res_1.secure_url}
-
+                console.log(res)
             dispatch(EditUser({token,data}))
-
             setImagePreview(null)        
         return console.log(res_1); 
         } catch (err) {
@@ -293,7 +291,7 @@ const Profile = () => {
                             <div className="flex-none w-auto max-w-full px-3 my-auto">
                                 <div className="h-full">
                                     <h5 className="mb-1">{state.user?.name}</h5>
-                                    <p className="mb-0 font-semibold leading-normal text-size-sm">CEO / Co-Founder</p>
+                                    <p className="mb-0 font-semibold leading-normal text-size-sm"></p>
                                     {
                                         hiddenButtons &&
                                         <div className="w-[200px] flex justify-between">
@@ -347,8 +345,8 @@ const Profile = () => {
                                 <div className="leading-normal text-center text-size-sm text-slate-500 lg:text-left">
                                     © 2022,
                                     made with <i className="fa fa-heart" aria-hidden="true"></i> by
-                                    <a href="https://www.facebook.com/Adrian.Alejandro.Acurero.1" className="font-semibold text-slate-700" target="_blank"> Adrian Acurero </a>
-                                    the more crack
+                                    <a href="localhost:3000/hola" className="font-semibold text-slate-700" target="_blank"> team Fit-Focus </a>
+                                    students to henry
                                 </div>
                             </div>
                             <div className="w-full max-w-full px-3 mt-0 shrink-0 lg:w-1/2 lg:flex-none">
