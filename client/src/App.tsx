@@ -23,14 +23,20 @@ import DecriptionEjer from "./Components/HomeRegister/DecritionEje";
 import Loading from "./Components/loading/Loading";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Ejercicios from "./Components/HomeRegister/Ejercicios";
+import Calculadora from "./Components/HomeRegister/Calculadora";
+import Navbar from "./Components/Navbar/Navbar";
+import Favoritos from "./Components/HomeRegister/Favorito";
+import RutinasPersonales from "./Components/HomeRegister/RutinasPersonales";
 
 function App() {
+  const {pathname} = useLocation();
   const user = useSesion();
 
   return (
     <GoogleOAuthProvider clientId="553882700243-5u6lingb04c86igau7nr6kjpicu042cl.apps.googleusercontent.com">
       <React.Fragment>
         <ScrollButton />
+        {pathname!=="/"  &&  <Navbar />}
         <Routes>
           {/* Rutas públicas */}
           <Route path="/" element={<LandingPage />} />
@@ -46,8 +52,10 @@ function App() {
             <Route path="/fitFocus" element={<HomeRegister />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/ejercicio/:id" element={<DecriptionEjer />} />
+            <Route path="/Calculadora" element={<Calculadora />} />
             <Route path="/ejercicios" element={<Ejercicios />} />
-            <Route path="/rutinas" element={<Form_rutinas />} />
+            <Route path="/rutinas" element={<RutinasPersonales />} />
+            <Route path="/form_user" element={<Form_rutinas />} />
             <Route
               path="mercadopago/:payment_id"
               element={<MercadoFeedback />}

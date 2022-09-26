@@ -12,7 +12,6 @@ import Visitor7 from './visitor_7/Visitor7';
 export default function HomeVisitor_2() {
   return (
     <div>
-        <Navbar />
         <Visitor1 />
         <Visitor2 />
         <Visitor3 />

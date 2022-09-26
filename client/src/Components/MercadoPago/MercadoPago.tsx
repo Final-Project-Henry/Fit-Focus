@@ -31,8 +31,7 @@ export default function MercadoPago() {
     }, [mercadoData])
     return (
         <Fragment>
-            <Navbar />
-            <div className={styles.container}>
+             <div className={styles.container}>
                 <div className={styles.tittle}>
                     <h1 style={{ color: '#111827' }}>Tu trayectoria con Fit Focus</h1>
                     <h1 style={{ color: '#111827' }}>comienza ahora</h1>

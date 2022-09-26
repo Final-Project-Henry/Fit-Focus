@@ -33,7 +33,7 @@ import Form_rutinas from "../form_rutinas/From_rutina";
 
 const HomeRegister = () => {
   const dispatch = useAppDispatch();
-  const State: any = useAppSelector(selectUser);
+  const State= useAppSelector(selectUser);
   const { id } = useParams();
   let token = useToken();
   const [Render, SetRender] = useState({
@@ -47,11 +47,8 @@ const HomeRegister = () => {
     dispatch(Exercises_Get());
     console.log("entra a home");
   }, []);
-  useMemo(() => {
-    if (token) {
-      dispatch(getProfileInfo(token));
-    }
-  }, [token]);
+
+ 
 
   const getRenderComponet = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent> | any
@@ -67,8 +64,7 @@ const HomeRegister = () => {
   };
   return (
     <>
-      <Navbar />
-
+    
       <div className="bg-slate-100">
         {/* menu */}
         {/* carousel */}

@@ -37,6 +37,7 @@ const LandingPage = () => {
           onClick={onClick} 
           className={styles.landingButton}>COMENCEMOS</button>
         </div>
+
       </div>
     </div>
   );
