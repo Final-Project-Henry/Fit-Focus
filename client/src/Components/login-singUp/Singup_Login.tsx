@@ -55,11 +55,11 @@ export default function SingUp_Login() {
         <Div_form>
           <div id="menu" className=" bg-gray-200 ">
             <Link to="/auth/login">
-              <p id="login">iniciar sesión</p>
+              <p id="login">Iniciar sesión</p>
             </Link>
             {!user.user ? (
               <Link to="/auth/sign-up">
-                <p>registrarse</p>
+                <p>Registrarse</p>
               </Link>
             ) : (
               <p id="singup">registrarse</p>
