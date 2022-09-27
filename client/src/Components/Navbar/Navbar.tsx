@@ -14,42 +14,39 @@ import Swal from "sweetalert2";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState<boolean>(false);
+  const [dropdownLang, setDropdownLang] = useState<boolean>(false);
   const [showMenu, setShowMenu] = useState<boolean>(false);
-  const [lenguage, setLenguage] = useState(false);
+  const [lenguage, setLenguage] = useState<string>("ES");
   const [userData, setUser] = useState(false);
   const [userInfo, setUserInfo] = useState<any>();
 
   const dispatch = useAppDispatch();
-  const {user, statusToken} = useAppSelector( selectUser )
+  const { user, statusToken } = useAppSelector(selectUser);
 
-  const userSeccion = useSesion()
- const Navegation=  useNavigate()  
+  const userSeccion = useSesion();
+  const Navegation = useNavigate();
 
- 
- const onClick = ()=>{
-  window.scrollTo(0,0);
-  Navegation(userData?'/fitFocus':'/home')
- }
+  const onClick = () => {
+    window.scrollTo(0, 0);
+    Navegation(userData ? "/fitFocus" : "/home");
+  };
 
- 
   useEffect(() => {
-    console.log(userSeccion)
+    console.log(userSeccion);
 
-    if(
-      statusToken!=="token invalido"
-    ){
-      if (typeof user === "object" && user!==null ) {
-        setUserInfo(user)
+    if (statusToken !== "token invalido") {
+      if (typeof user === "object" && user !== null) {
+        setUserInfo(user);
         setUser(true);
-      }else if(userSeccion){
-        console.log(userSeccion)
-        setUserInfo(userSeccion)
+      } else if (userSeccion) {
+        console.log(userSeccion);
+        setUserInfo(userSeccion);
         setUser(true);
       }
-    }else{
+    } else {
       setUser(false);
     }
-  }, [user,userSeccion, statusToken]);
+  }, [user, userSeccion, statusToken]);
 
   function signOut(): void {
     Swal.fire({
@@ -65,15 +62,18 @@ const Navbar = () => {
         dispatch(sigendOut(null));
         setUser(false);
         setDropdown(false);
-        Navegation("/home")
+        Navegation("/home");
         window.location.reload();
       }
     });
   }
 
-  return (
+  const chooseLangHandler = (value: string) => {
+    setLenguage(value);
+  };
 
-    <div style={{backgroundColor:"white"}}>
+  return (
+    <div style={{ backgroundColor: "white" }}>
       <nav className=" border-gray-200 px-2 sm:px-4  bg-white  w-full border-b-4">
         <div className="container-fluid w-full flex flex-wrap items-center justify-between px-8 p-4">
           <div className="flex items-center">
@@ -82,7 +82,7 @@ const Navbar = () => {
               className="mr-3 h-6 sm:h-9 cursor-default"
               alt="FF Logo"
             />
-      
+
             <button
               onClick={() => setShowMenu(!showMenu)}
               data-collapse-toggle="mobile-menu-2"
@@ -120,69 +120,74 @@ const Navbar = () => {
                   >
                     Inicio
                   </Link> */}
-                  <button onClick={onClick} className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent md:p-0 "
-                    aria-current="page">Inicio</button>
+                  <button
+                    onClick={onClick}
+                    className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent md:p-0 "
+                    aria-current="page"
+                  >
+                    Inicio
+                  </button>
                 </li>
-              
-                    <li>
-                      <Scroll
-                      to="feedbacks"
-                      spy={true}
-                      smooth={true}
-                      offset={-100}
-                      duration={500}
-                      className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent  md:p-0 cursor-pointer"
-                    >
-                      Opiniones
-                    </Scroll>
-                    </li>
-            
-                      <li>
-                        <Link
-                           to={userData?`/ejercicios`:`/auth/sing-up`}
-                          className="block py-2 p pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
-                        >
-                          Ejercicios
-                        </Link>
-                      </li>
-                      
-                      <li>
-                        <Link
-                           to={userData?`/calculadora`:`/auth/sing-up`}
-                          className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
-                        >
-                          Calculadora
-                        </Link>
-                      </li>
-                      
-                      <li>
-                        <Link
-                            to={userData?`/noticias`:`/auth/sing-up`}
-                          className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
-                        >
-                          Noticias
-                        </Link>
-                      </li>
 
-                      <li>
-                        <Link
-                            to={userData?`/Favoritos`:`/auth/sing-up`}
-                          className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
-                        >
-                          Favoritos
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                            to={userData?`/rutinas`:`/auth/sing-up`}
-                          className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
-                        >
-                          Rutinas personalizadas
-                        </Link>
-                      </li>
-                  {!userData&&
-                      <li>
-                      <Scroll
+                <li>
+                  <Scroll
+                    to="feedbacks"
+                    spy={true}
+                    smooth={true}
+                    offset={-100}
+                    duration={500}
+                    className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent  md:p-0 cursor-pointer"
+                  >
+                    Opiniones
+                  </Scroll>
+                </li>
+
+                <li>
+                  <Link
+                    to={userData ? `/ejercicios` : `/auth/sing-up`}
+                    className="block py-2 p pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                  >
+                    Ejercicios
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to={userData ? `/calculadora` : `/auth/sing-up`}
+                    className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                  >
+                    Calculadora
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to={userData ? `/noticias` : `/auth/sing-up`}
+                    className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                  >
+                    Noticias
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to={userData ? `/Favoritos` : `/auth/sing-up`}
+                    className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                  >
+                    Favoritos
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to={userData ? `/rutinas` : `/auth/sing-up`}
+                    className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                  >
+                    Rutinas personalizadas
+                  </Link>
+                </li>
+                {!userData && (
+                  <li>
+                    <Scroll
                       to="Nosotros"
                       spy={true}
                       smooth={true}
@@ -192,7 +197,8 @@ const Navbar = () => {
                     >
                       Nosotros
                     </Scroll>
-                    </li>}
+                  </li>
+                )}
               </ul>
             </div>
           </div>
@@ -200,7 +206,7 @@ const Navbar = () => {
             <div>
               <li className="flex items-center md:order-2">
                 <button
-                  onClick={() => setLenguage(!lenguage)}
+                  onClick={() => setDropdownLang(!dropdownLang)}
                   type="button"
                   data-dropdown-toggle="language-dropdown-menu"
                   className="inline-flex justify-center items-center p-2 text-sm text-gray-500 rounded cursor-pointer hover:text-gray-900"
@@ -218,17 +224,11 @@ const Navbar = () => {
                     id="language-dropdown-menu"
                   >
                     <ul className="py-1" role="none">
-                      <li>
-                        <a
-                          href="/"
-                          className="block hover: px-4 text-sm text-gray-500 "
-                          role="menuitem"
-                        >
-                          <div className="inline-flex items-center">
-                            <img src={english} width="10px" alt="" />
-                            English (US)
-                          </div>
-                        </a>
+                      <li onClick={() => chooseLangHandler("EN")}>
+                        <div className="inline-flex items-center">
+                          <img src={english} width="20px" alt="" />
+                          English (US)
+                        </div>
                       </li>
                     </ul>
                   </div>
@@ -287,7 +287,7 @@ const Navbar = () => {
                   transform: "translate(-50px, 20px)",
                 }}
               >
-           <div className="py-3 px-4">
+                <div className="py-3 px-4">
                   <span className="block text-sm text-gray-900 ">
                     {userInfo?.name}
                   </span>
@@ -329,7 +329,7 @@ const Navbar = () => {
                       Cerrar Sesión
                     </div>
                   </li>
-                  </ul>
+                </ul>
               </div>
             )}
           </div>
