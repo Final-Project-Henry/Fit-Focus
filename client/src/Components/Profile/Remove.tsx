@@ -13,13 +13,13 @@ const Remove = () => {
     function handleRemoveAccount(): void {
         Swal.fire({
             title: '¿Estas Seguro?',
-            text: "No podras revertir esta accion",
+            text: "Podras volver cuando quieras",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             cancelButtonText: "Cancelar",
-            confirmButtonText: 'Eliminar',
+            confirmButtonText: 'Desactivar',
         }).then((result: any) => {
             if (result.isConfirmed) {
                 dispatch(sigendOut(null))
@@ -28,8 +28,8 @@ const Remove = () => {
                 navigate("/home")
                 window.location.reload();
                 Swal.fire(
-                    'Eliminado',
-                    'Tu cuenta ha sido eliminada exitosamente',
+                    'Desactivado',
+                    'Tu cuenta ha sido desactivada exitosamente',
                     'success'
                 )
             }
@@ -45,7 +45,7 @@ const Remove = () => {
                         <div className="p-4 pb-0 mb-0 bg-white border-b-0 rounded-t-2xl">
                             <div className="flex flex-wrap -mx-3">
                                 <div className="flex items-center w-full max-w-full px-3 shrink-0 md:w-8/12 md:flex-none">
-                                    <h6 className="mb-0 font-bold text-lg">Eliminar cuenta</h6>
+                                    <h6 className="mb-0 font-bold text-lg">Desactivar cuenta</h6>
                                 </div>
                                 <div className="w-full max-w-full px-3 text-right shrink-0 md:w-4/12 md:flex-none">
                                     <a data-target="tooltip_trigger" data-placement="top">
@@ -57,11 +57,11 @@ const Remove = () => {
                         <div className="flex-auto p-4">
                             <hr className="h-px my-2 bg-transparent bg-gradient-horizontal-light" />
                             <ul className="flex flex-col pl-0 mb-0 rounded-lg">
-                                <li className="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-sm text-inherit"><strong className="text-slate-700">Esta accion es definitiva</strong> &nbsp; </li>
-                                <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit"> Si eliminas tu cuenta de Fit-Focus, no podrás recuperar el progreso ni las rutinas obtenidas en la app. También se eliminara todo el registro que hayamos guardado de ti</li>
+                                <li className="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-sm text-inherit"><strong className="text-slate-700">Esta accion es reversible</strong> &nbsp; </li>
+                                <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit"> Si desactivas tu cuenta podras volver cuando desees, cuando vuelvas tu informacion y fotos estaran igual que previo a desactivacion </li>
                                 <li className="relative flex justify-center px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-sm text-inherit"><strong className="text-slate-700"></strong> &nbsp;
                                     <button onClick={handleRemoveAccount} type="button" className="delay-100 duration-300 inline-block px-6 py-2.5 bg-gray-700 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-600 hover:shadow-lg focus:bg-red-900 focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg  ease-in-out">
-                                        Eliminar cuenta
+                                        Desactivar cuenta
                                     </button>
                                 </li>
                             </ul>

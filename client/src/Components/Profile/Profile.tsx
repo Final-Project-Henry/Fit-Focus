@@ -217,26 +217,6 @@ const Profile = () => {
                                 <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Progreso</span>
                             </a>
                         </li>
-                        <li className="my-0.5 w-full">
-                            <a id="billing" onClick={handleClickAside} className={`${styles.selected === "billing" && styles.a} rounded-lg py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors duration-500 sidebar`}>
-                                <div onClick={() => handleClickAside({ target: { id: "billing" } })} className={`${styles.selected === "billing" && styles.div} duration-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center fill-current stroke-0 text-center xl:p-2.5`}>
-                                    <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-                                        <title>credit-card</title>
-                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                                                <g transform="translate(1716.000000, 291.000000)">
-                                                    <g transform="translate(453.000000, 454.000000)">
-                                                        <path className={`${styles.selected !== "billing" && styles.path} duration-500 opacity-60`} d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"></path>
-                                                        <path className={`${styles.selected !== "billing" && styles.path} duration-500`} d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
-                                                    </g>
-                                                </g>
-                                            </g>
-                                        </g>
-                                    </svg>
-                                </div>
-                                <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Billing</span>
-                            </a>
-                        </li>
                         <li className="cursor-pointer my-0.5 w-full">
                             <a ref={logOut} id="logOut" onClick={handleClickAside} className={`${styles.selected === "logOut" && styles.a} rounded-lg duration-500 py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors sidebar`}>
                                 <div onClick={() => handleClickAside({ target: { id: "logOut" } })} className={`${styles.selected === "logOut" && styles.div} duration-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2`}>
@@ -264,7 +244,7 @@ const Profile = () => {
                                         </g>
                                     </svg>
                                 </div>
-                                <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Eliminar cuenta</span>
+                                <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Desactivar cuenta</span>
                             </a>
                         </li>
                     </ul>
@@ -333,8 +313,7 @@ const Profile = () => {
                         styles.selected === "profile" ? <ProfileDetails name={state.user?.name} email={state.user?.email} plan={state.user?.plan} />
                             : styles.selected === "progress" ? <Progress />
                                 : styles.selected === "remove" ? <Remove />
-                                    : styles.selected === "logOut" ? <ProfileDetails name={state.user?.name} email={state.user?.email} plan={state.user?.plan} />
-                                        : styles.selected === "billing" && <ProfileDetails name={state.user?.name} email={state.user?.email} plan={state.user?.plan} />
+                                    : styles.selected === "logOut" && <ProfileDetails name={state.user?.name} email={state.user?.email} plan={state.user?.plan} />
                     }
                 </div>
                 {/* <!-- Footer --> */}

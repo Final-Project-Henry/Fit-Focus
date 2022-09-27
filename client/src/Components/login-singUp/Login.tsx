@@ -131,7 +131,7 @@ const Login: React.FC<Propos> = ({
             type="submit"
           >
             {user.status ? (
-              "iniciar sesión"
+              "Iniciar sesión"
             ) : (
               <span className=" flex justify-center">
                 <img className="animate-spin w-5 mx-2" src={loading_icon} />

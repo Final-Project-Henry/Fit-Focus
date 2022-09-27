@@ -46,7 +46,7 @@ export default function Visitor4() {
                                 ></path>
                             </svg>
                             <span className="text-base font-normal text-gray-500  ">
-                                30 ejercicio por mes
+                                30 ejercicios por mes
                             </span>
                         </li>
                         <li className="flex space-x-3">
@@ -65,7 +65,7 @@ export default function Visitor4() {
                                 ></path>
                             </svg>
                             <span className="text-base font-normal leading-tight text-gray-500 ">
-                                calculadora
+                                Calculadora
                             </span>
                         </li>
                         <li className="flex space-x-3">
@@ -219,7 +219,7 @@ export default function Visitor4() {
                                 ></path>
                             </svg>
                             <span className="text-base font-normal leading-tight text-gray-500 ">
-                                Todos los ejercicio desbloqueados
+                                Todos los ejercicios desbloqueados
                             </span>
                         </li>
                         <li className="flex space-x-3">
@@ -323,7 +323,7 @@ export default function Visitor4() {
                         onClick={onClick}
                         className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:outline-none focus:ring-blue-200  font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
                     >
-                        Hazte Premium ya
+                        Hazte Premium ya!
                     </button>
                 </div>
             </div>

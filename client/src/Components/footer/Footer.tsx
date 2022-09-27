@@ -66,7 +66,7 @@ const Footer = () => {
               <input
                 type="email"
                 name="email"
-                placeholder="Email..."
+                placeholder="Correo..."
                 id="Nombre"
                 required
                 className="p-2 bg-white w-full mt-4 rounded-lg"
@@ -137,7 +137,7 @@ const Footer = () => {
               </li>
               <li className="mb-4">
                 <a href="#" target="_blank" className="hover:underline ">
-                  instagram
+                  Instagram
                 </a>
               </li>
             </ul>
@@ -164,8 +164,7 @@ const Footer = () => {
       <hr className="my-6 sm:mx-auto border-amber-500 lg:my-8" />
       <div className="sm:flex sm:items-center sm:justify-between">
         <span className="text-sm  sm:text-center text-gray-400">
-          © 2022 <span className="hover:underline">Fit-Focus™</span>.Reservados
-          todos los derechos.
+          © 2022 <span className="hover:underline">Fit-Focus™</span>.Todos los derechos reservados.
         </span>
         <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
           <a
@@ -174,7 +173,6 @@ const Footer = () => {
             className="text-gray-500 hover:text-white"
           >
             <svg
-              className="w-5 h-5"
               fill="currentColor"
               viewBox="0 0 24 24"
               aria-hidden="true"
