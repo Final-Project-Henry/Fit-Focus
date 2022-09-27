@@ -1,0 +1,155 @@
+{
+    "__Landing__":"Landing Area",
+    
+    "landingText": "¿No tienes tiempo para ir al gimnasio? ¿No sabes cómo comenzar tu vida fit? FIT FOCUS® es ideal para ti, esta aplicación nace como una iniciativa deportiva para aquellos que desean mantener un cuerpo fuerte y saludable ya que la modificación de hábitos y estilos de vida conlleva grandes beneficios para la salud y todo esto lo puedes hacer desde la comodidad de tu casa. Además, vas a poder ver y crear tu estilo de entrenamiento adecuado a través de nuestra biblioteca de ejercicios y rutinas, vamos a entrenar",
+    "landingButton": "Comencemos",
+
+
+
+    "__Navbar__":"Navbar Area Visitante",
+    
+    "botonInicio": "Inicio",
+    "botonOpiniones": "Opiniones",
+    "botonEjercicios": "Ejercicios",
+    "botonCalculadora": "Calculadora",
+    "botonNoticias": "Noticias",
+    "botonFavoritos": "Favoritos",
+    "botonRutinasPersonalizadas": "Rutinas personalizadas",
+    "botonNosotros": "Nosotros",
+    "botonRegistrarse": "Registrarse",
+    "botonIniciarsesión": "Iniciar sesión",
+
+
+
+    "__Banner 1__":"Banner 1 Area",
+    
+    "textoCambiarTuVida": "¿No sabes como empezar a cambiar tu vida y mejorar tu salud?",
+    "textoNosotrosTeAyudamos": "No tienes que preocuparte, nosotros te ayudamos a lograrlo",
+    "botonHazClickAqui": "HAZ CLICK AQUI",    
+    "textoLoQueOpinan": "Lo que opinan algunos miembros:",
+
+
+
+    "__Opiniones de los Miembros__": "Opiniones Area",
+
+    
+    
+    "__Banner 2__":"Banner 2 Area",
+    
+    "textoEstaApicacion": "Esta aplicación:",
+    "textoOfrece": "Ofrece una gran variedad de ejercicios para realizarlos en casa, dependiendo la parte del cuerpo que se desee trabajar. Tambien nos brinda una calculadora para conocer el indice de masa corporal y asi tener un mayor conocimiento de nuestra salud.",
+
+
+
+    "__Banner 3__":"Banner 3 Area",
+    
+    "textoMasDe20?": "¿Tienes mas de 20?",    
+    "textoEntoncesestaapp": "Entonces esta app esta hecha a tu medida",
+    "linkEmpiezaacambiar": "Empieza a cambiar tu vida ya!",    
+    
+    
+
+    "__Banner 4__":"Banner 4 Area",
+    
+    "textoSentadilla":"SENTADILLA",
+    "textoCardGratis1":"Gratis!",
+    "textoLista30":"30 ejercicios por mes",
+    "textoListaCalculadora":"Calculadora",
+    "textoListaNoticiasRelacionadas":"Noticias Relacionadas",
+    "textoListaPuntuar":"Puntuar ejercicios",
+    "textoListaRutinasPersonalizadas":"Rutinas personalizadas",
+    "textoListaFavoritos":"Favoritos",
+    "textoListaEjerciciosDeEstiramiento":"Ejercicios de estiramiento",
+    "botonEmpiezaGratis":"Empieza Gratis!",
+    
+    "textoPagoUnico":"Pago unico",
+    "textoTodosLosEjerciciosDesbloqueados":"Todos los ejercicios desbloqueados",
+    "***textoLista2RutinasPersonalizadas":"Rutinas personalizadas",   
+    "***textoLista2Calculadora":"Calculadora",
+    "***textoLista2NoticiasRelacionadas":"Noticias Relacionadas",
+    "***textoLista2Favoritos":"Favoritos",
+    "***textoLista2Puntuar":"Puntuar ejercicios",
+    "***textoLista2EjerciciosDeEstiramiento":"Ejercicios de estiramiento",
+    "botonHaztePremiumYa":"Hazte Premium ya!",
+ 
+
+
+    "__Banner 5__":"Banner 5 Area",
+    
+    "textoLaedad":"“La edad no es una barrera. Es una limitación que pones en tu mente.”",
+
+    
+    
+    "__Banner 6__":"Banner 6 Area",
+    
+    "textoPorQueEsperar":"¿Por que esperar?",
+    "textoObtenTodoEsto":"Obten todo esto y mas!!",
+    "***textBanner6Calculadora":"Calculadora",
+    "***textoBanner6RutinasPersonalizadas":"Rutinas Personalizadas",
+    "***textoBanner6EjerciciosDeEstiramiento":"Ejercicios de estiramiento",
+    "botonBanner6HaztePremium":"HAZTE PREMIUM",
+
+
+    
+    "__Acerca de Nosotro__":"Acerca de Nosotros Area",
+    
+    "textoAcercaDeNosotros":"Acerca de Nosotros",
+
+
+    
+    "__Footer__":"Footer Area",
+    
+    "textoFormDejanosTuOpinion":"DEJANOS TU OPINIÓN:",
+    "textoCorreoInput":"Correo...",
+    "textoMensajeInput":"Mensaje...",
+    "botonFooterEnviar":"Enviar",
+    "textoTodosLosDerechos":"© 2022 Fit-Focus™.Todos los derechos reservados.",
+    "textoMenuColaboracion":"COLABORACIÓN",
+    "textoMenuSigannos":"SIGANNOS",
+    "textoMenuLegal":"LEGAL",
+    "***botonNosotros": "Nosotros",
+    "botonHenry":"Henry",
+    "botonGithub":"Github",
+    "botonInstagram":"Instagram",
+    "botonPolitica":"Política de Privacidad",
+    "botonTérminos":"Términos y Condiciones",
+    
+
+
+    "__REGISTRARSE__":"REGISTRARSE AREA",
+    
+    "textoRegistrarse":"Registrarse",
+    "textoNombreRegistrarse":"Nombre",
+    "textoCorreoRegistrarse":"Correo",
+    "textoContraseñaRegistrarse":"Contraseña",
+    "***botonRegistrarse":"Registrarse",
+    "textoIniciarSesion":"Iniciar sesión",
+    
+    "__INICIAR SESION__":"INICIAR SESION AREA",
+    
+    "***textoCorreoIniciarSesion":"Correo",
+    "***textoContraseñaIniciarSesion":"Contraseña",
+    "textoRecibirNotificaciones":"Recibir Notificaciones",
+    "textoOlvidasteTuContraseña":"Olvidaste tu contraseña?",
+    "botonIniciarSesion":"Iniciar sesión",
+    "textoNoEstasRegistrado?":"No estas Registrado?",
+    
+    "textoCrearUnaCuenta":"Crear una cuenta",
+
+
+
+
+    "__PERFIL REGISTRADO__": "PERFIL REGISTRADO AREA",
+
+    "botonMiPerfil": "Mi Perfil",
+    "botonConfiguraciones": "Configuraciones",
+    "botonDashboard": "Dashboard",
+    "botonCerrarSesión": "Cerrar Sesión",
+
+
+
+    "homeVideoText": "EL ÚNICO LÍMITE ERES TÚ",
+    "footerAcercaDeNosotros": "Acerca de Nosotros",
+    "footerAercaDeNosotrosParagraph": "Somos un grupo de jóvenes y entusiastas programadores que desarrollamos aplicaciones web responsive. Nuestra meta es desarrollar la App mística que nos de ingresos pasivos de por vida para lograr así derrotar al sistema y no tener que hacer aportes para la jubilación.",
+    "footerProyectoHenry": "PROYECTO FINAL SOY HENRY 2022"
+}
