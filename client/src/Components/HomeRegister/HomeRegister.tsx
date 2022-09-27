@@ -35,6 +35,7 @@ import funcion from "../../additional_info/functions";
 import { exitCode } from "process";
 import RandomCards from "./RandomCards";
 import baner from '../assets/homeRegister-media/ejerc.jpg';
+import LoadingCards from "../loading/LoadingCards";
 
 interface card {
   _id: string;
@@ -93,7 +94,6 @@ const HomeRegister = () => {
 
   return (
     <>
-
       <div className="bg-slate-100">
         <div className=" w-full ">
           <Link to="/mercadopago">
@@ -126,8 +126,8 @@ const HomeRegister = () => {
           <div className="grid grid-cols-4 grid-row-1  content-center my-[60px] bg-gray-200 mt-[30px]">
             {
 
-              exercises?.map(({ _id, video, name, difficulty, muscles, genre, premium }) => <RandomCards _id={_id} video={video} name={name} difficulty={difficulty} genre={genre} muscles={muscles} premium={premium} equipment={true} />)
-
+              exercises.length>0?exercises.map(({ _id, video, name, difficulty, muscles, genre, premium }) => <RandomCards _id={_id} video={video} name={name} difficulty={difficulty} genre={genre} muscles={muscles} premium={premium} equipment={true} />)
+              :<LoadingCards num={"1234"} />
             }
           </div>
 
@@ -146,7 +146,9 @@ const HomeRegister = () => {
 
             <div className="grid grid-cols-4 grid-row-1 my-[60px] bg-[#59656F] mt-[30px]">
               {
-                exercises?.map(({ _id, video, name, difficulty, muscles, genre, premium }) => <RandomCards _id={_id} video={video} name={name} difficulty={difficulty} genre={genre} muscles={muscles} premium={premium} equipment={true} />)
+                exercises.length>0?exercises?.map(({ _id, video, name, difficulty, muscles, genre, premium }) => <RandomCards _id={_id} video={video} name={name} difficulty={difficulty} genre={genre} muscles={muscles} premium={premium} equipment={true} />)
+                :
+                <LoadingCards num={"1234"} />
               }
             </div>
           </div>
