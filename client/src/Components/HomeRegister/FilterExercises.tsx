@@ -9,6 +9,7 @@ import { Exercises_Get, selectUser } from "../../features/counter/counterSlice";
 import notPremiunImg from "../assets/homeRegister-media/padlock.png";
 import notPremiunImg2 from "../assets/homeRegister-media/Img3.jpg";
 import { Link } from "react-router-dom";
+import LoadingCards from "../loading/LoadingCards";
 
 //Linia 261  etiquetas de card (deficualtad, etc)
 
@@ -33,11 +34,10 @@ interface selectData {
 }
 let num  = 8
 let nuevoArray : Array<ejerciciosData> = []
-export default function FilterExercises() {
 
+export default function FilterExercises() {
   const { exercises ,user} = useAppSelector(selectUser);
   const [filtrado, setFiltrado] = useState<Array<ejerciciosData>| [] >([]);
-console.log(exercises)
   const [selected, setSelected] = useState<selectData>({
     genre: "none",
     muscle: "none",
@@ -85,6 +85,7 @@ console.log(exercises)
     setFiltrado( ochoFiltrados2)
   }, [selected]);
   /* handleSelecteds */
+  
   const handleSelectGenre = (event:React.ChangeEvent<HTMLSelectElement>| { [x: string]: any; value: string }) => {
     setSelected({ ...selected, genre: event.target.value });
   };
@@ -119,7 +120,6 @@ console.log(exercises)
 
   return (
     <>
-
       <div className="bg-white flex shadow  justify-around items-center w-[80%] m-auto">
         <div>
         <select
@@ -212,7 +212,8 @@ console.log(exercises)
       </div>
       <div>
         <section className="grid grid-cols-4">
-          {filtrado?.map(
+          {
+            filtrado.length>0?filtrado.map(
             ({_id, video, name, difficulty, muscles, genre, premium }) => {
               return (
                 <>
@@ -287,9 +288,9 @@ console.log(exercises)
                 </>
               );
             }
-          )}
+          ) : 
+          <LoadingCards num={"12345678"}/>}
         </section>
-        
       </div>
       {filtrado.length<50?
         <div className="w-fill border flex shadow-[0 0 5px #111828e8] justify-center">

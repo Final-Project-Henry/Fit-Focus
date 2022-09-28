@@ -123,12 +123,11 @@ router.delete('/delete', async (req, res) => {
 
 router.put('/addfav', async (req, res) => {
   const {id} = req.user
-
-  const {_id,name} = req.body
+  const {_id} = req.body
   
    await user.updateOne({_id : id}, {
      $push : {
-      fav : {id: _id, name:name}
+      fav : {id: _id}
      }
    });
    res.status(200).send('Exercise added to fav')
