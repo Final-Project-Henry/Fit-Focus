@@ -39,7 +39,7 @@ const Footer2 = () => {
           </div>
           <div>
             <h2 className="mb-6 text-sm font-semibold  uppercase text-white">
-              sígannos
+              CONTACTANOS
             </h2>
             <ul className="text-gray-400">
               <li className="mb-4">
@@ -50,6 +50,11 @@ const Footer2 = () => {
               <li className="mb-4">
                 <a href="#" target="_blank" className="hover:underline ">
                   Instagram
+                </a>
+              </li>
+              <li className="mb-4">
+                <a href="/contactanos" target="_blank" className="hover:underline ">
+                  Contactos
                 </a>
               </li>
             </ul>

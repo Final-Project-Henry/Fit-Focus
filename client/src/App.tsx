@@ -45,6 +45,7 @@ import TerminosYCondiciones from "./Components/terminosycondiciones/TerminosYCon
 
 import LoadingCards from "./Components/loading/LoadingCards";
 import functions from "./additional_info/functions";
+import Contactanos from "./Components/contactanos/Contactanos";
 
 
 function App() {
@@ -73,6 +74,7 @@ function App() {
           <Route path="/home2" element={<HomeVisitor />} />
           <Route path="loading" element={<Loading />} />
           <Route path="mercadopago" element={<MercadoPago />} />
+          <Route path="contactanos" element={<Contactanos />} />
           <Route
             path={"*"}
             element={<Error_page error="URL inexistente." numb_error="404" />}

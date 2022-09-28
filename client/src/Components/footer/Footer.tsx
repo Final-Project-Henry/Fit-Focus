@@ -140,6 +140,11 @@ const Footer = () => {
                   Instagram
                 </a>
               </li>
+              <li className="mb-4">
+                <a href="/contactanos" target="_blank" className="hover:underline ">
+                  Contactos
+                </a>
+              </li>
             </ul>
           </div>
           <div>
