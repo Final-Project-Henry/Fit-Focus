@@ -52,10 +52,14 @@ export default {
         }
     },
     caducaToken:(time:number)=>{
-        time=time-12 
+        if(time<12){
+            time=time+12
+        }else{
+            time=time-12
+        }
         let TimeActual = new Date().getHours()
         console.table({token:"hora de caducacion","vence en":time,"hora actul":TimeActual})
-        if(TimeActual==time){//7===7
+        if(TimeActual== +time){//7===7
             return true //cierre session
         }else{
             return false
