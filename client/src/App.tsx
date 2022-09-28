@@ -39,12 +39,14 @@ import {
 
 } from "./features/counter/counterSlice";
 import Error_page from "./Components/error/Error_page";
+import ContactUs from "./Components/Contact/Contact";
 
 import PoliticaPriv from "./Components/PoliticaPrivacidad/PoliticaPriv";
 import TerminosYCondiciones from "./Components/terminosycondiciones/TerminosYCondiciones";
 
 import LoadingCards from "./Components/loading/LoadingCards";
 import functions from "./additional_info/functions";
+import Contactanos from "./Components/contactanos/Contactanos";
 
 
 function App() {
@@ -73,12 +75,16 @@ function App() {
           <Route path="/home2" element={<HomeVisitor />} />
           <Route path="loading" element={<Loading />} />
           <Route path="mercadopago" element={<MercadoPago />} />
+          <Route path="contactanos" element={<Contactanos />} />
           <Route
             path={"*"}
             element={<Error_page error="URL inexistente." numb_error="404" />}
           />
+
+          <Route path="/contact" element={<ContactUs />} />
           <Route path="/politicadeprivacidad" element={<PoliticaPriv/>}/> 
           <Route path="/terminosycondiciones" element={<TerminosYCondiciones/>}/>
+
           {/* Rutas privadas */}
           <Route element={<ProtectedRoute user={user} />}>
             <Route path="/fitFocus" element={<HomeRegister />} />
