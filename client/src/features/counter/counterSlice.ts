@@ -236,6 +236,7 @@ export const auth_Login_Google = createAsyncThunk(
     try {
       const response = await axios.get("http://localhost:3001/login/google");
       const resp = response.data;
+      console.log()
       thunkAPI.dispatch(User(resp));
       return resp;
     } catch (error) {
@@ -311,7 +312,7 @@ export const StateSlice = createSlice({
       .addCase(authGoogle.fulfilled, (state, action) => {
         
         state.status = "load";
-        state.user = action.payload;
+        state.userToken = action.payload;
       });
   },
 });

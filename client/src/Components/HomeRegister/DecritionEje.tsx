@@ -167,7 +167,6 @@ export default function DecriptionEjer() {
                   </button>
                 }
               </div>
-
             </div>
           </div>
         </div>
