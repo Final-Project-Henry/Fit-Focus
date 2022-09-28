@@ -38,6 +38,8 @@ import {
   ValidToken,
 } from "./features/counter/counterSlice";
 import Error_page from "./Components/error/Error_page";
+import PoliticaPriv from "./Components/PoliticaPrivacidad/PoliticaPriv";
+import TerminosYCondiciones from "./Components/terminosycondiciones/TerminosYCondiciones";
 
 function App() {
   const { pathname } = useLocation();
@@ -80,7 +82,8 @@ function App() {
             path={"*"}
             element={<Error_page error="URL inexistente." numb_error="404" />}
           />
-
+          <Route path="/politicadeprivacidad" element={<PoliticaPriv/>}/> 
+          <Route path="/terminosycondiciones" element={<TerminosYCondiciones/>}/>
           {/* Rutas privadas */}
           <Route element={<ProtectedRoute user={user} />}>
             <Route path="/fitFocus" element={<HomeRegister />} />
