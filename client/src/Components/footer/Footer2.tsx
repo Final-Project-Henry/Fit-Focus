@@ -19,7 +19,7 @@ const Footer2 = () => {
             <ul className="text-gray-400">
               <li className="mb-4">
                 <a
-                  href="https://www.soyhenry.com/"
+                  href="/nosotros"
                   target="_blank"
                   className="hover:underline"
                 >
@@ -43,7 +43,7 @@ const Footer2 = () => {
             </h2>
             <ul className="text-gray-400">
               <li className="mb-4">
-                <a href="#" className="hover:underline ">
+                <a href="https://github.com/" className="hover:underline ">
                   Github
                 </a>
               </li>
@@ -103,7 +103,7 @@ const Footer2 = () => {
             <span className="sr-only">Facebook page</span>
           </a>
           <a
-            href="#"
+            href="https://www.instagram.com/fitfocushenry/"
             target="_blank"
             className="text-gray-500 hover:text-white"
           >
@@ -137,7 +137,7 @@ const Footer2 = () => {
             <span className="sr-only">Twitter page</span>
           </a>
           <a
-            href="#"
+            href="https://github.com/"
             target="_blank"
             className="text-gray-500 hover:text-white"
           >
