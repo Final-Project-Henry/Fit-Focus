@@ -8,6 +8,9 @@ const validation = require('../validations/validations');
 const mercadopago = require('../service/mercadoPago.js');
 const {get_preference} = require('../additional/preference.js');
 const mailSettings = require('../additional/nodemailer');
+const Exercise = require('../models/Exercise.js');
+
+const isEmpty = require('../additional/isEmpty.js')
 
 router.put('/userinfo', async (req, res) => { // Ruta para actualizar la informacion del usuario para crear una rutina(PREMIUM)
   if(!validation.userinfo(req.body))res.status(500).send('Invalid info');
@@ -184,5 +187,29 @@ router.get('/confirmation', async (req, res) =>{
     res.status(500).send(error.message)
   }
 })
+
+router.put('/feedbackExercise', async (req, res) => {
+  try {
+     const {email} = req.user
+     const {comment ,rating, id} = req.body
+      
+  const feedbackAntiguo = await Exercise.findOne({_id : id}).select('feedback').where('email').equals(email)
+
+  if(!isEmpty(feedbackAntiguo.feedback)) return res.status(409).send('Feedback already added')
+
+    await Exercise.updateOne({_id : id},{
+      $push : {
+          feedback : {
+            email : email,
+            comment : comment,
+            rating : rating
+          }
+      }
+    })
+    res.status(200).send('Feedback added')
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+});
 
 module.exports = router
