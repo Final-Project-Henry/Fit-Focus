@@ -21,6 +21,7 @@ import pilates from "../assets/Fotos y Videos HomeVisitor/pilates.svg";
 import womanworkingout from "../assets/Fotos y Videos HomeVisitor/womanworkingout.svg";
 import About from "./About";
 import Navbar from "../Navbar/Navbar";
+import FooterVisitor from "../footer/Footer2";
 
 const img6 = require("../assets/Fotos y Videos HomeVisitor/urban-913.png");
 const img13 = require("../assets/Fotos y Videos HomeVisitor/allpeople.jpg");
@@ -571,7 +572,7 @@ export default function HomeVisitor() {
         </div>
 
         <About />
-        <Footer />
+        <FooterVisitor />
       </div>
     </>
   );

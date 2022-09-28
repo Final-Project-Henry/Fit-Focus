@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import {
   useAppDispatch,
@@ -35,34 +35,31 @@ import RutinasPersonales from "./Components/HomeRegister/RutinasPersonales";
 import {
   getProfileInfo,
   selectUser,
-  ValidToken,
+  sigendOut,
+
 } from "./features/counter/counterSlice";
 import Error_page from "./Components/error/Error_page";
 import ContactUs from "./Components/Contact/Contact";
 
+import PoliticaPriv from "./Components/PoliticaPrivacidad/PoliticaPriv";
+import TerminosYCondiciones from "./Components/terminosycondiciones/TerminosYCondiciones";
+
+import LoadingCards from "./Components/loading/LoadingCards";
+import functions from "./additional_info/functions";
+
+
 function App() {
   const { pathname } = useLocation();
+  let token = useToken();
   const user = useSesion();
   const dispacht = useAppDispatch();
-  const Navegation = useNavigate();
-  let token = useToken();
-  const { statusToken } = useAppSelector(selectUser);
-  useEffect(() => {
-    if (token) {
-      console.log(token);
 
-      dispacht(ValidToken(token));
+  useEffect(() => {
+    if(token){
       dispacht(getProfileInfo(token));
     }
   }, [token]);
-  useEffect(() => {
-    if (statusToken === "token invalido") {
-      console.log("entro");
-      Navegation("/auth/login");
-    } else {
-      dispacht(ValidToken(token));
-    }
-  }, [statusToken]);
+
   return (
     <GoogleOAuthProvider clientId="553882700243-5u6lingb04c86igau7nr6kjpicu042cl.apps.googleusercontent.com">
       <React.Fragment>
@@ -81,7 +78,10 @@ function App() {
             path={"*"}
             element={<Error_page error="URL inexistente." numb_error="404" />}
           />
+
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/politicadeprivacidad" element={<PoliticaPriv/>}/> 
+          <Route path="/terminosycondiciones" element={<TerminosYCondiciones/>}/>
 
           {/* Rutas privadas */}
           <Route element={<ProtectedRoute user={user} />}>

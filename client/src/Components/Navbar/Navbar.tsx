@@ -11,45 +11,34 @@ import { useAppDispatch, useAppSelector, useSesion } from "../../app/hooks";
 import "./styles/Navbar.css";
 import { sigendOut, selectUser } from "../../features/counter/counterSlice";
 import Swal from "sweetalert2";
+import funcion from "../../additional_info/functions";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState<boolean>(false);
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [lenguage, setLenguage] = useState(false);
   const [userData, setUser] = useState(false);
-  const [userInfo, setUserInfo] = useState<any>();
+  const [userInfo, setUserInfo] = useState<any>(false);
 
   const dispatch = useAppDispatch();
-  const {user, statusToken} = useAppSelector( selectUser )
-
+  const {user , userToken} = useAppSelector( selectUser )
   const userSeccion = useSesion()
  const Navegation=  useNavigate()  
-
  
  const onClick = ()=>{
   window.scrollTo(0,0);
-  Navegation(userData?'/fitFocus':'/home')
+  Navegation(userInfo?'/fitFocus':'/home')
  }
 
- 
   useEffect(() => {
-    console.log(userSeccion)
-
-    if(
-      statusToken!=="token invalido"
-    ){
-      if (typeof user === "object" && user!==null ) {
+      if(user){
         setUserInfo(user)
-        setUser(true);
-      }else if(userSeccion){
-        console.log(userSeccion)
+      }else
+       if(userSeccion){
         setUserInfo(userSeccion)
-        setUser(true);
+        
       }
-    }else{
-      setUser(false);
-    }
-  }, [user,userSeccion, statusToken]);
+  }, [userSeccion,user]);
 
   function signOut(): void {
     Swal.fire({
@@ -63,16 +52,14 @@ const Navbar = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(sigendOut(null));
-        setUser(false);
-        setDropdown(false);
         Navegation("/home")
         window.location.reload();
       }
     });
   }
 
-  return (
 
+  return (
     <div style={{backgroundColor:"white"}}>
       <nav className=" border-gray-200 px-2 sm:px-4  bg-white  w-full border-b-4">
         <div className="container-fluid w-full flex flex-wrap items-center justify-between px-8 p-4">
@@ -82,7 +69,7 @@ const Navbar = () => {
               className="mr-3 h-6 sm:h-9 cursor-default"
               alt="FF Logo"
             />
-      
+
             <button
               onClick={() => setShowMenu(!showMenu)}
               data-collapse-toggle="mobile-menu-2"
@@ -113,13 +100,7 @@ const Navbar = () => {
             >
               <ul className="flex flex-col p-4 mt-4 ml-4 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
                 <li>
-                  {/* <Link
-                    to={userData?`/fitFocus`:`/home`}
-                    className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent md:p-0 "
-                    aria-current="page"
-                  >
-                    Inicio
-                  </Link> */}
+           
                   <button onClick={onClick} className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent md:p-0 "
                     aria-current="page">Inicio</button>
                 </li>
@@ -139,7 +120,7 @@ const Navbar = () => {
             
                       <li>
                         <Link
-                           to={userData?`/ejercicios`:`/auth/sing-up`}
+                           to={userInfo?`/ejercicios`:`/auth/sing-up`}
                           className="block py-2 p pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
                         >
                           Ejercicios
@@ -148,7 +129,7 @@ const Navbar = () => {
                       
                       <li>
                         <Link
-                           to={userData?`/calculadora`:`/auth/sing-up`}
+                           to={userInfo?`/calculadora`:`/auth/sing-up`}
                           className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
                         >
                           Calculadora
@@ -157,7 +138,7 @@ const Navbar = () => {
                       
                       <li>
                         <Link
-                            to={userData?`/noticias`:`/auth/sing-up`}
+                            to={userInfo?`/noticias`:`/auth/sing-up`}
                           className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
                         >
                           Noticias
@@ -166,7 +147,7 @@ const Navbar = () => {
 
                       <li>
                         <Link
-                            to={userData?`/Favoritos`:`/auth/sing-up`}
+                            to={userInfo?`/Favoritos`:`/auth/sing-up`}
                           className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
                         >
                           Favoritos
@@ -174,13 +155,13 @@ const Navbar = () => {
                       </li>
                       <li>
                         <Link
-                            to={userData?`/rutinas`:`/auth/sing-up`}
+                            to={userInfo?`/rutinas`:`/auth/sing-up`}
                           className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
                         >
                           Rutinas personalizadas
                         </Link>
                       </li>
-                  {!userData&&
+                  {!userInfo&&
                       <li>
                       <Scroll
                       to="Nosotros"
@@ -243,7 +224,7 @@ const Navbar = () => {
               data-dropdown-toggle="user-dropdown"
               data-dropdown-placement="bottom"
             >
-              {userData ? (
+              {userInfo? (
                 <div>
                   <span className="sr-only">Open user menu</span>
                   <img

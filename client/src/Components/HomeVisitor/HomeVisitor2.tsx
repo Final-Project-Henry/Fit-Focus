@@ -1,5 +1,6 @@
 import React from 'react';
 import Footer from '../footer/Footer';
+import Footer2 from '../footer/Footer2';
 import Navbar from '../Navbar/Navbar';
 import Visitor1 from './visitor_1/Visitor1';
 import Visitor2 from './visitor_2/Visitor2';
@@ -19,7 +20,7 @@ export default function HomeVisitor_2() {
         <Visitor5 />
         <Visitor6 />
         <Visitor7 />
-        <Footer />
+        <Footer2 />
     </div>
   )
 }

@@ -1,99 +1,14 @@
-import axios from "axios";
-import React, { useCallback } from "react";
-import { useState } from "react";
-import Swal from "sweetalert2";
-import { opiniom, useToken } from "../../app/hooks";
 import icon from "../assets/icons/nav-icon.png";
 
-interface FeedbackUsuario {
-  comment: string;
-  email: string;
-}
 
-const Footer = () => {
-  const token = useToken();
-  const [feedback, setFeedback] = useState<FeedbackUsuario>({
-    comment: "",
-    email: "",
-  });
-  function handleChange(
-    event: React.ChangeEvent<
-      HTMLFormElement | HTMLInputElement | HTMLTextAreaElement
-    >
-  ): void {
-    setFeedback((pv) => ({ ...pv, [event.target.name]: event.target.value }));
-  }
-  const validation = ()=>{
-    if(token)return false;
-    else return true;
-  }
+const Footer2 = () => {
 
-  const handleSubmmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-
-    if (feedback.comment.length > 0 && feedback.email.length > 0) {
-      Swal.fire({
-        title: "¿Desea enviar tu opinion?",
-        icon: "info",
-        showCancelButton: true,
-        confirmButtonColor: "#006eff",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Eviar opinion",
-        cancelButtonText: "Cancelar",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          opiniom(token, feedback);
-          setFeedback({ comment: "", email: "" });
-        }
-      });
-    }
-  };
   return (
     <footer className="p-4 sm:p-6 bg-gray-900">
-      <div className="md:flex md:justify-between h-80"> 
+      <div className="md:flex md:justify-between h-20">
         <div className="mb-6 md:mb-0 ">
           <div className="flex items-center hover: border-none ml-9">
             <img src={icon} className="mr-5 h-20" alt="Fit-Focus Logo" />
-            {/* <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
-              Fit-Focus
-            </span> */}
-          </div>
-          <div id="feedbacks" className="mt-5 md:mb-0">
-            <span className="mb-6 text-sm font-semibold uppercase text-white ml-5 ">
-              Dejanos tu opinión:
-            </span>
-            <form onSubmit={handleSubmmit} style={{ textAlign: "center", width: "400%", height:"100%" }}>
-              <input
-                type="email"
-                name="email"
-                placeholder="Correo..."
-                id="Nombre"
-                required
-                className="p-2 bg-white w-full mt-4 rounded-lg"
-                value={feedback.email}
-                onChange={handleChange}
-                disabled={validation()}
-              />
-
-              <textarea
-                name="comment"
-                className="block rounded-lg w-full  mt-4 h-20 resize-none"
-                placeholder="Mensaje..."
-                required
-                rows={8}
-                value={feedback.comment}
-                onChange={handleChange}
-                disabled={validation()}
-              />
-
-              <button
-                type="submit"
-                className="text-white active:scale-90 duration-100  font-medium rounded-lg text-sm px-7 py-1.5  mt-4 bg-amber-700 hover:bg-amber-800 focus:outline-none"
-                disabled={validation()}
-              >
-                Enviar
-              </button>
-            </form>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
@@ -102,8 +17,7 @@ const Footer = () => {
               Colaboración
             </h2>
             <ul className="text-gray-400">
-            
-            <li className="mb-4">
+              <li className="mb-4">
                 <a
                   href="https://www.soyhenry.com/"
                   target="_blank"
@@ -112,7 +26,6 @@ const Footer = () => {
                   Nosotros
                 </a>
               </li>
-             
               <li className="mb-4">
                 <a
                   href="https://www.soyhenry.com/"
@@ -122,7 +35,6 @@ const Footer = () => {
                   Henry
                 </a>
               </li>
-
             </ul>
           </div>
           <div>
@@ -244,4 +156,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default Footer2;

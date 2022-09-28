@@ -4,7 +4,7 @@ import {
   Div_form,
   Div_img,
 } from "./styles/styled_componet_login_singUp";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { useAppDispatch, useAppSelector, useSesion, } from "../../app/hooks";
 import { Navigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
@@ -21,32 +21,15 @@ import google from "../assets/login-singup_media/icons8-google.svg";
 import linkedin from "../assets/login-singup_media/icons8-linkedin-circled.svg";
 import loading_icon from "../assets/icons/loading.svg"
 import Navbar from "../Navbar/Navbar";
+import funcion from "../../additional_info/functions";
 
 
 export default function SingUp_Login() {
   const { id } = useParams();
   let user = useAppSelector(selectUser);
+  let user_existing=useSesion()
 
-  const [user_existing, setuser] = useState<boolean | object>(false);
-
-  useEffect(() => {
-     
-  }, []);
-
-
-    useEffect(() => {
-      if(user.statusToken!=="token invalido"){
-          console.log("enrooo",user)
-        let userJSON = window.localStorage.getItem("Login_userFit_Focus");
-        if (userJSON) {
-          if (userJSON.length > 3) {
-            let user_exists = JSON.parse(userJSON);
-            setuser(user_exists);
-          }
-        }
-      }    
-  }, [user.statusToken]);
-
+  
   return (
     <>
     <Div_img className="flex justify-center">
@@ -62,7 +45,7 @@ export default function SingUp_Login() {
                 <p>Registrarse</p>
               </Link>
             ) : (
-              <p id="singup">registrarse</p>
+              <p id="singup">Registrarse</p>
             )}
           </div>
 
