@@ -38,6 +38,7 @@ import {
   ValidToken,
 } from "./features/counter/counterSlice";
 import Error_page from "./Components/error/Error_page";
+import ContactUs from "./Components/ContactUs/ContactUs";
 
 function App() {
   const { pathname } = useLocation();
@@ -80,6 +81,7 @@ function App() {
             path={"*"}
             element={<Error_page error="URL inexistente." numb_error="404" />}
           />
+          <Route path="/contact" element={<ContactUs />} />
 
           {/* Rutas privadas */}
           <Route element={<ProtectedRoute user={user} />}>
