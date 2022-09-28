@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+    #select {
+        @apply inline h-6 pr-8 pl-1.5 py-0 border-0 border-b-2 rounded-b-lg border-gray-200 hover:border-gray-500 duration-500
+    }
+    
+    #select:focus{
+        box-shadow: none;
+        @apply inline h-6 pr-8 pl-1.5 py-0 border-0 border-b-2 rounded-b-lg border-blue-600 duration-500
+    }
+
+
