@@ -20,7 +20,6 @@ interface User {
 }
 
 export default function RutinasPersonales() {
-  // const [dataUser, setDataUser] = useState<any>();
   const { user } = useAppSelector(selectUser);
   const { rutines } = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
@@ -36,12 +35,6 @@ export default function RutinasPersonales() {
     setfomr(false);
   }
   useEffect(() => {
-    // setDataUser(user);
-    // if (user) {
-    //   if (user.routines) {
-    //     if (user.routines.length === 0 && user.userinfo.length > 0)dispatch(Rutines_Get(token))
-    //   }
-    // }
     if(!form)dispatch(getProfileInfo(token));
     if(Object.keys(rutines).length===0)dispatch(Rutines_Get(token));
   }, [rutines, form]);
@@ -74,18 +67,20 @@ export default function RutinasPersonales() {
                   {form ? (
                     <Form_rutinas function={fullForm}/>
                   ) : (
-                    <div className=" flex flex-col justify-center text-center item-center">
-                      <h2 className="text-lg ">Aun no tienes rutinas</h2>
-                      <div className="text-[7rem] ">
-                        <BsEmojiFrown />
-                      </div>
+                    <div className="flex justify-center w-full overflow-hidden h-[500px]">
+                    <div className="absolute text-center flex justify-center  h-[500px] bg-[#11182852] w-full">
                       <button
                         onClick={() => setfomr(true)}
-                        className="  py-1 px-3 text-sm text-back font-normal leading-loose text-black bg-white duration-150 rounded-lg shadow-md hover:bg-blue-200"
+                        className="p-5 w-[40%] m-auto bg-[#111828ad] font-normal text-white shadow-2xl hover:animate-pulse active:animate-ping text-4xl"
                       >
-                        Crear rutinas personalizadas
+                        Crear tu rutinas personalizadas
                       </button>
                     </div>
+                    <img className="w-full object-cover" src={plancha}/>
+                
+                    </div>
+                      
+              
                   )}
                 </>
               )}

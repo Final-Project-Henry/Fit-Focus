@@ -32,16 +32,17 @@ const Login: React.FC<Propos> = ({
     email: "",
     password: "",
   });
+
   useEffect(() => {
-    console.log("entra", user);
-    if (typeof user.user === "string" && user.user.length > 50) {
-      console.log(user.user, user.user.length);
+    if (user.userToken?.length > 50) {
+     let time = new Date().getHours()
+     let token=user.userToken
       window.localStorage.setItem(
         "Login_userFit_Focus",
-        JSON.stringify(user.user)
+        JSON.stringify({token,time})
       );
     }
-  }, [user.user]);
+  }, [user.userToken]);
 
   function handleChange(
     event: React.ChangeEvent<HTMLFormElement | HTMLInputElement>
@@ -59,7 +60,7 @@ const Login: React.FC<Propos> = ({
   return (
     <>
       <div>
-        {typeof user.user === "string" && user.user.length > 50 && (
+        {typeof user.userToken === "string" && user.userToken.length > 50 && (
           <Navigate to="/fitFocus" />
         )}
       </div>
@@ -131,7 +132,7 @@ const Login: React.FC<Propos> = ({
             type="submit"
           >
             {user.status ? (
-              "Iniciar sesión"
+              "iniciar sesión"
             ) : (
               <span className=" flex justify-center">
                 <img className="animate-spin w-5 mx-2" src={loading_icon} />

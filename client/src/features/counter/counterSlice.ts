@@ -3,21 +3,11 @@ import axios from "axios";
 import jwtDecode from "jwt-decode";
 import { exercises } from "../../additional_info/exercises";
 import { RootState, AppThunk } from "../../app/store";
-interface ejerciciosData {
-  _id: string;
-  name: string;
-  difficulty: string;
-  equipment: true;
-  muscles: string;
-  genre: string;
-  video: string;
-  description: string;
-  plan: string;
-}
+
 export interface State {
   user: null | string |any;
+  userToken: null | string |any;
   status: string | null;
-  statusToken: string | null;
   rutines: any | null;
   exercises: Array<any> | [];
  
@@ -31,7 +21,7 @@ export interface infoRutina {
 
 const initialState: State = {
   user: null,
-  statusToken: "none",
+  userToken:null,
   status: "none",
   rutines: {},
   exercises: [],
@@ -42,7 +32,7 @@ const initialState: State = {
 export const Rutines_Get = createAsyncThunk(
   "user/rutinesSlice",
   async (token: string, thunkAPI) => {
-    console.log(token);
+    
     try {
       let headersList = {
         Accept: "/",
@@ -58,7 +48,7 @@ export const Rutines_Get = createAsyncThunk(
 
       let response = await axios.request(reqOptions);
       const resp = response.data;
-      console.log(resp);
+     
 
       thunkAPI.dispatch(Rutines(resp));
       return resp;
@@ -139,9 +129,8 @@ export const User_Login_State = createAsyncThunk(
     try {
       const response = await axios.post("http://localhost:3001/login", user);
       const resp = response.data;
-      console.log(response);
-
-      thunkAPI.dispatch(User(resp));
+      
+      thunkAPI.dispatch(UserToken(resp));
       return resp;
     } catch (error: any) {
       thunkAPI.dispatch(status(error.response.data));
@@ -171,11 +160,10 @@ export const removeAccount = createAsyncThunk(
       };
 
       let response = await axios.request(reqOptions);
-      console.log(response.data);
+   
       return response.data;
     } catch (error: any) {
-      console.log(error);
-
+      
       return error;
     }
   }
@@ -190,7 +178,7 @@ export const getProfileInfo = createAsyncThunk(
         Authorization: "Bearer " + tokenUser,
         "Content-Type": "application/json",
       };
-      console.log(tokenUser);
+     
       let userData = jwtDecode(tokenUser);
 
       let reqOptions = {
@@ -202,47 +190,16 @@ export const getProfileInfo = createAsyncThunk(
 
       let response = await axios.request(reqOptions);
       thunkAPI.dispatch(User(response.data));
-      console.log(response);
-
+     
       return;
     } catch (error: any) {
-      console.log(error);
+   
       return error;
     }
   }
 );
 
 
-
-export const ValidToken = createAsyncThunk(
-  "user/validToken",
-  async (tokenUser: string, thunkAPI) => {
-    try {
-      let headersList = {
-        Accept: "*/*",
-        Authorization: "Bearer " + tokenUser,
-        "Content-Type": "application/json",
-      };
-     
-
-      let reqOptions = {
-        url: "http://localhost:3001/auth/ValidToken",
-        method: "GET",
-        headers: headersList,
-      };
-
-      let response = await axios.request(reqOptions);
-      thunkAPI.dispatch(statusToken("token valido"));
-      return;
-    } catch (error: any) {
-      if(error.response.data.message!=="jwt must be provided"){
-
-        thunkAPI.dispatch(statusToken("token invalido"));
-      }
-      
-    }
-  }
-);
 
 export const infoUserRutina = createAsyncThunk(
   "user/DataRutinas",
@@ -266,7 +223,7 @@ export const infoUserRutina = createAsyncThunk(
       return;
     } catch (error: any) {
       thunkAPI.dispatch(status(error.response.data));
-      console.log(error);
+   
       return error;
     }
   }
@@ -290,7 +247,7 @@ export const auth_Login_Google = createAsyncThunk(
 export const authGoogle = createAsyncThunk(
   "user/auth_google",
   async (code: { code: String }, thunkAPI) => {
-    console.log(code);
+
     try {
       const response = await axios.post(
         "http://localhost:3001/authGoogle",
@@ -318,27 +275,24 @@ export const StateSlice = createSlice({
       state.exercises = action.payload;
     },
 
-
-    User: (state, action: PayloadAction<string>) => {
+    UserToken: (state, action: PayloadAction<string>)=>{
+      state.userToken = action.payload;
+    },
+    User: (state, action: PayloadAction<object>) => {
       state.status = "none";
       state.user = action.payload;
     },
     sigendOut: (state, action: PayloadAction<null>) => {
-      console.log(action.payload);
+      
       state.status = "none";
-
       window.localStorage.removeItem("Login_userFit_Focus");
-
       state.user = action.payload;
     },
     status: (state, action: PayloadAction<string>) => {
-      console.log(action.payload);
+    
       state.status = action.payload;
     },
-    statusToken: (state, action: PayloadAction<string>) => {
-      console.log(action.payload);
-      state.statusToken = action.payload;
-    },
+
   },
   extraReducers: (builder) => {
     builder
@@ -347,22 +301,22 @@ export const StateSlice = createSlice({
       })
 
       .addCase(User_Login_State.pending, (state, action) => {
-        console.log("pending", action);
+      
         state.status = null;
       })
 
       .addCase(authGoogle.pending, (state, action) => {
-        console.log("pending", action.payload);
+      
       })
       .addCase(authGoogle.fulfilled, (state, action) => {
-        console.log("fulfilled", action.payload);
+        
         state.status = "load";
         state.user = action.payload;
       });
   },
 });
 
-export const { User, sigendOut, status, Rutines, Exercises,statusToken } =
+export const { User, sigendOut, status, Rutines, UserToken,Exercises } =
   StateSlice.actions;
 
 export const selectUser = (state: RootState) => state.user;

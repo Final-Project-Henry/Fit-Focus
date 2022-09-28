@@ -162,7 +162,7 @@ const Profile = () => {
 
     useEffect(() => {
         if (token) {
-
+            console.log(token)
             dispatch(getProfileInfo(token))
         }
     }, [token])
