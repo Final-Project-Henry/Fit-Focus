@@ -229,6 +229,33 @@ export const infoUserRutina = createAsyncThunk(
   }
 );
 
+export const rewindExercise = createAsyncThunk(
+  "user/rewind",
+  async (data: any, thunkAPI) => {
+    try {
+      let headersList = {
+        Accept: "*/*",
+        Authorization: "Bearer " + data.token,
+        "Content-Type": "application/json",
+      };
+      let reqOptions = {
+        url: "http://localhost:3001/auth/feedbackExercise",
+        method: "PUT",
+        headers: headersList,
+        data: data,
+      };
+
+      let response = await axios.request(reqOptions);
+      console.log(response);
+      thunkAPI.dispatch(status("success"));
+      return;
+    } catch (error: any) {
+      thunkAPI.dispatch(status(error.response.data));
+      return error;
+    }
+  }
+);
+
 
 export const auth_Login_Google = createAsyncThunk(
   "user/auth_google",
