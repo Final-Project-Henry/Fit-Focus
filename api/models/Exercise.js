@@ -30,7 +30,12 @@ const exerciseSchema = new Schema({
     },
     description : {
         type : String
-    }
+    },
+    feedback:[{
+        email : {type : String},
+        comment : {type : String},
+        rating : {type : String}
+    }]
 })
 
 module.exports = model('Exercise', exerciseSchema);
