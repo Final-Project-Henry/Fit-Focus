@@ -5,7 +5,7 @@ function TerminosYCondiciones() {
         <div>
             <div className='border-2 text-justify w-[80%] mt-5 mb-[5%] ml-[9%]'>
                 <p className='mx-[20px] mt-[10px] mb-[10px]'>
-                    <b className='ml-[30%] '>TERMINOS Y CONDICIONES DE LA APLICACIÓN</b>
+                    <b className='ml-[37%] '>TERMINOS Y CONDICIONES DE LA APLICACIÓN</b>
                     <br />
                     ¡Bienvenido a <b>FIT FOCUS</b>! Estos Términos de uso describen los términos y las condiciones aplicables a su acceso y uso de los sitios web, sitios móviles, aplicaciones móviles y otros portales de transacciones en línea de propiedad, operados, de marca o proporcionados por <b>FIT FOCUS</b> (tal y como se define a continuación) en cada momento relacionados con (a) la plataforma de ejercicios <b>FIT FOCUS</b> incluyendo sin limitación las versiones web y optimizada para móvil de los sitios web identificados por el localizador uniforme de recurso de <b>FIT FOCUS</b> y las aplicaciones móviles de la plataforma de ejercicios FIT FOCUS (los “Sitios”); Este documento es un acuerdo legalmente vinculante entre usted como usuario de los Sitios (en lo sucesivo, referido como "usted", "su" o "Usuario") y la entidad contratante <b>FIT FOCUS</b> a continuación (en lo sucesivo, referido como "nosotros", "nuestro" o "<b>FIT FOCUS</b>").
                     <br />

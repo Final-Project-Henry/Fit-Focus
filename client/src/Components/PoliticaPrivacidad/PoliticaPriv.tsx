@@ -5,7 +5,7 @@ const PoliticaPriv = () => {
         <div>
             <div className='border-2 text-justify w-[80%] mt-5 ml-[9%]'>
                 <p className='mx-[20px] mt-[10px] mb-[10px]'>
-                    <b className='ml-[30%]'>POLÍTICA DE PRIVACIDAD Y PROTECCIÓN DE DATOS PERSONALES</b>
+                    <b className='ml-[35%]'>POLÍTICA DE PRIVACIDAD Y PROTECCIÓN DE DATOS PERSONALES</b>
                     <br/>
                     <br/>
                     Nos preocupamos por la protección y privacidad de los datos personales de nuestros
