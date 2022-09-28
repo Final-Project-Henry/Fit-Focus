@@ -55,7 +55,7 @@ const Favoritos=() =>{
         <img className="w-full object-cover" src={baner}/>
       </div>
       <div className="grid grid-cols-4 m-8">
-        {
+        {user?.fav.length>0?
         dataFav?.length>0?dataFav?.map(({_id, video, name, difficulty, muscles, genre,premium}) => {
               return (
                 <>
@@ -113,7 +113,12 @@ const Favoritos=() =>{
                 </Link>
             </>
           )
-        }):<LoadingCards num={"1234"}/>}
+        })
+        :<LoadingCards num={"1234"}/>
+        
+        :<div className="flex justify-center"> <p>No tiene favoritos :C</p></div>
+        
+        }
       </div>
       <Footer />
     </>

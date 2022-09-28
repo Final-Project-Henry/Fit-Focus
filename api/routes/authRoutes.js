@@ -64,12 +64,14 @@ router.get('/getroutine', async (req, res) => {
 
 router.get('/exercise', async (req, res) => {
   const {id} = req.query;
+
   const exerciseFind = await exercise.findById(id);
   if(exerciseFind){
     res.status(200).send(exerciseFind);
   }else{
     res.status(400).send("Token invalido");
   }
+
 });
 
 router.put('/changeinfo', async (req, res) => {
@@ -79,10 +81,15 @@ router.put('/changeinfo', async (req, res) => {
  try {
 
         let modification = {};
-        if (name) modification = {...modification, name};
+
+        for (const key in req.body)
+          if (req.body[key] !== undefined)
+            modification = {...modification, [key]: req.body[key]}
+
+        /* if (name) modification = {...modification, name};
         if (email) modification = {...modification, email}
         if (avatar) modification = {...modification, avatar}
-        if (avatar) modification = {...modification, password}
+        if (avatar) modification = {...modification, password} */
 
     await user.updateMany({_id : id}, modification )
 
@@ -117,7 +124,8 @@ router.delete('/delete', async (req, res) => {
 router.put('/addfav', async (req, res) => {
   const {id} = req.user
   const {_id} = req.body
- let resp =  await user.updateOne({_id : id},{
+  
+   await user.updateOne({_id : id}, {
      $push : {
       fav : {id: _id}
      }
