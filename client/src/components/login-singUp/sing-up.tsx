@@ -46,6 +46,7 @@ const SingUp: React.FC<Propos> = ({
     dispatch(User_Register_State(Form_data));
   }
 
+
   return (
     <>
       {user_logeao.user && <Navigate to="/auth/login" />}
@@ -116,3 +117,7 @@ const SingUp: React.FC<Propos> = ({
 };
 
 export default SingUp;
+
+
+
+//https://www.npmjs.com/package/typeorm

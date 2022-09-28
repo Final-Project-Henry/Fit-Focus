@@ -32,6 +32,7 @@ export default function GoogleAuth() {
             <GoogleLogin 
                 onSuccess={(res)=>{if(typeof res.credential==='string')setCode(res.credential)}}
                 onError={()=>console.log("Login Error")}
+                
             />
         </Fragment>
     )
