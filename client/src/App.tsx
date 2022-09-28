@@ -32,6 +32,7 @@ import Calculadora from "./Components/HomeRegister/Calculadora";
 import Navbar from "./Components/Navbar/Navbar";
 import Favoritos from "./Components/HomeRegister/Favorito";
 import RutinasPersonales from "./Components/HomeRegister/RutinasPersonales";
+import Dashboard from "./Components/admin/Dashboard";
 import {
   getProfileInfo,
   selectUser,
@@ -67,6 +68,7 @@ function App() {
         {pathname !== "/" && <Navbar />}
         <Routes>
           {/* Rutas públicas */}
+          <Route path="/admin" element={<Dashboard />} />
           <Route path="/" element={<LandingPage />} />
           <Route path="/auth/:id" element={<SingUp_Login />} />
           <Route path="/home" element={<HomeVisitor_2 />} />
