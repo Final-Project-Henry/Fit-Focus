@@ -70,7 +70,7 @@ export default function DecriptionEjer() {
       });
     }
   }, [addFav]);
-console.log(descripcionEjersicio)
+
     function AddFavorite() {
     const favExisited = user?.fav.find(
       (x: any) => x.id === descripcionEjersicio?._id
