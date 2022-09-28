@@ -46,6 +46,7 @@ const SingUp: React.FC<Propos> = ({
     dispatch(User_Register_State(Form_data));
   }
 
+
   return (
     <>
       {user_logeao.user && <Navigate to="/auth/login" />}
@@ -91,7 +92,11 @@ const SingUp: React.FC<Propos> = ({
             />
           </div>
         </div>
-
+        <label
+            className="ml-2 mb-[8px] text-sm font-medium text-gray-600 "
+          >
+            Al registrarse, usted está aceptando los terminos y condiciones de la aplicacion
+          </label>
         <div className="w-full bg-blue-700   text-white text-center">
           <button
             className="w-full bg-blue-700   text-white text-center p-2 "
@@ -116,3 +121,7 @@ const SingUp: React.FC<Propos> = ({
 };
 
 export default SingUp;
+
+
+
+//https://www.npmjs.com/package/typeorm
