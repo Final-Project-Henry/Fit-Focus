@@ -48,7 +48,7 @@ const Footer2 = () => {
                 </a>
               </li>
               <li className="mb-4">
-                <a href="#" target="_blank" className="hover:underline ">
+                <a href="https://www.instagram.com/fitfocushenry/" target="_blank" className="hover:underline ">
                   Instagram
                 </a>
               </li>
