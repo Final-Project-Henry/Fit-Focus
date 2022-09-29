@@ -58,6 +58,7 @@ export default function Form_rutinas(props:{function:{():void}}) {
     event.preventDefault();
     dispatch(infoUserRutina({ token, form_data }));
     props.function();
+    console.log(form_data);
   }
 
   return (
