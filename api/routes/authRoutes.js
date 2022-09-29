@@ -13,23 +13,20 @@ const Exercise = require('../models/Exercise.js');
 const isEmpty = require('../additional/isEmpty.js')
 
 router.put('/userinfo', async (req, res) => { // Ruta para actualizar la informacion del usuario para crear una rutina(PREMIUM)
-  if (!validation.userinfo(req.body)) res.status(500).send('Invalid info');
+  if (!validation.userinfo(req.body))return res.status(500).send('Invalid info');
 
   try {
     const { email } = req.user
     const { genre, age, weight, height, goal, equipment, experience } = req.body
 
-    const check = await user.findOne({ email: email }).select('userinfo');
-    if (check.userinfo.length !== 0) {
-      return res.status(409).send('Info already added ')
-    }
+    // const check = await user.findOne({ email: email }).select('userinfo');
+    // if (check.userinfo.length !== 0) {
+    //   return res.status(409).send('Info already added ')
+    // }
 
     await user.updateOne({ email: email }, {
-      $push: {
-        userinfo: { genre, age, weight, height, goal, equipment, experience }
-      }
-    })
-    res.status(200).send('User updated')
+        userinfo: { genre, age, weight, height, goal, equipment, experience }})
+    return res.status(200).send('User updated')
   } catch (error) {
     res.status(500).send(error.message)
   }
