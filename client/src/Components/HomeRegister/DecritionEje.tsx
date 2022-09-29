@@ -124,7 +124,6 @@ export default function DecriptionEjer() {
       }
     });
   }
-  
   const SubmitCommet = (e: Event|any ) => {
     e.preventDefault();
     if(comment.length>0){
@@ -189,7 +188,7 @@ export default function DecriptionEjer() {
         </div>
       </div>
       <div>
-        <form onSubmit={SubmitCommet}>
+        {<form onSubmit={SubmitCommet}>
           <div className="mt-10 mb-1  w-[90%] m-auto bg-gray-50  border border-gray-200">
             <div className="py-2 px-4 bg-white  ">
               <label htmlFor="comment" className="sr-only">
@@ -220,7 +219,7 @@ export default function DecriptionEjer() {
               </div>
             </div>
           </div>
-        </form>
+        </form>}
         <div className="flex py-5 bg-slate-200 w-[90%] m-auto">
           
           {descripcionEjersicio?.feedback?.length>0?descripcionEjersicio?.feedback.map(({_id,comment,rating,email}:any)=>{
