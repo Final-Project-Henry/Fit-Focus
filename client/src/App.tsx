@@ -39,12 +39,15 @@ import {
 
 } from "./features/counter/counterSlice";
 import Error_page from "./Components/error/Error_page";
+import ContactUs from "./Components/Contact/Contact";
 
 import PoliticaPriv from "./Components/PoliticaPrivacidad/PoliticaPriv";
 import TerminosYCondiciones from "./Components/terminosycondiciones/TerminosYCondiciones";
 
 import LoadingCards from "./Components/loading/LoadingCards";
 import functions from "./additional_info/functions";
+import Contactanos from "./Components/contactanos/Contactanos";
+import Nosotros from "./Components/Nosotros/Nosotros";
 
 
 function App() {
@@ -73,12 +76,16 @@ function App() {
           <Route path="/home2" element={<HomeVisitor />} />
           <Route path="loading" element={<Loading />} />
           <Route path="mercadopago" element={<MercadoPago />} />
+          <Route path="contactanos" element={<Contactanos />} />
           <Route
             path={"*"}
             element={<Error_page error="URL inexistente." numb_error="404" />}
           />
+
+          <Route path="/contact" element={<ContactUs />} />
           <Route path="/politicadeprivacidad" element={<PoliticaPriv/>}/> 
           <Route path="/terminosycondiciones" element={<TerminosYCondiciones/>}/>
+          <Route path="/nosotros" element={<Nosotros />} />
           {/* Rutas privadas */}
           <Route element={<ProtectedRoute user={user} />}>
             <Route path="/fitFocus" element={<HomeRegister />} />
@@ -88,6 +95,8 @@ function App() {
             <Route path="/ejercicios" element={<Ejercicios />} />
             <Route path="/rutinas" element={<RutinasPersonales />} />
             <Route path="/Favoritos" element={<Favoritos />} />
+            
+            
             {/* <Route path="/form_user" element={<Form_rutinas />} /> */}
             <Route
               path="mercadopago/:payment_id"

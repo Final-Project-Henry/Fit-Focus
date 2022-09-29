@@ -55,6 +55,10 @@ const userSchema = new Schema({
     status : {
       type : String,
       default : 'activated'
+    },
+    superAdmin : {
+      type : Boolean,
+      default : false
     }
 })
 

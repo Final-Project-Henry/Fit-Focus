@@ -19,7 +19,7 @@ const Footer2 = () => {
             <ul className="text-gray-400">
               <li className="mb-4">
                 <a
-                  href="https://www.soyhenry.com/"
+                  href="/nosotros"
                   target="_blank"
                   className="hover:underline"
                 >
@@ -39,17 +39,22 @@ const Footer2 = () => {
           </div>
           <div>
             <h2 className="mb-6 text-sm font-semibold  uppercase text-white">
-              sígannos
+              CONTACTANOS
             </h2>
             <ul className="text-gray-400">
               <li className="mb-4">
-                <a href="#" className="hover:underline ">
+                <a href="https://github.com/" className="hover:underline ">
                   Github
                 </a>
               </li>
               <li className="mb-4">
-                <a href="#" target="_blank" className="hover:underline ">
+                <a href="https://www.instagram.com/fitfocushenry/" target="_blank" className="hover:underline ">
                   Instagram
+                </a>
+              </li>
+              <li className="mb-4">
+                <a href="/contactanos" target="_blank" className="hover:underline ">
+                  Contactos
                 </a>
               </li>
             </ul>
@@ -98,7 +103,7 @@ const Footer2 = () => {
             <span className="sr-only">Facebook page</span>
           </a>
           <a
-            href="#"
+            href="https://www.instagram.com/fitfocushenry/"
             target="_blank"
             className="text-gray-500 hover:text-white"
           >
@@ -132,7 +137,7 @@ const Footer2 = () => {
             <span className="sr-only">Twitter page</span>
           </a>
           <a
-            href="#"
+            href="https://github.com/"
             target="_blank"
             className="text-gray-500 hover:text-white"
           >
