@@ -16,16 +16,17 @@ router.put('/userinfo', async (req, res) => { // Ruta para actualizar la informa
     const { email } = req.user
     const { genre, age, weight, height, goal, equipment, experience } = req.body
 
-    const check = await user.findOne({ email: email }).select('userinfo');
+    /* const check = await user.findOne({ email: email }).select('userinfo');
     if (check.userinfo.length !== 0) {
       return res.status(409).send('Info already added ')
-    }
+    } */
 
-    await user.updateOne({ email: email }, {
-      $push: {
+    await user.updateOne({ email: email }, 
+       {
         userinfo: { genre, age, weight, height, goal, equipment, experience }
       }
-    })
+    )
+
     res.status(200).send('User updated')
   } catch (error) {
     res.status(500).send(error.message)
