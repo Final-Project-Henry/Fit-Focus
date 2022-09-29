@@ -50,6 +50,7 @@ import functions from "./additional_info/functions";
 import Contactanos from "./Components/contactanos/Contactanos";
 import Nosotros from "./Components/Nosotros/Nosotros";
 import Users from "./Components/admin/users/Users";
+import Home from "./Components/admin/home/Home";
 
 
 function App() {
@@ -72,6 +73,7 @@ function App() {
         <Routes>
           {/* Rutas públicas */}
           <Route path="/admin" element={<Dashboard />} >
+            <Route path="" element={<Home />} />
             <Route path=":id" element={<Users />} />
           </Route>
           <Route path="/" element={<LandingPage />} />
