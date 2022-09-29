@@ -19,7 +19,7 @@ const Footer2 = () => {
             <ul className="text-gray-400">
               <li className="mb-4">
                 <a
-                  href="/nosotros"
+                  href="/AboutUs"
                   target="_blank"
                   className="hover:underline"
                 >
@@ -85,7 +85,7 @@ const Footer2 = () => {
         </span>
         <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
           <a
-            href="#"
+            href="https://web.facebook.com/profile.php?id=100086259135598"
             target="_blank"
             className="text-gray-500 hover:text-white"
           >

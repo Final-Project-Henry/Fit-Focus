@@ -105,7 +105,7 @@ const Footer = () => {
             
             <li className="mb-4">
                 <a
-                  href="/nosotros"
+                  href="/AboutUs"
                   target="_blank"
                   className="hover:underline"
                 >
@@ -131,7 +131,9 @@ const Footer = () => {
             </h2>
             <ul className="text-gray-400">
               <li className="mb-4">
-                <a href="https://github.com/" className="hover:underline ">
+
+                <a href="https://github.com/Final-Project-Henry/Fit-Focus" className="hover:underline " target="_blank">
+
                   Github
                 </a>
               </li>
@@ -173,7 +175,7 @@ const Footer = () => {
         </span>
         <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
           <a
-            href="#"
+            href="https://web.facebook.com/profile.php?id=100086259135598"
             target="_blank"
             className="text-gray-500 hover:text-white"
           >
@@ -210,7 +212,7 @@ const Footer = () => {
             <span className="sr-only">Instagram page</span>
           </a>
           <a
-            href="#"
+            href="https://twitter.com/"
             target="_blank"
             className="text-gray-500 hover:text-white"
           >
@@ -225,7 +227,7 @@ const Footer = () => {
             <span className="sr-only">Twitter page</span>
           </a>
           <a
-            href="https://github.com/"
+            href="https://github.com/Final-Project-Henry/Fit-Focus"
             target="_blank"
             className="text-gray-500 hover:text-white"
           >
