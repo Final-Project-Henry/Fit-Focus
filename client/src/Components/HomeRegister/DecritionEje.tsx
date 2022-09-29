@@ -8,6 +8,7 @@ import Navbar from "../Navbar/Navbar";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { FaBan } from 'react-icons/fa';
+import LoadingCards from "../loading/LoadingCards";
 interface commet {
   comment: string;
   email: string;
@@ -35,7 +36,7 @@ export default function DecriptionEjer() {
   const { user,status } = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
   const [comment, setcomment] = useState("")
-  const [descripcionEjersicio, setdescripcionEjersicio] = useState<any>();
+  const [descripcionEjersicio, setdescripcionEjersicio] = useState<any>(false);
   const [rewind, setrewind] = useState({
     uno:false,
     dos:false,
@@ -136,9 +137,11 @@ export default function DecriptionEjer() {
 
   return (
     <>
-      <div
+    {
+      descripcionEjersicio?
+        <div
         className={`max-w-full flex flex-col bg-white  shadow-md   `}
-      >
+         >
         <div className={`min-h-[150px] w-full flex overflow-hidden }`}>
           <img className=" w-[50%]" src={descripcionEjersicio?.video} />
           <div className="p-5">
@@ -185,9 +188,12 @@ export default function DecriptionEjer() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+          </div>
+        </div>:<LoadingCards num={"1"}/>
+      }
       <div>
+   
+
         {<form onSubmit={SubmitCommet}>
           <div className="mt-10 mb-1  w-[90%] m-auto bg-gray-50  border border-gray-200">
             <div className="py-2 px-4 bg-white  ">
