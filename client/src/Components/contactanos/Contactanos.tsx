@@ -25,7 +25,7 @@ function Contactanos() {
                         </div>
                         <div className='flex gap-4 mt-6 ml-2'>
                             <h1>Telefono:</h1>
-                            <h1>0414-668-68-68</h1>
+                            <h1>+519173412610</h1>
                         </div>
                     </div>
                     <br />
@@ -36,7 +36,7 @@ function Contactanos() {
                         </div>
                         <div className='flex gap-4 mt-6 ml-2'>
                             <h1>Correo:</h1>
-                            <h1>fitfocus@gmail.com</h1>
+                            <h1>fitfocus43@gmail.com</h1>
                         </div>
                     </div>
 

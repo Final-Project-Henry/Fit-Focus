@@ -37,15 +37,17 @@ const Favoritos=() =>{
 
   useEffect(() => {
     if(exercises.length>0){
-        const fav = user?.fav?.map( ({id} :any) => {
+      let fav = user?.fav?.map( ({id} :any) => {
         let favArrg =exercises.find(e=>e._id === id)
         if (favArrg) {
           return favArrg
         }
       })
+      fav=fav.filter((e: any)=>e!== undefined)      
         setDatafav(fav)
     }
   },[user,exercises])
+  
   return (
     <>
       <div className="flex justify-center w-full overflow-hidden h-[500px]">
@@ -56,7 +58,7 @@ const Favoritos=() =>{
       </div>
       <div className="grid grid-cols-4 m-8">
         {user?.fav.length>0?
-        dataFav?.length>0?dataFav?.map(({_id, video, name, difficulty, muscles, genre,premium}) => {
+        dataFav?.length>0?dataFav?.map(({_id, video, name, difficulty, muscles, genre, premium}) => {
               return (
                 <>
                   <Link key={_id} to={`/ejercicio/${_id}`} className={` max-w-[75%] min-h-[50px] flex flex-col bg-white  shadow-md duration-150 cursor-pointer  hover:outline hover:outline-offset-1  ${

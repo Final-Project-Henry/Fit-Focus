@@ -47,6 +47,7 @@ import TerminosYCondiciones from "./Components/terminosycondiciones/TerminosYCon
 import LoadingCards from "./Components/loading/LoadingCards";
 import functions from "./additional_info/functions";
 import Contactanos from "./Components/contactanos/Contactanos";
+import Nosotros from "./Components/Nosotros/Nosotros";
 
 
 function App() {
@@ -84,7 +85,7 @@ function App() {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/politicadeprivacidad" element={<PoliticaPriv/>}/> 
           <Route path="/terminosycondiciones" element={<TerminosYCondiciones/>}/>
-
+          <Route path="/nosotros" element={<Nosotros />} />
           {/* Rutas privadas */}
           <Route element={<ProtectedRoute user={user} />}>
             <Route path="/fitFocus" element={<HomeRegister />} />
@@ -94,6 +95,8 @@ function App() {
             <Route path="/ejercicios" element={<Ejercicios />} />
             <Route path="/rutinas" element={<RutinasPersonales />} />
             <Route path="/Favoritos" element={<Favoritos />} />
+            
+            
             {/* <Route path="/form_user" element={<Form_rutinas />} /> */}
             <Route
               path="mercadopago/:payment_id"
