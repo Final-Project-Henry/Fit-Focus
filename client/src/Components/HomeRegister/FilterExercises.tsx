@@ -213,7 +213,7 @@ export default function FilterExercises() {
       <div>
         <section className="grid grid-cols-4">
           {
-            filtrado.length>0?filtrado.map(
+            filtrado.length>0 || exercises.length>0?filtrado.map(
             ({_id, video, name, difficulty, muscles, genre, premium }) => {
               return (
                 <>
