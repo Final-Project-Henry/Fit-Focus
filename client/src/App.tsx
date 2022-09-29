@@ -49,6 +49,7 @@ import LoadingCards from "./Components/loading/LoadingCards";
 import functions from "./additional_info/functions";
 import Contactanos from "./Components/contactanos/Contactanos";
 import Nosotros from "./Components/Nosotros/Nosotros";
+import Users from "./Components/admin/users/Users";
 
 
 function App() {
@@ -70,7 +71,9 @@ function App() {
         {pathname !== "/" && <Navbar />}
         <Routes>
           {/* Rutas públicas */}
-          <Route path="/admin" element={<Dashboard />} />
+          <Route path="/admin" element={<Dashboard />} >
+            <Route path=":id" element={<Users />} />
+          </Route>
           <Route path="/" element={<LandingPage />} />
           <Route path="/auth/:id" element={<SingUp_Login />} />
           <Route path="/home" element={<HomeVisitor_2 />} />
