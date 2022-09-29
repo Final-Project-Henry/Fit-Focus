@@ -4,7 +4,6 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 
 import {
   User_Login_State,
-  auth_Login_Google,
   selectUser,
 } from "../../features/counter/counterSlice";
 
@@ -35,11 +34,12 @@ const Login: React.FC<Propos> = ({
 
   useEffect(() => {
     if (user.userToken?.length > 50) {
-     let time = new Date().getHours()
+    let time = new Date()
      let token=user.userToken
       window.localStorage.setItem(
+
         "Login_userFit_Focus",
-        JSON.stringify({token,time})
+        JSON.stringify({token, time})
       );
     }
   }, [user.userToken]);

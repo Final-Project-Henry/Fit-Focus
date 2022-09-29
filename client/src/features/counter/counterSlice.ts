@@ -53,7 +53,7 @@ export const Rutines_Get = createAsyncThunk(
       thunkAPI.dispatch(Rutines(resp));
       return resp;
     } catch (error: any) {
-      thunkAPI.dispatch(status(error.response.data));
+      thunkAPI.dispatch(Status(error.response.data));
       thunkAPI.rejectWithValue(error);
       return;
     }
@@ -81,10 +81,10 @@ export const EditUser = createAsyncThunk(
       let response = await axios.request(reqOptions);
       const resp = response.data;
 
-      thunkAPI.dispatch(status(response.data));
+      thunkAPI.dispatch(Status(response.data));
       return resp;
     } catch (error: any) {
-      thunkAPI.dispatch(status(error.response.data));
+      thunkAPI.dispatch(Status(error.response.data));
       thunkAPI.rejectWithValue(error);
       return;
     }
@@ -100,7 +100,7 @@ export const Exercises_Get = createAsyncThunk(
       thunkAPI.dispatch(Exercises(resp));
       return resp;
     } catch (error: any) {
-      thunkAPI.dispatch(status(error.response.data));
+      thunkAPI.dispatch(Status(error.response.data));
       thunkAPI.rejectWithValue(error);
       return;
     }
@@ -116,7 +116,7 @@ export const User_Register_State = createAsyncThunk(
       thunkAPI.dispatch(User(resp));
       return resp;
     } catch (error: any) {
-      thunkAPI.dispatch(status(error.response.data));
+      thunkAPI.dispatch(Status(error.response.data));
       thunkAPI.rejectWithValue(error);
       return;
     }
@@ -133,7 +133,7 @@ export const User_Login_State = createAsyncThunk(
       thunkAPI.dispatch(UserToken(resp));
       return resp;
     } catch (error: any) {
-      thunkAPI.dispatch(status(error.response.data));
+      thunkAPI.dispatch(Status(error.response.data));
       thunkAPI.rejectWithValue(error.response.data);
       return;
     }
@@ -219,10 +219,10 @@ export const infoUserRutina = createAsyncThunk(
       };
 
       let response = await axios.request(reqOptions);
-      thunkAPI.dispatch(status("success"));
+      thunkAPI.dispatch(Status("success"));
       return;
     } catch (error: any) {
-      thunkAPI.dispatch(status(error.response.data));
+      thunkAPI.dispatch(Status(error.response.data));
    
       return error;
     }
@@ -247,30 +247,16 @@ export const rewindExercise = createAsyncThunk(
 
       let response = await axios.request(reqOptions);
       console.log(response);
-      thunkAPI.dispatch(status("success"));
+      thunkAPI.dispatch(Status("success"));
       return;
     } catch (error: any) {
-      thunkAPI.dispatch(status(error.response.data));
+      thunkAPI.dispatch(Status(error.response.data));
       return error;
     }
   }
 );
 
 
-export const auth_Login_Google = createAsyncThunk(
-  "user/auth_google",
-  async (_, thunkAPI) => {
-    try {
-      const response = await axios.get("http://localhost:3001/login/google");
-      const resp = response.data;
-      console.log()
-      thunkAPI.dispatch(User(resp));
-      return resp;
-    } catch (error) {
-      return;
-    }
-  }
-);
 
 export const authGoogle = createAsyncThunk(
   "user/auth_google",
@@ -316,9 +302,9 @@ export const StateSlice = createSlice({
       window.localStorage.removeItem("Login_userFit_Focus");
       state.user = action.payload;
     },
-    status: (state, action: PayloadAction<string>) => {
-    
+    Status: (state, action: PayloadAction<string>) => {
       state.status = action.payload;
+
     },
 
   },
@@ -344,7 +330,7 @@ export const StateSlice = createSlice({
   },
 });
 
-export const { User, sigendOut, status, Rutines, UserToken,Exercises } =
+export const { User, sigendOut, Status, Rutines, UserToken,Exercises } =
   StateSlice.actions;
 
 export const selectUser = (state: RootState) => state.user;

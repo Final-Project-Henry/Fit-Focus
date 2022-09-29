@@ -24,7 +24,7 @@ import HomeVisitor_2 from "./Components/HomeVisitor/HomeVisitor2";
 import ScrollButton from "./Components/ScrollUp/ScrollButton";
 import News from "./Components/HomeRegister/News/News";
 import NewsBlog from "./Components/HomeRegister/News/NewsBlog";
-import DecriptionEjer from "./Components/HomeRegister/DecritionEje";
+import DecriptionEjer from "./Components/HomeRegister/desctipcionE/DecritionEje";
 import Loading from "./Components/loading/Loading";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Ejercicios from "./Components/HomeRegister/Ejercicios";
