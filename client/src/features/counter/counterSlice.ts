@@ -257,7 +257,6 @@ export const rewindExercise = createAsyncThunk(
 );
 
 
-
 export const authGoogle = createAsyncThunk(
   "user/auth_google",
   async (code: { code: String }, thunkAPI) => {
