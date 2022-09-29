@@ -212,7 +212,7 @@ export default function DecriptionEjer() {
             <div className="flex  items-center py-2 px-3 border-t dark:border-gray-600">
               <button
                 type="submit"
-                className="inline-flex items-center py-1.5 px-6  font-medium text-center text-white bg-blue-700 focus:ring-4 focus:ring-blue-200  hover:bg-blue-800"
+                className="inline-flex items-center py-1.5 px-6  font-medium text-center text-white bg-blue-700 focus:ring-4 active:scale-90 focus:ring-blue-200  hover:bg-blue-800"
               >
                 Enviar
               </button>
