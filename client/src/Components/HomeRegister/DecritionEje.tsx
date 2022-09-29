@@ -134,7 +134,7 @@ export default function DecriptionEjer() {
     }
     //eviar datos
   }
-
+console.log(descripcionEjersicio)
   return (
     <>
     {
@@ -226,8 +226,7 @@ export default function DecriptionEjer() {
             </div>
           </div>
         </form>}
-        <div className="flex py-5 bg-slate-200 w-[90%] m-auto">
-          
+        <div className="flex flex-col py-5 bg-slate-200 w-[90%] m-auto">   
           {descripcionEjersicio?.feedback?.length>0?descripcionEjersicio?.feedback.map(({_id,comment,rating,email}:any)=>{
             return(
               <div key={_id} className=" m-5 w-[40%] bg-slate-100">
