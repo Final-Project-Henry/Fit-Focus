@@ -131,7 +131,9 @@ const Footer = () => {
             </h2>
             <ul className="text-gray-400">
               <li className="mb-4">
+
                 <a href="https://github.com/Final-Project-Henry/Fit-Focus" className="hover:underline " target="_blank">
+
                   Github
                 </a>
               </li>
