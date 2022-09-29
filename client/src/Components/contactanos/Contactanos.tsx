@@ -15,7 +15,6 @@ function Contactanos() {
                             <div className='w-[10%] ml-[45%] rounded-full bg-white flex justify-center'>
                                 <img src={logo} className="w-[90%] p-4 " />
                             </div>
-
                         </div>
                         <div>
                             <h2 className='w-[100%] ml-[40%] mt-[5%] text-2xl font-bold'>COMUNICATE CON FIT FOCUS</h2>
@@ -45,22 +44,6 @@ function Contactanos() {
                                     <h1>fitfocus@gmail.com</h1>
                                 </div>
                             </a>
-                        </div>
-                    </div>
-                        <div className='flex gap-4 mt-6 ml-2'>
-                            <h1>Telefono:</h1>
-                            <h1>+519173412610</h1>
-                        </div>
-                    </div>
-                    <br />
-                    <br />
-                    <div  className='flex'>
-                        <div className='w-[5%] ml-5 rounded-full bg-white flex justify-center'>
-                            <img src={mail} className="w-[90%] p-4"/>
-                        </div>
-                        <div className='flex gap-4 mt-6 ml-2'>
-                            <h1>Correo:</h1>
-                            <h1>fitfocus43@gmail.com</h1>
                         </div>
                     </div>
                 </div>
