@@ -23,7 +23,7 @@ export default function MercadoPago() {
         }
         if (token && mercadoData.id === '') {
             console.log(token);
-            dispatch(get_payment({ token: token, id: null }));
+            dispatch(get_payment({ token: token.token, id: null }));
         }
         if (mercadoData.id !== '') {
             setPay(true);

@@ -51,18 +51,18 @@ export default {
             }
         }
     },
-    caducaToken:(time:number)=>{
-        if(time<12){
-            time=time+12
-        }else{
-            time=time-12
-        }
-        let TimeActual = new Date().getHours()
-        console.table({token:"hora de caducacion","vence en":time,"hora actul":TimeActual})
-        if(TimeActual== +time){//7===7
-            return true //cierre session
-        }else{
-            return false
-        }
+    caducaToken:(time: string)=>{
+
+    let actual=new Date()
+    let vence = new Date(time)
+        
+    var MlSeconds = vence.getTime();
+    var addMlSeconds = 720 * 60000;
+    vence = new Date(MlSeconds + addMlSeconds);
+ 
+    if (actual > vence){
+        return true
+    } else return false
+
     },
 }

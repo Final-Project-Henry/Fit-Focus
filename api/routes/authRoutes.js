@@ -209,4 +209,25 @@ router.put('/feedbackExercise', async (req, res) => {
   }
 });
 
+router.put('/report', async (req,res)=> {
+  const {id : _id} = req.user
+  const {email, id} = req.body
+  
+
+});
+
+router.put('/newAdmin', async(req,res)=>{
+     try {
+       const {id} = req.user
+       await user.updateOne({_id : id},{
+         superAdmin : true
+       })
+      res.status(200).send('The user is now an Admin')
+     } catch (error) {
+       res.status(500).send(error.message)
+     }
+})
+
+
+
 module.exports = router

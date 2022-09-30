@@ -3,9 +3,11 @@ const freeAccess = require('./routes/freeAccess.js');
 const authRoutes = require('./routes/authRoutes.js');
 const authGoogleRoutes = require('./routes/authGoogleRoutes.js')
 const adminRoutes = require('./routes/adminRoutes.js')
+const superAdminRoutes = require('./routes/superAdminRoutes');
 const jwt = require('jsonwebtoken');
 const querystring = require('node:querystring');
-const cors = require('cors')
+const cors = require('cors');
+const User = require('./models/User.js');
 
 require('dotenv').config();
 const {SECRET, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, REDIRECT_URI} = process.env
@@ -55,7 +57,29 @@ app.use((req, res, next) => {
      })
   });
 
-  app.use('/auth', authRoutes); //Rutas para usuarios logeados con credenciales, si queres acceder a estas rutas van a necesitar un JWT
+app.use('/auth', authRoutes); //Rutas para usuarios logeados con credenciales, si queres acceder a estas rutas van a necesitar un JWT
 
-  app.use('/admin', adminRoutes);
+app.use(async (req,res,next) => {
+    const {id} = req.user
+    const user = await User.findOne({_id:id})
+  if(!user.admin){
+    return res.status(404).send('You are not a admin user')
+  } 
+  next()
+})
+
+app.use('/admin', adminRoutes);
+
+app.use(async (req,res,next) => {
+  const {id} = req.user
+    const user = await User.findOne({_id:id})
+  if(!user.superAdmin){
+    return res.status(404).send('You are not a superAdmin user')
+  } 
+  next()
+});
+
+app.use('/superAdmin', superAdminRoutes);
+
+
  module.exports = app
