@@ -49,7 +49,7 @@ export const Rutines_Get = createAsyncThunk(
       let response = await axios.request(reqOptions);
       const resp = response.data;
      
-
+      console.log(resp.data);
       thunkAPI.dispatch(Rutines(resp));
       return resp;
     } catch (error: any) {
@@ -278,7 +278,7 @@ export const StateSlice = createSlice({
   initialState,
 
   reducers: {
-    Rutines: (state, action: PayloadAction<[]>) => {
+    Rutines: (state, action: PayloadAction<any>) => {
       state.status = "none";
       state.rutines = action.payload;
     },
