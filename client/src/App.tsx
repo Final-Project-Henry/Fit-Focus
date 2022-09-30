@@ -24,7 +24,7 @@ import HomeVisitor_2 from "./Components/HomeVisitor/HomeVisitor2";
 import ScrollButton from "./Components/ScrollUp/ScrollButton";
 import News from "./Components/HomeRegister/News/News";
 import NewsBlog from "./Components/HomeRegister/News/NewsBlog";
-import DecriptionEjer from "./Components/HomeRegister/DecritionEje";
+import DecriptionEjer from "./Components/HomeRegister/desctipcionE/DecritionEje";
 import Loading from "./Components/loading/Loading";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Ejercicios from "./Components/HomeRegister/Ejercicios";
@@ -48,9 +48,13 @@ import TerminosYCondiciones from "./Components/terminosycondiciones/TerminosYCon
 import LoadingCards from "./Components/loading/LoadingCards";
 import functions from "./additional_info/functions";
 import Contactanos from "./Components/contactanos/Contactanos";
+
+import AboutUs from "./Components/AboutUs/AboutUs";
+
 import Nosotros from "./Components/Nosotros/Nosotros";
 import Users from "./Components/admin/users/Users";
 import Home from "./Components/admin/home/Home";
+
 
 
 function App() {
@@ -84,6 +88,7 @@ function App() {
           <Route path="loading" element={<Loading />} />
           <Route path="mercadopago" element={<MercadoPago />} />
           <Route path="contactanos" element={<Contactanos />} />
+          <Route path="/AboutUs" element={<AboutUs />} />
           <Route
             path={"*"}
             element={<Error_page error="URL inexistente." numb_error="404" />}
@@ -92,7 +97,7 @@ function App() {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/politicadeprivacidad" element={<PoliticaPriv/>}/> 
           <Route path="/terminosycondiciones" element={<TerminosYCondiciones/>}/>
-          <Route path="/nosotros" element={<Nosotros />} />
+         
           {/* Rutas privadas */}
           <Route element={<ProtectedRoute user={user} />}>
             <Route path="/fitFocus" element={<HomeRegister />} />

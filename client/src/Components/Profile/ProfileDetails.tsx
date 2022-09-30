@@ -1,9 +1,10 @@
 import { current } from "@reduxjs/toolkit"
+import { userInfo } from "os"
 import { useEffect, useState } from "react"
 import ContentEditable from 'react-contenteditable'
 import { useNavigate } from "react-router-dom"
 import { useAppDispatch, useToken } from "../../app/hooks"
-import { EditUser } from "../../features/counter/counterSlice"
+import { EditUser, infoUserRutina } from "../../features/counter/counterSlice"
 import "./styles/ProfileDetails.css"
 
 interface Props {
@@ -92,8 +93,6 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
         const type = currentTarget.id
         const select = target.name
 
-        console.log(select)
-
         if (!isNaN(value))
             setStatusUser({
                 ...statusUser,
@@ -134,15 +133,14 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
             return setError({ weight: false, age: false, height: false })
         }
 
-        if (statusUser.age && statusUser.age < 17 || statusUser.age &&  statusUser.age > 66) return setError({ ...error, age: true })
-        else if (statusUser.height && statusUser.height < 120 || statusUser.height && statusUser.height > 220) return setError({ ...error, height: true })
-        else if (statusUser.weight && statusUser.weight < 40 || statusUser.weight && statusUser.weight > 120) return setError({ ...error, weight: true })
+        if (statusUser.age && statusUser.age < 20 || statusUser.age &&  statusUser.age > 66 || statusUser?.age === 0) return setError({ ...error, age: true })
+        else if (statusUser.height && statusUser.height < 120 || statusUser.height && statusUser.height > 220 || statusUser?.height === 0) return setError({ ...error, height: true })
+        else if (statusUser.weight && statusUser.weight < 20 || statusUser.weight && statusUser.weight > 120  || statusUser?.weight === 0) return setError({ ...error, weight: true })
         else {
+            dispatch(infoUserRutina({ token, form_data: statusUser }));
             dispatch(EditUser({ token, data: statusUser }))
             setEditable({ ...editable, status:false })
         }
-
-
     }
 
     const handleClickEditable = (type: any) => {
@@ -157,12 +155,12 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
     return (
         <div className="w-full p-3 mt-6 mx-auto removable">
             <div className="flex flex-wrap -mx-3">
-                <div className="w-full max-w-full px-3 lg-max:mt-6 xl:w-4/12 mb-4">
+                <div className="w-full max-w-full px-3 lg-max:mt-6 xl:w-auto mb-4">
                     <div className="relative flex flex-col h-full min-w-0 break-words bg-white border-0 shadow-soft-xl rounded-2xl bg-clip-border">
                         <div className="p-4 pb-0 mb-0 bg-white border-b-0 rounded-t-2xl">
                             <div className="flex flex-wrap -mx-3">
-                                <div className="flex items-center w-full max-w-full px-3 shrink-0 md:w-8/12 md:flex-none">
-                                    <h6 className="mb-0 font-bold text-xl">{editable.info ? "Editar perfil" : "Detalles del perfil"}</h6>
+                                <div className="flex items-center w-full max-w-full px-3 shrink-0 md:w-auto md:flex-none">
+                                    <h6 className="mb-0 font-bold text-xl">{editable.info ? "Editar usuario" : "Detalles del usuario"}</h6>
                                 </div>
                                 <div className="w-full max-w-full px-3 text-right shrink-0 md:w-4/12 md:flex-none">
                                     <a data-target="tooltip_trigger" data-placement="top">
@@ -227,7 +225,7 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
                     </div>
                 </div>
                 {/* Informacion corporal */}
-                { statusUser?.age &&
+                { statusUser?.genre ?
                 <div className={`w-full max-w-full px-3 lg-max:mt-6 lg-max ${editable.status ? "w-auto" : "xl:w-4/12"} mb-4`}>
                     <div className="relative flex flex-col h-full min-w-0 break-words bg-white border-0 shadow-soft-xl rounded-2xl bg-clip-border">
                         <div className="p-4 pb-0 mb-0 bg-white border-b-0 rounded-t-2xl">
@@ -270,7 +268,7 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
                         <div className="flex-auto p-4">
                             <hr className="h-px my-2 bg-transparent bg-gradient-horizontal-light" />
                             <ul className="grid grid-flow-row grid-cols-2 pl-0 mb-0 rounded-lg">
-                                <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-base text-inherit">
+                                <li className="relative block px-4 pb-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-base text-inherit">
                                     <strong className="text-slate-700 mr-0.5">
                                         {editable.status ? "Editar peso:" : "Peso:"}
                                     </strong>
@@ -278,7 +276,7 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
                                     {statusUser.weight !== undefined && <span className={`${editable.status && "ml-1 text-gray-400 duration-500"} ml-0`}>kg</span>}
                                 </li>
                                 {/*  */}
-                                <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-base text-inherit">
+                                <li className="relative block px-4 pb-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-base text-inherit">
                                     <strong className="text-slate-700 mr-0.5">
                                         {editable.status ? "Editar edad:" : "Edad:"}
                                     </strong>
@@ -294,7 +292,7 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
                                     {statusUser.weight !== undefined && <span className={`${editable.status && "ml-1 text-gray-400 duration-500"} ml-0`}>cm</span>}
                                 </li>
                                 {/*  */}
-                                <li className="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-base text-inherit">
+                                <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-base text-inherit">
                                     <strong className="text-slate-700 mr-0.5">
                                         {editable.status ? "Editar equipo:" : "Equipo:"}
                                     </strong>
@@ -308,7 +306,7 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
                                     }
                                 </li>
                                 {/*  */}
-                                <li className="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-base text-inherit">
+                                <li className="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-base text-inherit">
                                     <strong className="text-slate-700 mr-0.5">
                                         {editable.status ? "Editar Genero:" : "Genero:"}
                                     </strong>
@@ -322,7 +320,7 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
                                     }
                                 </li>
                                 {/*  */}
-                                <li className="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-base text-inherit">
+                                <li className="relative block px-4 pt-2 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-base text-inherit">
                                     <strong className="text-slate-700 mr-0.5">
                                         {editable.status ? "Editar objetivo:" : "Objetivo:"}
                                     </strong>
@@ -336,7 +334,7 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
                                     }
                                 </li>
                                 {/*  */}
-                                <li className="relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-base text-inherit">
+                                <li className="relative block px-4 pb-2 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-base text-inherit">
                                     <strong className="text-slate-700 mr-0.5">
                                         {editable.status ? "Editar experiencia:" : "Experiencia:"}
                                     </strong>
@@ -353,7 +351,8 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> 
+                : null
                 }
             </div>
         </div>
