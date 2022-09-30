@@ -22,6 +22,7 @@ import linkedin from "../assets/login-singup_media/icons8-linkedin-circled.svg";
 import loading_icon from "../assets/icons/loading.svg"
 import Navbar from "../Navbar/Navbar";
 import funcion from "../../additional_info/functions";
+import NewPassword from "./NewPassword";
 
 
 export default function SingUp_Login() {
@@ -49,9 +50,9 @@ export default function SingUp_Login() {
             )}
           </div>
 
-          {id == "login" ? 
-          <Login facebook={facebook} google={google} linkedin={linkedin} loading_icon={loading_icon} /> :
-          <SingUp facebook={facebook} google={google} linkedin={linkedin} loading_icon={loading_icon}/>}
+          {id == "login"&&<Login facebook={facebook} google={google} linkedin={linkedin} loading_icon={loading_icon} />} 
+          {id == "sign-up"&&<SingUp facebook={facebook} google={google} linkedin={linkedin} loading_icon={loading_icon}/>}
+          {id == "nuevaContraseña"&&<NewPassword  loading_icon={loading_icon}/> }
           
         </Div_form>
       </Div_conteiner>

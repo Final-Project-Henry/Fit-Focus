@@ -63,14 +63,11 @@ export default function DecriptionEjer() {
       if(commentExist){
         console.log("entraa")
         setValidac(false)
-        dispatch(Status("none"))
-      }else if(status==="success"){
-        setValidac(false)
-        dispatch(Status("none"))
       }else{
         setValidac(true)
       }
  },[descripcionEjersicio,status])
+
  useEffect(() => {
   if(descripcionEjersicio){
     let newarr:commet[] = []
@@ -93,7 +90,6 @@ export default function DecriptionEjer() {
       }
       setValidac(true)
   }
-
   const SubmitCommet = (e: Event|any ) => {
     e.preventDefault();
     if(comment.length>0){
@@ -108,7 +104,9 @@ export default function DecriptionEjer() {
          }
       })
      descripcionEjersicio.feedback=newarr
+        setValidac(false)
     }
+
   }
 
   return (
@@ -128,8 +126,9 @@ export default function DecriptionEjer() {
                 rows={4}
                 className="px-0 w-full text-sm text-gray-900 bg-white border-0  focus:ring-0 "
                 placeholder="Como te sentiste?"
-                onChange={(e)=>setcomment(e.target.value)}
+                onChange={(e)=>{setcomment(e.target.value)}}
                 value={comment}
+                maxLength={50}
                 required
               ></textarea>
             </div>
@@ -147,10 +146,14 @@ export default function DecriptionEjer() {
                 <svg onClick={()=>rewind.cont>=4?setrewind(pv=>({...pv, cont:3})):setrewind(pv=>({...pv, cont:4}))} aria-hidden="true" className={`w-6 h-6 cursor-pointer active:animate-ping ${rewind.cont>=4?"text-yellow-400":"text-gray-500"}`} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                 <svg onClick={()=>rewind.cont>=5?setrewind(pv=>({...pv, cont:4})):setrewind(pv=>({...pv, cont:5}))} aria-hidden="true" className={`w-6 h-6 cursor-pointer active:animate-ping ${rewind.cont>=5?"text-yellow-400":"text-gray-500"}`} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
               </div>
-              <div className="w-full flex justify-end items-end p-5 decoration-red-700 text-red-700">
-              <span onClick={()=> setValidac(false)} className="cursor-pointer">
+              <div className="w-full flex justify-end items-end p-5">
+                <span className="px-5 text-gray-500">
+                  {comment.length}/50
+                </span>
+              <span onClick={()=>   setValidac(false) } className=" decoration-red-700 text-red-700 cursor-pointer">
                 cancelar
               </span>
+              
             </div>
             </div>
           </div>
@@ -159,7 +162,7 @@ export default function DecriptionEjer() {
         <div className={`flex ${!validac&&"mt-20"}  flex-col py-5 bg-slate-200 w-[90%] m-auto`}>   
           {descripcionEjersicio?.feedback?.length>0?descripcionEjersicio?.feedback.map(({_id,comment,rating,email}:any)=>{
             return(
-              <div key={_id} className=" m-5 w-[40%] bg-slate-100">
+              <div key={_id} className=" m-5 w-[40%] overflow-hidden bg-slate-100">
                 <div className="flex">
                   <Comment user={email} rewind={rating} />
                    <span className ={`p-2 flex ${user?.email!==email&&"text-red-700"} text-lg justify-end w-full`}>
@@ -182,11 +185,11 @@ export default function DecriptionEjer() {
             <Comment user={user?.email} rewind={rewind.cont} />
             <span className ="p-2 flex text-lg justify-end w-full">
              <span onClick={AddEdit} className = "cursor-pointer  hover:after:content-['Editar'] after:p-2 after:absolute after:text-gray-500 duration-150">
-              <AiFillEdit/>
+              <AiFillEdit />
             </span>
             </span>
             </div>
-            <p className="px-7 py-5">{comment}</p>
+            <p className="px-7 py-5 w-[30%]">{comment}</p>
             </div>
           }
         </div>

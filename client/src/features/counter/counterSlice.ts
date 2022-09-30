@@ -139,6 +139,20 @@ export const User_Login_State = createAsyncThunk(
     }
   }
 );
+export const Activecuenta = createAsyncThunk(
+  "user/active",
+  async (user: object, thunkAPI) => {
+    try {
+      const response = await axios.post("http://localhost:3001/account", user);
+      const resp = response.data;
+      thunkAPI.dispatch(Status(resp));
+      return resp;
+    } catch (error: any) {
+      thunkAPI.dispatch(Status(error.response.data));
+      return;
+    }
+  }
+);
 
 export const removeAccount = createAsyncThunk(
   "user/remove",
@@ -307,7 +321,6 @@ export const StateSlice = createSlice({
     },
 
     Exercises: (state, action: PayloadAction<[]>) => {
-      state.status = "none";
       state.exercises = action.payload;
     },
 
