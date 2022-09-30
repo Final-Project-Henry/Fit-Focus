@@ -1,4 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useAppDispatch, useAppSelector, useToken } from "../../app/hooks";
+import {
+  getProfileInfo,
+  selectUser,
+  userFeedback,
+} from "../../features/counter/counterSlice";
+import Swal from "sweetalert2";
 
 interface CommentsProps {
   email: string;
@@ -6,47 +14,53 @@ interface CommentsProps {
 }
 
 const ContactUs = () => {
-  const [user, setUser] = useState<CommentsProps>({} as CommentsProps);
+  const token = useToken();
+  const dispatch = useAppDispatch();
+  const user = useAppSelector(selectUser);
+  console.log(user);
 
-  const handleChange = (e: any) => {
-    setUser({
-      ...user,
-      [e.target.name]: e.target.value,
-    });
-  };
+  useEffect(() => {
+    dispatch(getProfileInfo(token));
+  }, [dispatch, token]);
 
-  const handleSubmmit = (e: any) => {
-    console.log(user.email);
-    console.log(user.comment);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<CommentsProps>();
+
+  const onSubmit = (data: CommentsProps) => {
+    dispatch(userFeedback({ ...data, token: token }));
+    console.log(token);
+    alert("Mensaje enviado");
   };
 
   return (
     <form
-      onSubmit={handleSubmmit}
+      onSubmit={handleSubmit(onSubmit)}
       style={{ textAlign: "center", width: "25%", height: "100%" }}
     >
       <input
         type="email"
-        name="email"
         placeholder="Correo..."
         id="Nombre"
-        required
         className="p-2 bg-white w-full mt-4 rounded-lg"
-        value={user.email}
-        onChange={handleChange}
+        disabled
+        value={user?.user?.email}
+        {...register("email", { required: true })}
       />
+      {errors.email && <p className="color-red">Email es requerido</p>}
 
       <textarea
-        name="comment"
         className="block rounded-lg w-full  mt-4 h-20 resize-none"
         placeholder="Mensaje..."
-        required
         rows={8}
-        value={user.comment}
-        onChange={handleChange}
+        {...register("comment", { required: true })}
       />
+      {errors.comment && <p className="color-red">Mensaje es requerido</p>}
 
       <button
+        disabled={user?.user?.feedback}
         type="submit"
         className="text-white active:scale-90 duration-100  font-medium rounded-lg text-sm px-7 py-1.5  mt-4 bg-amber-700 hover:bg-amber-800 focus:outline-none"
       >
