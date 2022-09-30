@@ -5,13 +5,11 @@ import { exercises } from "../../additional_info/exercises";
 import { RootState, AppThunk } from "../../app/store";
 
 export interface State {
-  user: null | string |any;
-  userToken: null | string |any;
+  user: null | string | any;
+  userToken: null | string | any;
   status: string | null;
   rutines: any | null;
   exercises: Array<any> | [];
- 
-
 }
 
 export interface infoRutina {
@@ -21,18 +19,21 @@ export interface infoRutina {
 
 const initialState: State = {
   user: null,
-  userToken:null,
+  userToken: null,
   status: "none",
   rutines: {},
   exercises: [],
-
- 
 };
+
+export interface userFeedback {
+  email: string;
+  comment: string;
+  token: string;
+}
 
 export const Rutines_Get = createAsyncThunk(
   "user/rutinesSlice",
   async (token: string, thunkAPI) => {
-    
     try {
       let headersList = {
         Accept: "/",
@@ -48,7 +49,7 @@ export const Rutines_Get = createAsyncThunk(
 
       let response = await axios.request(reqOptions);
       const resp = response.data;
-     
+
       console.log(resp.data);
       thunkAPI.dispatch(Rutines(resp));
       return resp;
@@ -62,8 +63,7 @@ export const Rutines_Get = createAsyncThunk(
 
 export const EditUser = createAsyncThunk(
   "user/Edit",
-  async ({token,data}:any, thunkAPI) => {
-
+  async ({ token, data }: any, thunkAPI) => {
     try {
       let headersList = {
         Accept: "/",
@@ -75,7 +75,7 @@ export const EditUser = createAsyncThunk(
         url: `http://localhost:3001/auth/changeinfo`,
         method: "PUT",
         headers: headersList,
-        data:data
+        data: data,
       };
 
       let response = await axios.request(reqOptions);
@@ -129,7 +129,7 @@ export const User_Login_State = createAsyncThunk(
     try {
       const response = await axios.post("http://localhost:3001/login", user);
       const resp = response.data;
-      
+
       thunkAPI.dispatch(UserToken(resp));
       return resp;
     } catch (error: any) {
@@ -160,10 +160,9 @@ export const removeAccount = createAsyncThunk(
       };
 
       let response = await axios.request(reqOptions);
-   
+
       return response.data;
     } catch (error: any) {
-      
       return error;
     }
   }
@@ -178,7 +177,7 @@ export const getProfileInfo = createAsyncThunk(
         Authorization: "Bearer " + tokenUser,
         "Content-Type": "application/json",
       };
-     
+
       let userData = jwtDecode(tokenUser);
 
       let reqOptions = {
@@ -190,16 +189,13 @@ export const getProfileInfo = createAsyncThunk(
 
       let response = await axios.request(reqOptions);
       thunkAPI.dispatch(User(response.data));
-     
+
       return;
     } catch (error: any) {
-   
       return error;
     }
   }
 );
-
-
 
 export const infoUserRutina = createAsyncThunk(
   "user/DataRutinas",
@@ -223,7 +219,36 @@ export const infoUserRutina = createAsyncThunk(
       return;
     } catch (error: any) {
       thunkAPI.dispatch(Status(error.response.data));
-   
+
+      return error;
+    }
+  }
+);
+
+export const userFeedback = createAsyncThunk(
+  "user/feedback",
+  async (data: userFeedback, thunkAPI) => {
+    console.log(data);
+    try {
+      let headersList = {
+        Accept: "*/*",
+        Authorization: "Bearer " + data.token,
+        "Content-Type": "application/json",
+      };
+
+      let reqOptions = {
+        url: "http://localhost:3001/auth/userfeedback",
+        method: "PUT",
+        headers: headersList,
+        data: { email: data.email, comment: data.comment },
+      };
+
+      let response = await axios.request(reqOptions);
+      thunkAPI.dispatch(Status("success"));
+      return;
+    } catch (error: any) {
+      thunkAPI.dispatch(Status(error.response.data));
+
       return error;
     }
   }
@@ -256,11 +281,9 @@ export const rewindExercise = createAsyncThunk(
   }
 );
 
-
 export const authGoogle = createAsyncThunk(
   "user/auth_google",
   async (code: { code: String }, thunkAPI) => {
-
     try {
       const response = await axios.post(
         "http://localhost:3001/authGoogle",
@@ -288,7 +311,7 @@ export const StateSlice = createSlice({
       state.exercises = action.payload;
     },
 
-    UserToken: (state, action: PayloadAction<string>)=>{
+    UserToken: (state, action: PayloadAction<string>) => {
       state.userToken = action.payload;
     },
     User: (state, action: PayloadAction<object>) => {
@@ -296,16 +319,13 @@ export const StateSlice = createSlice({
       state.user = action.payload;
     },
     sigendOut: (state, action: PayloadAction<null>) => {
-      
       state.status = "none";
       window.localStorage.removeItem("Login_userFit_Focus");
       state.user = action.payload;
     },
     Status: (state, action: PayloadAction<string>) => {
       state.status = action.payload;
-
     },
-
   },
   extraReducers: (builder) => {
     builder
@@ -314,22 +334,18 @@ export const StateSlice = createSlice({
       })
 
       .addCase(User_Login_State.pending, (state, action) => {
-      
         state.status = null;
       })
 
-      .addCase(authGoogle.pending, (state, action) => {
-      
-      })
+      .addCase(authGoogle.pending, (state, action) => {})
       .addCase(authGoogle.fulfilled, (state, action) => {
-        
         state.status = "load";
         state.userToken = action.payload;
       });
   },
 });
 
-export const { User, sigendOut, Status, Rutines, UserToken,Exercises } =
+export const { User, sigendOut, Status, Rutines, UserToken, Exercises } =
   StateSlice.actions;
 
 export const selectUser = (state: RootState) => state.user;
