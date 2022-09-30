@@ -34,7 +34,8 @@ const exerciseSchema = new Schema({
     feedback:[{
         email : {type : String},
         comment : {type : String},
-        rating : {type : String}
+        rating : {type : String},
+        report : [{type : String}]
     }]
 })
 

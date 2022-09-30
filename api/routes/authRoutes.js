@@ -209,6 +209,8 @@ router.put('/feedbackExercise', async (req, res) => {
   }
 });
 
+
+
 router.put('/newAdmin', async(req,res)=>{
      try {
        const {id} = req.user
@@ -220,5 +222,7 @@ router.put('/newAdmin', async(req,res)=>{
        res.status(500).send(error.message)
      }
 })
+
+
 
 module.exports = router

@@ -68,4 +68,6 @@ app.use(async (req,res,next) => {
 })
 
 app.use('/admin', adminRoutes);
+
+
  module.exports = app
