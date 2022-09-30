@@ -8,4 +8,4 @@ router.get('/allusers', async (req, res) => {
   res.status(200).json(Users)
 });
 
-module.exports = router
+module.exports = router;

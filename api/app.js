@@ -61,8 +61,8 @@ app.use('/auth', authRoutes); //Rutas para usuarios logeados con credenciales, s
 app.use(async (req,res,next) => {
     const {id} = req.user
     const user = await User.findOne({_id:id})
-  if(!user.superAdmin){
-    return res.status(404).send('You are not a superAdmin user')
+  if(!user.admin){
+    return res.status(404).send('You are not a admin user')
   } 
   next()
 })
