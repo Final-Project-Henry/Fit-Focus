@@ -14,6 +14,7 @@ export default function Comments() {
   },[])
   return (
     <div style={{display:"flex", flexDirection:"column", gap:"2vh"}}>
+      <h1 style={{ fontSize: "3rem", fontWeight: "500" }}>Comments</h1>
       { 
         comments.length>0?
         comments.map((e:any)=>(

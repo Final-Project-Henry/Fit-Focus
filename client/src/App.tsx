@@ -61,6 +61,7 @@ import Exercise from "./Components/admin/exercises/Exercise";
 import Comments from "./Components/admin/comments/Comments";
 import NewsAdmin from "./Components/admin/news/NewsAdmin";
 import Questions from "./Components/admin/questions/Questions";
+import ExerciseForm from "./Components/admin/exercises/ExerciseForm";
 
 
 
@@ -88,6 +89,7 @@ function App() {
             <Route path="users" element={<Users />} />
             <Route path="users/:id" element={<User />} />
             <Route path="exercises" element={<Exercises />} />
+            <Route path="exercises/add" element={<ExerciseForm />} />
             <Route path="exercises/:id" element={<Exercise />} />
             <Route path="comments" element={<Comments />} />
             <Route path="news" element={<NewsAdmin />} />

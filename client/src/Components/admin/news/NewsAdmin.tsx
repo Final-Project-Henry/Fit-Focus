@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function NewsAdmin() {
   return (
-    <div>News</div>
+    <div>
+      Creo que mejor se quita la pestaña de noticias :'v
+    </div>
   )
 }
