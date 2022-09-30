@@ -210,7 +210,6 @@ router.put('/feedbackExercise', async (req, res) => {
 });
 
 
-
 router.put('/newAdmin', async(req,res)=>{
      try {
        const {id} = req.user
