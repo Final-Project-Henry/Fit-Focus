@@ -57,7 +57,7 @@ export default {
     let vence = new Date(time)
         
     var MlSeconds = vence.getTime();
-    var addMlSeconds = 720 * 600000;
+    var addMlSeconds = 720 * 60000;
     vence = new Date(MlSeconds + addMlSeconds);
  
     if (actual > vence){
