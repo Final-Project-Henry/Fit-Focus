@@ -3,6 +3,7 @@ const freeAccess = require('./routes/freeAccess.js');
 const authRoutes = require('./routes/authRoutes.js');
 const authGoogleRoutes = require('./routes/authGoogleRoutes.js')
 const adminRoutes = require('./routes/adminRoutes.js')
+const superAdminRoutes = require('./routes/superAdminRoutes');
 const jwt = require('jsonwebtoken');
 const querystring = require('node:querystring');
 const cors = require('cors');
@@ -71,17 +72,14 @@ app.use('/admin', adminRoutes);
 
 app.use(async (req,res,next) => {
   const {id} = req.user
-  const {_id} = req.body
-  const user = await User.findOne({_id:id})
-if(user.superAdmin){
-  await User.updateOne({_id : _id}, {
-    admin : true
-  })
-  return res.status(200).send('New admin')
-} else {
-  return res.status(404).send('You are not superAdmin')
- }
+    const user = await User.findOne({_id:id})
+  if(!user.superAdmin){
+    return res.status(404).send('You are not a superAdmin user')
+  } 
+  next()
 });
+
+app.use('/superAdmin', superAdminRoutes);
 
 
  module.exports = app

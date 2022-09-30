@@ -1,14 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { useAppSelector } from '../../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
+import { add_admin, get_users } from '../../../features/admin/admin';
 import edit from '../imgs/edit.png';
 
 export default function User() {
+
+  const dispatch = useAppDispatch();
+  const [admin_state, setAdmin] = useState('not_loaded');
   const users = useAppSelector(state => state.admin);
   const admin = useAppSelector(state=>state.user);
   const params = useParams();
   const user = users.users?.find((e: any) => e._id === params.id);
 
+  const onClick =()=>{
+    dispatch(add_admin(user._id));
+    setAdmin('loaded');
+    alert('Change successful');
+  }
+
+  useEffect(() => {
+    if(user?.user_status!=="loaded")dispatch(get_users());
+  }, [users, admin_state])
+  
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "10vh" }}>
       <h1 style={{ fontSize: "3rem", fontWeight: "500" }}>Edit User</h1>
@@ -37,7 +51,7 @@ export default function User() {
                   <div style={{ display: "flex", justifyContent: 'space-between', gap: "10px", }}>
                     <p>Admin: </p>
                     <p>{`${user.admin}`}</p>
-                    <img src={edit} style={{width:"15px", height:"15px", cursor:"pointer"}} />
+                    <img onClick={onClick} src={edit} style={{width:"15px", height:"15px", cursor:"pointer"}} />
                   </div>
               }
             </div>
