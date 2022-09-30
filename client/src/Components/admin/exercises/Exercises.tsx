@@ -42,7 +42,7 @@ export default function Exercises() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "10vh", marginBottom:"10vh"}}>
-      <h1 style={{ fontSize: "3rem", fontWeight: "500" }}>Users</h1>
+      <h1 style={{ fontSize: "3rem", fontWeight: "500" }}>Exercises</h1>
       <button style={{backgroundColor:"#111827", color:"white", width:"20vw", height:"5vh", fontSize:"1.5rem", fontWeight:"500"}} onClick={onCreate}>Add a new exercise</button>
       <table>
         <thead style={{ backgroundColor: "white", }}>
