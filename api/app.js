@@ -69,5 +69,19 @@ app.use(async (req,res,next) => {
 
 app.use('/admin', adminRoutes);
 
+app.use(async (req,res,next) => {
+  const {id} = req.user
+  const {_id} = req.body
+  const user = await User.findOne({_id:id})
+if(user.superAdmin){
+  await User.updateOne({_id : _id}, {
+    admin : true
+  })
+  return res.status(200).send('New admin')
+} else {
+  return res.status(404).send('You are not superAdmin')
+ }
+});
+
 
  module.exports = app
