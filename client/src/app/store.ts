@@ -3,6 +3,7 @@ import UserReducer from "../features/counter/counterSlice";
 import AuthNavReducer from "../features/authNav/authNavSlice";
 import ImageReducer from '../features/ImageSlice/ImageSlice'
 import MercadoReducer from '../features/mercadopago/mercadopago';
+import AdminReducer from '../features/admin/admin';
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     auth: AuthNavReducer,
     image: ImageReducer,
     mercadopago: MercadoReducer,
+    admin: AdminReducer,
   },
 });
 

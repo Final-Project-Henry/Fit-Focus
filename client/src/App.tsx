@@ -32,6 +32,7 @@ import Calculadora from "./Components/HomeRegister/Calculadora";
 import Navbar from "./Components/Navbar/Navbar";
 import Favoritos from "./Components/HomeRegister/Favorito";
 import RutinasPersonales from "./Components/HomeRegister/RutinasPersonales";
+import Dashboard from "./Components/admin/Dashboard";
 import {
   getProfileInfo,
   selectUser,
@@ -49,8 +50,17 @@ import functions from "./additional_info/functions";
 import Contactanos from "./Components/contactanos/Contactanos";
 
 import AboutUs from "./Components/AboutUs/AboutUs";
-
 import Nosotros from "./Components/Nosotros/Nosotros";
+
+//admin components
+import Users from "./Components/admin/users/Users";
+import Home from "./Components/admin/home/Home";
+import User from "./Components/admin/users/User";
+import Exercises from "./Components/admin/exercises/Exercises";
+import Exercise from "./Components/admin/exercises/Exercise";
+import Comments from "./Components/admin/comments/Comments";
+import NewsAdmin from "./Components/admin/news/NewsAdmin";
+import Questions from "./Components/admin/questions/Questions";
 
 
 
@@ -73,6 +83,16 @@ function App() {
         {pathname !== "/" && <Navbar />}
         <Routes>
           {/* Rutas públicas */}
+          <Route path="/admin" element={<Dashboard />} >
+            <Route path="" element={<Home />} />
+            <Route path="users" element={<Users />} />
+            <Route path="users/:id" element={<User />} />
+            <Route path="exercises" element={<Exercises />} />
+            <Route path="exercises/:id" element={<Exercise />} />
+            <Route path="comments" element={<Comments />} />
+            <Route path="news" element={<NewsAdmin />} />
+            <Route path="questions" element={<Questions />} />
+          </Route>
           <Route path="/" element={<LandingPage />} />
           <Route path="/auth/:id" element={<SingUp_Login />} />
           <Route path="/home" element={<HomeVisitor_2 />} />
