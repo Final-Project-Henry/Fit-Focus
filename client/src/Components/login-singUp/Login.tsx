@@ -5,10 +5,14 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import {
   User_Login_State,
   selectUser,
+  Status,
+  Activecuenta,
 } from "../../features/counter/counterSlice";
 
 import { Link } from "react-router-dom";
 import GoogleAuth from "../GoogleAuth/GoogleAuth";
+import Swal from "sweetalert2";
+
 
 interface Propos {
   facebook: string;
@@ -26,7 +30,7 @@ const Login: React.FC<Propos> = ({
   let user = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
   const Navegation=  useNavigate()  
-  const [loagin, Set_loagin] = useState(false);
+  const [Activar, SetActivar] = useState(false);
   const [Form_data, Set_form_data] = useState({
     email: "",
     password: "",
@@ -43,7 +47,23 @@ const Login: React.FC<Propos> = ({
       );
     }
   }, [user.userToken]);
-
+  useEffect(() => {
+    if (user.status==="User desactivated") {
+      Swal.fire({
+        title: "Esta cuenta esta desactivada. agregar mas lorem :V",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#230bf8",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Recuperar cuenta",
+        cancelButtonText: "Cancelar",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          SetActivar(true)
+        }
+      });
+    }
+  }, [user.status]);
   function handleChange(
     event: React.ChangeEvent<HTMLFormElement | HTMLInputElement>
   ): void {
@@ -53,8 +73,8 @@ const Login: React.FC<Propos> = ({
   //////////enviar de datos  por medio de los input//////////////////////////////////////////
   function handleSubmit(event: React.FormEvent): void {
     event.preventDefault();
-    Set_loagin(true);
-    dispatch(User_Login_State(Form_data));
+    // dispatch(Activecuenta(Form_data))
+    Activar?alert("El back no funca :V"):dispatch(User_Login_State(Form_data));
   }
 
   return (
@@ -116,7 +136,7 @@ const Login: React.FC<Propos> = ({
             Recibir notificaciones
           </label>
           <Link
-            to="#"
+            to="/auth/nuevaContraseña"
             className="ml-auto text-sm text-blue-700 hover:underline  dark:text-blue-500"
           >
             Olvidaste tu contraseña?
@@ -131,8 +151,8 @@ const Login: React.FC<Propos> = ({
             className="w-full bg-blue-700   text-white text-center p-2 "
             type="submit"
           >
-            {user.status ? (
-              "iniciar sesión"
+            {user.status? (
+              Activar?"Recuperar cuenta":"iniciar sesión"
             ) : (
               <span className=" flex justify-center">
                 <img className="animate-spin w-5 mx-2" src={loading_icon} />
