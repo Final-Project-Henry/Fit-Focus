@@ -37,7 +37,7 @@ export default function Exercises() {
   }, [])
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "10vh" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "10vh", marginBottom:"10vh"}}>
       <h1 style={{ fontSize: "3rem", fontWeight: "500" }}>Users</h1>
       <table>
         <thead style={{ backgroundColor: "white", }}>
