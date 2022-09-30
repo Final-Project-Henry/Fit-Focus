@@ -285,22 +285,6 @@ const Navbar = () => {
                       Mi Perfil
                     </Link>
                   </li>
-                  <li>
-                    <Link
-                      to="/settings"
-                      className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 "
-                    >
-                      Configuraciones
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/admin"
-                      className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 "
-                    >
-                      Dashboard
-                    </Link>
-                  </li>
                   <li
                     onClick={() => {
                       signOut();
