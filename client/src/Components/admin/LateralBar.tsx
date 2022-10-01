@@ -34,10 +34,12 @@ export default function LateralBar() {
             className={`cursor pointer w-[60px] duration-500`}
           />
         </div>
-        <ul className="pt-3">
+        <ul className="pt-4">
           {btns.map((btn: any, index: any) => (
             <li
-              className={`flex items-center gap-x-4 cursor-pointer rounded-md p-2 mt-6 hover:bg-amber-300`}
+              className={`flex items-center gap-x-4 cursor-pointer rounded-md p-2 mt-6 hover:bg-amber-300 ${
+                btn.gap ? "mt-9" : "mt-2"
+              }`}
               key={index}
               onClick={() => onClick(btn.url)}
             >

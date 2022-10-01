@@ -15,7 +15,9 @@ export default [
     img: Users,
     url: "users",
     tittle: "Users",
+    gap: true,
   },
+
   {
     img: Exercises,
     url: "exercises",
@@ -25,6 +27,7 @@ export default [
     img: Comments,
     url: "comments",
     tittle: "Comments",
+    gap: true,
   },
 
   {
