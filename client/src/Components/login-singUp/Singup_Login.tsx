@@ -42,16 +42,16 @@ export default function SingUp_Login() {
               <p id="login">Iniciar sesión</p>
             </Link>
             {!user.user ? (
-              <Link to="/auth/sign-up">
+              <Link to="/auth/sing-up">
                 <p>Registrarse</p>
               </Link>
             ) : (
               <p id="singup">Registrarse</p>
             )}
           </div>
-
+          
           {id == "login"&&<Login facebook={facebook} google={google} linkedin={linkedin} loading_icon={loading_icon} />} 
-          {id == "sign-up"&&<SingUp facebook={facebook} google={google} linkedin={linkedin} loading_icon={loading_icon}/>}
+          {id == "sing-up"&&<SingUp facebook={facebook} google={google} linkedin={linkedin} loading_icon={loading_icon}/>}
           {id == "nuevaContraseña"&&<NewPassword  loading_icon={loading_icon}/> }
           
         </Div_form>
