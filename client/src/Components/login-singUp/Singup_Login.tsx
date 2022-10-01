@@ -35,13 +35,13 @@ export default function SingUp_Login() {
     <>
     <Div_img className="flex justify-center">
       {user_existing && <Navigate to="/fitFocus" />}
-      <Div_conteiner className="flex rounded w-full h-full bg-gray-100 ">
+      <div className="flex  w-full h-full ">
 
 
           {id == "login"&&<Login loading_icon={loading_icon} />} 
           {id == "sing-up"&&<SingUp facebook={facebook} google={google} linkedin={linkedin} loading_icon={loading_icon}/>}
           {id == "nuevaContraseña"&&<NewPassword  loading_icon={loading_icon}/> }
-      </Div_conteiner>
+      </div>
     </Div_img>
     </>
   );

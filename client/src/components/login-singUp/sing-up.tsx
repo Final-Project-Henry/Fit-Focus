@@ -48,7 +48,7 @@ const Login2: React.FC<Propos> = ({ loading_icon }) => {
         {user_logeao.user && <Navigate to="/auth/login" />}
             {/* component */}
             <div className="py-6 flex-1 content-center justify-center ">
-                <div className="flex bg-white shadow-2xl overflow-hidden mx-auto mt-[6%] max-w-sm h-[76%] lg:max-w-[68%]">
+                <div className="flex bg-white shadow-2xl overflow-hidden mx-auto lg:mt-[6%] max-w-md h-[76%] lg:max-w-[68%]">
                     <div
                         className="hidden lg:block lg:w-[50%] bg-cover"
                         style={{

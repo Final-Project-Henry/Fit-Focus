@@ -10,8 +10,6 @@ import {
 
 import { Link } from "react-router-dom";
 import GoogleAuth from "../GoogleAuth/GoogleAuth";
-import Swal from "sweetalert2";
-
 
 interface Propos {
     loading_icon?: string;
@@ -79,7 +77,7 @@ const Login: React.FC<Propos> = ({ loading_icon }) => {
             </div>
             {/* component */}
             <div className="py-6 flex-1 content-center justify-center ">
-                <div className="flex bg-white shadow-2xl overflow-hidden mx-auto mt-[6%] max-w-sm h-[76%] lg:max-w-[68%]">
+                <div className="flex bg-white shadow-2xl overflow-hidden mx-auto sm:mt-0 md:mt-0  lg:mt-[6%] max-w-sm h-[76%] lg:max-w-[68%]">
                     <div
                         className="hidden lg:block lg:w-[50%] bg-cover"
                         style={{
