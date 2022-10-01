@@ -54,9 +54,9 @@ export default function Home() {
               width: "20vw",
               padding: "25px",
               fontSize: "1.5rem",
+              backgroundColor: "gray",
               height: "100%",
             }}
-            className="rounded-md bg-amber-200"
           >
             Esta pagina esta diseñada para mostrarle informacion importante
             sobre la app. En el panel lateral izquierdo podras encontrar las

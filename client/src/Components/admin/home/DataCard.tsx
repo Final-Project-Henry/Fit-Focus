@@ -8,7 +8,7 @@ interface prop {
 
 export default function DataCard(props: { data: prop }) {
   return (
-    <div className="flex bg-amber-200 p-4 rounded-md ">
+    <div className="flex bg-gray-200 p-4">
       <img src={props.data.img} width="85px" />
       <div
         style={{
@@ -23,7 +23,7 @@ export default function DataCard(props: { data: prop }) {
         <h1>
           <b>{props.data.tittle}</b>
         </h1>
-        <p className="text-md font-semibold ">{props.data.value}</p>
+        <p className="text-md">{props.data.value}</p>
       </div>
     </div>
   );
