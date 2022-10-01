@@ -55,7 +55,7 @@ const exercises = [
     },
     {
      "name": "SUMO SQUATS",
-     "difficulty": "medium",
+     "difficulty": "hard",
      "equipment": false,
      "muscles": "lower_body",
      "genre": "both",
@@ -177,7 +177,7 @@ const exercises = [
     },
     {
      "name": "BURPEE",
-     "difficulty": "medium",
+     "difficulty": "hard",
      "equipment": false,
      "muscles": "functional",
      "genre": "both",
