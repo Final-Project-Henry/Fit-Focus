@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom"
 import { useEffect, useRef, useState } from "react"
 import { useAppDispatch, useAppSelector, useToken } from "../../app/hooks"
 import { EditUser, getProfileInfo, selectUser, sigendOut } from "../../features/counter/counterSlice"
+import Pay from "./Pay"
 
 const Profile = () => {
 
@@ -43,9 +44,9 @@ const Profile = () => {
 
 
     // handles
-    const handleClickAside = ({ target }: any) => {
+    const handleClickAside = (id: string) => {
 
-        if (target.id === "logOut") {
+        if (id === "logOut") {
             setStyles({ ...styles, selected: "logOut" })
             Swal.fire({
                 title: "¿Desea cerrar sesión?",
@@ -63,9 +64,9 @@ const Profile = () => {
                 } else setStyles({ ...styles, selected: "profile" })
             })
 
-
+            
         }
-        setStyles({ ...styles, selected: target.id })
+        setStyles({ ...styles, selected: id })
 
     }
 
@@ -168,17 +169,17 @@ const Profile = () => {
                 <div className="items-center block w-auto max-h-screen overflow-auto grow basis-full pb-2">
                     <ul className="flex flex-col pl-0 mb-0">
                         <li className="my-0.5 w-full">
-                            <a ref={profile} id="profile" onClick={handleClickAside} className={`${styles.selected === "profile" && styles.a} rounded-lg duration-500 py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors cursor-pointer sidebar`}>
-                                <div onClick={() => handleClickAside({ target: { id: "profile" } })} className={`${styles.selected === "profile" && styles.div} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg  bg-center stroke-0 text-center xl:p-2.5`}>
+                            <a ref={profile} id="profile" onClick={() => handleClickAside("profile")} className={`${styles.selected === "profile" && styles.a} rounded-lg duration-500 py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors cursor-pointer sidebar`}>
+                                <div onClick={() => handleClickAside("profile")} className={`${styles.selected === "profile" && styles.div} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg  bg-center stroke-0 text-center xl:p-2.5`}>
                                     <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                                         <title>customer-support</title>
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <g transform="translate(-1717.000000, -291.000000)" fill="#FFFFFF" fill-rule="nonzero">
                                                 <g transform="translate(1716.000000, 291.000000)">
                                                     <g transform="translate(1.000000, 0.000000)">
-                                                        <path className={`${styles.selected !== "profile" && styles.path} duration-500 opacity-60`} d="M45,0 L26,0 C25.447,0 25,0.447 25,1 L25,20 C25,20.379 25.214,20.725 25.553,20.895 C25.694,20.965 25.848,21 26,21 C26.212,21 26.424,20.933 26.6,20.8 L34.333,15 L45,15 C45.553,15 46,14.553 46,14 L46,1 C46,0.447 45.553,0 45,0 Z"></path>
-                                                        <path className={`${styles.selected !== "profile" && styles.path} duration-500 `} d="M22.883,32.86 C20.761,32.012 17.324,31 13,31 C8.676,31 5.239,32.012 3.116,32.86 C1.224,33.619 0,35.438 0,37.494 L0,41 C0,41.553 0.447,42 1,42 L25,42 C25.553,42 26,41.553 26,41 L26,37.494 C26,35.438 24.776,33.619 22.883,32.86 Z"></path>
-                                                        <path className={`${styles.selected !== "profile" && styles.path} duration-500 `} d="M13,28 C17.432,28 21,22.529 21,18 C21,13.589 17.411,10 13,10 C8.589,10 5,13.589 5,18 C5,22.529 8.568,28 13,28 Z"></path>
+                                                        <path onClick={() => handleClickAside("profile")} className={`${styles.selected !== "profile" && styles.path} duration-500 opacity-60`} d="M45,0 L26,0 C25.447,0 25,0.447 25,1 L25,20 C25,20.379 25.214,20.725 25.553,20.895 C25.694,20.965 25.848,21 26,21 C26.212,21 26.424,20.933 26.6,20.8 L34.333,15 L45,15 C45.553,15 46,14.553 46,14 L46,1 C46,0.447 45.553,0 45,0 Z"></path>
+                                                        <path onClick={() => handleClickAside("profile")} className={`${styles.selected !== "profile" && styles.path} duration-500 `} d="M22.883,32.86 C20.761,32.012 17.324,31 13,31 C8.676,31 5.239,32.012 3.116,32.86 C1.224,33.619 0,35.438 0,37.494 L0,41 C0,41.553 0.447,42 1,42 L25,42 C25.553,42 26,41.553 26,41 L26,37.494 C26,35.438 24.776,33.619 22.883,32.86 Z"></path>
+                                                        <path onClick={() => handleClickAside("profile")} className={`${styles.selected !== "profile" && styles.path} duration-500 `} d="M13,28 C17.432,28 21,22.529 21,18 C21,13.589 17.411,10 13,10 C8.589,10 5,13.589 5,18 C5,22.529 8.568,28 13,28 Z"></path>
                                                     </g>
                                                 </g>
                                             </g>
@@ -189,16 +190,16 @@ const Profile = () => {
                             </a>
                         </li>
                         <li className="my-0.5 w-full">
-                            <a ref={progress} id="progress" onClick={handleClickAside} className={`${styles.selected === "progress" && styles.a} cursor-pointer rounded-lg py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors duration-500 sidebar`}>
-                                <div onClick={() => handleClickAside({ target: { id: "progress" } })} className={`${styles.selected === "progress" && styles.div} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5`}>
+                            <a ref={progress} id="progress" onClick={() => handleClickAside("progress")} className={`${styles.selected === "progress" && styles.a} cursor-pointer rounded-lg py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors duration-500 sidebar`}>
+                                <div onClick={() => handleClickAside("progress")} className={`${styles.selected === "progress" && styles.div} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5`}>
                                     <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                                         <title>office</title>
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF" fill-rule="nonzero">
                                                 <g transform="translate(1716.000000, 291.000000)">
                                                     <g transform="translate(153.000000, 2.000000)">
-                                                        <path className={`${styles.selected !== "progress" && styles.path} opacity-60 duration-500`} d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z"></path>
-                                                        <path className={`${styles.selected !== "progress" && styles.path} duration-500`} d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z"></path>
+                                                        <path onClick={() => handleClickAside("progress")} className={`${styles.selected !== "progress" && styles.path} opacity-60 duration-500`} d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z"></path>
+                                                        <path onClick={() => handleClickAside("progress")} className={`${styles.selected !== "progress" && styles.path} duration-500`} d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z"></path>
                                                     </g>
                                                 </g>
                                             </g>
@@ -208,23 +209,43 @@ const Profile = () => {
                                 <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Progreso</span>
                             </a>
                         </li>
+                        <li className="my-0.5 w-full">
+                            <a id="pay" onClick={() => handleClickAside("pay")} className={`${styles.selected === "pay" && styles.a} cursor-pointer rounded-lg py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors duration-500 sidebar`}>
+                                <div onClick={() => handleClickAside("pay")} className={`${styles.selected === "pay" && styles.div} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5`}>
+                                    <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+                                        <title>credit-card</title>
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                                                <g transform="translate(1716.000000, 291.000000)">
+                                                    <g transform="translate(453.000000, 454.000000)">
+                                                        <path onClick={() => handleClickAside("pay")} className={`${styles.selected !== "pay" && styles.path} opacity-60 duration-500`} d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"></path>
+                                                        <path onClick={() => handleClickAside("pay")} className={`${styles.selected !== "pay" && styles.path} duration-500`} d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Mis pagos</span>
+                            </a>
+                        </li>
                         <li className="cursor-pointer my-0.5 w-full">
-                            <a ref={logOut} id="logOut" onClick={handleClickAside} className={`${styles.selected === "logOut" && styles.a} rounded-lg duration-500 py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors sidebar`}>
-                                <div onClick={() => handleClickAside({ target: { id: "logOut" } })} className={`${styles.selected === "logOut" && styles.div} duration-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2`}>
+                            <a ref={logOut} id="logOut" onClick={() => handleClickAside("logOut")} className={`${styles.selected === "logOut" && styles.a} rounded-lg duration-500 py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors sidebar`}>
+                                <div onClick={() => handleClickAside("logOut")} className={`${styles.selected === "logOut" && styles.div} duration-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2`}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                        <path className={`${styles.selected === "logOut" && "fill-white"} duration-500`} d="M14 19v-.083c-1.178.685-2.542 1.083-4 1.083-4.411 0-8-3.589-8-8s3.589-8 8-8c1.458 0 2.822.398 4 1.083v-2.245c-1.226-.536-2.576-.838-4-.838-5.522 0-10 4.477-10 10s4.478 10 10 10c1.424 0 2.774-.302 4-.838v-2.162zm4-9.592l2.963 2.592-2.963 2.592v-1.592h-8v-2h8v-1.592zm-2-4.408v4h-8v6h8v4l8-7-8-7z" />
+                                        <path onClick={() => handleClickAside("logOut")} className={`${styles.selected === "logOut" && "fill-white"} duration-500`} d="M14 19v-.083c-1.178.685-2.542 1.083-4 1.083-4.411 0-8-3.589-8-8s3.589-8 8-8c1.458 0 2.822.398 4 1.083v-2.245c-1.226-.536-2.576-.838-4-.838-5.522 0-10 4.477-10 10s4.478 10 10 10c1.424 0 2.774-.302 4-.838v-2.162zm4-9.592l2.963 2.592-2.963 2.592v-1.592h-8v-2h8v-1.592zm-2-4.408v4h-8v6h8v4l8-7-8-7z" />
                                     </svg>
                                 </div>
                                 <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Cerrar Sesion</span>
                             </a>
                         </li>
                         <li className="my-0.5 w-full">
-                            <a ref={remove} id="remove" onClick={handleClickAside} className={`${styles.selected === "remove" && styles.a} cursor-pointer rounded-lg duration-500 py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors sidebar`}>
-                                <div onClick={() => handleClickAside({ target: { id: "remove" } })} className={`${styles.selected === "remove" && styles.div} duration-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-[7px]`}>
+                            <a ref={remove} id="remove" onClick={() => handleClickAside("remove")} className={`${styles.selected === "remove" && styles.a} cursor-pointer rounded-lg duration-500 py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors sidebar`}>
+                                <div onClick={() => handleClickAside("remove")} className={`${styles.selected === "remove" && styles.div} duration-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-[7px]`}>
                                     <svg id="Layer_1" version="1.1" viewBox="0 0 64 64" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><style type="text/css">
                                     </style>
                                         <g>
-                                            <g className="" id="Icon-Trash" transform="translate(232.000000, 228.000000)">
+                                            <g onClick={() => handleClickAside("remove")} className="" id="Icon-Trash" transform="translate(232.000000, 228.000000)">
                                                 <polygon className={`${styles.selected === "remove" && "fill-white"} duration-500`} id="Fill-6" points="-207.5,-205.1 -204.5,-205.1 -204.5,-181.1 -207.5,-181.1" />
                                                 <polygon className={`${styles.selected === "remove" && "fill-white"} duration-500`} id="Fill-7" points="-201.5,-205.1 -198.5,-205.1 -198.5,-181.1 -201.5,-181.1    " />
                                                 <polygon className={`${styles.selected === "remove" && "fill-white"} duration-500`} id="Fill-8" points="-195.5,-205.1 -192.5,-205.1 -192.5,-181.1 -195.5,-181.1    " />
@@ -304,7 +325,8 @@ const Profile = () => {
                         styles.selected === "profile" ? <ProfileDetails name={state.user?.name} email={state.user?.email} plan={state.user?.plan} age={state.user?.userinfo[0]?.age} equipment={state.user?.userinfo[0]?.equipment} experience={state.user?.userinfo[0]?.experience} genre={state.user?.userinfo[0]?.genre} goal={state.user?.userinfo[0]?.goal} height={state.user?.userinfo[0]?.height} weight={state.user?.userinfo[0]?.weight} />
                             : styles.selected === "progress" ? <Progress />
                                 : styles.selected === "remove" ? <Remove />
-                                    : styles.selected === "logOut" && <ProfileDetails name={state.user?.name} email={state.user?.email} plan={state.user?.plan} age={state.user?.userinfo[0]?.age} equipment={state.user?.userinfo[0]?.equipment} experience={state.user?.userinfo[0]?.experience} genre={state.user?.userinfo[0]?.genre} goal={state.user?.userinfo[0]?.goal} height={state.user?.userinfo[0]?.height} weight={state.user?.userinfo[0]?.weight} />
+                                    : styles.selected === "pay" ? <Pay plan={state.user?.plan} />
+                                        : styles.selected === "logOut" && <ProfileDetails name={state.user?.name} email={state.user?.email} plan={state.user?.plan} age={state.user?.userinfo[0]?.age} equipment={state.user?.userinfo[0]?.equipment} experience={state.user?.userinfo[0]?.experience} genre={state.user?.userinfo[0]?.genre} goal={state.user?.userinfo[0]?.goal} height={state.user?.userinfo[0]?.height} weight={state.user?.userinfo[0]?.weight} />
                     }
                 </div>
                 {/* <!-- Footer --> */}
