@@ -63,6 +63,7 @@ import Comments from "./Components/admin/comments/Comments";
 import NewsAdmin from "./Components/admin/news/NewsAdmin";
 import Questions from "./Components/admin/questions/Questions";
 import ExerciseForm from "./Components/admin/exercises/ExerciseForm";
+import NewPassword from "./Components/login-singUp/NewPassword";
 
 
 
@@ -97,6 +98,8 @@ function App() {
             <Route path="questions" element={<Questions />} />
           </Route>
           <Route path="/" element={<LandingPage />} />
+          <Route path="NewPassword/:id" element={<NewPassword />} />
+
           <Route path="/auth/:id" element={<SingUp_Login />} />
           <Route path="/test" element={<Login2 />} />
           <Route path="/home" element={<HomeVisitor_2 />} />

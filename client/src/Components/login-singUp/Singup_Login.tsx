@@ -23,7 +23,8 @@ import loading_icon from "../assets/icons/loading.svg"
 import Navbar from "../Navbar/Navbar";
 import funcion from "../../additional_info/functions";
 //@ts-ignore
-import NewPassword from "./NewPassword";
+
+import ValidadUser from "./ValidadUser";
 
 
 export default function SingUp_Login() {
@@ -41,7 +42,7 @@ export default function SingUp_Login() {
 
           {id == "login"&&<Login loading_icon={loading_icon} />} 
           {id == "sing-up"&&<SingUp facebook={facebook} google={google} linkedin={linkedin} loading_icon={loading_icon}/>}
-          {id == "nuevaContraseña"&&<NewPassword  loading_icon={loading_icon}/> }
+          {id == "nuevaContraseña"&&<ValidadUser  loading_icon={loading_icon}/> }
       </div>
     </Div_img>
     </>
