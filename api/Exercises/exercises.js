@@ -550,7 +550,97 @@ const exercises = [
      "premium": false,
      "description":"Para empezar, recuéstate derecho y boca abajo en el piso o una colchoneta. Los brazos deben estar completamente extendidos frente a ti. Esta es la posición de partida. Al mismo tiempo levanta los brazos, las piernas y el pecho del piso y mantén esta contracción durante 2 segundos. Consejo: Aprieta la espalda baja para obtener los mejores resultados de este ejercicio. Recuerda exhalar durante este movimiento. Poco a poco, comienza a bajar los brazos, las piernas y el pecho de nuevo a la posición inicial mientras inhalas."
          
-    }
+    },
+    {
+    "name": "BACK STRETCHING",
+    "difficulty": "easy",
+    "equipment": false,
+    "muscles": "stretching",
+    "genre": "both",
+    "video": "https://atenentacasa.es/wp-content/uploads/2021/07/image011.gif",
+     "premium": true,
+   "description": "Eleva un hombro hasta colocarlo a 90º, y con la otra mano, ejerce presión sobre el codo, moviendolo hacia el lado del hombro contrario, estirando y manteniendo la tensión durante 15 segundos. Repite el movimiento tres veces."
+    },
+    {
+    "name": "NECK STRETCHING",
+       "difficulty": "easy",
+       "equipment": false,
+       "muscles": "stretching",
+       "genre": "both",
+       "video": "https://cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/LBAS5FOT35GUXJTI642P24TDYQ.gif",
+        "premium": true,
+      "description": "Inclina lateralmente el cuello hacia la derecha, ayudándote con la mano contraria. Mantén la posición durante 15 segundos, y repítela tres veces alternando los dos laterales del cuello."
+    },
+    {
+    "name": "LUMBAR STRETCHING",
+    "difficulty": "medium",
+    "equipment": false,
+    "muscles": "stretching",
+    "genre": "both",
+    "video": "https://itramed.com/wp-content/uploads/2016/02/ejercicios-columna-lumbar.gif",
+     "premium": true,
+   "description": "Recuestate, estira una pierna y flexiona la contraria, coloca la mano sobre la rodilla de la pierna flexionada y llevala hacia el pecho. ¡No te olvides de respirar correctamente!"
+    },
+    {
+    "name": "ABDOMINAL STRETCHING",
+    "difficulty": "easy",
+    "equipment": false,
+    "muscles": "stretching",
+    "genre": "both",
+    "video": "https://www.bienestarfp.com.uy/wp-content/uploads/2021/04/FASE-3-gif-2.gif",
+     "premium": true,
+   "description": "Inspira, dejando entrar el aire por la nariz y notando como la barriga se hincha. Expulsa el aire lentamente, hasta que notes que ha salido todo."
+    },
+    {
+    "name": "SHOULDER STRETCHING",
+    "difficulty": "easy",
+    "equipment": false,
+    "muscles": "stretching",
+    "genre": "both",
+    "video": "https://lh6.googleusercontent.com/jOGOVrTYzUqLbWAbAo7wr8w0JvgwXZKPjUMIBksY8odakj9AO7SiqCkgdqppFSQ2jgriilUDW8_PHZjcUxRmEkHZkC42vYb1JEUl0cMMnCXqnwtLdze3PP-HI3FlwF-qm0Ye7zVEEbBuE3U6Ag",
+     "premium": true,
+   "description": "Inspira y levanta los hombros, manteniendo esta postura durante 6 segundos y expulsando a continuación el aire para relajar."
+    },
+    {
+    "name": "QUADRICEPS STRETCHING",
+    "difficulty": "medium",
+    "equipment": false,
+    "muscles": "stretching",
+    "genre": "both",
+    "video": "https://www.healthline.com/hlcmsresource/images/topic_centers/Fitness-Exercise/400x400_10_Essential_Stretches_For_Runners_Quadriceps.gif",
+     "premium": true,
+   "description": "Trabaja los cuádriceps tirando la pierna hacia atrás con la ayuda de la mano y llevándola hacia los glúteos. Repite el ejercicio tres veces con cada pierna."
+    },
+    {
+    "name": "WRIST STRETCHING",
+    "difficulty": "easy",
+    "equipment": false,
+    "muscles": "stretching",
+    "genre": "both",
+    "video": "https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/topic_centers/Fitness-Exercise/648x364_3_Wrist_Exercises_to_Prevent_Carpal_Tunnel_EXERCISE_3.gif?w=1155&h=764",
+     "premium": true,
+   "description": "Estira el brazo hacia delante con la palma dirigida hacia el suelo y luego flexiona hasta que la mano quede vertical, con la ayuda de la otra mano."
+    },
+    {
+    "name": "CAT-COW STRETCHING",
+    "difficulty": "medium",
+    "equipment": false,
+    "muscles": "stretching",
+    "genre": "both",
+    "video": "https://media.tenor.com/-wXXHLdS4nYAAAAM/workout-working-out.gif",
+     "premium": true,
+   "description": "Colócate en posición de cuadrupedia y asegúrate que tus muñecas están correctamente alineadas bajo los hombros y las rodillas bajo las caderas, abiertas a su misma anchura. Coloca la espalda recta y el cuello neutro. Inhalando, arquea la espalda mientras dejas caer el abdomen hacia abajo, elevando el pecho y la barbilla hacia el techo. Exhala metiendo el abdomen y redondeando la columna con la barbilla hacia el pecho y la mirada hacia al abdomen"
+    },
+    {
+    "name": "PSOAS STRETCHING",
+    "difficulty": "medium",
+    "equipment": false,
+    "muscles": "stretching",
+    "genre": "both",
+    "video": "https://i.pinimg.com/originals/91/b0/64/91b064b7629c24c822445a0b0c646f0e.gif",
+     "premium": true,
+   "description": "Da una zancada al frente con la pierna derecha flexionado la rodilla en un ángulo de 90 grados, retrasando la izquierda y apoyándola por completo en el suelo. Empuja la cadera hacia el suelo manteniendo en todo momento la espalda en posición vertical, intentando no inclinarte hacia delante. Mantén la postura durante varias respiraciones profundas y cambia de pierna."
+    },
    ];
 
    module.exports = exercises;
