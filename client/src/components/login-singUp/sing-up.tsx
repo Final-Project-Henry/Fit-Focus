@@ -48,7 +48,7 @@ const Login2: React.FC<Propos> = ({ loading_icon }) => {
         {user_logeao.user && <Navigate to="/auth/login" />}
             {/* component */}
             <div className="py-6 flex-1 content-center justify-center ">
-                <div className="flex bg-white shadow-2xl overflow-hidden mx-auto mt-[6%] max-w-sm h-[76%] lg:max-w-[68%]">
+                <div className="flex bg-white shadow-2xl overflow-hidden mx-auto  max-w-md h-auto lg:max-w-[75%] xl:max-w-[68%] ">
                     <div
                         className="hidden lg:block lg:w-[50%] bg-cover"
                         style={{
@@ -114,7 +114,7 @@ const Login2: React.FC<Propos> = ({ loading_icon }) => {
                             <button className="bg-gray-700 text-white font-bold py-2 px-4 w-full :bg-gray-600"
                                 onClick={handleSubmit}
                             >
-                                {user_logeao.status ? (
+                                {user_logeao.status=="none" ? (
                                     "Registrarse"
                                 ) : (
                                     <span className=" flex justify-center">
@@ -126,9 +126,9 @@ const Login2: React.FC<Propos> = ({ loading_icon }) => {
                         </div>
                         <div className="mt-4 flex items-center justify-between">
                             <span className="border-b w-1/5 lg:w-1/4" />
-                            <a href="#" className="text-xs text-center text-gray-500 uppercase">
+                            <p className="text-xs text-center text-gray-500 uppercase">
                                 o registrate con google
-                            </a>
+                            </p>
                             <span className="border-b w-1/5 lg:w-1/4" />
                         </div>
                         <div className="flex justify-center mt-3">
@@ -136,7 +136,6 @@ const Login2: React.FC<Propos> = ({ loading_icon }) => {
                         </div>
                         <div className="mt-4 flex items-center justify-between">
                             <span className="border-b w-1/5 md:w-1/4" />
-                            ¿Ya tienes cuenta?
                             <Link
                                 to="/auth/login"
                                 className="text-blue-700 hover:underline dark:text-blue-500"

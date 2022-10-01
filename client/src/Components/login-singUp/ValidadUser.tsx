@@ -1,58 +1,43 @@
+import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
-import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import loading_icon from "../assets/icons/loading.svg"
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector, useToken } from "../../app/hooks";
 
 import {
   User_Login_State,
   selectUser,
   EditUser,
 } from "../../features/counter/counterSlice";
-import Swal from "sweetalert2";
+interface Propos {
+  loading_icon: string;
+}
 
-
-const NewPassword = () => {
-  let {id}=useParams()
+const ValidadUser: React.FC<Propos> = ({ loading_icon }) => {
   let user = useAppSelector(selectUser);
+
   const dispatch = useAppDispatch();
-  const Navegation = useNavigate()
-  const [validar, setvalidadr] = useState(false)
+  const [loagi, setloagin] = useState(false)
   const [Form_data, Set_form_data] = useState({
-    password: "",
-    Validpassword: "",
+    email:"",
   });
+  const [Respusta, SetResp] = useState("");
 
   function handleChange(
     event: React.ChangeEvent<HTMLFormElement | HTMLInputElement>
   ): void {
     Set_form_data((pv) => ({ ...pv, [event.target.name]: event.target.value }));
   }
-  useEffect(() => {
-    if(user.status =="Info changed succesfully"){
-      Swal.fire({
-        title: "Su contraseña fue cambiada correctamente",
-        icon: "info",
-        showCancelButton: true,
-        confirmButtonColor: "#1900ff",
-        confirmButtonText: "Aceptar y ir a iniciar sesión"
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Navegation("/auth/login")
-         
-        }
-      });
-    }
 
-  },[user.status])
   //////////enviar de datos  por medio de los input//////////////////////////////////////////
-  function handleSubmit(event: React.FormEvent): void {
+  async function handleSubmit(event: React.FormEvent): Promise<void> {
     event.preventDefault();
-    if (Form_data.password === Form_data.Validpassword) {
-      let data = { password: Form_data.password }
-      const token=id
-      dispatch(EditUser({ token, data }));
-    } else {
-      setvalidadr(true)
+    setloagin(true)
+    const response = await axios.post("http://localhost:3001/newpassword",Form_data);
+    const resp = response.data;
+    SetResp(resp)
+    if(resp){
+      setloagin(false)
+      
     }
   }
   
@@ -70,48 +55,31 @@ const NewPassword = () => {
           />
           <div className="w-full p-8 lg:w-1/2">
             <h2 className="text-2xl font-semibold text-gray-700 text-center">
-              Nueva contraseña
+                Varificación
             </h2>
 
             <div className="mt-4">
               <div className="flex justify-between">
                 <label className="block text-gray-700 text-sm font-bold mb-2">
-                 Contraseña
+                  email
                 </label>
               </div>
               <input
                 className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300-2 px-4 block w-full appearance-none"
-                type="password"
-                name="password"
-                autoComplete="off"
-                placeholder="••••••••"
-                value={Form_data.password}
+                type="email"
+                name="email"
+                value={Form_data.email}
                 onChange={(event) => handleChange(event)}
               />
             </div>
-
-            <div className="mt-4">
-              <div className="flex justify-between">
-                <label className="block text-gray-700 text-sm font-bold">
-                  validar  Contraseña
-                </label>
-              </div>
-              <input
-                className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300-2 px-4 block w-full appearance-none"
-                type="password"
-                name="Validpassword"
-                autoComplete="off"
-                placeholder="••••••••"
-                value={Form_data.Validpassword}
-                onChange={(event) => handleChange(event)}
-              />
-              {validar && <label className="text-red-500">contraseña incorrecta</label>}
+            <div className="absolute w-[30%] m-2 text-gray-500">
+              <p>{Respusta&&"verefique su correo eletronico, si aun no le llega el link para cambiar su contraseña , recomiendo que mieres en la caja de span"}</p>
             </div>
             <div className="mt-[150px]">
               <button className="bg-gray-700 text-white font-bold py-2 px-4 w-full :bg-gray-600"
                 onClick={handleSubmit}
               >
-                {user.status==="none"?(
+                {!loagi? (
                   "Aceptar"
                 ) : (
                   <span className=" flex justify-center">
@@ -138,4 +106,4 @@ const NewPassword = () => {
       </div>
       );
 };
-      export default NewPassword;
+      export default ValidadUser;
