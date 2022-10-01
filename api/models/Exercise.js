@@ -13,7 +13,7 @@ const exerciseSchema = new Schema({
     },
     muscles: {
         type: String,
-        enum: ['upper_body', 'lower_body', 'functional', 'abs']
+        enum: ['upper_body', 'lower_body', 'functional', 'abs', 'stretching']
     },
     genre: {
         type: String,
