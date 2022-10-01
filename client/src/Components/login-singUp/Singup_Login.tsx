@@ -41,7 +41,6 @@ export default function SingUp_Login() {
           {id == "login"&&<Login loading_icon={loading_icon} />} 
           {id == "sing-up"&&<SingUp facebook={facebook} google={google} linkedin={linkedin} loading_icon={loading_icon}/>}
           {id == "nuevaContraseña"&&<NewPassword  loading_icon={loading_icon}/> }
-
       </Div_conteiner>
     </Div_img>
     </>

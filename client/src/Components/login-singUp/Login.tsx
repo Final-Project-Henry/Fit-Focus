@@ -10,6 +10,8 @@ import {
 
 import { Link } from "react-router-dom";
 import GoogleAuth from "../GoogleAuth/GoogleAuth";
+import Swal from "sweetalert2";
+
 
 interface Propos {
     loading_icon?: string;

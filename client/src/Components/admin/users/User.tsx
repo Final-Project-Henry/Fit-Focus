@@ -9,20 +9,20 @@ export default function User() {
   const dispatch = useAppDispatch();
   const [admin_state, setAdmin] = useState('not_loaded');
   const users = useAppSelector(state => state.admin);
-  const admin = useAppSelector(state=>state.user);
+  const admin = useAppSelector(state => state.user);
   const params = useParams();
   const user = users.users?.find((e: any) => e._id === params.id);
 
-  const onClick =()=>{
+  const onClick = () => {
     dispatch(add_admin(user._id));
     setAdmin('loaded');
     alert('Change successful');
   }
 
   useEffect(() => {
-    if(user?.user_status!=="loaded")dispatch(get_users());
+    if (user?.user_status !== "loaded") dispatch(get_users());
   }, [users, admin_state])
-  
+
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "10vh" }}>
       <h1 style={{ fontSize: "3rem", fontWeight: "500" }}>Edit User</h1>
@@ -41,30 +41,37 @@ export default function User() {
                     <div style={{ display: "flex", justifyContent: 'space-between', gap: "10px", }}>
                       <p>{prop}:</p>
                       <p>{user[prop]}</p>
-                      <img src={edit} style={{width:"15px", height:"15px", cursor:"pointer"}} />
+                      <img src={edit} style={{ width: "15px", height: "15px", cursor: "pointer" }} />
                     </div>
                   )
                 })
               }
               {
                 admin.user?.superAdmin &&
-                  <div style={{ display: "flex", justifyContent: 'space-between', gap: "10px", }}>
-                    <p>Admin: </p>
-                    <p>{`${user.admin}`}</p>
-                    <img onClick={onClick} src={edit} style={{width:"15px", height:"15px", cursor:"pointer"}} />
-                  </div>
+                <div style={{ display: "flex", justifyContent: 'space-between', gap: "10px", }}>
+                  <p>Admin: </p>
+                  <p>{`${user.admin}`}</p>
+                  <img onClick={onClick} src={edit} style={{ width: "15px", height: "15px", cursor: "pointer" }} />
+                </div>
               }
             </div>
-            <div style={{ width: "30vw", backgroundColor: "white", padding: "20px", display:"flex", flexDirection:"column" ,gap:"20px" }}>
+            <div style={{ width: "30vw", backgroundColor: "white", padding: "20px", display: "flex", flexDirection: "column", gap: "20px" }}>
               <h1 style={{ fontSize: "1.5rem", fontWeight: "500" }}>User info</h1>
               {
                 user.userinfo.length > 0 ?
                   Object.keys(user.userinfo[0])?.map((prop: string) => {
+                    if (prop === 'equipment') return (
+                      <div style={{ display: "flex", justifyContent: 'space-between', gap: "10px", }}>
+                        <p>{prop}: </p>
+                        <p>{`${user.userinfo[0][prop]}`}</p>
+                        <img src={edit} style={{ width: "15px", height: "15px", cursor: "pointer" }} />
+                      </div>
+                    )
                     if (prop !== "_id") return (
                       <div style={{ display: "flex", justifyContent: 'space-between', gap: "10px", }}>
                         <p>{prop}: </p>
                         <p>{user.userinfo[0][prop]}</p>
-                        <img src={edit} style={{width:"15px", height:"15px", cursor:"pointer"}} />
+                        <img src={edit} style={{ width: "15px", height: "15px", cursor: "pointer" }} />
                       </div>)
                     else return;
                   })
