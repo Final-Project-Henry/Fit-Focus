@@ -22,6 +22,7 @@ import linkedin from "../assets/login-singup_media/icons8-linkedin-circled.svg";
 import loading_icon from "../assets/icons/loading.svg"
 import Navbar from "../Navbar/Navbar";
 import funcion from "../../additional_info/functions";
+import NewPassword from "./NewPassword";
 
 
 export default function SingUp_Login() {
@@ -34,26 +35,13 @@ export default function SingUp_Login() {
     <>
     <Div_img className="flex justify-center">
       {user_existing && <Navigate to="/fitFocus" />}
-      <Div_conteiner className=" flex rounded w-11/12 bg-gray-100 ">
-        <Div_form>
-          <div id="menu" className=" bg-gray-200 ">
-            <Link to="/auth/login">
-              <p id="login">Iniciar sesión</p>
-            </Link>
-            {!user.user ? (
-              <Link to="/auth/sign-up">
-                <p>Registrarse</p>
-              </Link>
-            ) : (
-              <p id="singup">Registrarse</p>
-            )}
-          </div>
+      <Div_conteiner className="flex rounded w-full h-full bg-gray-100 ">
 
-          {id == "login" ? 
-          <Login facebook={facebook} google={google} linkedin={linkedin} loading_icon={loading_icon} /> :
-          <SingUp facebook={facebook} google={google} linkedin={linkedin} loading_icon={loading_icon}/>}
-          
-        </Div_form>
+
+          {id == "login"&&<Login loading_icon={loading_icon} />} 
+          {id == "sing-up"&&<SingUp facebook={facebook} google={google} linkedin={linkedin} loading_icon={loading_icon}/>}
+          {id == "nuevaContraseña"&&<NewPassword  loading_icon={loading_icon}/> }
+
       </Div_conteiner>
     </Div_img>
     </>
