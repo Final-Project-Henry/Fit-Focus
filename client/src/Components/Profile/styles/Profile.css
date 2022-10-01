@@ -16,13 +16,13 @@
   --tw-content: '';
 }
 
-#profile, #logOut, #progress, #remove, #settings {
+#profile, #logOut, #progress, #remove, #pay {
     transition-duration: 300ms;
     transition-delay: 120ms;
     transition-property: all;
 }
 
-#profile:hover, #logOut:hover, #progress:hover, #remove:hover, #settings:hover {
+#profile:hover, #logOut:hover, #progress:hover, #remove:hover, #pay:hover {
     transition-duration: 300ms;
     transition-property: all;
     transition-delay: 130ms;

@@ -55,7 +55,7 @@ const exercises = [
     },
     {
      "name": "SUMO SQUATS",
-     "difficulty": "medium",
+     "difficulty": "hard",
      "equipment": false,
      "muscles": "lower_body",
      "genre": "both",
@@ -177,12 +177,12 @@ const exercises = [
     },
     {
      "name": "BURPEE",
-     "difficulty": "medium",
+     "difficulty": "hard",
      "equipment": false,
      "muscles": "functional",
      "genre": "both",
      "video": "https://c.tenor.com/e-BbzN3OQZIAAAAd/burpees-with-pushups-home-workouts.gif",
-     "premium": true,
+     "premium": false,
      "description":"Comience en una posTan pronto como aterrices con las rodillas dobladas, ponte en cuclillas y haz otra repetición."
           
     },
@@ -226,7 +226,7 @@ const exercises = [
      "muscles": "lower_body",
      "genre": "both",
      "video": "https://c.tenor.com/ahYtJQbVUP0AAAAd/reverse-lunges-home-workouts.gif",
-     "premium": true,
+     "premium": false,
      "description": "Lleva una pierna hacia atrás haciendo una zancada con una flexión de rodilla. Baja la parte superior del cuerpo manteniendo el equilibrio. Utilizando principalmente el talón del pie, empuje hacia arriba y regresa a la posición inicial. Repite el ejercicio con la pierna contraria."
          
     },
@@ -237,7 +237,7 @@ const exercises = [
      "muscles": "lower_body",
      "genre": "woman",
      "video": "https://c.tenor.com/DKzLlyBdRC0AAAAd/abs-work-out-female-abs.gif",
-     "premium": true,
+     "premium": false,
      "description": "Cógete una rodilla con las dos manos sin apretar. Simplemente para mantener la cadera flexionada. Desde esa posición haz un puente de glúteos elevando la cadera con la pierna que apoya. Piensa en contraer fuerte el glúteo si arquear la zona lumbar."
           
     },
@@ -315,7 +315,7 @@ const exercises = [
      "muscles": "functional",
      "genre": "both",
      "video": "https://c.tenor.com/gS5cBcUsM4kAAAAC/groiner-leg-work-out.gif",
-     "premium": true,
+     "premium": false,
      "description": "Ejecución. Manteniendo la espalda plana, de un paso con un pie al lado de su mano o tan cerca como pueda. Puede permitir que la rodilla opuesta se doble ligeramente mientras se inclina hacia el estiramiento. Mantenga el estiramiento durante el tiempo deseado y luego repita con la pierna opuesta."
          
     },
@@ -492,7 +492,7 @@ const exercises = [
      "muscles": "upper_body",
      "genre": "both",
      "video": "https://c.tenor.com/o3DZFudV2gkAAAAd/bentoverrow-row.gif",
-     "premium": true,
+     "premium": false,
      "description":"Comience en una posición sentada en el suelo con las piernas rectas frente a usted. Siéntese alto con los abdominales apretados con los codos doblados al lado de su lado. Tire los brazos hacia atrás hasta que estén al lado de su lado y los codos estén detrás de usted. Suelte lentamente."
        
     },
@@ -514,7 +514,7 @@ const exercises = [
      "muscles": "upper_body",
      "genre": "both",
      "video": "https://c.tenor.com/BiD98h7-kf0AAAAC/banded-tricep.gif",
-     "premium": true,
+     "premium": false,
      "description":"Asuma una posición de pie e inclínese ligeramente hacia adelante girando hacia las caderas. Inicia el movimiento extendiendo los codos y flexionando el tríceps. Tire hacia abajo hasta que los codos estén casi bloqueados y luego baje lentamente bajo control de nuevo a la posición inicial."
         
     },
@@ -525,7 +525,7 @@ const exercises = [
      "muscles": "upper_body",
      "genre": "both",
      "video": "https://c.tenor.com/appGngmuNHAAAAAC/face-pulls.gif",
-     "premium": true,
+     "premium": false,
      "description":"Contraiga sus abdominales. Los brazos, los codos y las muñecas están rectos y completamente extendidos frente a usted. Con los brazos paralelos al suelo, las palmas hacia arriba y los hombros prolongados, separe lentamente la banda extendiendo los brazos a ambos lados del cuerpo. Cuando la banda golpea su pecho, haga un esfuerzo para tirar de ella a través de su cuerpo."
     
     },
@@ -536,7 +536,7 @@ const exercises = [
      "muscles": "upper_body",
      "genre": "both",
      "video": "https://c.tenor.com/BpWq8HxUxeAAAAAC/lumbaresms.gif",
-     "premium": true,
+     "premium": false,
      "description":"Acuéstese en el suelo en una posición prona (boca abajo), con las piernas rectas y los brazos extendidos frente a usted. Mantenga la cabeza en una posición neutral (evite mirar hacia arriba), levante lentamente los brazos y las piernas a unas 6 pulgadas (15,3 cm) del suelo, o hasta que sienta que los músculos de la parte baja de la espalda se contraen. Involucra tus glúteos, tu núcleo y los músculos entre los omóplatos simultáneamente. Trate de levantar el ombligo ligeramente del suelo para contraer los abdominales. Una buena manera de imaginar esto es imaginar que eres Superman volando en el aire."
        
     },
@@ -641,6 +641,137 @@ const exercises = [
      "premium": true,
    "description": "Da una zancada al frente con la pierna derecha flexionado la rodilla en un ángulo de 90 grados, retrasando la izquierda y apoyándola por completo en el suelo. Empuja la cadera hacia el suelo manteniendo en todo momento la espalda en posición vertical, intentando no inclinarte hacia delante. Mantén la postura durante varias respiraciones profundas y cambia de pierna."
     },
+        {
+     "name": "JUMPS",
+     "difficulty": "medium",
+     "equipment": false,
+     "muscles": "functional",
+     "genre": "both",
+     "video": "https://dailyburn.com/life/wp-content/uploads/2017/12/Star-Jumps-1.gif",
+      "premium": true,
+    "description": "  De pie, con las manos tocando tus rodillas. Haz un salto vertical extendiendo brazos y piernas hacia los laterales. Al caer, vuelve de nuevo a la posición inicial."
+       
+    },
+
+    {
+        "name": "THRUSTS",
+        "difficulty": "hard",
+        "equipment": false,
+        "muscles": "functional",
+        "genre": "both",
+        "video": "https://1.bp.blogspot.com/-jGl5Pw7RZ6U/WMYClRXel4I/AAAAAAAAINE/ZEgM_uJ1tG8dsGtNwLEldIEaCqnkoyU7QCLcB/s640/Lunges.gif",
+         "premium": false,
+       "description": " Da un paso largo hacia adelante, toca con la rodilla de la pierna trasera el suelo. Vuelve al inicio y repite con la otra pierna."
+          
+       },
+    
+       {
+        "name": "MCKENZIE",
+        "difficulty": "easy",
+        "equipment": false,
+        "muscles": "functional",
+        "genre": "both",
+        "video": "https://th.bing.com/th/id/OIP.sCYYNi7uAUaAVA642r9jpAAAAA?pid=ImgDet&rs=1",
+         "premium": false,
+       "description": "Estírate boca abajo con las manos a la altura de los hombros. Extiende los brazos, levanta el tronco y mantén la cadera en el suelo. "
+          
+       },
+
+       {
+        "name": "SWING",
+        "difficulty": "hard",
+        "equipment": true,
+        "muscles": "functional",
+        "genre": "woman",
+        "video": "https://th.bing.com/th/id/R.eb751fc3cfb4fcfd7984ffbf9be7395e?rik=ERQ8a3XAkfFzdQ&pid=ImgRaw&r=0",
+         "premium": false,
+       "description": "Para realizar este ejercicio es necesario sostener la bola rusa con la mano derecha y flexionar ligeramente las rodillas. Luego, hacer un impulso con el cuerpo para que la bola rusa se coloque a la altura de los hombros y extender las rodillas y después bajar la bola siguiendo el mismo trayecto. "
+          
+       },
+
+       {
+        "name": "DEADLIFT WITH ONE LEG",
+        "difficulty": "hard",
+        "equipment": true,
+        "muscles": "functional",
+        "genre": "woman",
+        "video": "https://th.bing.com/th/id/R.4b7c678b8e5244d842e68e232d5245cf?rik=t3p7yLSBsPdJ2g&pid=ImgRaw&r=0",
+         "premium": false,
+       "description": "Este ejercicio puede realizarse con unas pesas o con una bola rusa, que debe agarrarse apenas con una mano. La mano con el peso debe ser la misma que la pierna que se mantiene fija al piso, la otra pierna debe mantenerse en el aire durante la realización del movimiento, que consiste en bajar el peso en dirección al pie y luego volver a la posición inicial, siendo importante mantener la espalda recta y los músculos abdominales apretados."
+          
+       },
+
+       {
+        "name": "STEP-DOWN",
+        "difficulty": "hard",
+        "equipment": true,
+        "muscles": "functional",
+        "genre": "woman",
+        "video": "https://i.pinimg.com/originals/f8/2f/f9/f82ff929356546a62486183fa19570db.gif",
+         "premium": false,
+       "description": "Párate a un lado de tu silla. Pon un pie sobre él y otro déjalo en el suelo. Empuja a través del talón del pie en el banco, sube para extender completamente la pierna, luego baja lentamente hacia abajo para comenzar."
+          
+       },
+       {
+  "name": "RUSSIAN TWIST",
+  "difficulty": "hard",
+  "equipment": true,
+  "muscles": "abs",
+  "genre": "both",
+  "video": "https://thumbs.gfycat.com/FirstEvenFlea-size_restricted.gif",
+   "premium": false,
+ "description": "Sentado con las piernas flexionadas y pies en el aire, utilizar una pesa o pelota para inclinarla hacia un lado y otro. El esfuerzo parte de los oblicuos."
+},
+{
+  "name": "BURPEE",
+  "difficulty": "medium",
+  "equipment": false,
+  "muscles": "abs",
+  "genre": "both",
+  "video": "https://thumbs.gfycat.com/PreciousPartialClingfish-max-1mb.gif",
+   "premium": true,
+ "description": "Empezamos en cuclillas, colocamos las manos en el suelo, mantenemos la cabeza erguita y hay que lanzar las piernas hacia atrás con los pies juntos. Además de abdominales, fortalece piernas y brazos."
+},
+{
+  "name": "SIT-UP WITH BALL",
+  "difficulty": "medium",
+  "equipment": true,
+  "muscles": "abs",
+  "genre": "both",
+  "video": "https://www.dir.cat/blog/wp-content/uploads/2018/01/abdominales-pelota-medicinal-med-ball.gif",
+   "premium": true,
+ "description": "Igual que el sit up original (Acuéstese boca arriba con las rodillas dobladas y los pies anclados.Meta la barbilla en el pecho para alargar la parte posterior del cuello.Entrelaza los dedos en la base del cráneo, cruza los brazos con las manos sobre hombros opuestos o coloca las palmas de las manos junto al cuerpo.Exhala mientras levantas la parte superior del cuerpo hacia los muslos. Inhala mientras te bajas lentamente hacia el suelo) pero con el handicap de utilizar material pesado, en este caso un balón medicinal."
+},
+{
+  "name": "FIT BALL PASS",
+  "difficulty": "medium",
+  "equipment": true,
+  "muscles": "abs",
+  "genre": "woman",
+  "video": "https://www.dir.cat/blog/wp-content/uploads/2018/01/abdominal-inferior-superior-fitball-1.gif",
+   "premium": true,
+ "description": "Este ejercicio es una mezcla entre un sit up con pelota y las elevaciones de las piernas, con la particularidad de ir pasando el balón de las piernas a los brazos y viceversa."
+},
+{
+  "name": "BUTTERFLY SIT-UP",
+  "difficulty": "medium",
+  "equipment": false,
+  "muscles": "abs",
+  "genre": "woman",
+  "video": "https://www.foodspring.es/magazine/wp-content/uploads/2020/11/Calisthenics-Workout-Situps-Giannis_%C2%A9foodspring.gif",
+   "premium": false,
+ "description": "Para empezar, túmbate en el suelo, sobre una colchoneta para abdominales si tienes; presiona las suelas de las zapatillas una contra la otra, separa las rodillas del suelo y apunta con ellas a los lados. Coloca las manos detrás de la cabeza, activa el core, mantén la espalda recta y sube, arqueando las manos hasta tocar los talones: haz el movimiento inverso para volver al inicio y repite continuamente."
+},
+{
+  "name": "SUPERMAN PLANK",
+  "difficulty": "hard",
+  "equipment": true,
+  "muscles": "abs",
+  "genre": "both",
+  "video": "https://www.foodspring.de/magazine/wp-content/uploads/2020/11/Superman-Plank-Giannis-2.gif",
+   "premium": true,
+ "description": "Comienza con una plancha baja, antebrazos en el suelo, codos bajo los hombros y talones formando una línea recta con las piernas, la espalda y la cabeza. Mantén la mirada hacia el suelo; al mismo tiempo, extiende hacia delante la mano izquierda y da una patada con la pierna derecha hacia arriba y hacia atrás. Vuelve a la posición inicial y repite en el otro lado. Si te resulta demasiado difícil, ralentiza las repeticiones y alarga los descansos."
+},
    ];
 
    module.exports = exercises;

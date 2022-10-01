@@ -22,9 +22,9 @@ import linkedin from "../assets/login-singup_media/icons8-linkedin-circled.svg";
 import loading_icon from "../assets/icons/loading.svg"
 import Navbar from "../Navbar/Navbar";
 import funcion from "../../additional_info/functions";
-//@ts-ignore
-
+//@ts-igno
 import ValidadUser from "./ValidadUser";
+
 
 
 export default function SingUp_Login() {

@@ -12,6 +12,7 @@ import {
 import { Link } from "react-router-dom";
 import GoogleAuth from "../GoogleAuth/GoogleAuth";
 
+
 interface Propos {
   loading_icon?: string;
 }
