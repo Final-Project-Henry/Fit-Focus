@@ -45,7 +45,11 @@ const Login2: React.FC<Propos> = ({ loading_icon }) => {
 
     return (
         <div className='h-full w-full flex justify-center content-center'>
-        {user_logeao.user && <Navigate to="/auth/login" />}
+            <div>
+                {typeof user.userToken === "string" && user.userToken.length > 50 && (
+                    <Navigate to="/fitFocus" />
+                )}
+            </div>
             {/* component */}
             <div className="py-6 flex-1 content-center justify-center ">
                 <div className="flex bg-white shadow-2xl overflow-hidden mx-auto mt-[6%] max-w-sm h-[76%] lg:max-w-[68%]">
@@ -66,7 +70,7 @@ const Login2: React.FC<Propos> = ({ loading_icon }) => {
                             <input
                                 type="text"
                                 name="name"
-                                className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300-2 px-4 block w-full appearance-none"
+                                className="w-full px-1"
                                 autoComplete="off"
                                 placeholder="Alex"
                                 value={Form_data.name}
@@ -91,6 +95,9 @@ const Login2: React.FC<Propos> = ({ loading_icon }) => {
                                 <label className="block text-gray-700 text-sm font-bold mb-2">
                                     Contraseña
                                 </label>
+                                <a href="#" className="text-xs text-gray-500">
+                                    Recuperar Contraseña
+                                </a>
                             </div>
                             <input
                                 className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300-2 px-4 block w-full appearance-none"
@@ -105,7 +112,7 @@ const Login2: React.FC<Propos> = ({ loading_icon }) => {
                                 <label className="text-red-500">{user.status}</label>
                             )}
                         </div>
-                        <div className="mt-4">
+                        <div className="mt-8">
                             <label
                                 className="ml-2 mb-[8px] text-sm font-medium text-gray-600 "
                             >
@@ -127,7 +134,7 @@ const Login2: React.FC<Propos> = ({ loading_icon }) => {
                         <div className="mt-4 flex items-center justify-between">
                             <span className="border-b w-1/5 lg:w-1/4" />
                             <a href="#" className="text-xs text-center text-gray-500 uppercase">
-                                o registrate con google
+                                or singUp with google
                             </a>
                             <span className="border-b w-1/5 lg:w-1/4" />
                         </div>
@@ -136,12 +143,11 @@ const Login2: React.FC<Propos> = ({ loading_icon }) => {
                         </div>
                         <div className="mt-4 flex items-center justify-between">
                             <span className="border-b w-1/5 md:w-1/4" />
-                            ¿Ya tienes cuenta?
                             <Link
-                                to="/auth/login"
+                                to="/auth/sing-up"
                                 className="text-blue-700 hover:underline dark:text-blue-500"
                             >
-                                inicia sesion
+                                o inicia sesion
                             </Link>
                             <span className="border-b w-1/5 md:w-1/4" />
                         </div>

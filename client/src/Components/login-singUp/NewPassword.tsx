@@ -11,13 +11,14 @@ interface Propos {
   loading_icon: string;
 }
 
-const NewPassword:React.FC<Propos> = ({loading_icon}) => {
+const NewPassword: React.FC<Propos> = ({ loading_icon }) => {
   let user = useAppSelector(selectUser);
   let token = useToken()
   const dispatch = useAppDispatch();
-  const Navegation=  useNavigate()  
+  const Navegation = useNavigate()
   const [validar, setvalidadr] = useState(false)
   const [Form_data, Set_form_data] = useState({
+    email: "",
     password: "",
     Validpassword: "",
   });
@@ -31,74 +32,107 @@ const NewPassword:React.FC<Propos> = ({loading_icon}) => {
   //////////enviar de datos  por medio de los input//////////////////////////////////////////
   function handleSubmit(event: React.FormEvent): void {
     event.preventDefault();
-    
     if (Form_data.password === Form_data.Validpassword) {
-       let data = {password:Form_data.password}
-       dispatch(EditUser({ token, data}));
-    }else{
+      let data = { password: Form_data.password }
+      dispatch(EditUser({ token, data }));
+    } else {
       setvalidadr(true)
     }
   }
 
   return (
-    <>
-      <form className="bg-white w-3/4 rounded-2xl p-11" onSubmit={handleSubmit}>
-        <div className="flex-1">
-          <div>
-            <label>Nueva contraseña</label>
-            <input
-              type="text"
-              name="password"
-              className="border-none w-full mb-2"
-              placeholder="••••••••"
-              value={Form_data.password}
-              onChange={(event) => handleChange(event)}
-            />
-            <br />
-          </div>
-          <div className="my-5">
-            <label>Validar contraseña</label>
-            <input
-              type="password"
-              name="Validpassword"
-              className="border-none w-full"
-              autoComplete="off"
-              placeholder="••••••••"
-              value={Form_data.Validpassword}
-              onChange={(event) => handleChange(event)}
-            />
-          </div>
-          {validar&&<label className="text-red-500">contraseña incorrecta</label>}
-        </div>
+    <div className='h-full w-full flex justify-center content-center'>
+      {/* component */}
+      <div className="py-6 flex-1 content-center justify-center ">
+        <div className="flex bg-white shadow-2xl overflow-hidden mx-auto mt-[6%] max-w-sm h-[76%] lg:max-w-[68%]">
+          <div
+            className="hidden lg:block lg:w-[50%] bg-cover"
+            style={{
+              backgroundImage:
+                'url("https://play-lh.googleusercontent.com/nfTnY4-TvW5uxOZsz_1SO7Np6DalO3PLU7-z9vZxDhFJqT70OwtT4csw8ZIime1-Aqq6")'
+            }}
+          />
+          <div className="w-full p-8 lg:w-1/2">
+            <h2 className="text-2xl font-semibold text-gray-700 text-center">
+              Nueva contraseña
+            </h2>
 
-        <div
-          id="btm_submit"
-          className="w-full bg-blue-700   text-white text-center  my-5"
-        >
-          <button
-            className="w-full bg-blue-700   text-white text-center p-2 "
-            type="submit"
-          >
-            {user.status ? (
-              "Aceptar"
-            ) : (
-              <span className=" flex justify-center">
-                <img className="animate-spin w-5 mx-2" src={loading_icon} />
-                Loading...
-              </span>
-            )}
-          </button>     
+            <div className="mt-4">
+              <label className="block text-gray-700 text-sm font-bold mb-2">
+                Correo
+              </label>
+              <input
+                className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300-2 px-4 block w-full appearance-none"
+                type="email"
+                name="email"
+                placeholder="Alex@gmail.com"
+                value={Form_data.email}
+                onChange={(event) => handleChange(event)}
+              />
+            </div>
+            <div className="mt-4">
+              <div className="flex justify-between">
+                <label className="block text-gray-700 text-sm font-bold mb-2">
+                  Contraseña
+                </label>
+              </div>
+              <input
+                className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300-2 px-4 block w-full appearance-none"
+                type="password"
+                name="password"
+                autoComplete="off"
+                placeholder="••••••••"
+                value={Form_data.password}
+                onChange={(event) => handleChange(event)}
+              />
+            </div>
+
+            <div className="mt-4">
+              <div className="flex justify-between">
+                <label className="block text-gray-700 text-sm font-bold mb-2">
+                  validar  Contraseña
+                </label>
+              </div>
+              <input
+                className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300-2 px-4 block w-full appearance-none"
+                type="password"
+                name="Validpassword"
+                autoComplete="off"
+                placeholder="••••••••"
+                value={Form_data.Validpassword}
+                onChange={(event) => handleChange(event)}
+              />
+              {validar && <label className="text-red-500">contraseña incorrecta</label>}
+            </div>
+            <div className="mt-[150px]">
+              <button className="bg-gray-700 text-white font-bold py-2 px-4 w-full :bg-gray-600"
+                onClick={handleSubmit}
+              >
+                {user.status ? (
+                  "Aceptar"
+                ) : (
+                  <span className=" flex justify-center">
+                    <img className="animate-spin w-5 mx-2" src={loading_icon} />
+                    Loading...
+                  </span>
+                )}
+              </button>
+
+              <div className="mt-4 flex items-center justify-between">
+                <span className="border-b w-1/5 md:w-1/4" />
+                <Link
+                  to="/auth/login"
+                  className="text-blue-700 hover:underline dark:text-blue-500"
+                >
+                  volver a iniciar sesión
+                </Link>
+                <span className="border-b w-1/5 md:w-1/4" />
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="text-sm font-medium relative top-2 text-gray-500 ">
-          <Link
-            to="/auth/login"
-            className="text-blue-700 hover:underline dark:text-blue-500"
-          >
-            volver a iniciar sesión
-          </Link>
-        </div>
-      </form>
-    </>
-  );
+      </div>
+      </div>
+      );
 };
-export default NewPassword;
+      export default NewPassword;
