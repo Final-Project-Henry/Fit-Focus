@@ -48,7 +48,7 @@ const Login2: React.FC<Propos> = ({ loading_icon }) => {
         {user_logeao.user && <Navigate to="/auth/login" />}
             {/* component */}
             <div className="py-6 flex-1 content-center justify-center ">
-                <div className="flex bg-white shadow-2xl overflow-hidden mx-auto lg:mt-[6%] max-w-md h-[76%] lg:max-w-[68%]">
+                <div className="flex bg-white shadow-2xl overflow-hidden mx-auto lg:mt-[6%] max-w-md h-auto lg:max-w-[75%] xl:max-w-[68%]">
                     <div
                         className="hidden lg:block lg:w-[50%] bg-cover"
                         style={{
@@ -136,7 +136,6 @@ const Login2: React.FC<Propos> = ({ loading_icon }) => {
                         </div>
                         <div className="mt-4 flex items-center justify-between">
                             <span className="border-b w-1/5 md:w-1/4" />
-                            ¿Ya tienes cuenta?
                             <Link
                                 to="/auth/login"
                                 className="text-blue-700 hover:underline dark:text-blue-500"

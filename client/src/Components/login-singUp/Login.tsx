@@ -77,7 +77,7 @@ const Login: React.FC<Propos> = ({ loading_icon }) => {
             </div>
             {/* component */}
             <div className="py-6 flex-1 content-center justify-center ">
-                <div className="flex bg-white shadow-2xl overflow-hidden mx-auto sm:mt-0 md:mt-0  lg:mt-[6%] max-w-sm h-[76%] lg:max-w-[68%]">
+                <div className="flex bg-white shadow-2xl overflow-hidden mx-auto sm:mt-0 md:mt-0  lg:mt-[6%] max-w-sm h-auto lg:max-w-[68%]">
                     <div
                         className="hidden lg:block lg:w-[50%] bg-cover"
                         style={{
@@ -125,7 +125,7 @@ const Login: React.FC<Propos> = ({ loading_icon }) => {
                                 <label className="text-red-500">{user.status}</label>
                             )}
                         </div>
-                        <div className="mt-[150px]">
+                        <div className="mt-[133px]">
                             <button className="bg-gray-700 text-white font-bold py-2 px-4 w-full :bg-gray-600"
                                 onClick={handleSubmit}
                             >
@@ -155,7 +155,7 @@ const Login: React.FC<Propos> = ({ loading_icon }) => {
                                 to="/auth/sing-up"
                                 className="text-blue-700 hover:underline dark:text-blue-500"
                             >
-                                o crea una cuenta
+                                Crea una cuenta
                             </Link>
                             <span className="border-b w-1/5 md:w-1/4" />
                         </div>
