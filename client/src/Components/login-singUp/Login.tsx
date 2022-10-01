@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import Swal from "sweetalert2";
 
 import {
-  User_Login_State,
-  selectUser,
-  Status,
-  Activecuenta,
+    User_Login_State,
+    selectUser,
 } from "../../features/counter/counterSlice";
 
 import { Link } from "react-router-dom";
@@ -15,143 +14,124 @@ import Swal from "sweetalert2";
 
 
 interface Propos {
-  facebook: string;
-  google: string;
-  linkedin: string;
-  loading_icon: string;
+    loading_icon?: string;
 }
 
-const Login: React.FC<Propos> = ({
-  facebook,
-  google,
-  linkedin,
-  loading_icon,
-}) => {
-  let user = useAppSelector(selectUser);
-  const dispatch = useAppDispatch();
-  const Navegation=  useNavigate()  
-  const [Activar, SetActivar] = useState(false);
-  const [Form_data, Set_form_data] = useState({
-    email: "",
-    password: "",
-  });
-
-  useEffect(() => {
-    if (user.userToken?.length > 50) {
-    let time = new Date()
-     let token=user.userToken
-      window.localStorage.setItem(
-
-        "Login_userFit_Focus",
-        JSON.stringify({token, time})
-      );
+const Login: React.FC<Propos> = ({ loading_icon }) => {
+    let user = useAppSelector(selectUser);
+    const dispatch = useAppDispatch();
+    const Navegation=  useNavigate()  
+    const [Activar, SetActivar] = useState(false);
+    const [Form_data, Set_form_data] = useState({
+      email: "",
+      password: "",
+    });
+  
+    useEffect(() => {
+      if (user.userToken?.length > 50) {
+      let time = new Date()
+       let token=user.userToken
+        window.localStorage.setItem(
+  
+          "Login_userFit_Focus",
+          JSON.stringify({token, time})
+        );
+      }
+    }, [user.userToken]);
+    useEffect(() => {
+      if (user.status==="User desactivated") {
+        Swal.fire({
+          title: "Esta cuenta esta desactivada. agregar mas lorem :V",
+          icon: "info",
+          showCancelButton: true,
+          confirmButtonColor: "#230bf8",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Recuperar cuenta",
+          cancelButtonText: "Cancelar",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            SetActivar(true)
+          }
+        });
+      }
+    }, [user.status]);
+    function handleChange(
+      event: React.ChangeEvent<HTMLFormElement | HTMLInputElement>
+    ): void {
+      Set_form_data((pv) => ({ ...pv, [event.target.name]: event.target.value }));
     }
-  }, [user.userToken]);
-  useEffect(() => {
-    if (user.status==="User desactivated") {
-      Swal.fire({
-        title: "Esta cuenta esta desactivada. agregar mas lorem :V",
-        icon: "info",
-        showCancelButton: true,
-        confirmButtonColor: "#230bf8",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Recuperar cuenta",
-        cancelButtonText: "Cancelar",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          SetActivar(true)
-        }
-      });
+  
+    //////////enviar de datos  por medio de los input//////////////////////////////////////////
+    function handleSubmit(event: React.FormEvent): void {
+      event.preventDefault();
+      // dispatch(Activecuenta(Form_data))
+      Activar?alert("El back no funca :V"):dispatch(User_Login_State(Form_data));
     }
-  }, [user.status]);
-  function handleChange(
-    event: React.ChangeEvent<HTMLFormElement | HTMLInputElement>
-  ): void {
-    Set_form_data((pv) => ({ ...pv, [event.target.name]: event.target.value }));
-  }
+  
 
-  //////////enviar de datos  por medio de los input//////////////////////////////////////////
-  function handleSubmit(event: React.FormEvent): void {
-    event.preventDefault();
-    // dispatch(Activecuenta(Form_data))
-    Activar?alert("El back no funca :V"):dispatch(User_Login_State(Form_data));
-  }
 
-  return (
-    <>
-      <div>
-        {typeof user.userToken === "string" && user.userToken.length > 50 && (
-          <Navigate to="/fitFocus" />
-        )}
-      </div>
-
-      <form className="bg-white w-3/4 rounded-2xl p-11" onSubmit={handleSubmit}>
-        <div className="flex-1">
-          <div>
-            <label>Correo</label>
-            <input
-              type="email"
-              name="email"
-              className="border-none w-full mb-2"
-              placeholder="Alex@gmail.com"
-              value={Form_data.email}
-              onChange={(event) => handleChange(event)}
-            />
-            <br />
-            {user.status?.includes("User") && (
-              <label className="text-red-500 absolute -mt-2">
-                {user.status}
-              </label>
-            )}
-          </div>
-          <div className="my-5">
-            <label>contraseña</label>
-            <input
-              type="password"
-              name="password"
-              className="border-none w-full"
-              autoComplete="off"
-              placeholder="••••••••"
-              value={Form_data.password}
-              onChange={(event) => handleChange(event)}
-            />
-            {user.status?.includes("Password") && (
-              <label className="text-red-500">{user.status}</label>
-            )}
-          </div>
-        </div>
-        <div className="flex items-start my-2">
-          <div className="flex items-center h-5 ">
-            <input
-              id="remember"
-              type="checkbox"
-              value=""
-              className="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
-            />
-          </div>
-          <label
-            htmlFor="remember"
-            className="ml-2 text-sm font-medium text-gray-600 "
-          >
-            Recibir notificaciones
-          </label>
-          <Link
-            to="/auth/nuevaContraseña"
-            className="ml-auto text-sm text-blue-700 hover:underline  dark:text-blue-500"
-          >
-            Olvidaste tu contraseña?
-          </Link>
-        </div>
-
-        <div
-          id="btm_submit"
-          className="w-full bg-blue-700   text-white text-center  my-5"
-        >
-          <button
-            className="w-full bg-blue-700   text-white text-center p-2 "
-            type="submit"
-          >
-            {user.status? (
+    return (
+        <div className='h-full w-full flex justify-center content-center'>
+            <div>
+                {typeof user.userToken === "string" && user.userToken.length > 50 && (
+                    <Navigate to="/fitFocus" />
+                )}
+            </div>
+            {/* component */}
+            <div className="py-6 flex-1 content-center justify-center ">
+                <div className="flex bg-white shadow-2xl overflow-hidden mx-auto mt-[6%] max-w-sm h-[76%] lg:max-w-[68%]">
+                    <div
+                        className="hidden lg:block lg:w-[50%] bg-cover"
+                        style={{
+                            backgroundImage:
+                                'url("https://play-lh.googleusercontent.com/nfTnY4-TvW5uxOZsz_1SO7Np6DalO3PLU7-z9vZxDhFJqT70OwtT4csw8ZIime1-Aqq6")'
+                        }}
+                    />
+                    <div className="w-full p-8 lg:w-1/2">
+                        <h2 className="text-2xl font-semibold text-gray-700 text-center">
+                            Inicia sesion
+                        </h2>
+                        <p className="text-xl text-gray-600 text-center">Bienvenido de vuelta!</p>
+                        <div className="mt-4">
+                            <label className="block text-gray-700 text-sm font-bold mb-2">
+                                Correo
+                            </label>
+                            <input
+                                className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300-2 px-4 block w-full appearance-none"
+                                type="email"
+                                name="email"
+                                placeholder="Alex@gmail.com"
+                                value={Form_data.email}
+                                onChange={(event) => handleChange(event)}
+                            />
+                        </div>
+                        <div className="mt-4">
+                            <div className="flex justify-between">
+                                <label className="block text-gray-700 text-sm font-bold mb-2">
+                                    Contraseña
+                                </label>
+                                <a href="/auth/nuevaContraseña" className="text-xs text-gray-500">
+                                    Recuperar Contraseña
+                                </a>
+                            </div>
+                            <input
+                                className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300-2 px-4 block w-full appearance-none"
+                                type="password"
+                                name="password"
+                                autoComplete="off"
+                                placeholder="••••••••"
+                                value={Form_data.password}
+                                onChange={(event) => handleChange(event)}
+                            />
+                            {user.status?.includes("Password") && (
+                                <label className="text-red-500">{user.status}</label>
+                            )}
+                        </div>
+                        <div className="mt-[150px]">
+                            <button className="bg-gray-700 text-white font-bold py-2 px-4 w-full :bg-gray-600"
+                                onClick={handleSubmit}
+                            >
+                                {user.status? (
               Activar?"Recuperar cuenta":"iniciar sesión"
             ) : (
               <span className=" flex justify-center">
@@ -159,23 +139,36 @@ const Login: React.FC<Propos> = ({
                 Loading...
               </span>
             )}
-          </button>
+                            </button>
+                        </div>
+                        <div className="mt-4 flex items-center justify-between">
+                            <span className="border-b w-1/5 lg:w-1/4" />
+                            <a href="#" className="text-xs text-center text-gray-500 uppercase">
+                                or login with google
+                            </a>
+                            <span className="border-b w-1/5 lg:w-1/4" />
+                        </div>
+                        <div className="flex justify-center mt-3">
+                            <GoogleAuth />
+                        </div>
+                        <div className="mt-4 flex items-center justify-between">
+                            <span className="border-b w-1/5 md:w-1/4" />
+                            <Link
+                                to="/auth/sing-up"
+                                className="text-blue-700 hover:underline dark:text-blue-500"
+                            >
+                                o crea una cuenta
+                            </Link>
+                            <span className="border-b w-1/5 md:w-1/4" />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    )
+}
 
-        <div className="text-sm font-medium relative top-2 text-gray-500 ">
-          No estas Registrado?
-          <Link
-            to="/auth/sing-up"
-            className="text-blue-700 hover:underline dark:text-blue-500"
-          >
-            Crear una cuenta
-          </Link>
-        </div>
-        <div className=" relative top-5 ">
-          <GoogleAuth />
-        </div>
-      </form>
-    </>
-  );
-};
-export default Login;
+export default Login
+
+
+
