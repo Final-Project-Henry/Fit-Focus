@@ -53,7 +53,7 @@ const Login2: React.FC<Propos> = ({ loading_icon }) => {
                         className="hidden lg:block lg:w-[50%] bg-cover"
                         style={{
                             backgroundImage:
-                                'url("https://play-lh.googleusercontent.com/nfTnY4-TvW5uxOZsz_1SO7Np6DalO3PLU7-z9vZxDhFJqT70OwtT4csw8ZIime1-Aqq6")'
+                                'url("https://th.bing.com/th/id/OIP.sUsl37DcPLar4TeeYFncMAHaHa?pid=ImgDet&rs=1")'
                         }}
                     />
                     <div className="w-full p-8 lg:w-1/2">
