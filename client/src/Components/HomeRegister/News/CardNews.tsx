@@ -57,7 +57,7 @@ const CardNews = ({ title, description, author, date, image, tags, id }: newsInt
             </section>
 
             {/* More components */}
-            <div x-show="open" className="fixed bottom-0 right-0 w-full md:bottom-8 md:right-12 md:w-auto z-60" x-data="{ open: true }">
+            {/* <div x-show="open" className="fixed bottom-0 right-0 w-full md:bottom-8 md:right-12 md:w-auto z-60" x-data="{ open: true }">
                 <div className="bg-gray-800 text-gray-50 text-sm p-3 md:rounded shadow-lg flex justify-between">
                     <div>👉 <a className="hover:underline ml-1" target="_blank" onClick={() => navigate("/mercadopago")}>Conviertete en premium ahora mismo</a></div>
                     <button className="text-gray-500 hover:text-gray-400 ml-5" >
@@ -67,7 +67,7 @@ const CardNews = ({ title, description, author, date, image, tags, id }: newsInt
                         </svg>
                     </button>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

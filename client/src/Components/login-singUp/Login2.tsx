@@ -10,11 +10,13 @@ import {
 } from "../../features/counter/counterSlice";
 import GoogleAuth from "../GoogleAuth/GoogleAuth";
 interface Propos {
-    icon?: string;
+    facebook?: string;
+    google?: string;
+    linkedin?: string;
     loading_icon?: string;
 }
 
-const Login2: React.FC<Propos> = ({ loading_icon, icon }) => {
+const Login2: React.FC<Propos> = ({ loading_icon }) => {
     let user = useAppSelector(selectUser);
 
     const user_logeao = useAppSelector(selectUser);
@@ -43,21 +45,21 @@ const Login2: React.FC<Propos> = ({ loading_icon, icon }) => {
 
     return (
         <div className='h-full w-full flex justify-center content-center'>
-            {user_logeao.user && <Navigate to="/auth/login" />}
+            <div>
+                {typeof user.userToken === "string" && user.userToken.length > 50 && (
+                    <Navigate to="/fitFocus" />
+                )}
+            </div>
             {/* component */}
             <div className="py-6 flex-1 content-center justify-center ">
-                <div className="flex bg-white shadow-2xl overflow-hidden mx-auto  max-w-md h-auto lg:max-w-[75%] xl:max-w-[68%] ">
+                <div className="flex bg-white shadow-2xl overflow-hidden mx-auto mt-[6%] max-w-sm h-[76%] lg:max-w-[68%]">
                     <div
-                        className="hidden lg:block lg:w-[50%] bg-no-repeat bg-center bg-[length:350px_200px]"
+                        className="hidden lg:block lg:w-[50%] bg-cover"
                         style={{
                             backgroundImage:
-                                `url(${icon})`,
-                            backgroundSize: "cover"
-                        }} >
-                        <h1 style={{color:"white", fontSize:"2rem", width:"20vw", marginLeft:"7vw", marginTop:"30vh"}}>“La clave para iniciar algo
-                            es dejar de hablar y
-                            ponerse a hacerlo”</h1>
-                    </div>
+                                'url("https://play-lh.googleusercontent.com/nfTnY4-TvW5uxOZsz_1SO7Np6DalO3PLU7-z9vZxDhFJqT70OwtT4csw8ZIime1-Aqq6")'
+                        }}
+                    />
                     <div className="w-full p-8 lg:w-1/2">
                         <h2 className="text-2xl font-semibold text-gray-700 text-center">
                             Registrate
@@ -68,7 +70,7 @@ const Login2: React.FC<Propos> = ({ loading_icon, icon }) => {
                             <input
                                 type="text"
                                 name="name"
-                                className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300-2 px-4 block w-full appearance-none"
+                                className="w-full px-1"
                                 autoComplete="off"
                                 placeholder="Alex"
                                 value={Form_data.name}
@@ -93,6 +95,9 @@ const Login2: React.FC<Propos> = ({ loading_icon, icon }) => {
                                 <label className="block text-gray-700 text-sm font-bold mb-2">
                                     Contraseña
                                 </label>
+                                <a href="#" className="text-xs text-gray-500">
+                                    Recuperar Contraseña
+                                </a>
                             </div>
                             <input
                                 className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300-2 px-4 block w-full appearance-none"
@@ -107,7 +112,7 @@ const Login2: React.FC<Propos> = ({ loading_icon, icon }) => {
                                 <label className="text-red-500">{user.status}</label>
                             )}
                         </div>
-                        <div className="mt-4">
+                        <div className="mt-8">
                             <label
                                 className="ml-2 mb-[8px] text-sm font-medium text-gray-600 "
                             >
@@ -116,7 +121,7 @@ const Login2: React.FC<Propos> = ({ loading_icon, icon }) => {
                             <button className="bg-gray-700 text-white font-bold py-2 px-4 w-full :bg-gray-600"
                                 onClick={handleSubmit}
                             >
-                                {user_logeao.status == "none" ? (
+                                {user_logeao.status ? (
                                     "Registrarse"
                                 ) : (
                                     <span className=" flex justify-center">
@@ -128,9 +133,9 @@ const Login2: React.FC<Propos> = ({ loading_icon, icon }) => {
                         </div>
                         <div className="mt-4 flex items-center justify-between">
                             <span className="border-b w-1/5 lg:w-1/4" />
-                            <p className="text-xs text-center text-gray-500 uppercase">
-                                o registrate con google
-                            </p>
+                            <a href="#" className="text-xs text-center text-gray-500 uppercase">
+                                or singUp with google
+                            </a>
                             <span className="border-b w-1/5 lg:w-1/4" />
                         </div>
                         <div className="flex justify-center mt-3">
@@ -139,10 +144,10 @@ const Login2: React.FC<Propos> = ({ loading_icon, icon }) => {
                         <div className="mt-4 flex items-center justify-between">
                             <span className="border-b w-1/5 md:w-1/4" />
                             <Link
-                                to="/auth/login"
+                                to="/auth/sing-up"
                                 className="text-blue-700 hover:underline dark:text-blue-500"
                             >
-                                inicia sesion
+                                o inicia sesion
                             </Link>
                             <span className="border-b w-1/5 md:w-1/4" />
                         </div>

@@ -64,6 +64,8 @@ export const Rutines_Get = createAsyncThunk(
 export const EditUser = createAsyncThunk(
   "user/Edit",
   async ({ token, data }: any, thunkAPI) => {
+    thunkAPI.dispatch(Status("none"));
+
     try {
       let headersList = {
         Accept: "/",
@@ -82,6 +84,8 @@ export const EditUser = createAsyncThunk(
       const resp = response.data;
 
       thunkAPI.dispatch(Status(response.data));
+  
+
       return resp;
     } catch (error: any) {
       thunkAPI.dispatch(Status(error.response.data));
@@ -110,6 +114,8 @@ export const Exercises_Get = createAsyncThunk(
 export const User_Register_State = createAsyncThunk(
   "user/sing_upUser",
   async (user: object, thunkAPI) => {
+    thunkAPI.dispatch(Status("none"));
+
     try {
       const response = await axios.post("http://localhost:3001/register", user);
       const resp = response.data;
@@ -126,11 +132,15 @@ export const User_Register_State = createAsyncThunk(
 export const User_Login_State = createAsyncThunk(
   "user/login",
   async (user: object, thunkAPI) => {
+    thunkAPI.dispatch(Status("none"));
+
     try {
       const response = await axios.post("http://localhost:3001/login", user);
       const resp = response.data;
 
       thunkAPI.dispatch(UserToken(resp));
+      thunkAPI.dispatch(Status(resp));
+
       return resp;
     } catch (error: any) {
       thunkAPI.dispatch(Status(error.response.data));
@@ -142,10 +152,13 @@ export const User_Login_State = createAsyncThunk(
 export const Activecuenta = createAsyncThunk(
   "user/active",
   async (user: object, thunkAPI) => {
+    thunkAPI.dispatch(Status("none"));
+
     try {
-      const response = await axios.post("http://localhost:3001/account", user);
+      const response = await axios.put("http://localhost:3001/account", user);
       const resp = response.data;
       thunkAPI.dispatch(Status(resp));
+    
       return resp;
     } catch (error: any) {
       thunkAPI.dispatch(Status(error.response.data));
@@ -262,7 +275,6 @@ export const userFeedback = createAsyncThunk(
       return;
     } catch (error: any) {
       thunkAPI.dispatch(Status(error.response.data));
-
       return error;
     }
   }
@@ -310,6 +322,8 @@ export const authGoogle = createAsyncThunk(
   }
 );
 
+
+
 export const StateSlice = createSlice({
   name: "user",
   initialState,
@@ -336,23 +350,31 @@ export const StateSlice = createSlice({
       window.localStorage.removeItem("Login_userFit_Focus");
       state.user = action.payload;
     },
-    Status: (state, action: PayloadAction<string>) => {
+    Status: (state, action: PayloadAction<string  |null>) => {
       state.status = action.payload;
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(User_Register_State.pending, (state) => {
-        state.status = null;
+        state.status = "none";
       })
 
       .addCase(User_Login_State.pending, (state, action) => {
-        state.status = null;
+        state.status = "log";
       })
-
+      .addCase(User_Login_State.fulfilled, (state, action) => {
+        state.status = "none";
+      })
+      .addCase(EditUser.pending, (state, action) => {
+        state.status = "log";
+      })
+      .addCase(EditUser.fulfilled, (state, action) => {
+        state.status = "none";
+      })
       .addCase(authGoogle.pending, (state, action) => {})
       .addCase(authGoogle.fulfilled, (state, action) => {
-        state.status = "load";
+        state.status = "none";
         state.userToken = action.payload;
       });
   },

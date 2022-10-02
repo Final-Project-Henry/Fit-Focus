@@ -29,10 +29,10 @@ export default function GoogleAuth() {
 
     return (
         <Fragment>
-            <GoogleLogin 
+            <GoogleLogin
+                width="200"
                 onSuccess={(res)=>{if(typeof res.credential==='string')setCode(res.credential)}}
                 onError={()=>console.log("Login Error")}
-                
             />
         </Fragment>
     )

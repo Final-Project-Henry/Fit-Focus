@@ -41,6 +41,7 @@ import {
 } from "./features/counter/counterSlice";
 import Error_page from "./Components/error/Error_page";
 import ContactUs from "./Components/Contact/Contact";
+import Login2 from "./Components/login-singUp/Login2"
 
 import PoliticaPriv from "./Components/PoliticaPrivacidad/PoliticaPriv";
 import TerminosYCondiciones from "./Components/terminosycondiciones/TerminosYCondiciones";
@@ -62,6 +63,7 @@ import Comments from "./Components/admin/comments/Comments";
 import NewsAdmin from "./Components/admin/news/NewsAdmin";
 import Questions from "./Components/admin/questions/Questions";
 import ExerciseForm from "./Components/admin/exercises/ExerciseForm";
+import NewPassword from "./Components/login-singUp/NewPassword";
 
 
 
@@ -96,7 +98,10 @@ function App() {
             <Route path="questions" element={<Questions />} />
           </Route>
           <Route path="/" element={<LandingPage />} />
+          <Route path="NewPassword/:id" element={<NewPassword />} />
+
           <Route path="/auth/:id" element={<SingUp_Login />} />
+          <Route path="/test" element={<Login2 />} />
           <Route path="/home" element={<HomeVisitor_2 />} />
           <Route path="auth/google" element={<GoogleAuth />} />
           <Route path="/home2" element={<HomeVisitor />} />

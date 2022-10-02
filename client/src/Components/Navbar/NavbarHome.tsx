@@ -84,7 +84,7 @@ const NavbarHome = () => {
             >
         
             </div>
-          </div>
+          {/* </div>
           <div className="flex bg-white  h-[50px] rounded-xl   items-center justify-end p-5 md:order-2 ">
             <div>
               <li className="flex items-center md:order-2">
@@ -123,7 +123,7 @@ const NavbarHome = () => {
                   </div>
                 )}
               </li>
-            </div>
+            </div> */}
             
                 <div className="cursor-pointer">
                   <span className="sr-only">Open user menu</span>
@@ -166,22 +166,6 @@ const NavbarHome = () => {
                       className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 "
                     >
                       Mi Perfil
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/settings"
-                      className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 "
-                    >
-                      Configuraciones
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/dashboard"
-                      className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 "
-                    >
-                      Dashboard
                     </Link>
                   </li>
                   <li

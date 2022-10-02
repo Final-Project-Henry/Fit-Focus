@@ -51,13 +51,13 @@ router.post('/login', async (req, res) => { // Validando las credenciales y devu
 
   try {
     const {email , password} = req.body
-    
     const User = await user.findOne({email : email})
-  
+
     if(!User) return res.status(404).send('User not found');
     if(User.status === 'desactivated') return res.status(401).send('User desactivated');
 
     const isValid = await bcrypt.compare(password, User.password);
+
     if(isValid) {
       const token = jwt.sign({email: email, name : User.name, id : User._id, avatar:User.avatar}, "" + SECRET, { expiresIn : '12h'});
       return res.status(200).json(token)
@@ -74,9 +74,21 @@ router.get('/exercises', async (req, res) =>{ // Devuelve unos ejercicios para m
   res.status(200).send(Exercises)
 });
 
+router.get('/feedbackUser', async (req,res)=>{
+  const User = await user.find();
+  const feedbacks = []
+  for (let i = 0; i < User.length; i++){
+    if(User[i].feedback) {
+    feedbacks.push({name: User[i].name, avatar: User[i].avatar, comment: User[i].feedback})
+    }
+  }
+  res.status(200).send(feedbacks)
+});
+
 router.put('/account', async (req, res) =>{
   try {
     const {email, password} = req.body
+    console.log(email, password)
     const User = await user.findOne({email : email});
     if(!User) return res.status(404).send('User not found');
   
@@ -92,6 +104,30 @@ router.put('/account', async (req, res) =>{
   } catch (error) {
     res.status(500).send(error.message)
   }
+})
+
+router.post('/newpassword', async (req, res) =>{
+
+  const { email } = req.body
+  try {
+    const User = await user.findOne({email : email})
+    const token = jwt.sign({ name : User.name, id : User._id}, "" + SECRET, { expiresIn : '10m'});
+    const LinknewPassword="http://localhost:3000/NewPassword/"+token
+
+    const transporter = mailSettings.transporter;
+    const mailDetails = mailSettings.mailNewPassword(email, LinknewPassword);
+    transporter.sendMail(mailDetails, (error, info) => {
+      if (error) {
+        console.log(error)
+      } else {
+        console.log('Email enviado');
+      }
+    });
+    res.status(200).send("send email")
+  } catch (error) {
+    res.status(500).send("huvo un error")
+  }
+
 })
 
 router.get('/feedback', async (req, res) =>{

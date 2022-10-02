@@ -14,7 +14,7 @@ export default function Error_page(props: {
   const navigate = useNavigate();
 
   const onClick = () => {
-    navigate(token ? "/fitfocus/home" : "/home");
+    navigate(token ? "/fitfocus" : "/home");
   };
   return (
     <div

@@ -178,7 +178,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className="flex items-center md:order-2 ">
-            <div>
+            {/* <div>
               <li className="flex items-center md:order-2">
                 <button
                   onClick={() => setLenguage(!lenguage)}
@@ -215,7 +215,7 @@ const Navbar = () => {
                   </div>
                 )}
               </li>
-            </div>
+            </div> */}
             <button
               type="button"
               className="flex mr-3 text-sm rounded-full md:mr-0 focus:border-none"
@@ -263,13 +263,13 @@ const Navbar = () => {
                 data-popper-placement="bottom"
                 style={{
                   position: "absolute",
-                  inset: "0px auto auto auto",
+                  inset: "0px -100px auto auto",
                   margin: "65px",
                   transform: "translate(-50px, 20px)",
                 }}
               >
            <div className="py-3 px-4">
-                  <span className="block text-sm text-gray-900 ">
+                  <span className="block text-sm text-3xl text-gray-900">
                     {userInfo?.name}
                   </span>
                   <span className="block text-sm font-medium text-gray-500 truncate ">
@@ -283,14 +283,6 @@ const Navbar = () => {
                       className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 "
                     >
                       Mi Perfil
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/settings"
-                      className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 "
-                    >
-                      Configuraciones
                     </Link>
                   </li>
                   <li>
