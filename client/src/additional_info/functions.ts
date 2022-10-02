@@ -2,10 +2,16 @@ import jwtDecode from "jwt-decode";
 
 export default {
     random: (data:any)=>{
+
         const comments = Object.keys(data);
 
+
+        
+
         const result:any=[];
+        const result2 = []
         let index:number;
+
 
         while(result.length<3){
             index = Math.floor(Math.random()*comments.length);
@@ -13,7 +19,15 @@ export default {
                 result.push(comments[index])
             }
         }
-        return result;
+
+        console.log(result)
+
+        for (let i = 0; i < result.length; i++) {
+            result2.push(data[result[i]])
+            
+        }
+
+        return result2;
     },
     get_exercises: (data:Array<any>) => {
         const result = [];
