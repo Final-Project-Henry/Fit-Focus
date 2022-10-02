@@ -79,7 +79,7 @@ router.get('/feedbackUser', async (req,res)=>{
   const feedbacks = []
   for (let i = 0; i < User.length; i++){
     if(User[i].feedback) {
-    feedbacks.push(User[i].feedback)
+    feedbacks.push({name: User[i].name, avatar: User[i].avatar, comment: User[i].feedback})
     }
   }
   res.status(200).send(feedbacks)
