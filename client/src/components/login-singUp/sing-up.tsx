@@ -53,7 +53,7 @@ const Login2: React.FC<Propos> = ({ loading_icon }) => {
                         className="hidden lg:block lg:w-[50%] bg-cover"
                         style={{
                             backgroundImage:
-                                'url("https://th.bing.com/th/id/OIP.sUsl37DcPLar4TeeYFncMAHaHa?pid=ImgDet&rs=1")'
+                                'url("https://gimcasa.es/wp-content/uploads/2020/11/soportes-para-flexiones-e1605092915791.jpg)'
                         }}
                     />
                     <div className="w-full p-8 lg:w-1/2">
