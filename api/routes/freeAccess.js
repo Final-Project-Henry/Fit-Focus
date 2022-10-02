@@ -74,6 +74,17 @@ router.get('/exercises', async (req, res) =>{ // Devuelve unos ejercicios para m
   res.status(200).send(Exercises)
 });
 
+router.get('/feedbackUser', async (req,res)=>{
+  const User = await user.find();
+  const feedbacks = []
+  for (let i = 0; i < User.length; i++){
+    if(User[i].feedback) {
+    feedbacks.push(User[i].feedback)
+    }
+  }
+  res.status(200).send(feedbacks)
+});
+
 router.put('/account', async (req, res) =>{
   try {
     const {email, password} = req.body
