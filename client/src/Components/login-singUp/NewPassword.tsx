@@ -13,7 +13,7 @@ import Swal from "sweetalert2";
 
 
 const NewPassword = () => {
-  let {id}=useParams()
+  let { id } = useParams()
   let user = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
   const Navegation = useNavigate()
@@ -29,7 +29,7 @@ const NewPassword = () => {
     Set_form_data((pv) => ({ ...pv, [event.target.name]: event.target.value }));
   }
   useEffect(() => {
-    if(user.status =="Info changed succesfully"){
+    if (user.status == "Info changed succesfully") {
       Swal.fire({
         title: "Su contraseña fue cambiada correctamente",
         icon: "info",
@@ -39,24 +39,24 @@ const NewPassword = () => {
       }).then((result) => {
         if (result.isConfirmed) {
           Navegation("/auth/login")
-         
+
         }
       });
     }
 
-  },[user.status])
+  }, [user.status])
   //////////enviar de datos  por medio de los input//////////////////////////////////////////
   function handleSubmit(event: React.FormEvent): void {
     event.preventDefault();
     if (Form_data.password === Form_data.Validpassword) {
       let data = { password: Form_data.password }
-      const token=id
+      const token = id
       dispatch(EditUser({ token, data }));
     } else {
       setvalidadr(true)
     }
   }
-  
+
   return (
     <div className='h-full w-full flex justify-center content-center'>
       {/* component */}
@@ -66,9 +66,13 @@ const NewPassword = () => {
             className="hidden lg:block lg:w-[50%] bg-no-repeat bg-center bg-[length:350px_200px]"
             style={{
               backgroundImage:
-              `url(${icon})`
-            }}
-          />
+                `url(${icon})`,
+              backgroundSize: "cover"
+            }} >
+            <h1 style={{ color: "white", fontSize: "2rem", width: "20vw", marginLeft: "7vw", marginTop: "30vh" }}>“La clave para iniciar algo
+              es dejar de hablar y
+              ponerse a hacerlo”</h1>
+          </div>
           <div className="w-full p-8 lg:w-1/2">
             <h2 className="text-2xl font-semibold text-gray-700 text-center">
               Nueva contraseña
@@ -77,7 +81,7 @@ const NewPassword = () => {
             <div className="mt-4">
               <div className="flex justify-between">
                 <label className="block text-gray-700 text-sm font-bold mb-2">
-                 Contraseña
+                  Contraseña
                 </label>
               </div>
               <input
@@ -112,7 +116,7 @@ const NewPassword = () => {
               <button className="bg-gray-700 text-white font-bold py-2 px-4 w-full :bg-gray-600"
                 onClick={handleSubmit}
               >
-                {user.status==="none"?(
+                {user.status === "none" ? (
                   "Aceptar"
                 ) : (
                   <span className=" flex justify-center">
@@ -136,7 +140,7 @@ const NewPassword = () => {
           </div>
         </div>
       </div>
-      </div>
-      );
+    </div>
+  );
 };
-      export default NewPassword;
+export default NewPassword;

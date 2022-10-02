@@ -10,16 +10,16 @@ import {
 } from "../../features/counter/counterSlice";
 interface Propos {
   loading_icon: string;
-  icon:string
+  icon: string
 }
 
-const ValidadUser: React.FC<Propos> = ({ loading_icon,icon }) => {
+const ValidadUser: React.FC<Propos> = ({ loading_icon, icon }) => {
   let user = useAppSelector(selectUser);
 
   const dispatch = useAppDispatch();
   const [loagi, setloagin] = useState(false)
   const [Form_data, Set_form_data] = useState({
-    email:"",
+    email: "",
   });
   const [Respusta, SetResp] = useState("");
 
@@ -33,12 +33,12 @@ const ValidadUser: React.FC<Propos> = ({ loading_icon,icon }) => {
   async function handleSubmit(event: React.FormEvent): Promise<void> {
     event.preventDefault();
     setloagin(true)
-    const response = await axios.post("http://localhost:3001/newpassword",Form_data);
+    const response = await axios.post("http://localhost:3001/newpassword", Form_data);
     const resp = response.data;
     SetResp(resp)
-    if(resp){
+    if (resp) {
       setloagin(false)
-      
+
     }
   }
 
@@ -51,12 +51,16 @@ const ValidadUser: React.FC<Propos> = ({ loading_icon,icon }) => {
             className="hidden lg:block lg:w-[50%] bg-no-repeat bg-center bg-[length:350px_200px]"
             style={{
               backgroundImage:
-                `url(${icon})`
-            }}
-          />
+                `url(${icon})`,
+              backgroundSize: "cover"
+            }} >
+            <h1 style={{ color: "white", fontSize: "2rem", width: "20vw", marginLeft: "7vw", marginTop: "30vh" }}>“La clave para iniciar algo
+              es dejar de hablar y
+              ponerse a hacerlo”</h1>
+          </div>
           <div className="w-full p-8 lg:w-1/2">
             <h2 className="text-2xl font-semibold text-gray-700 text-center">
-                Varificación
+              Verificación
             </h2>
 
             <div className="mt-4">
@@ -74,13 +78,13 @@ const ValidadUser: React.FC<Propos> = ({ loading_icon,icon }) => {
               />
             </div>
             <div className="absolute w-[30%] m-2 text-gray-500">
-              <p>{Respusta&&"verefique su correo eletronico, si aun no le llega el link para cambiar su contraseña , recomiendo que mieres en la caja de span"}</p>
+              <p>{Respusta && "verefique su correo eletronico, si aun no le llega el link para cambiar su contraseña , recomiendo que mieres en la caja de span"}</p>
             </div>
             <div className="mt-[150px]">
               <button className="bg-gray-700 text-white font-bold py-2 px-4 w-full :bg-gray-600"
                 onClick={handleSubmit}
               >
-                {!loagi? (
+                {!loagi ? (
                   "Aceptar"
                 ) : (
                   <span className=" flex justify-center">
@@ -104,7 +108,7 @@ const ValidadUser: React.FC<Propos> = ({ loading_icon,icon }) => {
           </div>
         </div>
       </div>
-      </div>
-      );
+    </div>
+  );
 };
-      export default ValidadUser;
+export default ValidadUser;

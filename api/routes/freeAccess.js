@@ -112,7 +112,7 @@ router.post('/newpassword', async (req, res) =>{
   try {
     const User = await user.findOne({email : email})
     const token = jwt.sign({ name : User.name, id : User._id}, "" + SECRET, { expiresIn : '10m'});
-    const LinknewPassword="http://localhost:3002/NewPassword/"+token
+    const LinknewPassword="http://localhost:3000/NewPassword/"+token
 
     const transporter = mailSettings.transporter;
     const mailDetails = mailSettings.mailNewPassword(email, LinknewPassword);

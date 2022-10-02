@@ -16,8 +16,8 @@ export default function LateralBar() {
     <div className="flex">
       <div
         className={`${
-          open ? "w-72" : "w-20"
-        } duration-300 h-screen p-5  pt-8 bg-amber-200 relative`}
+          open ? "w-50" : "w-20"
+        } duration-300 h-[100vh] p-5  pt-8 bg-amber-200 relative`}
       >
         <img
           className={` absolute cursor-pointer -right-3 rounded-full top-9  w-9 border-2 ${
@@ -27,13 +27,13 @@ export default function LateralBar() {
           alt="arrow.png"
           onClick={() => setOpen(!open)}
         />
-        <div className="flex gap-x-4 items-center">
+        {/* <div className="flex gap-x-4 items-center">
           <img
             src={icon}
             alt="icon.png"
             className={`cursor pointer w-[60px] duration-500`}
           />
-        </div>
+        </div> */}
         <ul className="pt-4">
           {btns.map((btn: any, index: any) => (
             <li
