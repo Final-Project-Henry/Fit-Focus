@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Navigation } from "swiper";
 
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 
@@ -15,6 +16,9 @@ interface Propos {
 }
 
 const Login2: React.FC<Propos> = ({ loading_icon, icon }) => {
+
+    const navigate = useNavigate()
+
     let user = useAppSelector(selectUser);
 
     const user_logeao = useAppSelector(selectUser);
@@ -41,10 +45,24 @@ const Login2: React.FC<Propos> = ({ loading_icon, icon }) => {
         dispatch(User_Register_State(Form_data));
     }
 
+    useEffect(() => {
+        if (user.userToken?.length > 50) {
+          let time = new Date();
+          let token = user.userToken;
+          window.localStorage.setItem(
+            "Login_userFit_Focus",
+            JSON.stringify({ token, time })
+          );
+        }
+      }, [user.userToken]);
+
     return (
         <div className='h-full w-full flex justify-center content-center'>
             {user_logeao.user && <Navigate to="/auth/login" />}
             {/* component */}
+            {typeof user.userToken === "string" && user.userToken.length > 50 && (
+          <Navigate to="/fitFocus" />
+        )}
             <div className="py-6 flex-1 content-center justify-center ">
                 <div className="flex bg-white shadow-2xl overflow-hidden mx-auto  max-w-md h-auto lg:max-w-[75%] xl:max-w-[68%] ">
                     <div
