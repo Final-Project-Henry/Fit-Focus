@@ -18,7 +18,7 @@ interface Propos {
   icon?: string;
 }
 
-const Login: React.FC<Propos> = ({ loading_icon,icon }) => {
+const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
   let user = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
   const Navegation = useNavigate();
@@ -85,8 +85,12 @@ const Login: React.FC<Propos> = ({ loading_icon,icon }) => {
             style={{
               backgroundImage:
                 `url(${icon})`,
-            }}
-          />
+              backgroundSize: "cover"
+            }} >
+            <h1 style={{ color: "white", fontSize: "2rem", width: "20vw", marginLeft: "7vw", marginTop: "30vh" }}>“La clave para iniciar algo
+              es dejar de hablar y
+              ponerse a hacerlo”</h1>
+          </div>
           <div className="w-full p-8 lg:w-1/2">
             <h2 className="text-2xl font-semibold text-gray-700 text-center">
               Inicia sesion
@@ -137,7 +141,7 @@ const Login: React.FC<Propos> = ({ loading_icon,icon }) => {
                 className="bg-gray-700 text-white font-bold py-2 px-4 w-full :bg-gray-600"
                 onClick={handleSubmit}
               >
-                {user.status=="none"? (
+                {user.status == "none" ? (
                   Activar ? (
                     "Recuperar cuenta"
                   ) : (

@@ -7,7 +7,7 @@ import {
 import { useAppDispatch, useAppSelector, useSesion, } from "../../app/hooks";
 import { Navigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import icon from "../assets/icons/nav-icon2.png"
+import icon from "../assets/icons/login.jpg"
 
 import {
 

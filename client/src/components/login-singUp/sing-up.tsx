@@ -14,7 +14,7 @@ interface Propos {
     loading_icon?: string;
 }
 
-const Login2: React.FC<Propos> = ({ loading_icon,icon }) => {
+const Login2: React.FC<Propos> = ({ loading_icon, icon }) => {
     let user = useAppSelector(selectUser);
 
     const user_logeao = useAppSelector(selectUser);
@@ -43,7 +43,7 @@ const Login2: React.FC<Propos> = ({ loading_icon,icon }) => {
 
     return (
         <div className='h-full w-full flex justify-center content-center'>
-        {user_logeao.user && <Navigate to="/auth/login" />}
+            {user_logeao.user && <Navigate to="/auth/login" />}
             {/* component */}
             <div className="py-6 flex-1 content-center justify-center ">
                 <div className="flex bg-white shadow-2xl overflow-hidden mx-auto  max-w-md h-auto lg:max-w-[75%] xl:max-w-[68%] ">
@@ -51,9 +51,13 @@ const Login2: React.FC<Propos> = ({ loading_icon,icon }) => {
                         className="hidden lg:block lg:w-[50%] bg-no-repeat bg-center bg-[length:350px_200px]"
                         style={{
                             backgroundImage:
-                            `url(${icon})`
-                        }}
-                    />
+                                `url(${icon})`,
+                            backgroundSize: "cover"
+                        }} >
+                        <h1 style={{color:"white", fontSize:"2rem", width:"20vw", marginLeft:"7vw", marginTop:"30vh"}}>“La clave para iniciar algo
+                            es dejar de hablar y
+                            ponerse a hacerlo”</h1>
+                    </div>
                     <div className="w-full p-8 lg:w-1/2">
                         <h2 className="text-2xl font-semibold text-gray-700 text-center">
                             Registrate
@@ -112,7 +116,7 @@ const Login2: React.FC<Propos> = ({ loading_icon,icon }) => {
                             <button className="bg-gray-700 text-white font-bold py-2 px-4 w-full :bg-gray-600"
                                 onClick={handleSubmit}
                             >
-                                {user_logeao.status=="none" ? (
+                                {user_logeao.status == "none" ? (
                                     "Registrarse"
                                 ) : (
                                     <span className=" flex justify-center">
