@@ -51,7 +51,7 @@ const Login2: React.FC<Propos> = ({ loading_icon,icon }) => {
                         className="hidden lg:block lg:w-[50%] bg-no-repeat bg-center bg-[length:350px_200px]"
                         style={{
                             backgroundImage:
-                            `url(${icon})`
+                            'url("https://play-lh.googleusercontent.com/nfTnY4-TvW5uxOZsz_1SO7Np6DalO3PLU7-z9vZxDhFJqT70OwtT4csw8ZIime1-Aqq6")',
                         }}
                     />
                     <div className="w-full p-8 lg:w-1/2">
