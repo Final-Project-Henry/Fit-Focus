@@ -1,28 +1,35 @@
 import React, { useEffect, useRef, useLayoutEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import functions from '../../../additional_info/functions';
-import datos from '../../../additional_info/comments';
+import {datos} from '../../../additional_info/comments';
 import Comment from '../comments/Comment';
 import styles from './Visitor_1.module.css';
 import sr, { config } from './scroll';
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
+import { getFeedback } from '../../../features/homeVisitor/visitorSlice';
 
 
 interface data {
     [key: string]: {
-        avatar: any,
-        name: string,
+        avatar?: any,
+        name?: string,
         comment: string
     }
 }
 
 export default function Visitor1() {
     const navigate = useNavigate();
+
+    const feedbacks = useAppSelector(state => state.visitor.feedbacks)
+    const dispatch = useAppDispatch()
+
     const divComment1 = useRef<HTMLHeadingElement>(null);
     const divComment2 = useRef<HTMLHeadingElement>(null);
     const divComment3 = useRef<HTMLHeadingElement>(null);
 
-    const initialValue = functions.random(datos);
-    const [comments, setComments] = useState(initialValue);
+    const [datosState, setDatosState] = useState(datos)
+    const [comments, setComments] = useState<any>(functions.random(datosState));
+    const [added, setAdded] = useState(false)
 
     const onClick = () => {
         navigate('/auth/sing-up')
@@ -30,13 +37,37 @@ export default function Visitor1() {
     
 
     useEffect(() => {
-        let interval = setInterval(() => {
-            setComments(functions.random(datos));
-        }, 5000);
-        return () => {
-            clearInterval(interval)
-        }
+        dispatch(getFeedback())
     }, []);
+
+    useEffect(() => {
+
+        if (!added && feedbacks.length) {
+            setDatosState([...datosState, ...feedbacks])
+            setAdded(true)
+        }
+ 
+        if (added) {
+            let interval = setInterval(() => {
+                setComments(functions.random(datosState));
+            }, 5000);
+            return () => {
+                clearInterval(interval)
+            }
+        }
+
+
+    }, [feedbacks, added])
+
+
+    useEffect(() => {
+
+        console.log(datosState, "iam")
+
+    }, [datosState])
+    
+
+
     
     useLayoutEffect(() => {
         sr.reveal(divComment1.current, config);
@@ -60,8 +91,8 @@ export default function Visitor1() {
             <div className={styles.container_3}>
                 <p className={styles.tittle_2}>Lo que opinan algunos miembros:</p>
                 <div className={styles.comments} ref={divComment1}>
-                    {comments.map((comment: string, index: number) => (
-                        <Comment data={(datos as data)[comment]} />
+                    {comments?.map((comment:any) => (
+                        <Comment avatar={comment.avatar} comment={comment.comment} name={comment.name} />
                     ))}
                     {/* {comments&&<div ref={divComment1}><Comment data={(datos as data)[comments[0]]} /></div>}
                     {comments&&<div ref={divComment2}><Comment data={(datos as data)[comments[1]]} /></div>}

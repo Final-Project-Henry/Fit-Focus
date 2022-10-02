@@ -11,65 +11,65 @@ import  avatar_10 from '../Components/assets/avatars_test/avatar_10.png';
 import  avatar_11 from '../Components/assets/avatars_test/avatar_11.png';
 import  avatar_12 from '../Components/assets/avatars_test/avatar_12.png';
 
-export default {
-    "comment_1": {
+export const datos = [
+     {
         avatar: avatar_1,
         name: "Claudia Martinez",
         comment: "Gracias a esta app ya no me canso al ir a trabajar"
     },
-    "comment_2": {
+     {
         avatar: avatar_2,
         name: "Ariel Romero",
         comment: "Esta genial la app, me encanta!!!!!"
     },
-    "comment_3": {
+     {
         avatar: avatar_3,
         name: "Franco Miño",
         comment: "Gracias a esta app me converti en un macho alfa"
     },
-    "comment_4": {
+     {
         avatar: avatar_4,
         name: "Cate Aracil",
         comment: "Gracias a esta app no tuve que pasar horas buscando como hacer los ejercicios"
     },
-    "comment_5": {
+     {
         avatar: avatar_5,
         name: "Martin Angulo",
         comment: "Es muy intuitiva, pude encontrar lo que queria de una manera rapida y sin perder el tiempo"
     },
-    "comment_6": {
+     {
         avatar: avatar_6,
         name: "Ivan Garcia",
         comment: "Apenas entre a la app me hice premium de inmediato, esta muy buena"
     },
-    "comment_7": {
+     {
         avatar: avatar_7,
         name: "Adrian Acurero",
         comment: "Pense que seria una perdida de tiempo, pero me equivoque totalmente"
     },
-    "comment_8": {
+     {
         avatar: avatar_8,
         name: "Rafa Betancourt",
         comment: "Fue el motivante para empezar una nueva vida saludable, me encanta"
     },
-    "comment_9": {
+     {
         avatar: avatar_9,
         name: "Rodri Santos",
         comment: "No todos los ejercicios son tan simples como se ven, me costaron un poco"
     },
-    "comment_10": {
+     {
         avatar: avatar_10,
         name: "David Cicconi",
         comment: "Me encanto que solo sea un pago unico por tantos beneficios del plan premium"
     },
-    "comment_11": {
+     {
         avatar: avatar_11,
         name: "Marcel Franco",
         comment: "No me decido si volverme premium, creo que al final lo valdra"
     },
-    "comment_12": {
+     {
         avatar: avatar_12,
         name: "Maria Perez",
         comment: "Me gusta mucho su diseño y toda la informacion que me dan, me ayudo mucho"
     },
-}
+]
