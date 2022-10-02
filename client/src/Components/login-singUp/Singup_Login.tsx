@@ -7,6 +7,7 @@ import {
 import { useAppDispatch, useAppSelector, useSesion, } from "../../app/hooks";
 import { Navigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import icon from "../assets/icons/nav-icon2.png"
 
 import {
 
@@ -40,9 +41,9 @@ export default function SingUp_Login() {
       <div className="flex  w-full h-full ">
 
 
-          {id == "login"&&<Login loading_icon={loading_icon} />} 
-          {id == "sing-up"&&<SingUp facebook={facebook} google={google} linkedin={linkedin} loading_icon={loading_icon}/>}
-          {id == "nuevaContraseña"&&<ValidadUser  loading_icon={loading_icon}/> }
+          {id == "login"&&<Login loading_icon={loading_icon} icon={icon} />} 
+          {id == "sing-up"&&<SingUp  icon={icon} loading_icon={loading_icon}/>}
+          {id == "nuevaContraseña"&&<ValidadUser  loading_icon={loading_icon} icon={icon}/> }
       </div>
     </Div_img>
     </>

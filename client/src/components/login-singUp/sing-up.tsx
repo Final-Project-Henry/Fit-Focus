@@ -10,13 +10,11 @@ import {
 } from "../../features/counter/counterSlice";
 import GoogleAuth from "../GoogleAuth/GoogleAuth";
 interface Propos {
-    facebook?: string;
-    google?: string;
-    linkedin?: string;
+    icon?: string;
     loading_icon?: string;
 }
 
-const Login2: React.FC<Propos> = ({ loading_icon }) => {
+const Login2: React.FC<Propos> = ({ loading_icon,icon }) => {
     let user = useAppSelector(selectUser);
 
     const user_logeao = useAppSelector(selectUser);
@@ -50,10 +48,10 @@ const Login2: React.FC<Propos> = ({ loading_icon }) => {
             <div className="py-6 flex-1 content-center justify-center ">
                 <div className="flex bg-white shadow-2xl overflow-hidden mx-auto  max-w-md h-auto lg:max-w-[75%] xl:max-w-[68%] ">
                     <div
-                        className="hidden lg:block lg:w-[50%] bg-cover"
+                        className="hidden lg:block lg:w-[50%] bg-no-repeat bg-center bg-[length:350px_200px]"
                         style={{
                             backgroundImage:
-                                'url("https://gimcasa.es/wp-content/uploads/2020/11/soportes-para-flexiones-e1605092915791.jpg)'
+                            `url(${icon})`
                         }}
                     />
                     <div className="w-full p-8 lg:w-1/2">
