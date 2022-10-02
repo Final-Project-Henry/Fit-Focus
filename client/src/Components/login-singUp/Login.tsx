@@ -15,9 +15,10 @@ import GoogleAuth from "../GoogleAuth/GoogleAuth";
 
 interface Propos {
   loading_icon?: string;
+  icon?: string;
 }
 
-const Login: React.FC<Propos> = ({ loading_icon }) => {
+const Login: React.FC<Propos> = ({ loading_icon,icon }) => {
   let user = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
   const Navegation = useNavigate();
@@ -80,10 +81,10 @@ const Login: React.FC<Propos> = ({ loading_icon }) => {
       <div className="py-6 flex-1 content-center justify-center ">
         <div className="flex bg-white shadow-2xl overflow-hidden mx-auto sm:mt-0  max-w-sm h-auto lg:max-w-[68%]">
           <div
-            className="hidden lg:block lg:w-[50%] bg-cover"
+            className="hidden lg:block lg:w-[50%] bg-no-repeat bg-center bg-[length:350px_200px]"
             style={{
               backgroundImage:
-                'url("https://play-lh.googleusercontent.com/nfTnY4-TvW5uxOZsz_1SO7Np6DalO3PLU7-z9vZxDhFJqT70OwtT4csw8ZIime1-Aqq6")',
+                `url(${icon})`,
             }}
           />
           <div className="w-full p-8 lg:w-1/2">
