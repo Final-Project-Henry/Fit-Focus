@@ -84,7 +84,7 @@ const NavbarHome = () => {
             >
         
             </div>
-          </div>
+          {/* </div>
           <div className="flex bg-white  h-[50px] rounded-xl   items-center justify-end p-5 md:order-2 ">
             <div>
               <li className="flex items-center md:order-2">
@@ -123,7 +123,7 @@ const NavbarHome = () => {
                   </div>
                 )}
               </li>
-            </div>
+            </div> */}
             
                 <div className="cursor-pointer">
                   <span className="sr-only">Open user menu</span>
