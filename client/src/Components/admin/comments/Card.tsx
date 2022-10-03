@@ -15,8 +15,8 @@ interface datos {
 export default function Card(props: { datos: datos }) {
   return (
     <div
-      className="bg-amber-200"
       style={{
+        backgroundColor: "#252525",
         margin: "20px",
         paddingBottom: "5px",
         display: "flex",
@@ -25,9 +25,10 @@ export default function Card(props: { datos: datos }) {
     >
       <h1
         style={{
+          color: "white",
           fontSize: "1.2rem",
-          padding: "5px",
-          marginLeft: "5px",
+          padding: "10px",
+          marginLeft: "10px",
           fontWeight: "500",
         }}
       >

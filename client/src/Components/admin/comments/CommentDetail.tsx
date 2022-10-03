@@ -32,12 +32,16 @@ export default function CommentDetail(props: { feedback: feedback }) {
         {props.feedback.comment}
       </p>
       <button
+        className="font-semibold"
         style={{
-          backgroundColor: "Black",
+          margin: " auto",
+          backgroundColor: "#A70E0E",
           color: "white",
-          width: "50%",
-          padding: "0 10px 0 10px",
-          marginBottom: "5px",
+          width: "30%",
+          padding: "2px",
+          marginBottom: "10px",
+          marginTop: "10px",
+          borderRadius: "0.375rem",
         }}
       >
         Delete
