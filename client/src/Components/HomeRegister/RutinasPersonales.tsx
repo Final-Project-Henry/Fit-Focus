@@ -55,7 +55,7 @@ export default function RutinasPersonales() {
   return (
     <>
       <div>
-        <div className={`flex items-center justify-center `}>
+        <div className={`flex items-center justify-center`}>
           {user?.userinfo?.length > 0 ? (
             <div>
               <Rutins rutins={rutines?.exercises} />
@@ -64,12 +64,12 @@ export default function RutinasPersonales() {
             <>
               {user?.plan == "normal" ? (
                 <>
-                  <img src={plancha} className=" w-[80%] h-[80vh]" />
+                  <img src={plancha} className="w-[80%] h-[50vh]" />
                   <div className="absolute flex items-center justify-center w-[40%] bg-indigo-300 border-solid border-2 border-indigo-600 rounded-md">
                     <h1 className="text-white text-3xl text-center">
                       Para visualizar tus <b>Rutinas Personales</b>
                       <br />
-                      debes tener una cuenta{" "}
+                      debes tener una cuenta
                       <Link to="/mercadopago" className="text-indigo-800">
                         PREMIUM
                       </Link>
@@ -87,7 +87,7 @@ export default function RutinasPersonales() {
                         onClick={() => setfomr(true)}
                         className="p-5 w-[40%] m-auto bg-[#111828ad] font-normal text-white shadow-2xl hover:animate-pulse active:animate-ping text-4xl"
                       >
-                        Crear tu rutinas personalizadas
+                        Crea tu rutina personalizada
                       </button>
                     </div>
                     <img className="w-full object-cover" src={plancha}/>
