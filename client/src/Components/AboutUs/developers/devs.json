@@ -1,0 +1,9 @@
+[
+    {"nombre": "Adrian Acurero" , "area": "Frontend" , "nacionalidad": "Venezuela" , "email": "adrianacurero@gmail.com"},
+    {"nombre": "David Cicconi" , "area": "Frontend" , "nacionalidad": "Argentina" , "email": "david.cicconi94@gmail.com"},
+    {"nombre": "Caterina Aracil" , "area": "Backend" , "nacionalidad": "Argentina" , "email": "caterinaaracil@gmail.com"},
+    {"nombre": "Sergio Ivan Garcia" , "area": "Backend" , "nacionalidad": "Argentina" , "email": "ivanx467@gmail.com"},
+    {"nombre": "Rafael Betancourt" , "area": "Frontend" , "nacionalidad": "Venezuela" , "email": "rafael18282@gmail.com"},
+    {"nombre": "Martin Angulo" , "area": "Backend" , "nacionalidad": "Perú" , "email": "martinangulo1194@gmail.com"},
+    {"nombre": "Lautaro Marcel Franco" , "area": "Frontend" , "nacionalidad": "Argentina" , "email": "Hola12lf@gmail.com"}
+]
