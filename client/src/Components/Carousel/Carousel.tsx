@@ -109,7 +109,6 @@ const Carousel: React.FC<Props> = ({
       }
 
       slideshow.current?.addEventListener("mouseenter", () => {
-        console.log("entre");
         clearInterval(intervalSlides.current);
       });
 

@@ -19,6 +19,7 @@ const Navbar = () => {
   const [lenguage, setLenguage] = useState(false);
   const [userData, setUser] = useState(false);
   const [userInfo, setUserInfo] = useState<any>(false);
+  const [hiddenTimeOut, setHiddenTimeOut] = useState<any>()
 
   const dispatch = useAppDispatch();
   const {user , userToken} = useAppSelector( selectUser )
@@ -56,6 +57,20 @@ const Navbar = () => {
         window.location.reload();
       }
     });
+  }
+
+  const handleShow = (type: string) => {
+
+    console.log(type)
+
+    if (type === "leave") {
+
+      setHiddenTimeOut(setTimeout(() => {
+        dropdown && setDropdown(false)
+      }, 1500))
+
+    } else clearTimeout(hiddenTimeOut);
+
   }
 
 
@@ -99,11 +114,14 @@ const Navbar = () => {
               id="mobile-menu-2"
             >
               <ul className="flex flex-col p-4 mt-4 ml-4 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
-                <li>
-           
-                  <button onClick={onClick} className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent md:p-0 "
-                    aria-current="page">Inicio</button>
-                </li>
+              <li>
+                        <Link
+                           to={userInfo?`/fitFocus`:`/home`}
+                          className="block py-2 p pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                        >
+                          Inicio
+                        </Link>
+                      </li>
               
                     <li>
                       <Scroll
@@ -231,6 +249,7 @@ const Navbar = () => {
                     className="w-10 h-10 rounded-full ml-4"
                     src={userInfo?.avatar}
                     onClick={() => setDropdown(!dropdown)}
+                    onMouseLeave={() => handleShow("leave")}
                     alt=""
                   />
                 </div>
@@ -267,9 +286,11 @@ const Navbar = () => {
                   margin: "65px",
                   transform: "translate(-50px, 20px)",
                 }}
+                onMouseEnter={() => handleShow("enter")}
+                onMouseLeave={() => handleShow("leave")}
               >
            <div className="py-3 px-4">
-                  <span className="block text-sm text-3xl text-gray-900">
+                  <span className="block text-3xl text-gray-900">
                     {userInfo?.name}
                   </span>
                   <span className="block text-sm font-medium text-gray-500 truncate ">

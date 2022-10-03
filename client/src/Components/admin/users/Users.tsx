@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
-import { delete_user, get_users } from "../../../features/admin/admin";
+import { delete_user, get_users, reset_delete_user } from "../../../features/admin/admin";
 import active from "../imgs/active.png";
 import desactive from "../imgs/desactive.png";
 import premium from "../imgs/premium.png";
@@ -180,6 +180,9 @@ export default function Users() {
     )
     }
     dispatch(get_users());
+    return ()=>{
+      dispatch(reset_delete_user())
+    }
   }, [users.delete_user]);
 
 

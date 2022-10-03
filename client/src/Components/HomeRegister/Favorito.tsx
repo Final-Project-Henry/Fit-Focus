@@ -118,7 +118,9 @@ const Favoritos=() =>{
         })
         :<LoadingCards num={"1234"}/>
         
-        :<div className="flex justify-center"> <p>No tiene favoritos :C</p></div>
+        :<div className="flex justify-center bg-red-500 rounded-sm p-2">
+           <p className='font-extrabold text-5xl text-gray-900'>No tienes favoritos</p>
+           </div>
         
         }
       </div>
