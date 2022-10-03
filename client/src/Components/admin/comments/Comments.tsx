@@ -15,7 +15,7 @@ export default function Comments() {
     <div style={{ display: "flex", flexDirection: "column", gap: "2vh" }}>
       {comments.length > 0 ? (
         comments.map((e: any) => (
-          <Card datos={{ name: e.name, feedback: e.feedback }} />
+          <Card datos={{ feedback: e.feedback, name: e.name }} />
         ))
       ) : (
         <h1>COMMENTS NOT FOUND</h1>
