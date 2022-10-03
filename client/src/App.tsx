@@ -80,7 +80,7 @@ function App() {
   }, [token]);
 
   return (
-    <GoogleOAuthProvider clientId="553882700243-5u6lingb04c86igau7nr6kjpicu042cl.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId="647787736227-gvt467rgdovggebhuu26n05c3f9a8ok7.apps.googleusercontent.com">
       <React.Fragment>
         <ScrollButton />
         {pathname !== "/" && <Navbar />}

@@ -78,7 +78,7 @@ const ValidadUser: React.FC<Propos> = ({ loading_icon, icon }) => {
               />
             </div>
             <div className="absolute w-[30%] m-2 text-gray-500">
-              <p>{Respusta && "verefique su correo eletronico, si aun no le llega el link para cambiar su contraseña , recomiendo que mieres en la caja de span"}</p>
+              <p>{Respusta && "verifique su correo eletronico, si aun no le llega el link para cambiar su contraseña , recomiendo que mires en la caja de span"}</p>
             </div>
             <div className="mt-[150px]">
               <button className="bg-gray-700 text-white font-bold py-2 px-4 w-full :bg-gray-600"
