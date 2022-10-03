@@ -1,4 +1,5 @@
 import React from "react";
+import { datos } from "../../../additional_info/comments";
 import CommentDetail from "./CommentDetail";
 
 interface feedback {
@@ -36,7 +37,7 @@ export default function Card(props: { datos: datos }) {
       </h1>
       <div style={{ display: "flex", flexWrap: "wrap", padding: "10px" }}>
         {props.datos.feedback.map((e: feedback) => (
-          <CommentDetail feedback={e} />
+          <CommentDetail feedback={e} name={props.datos.name} />
         ))}
       </div>
     </div>
