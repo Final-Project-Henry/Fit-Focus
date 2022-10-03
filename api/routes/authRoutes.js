@@ -215,7 +215,7 @@ router.get("/confirmation", async (req, res) => {
 router.put("/feedbackExercise", async (req, res) => {
   try {
     const { email } = req.user;
-    const { comment, rating, id } = req.body;
+    const { comment, rating, id, avatar } = req.body;
 
     if(!/^.{10,50}$/.test(comment)){
       return res.status(403).send('Comment must contain at least 10 characters')
@@ -233,6 +233,7 @@ router.put("/feedbackExercise", async (req, res) => {
         email,
         comment,
         rating,
+        avatar,
       },
     ];
 

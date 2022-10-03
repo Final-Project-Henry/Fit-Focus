@@ -311,13 +311,11 @@ export const rewindExercise = createAsyncThunk(
         url: "http://localhost:3001/auth/feedbackExercise",
         method: "PUT",
         headers: headersList,
-        data: data,
+        data,
       };
 
       let response = await axios.request(reqOptions);
-      console.log(response);
-      thunkAPI.dispatch(Status("success"));
-      return;
+      return thunkAPI.dispatch(Status("success"));
     } catch (error: any) {
       thunkAPI.dispatch(Status(error.response.data));
       return error;
