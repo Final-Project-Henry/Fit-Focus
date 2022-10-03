@@ -15,7 +15,7 @@ export default function Exercise() {
   }, [])
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "10vh" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "10vh",marginLeft:"3vw" }}>
       <h1 style={{ fontSize: "3rem", fontWeight: "500" }}>Edit Exercise</h1>
       {
         exercise ?

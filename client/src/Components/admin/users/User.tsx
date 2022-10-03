@@ -10,6 +10,8 @@ export default function User() {
   const [admin_state, setAdmin] = useState('not_loaded');
   const users = useAppSelector(state => state.admin);
   const admin = useAppSelector(state => state.user);
+  const [editProfile, setEditProfile] = useState(false);
+  const [editInfo, setEditInfo] = useState(false);
   const params = useParams();
   const user = users.users?.find((e: any) => e._id === params.id);
 
@@ -17,6 +19,16 @@ export default function User() {
     dispatch(add_admin(user._id));
     setAdmin('loaded');
     alert('Change successful');
+  }
+
+  const onEdit = (edit:string)=>{
+    if(edit==='profile')setEditProfile(true);
+  };
+
+  const onSaveChanges = (edit:string)=>{
+    
+    if(edit==='profile')setEditProfile(false);
+    if(edit==='info')setEditInfo(false);
   }
 
   useEffect(() => {

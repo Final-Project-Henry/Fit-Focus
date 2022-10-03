@@ -1,16 +1,17 @@
 import { AiFillEdit } from "react-icons/ai"
 
-interface rewind{
-  cont:number
+interface Props {
+  user: string
+  rewind: number
+  avatar: string
 }
-interface user{
-  email:string
-}
-export default function Comment ( props:{user:string ,rewind:number}){
+
+
+export default function Comment (props: Props){
 
   return(
     <>
-            <img className="rounded-full w-[10%] m-2" src="https://randomuser.me/api/portraits/men/97.jpg" />
+            <img className="rounded-full w-12 h-12 object-cover m-2 " src={props.avatar} />
              <div className="flex flex-col">
                <p className="m-2">{props.user}</p>
                 <div className="flex">

@@ -16,7 +16,7 @@ import { GridPDFExport } from "@progress/kendo-react-pdf";
 import '@progress/kendo-theme-material/dist/all.css';
 import { orderBy, SortDescriptor } from "@progress/kendo-data-query";
 import Swal from "sweetalert2";
-import { delete_exer } from "../../../features/admin/admin";
+import { delete_exer, reset_delete_exer } from "../../../features/admin/admin";
 
 interface Page {
   skip: number;
@@ -139,6 +139,10 @@ export default function Exercises() {
       )
     }
     dispatch(Exercises_Get());
+
+    return ()=>{
+      dispatch(reset_delete_exer());
+    }
   }, [admin]);
 
   const grid = (
