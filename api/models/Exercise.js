@@ -35,7 +35,7 @@ const exerciseSchema = new Schema({
         email : {type : String},
         comment : {type : String},
         rating : {type : String},
-        avatar : {type : String}
+        avatar : {type : String},
         report : [{type : String}]
     }]
 })
