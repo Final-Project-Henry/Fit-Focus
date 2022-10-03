@@ -40,7 +40,7 @@ router.post('/addExercise', async (req,res) => {
 });
 
 
-router.post('/deleteUserComment', async (req, res) => {
+router.delete('/deleteUserComment', async (req, res) => {
   try {
     const { email, name } = req.body;
     const exer = await Exercise.findOne({ name: name });

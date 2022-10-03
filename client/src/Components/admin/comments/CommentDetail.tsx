@@ -14,7 +14,7 @@ export default function CommentDetail(props: {
 }) {
   const dispatch = useAppDispatch();
 
-  const onDelete = (e: any) => {
+  const onDelete = () => {
     dispatch(delete_comment({ email: props.feedback.email, name: props.name }));
   };
 
