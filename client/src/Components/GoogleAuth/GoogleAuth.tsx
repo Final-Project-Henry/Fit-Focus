@@ -1,9 +1,10 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { GoogleLogin } from '@react-oauth/google';
-import { authGoogle } from '../../features/counter/counterSlice';
-import { useAppDispatch } from "../../app/hooks";
+import {  ActivecuentaGoogle, authGoogle, selectUser } from '../../features/counter/counterSlice';
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { useGoogleLogin } from '@react-oauth/google';
 import { composeWithDevTools } from '@reduxjs/toolkit/dist/devtoolsExtension';
+import jwtDecode from 'jwt-decode';
 
 
 
@@ -13,19 +14,36 @@ interface response {
     select_by: String
 }
 
-export default function GoogleAuth() {
 
+export default function GoogleAuth() {
+    const { EstadoCuenta } = useAppSelector(selectUser)
     const [code, setCode] = useState('')
     const dispatch = useAppDispatch();
+    
 
     const sendInfo = (code: String) => {
+        
         dispatch(authGoogle({ code: code }));
     }
+
+    
     useEffect(()=>{
         if(code.length>0){
             sendInfo(code);
         }
     },[code])
+
+    useEffect(() => {
+        console.log("entroooo")
+        if (EstadoCuenta==="Activar") {
+            let user=jwtDecode(code)
+            let data:any= user
+            console.log(user)
+            dispatch(ActivecuentaGoogle({email:data.email, password:data.sub}))
+
+        }
+
+    },[EstadoCuenta])
 
     return (
         <Fragment>

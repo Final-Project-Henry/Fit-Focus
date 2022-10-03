@@ -47,7 +47,7 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => { // Validando las credenciales y devuelve el token.
   
-  if(!validation.register(req.body))res.status(500).send('Invalid parameters');
+  if(!validation.register(req.body))return res.status(500).send('Invalid parameters');
 
   try {
     const {email , password} = req.body
@@ -81,17 +81,17 @@ router.get('/feedbackUser', async (req,res)=>{
     if(User[i].feedback) {
     feedbacks.push({name: User[i].name, avatar: User[i].avatar, comment: User[i].feedback})
     }
-  }
+  } 
   res.status(200).send(feedbacks)
 });
 
 router.put('/account', async (req, res) =>{
   try {
     const {email, password} = req.body
-    console.log(email, password)
+
     const User = await user.findOne({email : email});
     if(!User) return res.status(404).send('User not found');
-  
+    console.log(User.password)
     const Checked = await bcrypt.compare(password, User.password);
     if(Checked) {
       if(User.status === 'activated') return res.status(400).send('User already activated');
@@ -105,6 +105,28 @@ router.put('/account', async (req, res) =>{
     res.status(500).send(error.message)
   }
 })
+
+
+router.put('/accountGoogle', async (req, res) =>{
+  try {
+    const {email, password} = req.body
+    const User = await user.findOne({email : email});
+    if(!User) return res.status(404).send('User not found');
+  
+    if(User) {
+      if(User.status === 'activated') return res.status(400).send('User already activated');
+       User.status = 'activated'
+       await User.save()
+       res.status(200).send('Account activated')
+    }else {
+     res.status(403).send('Password not valid')
+    }
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+})
+
+
 
 router.post('/newpassword', async (req, res) =>{
 

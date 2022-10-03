@@ -9,6 +9,7 @@ export interface State {
   userToken: null | string | any;
   status: string | null;
   rutines: any | null;
+  EstadoCuenta: string | null;
   exercises: Array<any> | [];
 }
 
@@ -19,6 +20,7 @@ export interface infoRutina {
 
 const initialState: State = {
   user: null,
+  EstadoCuenta:"",
   userToken: null,
   status: "none",
   rutines: {},
@@ -158,7 +160,22 @@ export const Activecuenta = createAsyncThunk(
       const response = await axios.put("http://localhost:3001/account", user);
       const resp = response.data;
       thunkAPI.dispatch(Status(resp));
-    
+      return resp;
+    } catch (error: any) {
+      thunkAPI.dispatch(Status(error.response.data));
+      return;
+    }
+  }
+);
+export const ActivecuentaGoogle = createAsyncThunk(
+  "user/activeGoogle",
+  async (user: object, thunkAPI) => {
+    thunkAPI.dispatch(Status("none"));
+
+    try {
+      const response = await axios.put("http://localhost:3001/accountGoogle", user);
+      const resp = response.data;
+      thunkAPI.dispatch(Status(resp));
       return resp;
     } catch (error: any) {
       thunkAPI.dispatch(Status(error.response.data));
@@ -316,7 +333,9 @@ export const authGoogle = createAsyncThunk(
         code
       );
       return response.data;
-    } catch (error) {
+    } catch (error:any) {
+      thunkAPI.dispatch(Status(error.response.data));
+      thunkAPI.rejectWithValue(error.response.data);
       return;
     }
   }
@@ -350,6 +369,9 @@ export const StateSlice = createSlice({
       window.localStorage.removeItem("Login_userFit_Focus");
       state.user = action.payload;
     },
+    Estado:(state, action: PayloadAction<string>) => {
+        state.EstadoCuenta=action.payload
+    },
     Status: (state, action: PayloadAction<string  |null>) => {
       state.status = action.payload;
     },
@@ -380,7 +402,7 @@ export const StateSlice = createSlice({
   },
 });
 
-export const { User, sigendOut, Status, Rutines, UserToken, Exercises } =
+export const { User, sigendOut, Status, Estado,Rutines, UserToken, Exercises } =
   StateSlice.actions;
 
 export const selectUser = (state: RootState) => state.user;

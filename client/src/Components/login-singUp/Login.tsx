@@ -7,6 +7,7 @@ import {
   User_Login_State,
   selectUser,
   Activecuenta,
+  Estado,
 } from "../../features/counter/counterSlice";
 
 import { Link } from "react-router-dom";
@@ -18,12 +19,21 @@ interface Propos {
   icon?: string;
 }
 
+const regexEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
+const regexPassword = /^[a-zA-Z0-9]{6,10}$/;
+
 const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
   let user = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
   const Navegation = useNavigate();
   const [Activar, SetActivar] = useState(false);
   const [Form_data, Set_form_data] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [error, setError] = useState({
+    name: "",
     email: "",
     password: "",
   });
@@ -41,7 +51,7 @@ const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
   useEffect(() => {
     if (user.status === "User desactivated") {
       Swal.fire({
-        title: "Esta cuenta esta desactivada. agregar mas lorem :V",
+        title: "Esta cuenta esta desactivada.",
         icon: "info",
         showCancelButton: true,
         confirmButtonColor: "#230bf8",
@@ -51,6 +61,7 @@ const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
       }).then((result) => {
         if (result.isConfirmed) {
           SetActivar(true);
+          dispatch(Estado("Activar"))
         }
       });
     }
@@ -64,6 +75,34 @@ const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
   //////////enviar de datos  por medio de los input//////////////////////////////////////////
   function handleSubmit(event: React.FormEvent): void {
     event.preventDefault();
+
+    if (!regexEmail.test(Form_data.email)) {
+      Swal.fire({
+        title: "Por favor ingrese un correo valido",
+        icon: "info",
+        showCancelButton: false,
+        confirmButtonColor: "#230bf8",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Aceptar",
+      }).then((result) => {
+        setError({ ...error, email: "border-red-600" })
+      });
+      return;
+    }
+
+    if (!regexPassword.test(Form_data.password)) {
+      Swal.fire({
+        title: "Por favor ingrese una contraseña entre 6 y 10 letras y/o números",
+        icon: "info",
+        showCancelButton: false,
+        confirmButtonColor: "#230bf8",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Aceptar",
+      }).then((result) => {
+        setError({ ...error, password: "border-red-600" })
+      });
+      return;
+    }
 
     Activar
       ? dispatch(Activecuenta(Form_data))

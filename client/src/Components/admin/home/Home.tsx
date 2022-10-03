@@ -6,6 +6,7 @@ import money from "../imgs/money.png";
 import time from "../imgs/time.png";
 import Grafica from "./Grafica";
 import { get_users } from "../../../features/admin/admin";
+import SdGrafica from "./SdGrafica";
 
 export default function Home() {
   const dispatch = useAppDispatch();
@@ -23,7 +24,7 @@ export default function Home() {
       style={{
         display: "flex",
         flexDirection: "column",
-        marginLeft: "10vw",
+        marginLeft: "5vw",
         gap: "5vh",
         marginBottom: "10vh",
       }}
@@ -78,7 +79,6 @@ export default function Home() {
             }}
           />
           <Grafica />
-          <Grafica />
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: "5vh" }}>
           <DataCard
@@ -88,8 +88,7 @@ export default function Home() {
               value: window.Date().slice(0, 25),
             }}
           />
-          <Grafica />
-          <Grafica />
+          <SdGrafica />
         </div>
       </div>
     </div>

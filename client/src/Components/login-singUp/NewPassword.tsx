@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import loading_icon from "../assets/icons/loading.svg"
-import icon from "../assets/icons/nav-icon2.png"
+import icon from "../assets/icons/login.jpg"
 
 import {
   User_Login_State,
