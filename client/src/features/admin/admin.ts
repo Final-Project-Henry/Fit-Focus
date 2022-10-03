@@ -174,6 +174,10 @@ export const delete_comment = createAsyncThunk(
 export const AdminSlice = createSlice({
   name: "admin",
   initialState,
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4e29efe410310c1f1faa021821cf0fcdd78d2535
 
 <<<<<<< HEAD
     reducers: {
@@ -188,6 +192,10 @@ export const AdminSlice = createSlice({
   reducers: {},
 >>>>>>> ff01abf55c06ea253fd0868c9c19f1acf02873fa
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4e29efe410310c1f1faa021821cf0fcdd78d2535
   extraReducers: (builder) => {
     builder
       .addCase(get_users.fulfilled, (state, action) => {
@@ -225,11 +233,20 @@ export const AdminSlice = createSlice({
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export const { reset_delete_user, reset_delete_exer} = AdminSlice.actions;
 export const admin = (state: RootState) => state.admin;
 =======
 export const {} = AdminSlice.actions;
 export const mercadopago = (state: RootState) => state.mercadopago;
 >>>>>>> ff01abf55c06ea253fd0868c9c19f1acf02873fa
+=======
+export const {} = AdminSlice.actions;
+export const mercadopago = (state: RootState) => state.mercadopago;
+=======
+export const { reset_delete_user, reset_delete_exer} = AdminSlice.actions;
+export const admin = (state: RootState) => state.admin;
+>>>>>>> develop
+>>>>>>> 4e29efe410310c1f1faa021821cf0fcdd78d2535
 
 export default AdminSlice.reducer;
