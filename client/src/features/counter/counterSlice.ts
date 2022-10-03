@@ -171,13 +171,14 @@ export const ActivecuentaGoogle = createAsyncThunk(
   "user/activeGoogle",
   async (user: object, thunkAPI) => {
     thunkAPI.dispatch(Status("none"));
-
     try {
       const response = await axios.put("http://localhost:3001/accountGoogle", user);
       const resp = response.data;
       thunkAPI.dispatch(Status(resp));
       return resp;
+
     } catch (error: any) {
+      console.log(error)
       thunkAPI.dispatch(Status(error.response.data));
       return;
     }
@@ -332,8 +333,10 @@ export const authGoogle = createAsyncThunk(
         "http://localhost:3001/authGoogle",
         code
       );
+      console.log(response)
       return response.data;
     } catch (error:any) {
+      console.log(error)
       thunkAPI.dispatch(Status(error.response.data));
       thunkAPI.rejectWithValue(error.response.data);
       return;

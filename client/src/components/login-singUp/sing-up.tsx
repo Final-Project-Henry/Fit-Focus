@@ -12,6 +12,7 @@ import {
   User_Register_State,
 
   selectUser,
+  Estado,
 } from "../../features/counter/counterSlice";
 import GoogleAuth from "../GoogleAuth/GoogleAuth";
 interface Propos {
@@ -59,6 +60,8 @@ const Login2: React.FC<Propos> = ({ loading_icon, icon }) => {
   //////////enviar de datos  por medio de los input//////////////////////////////////////////
   function handleSubmit(event: React.FormEvent): void {
     event.preventDefault();
+    dispatch(Estado(""))
+
 
     if (!regexName.test(Form_data.name)) {
       Swal.fire({
