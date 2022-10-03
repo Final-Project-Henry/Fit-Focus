@@ -1,10 +1,8 @@
 import icon from "../assets/icons/nav-icon.png";
 
-
 const Footer2 = () => {
-
   return (
-    <footer className="p-4 sm:p-6 bg-gray-900">
+    <footer className="p-4 sm:p-6 bg-gray-700">
       <div className="md:flex md:justify-between h-20">
         <div className="mb-6 md:mb-0 ">
           <div className="flex items-center hover: border-none ml-9">
@@ -16,17 +14,16 @@ const Footer2 = () => {
             <h2 className="mb-6 text-sm font-semibold  uppercase text-white">
               Colaboración
             </h2>
-            <ul className="text-gray-400">
-              <li className="mb-4">
-                <a
-                  href="/AboutUs"
-                  target="_blank"
-                  className="hover:underline"
-                >
+            <ul className="text-gray-300 ">
+              <li className="mb-4 ">
+                <a href="/AboutUs" target="_blank" className="hover:underline">
                   Nosotros
                 </a>
               </li>
-              <li className="mb-4">
+              <li
+                style={{ textDecoration: "none" }}
+                className="mb-4   no-underline"
+              >
                 <a
                   href="https://www.soyhenry.com/"
                   target="_blank"
@@ -38,22 +35,30 @@ const Footer2 = () => {
             </ul>
           </div>
           <div>
-            <h2 className="mb-6 text-sm font-semibold  uppercase text-white">
+            <h2 className="mb-6 text-sm font-semibold uppercase text-white">
               CONTACTANOS
             </h2>
-            <ul className="text-gray-400">
+            <ul className="text-gray-300">
               <li className="mb-4">
                 <a href="https://github.com/" className="hover:underline ">
                   Github
                 </a>
               </li>
               <li className="mb-4">
-                <a href="https://www.instagram.com/fitfocushenry/" target="_blank" className="hover:underline ">
+                <a
+                  href="https://www.instagram.com/fitfocushenry/"
+                  target="_blank"
+                  className="hover:underline "
+                >
                   Instagram
                 </a>
               </li>
               <li className="mb-4">
-                <a href="/contactanos" target="_blank" className="hover:underline ">
+                <a
+                  href="/contactanos"
+                  target="_blank"
+                  className="hover:underline "
+                >
                   Contactos
                 </a>
               </li>
@@ -63,14 +68,22 @@ const Footer2 = () => {
             <h2 className="mb-6 text-sm font-semibold uppercase text-white">
               Legal
             </h2>
-            <ul className="text-gray-400">
+            <ul className="text-gray-300">
               <li className="mb-4">
-                <a href="/politicadeprivacidad" target="_blank" className="hover:underline">
+                <a
+                  href="/politicadeprivacidad"
+                  target="_blank"
+                  className="hover:underline"
+                >
                   Política de Privacidad
                 </a>
               </li>
               <li>
-                <a href="/terminosycondiciones" target="_blank" className="hover:underline">
+                <a
+                  href="/terminosycondiciones"
+                  target="_blank"
+                  className="hover:underline"
+                >
                   Términos y Condiciones
                 </a>
               </li>
@@ -80,20 +93,17 @@ const Footer2 = () => {
       </div>
       <hr className="my-6 sm:mx-auto border-amber-500 lg:my-8" />
       <div className="sm:flex sm:items-center sm:justify-between">
-        <span className="text-sm  sm:text-center text-gray-400">
-          © 2022 <span className="hover:underline">Fit-Focus™</span>.Todos los derechos reservados.
+        <span className="text-sm  sm:text-center text-gray-300">
+          © 2022 <span className="hover:underline">Fit-Focus™</span>.Todos los
+          derechos reservados.
         </span>
         <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
           <a
             href="https://web.facebook.com/profile.php?id=100086259135598"
             target="_blank"
-            className="text-gray-500 hover:text-white"
+            className="text-gray-300 hover:text-white"
           >
-            <svg
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
+            <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path
                 fillRule="evenodd"
                 d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
@@ -105,7 +115,7 @@ const Footer2 = () => {
           <a
             href="https://www.instagram.com/fitfocushenry/"
             target="_blank"
-            className="text-gray-500 hover:text-white"
+            className="text-gray-300 hover:text-white"
           >
             <svg
               className="w-5 h-5"
@@ -124,7 +134,7 @@ const Footer2 = () => {
           <a
             href="#"
             target="_blank"
-            className="text-gray-500 hover:text-white"
+            className="text-gray-300 hover:text-white"
           >
             <svg
               className="w-5 h-5"
@@ -139,7 +149,7 @@ const Footer2 = () => {
           <a
             href="https://github.com/"
             target="_blank"
-            className="text-gray-500 hover:text-white"
+            className="text-gray-300 hover:text-white"
           >
             <svg
               className="w-5 h-5"
