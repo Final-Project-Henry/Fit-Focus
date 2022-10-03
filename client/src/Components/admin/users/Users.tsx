@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
-import { get_users } from "../../../features/admin/admin";
+import { delete_user, get_users } from "../../../features/admin/admin";
 import active from "../imgs/active.png";
 import desactive from "../imgs/desactive.png";
 import premium from "../imgs/premium.png";
@@ -17,6 +17,7 @@ import {
 import { GridPDFExport } from "@progress/kendo-react-pdf";
 import '@progress/kendo-theme-material/dist/all.css';
 import { orderBy, SortDescriptor } from "@progress/kendo-data-query";
+import Swal from "sweetalert2";
 
 interface Page {
   skip: number;
@@ -43,7 +44,20 @@ export default function Users() {
   };
 
   const onDelete = (id: string) => {
-    navigate(`/admin/users/${id}`);
+    Swal.fire({
+      title: '¿Estas seguro que quieres eliminar al Usuario de la DB?',
+      text: "Este proceso es irreversible!!!!!!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: "Cancelar",
+      confirmButtonText: 'Eliminar',
+    }).then((result: any) => {
+      if (result.isConfirmed) {
+        dispatch(delete_user(id))
+      }
+    })
   };
 
   const actionCell = (user: any) => {
@@ -158,8 +172,15 @@ export default function Users() {
   )
 
   useEffect(() => {
+    if(users.delete_user==='deleted'){
+      Swal.fire(
+        'Eliminado',
+        'El Usuario fue eliminado de la DB exitosamente',
+        'success'
+    )
+    }
     dispatch(get_users());
-  }, []);
+  }, [users.delete_user]);
 
 
   return (

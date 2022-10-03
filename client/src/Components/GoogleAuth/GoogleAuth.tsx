@@ -34,7 +34,6 @@ export default function GoogleAuth() {
     },[code])
 
     useEffect(() => {
-        console.log("entroooo")
         if (EstadoCuenta==="Activar") {
             let user=jwtDecode(code)
             let data:any= user

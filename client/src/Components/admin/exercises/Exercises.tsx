@@ -15,6 +15,8 @@ import {
 import { GridPDFExport } from "@progress/kendo-react-pdf";
 import '@progress/kendo-theme-material/dist/all.css';
 import { orderBy, SortDescriptor } from "@progress/kendo-data-query";
+import Swal from "sweetalert2";
+import { delete_exer } from "../../../features/admin/admin";
 
 interface Page {
   skip: number;
@@ -28,6 +30,7 @@ const initialSort: Array<SortDescriptor> = [
 export default function Exercises() {
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.user);
+  const admin = useAppSelector(state => state.admin);
   const navigate = useNavigate();
 
   let total: number | undefined = user.exercises?.length;
@@ -41,7 +44,20 @@ export default function Exercises() {
   };
 
   const onDelete = (id: string) => {
-    navigate(`/admin/exercises/${id}`);
+    Swal.fire({
+      title: '¿Estas seguro que quieres eliminar el ejercicio?',
+      text: "Este proceso es irreversible!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: "Cancelar",
+      confirmButtonText: 'Eliminar',
+    }).then((result: any) => {
+      if (result.isConfirmed) {
+        dispatch(delete_exer(id))
+      }
+    })
   };
 
   const onCreate = () => {
@@ -115,8 +131,15 @@ export default function Exercises() {
   };
 
   useEffect(() => {
+    if (admin.delete_exer == 'deleted') {
+      Swal.fire(
+        'Eliminado',
+        'El ejercicio fue eliminado exitosamente',
+        'success'
+      )
+    }
     dispatch(Exercises_Get());
-  }, []);
+  }, [admin]);
 
   const grid = (
     <Grid

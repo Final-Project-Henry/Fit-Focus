@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
     const mailDetails = mailSettings.mailDetails(data.email);
   
     let oldUser = await user.findOne({ email: data.email });
-    if(oldUser.status === 'desactivated') return res.status(401).send('User desactivated');
+    if(oldUser?.status === 'desactivated') return res.status(401).send('User desactivated');
     
     if (!oldUser) {
       const hashPassword = await bcrypt.hash(data.sub, 10)
@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
         else console.log('mensaje enviado con exito');
       });
     }
-    const token = jwt.sign({ email: oldUser.email, name: oldUser.name, id: oldUser._id }, "" + SECRET)
+    const token = jwt.sign({ email: oldUser.email, name: oldUser.name, id: oldUser._id ,avatar: oldUser.avatar}, "" + SECRET)
 
     res.status(200).send(token)
   } catch (error) {
