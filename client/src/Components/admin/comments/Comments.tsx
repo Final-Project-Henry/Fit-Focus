@@ -7,10 +7,12 @@ export default function Comments() {
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.user);
   const comments = user.exercises?.filter((e: any) => e.feedback.length > 0);
+  console.log(comments);
 
   useEffect(() => {
     if (user.exercises?.length === 0) dispatch(Exercises_Get());
-  }, []);
+  }, [dispatch, user.exercises?.length]);
+
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "2vh" }}>
       {comments.length > 0 ? (

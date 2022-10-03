@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Swal from "sweetalert2";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { delete_comment } from "../../../features/admin/admin";
+import { Exercises_Get } from "../../../features/counter/counterSlice";
 
 interface feedback {
   email: string;
@@ -14,8 +16,29 @@ export default function CommentDetail(props: {
 }) {
   const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    dispatch(Exercises_Get());
+  }, []);
+
   const onDelete = () => {
-    dispatch(delete_comment({ email: props.feedback.email, name: props.name }));
+    Swal.fire({
+      title: `¿Eliminar el comentario de "${props.feedback.email}" la DB?`,
+      text: "Este proceso es irreversible.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      cancelButtonText: "Cancelar",
+      confirmButtonText: "Eliminar",
+    }).then((result: any) => {
+      if (result.isConfirmed) {
+        dispatch(
+          delete_comment({ email: props.feedback.email, name: props.name })
+        );
+        // eslint-disable-next-line no-restricted-globals
+        location.reload();
+      }
+    });
   };
 
   return (
