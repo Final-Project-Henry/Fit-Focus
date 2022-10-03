@@ -38,6 +38,10 @@ router.put("/userfeedback", async (req, res) => {
   try {
     const { comment, email } = req.body;
    
+    if(!/^.{10,50}$/.test(comment)){
+      return res.status(403).send('Comment must contain at least 10 characters')
+  }
+
     await user.updateOne(
       { email: email },
       {
@@ -213,7 +217,7 @@ router.put("/feedbackExercise", async (req, res) => {
     const { email } = req.user;
     const { comment, rating, id } = req.body;
 
-    if(!/^.{10,30}$/.test(comment)){
+    if(!/^.{10,50}$/.test(comment)){
       return res.status(403).send('Comment must contain at least 10 characters')
   }
  
@@ -253,6 +257,7 @@ router.put("/report", async (req, res) => {
 router.put("/newAdmin", async (req, res) => {
   try {
     const { id } = req.user;
+
     await user.updateOne(
       { _id: id },
       {
