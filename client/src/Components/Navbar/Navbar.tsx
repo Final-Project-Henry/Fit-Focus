@@ -99,11 +99,14 @@ const Navbar = () => {
               id="mobile-menu-2"
             >
               <ul className="flex flex-col p-4 mt-4 ml-4 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
-                <li>
-           
-                  <button onClick={onClick} className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent md:p-0 "
-                    aria-current="page">Inicio</button>
-                </li>
+              <li>
+                        <Link
+                           to={userInfo?`/fitFocus`:`/home`}
+                          className="block py-2 p pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                        >
+                          Inicio
+                        </Link>
+                      </li>
               
                     <li>
                       <Scroll

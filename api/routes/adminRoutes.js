@@ -39,4 +39,25 @@ router.post('/addExercise', async (req,res) => {
   }
 });
 
+
+router.post('/deleteUserComment', async (req, res) => {
+  try {
+    const { email, name } = req.body;
+    const exer = await Exercise.findOne({ name: name });
+    console.log(email, name);
+    const newFeedback = exer.feedback.filter(e => e.email !== email);
+
+    await Exercise.updateOne(
+      { name: name },
+      {
+        feedback: newFeedback,
+      }
+    );
+
+    res.status(200).send('Comment deleted successfully')
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+});
+
 module.exports = router;

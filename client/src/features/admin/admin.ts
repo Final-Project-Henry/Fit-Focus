@@ -122,7 +122,14 @@ export const AdminSlice = createSlice({
     name: 'admin',
     initialState,
 
-    reducers: {},
+    reducers: {
+        reset_delete_user(state){
+            state.delete_user='default';
+        },
+        reset_delete_exer(state){
+            state.delete_exer='default';
+        },
+    },
 
     extraReducers: (builder) => {
         builder
@@ -160,7 +167,7 @@ export const AdminSlice = createSlice({
     }
 });
 
-export const { } = AdminSlice.actions;
-export const mercadopago = (state: RootState) => state.mercadopago;
+export const { reset_delete_user, reset_delete_exer} = AdminSlice.actions;
+export const admin = (state: RootState) => state.admin;
 
 export default AdminSlice.reducer;
