@@ -1,4 +1,6 @@
 import React from "react";
+import { useAppDispatch, useAppSelector } from "../../../app/hooks";
+import { delete_comment } from "../../../features/admin/admin";
 
 interface feedback {
   email: string;
@@ -6,7 +8,16 @@ interface feedback {
   rating: number | string;
 }
 
-export default function CommentDetail(props: { feedback: feedback }) {
+export default function CommentDetail(props: {
+  feedback: feedback;
+  name: string;
+}) {
+  const dispatch = useAppDispatch();
+
+  const onDelete = (e: any) => {
+    dispatch(delete_comment({ email: props.feedback.email, name: props.name }));
+  };
+
   return (
     <div
       style={{
@@ -32,6 +43,7 @@ export default function CommentDetail(props: { feedback: feedback }) {
         {props.feedback.comment}
       </p>
       <button
+        onClick={onDelete}
         className="font-semibold"
         style={{
           margin: " auto",
