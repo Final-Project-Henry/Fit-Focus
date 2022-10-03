@@ -175,9 +175,7 @@ export const AdminSlice = createSlice({
   name: "admin",
   initialState,
 
-<<<<<<< HEAD
-  reducers: {},
-=======
+
     reducers: {
         reset_delete_user(state){
             state.delete_user='default';
@@ -186,7 +184,7 @@ export const AdminSlice = createSlice({
             state.delete_exer='default';
         },
     },
->>>>>>> develop
+
 
   extraReducers: (builder) => {
     builder
