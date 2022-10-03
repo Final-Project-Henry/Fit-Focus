@@ -20,13 +20,13 @@ const userinfoSchema = new Schema({
         enum: ['gain muscles', 'lower fat percentage']
     }, 
     equipment: {
-        type: Boolean
+        type: Boolean,
+        default : false
     }, 
     experience: {
         type: String,
         enum: ['beginner', 'medium', 'advanced']
     },
-   
 
 })
 
