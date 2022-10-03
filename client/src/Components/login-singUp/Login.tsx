@@ -7,6 +7,7 @@ import {
   User_Login_State,
   selectUser,
   Activecuenta,
+  Estado,
 } from "../../features/counter/counterSlice";
 
 import { Link } from "react-router-dom";
@@ -41,7 +42,7 @@ const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
   useEffect(() => {
     if (user.status === "User desactivated") {
       Swal.fire({
-        title: "Esta cuenta esta desactivada. agregar mas lorem :V",
+        title: "Esta cuenta esta desactivada.",
         icon: "info",
         showCancelButton: true,
         confirmButtonColor: "#230bf8",
@@ -51,6 +52,7 @@ const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
       }).then((result) => {
         if (result.isConfirmed) {
           SetActivar(true);
+          dispatch(Estado("Activar"))
         }
       });
     }
