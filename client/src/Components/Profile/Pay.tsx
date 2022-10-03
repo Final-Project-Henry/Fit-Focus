@@ -17,10 +17,10 @@ const Pay = ({ plan }: any) => {
                             {
                                 plan === "premium"
                                     ? <strong className="text-slate-600 mr-0.5">
-                                        • Cuenta premium: <span className="text-green-500">10$</span>
+                                        • Cuenta premium: <span className="text-green-500">3000$</span>
                                     </strong>
                                     : <strong className="text-slate-600 mr-0.5">
-                                    • Sin pagos :(
+                                    • Sin pagos
                                 </strong>
                                 }
 
