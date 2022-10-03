@@ -16,6 +16,14 @@ const Footer = () => {
     comment: "",
     email: "",
   });
+
+  const [error, setError] = useState({
+    name: "",
+    email: "",
+    password: "",
+  })
+
+
   function handleChange(
     event: React.ChangeEvent<
       HTMLFormElement | HTMLInputElement | HTMLTextAreaElement
@@ -30,6 +38,36 @@ const Footer = () => {
 
   const handleSubmmit = async (event: React.FormEvent) => {
     event.preventDefault();
+
+
+    if (feedback.comment.length < 10) {
+      Swal.fire({
+        title: "Su comentario debe tener mas de 10 caracteres", 
+        icon: "info",
+        showCancelButton: false,
+        confirmButtonColor: "#230bf8",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Aceptar",
+      }).then((result) => {
+        setError({ ...error, password: "border-red-600" })
+      });
+      return;
+    }
+
+    if (feedback.comment.length > 50) {
+      Swal.fire({
+        title: "Su comentario debe tener menos de 50 caracteres", 
+        icon: "info",
+        showCancelButton: false,
+        confirmButtonColor: "#230bf8",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Aceptar",
+      }).then((result) => {
+        setError({ ...error, password: "border-red-600" })
+      });
+      return;
+    }
+
 
     if (feedback.comment.length > 0 && feedback.email.length > 0) {
       Swal.fire({
@@ -48,6 +86,9 @@ const Footer = () => {
       });
     }
   };
+
+
+
   return (
     <footer className="p-4 sm:p-6 bg-gray-900">
       <div className="md:flex md:justify-between h-80"> 
