@@ -1,50 +1,112 @@
 import React, { useEffect, useRef, useState } from "react";
+
+import Swal from "sweetalert2";
+
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Navigation } from "swiper";
+
 
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 
 import {
-    User_Register_State,
+  User_Register_State,
 
-    selectUser,
+  selectUser,
 } from "../../features/counter/counterSlice";
 import GoogleAuth from "../GoogleAuth/GoogleAuth";
 interface Propos {
-    icon?: string;
-    loading_icon?: string;
+  icon?: string;
+  loading_icon?: string;
 }
 
+const regexEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
+const regexName = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/;
+const regexPassword = /^[a-zA-Z0-9]{6,10}$/;
+
+
 const Login2: React.FC<Propos> = ({ loading_icon, icon }) => {
+
+
+  const user_logeao = useAppSelector(selectUser);
+  const dispatch = useAppDispatch();
+
+  const [Form_data, Set_form_data] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+  const [error, setError] = useState({
+    name: "",
+    email: "",
+    password: "",
+  })
+
 
     const navigate = useNavigate()
 
     let user = useAppSelector(selectUser);
 
-    const user_logeao = useAppSelector(selectUser);
-    const dispatch = useAppDispatch();
 
-    const [Form_data, Set_form_data] = useState({
-        name: "",
-        email: "",
-        password: "",
-    });
+  //////////obtencion de datos  por medio de los input//////////////////////////////////////////
 
-    //////////obtencion de datos  por medio de los input//////////////////////////////////////////
+  function handleChange(
+    event: React.ChangeEvent<HTMLFormElement | HTMLInputElement>
+  ): void {
+    Set_form_data((pv) => ({ ...pv, [event.target.name]: event.target.value }));
+    setError({ ...error, [event.target.name]: "" });
+  }
 
-    function handleChange(
-        event: React.ChangeEvent<HTMLFormElement | HTMLInputElement>
-    ): void {
-        Set_form_data((pv) => ({ ...pv, [event.target.name]: event.target.value }));
+  //////////enviar de datos  por medio de los input//////////////////////////////////////////
+  function handleSubmit(event: React.FormEvent): void {
+    event.preventDefault();
+
+    if (!regexName.test(Form_data.name)) {
+      Swal.fire({
+        title: "Por favor ingrese un nombre con solo letras",
+        icon: "info",
+        showCancelButton: false,
+        confirmButtonColor: "#230bf8",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Aceptar",
+      }).then((result) => {
+        setError({ ...error, name: "border-red-600" })
+
+      });
+
+      return;
     }
 
-    //////////enviar de datos  por medio de los input//////////////////////////////////////////
-    function handleSubmit(event: React.FormEvent): void {
-        event.preventDefault();
-
-        dispatch(User_Register_State(Form_data));
+    if (!regexEmail.test(Form_data.email)) {
+      Swal.fire({
+        title: "Por favor ingrese un correo valido",
+        icon: "info",
+        showCancelButton: false,
+        confirmButtonColor: "#230bf8",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Aceptar",
+      }).then((result) => {
+        setError({ ...error, email: "border-red-600" })
+      });
+      return;
     }
 
+    if (!regexPassword.test(Form_data.password)) {
+      Swal.fire({
+        title: "Por favor ingrese una contraseña entre 6 y 10 letras y/o números",
+        icon: "info",
+        showCancelButton: false,
+        confirmButtonColor: "#230bf8",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Aceptar",
+      }).then((result) => {
+        setError({ ...error, password: "border-red-600" })
+      });
+      return;
+    }
+
+    dispatch(User_Register_State(Form_data));
+  }
+  
     useEffect(() => {
         if (user.userToken?.length > 50) {
           let time = new Date();
@@ -167,8 +229,11 @@ const Login2: React.FC<Propos> = ({ loading_icon, icon }) => {
                     </div>
                 </div>
             </div>
+          </div>
         </div>
-    )
+      </div>
+    </div>
+  )
 }
 
 export default Login2
