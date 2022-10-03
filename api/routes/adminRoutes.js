@@ -44,7 +44,6 @@ router.post('/deleteUserComment', async (req, res) => {
   try {
     const { email, name } = req.body;
     const exer = await Exercise.findOne({ name: name });
-    console.log(email, name);
     const newFeedback = exer.feedback.filter(e => e.email !== email);
 
     await Exercise.updateOne(
