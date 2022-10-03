@@ -142,12 +142,12 @@ router.post('/newpassword', async (req, res) =>{
       if (error) {
         console.log(error)
       } else {
-        console.log('Email enviado');
+        console.log('Email sent');
       }
     });
-    res.status(200).send("send email")
+    res.status(200).send("Email sent")
   } catch (error) {
-    res.status(500).send("huvo un error")
+    res.status(500).send("An error has ocurred")
   }
 
 })

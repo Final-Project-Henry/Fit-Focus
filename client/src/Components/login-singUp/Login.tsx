@@ -40,6 +40,7 @@ const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
 
   useEffect(() => {
     if (user.userToken?.length > 50) {
+      dispatch(Estado(""))
       let time = new Date();
       let token = user.userToken;
       window.localStorage.setItem(
