@@ -189,7 +189,7 @@ const Profile = () => {
                                 <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Perfil</span>
                             </a>
                         </li>
-                        <li className="my-0.5 w-full">
+                        {/* <li className="my-0.5 w-full">
                             <a ref={progress} id="progress" onClick={() => handleClickAside("progress")} className={`${styles.selected === "progress" && styles.a} cursor-pointer rounded-lg py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors duration-500 sidebar`}>
                                 <div onClick={() => handleClickAside("progress")} className={`${styles.selected === "progress" && styles.div} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5`}>
                                     <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
@@ -208,7 +208,7 @@ const Profile = () => {
                                 </div>
                                 <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Progreso</span>
                             </a>
-                        </li>
+                        </li> */}
                         <li className="my-0.5 w-full">
                             <a id="pay" onClick={() => handleClickAside("pay")} className={`${styles.selected === "pay" && styles.a} cursor-pointer rounded-lg py-2.7 text-size-sm ease-nav-brand my-[3px] mx-4 flex items-center whitespace-nowrap px-4 transition-colors duration-500 sidebar`}>
                                 <div onClick={() => handleClickAside("pay")} className={`${styles.selected === "pay" && styles.div} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5`}>
@@ -323,7 +323,7 @@ const Profile = () => {
                     </div>
                     {
                         styles.selected === "profile" ? <ProfileDetails name={state.user?.name} email={state.user?.email} plan={state.user?.plan} age={state.user?.userinfo[0]?.age} equipment={state.user?.userinfo[0]?.equipment} experience={state.user?.userinfo[0]?.experience} genre={state.user?.userinfo[0]?.genre} goal={state.user?.userinfo[0]?.goal} height={state.user?.userinfo[0]?.height} weight={state.user?.userinfo[0]?.weight} />
-                            : styles.selected === "progress" ? <Progress />
+                            /* : styles.selected === "progress" ? <Progress /> */
                                 : styles.selected === "remove" ? <Remove />
                                     : styles.selected === "pay" ? <Pay plan={state.user?.plan} />
                                         : styles.selected === "logOut" && <ProfileDetails name={state.user?.name} email={state.user?.email} plan={state.user?.plan} age={state.user?.userinfo[0]?.age} equipment={state.user?.userinfo[0]?.equipment} experience={state.user?.userinfo[0]?.experience} genre={state.user?.userinfo[0]?.genre} goal={state.user?.userinfo[0]?.goal} height={state.user?.userinfo[0]?.height} weight={state.user?.userinfo[0]?.weight} />
