@@ -31,7 +31,7 @@ router.delete('/deleteExercise', async (req,res)=>{
 
 router.post('/addExercise', async (req,res) => {
   try {
-    const datos = req.body
+    const {datos} = req.body
     const exercise = await Exercise.create(datos)
     res.status(200).json(exercise)
   } catch (error) {
