@@ -24,8 +24,14 @@ export default function User() {
   }, [users, admin_state])
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "10vh" }}>
-      <h1 style={{ fontSize: "3rem", fontWeight: "500" }}>Edit User</h1>
+    <div style={{ display: "flex", flexDirection: "column", gap: "10vh", marginLeft:"3vw" }}>
+      <h1
+        style={{
+          fontSize: "3rem",
+          fontWeight: "500",
+          margin: "25px 0 10px 0",
+        }}
+      >Edit User</h1>
       {
         user ?
           <div style={{ display: "flex", justifyContent: "center", gap: "5vw", width: "100%" }}>

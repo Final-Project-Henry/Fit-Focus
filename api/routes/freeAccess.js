@@ -47,7 +47,7 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => { // Validando las credenciales y devuelve el token.
   
-  if(!validation.register(req.body))res.status(500).send('Invalid parameters');
+  if(!validation.register(req.body))return res.status(500).send('Invalid parameters');
 
   try {
     const {email , password} = req.body
