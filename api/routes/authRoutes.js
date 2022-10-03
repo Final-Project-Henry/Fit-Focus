@@ -37,7 +37,7 @@ router.put("/userinfo", async (req, res) => {
 router.put("/userfeedback", async (req, res) => {
   try {
     const { comment, email } = req.body;
-
+   
     await user.updateOne(
       { email: email },
       {
@@ -134,6 +134,9 @@ router.put("/addfav", async (req, res) => {
   const { id } = req.user;
   const { _id } = req.body;
 
+ const User = await user.findById(id) 
+ if(!User) return res.status(400).send('User not found')
+
   await user.updateOne(
     { _id: id },
     {
@@ -210,6 +213,12 @@ router.put("/feedbackExercise", async (req, res) => {
     const { email } = req.user;
     const { comment, rating, id } = req.body;
 
+    if(!/^.{10,30}$/.test(comment)){
+      return res.status(403).send('Comment must contain at least 10 characters')
+  }
+ 
+  if(!/[1-5]/.test(rating)) return res.status(403).send('Rating has to be between 1 and 5')
+  
     const feedbackAntiguo = await Exercise.findById(id)
       .select("feedback")
       .where("email")
