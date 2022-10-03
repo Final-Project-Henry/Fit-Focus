@@ -23,6 +23,8 @@ router.post('/register', async (req, res) => {
     const oldUser = await user.findOne({ email: email });
     if (oldUser) return res.status(409).send('User already exists');
 
+    if(!/^[a-zA-Z0-9]{6,10}$/.test(password)) return res.status(403).send('Password must contain numbers and letter, between 6 and 10 characters')
+
     const hashPassword = await bcrypt.hash(password, 10);
 
     const User = await user.create({ name, email, password: hashPassword });
