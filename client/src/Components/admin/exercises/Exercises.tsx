@@ -5,24 +5,38 @@ import dele from "../imgs/delete.png";
 import premium from "../imgs/premium.png";
 import free from "../imgs/normal.png";
 import { Exercises_Get } from "../../../features/counter/counterSlice";
+import {
+  Grid,
+  GridColumn,
+  GridToolbar,
+  GridPageChangeEvent,
+  GridSortChangeEvent
+} from '@progress/kendo-react-grid';
+import { GridPDFExport } from "@progress/kendo-react-pdf";
+import '@progress/kendo-theme-material/dist/all.css';
+import { orderBy, SortDescriptor } from "@progress/kendo-data-query";
 
-interface exercise {
-  _id: string;
-  name: string;
-  difficulty: string;
-  muscles: string;
-  genre: string;
-  video: string;
-  premium: boolean;
-  description: string;
+interface Page {
+  skip: number;
+  take: number;
 }
+
+const initialSort: Array<SortDescriptor> = [
+  { field: "name", dir: "asc" },
+];
 
 export default function Exercises() {
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.user);
   const navigate = useNavigate();
 
-  const onClick = (id: string) => {
+  let total: number | undefined = user.exercises?.length;
+  let pageSize: number = 10;
+
+  const [page, setPage] = React.useState<Page>({ skip: 0, take: pageSize });
+  const [sort, setSort] = React.useState(initialSort);
+
+  const onEdit = (id: string) => {
     navigate(`/admin/exercises/${id}`);
   };
 
@@ -34,18 +48,122 @@ export default function Exercises() {
     navigate("/admin/exercises/add");
   };
 
+  const actionCell = (user: any) => {
+    console.log(user);
+    return (
+      <td style={{ display: "flex", justifyContent: "space-around" }}>
+        <button
+          style={{
+            backgroundColor: "#111827",
+            color: "white",
+            width: "5vw",
+          }}
+          onClick={() => onEdit(user.dataItem._id)}
+        >
+          Edit
+        </button>
+        <p
+          style={{
+            backgroundImage: `url(${dele})`,
+            backgroundSize: "contain",
+            width: "5vw",
+            height: "3vh",
+            backgroundRepeat: "no-repeat",
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            onDelete(user.dataItem._id);
+          }}
+        >
+          {" "}
+        </p>
+      </td>
+    )
+  };
+
+  const planCell = (props: any) => {
+    return (
+      <td>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "5px",
+          }}
+        >
+          <img
+            style={{ width: "20px", height: "20px" }}
+            src={props.dataItem.premium ? premium : free}
+          />
+          {props.dataItem.premium ? "Premium" : "Normal"}
+        </div>
+      </td>
+    )
+  };
+
+  const pageChange = (event: GridPageChangeEvent) => {
+    setPage(event.page);
+  };
+
+  let gridPDFExport: GridPDFExport | null;
+  const exportPDF = () => {
+    setTimeout(() => {
+      if (gridPDFExport) {
+        gridPDFExport.save(user.exercises as any);
+      }
+    }, 250);
+  };
+
   useEffect(() => {
     dispatch(Exercises_Get());
   }, []);
+
+  const grid = (
+    <Grid
+      data={orderBy(user.exercises as any, sort)?.slice(page.skip, page.skip + page.take)}
+      pageable={true}
+      {...page}
+      onPageChange={pageChange}
+      total={total}
+      sortable={true}
+      sort={sort}
+      onSortChange={(e: GridSortChangeEvent) => {
+        setSort(e.sort);
+      }}
+    >
+      <GridToolbar>
+        <button
+          title="Export PDF"
+          className="k-button k-button-md k-rounded-md k-button-solid k-button-solid-primary"
+          onClick={exportPDF}
+        >
+          Export table PDF
+        </button>
+      </GridToolbar>
+      <GridColumn field="_id" title="ID" />
+      <GridColumn field="name" title="Name" />
+      <GridColumn field="premium" title="Plan" cell={planCell} />
+      <GridColumn field="actions" title="Action" cell={actionCell} width="150px" />
+    </Grid>
+  )
 
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "column",
-        marginBottom: "10vh",
+        marginLeft: "3vw"
       }}
     >
+      <h1
+        style={{
+          fontSize: "3rem",
+          fontWeight: "500",
+          margin: "25px 0 10px 0",
+        }}
+      >
+        Exercises
+      </h1>
       <button
         style={{
           backgroundColor: "green",
@@ -61,67 +179,10 @@ export default function Exercises() {
       >
         + New exercise
       </button>
-      <table>
-        <thead style={{ backgroundColor: "white" }}>
-          <tr>
-            <th style={{ width: "20vw" }}>ID</th>
-            <th style={{ width: "35vw" }}>Name</th>
-            <th style={{ width: "8vw" }}>Plan</th>
-            <th style={{ width: "15vw" }}>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {user &&
-            user.exercises?.map((exer: exercise) => (
-              <tr>
-                <td style={{ padding: "10px" }}>{exer._id}</td>
-                <td>{exer.name}</td>
-                <td>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "5px",
-                    }}
-                  >
-                    <img
-                      style={{ width: "20px", height: "20px" }}
-                      src={exer.premium ? premium : free}
-                    />
-                    {exer.premium ? "Premium" : "Normal"}
-                  </div>
-                </td>
-                <td style={{ display: "flex", justifyContent: "space-around" }}>
-                  <button
-                    style={{
-                      backgroundColor: "#111827",
-                      color: "white",
-                      width: "5vw",
-                    }}
-                    onClick={() => onClick(exer._id)}
-                  >
-                    Edit
-                  </button>
-                  <p
-                    style={{
-                      backgroundImage: `url(${dele})`,
-                      backgroundSize: "contain",
-                      width: "5vw",
-                      height: "3vh",
-                      backgroundRepeat: "no-repeat",
-                      cursor: "pointer",
-                    }}
-                    onClick={() => {
-                      onDelete(exer._id);
-                    }}
-                  >
-                    {" "}
-                  </p>
-                </td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
+      {grid}
+      <GridPDFExport ref={(pdfExport) => (gridPDFExport = pdfExport)}>
+        {grid}
+      </GridPDFExport>
     </div>
   );
 }

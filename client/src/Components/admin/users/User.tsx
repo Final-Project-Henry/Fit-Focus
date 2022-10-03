@@ -75,7 +75,7 @@ export default function User() {
                       </div>)
                     else return;
                   })
-                  : null
+                  : <p>No User info</p>
               }
             </div>
           </div>
