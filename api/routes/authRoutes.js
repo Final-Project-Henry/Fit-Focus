@@ -251,7 +251,7 @@ router.put("/feedbackExercise", async (req, res) => {
 });
 
 router.put("/report", async (req, res) => {
-  const { id: _id } = req.user;
+  const { email : emailUsuario } = req.user;
   const { email, id } = req.body;
   if(emailUsuario === email) return res.status(403).send('You cannot report your own feedback')
 

@@ -27,14 +27,12 @@ export default function UserEditProfile(props: { data: data, save:(e:any)=>void,
   return (
     <div>
       {
-        Object.keys(props.data.user).map((prop: string) => {
-          if (["name", "email", "plan", "status"].includes(prop)) return (
+        ["name", "email", "plan", "status"].map((prop: string) => (
             <div style={{ display: "flex", justifyContent: 'space-between', gap: "10px", }}>
               <p>{prop}:</p>
               <input name={prop} value={(profile as any)[prop]} onChange={onChange}/>
             </div>
-          )
-        })
+          ))
       }
     </div>
 

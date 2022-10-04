@@ -20,7 +20,7 @@ interface Propos {
   loading_icon?: string;
 }
 
-const regexEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
+const regexEmail = /^[a-zA-Z0-9.,!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/; 
 const regexName = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/;
 const regexPassword = /^[a-zA-Z0-9]{6,10}$/;
 

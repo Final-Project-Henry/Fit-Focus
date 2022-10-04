@@ -30,7 +30,7 @@ export default function UserEditInfo(props: { data: data, save: (e: any) => void
     return (
         <div>
             {
-                Object.keys(props.data.info[0])?.map((prop: string) => {
+                ["genre", "age","weight","height", "goal", "experience"].map((prop: string) => {
                     if (prop !== "_id" && prop!=="equipment") return (
                         <div style={{ display: "flex", justifyContent: 'space-between', gap: "10px", }}>
                             <p>{prop}: </p>

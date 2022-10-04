@@ -19,7 +19,7 @@ interface Propos {
   icon?: string;
 }
 
-const regexEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
+const regexEmail = /^[a-zA-Z0-9.,!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/; 
 const regexPassword = /^[a-zA-Z0-9]{6,10}$/;
 
 const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
