@@ -287,14 +287,13 @@ router.post('/ask', async (req, res)=>{
 
   try {
     const {name,email} = req.user
-    const {ask} = req.body
-
+    const {asunto, comment} = req.body
 
     const preguntaAntigua = await Comment.findOne({email : email})
 
     if(preguntaAntigua) return res.status(409).send('You already sent a question')
 
-    await Comment.create({name,email, comment : ask})
+    await Comment.create({name, email, asunto, comment})
   
     res.status(201).send('Question sent succesfully')
   } catch (error) {
