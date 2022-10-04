@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { useCallback } from "react";
 import { useState } from "react";
 import Swal from "sweetalert2";
-import { opiniom, useToken } from "../../app/hooks";
+import { opiniom, useAppDispatch, useToken } from "../../app/hooks";
+import { feedbackFooter } from "../../features/counter/counterSlice";
 import icon from "../assets/icons/nav-icon.png";
 
 interface FeedbackUsuario {
@@ -12,6 +13,8 @@ interface FeedbackUsuario {
 
 const FooterContactanos = () => {
   const token = useToken();
+
+  const dispatch = useAppDispatch()
   const [feedback, setFeedback] = useState<FeedbackUsuario>({
     comment: "",
     email: "",
@@ -80,6 +83,7 @@ const FooterContactanos = () => {
         cancelButtonText: "Cancelar",
       }).then((result) => {
         if (result.isConfirmed) {
+          dispatch(feedbackFooter({ask: feedback.comment, token}))
           opiniom(token, feedback);
           setFeedback({ comment: "", email: "" });
         }
