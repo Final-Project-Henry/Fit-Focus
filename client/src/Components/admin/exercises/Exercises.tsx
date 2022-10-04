@@ -65,7 +65,6 @@ export default function Exercises() {
   };
 
   const actionCell = (user: any) => {
-    console.log(user);
     return (
       <td style={{ display: "flex", justifyContent: "space-around" }}>
         <button

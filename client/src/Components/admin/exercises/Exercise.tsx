@@ -40,7 +40,6 @@ export default function Exercise() {
   const onEdit = () => {
     setEdit(true);
   }
-  console.log(exercise);
 
   const onSave = () => {
     Swal.fire({
