@@ -232,10 +232,10 @@ export const infoUserRutina = createAsyncThunk(
   }
 );
 
+
 export const userFeedback = createAsyncThunk(
   "user/feedback",
   async (data: userFeedback, thunkAPI) => {
-    console.log(data);
     try {
       let headersList = {
         Accept: "*/*",
@@ -367,8 +367,24 @@ export const authGoogle = createAsyncThunk(
   }
 );
 
-const feedbackFooter = createAsyncThunk("user/feedbackFooter", async (data) => {
-  /* await axios.put() */
+export const feedbackFooter = createAsyncThunk("user/feedbackFooter", async (body: any, thunkAPI) => {
+  
+  let headersList = {
+    Accept: "*/*",
+    Authorization: "Bearer " + body.token,
+    "Content-Type": "application/json",
+  };
+
+  let reqOptions = {
+    url: "http://localhost:3001/auth/ask",
+    method: "POST",
+    headers: headersList,
+    data: body
+  };
+
+  let temp = await axios.request(reqOptions)
+  console.log(temp)
+  return temp
 })
 
 
@@ -516,7 +532,7 @@ export const StateSlice = createSlice({
       })
       .addCase(Rutines_Get.fulfilled, (state, action) => {
           state.status = "none";
-          state.rutines=action.payload;
+          state.rutines = action.payload;
       })
       ///ifo extrad del user
       .addCase(infoUserRutina.pending, (state) => {
@@ -538,6 +554,16 @@ export const StateSlice = createSlice({
       })
       .addCase(rewindExercise.fulfilled, (state, action) => {
           state.status = "none";
+      })
+      builder
+      .addCase(feedbackFooter.pending, (state) => {
+        state.status = "log"
+      })
+      .addCase(feedbackFooter.fulfilled, (state) => {
+        state.status = "none"
+      })
+      .addCase(feedbackFooter.rejected, (state) => {
+        state.status = "error"
       })
 
   },

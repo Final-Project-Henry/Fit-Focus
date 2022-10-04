@@ -284,10 +284,12 @@ router.put("/report", async (req, res) => {
 });
 
 router.post('/ask', async (req, res)=>{
+
   try {
     const {name,email} = req.user
     const {ask} = req.body
-  
+
+
     const preguntaAntigua = await Comment.findOne({email : email})
 
     if(preguntaAntigua) return res.status(409).send('You already sent a question')
