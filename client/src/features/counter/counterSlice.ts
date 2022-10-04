@@ -367,6 +367,9 @@ export const authGoogle = createAsyncThunk(
   }
 );
 
+const feedbackFooter = createAsyncThunk("user/feedbackFooter", async (data) => {
+  /* await axios.put() */
+})
 
 
 export const StateSlice = createSlice({
@@ -502,6 +505,7 @@ export const StateSlice = createSlice({
         state.status = "none";
         state.userToken = action.payload;
       })
+
       // //rutinas
 
       .addCase(Rutines_Get.pending, (state) => {
@@ -535,6 +539,7 @@ export const StateSlice = createSlice({
       .addCase(rewindExercise.fulfilled, (state, action) => {
           state.status = "none";
       })
+
   },
 });
 
