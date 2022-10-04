@@ -149,12 +149,14 @@ const Contactanos = () => {
                     </svg>
                   </div>
                   <div className="w-full">
+                  <a href='https://web.whatsapp.com/' target="_blank">
                     <h4 className="font-bold text-gray-900 text-xl mb-1">
                       Número telefónico
                     </h4>
                     <p className="text-base text-body-color">
                       (+51) 91 7341 261
                     </p>
+                    </a>
                   </div>
                 </div>
                 <div className="flex mb-8 max-w-[370px] w-full">
@@ -185,12 +187,14 @@ const Contactanos = () => {
                     </svg>
                   </div>
                   <div className="w-full">
+                  <a href='https://mail.google.com/' target="_blank">
                     <h4 className="font-bold text-gray-900 text-xl mb-1">
                       Email
                     </h4>
                     <p className="text-base text-body-color">
                       fitfocus@gmail.com
                     </p>
+                    </a>
                   </div>
                 </div>
               </div>
