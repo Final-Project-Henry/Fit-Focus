@@ -79,7 +79,6 @@ const Contactanos = () => {
           if (result.isConfirmed) {
             console.log("entre")
             dispatch(feedbackFooter({asunto: feedback.asunto, comment: feedback.comment, token}))
-            opiniom(token, feedback);
             setFeedback({ comment: "", asunto: "" });
           }
         });
