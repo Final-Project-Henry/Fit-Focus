@@ -121,7 +121,7 @@ const Login2: React.FC<Propos> = ({ loading_icon }) => {
                             <button className="bg-gray-700 text-white font-bold py-2 px-4 w-full :bg-gray-600"
                                 onClick={handleSubmit}
                             >
-                                {user_logeao.status ? (
+                                {user_logeao.status!=='default' ? (
                                     "Registrarse"
                                 ) : (
                                     <span className=" flex justify-center">
