@@ -36,10 +36,10 @@ router.put("/userinfo", async (req, res) => {
 router.put("/userfeedback", async (req, res) => {
   try {
     const { comment, email } = req.body;
-   
-    if(!/^.{10,50}$/.test(comment)){
+
+    if (!/^.{10,50}$/.test(comment)) {
       return res.status(403).send('Comment must contain at least 10 characters')
-  }
+    }
 
     await user.updateOne(
       { email: email },
@@ -55,18 +55,26 @@ router.put("/userfeedback", async (req, res) => {
 
 router.get("/getroutine", async (req, res) => {
   const { email } = req.user;
+  const { get } = req.query;
 
   try {
     const exercises = await exercise.find();
     const check = await user.findOne({ email: email }).select("userinfo");
-    const routine = get_Routine(check.userinfo[0], exercises);
+    const routine = await get_Routine(check.userinfo[0], exercises);
 
-    await user.updateOne(
-      { email: email },
-      {
-        routines: routine.exercises,
+    if(!get){
+      if(check.userinfo.length>0){
+        const already = await user.findOne({email:email});
+        return res.status(200).json(already.routines[0]);
       }
-    );
+    }
+      await user.updateOne(
+        { email: email },
+        {
+          routines: routine,
+        }
+      );
+    
     res.status(200).json(routine);
   } catch (error) {
     res.status(500).send(error.message);
@@ -93,13 +101,13 @@ router.put("/changeinfo", async (req, res) => {
       if (req.body[key] !== undefined) {
         if (key === "password") {
           const hashPassword = await bcrypt.hash(req.body[key], 10);
-          modification = { ...modification, [key]:hashPassword };
-        }else{
+          modification = { ...modification, [key]: hashPassword };
+        } else {
           modification = { ...modification, [key]: req.body[key] };
         }
       }
     }
-      
+
 
     await user.updateMany({ _id: id }, modification);
 
@@ -137,8 +145,8 @@ router.put("/addfav", async (req, res) => {
   const { id } = req.user;
   const { _id } = req.body;
 
- const User = await user.findById(id) 
- if(!User) return res.status(400).send('User not found')
+  const User = await user.findById(id)
+  if (!User) return res.status(400).send('User not found')
 
   await user.updateOne(
     { _id: id },
@@ -216,12 +224,12 @@ router.put("/feedbackExercise", async (req, res) => {
     const { email } = req.user;
     const { comment, rating, id, avatar } = req.body;
 
-    if(!/^.{10,50}$/.test(comment)){
+    if (!/^.{10,50}$/.test(comment)) {
       return res.status(403).send('Comment must contain at least 10 characters')
-  }
- 
-  if(!/[1-5]/.test(rating)) return res.status(403).send('Rating has to be between 1 and 5')
-  
+    }
+
+    if (!/[1-5]/.test(rating)) return res.status(403).send('Rating has to be between 1 and 5')
+
     const feedbackAntiguo = await exercise.findById(id)
       .select("feedback")
       .where("email")
@@ -250,21 +258,21 @@ router.put("/feedbackExercise", async (req, res) => {
 });
 
 router.put("/report", async (req, res) => {
-  const { email : emailUsuario } = req.user;
+  const { email: emailUsuario } = req.user;
   const { email, id } = req.body;
-  if(emailUsuario === email) return res.status(403).send('You cannot report your own feedback')
+  if (emailUsuario === email) return res.status(403).send('You cannot report your own feedback')
 
 
   const ComentarioDenunciado = await exercise.findById(id).select('feedback').where('email').equals(email)
 
-  if(isEmpty(ComentarioDenunciado.feedback)) return res.status(404).send('Feedback not found')
+  if (isEmpty(ComentarioDenunciado.feedback)) return res.status(404).send('Feedback not found')
 
   const reportAntiguo = ComentarioDenunciado.feedback[0].report.find(report => report === emailUsuario)
 
-  if(reportAntiguo) return res.status(403).send('Report already added')
+  if (reportAntiguo) return res.status(403).send('Report already added')
 
   ComentarioDenunciado.feedback[0].report.push(emailUsuario)
- 
+
   await ComentarioDenunciado.save()
   res.status(200).send('Report added')
 });

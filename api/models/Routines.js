@@ -23,4 +23,4 @@ const routinesSchema = new Schema({
 })
 
 
-module.exports = model('Routines', routinesSchema );
+module.exports = routinesSchema;
