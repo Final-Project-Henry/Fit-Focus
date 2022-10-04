@@ -255,7 +255,6 @@ router.put("/report", async (req, res) => {
   const { email, id } = req.body;
   if(emailUsuario === email) return res.status(403).send('You cannot report your own feedback')
 
-
   const ComentarioDenunciado = await Exercise.findById(id).select('feedback').where('email').equals(email)
 
   if(isEmpty(ComentarioDenunciado.feedback)) return res.status(404).send('Feedback not found')
