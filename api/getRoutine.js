@@ -174,7 +174,7 @@ const get_Routine = async(info, exercises) => {
     return {
         exercises: routine,
         difficulty: totalAv == 3 ? "hard" : totalAv == 2 ? "medium" : "easy",
-        reps: 'long',
+        reps: totalAv>1?'long':'short',
         type: 'mix',
     }
 }
