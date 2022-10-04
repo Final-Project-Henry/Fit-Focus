@@ -342,6 +342,9 @@ export const authGoogle = createAsyncThunk(
   }
 );
 
+const feedbackFooter = createAsyncThunk("user/feedbackFooter", async (data) => {
+  /* await axios.put() */
+})
 
 
 export const StateSlice = createSlice({
@@ -399,7 +402,11 @@ export const StateSlice = createSlice({
       .addCase(authGoogle.fulfilled, (state, action) => {
         state.status = "none";
         state.userToken = action.payload;
-      });
+      })
+    /* builder
+      .addCase(feedbackFooter.success, (state) => {
+        sta
+      }) */
   },
 });
 

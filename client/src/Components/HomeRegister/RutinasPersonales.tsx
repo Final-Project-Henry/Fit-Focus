@@ -31,12 +31,12 @@ export default function RutinasPersonales() {
     }
   }, [token]);
 
-  const fullForm = ()=>{
+  const fullForm = () => {
     setfomr(false);
   }
   useEffect(() => {
     let userJSON = window.localStorage.getItem("Login_userFit_Focus");
-    let userlogin:any;
+    let userlogin: any;
     if (userJSON) {
       if (userJSON.length > 3) {
         userlogin = JSON.parse(userJSON);
@@ -44,11 +44,11 @@ export default function RutinasPersonales() {
     }
 
     console.log(rutines)
-    if(!form)dispatch(getProfileInfo(token));
+    if (!form) dispatch(getProfileInfo(token));
 
-      if (rutines !== undefined) if(Object.keys(rutines).length===0){
-        dispatch(Rutines_Get(userlogin.token));
-      }
+    if (rutines !== undefined) if (Object.keys(rutines).length === 0) {
+      dispatch(Rutines_Get(userlogin.token));
+    }
   }, [rutines, form]);
 
 
@@ -64,37 +64,44 @@ export default function RutinasPersonales() {
             <>
               {user?.plan == "normal" ? (
                 <>
-                  <img src={plancha} className="w-[80%] h-[50vh]" />
-                  <div className="absolute flex items-center justify-center w-[40%] bg-indigo-300 border-solid border-2 border-indigo-600 rounded-md">
-                    <h1 className="text-white text-3xl text-center">
-                      Para visualizar tus <b>Rutinas Personales</b>
-                      <br />
-                      debes tener una cuenta
-                      <Link to="/mercadopago" className="text-indigo-800">
-                        PREMIUM
-                      </Link>
-                    </h1>
+
+                  <div className="flex justify-center w-full overflow-hidden h-[500px]">
+                    <div className="absolute text-center flex justify-center  h-[500px] bg-[#11182852] w-full ">
+                      <div className=" h-[48%] mt-[12%] bg-[#1118288f]">
+                        <h1 className="text-white text-5xl text-center mt-[5%]  p-5">
+                          Para visualizar tus rutinas personalizadas
+                          <br />
+                          debes tener una cuenta premium
+                          <Link to="/mercadopago" className="text-white">
+                            <br />
+                            <br />
+                            <h1 className="text-white text-5xl underline"><b>Haz click aquí</b></h1>
+                          </Link>
+                        </h1>
+                      </div>
+                    </div>
+                    <img className="w-full object-cover" src={plancha} />
                   </div>
                 </>
               ) : (
                 <>
                   {form ? (
-                    <Form_rutinas function={fullForm}/>
+                    <Form_rutinas function={fullForm} />
                   ) : (
                     <div className="flex justify-center w-full overflow-hidden h-[500px]">
-                    <div className="absolute text-center flex justify-center  h-[500px] bg-[#11182852] w-full">
-                      <button
-                        onClick={() => setfomr(true)}
-                        className="p-5 w-[40%] m-auto bg-[#111828ad] font-normal text-white shadow-2xl hover:animate-pulse active:animate-ping text-4xl"
-                      >
-                        Crea tu rutina personalizada
-                      </button>
+                      <div className="absolute text-center flex justify-center  h-[500px] bg-[#11182852] w-full">
+                        <button
+                          onClick={() => setfomr(true)}
+                          className="p-5 w-[40%] m-auto bg-[#111828ad] font-normal text-white shadow-2xl hover:animate-pulse active:animate-ping text-4xl"
+                        >
+                          Crea tu rutina personalizada
+                        </button>
+                      </div>
+                      <img className="w-full object-cover" src={plancha} />
+
                     </div>
-                    <img className="w-full object-cover" src={plancha}/>
-                
-                    </div>
-                      
-              
+
+
                   )}
                 </>
               )}
