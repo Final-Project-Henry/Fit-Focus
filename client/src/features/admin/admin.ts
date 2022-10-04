@@ -9,7 +9,8 @@ export interface State {
   change_info: string,
   admin_status: string,
   delete_exer: string;
-  delete_user: string;
+  delete_user: string,
+  change_exer: string,
 }
 export interface data {
   name: string;
@@ -29,6 +30,7 @@ const initialState: State = {
   admin_status: 'default',
   delete_exer: "default",
   delete_user: "default",
+  change_exer:'default',
 };
 
 export interface comments {
@@ -112,9 +114,33 @@ export const change_info = createAsyncThunk(
         token = userlogin.token;
       }
     }
-    console.log(data);
     const response = await axios.put(
       "http://localhost:3001/admin/changeInfo",
+      { _id: data._id, data: data.data },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  }
+);
+
+export const change_exercise = createAsyncThunk(
+  "admin/change_exercise",
+  async (data: { _id: string, data: any }, thunkAPI) => {
+    let userJSON = window.localStorage.getItem("Login_userFit_Focus");
+    let token;
+    if (userJSON) {
+      if (userJSON.length > 3) {
+        let userlogin = JSON.parse(userJSON);
+        token = userlogin.token;
+      }
+    }
+    console.log(data);
+    const response = await axios.put(
+      "http://localhost:3001/admin/change_exercise",
       { _id: data._id, data: data.data },
       {
         headers: {
@@ -239,6 +265,9 @@ export const AdminSlice = createSlice({
     reset_change_info(state) {
       state.change_info = 'default';
     },
+    reset_change_exer(state) {
+      state.change_exer = 'default';
+    },
   },
 
   extraReducers: (builder) => {
@@ -287,6 +316,12 @@ export const AdminSlice = createSlice({
       .addCase(change_info.rejected, (state, action) => {
         state.change_info = "rejected";
       })
+      .addCase(change_exercise.fulfilled, (state, action) => {
+        state.change_exer = "change";
+      })
+      .addCase(change_exercise.rejected, (state, action) => {
+        state.change_exer = "rejected";
+      })
   },
 });
 
@@ -299,6 +334,7 @@ export const {
   reset_delete_exer,
   reset_admin_status,
   reset_change_info,
+  reset_change_exer,
 } = AdminSlice.actions;
 export const admin = (state: RootState) => state.admin;
 

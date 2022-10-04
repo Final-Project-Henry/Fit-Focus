@@ -62,14 +62,15 @@ router.delete('/deleteUserComment', async (req, res) => {
 router.put("/changeUserInfo", async (req, res) => {
   try {
     const { _id, data } = req.body;
+    const oldProfile = await user.findById(_id);
 
     await user.updateOne(
       { _id: _id },
       {
-        name: data.name,
-        email: data.email,
-        plan: data.plan,
-        status: data.status,
+        name: data.name?data.name:oldProfile.name,
+        email: data.email?data.email:oldProfile.email,
+        plan: data.plan?data.plan:oldProfile.plan,
+        status: data.status?data.status:oldProfile.status,
       }
     );
     res.status(200).send("The user profile info changed");
@@ -81,14 +82,46 @@ router.put("/changeUserInfo", async (req, res) => {
 router.put("/changeInfo", async (req, res) => {
   try {
     const { _id, data } = req.body;
-
+    const oldFeedback = await user.findById(_id);
+    const {genre, age, weight, height, goal, experience} = data;
+    const newFeedback = {
+      genre: genre?genre:oldFeedback.userinfo[0].genre,
+      age: age?age:oldFeedback.userinfo[0].age,
+      weight: weight?weight:oldFeedback.userinfo[0].weight,
+      height: height?height:oldFeedback.userinfo[0].height,
+      goal: goal?goal:oldFeedback.userinfo[0].goal,
+      experience: experience?experience:oldFeedback.userinfo[0].experience,
+    }
     const change = await user.updateOne(
       { _id: _id },
       {
-        userinfo: data
+        userinfo: newFeedback
       }
     );
     res.status(200).send("The user info changed");
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
+
+router.put("/change_exercise", async (req, res) => {
+  try {
+    const { _id, data } = req.body;
+    const {name, difficulty, muscles, genre, video, premium, description} = data;
+    const oldInfo = await Exercise.findById(_id);
+
+    await Exercise.updateOne(
+      { _id: _id },{
+        name: name?name:oldInfo.name,
+        difficulty: difficulty?difficulty:oldInfo.difficulty,
+        muscles: muscles?muscles:oldInfo.muscles,
+        genre: genre?genre:oldInfo.genre,
+        video:video?video:oldInfo.video,
+        premium: premium?premium:oldInfo.premium, 
+        description:description?description:oldInfo.description
+      });
+
+    res.status(200).send("The exercise info changed");
   } catch (error) {
     res.status(500).send(error.message);
   }
