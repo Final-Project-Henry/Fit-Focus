@@ -9,6 +9,12 @@ import {
 } from "../../features/counter/counterSlice";
 import Navbar from "../Navbar/Navbar";
 
+
+import imagen from "../assets/homeRegister-media/imagen.jpg";
+
+//const imagen = require("../assets/imagen.jpg");
+
+
 interface data_user {
   age: number | string;
   genre: string;
@@ -17,6 +23,7 @@ interface data_user {
   experience: string;
   equipment: boolean | string;
   goal: string;
+
 }
 
 //const regexDecimalNums = /^\d.\d+$/;
@@ -170,7 +177,7 @@ export default function Form_rutinas(props: { function: { (): void } }) {
       })
       return;
     }
-    
+
     dispatch(infoUserRutina({ token, form_data }));
     props.function();
 
@@ -178,185 +185,194 @@ export default function Form_rutinas(props: { function: { (): void } }) {
 
   return (
     <>
-      <div className="w-full  flex justify-center flex-col">
-        <form
-          className="flex p-20 bg-slate-50 flex-col m-5 justify-center "
-          onSubmit={handleSubmit}
-          method="POST"
-        >
-          <div>
-            <label> Genero </label>
-            <br />
-            <input
-              type="checkbox"
-              autoComplete="off"
-              name="genre"
-              value="man"
-              className="m-3 rounded-full p-2 cursor-pointer"
-              onChange={handleChange}
-              checked={form_data.genre == "man" ? true : false}
-            />
-            <label> Masculino </label>
-            <br />
-            <input
-              type="checkbox"
-              autoComplete="off"
-              name="genre"
-              value="woman"
-              className="m-3 rounded-full p-2 cursor-pointer"
-              onChange={handleChange}
-              checked={form_data.genre == "woman" ? true : false}
-            />
-            <label>Femenino</label>
-            <br />
-          </div>
-          <div className="relative z-0 mb-6 w-[20%] group">
-            <input
-              type="number"
-              name="age"
-              value={form_data?.age}
-              onChange={handleChange}
-              className="block py-1.2 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  peer"
-              placeholder=" "
-            />
-            <label
-              htmlFor="Año"
-              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              Edad
-            </label>
-          </div>
-          <div className="relative z-0 mb-6 w-[20%] group">
-            <input
-              type="number"
-              name="weight"
-              value={form_data?.weight}
-              onChange={handleChange}
-              className="block py-1.2 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  peer"
-              placeholder=" "
-            />
-            <label
-              htmlFor="Año"
-              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              Peso en kilogramos
-            </label>
-          </div>
-          <div className="relative z-0 mb-6 w-[20%] group">
-            <input
-              type="number"
-              name="height"
-              value={form_data?.height}
-              onChange={handleChange}
-              className="block py-1.2 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  peer"
-            />
-            <label
-              htmlFor="Año"
-              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              Altura en centimetros
-            </label>
-          </div>
-          <div>
-            <label> Experiencia </label>
-            <br />
-            <input
-              type="checkbox"
-              autoComplete="off"
-              name="experience"
-              value="beginner"
-              className="m-3 rounded-full p-2 cursor-pointer"
-              onChange={handleChange}
-              checked={form_data.experience == "beginner" ? true : false}
-            />
-            <label>Pricipiante</label>
-            <br />
-            <input
-              type="checkbox"
-              autoComplete="off"
-              name="experience"
-              value="medium"
-              className="m-3 rounded-full p-2 cursor-pointer"
-              checked={form_data.experience == "medium" ? true : false}
-              onChange={handleChange}
-            />
-            <label>Intermedio</label>
-            <br />
-            <input
-              type="checkbox"
-              autoComplete="off"
-              name="experience"
-              value="advanced"
-              className="m-3 rounded-full p-2 cursor-pointer"
-              onChange={handleChange}
-              checked={form_data.experience == "advanced" ? true : false}
-            />
-            <label>Avanzado</label>
-            <br />
-          </div>
+      <div className="bg-gray-900 w-[100%]">
+        <img src={imagen} className="w-full h-[100vh] object-fit:cover absolute " />
+        <div className="w-full flex justify-center items-center flex-col relative  ">
+          <form
+            className="flex flex-col justify-center items-center w-full h-[100vh] bg-[#11182852]"
+            onSubmit={handleSubmit}
+            method="POST"
+          >
+            <div className=" bg-gray-200 px-20 py-10 bg-opacity-80 ">
+              <h1 className="flex flex-col text-3xl text-[#111827]" >Formulario de rutinas personalizadas</h1>
+              <h1 className="flex flex-col justify-center items-center text-2xl text-[#111827]">Por favor ingrese sus datos</h1>
+              <br />
+              <div className="flex justify-start" >
+                <label className="mr-3 text-[#111827] "> Género: </label>
+                <br />
+                <input
+                  type="checkbox"
+                  autoComplete="off"
+                  name="genre"
+                  value="man"
+                  className="mx-2 rounded-full p-2 cursor-pointer"
+                  onChange={handleChange}
+                  checked={form_data.genre == "man" ? true : false}
+                />
+                <label className="mr-1"> Masculino </label>
+                <br />
+                <input
+                  type="checkbox"
+                  autoComplete="off"
+                  name="genre"
+                  value="woman"
+                  className="mx-2 rounded-full p-2 cursor-pointer"
+                  onChange={handleChange}
+                  checked={form_data.genre == "woman" ? true : false}
+                />
+                <label className="mr-1">Femenino</label>
+                <br />
+              </div>
+              <div className="relative z-0 mb-6 w-[100%] group mt-5">
+                <input
+                  type="number"
+                  name="age"
+                  value={form_data?.age}
+                  onChange={handleChange}
+                  className="block py-1.2 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  peer"
+                  placeholder=" "
+                />
+                <label
+                  htmlFor="Año"
+                  className=" peer-focus:font-medium absolute text-sm text-gray-700 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Edad
+                </label>
+              </div>
+              <div className="relative z-0 mb-6 w-[100%] group">
+                <input
+                  type="number"
+                  name="weight"
+                  value={form_data?.weight}
+                  onChange={handleChange}
+                  className="block py-1.2 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  peer"
+                  placeholder=" "
+                />
+                <label
+                  htmlFor="Año"
+                  className="peer-focus:font-medium absolute text-sm text-gray-700 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Peso en kilogramos
+                </label>
+              </div>
+              <div className="relative z-0 mb-6 w-[100%] group">
+                <input
+                  type="number"
+                  name="height"
+                  value={form_data?.height}
+                  onChange={handleChange}
+                  className="block py-1.2 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  peer"
+                  placeholder=" "
+                />
+                <label
+                  htmlFor="Año"
+                  className="peer-focus:font-medium absolute text-sm text-gray-700 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >
+                  Altura en centimetros
+                </label>
+              </div>
+              <div className="flex justify-start">
+                <label className="mr-3 text-[#111827]"> Experiencia: </label>
+                <br />
+                <input
+                  type="checkbox"
+                  autoComplete="off"
+                  name="experience"
+                  value="beginner"
+                  className="mx-1 rounded-full p-2 cursor-pointer mr-2"
+                  onChange={handleChange}
+                  checked={form_data.experience == "beginner" ? true : false}
+                />
+                <label className="mr-1">Pricipiante</label>
+                <br />
+                <input
+                  type="checkbox"
+                  autoComplete="off"
+                  name="experience"
+                  value="medium"
+                  className="mx-1 rounded-full p-2 cursor-pointer mr-2"
+                  checked={form_data.experience == "medium" ? true : false}
+                  onChange={handleChange}
+                />
+                <label className="mr-1">Intermedio</label>
+                <br />
+                <input
+                  type="checkbox"
+                  autoComplete="off"
+                  name="experience"
+                  value="advanced"
+                  className="mx-2 rounded-full p-2 cursor-pointer mr-2"
+                  onChange={handleChange}
+                  checked={form_data.experience == "advanced" ? true : false}
+                />
+                <label className="mr-1">Avanzado</label>
+                <br />
+              </div>
 
-          <div>
-            <label>Equipamiento</label>
-            <br />
-            <input
-              type="checkbox"
-              autoComplete="off"
-              name="equipment"
-              className="m-3 rounded-full p-2 cursor-pointer"
-              checked={form_data.equipment == false ? true : false}
-              onClick={() =>
-                Set_form_data((pv: any) => ({ ...pv, equipment: false }))
-              }
-            />
-            <label>no</label>
-            <br />
-            <input
-              type="checkbox"
-              autoComplete="off"
-              name="equipment"
-              value="false"
-              className="m-3 rounded-full p-2 cursor-pointer"
-              checked={form_data.equipment == true ? true : false}
-              onClick={() =>
-                Set_form_data((pv: any) => ({ ...pv, equipment: true }))
-              }
-            />
-            <label>si</label>
-          </div>
-          <div>
-            <label>cual es tu objetivo?</label>
-            <br />
-            <input
-              type="checkbox"
-              autoComplete="off"
-              name="goal"
-              value="gain muscles"
-              className="m-3 rounded-full p-2 cursor-pointer"
-              checked={form_data.goal == "gain muscles" ? true : false}
-              onChange={handleChange}
-            />
-            <label>Ganar musculos</label>
-            <br />
-            <input
-              type="checkbox"
-              autoComplete="off"
-              name="goal"
-              value="lower fat percentage"
-              className="m-3 rounded-full p-2 cursor-pointer"
-              checked={form_data.goal == "lower fat percentage" ? true : false}
-              onChange={handleChange}
-            />
-            <label>perder peso</label>
-            <br />
-          </div>
-          <div>
-            <input
-              className=" cursor-pointer  py-2 px-10 text-sm text-back font-normal leading-loose text-white  bg-gradient-to-r from-sky-500 to-indigo-500 duration-150 rounded-lg shadow-md hover:shadow-none  hover:bg-blue-800"
-              type="submit"
-              value="Enviar"
-            />
-          </div>
-        </form>
+              <div className="flex justify-start mt-5">
+                <label className="mr-3 text-[#111827]">Equipamiento:</label>
+                <br />
+                <input
+                  type="checkbox"
+                  autoComplete="off"
+                  name="equipment"
+                  className="mx-2 rounded-full p-2 cursor-pointer mr-2"
+                  checked={form_data.equipment == false ? true : false}
+                  onClick={() =>
+                    Set_form_data((pv: any) => ({ ...pv, equipment: false }))
+                  }
+                />
+                <label className="mr-2">No</label>
+                <br />
+                <input
+                  type="checkbox"
+                  autoComplete="off"
+                  name="equipment"
+                  value="false"
+                  className="mx-2 rounded-full p-2 cursor-pointer"
+                  checked={form_data.equipment == true ? true : false}
+                  onClick={() =>
+                    Set_form_data((pv: any) => ({ ...pv, equipment: true }))
+                  }
+                />
+                <label>Si</label>
+              </div>
+              <div className="flex justify-start mt-5">
+                <label className="text-[#111827] mr-3">Objetivo:</label>
+                <br />
+                <input
+                  type="checkbox"
+                  autoComplete="off"
+                  name="goal"
+                  value="gain muscles"
+                  className="mx-2 rounded-full p-2 cursor-pointer mr-2"
+                  checked={form_data.goal == "gain muscles" ? true : false}
+                  onChange={handleChange}
+                />
+                <label className="mr-2">Ganar músculos</label>
+                <br />
+                <input
+                  type="checkbox"
+                  autoComplete="off"
+                  name="goal"
+                  value="lower fat percentage"
+                  className="mx-2 rounded-full p-2 cursor-pointer mr-2"
+                  checked={form_data.goal == "lower fat percentage" ? true : false}
+                  onChange={handleChange}
+                />
+                <label className="mr-1">Perder peso</label>
+                <br />
+              </div>
+              <div className="flex flex-col">
+                <input
+                  className=" cursor-pointer py-2 px-10 text-sm text-back font-normal leading-loose text-white  bg-[#111827] from-sky-500 to-indigo-500 duration-500 shadow-md hover:shadow-none hover:border-solid border-[2px] border-[#111827] hover:bg-blue-100 hover:text-[#111827] mt-5"
+                  type="submit"
+                  value="Enviar"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </>
   );
