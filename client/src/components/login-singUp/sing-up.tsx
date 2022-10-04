@@ -170,6 +170,9 @@ const Login2: React.FC<Propos> = ({ loading_icon, icon }) => {
                 value={Form_data.email}
                 onChange={(event) => handleChange(event)}
               />
+              {user.error?.includes("User") && (
+                <label className="text-red-500">Esta cuanta ya existe</label>
+              )}
             </div>
             <div className="mt-4">
               <div className="flex justify-between">
@@ -186,8 +189,8 @@ const Login2: React.FC<Propos> = ({ loading_icon, icon }) => {
                 value={Form_data.password}
                 onChange={(event) => handleChange(event)}
               />
-              {user.status?.includes("Password") && (
-                <label className="text-red-500">{user.status}</label>
+              {user.error?.includes("Password") && (
+                <label className="text-red-500">Contraseña no validad</label>
               )}
             </div>
             <div className="mt-4">

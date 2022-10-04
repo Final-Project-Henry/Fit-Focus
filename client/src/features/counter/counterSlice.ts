@@ -202,6 +202,8 @@ export const getProfileInfo = createAsyncThunk(
   }
 );
 
+
+
 export const infoUserRutina = createAsyncThunk(
   "user/DataRutinas",
   async (data: infoRutina, thunkAPI) => {
@@ -294,7 +296,7 @@ export const User_Register_State = createAsyncThunk(
       thunkAPI.fulfillWithValue(resp);
       return resp;
     } catch (error: any) {
-      thunkAPI.rejectWithValue(error);
+      thunkAPI.rejectWithValue(error.response.data);
       return error.response.data;
     }
   }
@@ -330,7 +332,6 @@ export const authGoogle = createAsyncThunk(
       return resp;
 
     } catch (error:any) {
-      
       thunkAPI.dispatch(Status(error.response.data))
       thunkAPI.rejectWithValue(error.response.data);
       return error.response.data
@@ -377,7 +378,12 @@ export const StateSlice = createSlice({
       })
       .addCase(User_Register_State.fulfilled, (state,action) => {
         state.status = "none";
+        console.log(action)
+        if (typeof action.payload ==="string") {
+          state.error=action.payload
+        }else{
           state.user=action.payload;
+        }
       })
     ///login
 
@@ -386,12 +392,15 @@ export const StateSlice = createSlice({
       })
       .addCase(User_Login_State.rejected, (state, action) => {
         state.status = action.error.message;
-
       })
       .addCase(User_Login_State.fulfilled, (state,action) => {
         state.status = "none";
         console.log(action);
+        if (action.payload.length < 50) {
+          state.error=action.payload
+        }else{
           state.userToken=action.payload;
+        }
       })
       //Ejecicios
 
@@ -415,7 +424,6 @@ export const StateSlice = createSlice({
       })
       .addCase(getProfileInfo.fulfilled, (state,action) => {
           state.status = "none";
-          console.log(action)
           state.user=action.payload;
       })
       // //activeCuenta
@@ -430,7 +438,7 @@ export const StateSlice = createSlice({
           state.status = "none";
           state.EstadoCuenta="none"
       })
-      
+
       .addCase(ActivecuentaGoogle.pending, (state) => {
         state.status = "log";
       })
@@ -464,43 +472,41 @@ export const StateSlice = createSlice({
       })
       .addCase(authGoogle.fulfilled, (state, action) => {
         state.status = "none";
-        console.log( "gooole",action.payload);
-
         state.userToken = action.payload;
       })
       // //rutinas
 
-      // .addCase(Rutines_Get.pending, (state) => {
-      //   state.status = "log";
-      // })
-      // .addCase(Rutines_Get.rejected, (state) => {
-      //   state.status = "error";
-      // })
-      // .addCase(Rutines_Get.fulfilled, (state, action) => {
-      //     state.status = "none";
-      //     state.rutines=action.payload;
-      // })
-      // ///ifo extrad del user
-      // .addCase(infoUserRutina.pending, (state) => {
-      //   state.status = "log";
-      // })
-      // .addCase(infoUserRutina.rejected, (state) => {
-      //   state.status = "error";
-      // })
-      // .addCase(infoUserRutina.fulfilled, (state, action) => {
-      //     state.status = "none";
-      //     state.rutines=action.payload;
-      // })
-      // //rewind ejec 
-      // .addCase(rewindExercise.pending, (state) => {
-      //   state.status = "log";
-      // })
-      // .addCase(rewindExercise.rejected, (state) => {
-      //   state.status = "error";
-      // })
-      // .addCase(rewindExercise.fulfilled, (state, action) => {
-      //     state.status = "none";
-      // })
+      .addCase(Rutines_Get.pending, (state) => {
+        state.status = "log";
+      })
+      .addCase(Rutines_Get.rejected, (state) => {
+        state.status = "error";
+      })
+      .addCase(Rutines_Get.fulfilled, (state, action) => {
+          state.status = "none";
+          state.rutines=action.payload;
+      })
+      ///ifo extrad del user
+      .addCase(infoUserRutina.pending, (state) => {
+        state.status = "log";
+      })
+      .addCase(infoUserRutina.rejected, (state) => {
+        state.status = "error";
+      })
+      .addCase(infoUserRutina.fulfilled, (state, action) => {
+          state.status = "none";
+          state.rutines=action.payload;
+      })
+      //rewind ejec 
+      .addCase(rewindExercise.pending, (state) => {
+        state.status = "log";
+      })
+      .addCase(rewindExercise.rejected, (state) => {
+        state.status = "error";
+      })
+      .addCase(rewindExercise.fulfilled, (state, action) => {
+          state.status = "none";
+      })
   },
 });
 

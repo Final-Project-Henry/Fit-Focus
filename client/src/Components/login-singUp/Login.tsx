@@ -150,6 +150,9 @@ console.log(user.status)
                 value={Form_data.email}
                 onChange={(event) => handleChange(event)}
               />
+              {user.error?.includes("User") && (
+                <label className="text-red-500">Esta cuanta no existe</label>
+              )}
             </div>
             <div className="mt-4">
               <div className="flex justify-between">
@@ -172,8 +175,8 @@ console.log(user.status)
                 value={Form_data.password}
                 onChange={(event) => handleChange(event)}
               />
-              {user.status?.includes("Password") && (
-                <label className="text-red-500">{user.status}</label>
+              {user.error?.includes("Password") && (
+                <label className="text-red-500">Contraseña incorrecta</label>
               )}
             </div>
             <div className="mt-[50px] xl:mt-[133px]">

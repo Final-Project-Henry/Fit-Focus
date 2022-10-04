@@ -73,7 +73,7 @@ export default function DecriptionEjer() {
     if (commentExist) setValidac(false)
     else setValidac(true)
 
-  }, [descripcionEjersicio, status])
+  }, [descripcionEjersicio])
 
   useEffect(() => {
     if (descripcionEjersicio) {
@@ -174,12 +174,11 @@ export default function DecriptionEjer() {
                 </span>
 
                 {
-                  status === "success" &&
+                  descripcionEjersicio?.feedback?.find((e: any) => e?.email == user?.email)&&
                   <span onClick={() => setValidac(false)} className={`${hiddenCancel && "hidden"} decoration-red-700 text-red-700 cursor-pointer`}>
                     cancelar
                   </span>
                 }
-
 
               </div>
             </div>
