@@ -126,17 +126,6 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
         else setError({ ...error, email: true })
     }
 
-    const test = async () => {
-        let userJSON = window.localStorage.getItem("Login_userFit_Focus");
-        let userlogin: any;
-
-
-        if (userJSON && userJSON.length > 3)
-            userlogin = JSON.parse(userJSON);
-
-        await dispatch(Rutines_Get(userlogin.token));
-    }
-
     const handleClickStateUser = async (type: string) => {
         if (type === "cancel") {
             setEditable({ ...editable, status: false })
@@ -150,7 +139,8 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
         else {
             await dispatch(infoUserRutina({ token, form_data: statusUser }));
             await dispatch(EditUser({ token, data: statusUser }))
-            await test()
+            await dispatch(Rutines_Get( {token,cualqu:true}));
+
             setEditable({ ...editable, status: false })
         }
     }
