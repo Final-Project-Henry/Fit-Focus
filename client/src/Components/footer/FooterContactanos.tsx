@@ -27,13 +27,10 @@ const FooterContactanos = () => {
   })
 
 
-  function handleChange(
-    event: React.ChangeEvent<
-      HTMLFormElement | HTMLInputElement | HTMLTextAreaElement
-    >
-  ): void {
+  function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void {
     setFeedback((pv) => ({ ...pv, [event.target.name]: event.target.value }));
   }
+  
   const validation = ()=>{
     if(token)return false;
     else return true;
