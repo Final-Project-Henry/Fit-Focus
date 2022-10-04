@@ -1,6 +1,7 @@
 const { Router } = require('express')
 const user = require('../models/User.js')
-const Exercise = require('../models/Exercise.js')
+const Exercise = require('../models/Exercise.js');
+const Comment = require('../models/Comment.js');
 
 const router = Router()
 
@@ -126,5 +127,14 @@ router.put("/change_exercise", async (req, res) => {
     res.status(500).send(error.message);
   }
 });
+
+router.get('questions', async (req, res)=>{
+  try {
+    const questions = await Comment.find()
+    res.status(200).send(questions)
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+})
 
 module.exports = router;

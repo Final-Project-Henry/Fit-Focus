@@ -38,6 +38,7 @@ export interface userFeedback {
 export const Rutines_Get = createAsyncThunk(
   "user/rutinesSlice",
   async (token: string, thunkAPI) => {
+    console.log(token)
     try {
       let headersList = {
         Accept: "/",
@@ -54,7 +55,7 @@ export const Rutines_Get = createAsyncThunk(
       let response = await axios.request(reqOptions);
       const resp = response.data;
 
-      console.log(resp.data);
+      console.log(resp);
       thunkAPI.dispatch(Rutines(resp));
       return resp;
     } catch (error: any) {

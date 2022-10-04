@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: 10vh;
+    width: 100vw;
 }
 
 .container_2 {
@@ -33,4 +34,5 @@
     font-weight: 500;
     display: flex;
     justify-content: center;
+    color: #111827;
 }

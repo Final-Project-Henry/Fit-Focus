@@ -61,7 +61,6 @@ export default function Users() {
   };
 
   const actionCell = (user: any) => {
-    console.log(user);
     return (
       <td style={{ display: "flex", justifyContent: "space-around" }}>
         <button
@@ -183,7 +182,7 @@ export default function Users() {
     return ()=>{
       dispatch(reset_delete_user())
     }
-  }, [users.delete_user]);
+  }, []);
 
 
   return (

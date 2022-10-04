@@ -21,7 +21,7 @@ interface User {
 
 export default function RutinasPersonales() {
   const { user } = useAppSelector(selectUser);
-  const { rutines } = useAppSelector(selectUser);
+  const users = useAppSelector(state=>state.user);
   const dispatch = useAppDispatch();
   const [form, setfomr] = useState(false);
   let token = useToken();
@@ -35,30 +35,30 @@ export default function RutinasPersonales() {
     setfomr(false);
   }
   useEffect(() => {
+    let token;
     let userJSON = window.localStorage.getItem("Login_userFit_Focus");
-    let userlogin: any;
+
     if (userJSON) {
       if (userJSON.length > 3) {
-        userlogin = JSON.parse(userJSON);
+        let userlogin = JSON.parse(userJSON);
+        token = userlogin.token;
       }
     }
 
-    console.log(rutines)
-    if (!form) dispatch(getProfileInfo(token));
 
-    if (rutines !== undefined) if (Object.keys(rutines).length === 0) {
-      dispatch(Rutines_Get(userlogin.token));
-    }
-  }, [rutines, form]);
+    if (!form) dispatch(getProfileInfo(token));
+    
+    if(Object.keys(users.rutines).length===0)dispatch(Rutines_Get(token));
+  }, []);
 
 
   return (
     <>
-      <div>
-        <div className={`flex items-center justify-center`}>
+      <div style={{width:"100%", marginBottom:"10vh"}}>
+        <div style={{width:"100%", display:"flex", alignItems:"center", justifyContent:"center"}} >
           {user?.userinfo?.length > 0 ? (
             <div>
-              <Rutins rutins={rutines?.exercises} />
+              <Rutins rutins={users.rutines?.exercises} reps={users.rutines.reps} dif={users.rutines.difficulty}/>
             </div>
           ) : (
             <>

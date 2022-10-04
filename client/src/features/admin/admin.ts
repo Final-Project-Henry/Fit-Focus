@@ -328,7 +328,6 @@ export const AdminSlice = createSlice({
 
 
 export const { } = AdminSlice.actions;
-export const mercadopago = (state: RootState) => state.mercadopago;
 export const {
   reset_delete_user,
   reset_delete_exer,
