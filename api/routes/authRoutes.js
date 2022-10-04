@@ -62,11 +62,11 @@ router.get("/getroutine", async (req, res) => {
     const check = await user.findOne({ email: email }).select("userinfo");
     const routine = await get_Routine(check.userinfo[0], exercises);
 
+    if(check.userinfo.length===0)return res.status(500).send('You need userInfo');
     if(!get){
-      if(check.userinfo.length>0){
         const already = await user.findOne({email:email});
+        if(already.routines.length>0)
         return res.status(200).json(already.routines[0]);
-      }
     }
       await user.updateOne(
         { email: email },

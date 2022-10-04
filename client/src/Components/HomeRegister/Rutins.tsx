@@ -13,7 +13,13 @@ interface exercise {
     premium: string;
 }
 
-export default function Rutins(props: { rutins: Array<exercise> }) {
+interface rutin {
+    order:number,
+    time: number,
+    exerc: exercise
+}
+
+export default function Rutins(props: { rutins: Array<rutin> }) {
 
     return (
         <div className={styles.container}>
@@ -23,16 +29,16 @@ export default function Rutins(props: { rutins: Array<exercise> }) {
             <h1 className={styles.tittle_2}>Estos son los mejores ejercicios para tu condicion fisica</h1>
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent:"center"}}>
                 {
-                    props.rutins?.map((e: exercise) => (
+                    props.rutins?.map((e: rutin) => (
                         <RandomCards
-                            _id={e?._id}
-                            name={e?.name}
-                            difficulty={e?.difficulty}
-                            equipment={e?.equipment}
-                            muscles={e?.muscles}
-                            genre={e?.genre}
-                            video={e?.video}
-                            premium={e?.premium}
+                            _id={e.exerc?._id}
+                            name={e?.exerc?.name}
+                            difficulty={e?.exerc?.difficulty}
+                            equipment={e?.exerc?.equipment}
+                            muscles={e?.exerc?.muscles}
+                            genre={e?.exerc?.genre}
+                            video={e?.exerc?.video}
+                            premium={e?.exerc?.premium}
                         />
                     ))
                 }
