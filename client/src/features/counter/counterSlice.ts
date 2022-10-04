@@ -24,7 +24,7 @@ const initialState: State = {
   error:"",
   EstadoCuenta:"",
   userToken: null,
-  status: "none",
+  status: "default",
   rutines: {},
   exercises: [],
 };
