@@ -64,6 +64,7 @@ import NewsAdmin from "./Components/admin/news/NewsAdmin";
 import Questions from "./Components/admin/questions/Questions";
 import ExerciseForm from "./Components/admin/exercises/ExerciseForm";
 import NewPassword from "./Components/login-singUp/NewPassword";
+import Training from "./Components/HomeRegister/Rutins/Training";
 
 
 
@@ -127,7 +128,7 @@ function App() {
             <Route path="/ejercicios" element={<Ejercicios />} />
             <Route path="/rutinas" element={<RutinasPersonales />} />
             <Route path="/Favoritos" element={<Favoritos />} />
-            
+            <Route path="/training" element={<Training />} />            
             
             {/* <Route path="/form_user" element={<Form_rutinas />} /> */}
             <Route

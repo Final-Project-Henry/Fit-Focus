@@ -51,8 +51,8 @@ export default function RutinasPersonales() {
 
   return (
     <>
-      <div>
-        <div className={`flex items-center justify-center`}>
+      <div style={{width:"100%", marginBottom:"10vh"}}>
+        <div style={{width:"100%", display:"flex", alignItems:"center", justifyContent:"center"}} >
           {user?.userinfo?.length > 0 ? (
             <div>
               <Rutins rutins={users.rutines?.exercises} />

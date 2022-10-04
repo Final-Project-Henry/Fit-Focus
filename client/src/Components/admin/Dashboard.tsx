@@ -23,7 +23,7 @@ export default function Dashboard() {
       if (userJSON.length > 3) {
         token = JSON.parse(userJSON);
       }
-      dispatch(getProfileInfo(token));
+      dispatch(getProfileInfo(token.token));
     }
   }, [user, token2])
 
