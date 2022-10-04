@@ -8,7 +8,7 @@ const ivan = require("../assets/Fotos y Videos HomeVisitor/ivan.png");
 const lautaro = require("../assets/Fotos y Videos HomeVisitor/marcel.png");
 const martin = require("../assets/Fotos y Videos HomeVisitor/martin.png");
 const rafael = require("../assets/Fotos y Videos HomeVisitor/rafael.png");
-const rodrigo = require("../assets/Fotos y Videos HomeVisitor/rodrigo.png");
+
 
 const email = require("../assets/Fotos y Videos HomeVisitor/email.png");
 const github = require("../assets/Fotos y Videos HomeVisitor/github.png");
@@ -219,47 +219,7 @@ export default function About() {
               </div>
             </div>
           </div>
-          <div className="w-[20%]">
-
-            <div>
-              <img src={rodrigo} className="w-[50%]" alt="img not found" />
-              <div className="w-[70%]">
-
-                <div className="bg-[#6c63ff] rounded-xl relative left-[10px]">
-                  <h5 className="text-white ml-[2px]">RODRIGO SANTESTEBAN</h5>
-                  <a href="https://github.com/rodrisantes" target="__blank">
-                    <img
-                      src={github}
-                      className="inline w-[20%] mx-1"
-                      alt="img not found"
-                    />
-                  </a>
-
-                  <a
-                    href="https://www.linkedin.com/in/rodrigo-santesteban-7334b5240/"
-                    target="__blank"
-                  >
-                    <img
-                      src={linkedIn}
-                      className="inline w-[20%] mx-1"
-                      alt="img not found"
-                    />
-                  </a>
-
-                  <a
-                    href="https://www.linkedin.com/in/rafaelgbetancourto/"
-                    target="__blank"
-                  >
-                    <img
-                      src={email}
-                      className="inline w-[20%] mx-1"
-                      alt="img not found"
-                    />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+       
 
           {/* Rafa */}
           <div className="w-[20%]">
