@@ -253,6 +253,20 @@ router.put("/feedbackExercise", async (req, res) => {
 router.put("/report", async (req, res) => {
   const { id: _id } = req.user;
   const { email, id } = req.body;
+  if(emailUsuario === email) return res.status(403).send('You cannot report your own feedback')
+
+  const ComentarioDenunciado = await Exercise.findById(id).select('feedback').where('email').equals(email)
+
+  if(isEmpty(ComentarioDenunciado.feedback)) return res.status(404).send('Feedback not found')
+
+  const reportAntiguo = ComentarioDenunciado.feedback[0].report.find(report => report === emailUsuario)
+
+  if(reportAntiguo) return res.status(403).send('Report already added')
+
+  ComentarioDenunciado.feedback[0].report.push(emailUsuario)
+ 
+  await ComentarioDenunciado.save()
+  res.status(200).send('Report added')
 });
 
 

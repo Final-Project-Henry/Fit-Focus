@@ -260,6 +260,34 @@ export const userFeedback = createAsyncThunk(
   }
 );
 
+export const report = createAsyncThunk(
+  "user/report",
+  async (data: { id:string, email:string,token:string}, thunkAPI) => {
+    console.log(data)
+    try {
+      let headersList = {
+        Accept: "*/*",
+        Authorization: "Bearer " + data.token,
+        "Content-Type": "application/json",
+      };
+
+      let reqOptions = {
+        url: "http://localhost:3001/auth/report",
+        method: "PUT",
+        headers: headersList,
+        data: { email: data.email, id: data.id },
+      };
+
+      let response = await axios.request(reqOptions);
+
+      return response.data;
+    } catch (error: any) {
+      thunkAPI.dispatch(Status(error.response.data));
+      return error;
+    }
+  }
+);
+
 export const rewindExercise = createAsyncThunk(
   "user/rewind",
   async (data: any, thunkAPI) => {
