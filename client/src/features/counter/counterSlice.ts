@@ -382,8 +382,6 @@ export const feedbackFooter = createAsyncThunk("user/feedbackFooter", async (bod
     data: body
   };
 
-  console.log("post")
-
   let temp = await axios.request(reqOptions)
   console.log(temp)
   return temp
