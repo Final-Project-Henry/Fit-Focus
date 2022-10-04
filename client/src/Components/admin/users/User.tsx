@@ -46,12 +46,12 @@ export default function User() {
   });
 
   const [info, setInfo] = useState<info>({
-    genre: user?.userinfo[0].genre,
-    age: user?.userinfo[0].age,
-    weight: user?.userinfo[0].weight,
-    height: user?.userinfo[0].height,
-    goal: user?.userinfo[0].goal,
-    experience: user?.userinfo[0].experience,
+    genre: user?.userinfo[0]?.genre,
+    age: user?.userinfo[0]?.age,
+    weight: user?.userinfo[0]?.weight,
+    height: user?.userinfo[0]?.height,
+    goal: user?.userinfo[0]?.goal,
+    experience: user?.userinfo[0]?.experience,
 });
 
   const onClick = () => {
@@ -153,7 +153,7 @@ export default function User() {
             </div>
             <div style={{ width: "30vw", backgroundColor: "white", padding: "20px", display: "flex", flexDirection: "column", gap: "20px" }}>
               <h1 style={{ fontSize: "1.5rem", fontWeight: "500" }}>User info</h1>
-              <img src={editInfo ? save : edit} onClick={() => editInfo ? onSaveChanges('info') : onEdit("info")} style={{ width: "15px", height: "15px", cursor: "pointer", alignSelf: "flex-end" }} />
+              <img hidden={user?.userinfo.length===0?true:false} src={editInfo ? save : edit} onClick={() => editInfo ? onSaveChanges('info') : onEdit("info")} style={{ width: "15px", height: "15px", cursor: "pointer", alignSelf: "flex-end" }} />
               {
                 user.userinfo.length > 0 ?
                   editInfo ?
