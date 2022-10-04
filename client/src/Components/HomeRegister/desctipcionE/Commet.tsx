@@ -8,7 +8,7 @@ interface Props {
 
 
 export default function Comment (props: Props){
-
+  
   return(
     <>
             <img className="rounded-full w-12 h-12 object-cover m-2 " src={props.avatar} />

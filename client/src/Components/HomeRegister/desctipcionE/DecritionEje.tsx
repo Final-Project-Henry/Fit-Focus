@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector, useToken } from "../../../app/hooks";
-import { rewindExercise, Status, selectUser, Exercises_Get, report } from "../../../features/counter/counterSlice";
+import { rewindExercise, Status, selectUser, Exercises_Get, report, Detail, Response, DelateDetail } from "../../../features/counter/counterSlice";
 
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -11,6 +11,7 @@ import { AiFillEdit } from 'react-icons/ai';
 import LoadingCards from "../../loading/LoadingCards";
 import CardEjetcicio from "./CardEejercicio";
 import Comment from "./Commet";
+import Swal from "sweetalert2";
 interface commet {
   comment: string;
   email: string;
@@ -35,62 +36,46 @@ interface ejerciciosData {
 export default function DecriptionEjer() {
   const { id } = useParams();
   const token = useToken();
-  const { user, status } = useAppSelector(selectUser);
+  const { user, status,response ,error,detailEjec}:any= useAppSelector(selectUser);
   const dispatch = useAppDispatch();
   const [comment, setcomment] = useState("")
   const [validac, setValidac] = useState(false)
-  const [descripcionEjersicio, setdescripcionEjersicio] = useState<any>(false);
+  const [descripcionEjersicio, setdescripcionEjersicio] = useState<any>([]);
   const [rewind, setrewind] = useState({
-    cont: 0
+    cont: 1
   })
-  const [hiddenCancel, setHiddenCancel] = useState<boolean>(true)
-
 
   useEffect(() => {
     if (token && id) {
-      let headersList = {
-        Accept: "*/*",
-        Authorization: "Bearer " + token,
-        "Content-Type": "application/json",
-      };
-      let reqOptions = {
-        url: `http://localhost:3001/auth/exercise?id=${id}`,
-        method: "GET",
-        headers: headersList,
-      };
-      axios.request(reqOptions).then((e) => {
-        console.log(e.data)
-        setdescripcionEjersicio(e.data)
-      });
+      dispatch(DelateDetail())  
+      dispatch(Detail({token, id}))  
     }
   }, [id, token]);
 
 
   useEffect(() => {
-
-    let commentExist = descripcionEjersicio?.feedback?.find((e: any) => e?.email == user?.email)
-
+    let commentExist = descripcionEjersicio?.find((e: any) => e?.email == user?.email)
     if (commentExist) setValidac(false)
     else setValidac(true)
 
   }, [descripcionEjersicio])
 
   useEffect(() => {
-    if (descripcionEjersicio) {
+    if (detailEjec) {
       let newarr: commet[] = []
 
-      descripcionEjersicio?.feedback?.map((e: any) => {
-
-        if (e.email === user?.email) newarr.unshift(e)
-        else newarr.push(e)
-
+      detailEjec?.feedback?.map((e: any) => {
+        if (e.email === user?.email) {
+          newarr.unshift(e)
+        }
+        else if(!e.report?.includes(user?.email)) newarr.push(e)
       })
-      descripcionEjersicio.feedback = newarr
+       setdescripcionEjersicio(newarr)
     }
-  }, [descripcionEjersicio, user])
+  }, [detailEjec, user])
 
   const AddEdit = () => {
-    let commentuser = descripcionEjersicio?.feedback?.find((e: any) => e?.email == user?.email);
+    let commentuser = descripcionEjersicio?.find((e: any) => e?.email == user?.email);
     if (commentuser) {
       setcomment(commentuser?.comment)
       setrewind({ cont: commentuser?.rating })
@@ -98,27 +83,28 @@ export default function DecriptionEjer() {
     setValidac(true)
   }
 
-  const SetBan = (email: string, id:string) =>{
-    dispatch(report({ email: email, id: id,token:token}))
+  const SetBan = (email: string) =>{
+    Swal.fire({
+      title: "Desea banear este comentario?",
+      icon: "info",
+      showCancelButton: true,
+      confirmButtonColor: "#230bf8",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Aceptar",
+      cancelButtonText:"Cancelar"
+    }).then((result) => {
+      if(result.isConfirmed){
+        dispatch(report({ email: email, id: id,token:token}))
+
+      }
+    });
     
   }
-
   const SubmitCommet = (e: Event | any) => {
     e.preventDefault();
 
-    if (comment.length > 0) {
       let data = { avatar: user?.avatar, email: user?.email, rating: rewind.cont, id, comment, token }
       dispatch(rewindExercise(data))
-
-      let newarr: commet[] = []
-
-      descripcionEjersicio?.feedback?.map((e: any) => {
-        if (e.email === user?.email) newarr.unshift({ email: user?.email, rating: rewind.cont, _id: id, comment })
-        else newarr.push(e)
-      })
-      descripcionEjersicio.feedback = newarr
-      setValidac(false)
-    }
 
   }
 
@@ -127,16 +113,38 @@ export default function DecriptionEjer() {
   }
 
   useEffect(() => {
+    if (response=="Feedback added"||response=="Report added"||response=="Report already added") {
+      let  resp:string|boolean=""
 
-    if (comment.length) setHiddenCancel(false)
-    else setHiddenCancel(true)
+        if(response=="Report added") resp="comentario baneado"
+        if(response=="Report already added") resp="Este comentario ya ha sidó baneado"
+        if(response=="Feedback added") resp=""
 
-  }, [comment])
+        Swal.fire({
+          title:resp,
+          icon: 'success',
+          showConfirmButton: false,
+          backdrop: `#1919247f`,
+          timer: 1500
+        }).then((result) => {
+          if(result.isConfirmed){
+            setValidac(false)
+          }
+        });
+
+        
+        dispatch(Detail({token, id}))
+        dispatch(Response())
+    }
+
+  },[response])
+
+
 
   return (
     <>
       {
-        descripcionEjersicio ? <CardEjetcicio _id={descripcionEjersicio?._id} name={descripcionEjersicio?.name} difficulty={descripcionEjersicio?.difficulty} muscles={descripcionEjersicio?.muscles} genre={descripcionEjersicio?.genre} video={descripcionEjersicio?.video} description={descripcionEjersicio?.description} /> : <LoadingCards num={"1"} />
+        detailEjec ? <CardEjetcicio _id={detailEjec?._id} name={detailEjec?.name} difficulty={detailEjec?.difficulty} muscles={detailEjec?.muscles} genre={detailEjec?.genre} video={detailEjec?.video} description={detailEjec?.description} /> : <LoadingCards num={"1"} />
       }
       <div>
         {validac && <form onSubmit={SubmitCommet}>
@@ -159,44 +167,48 @@ export default function DecriptionEjer() {
             <div className="flex  items-center py-2 px-3 border-t dark:border-gray-600">
               <button
                 type="submit"
+                disabled={false}
                 className="inline-flex items-center py-1.5 px-6  font-medium text-center text-white bg-blue-700 focus:ring-4 active:scale-90 focus:ring-blue-200  hover:bg-blue-800"
               >
                 Enviar
               </button>
               <div className="flex mx-5 items-center">
-                <svg onClick={() => rewind.cont >= 1 ? setrewind(pv => ({ ...pv, cont: 0 })) : setrewind(pv => ({ ...pv, cont: 1 }))} aria-hidden="true" className={`w-6 h-6 cursor-pointer active:animate-ping ${rewind.cont >= 1 ? "text-yellow-400" : "text-gray-500"}`} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                <svg onClick={() => rewind.cont >= 1 ? setrewind(pv => ({ ...pv, cont: 1 })) : setrewind(pv => ({ ...pv, cont: 1 }))} aria-hidden="true" className={`w-6 h-6 cursor-pointer active:animate-ping ${rewind.cont >= 1 ? "text-yellow-400" : "text-gray-500"}`} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                 <svg onClick={() => rewind.cont >= 2 ? setrewind(pv => ({ ...pv, cont: 1 })) : setrewind(pv => ({ ...pv, cont: 2 }))} aria-hidden="true" className={`w-6 h-6 cursor-pointer active:animate-ping ${rewind.cont >= 2 ? "text-yellow-400" : "text-gray-500"}`} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                 <svg onClick={() => rewind.cont >= 3 ? setrewind(pv => ({ ...pv, cont: 2 })) : setrewind(pv => ({ ...pv, cont: 3 }))} aria-hidden="true" className={`w-6 h-6 cursor-pointer active:animate-ping ${rewind.cont >= 3 ? "text-yellow-400" : "text-gray-500"}`} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                 <svg onClick={() => rewind.cont >= 4 ? setrewind(pv => ({ ...pv, cont: 3 })) : setrewind(pv => ({ ...pv, cont: 4 }))} aria-hidden="true" className={`w-6 h-6 cursor-pointer active:animate-ping ${rewind.cont >= 4 ? "text-yellow-400" : "text-gray-500"}`} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                 <svg onClick={() => rewind.cont >= 5 ? setrewind(pv => ({ ...pv, cont: 4 })) : setrewind(pv => ({ ...pv, cont: 5 }))} aria-hidden="true" className={`w-6 h-6 cursor-pointer active:animate-ping ${rewind.cont >= 5 ? "text-yellow-400" : "text-gray-500"}`} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
               </div>
               <div className="w-full flex justify-end items-end p-5">
-                <span className="px-5 text-gray-500">
-                  {comment.length}/50
+              {
+               <span  className={` decoration-red-700 text-red-700`}>
+                    {comment.length<10&&"El comentario debe tener maximo 10 letras"}
+                  </span>  
+                }
+                <span className={`${comment.length>=10?"text-blue-900":"text-red-700"} px-5 `}>
+                   {comment.length}/50
                 </span>
 
                 {
-                  descripcionEjersicio?.feedback?.find((e: any) => e?.email == user?.email)&&
-                  <span onClick={() => setValidac(false)} className={`${hiddenCancel && "hidden"} decoration-red-700 text-red-700 cursor-pointer`}>
+                  descripcionEjersicio?.find((e: any) => e?.email == user?.email)&&
+                  <span onClick={() => setValidac(false)} className={` decoration-red-700 text-red-700 cursor-pointer`}>
                     cancelar
                   </span>
                 }
-
+            
               </div>
             </div>
           </div>
         </form>}
-
         <div className={`flex ${!validac && "mt-20"}  flex-col py-5 bg-slate-200 w-[90%] m-auto`}>
-          {descripcionEjersicio?.feedback?.length
-            ? descripcionEjersicio?.feedback.map(({ _id, comment, rating, email, avatar }: any) => {
+          {detailEjec&&descripcionEjersicio?.map(({ _id, comment, rating, email, avatar }: any) => {
               return (
                 <div key={_id} className=" m-5 w-[40%] overflow-hidden bg-slate-100">
                   <div className="flex">
                     <Comment avatar={avatar} user={email} rewind={rating} />
                     <span className={`p-2 flex ${user?.email !== email && "text-red-700"} text-lg justify-end w-full`}>
                       {user?.email !== email ?
-                        <span onClick={ ()=> SetBan(email,_id) } className="cursor-pointer  hover:after:content-['Banear'] after:p-2 after:absolute after:text-gray-500 duration-150">
+                        <span onClick={ ()=> SetBan(email) } className="cursor-pointer  hover:after:content-['Banear'] after:p-2 after:absolute after:text-gray-500 duration-150">
                           <FaBan />
                         </span> :
                         <span onClick={AddEdit} className="cursor-pointer  hover:after:content-['Editar'] after:p-2 after:absolute after:text-gray-500 duration-150">
@@ -208,18 +220,7 @@ export default function DecriptionEjer() {
                   <p className="px-7 py-5">{comment}</p>
                 </div>
               )
-            }) : status == "success" &&
-            <div className=" m-5 w-[40%] bg-slate-100">
-              <div className="flex">
-                <Comment avatar={user?.avatar} user={user?.email} rewind={rewind.cont} />
-                <span className="p-2 flex text-lg justify-end w-full">
-                  <span onClick={AddEdit} className="cursor-pointer  hover:after:content-['Editar'] after:p-2 after:absolute after:text-gray-500 duration-150">
-                    <AiFillEdit />
-                  </span>
-                </span>
-              </div>
-              <p className="px-7 py-5 w-[30%]">{comment}</p>
-            </div>
+            }) 
           }
         </div>
       </div>

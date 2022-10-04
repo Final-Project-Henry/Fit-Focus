@@ -8,6 +8,8 @@ export interface State {
   user: null | string | any;
   userToken: null | string | any;
   status: string | undefined;
+  response:string | undefined;
+  detailEjec?:object;
   rutines: any | null;
   error:string,
   EstadoCuenta: string | null;
@@ -21,6 +23,7 @@ export interface infoRutina {
 
 const initialState: State = {
   user: null,
+  response:"",
   error:"",
   EstadoCuenta:"",
   userToken: null,
@@ -38,7 +41,6 @@ export interface userFeedback {
 export const Rutines_Get = createAsyncThunk(
   "user/rutinesSlice",
   async (token: string, thunkAPI) => {
-    console.log(token)
     try {
       let headersList = {
         Accept: "/",
@@ -92,6 +94,32 @@ export const EditUser = createAsyncThunk(
       thunkAPI.dispatch(Status(error.response.data));
       thunkAPI.rejectWithValue(error);
       return;
+    }
+  }
+);
+
+export const Detail = createAsyncThunk(
+  "user/detailEj",
+  async ({ token, id }: any, thunkAPI) => {
+
+    try {
+      let headersList = {
+        Accept: "*/*",
+        Authorization: "Bearer " + token,
+        "Content-Type": "application/json",
+      };
+      let reqOptions = {
+        url: `http://localhost:3001/auth/exercise?id=${id}`,
+        method: "GET",
+        headers: headersList,
+      };
+    
+      let response = await axios.request(reqOptions);
+      const resp = response.data;
+      return resp;
+    } catch (error: any) {
+      thunkAPI.rejectWithValue(error.response.data);
+      return error.response.data;
     }
   }
 );
@@ -262,7 +290,7 @@ export const userFeedback = createAsyncThunk(
 
 export const report = createAsyncThunk(
   "user/report",
-  async (data: { id:string, email:string,token:string}, thunkAPI) => {
+  async (data: { id:string | undefined, email:string,token:string}, thunkAPI) => {
     console.log(data)
     try {
       let headersList = {
@@ -279,11 +307,13 @@ export const report = createAsyncThunk(
       };
 
       let response = await axios.request(reqOptions);
+      thunkAPI.fulfillWithValue(response.data)
 
       return response.data;
+
     } catch (error: any) {
-      thunkAPI.dispatch(Status(error.response.data));
-      return error;
+      thunkAPI.rejectWithValue(error.response.data)
+      return error.response.data;
     }
   }
 );
@@ -305,14 +335,14 @@ export const rewindExercise = createAsyncThunk(
       };
 
       let response = await axios.request(reqOptions);
-      return thunkAPI.dispatch(Status("success"));
+       thunkAPI.dispatch(Status("success"));
+      return response.data;
     } catch (error: any) {
       thunkAPI.dispatch(Status(error.response.data));
-      return error;
+      return error.response.data;
     }
   }
 );
-
 
 
 export const User_Register_State = createAsyncThunk(
@@ -412,6 +442,15 @@ export const StateSlice = createSlice({
     Status: (state, action: PayloadAction<string  |undefined>) => {
       state.status = action.payload;
     },
+    Response: ( state)=>{
+      state.response="none"
+    },
+    DelateDetail: ( state)=>{
+      state.detailEjec=undefined;
+    },
+    Error: ( state)=>{
+      state.error=""
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -554,8 +593,39 @@ export const StateSlice = createSlice({
       })
       .addCase(rewindExercise.fulfilled, (state, action) => {
           state.status = "none";
+          console.log(action.payload)
+          if( action.payload!=="Feedback added"){
+            state.error=action.payload
+          }else{
+            state.response = action.payload;
+          }
       })
-      builder
+      //detail ejercicio
+      .addCase(Detail.pending, (state, action) => {
+        state.status = "log";
+      })
+
+      .addCase(Detail.rejected, (state, action) => {
+        state.status = "error"+action.error.message
+      })
+      .addCase(Detail.fulfilled, (state, action) => {
+        state.status = "none";
+
+        state.detailEjec = action.payload;
+      })
+
+      //repot
+      .addCase(report.pending, (state, action) => {
+        state.status = "log";
+      })
+      .addCase(report.rejected, (state, action) => {
+        state.status = "error"+action.error.message
+      })
+      .addCase(report.fulfilled, (state, action) => {
+        state.status = "none";
+        state.response = action.payload;
+      })
+     
       .addCase(feedbackFooter.pending, (state) => {
         state.status = "log"
       })
@@ -569,7 +639,7 @@ export const StateSlice = createSlice({
   },
 });
 
-export const {  sigendOut, Status, Estado,Rutines, Exercises } =
+export const {  sigendOut, Status, Estado,Rutines,Response,DelateDetail, Exercises, Error } =
   StateSlice.actions;
 
 export const selectUser = (state: RootState) => state.user;
