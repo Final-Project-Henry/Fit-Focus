@@ -16,7 +16,7 @@ export default function LateralBar() {
     <div className="flex">
       <div
         className={`${
-          open ? "w-60" : "w-20"
+          open ? "w-60" : "w-30"
         } duration-300 h-[100vh] p-5  pt-8 bg-amber-200 relative`}
       >
         <img
@@ -48,9 +48,6 @@ export default function LateralBar() {
           ))}
         </ul>
       </div>
-      {/* <div className="p-3 text-2x1 font-semibold flex-1 h-screen">
-        Home Page
-      </div> */}
     </div>
   );
 }
