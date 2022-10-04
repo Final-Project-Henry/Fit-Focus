@@ -8,7 +8,6 @@ const validation = require("../validations/validations");
 const mercadopago = require("../service/mercadoPago.js");
 const { get_preference } = require("../additional/preference.js");
 const mailSettings = require("../additional/nodemailer");
-const Exercise = require("../models/Exercise.js");
 
 const isEmpty = require("../additional/isEmpty.js");
 
@@ -223,7 +222,7 @@ router.put("/feedbackExercise", async (req, res) => {
  
   if(!/[1-5]/.test(rating)) return res.status(403).send('Rating has to be between 1 and 5')
   
-    const feedbackAntiguo = await Exercise.findById(id)
+    const feedbackAntiguo = await exercise.findById(id)
       .select("feedback")
       .where("email")
       .equals(email);
@@ -242,7 +241,7 @@ router.put("/feedbackExercise", async (req, res) => {
       feedback = [...filter, ...feedback];
     }
 
-    await Exercise.updateOne({ _id: id }, { feedback: feedback });
+    await exercise.updateOne({ _id: id }, { feedback: feedback });
 
     res.status(200).send("Feedback added");
   } catch (error) {
@@ -256,7 +255,7 @@ router.put("/report", async (req, res) => {
   if(emailUsuario === email) return res.status(403).send('You cannot report your own feedback')
 
 
-  const ComentarioDenunciado = await Exercise.findById(id).select('feedback').where('email').equals(email)
+  const ComentarioDenunciado = await exercise.findById(id).select('feedback').where('email').equals(email)
 
   if(isEmpty(ComentarioDenunciado.feedback)) return res.status(404).send('Feedback not found')
 
