@@ -67,7 +67,6 @@ import NewPassword from "./Components/login-singUp/NewPassword";
 import Training from "./Components/HomeRegister/Rutins/Training";
 
 
-
 function App() {
   const { pathname } = useLocation();
   let token = useToken();
@@ -102,7 +101,6 @@ function App() {
           <Route path="NewPassword/:id" element={<NewPassword />} />
 
           <Route path="/auth/:id" element={<SingUp_Login />} />
-          <Route path="/test" element={<Login2 />} />
           <Route path="/home" element={<HomeVisitor_2 />} />
           <Route path="auth/google" element={<GoogleAuth />} />
           <Route path="/home2" element={<HomeVisitor />} />
@@ -114,7 +112,6 @@ function App() {
             path={"*"}
             element={<Error_page error="URL inexistente." numb_error="404" />}
           />
-
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/politicadeprivacidad" element={<PoliticaPriv/>}/> 
           <Route path="/terminosycondiciones" element={<TerminosYCondiciones/>}/>

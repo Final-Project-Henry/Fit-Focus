@@ -8,6 +8,7 @@ const validation = require("../validations/validations");
 const mercadopago = require("../service/mercadoPago.js");
 const { get_preference } = require("../additional/preference.js");
 const mailSettings = require("../additional/nodemailer");
+const Comment = require('../models/Comment.js')
 
 const isEmpty = require("../additional/isEmpty.js");
 
@@ -258,25 +259,46 @@ router.put("/feedbackExercise", async (req, res) => {
 });
 
 router.put("/report", async (req, res) => {
-  const { email: emailUsuario } = req.user;
-  const { email, id } = req.body;
-  if (emailUsuario === email) return res.status(403).send('You cannot report your own feedback')
-
-
-  const ComentarioDenunciado = await exercise.findById(id).select('feedback').where('email').equals(email)
-
-  if (isEmpty(ComentarioDenunciado.feedback)) return res.status(404).send('Feedback not found')
-
-  const reportAntiguo = ComentarioDenunciado.feedback[0].report.find(report => report === emailUsuario)
-
-  if (reportAntiguo) return res.status(403).send('Report already added')
-
-  ComentarioDenunciado.feedback[0].report.push(emailUsuario)
-
-  await ComentarioDenunciado.save()
-  res.status(200).send('Report added')
+  try {
+    const { email: emailUsuario } = req.user;
+    const { email, id } = req.body;
+    if (emailUsuario === email) return res.status(403).send('You cannot report your own feedback')
+  
+  
+    const ComentarioDenunciado = await exercise.findById(id).select('feedback').where('email').equals(email)
+  
+    if (isEmpty(ComentarioDenunciado.feedback)) return res.status(404).send('Feedback not found')
+  
+    const reportAntiguo = ComentarioDenunciado.feedback[0].report.find(report => report === emailUsuario)
+  
+    if (reportAntiguo) return res.status(403).send('Report already added')
+  
+    ComentarioDenunciado.feedback[0].report.push(emailUsuario)
+  
+    await ComentarioDenunciado.save()
+    res.status(200).send('Report added')
+    
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
 });
 
+router.post('/ask', async (req, res)=>{
 
+  try {
+    const {name,email} = req.user
+    const {asunto, comment} = req.body
+
+    const preguntaAntigua = await Comment.findOne({email : email})
+
+    if(preguntaAntigua) return res.status(409).send('You already sent a question')
+
+    await Comment.create({name, email, asunto, comment})
+  
+    res.status(201).send('Question sent succesfully')
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+});
 
 module.exports = router;

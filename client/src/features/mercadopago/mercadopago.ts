@@ -58,12 +58,10 @@ export const StateSlice = createSlice({
                 state.status = 'rejected';
             })
             .addCase(verify_payment.fulfilled, (state, action) => {
-                console.log(action);
                 state.premium = true;
                 state.payment = 'fulfilled';
             })
             .addCase(verify_payment.rejected, (state, action) => {
-                console.log(action);
                 state.payment = 'rejected';
             })
 

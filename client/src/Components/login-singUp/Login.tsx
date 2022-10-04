@@ -190,7 +190,7 @@ console.log(user.status)
                 className="bg-gray-700 text-white font-bold py-2 px-4 w-full :bg-gray-600"
                 onClick={handleSubmit}
               >
-                {user.status == "none" ? (
+                {user.status == "default" ? (
                   Activar ? (
                     "Recuperar cuenta"
                   ) : (

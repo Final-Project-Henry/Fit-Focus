@@ -557,7 +557,7 @@ const exercises = [
     "equipment": false,
     "muscles": "stretching",
     "genre": "both",
-    "video": "https://atenentacasa.es/wp-content/uploads/2021/07/image011.gif",
+    "video": "https://media2.giphy.com/media/NYYDleLApDMxf3P3b7/giphy.gif?cid=ecf05e47qv54p1muev3d1qkxtfah60jtaxdr347dqel7r2nn&rid=giphy.gif&ct=g",
     "premium": true,
     "description": "Eleva un hombro hasta colocarlo a 90º, y con la otra mano, ejerce presión sobre el codo, moviendolo hacia el lado del hombro contrario, estirando y manteniendo la tensión durante 15 segundos. Repite el movimiento tres veces."
   },

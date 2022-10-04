@@ -14,17 +14,15 @@ export default function Dashboard() {
   const dispatch = useAppDispatch();
   const user = useAppSelector(state => state.user);
 
-  console.log(user);
-
   useEffect(() => {
     let userJSON = window.localStorage.getItem("Login_userFit_Focus");
+    let token;
     if (userJSON) {
-      let token;
       if (userJSON.length > 3) {
         token = JSON.parse(userJSON);
       }
-      dispatch(getProfileInfo(token.token));
     }
+    if(user.status!=='none')dispatch(getProfileInfo(token.token));
   }, [user, token2])
 
   return (
