@@ -3,6 +3,7 @@ import logo from "../assets/icons/nav-icon2.png";
 import phone from "../assets/icons/watsicon.png";
 import mail from "../assets/icons/emailIcon.png";
 import Footer from '../footer/Footer';
+import FooterContactanos from '../footer/FooterContactanos';
 
 function Contactanos() {
     return (
@@ -48,7 +49,7 @@ function Contactanos() {
                     </div>
                 </div>
             </div>
-            <Footer />
+            <FooterContactanos />
         </>
     )
 }

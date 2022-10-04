@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector, useToken } from "../../../app/hooks";
-import { rewindExercise, Status, selectUser, Exercises_Get } from "../../../features/counter/counterSlice";
+import { rewindExercise, Status, selectUser, Exercises_Get, report } from "../../../features/counter/counterSlice";
 
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -73,7 +73,7 @@ export default function DecriptionEjer() {
     if (commentExist) setValidac(false)
     else setValidac(true)
 
-  }, [descripcionEjersicio, status])
+  }, [descripcionEjersicio])
 
   useEffect(() => {
     if (descripcionEjersicio) {
@@ -98,6 +98,10 @@ export default function DecriptionEjer() {
     setValidac(true)
   }
 
+  const SetBan = (email: string, id:string) =>{
+    dispatch(report({ email: email, id: id,token:token}))
+    
+  }
 
   const SubmitCommet = (e: Event | any) => {
     e.preventDefault();
@@ -107,11 +111,10 @@ export default function DecriptionEjer() {
       dispatch(rewindExercise(data))
 
       let newarr: commet[] = []
-      descripcionEjersicio?.feedback?.map((e: any) => {
 
+      descripcionEjersicio?.feedback?.map((e: any) => {
         if (e.email === user?.email) newarr.unshift({ email: user?.email, rating: rewind.cont, _id: id, comment })
         else newarr.push(e)
-
       })
       descripcionEjersicio.feedback = newarr
       setValidac(false)
@@ -129,7 +132,6 @@ export default function DecriptionEjer() {
     else setHiddenCancel(true)
 
   }, [comment])
-
 
   return (
     <>
@@ -174,12 +176,11 @@ export default function DecriptionEjer() {
                 </span>
 
                 {
-                  status === "success" &&
+                  descripcionEjersicio?.feedback?.find((e: any) => e?.email == user?.email)&&
                   <span onClick={() => setValidac(false)} className={`${hiddenCancel && "hidden"} decoration-red-700 text-red-700 cursor-pointer`}>
                     cancelar
                   </span>
                 }
-
 
               </div>
             </div>
@@ -189,14 +190,13 @@ export default function DecriptionEjer() {
         <div className={`flex ${!validac && "mt-20"}  flex-col py-5 bg-slate-200 w-[90%] m-auto`}>
           {descripcionEjersicio?.feedback?.length
             ? descripcionEjersicio?.feedback.map(({ _id, comment, rating, email, avatar }: any) => {
-
               return (
                 <div key={_id} className=" m-5 w-[40%] overflow-hidden bg-slate-100">
                   <div className="flex">
                     <Comment avatar={avatar} user={email} rewind={rating} />
                     <span className={`p-2 flex ${user?.email !== email && "text-red-700"} text-lg justify-end w-full`}>
                       {user?.email !== email ?
-                        <span className="cursor-pointer  hover:after:content-['Banear'] after:p-2 after:absolute after:text-gray-500 duration-150">
+                        <span onClick={ ()=> SetBan(email,_id) } className="cursor-pointer  hover:after:content-['Banear'] after:p-2 after:absolute after:text-gray-500 duration-150">
                           <FaBan />
                         </span> :
                         <span onClick={AddEdit} className="cursor-pointer  hover:after:content-['Editar'] after:p-2 after:absolute after:text-gray-500 duration-150">

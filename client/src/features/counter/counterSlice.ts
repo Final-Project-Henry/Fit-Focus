@@ -7,8 +7,9 @@ import { RootState, AppThunk } from "../../app/store";
 export interface State {
   user: null | string | any;
   userToken: null | string | any;
-  status: string | null;
+  status: string | undefined;
   rutines: any | null;
+  error:string,
   EstadoCuenta: string | null;
   exercises: Array<any> | [];
 }
@@ -20,6 +21,7 @@ export interface infoRutina {
 
 const initialState: State = {
   user: null,
+  error:"",
   EstadoCuenta:"",
   userToken: null,
   status: "none",
@@ -36,6 +38,7 @@ export interface userFeedback {
 export const Rutines_Get = createAsyncThunk(
   "user/rutinesSlice",
   async (token: string, thunkAPI) => {
+    console.log(token)
     try {
       let headersList = {
         Accept: "/",
@@ -52,7 +55,7 @@ export const Rutines_Get = createAsyncThunk(
       let response = await axios.request(reqOptions);
       const resp = response.data;
 
-      console.log(resp.data);
+      console.log(resp);
       thunkAPI.dispatch(Rutines(resp));
       return resp;
     } catch (error: any) {
@@ -66,8 +69,6 @@ export const Rutines_Get = createAsyncThunk(
 export const EditUser = createAsyncThunk(
   "user/Edit",
   async ({ token, data }: any, thunkAPI) => {
-    thunkAPI.dispatch(Status("none"));
-
     try {
       let headersList = {
         Accept: "/",
@@ -86,7 +87,6 @@ export const EditUser = createAsyncThunk(
       const resp = response.data;
 
       thunkAPI.dispatch(Status(response.data));
-  
 
       return resp;
     } catch (error: any) {
@@ -103,54 +103,15 @@ export const Exercises_Get = createAsyncThunk(
     try {
       const response = await axios.get("http://localhost:3001/exercises");
       const resp = response.data;
-      thunkAPI.dispatch(Exercises(resp));
+      thunkAPI.fulfillWithValue(resp)
       return resp;
     } catch (error: any) {
-      thunkAPI.dispatch(Status(error.response.data));
       thunkAPI.rejectWithValue(error);
       return;
     }
   }
 );
 
-export const User_Register_State = createAsyncThunk(
-  "user/sing_upUser",
-  async (user: object, thunkAPI) => {
-    thunkAPI.dispatch(Status("none"));
-
-    try {
-      const response = await axios.post("http://localhost:3001/register", user);
-      const resp = response.data;
-      thunkAPI.dispatch(User(resp));
-      return resp;
-    } catch (error: any) {
-      thunkAPI.dispatch(Status(error.response.data));
-      thunkAPI.rejectWithValue(error);
-      return;
-    }
-  }
-);
-
-export const User_Login_State = createAsyncThunk(
-  "user/login",
-  async (user: object, thunkAPI) => {
-    thunkAPI.dispatch(Status("none"));
-
-    try {
-      const response = await axios.post("http://localhost:3001/login", user);
-      const resp = response.data;
-
-      thunkAPI.dispatch(UserToken(resp));
-      thunkAPI.dispatch(Status(resp));
-
-      return resp;
-    } catch (error: any) {
-      thunkAPI.dispatch(Status(error.response.data));
-      thunkAPI.rejectWithValue(error.response.data);
-      return;
-    }
-  }
-);
 export const Activecuenta = createAsyncThunk(
   "user/active",
   async (user: object, thunkAPI) => {
@@ -170,13 +131,12 @@ export const Activecuenta = createAsyncThunk(
 export const ActivecuentaGoogle = createAsyncThunk(
   "user/activeGoogle",
   async (user: object, thunkAPI) => {
-    thunkAPI.dispatch(Status("none"));
+
     try {
       const response = await axios.put("http://localhost:3001/accountGoogle", user);
       const resp = response.data;
-      thunkAPI.dispatch(Status(resp));
+      thunkAPI.fulfillWithValue(resp);
       return resp;
-
     } catch (error: any) {
       console.log(error)
       thunkAPI.dispatch(Status(error.response.data));
@@ -233,14 +193,17 @@ export const getProfileInfo = createAsyncThunk(
       };
 
       let response = await axios.request(reqOptions);
-      thunkAPI.dispatch(User(response.data));
+      
+      thunkAPI.fulfillWithValue(response.data);
 
-      return;
+      return response.data;
     } catch (error: any) {
       return error;
     }
   }
 );
+
+
 
 export const infoUserRutina = createAsyncThunk(
   "user/DataRutinas",
@@ -298,6 +261,34 @@ export const userFeedback = createAsyncThunk(
   }
 );
 
+export const report = createAsyncThunk(
+  "user/report",
+  async (data: { id:string, email:string,token:string}, thunkAPI) => {
+    console.log(data)
+    try {
+      let headersList = {
+        Accept: "*/*",
+        Authorization: "Bearer " + data.token,
+        "Content-Type": "application/json",
+      };
+
+      let reqOptions = {
+        url: "http://localhost:3001/auth/report",
+        method: "PUT",
+        headers: headersList,
+        data: { email: data.email, id: data.id },
+      };
+
+      let response = await axios.request(reqOptions);
+
+      return response.data;
+    } catch (error: any) {
+      thunkAPI.dispatch(Status(error.response.data));
+      return error;
+    }
+  }
+);
+
 export const rewindExercise = createAsyncThunk(
   "user/rewind",
   async (data: any, thunkAPI) => {
@@ -323,25 +314,63 @@ export const rewindExercise = createAsyncThunk(
   }
 );
 
+
+
+export const User_Register_State = createAsyncThunk(
+  "user/sing_upUser",
+  async (user: object, thunkAPI) => {
+    try {
+      const response = await axios.post("http://localhost:3001/register", user);
+      const resp = response.data;
+      thunkAPI.fulfillWithValue(resp);
+      return resp;
+    } catch (error: any) {
+      thunkAPI.rejectWithValue(error.response.data);
+      return error.response.data;
+    }
+  }
+);
+
+export const User_Login_State = createAsyncThunk(
+  "user/login",
+  async (user: object, thunkAPI) => {
+
+    try {
+      const response = await axios.post("http://localhost:3001/login", user);
+      const resp = response.data;
+      thunkAPI.fulfillWithValue(resp)
+      return resp;
+    } catch (error: any) {
+      thunkAPI.rejectWithValue(error.response.data);
+      return error.response.data;
+    }
+  }
+);
+
 export const authGoogle = createAsyncThunk(
   "user/auth_google",
   async (code: { code: String }, thunkAPI) => {
+  
     try {
       const response = await axios.post(
         "http://localhost:3001/authGoogle",
         code
       );
-      console.log(response)
-      return response.data;
+      let resp=response.data
+      thunkAPI.fulfillWithValue(resp);
+      return resp;
+
     } catch (error:any) {
-      console.log(error)
-      thunkAPI.dispatch(Status(error.response.data));
+      thunkAPI.dispatch(Status(error.response.data))
       thunkAPI.rejectWithValue(error.response.data);
-      return;
+      return error.response.data
     }
   }
 );
 
+const feedbackFooter = createAsyncThunk("user/feedbackFooter", async (data) => {
+  /* await axios.put() */
+})
 
 
 export const StateSlice = createSlice({
@@ -350,7 +379,7 @@ export const StateSlice = createSlice({
 
   reducers: {
     Rutines: (state, action: PayloadAction<any>) => {
-      state.status = "none";
+    
       state.rutines = action.payload;
     },
 
@@ -358,52 +387,164 @@ export const StateSlice = createSlice({
       state.exercises = action.payload;
     },
 
-    UserToken: (state, action: PayloadAction<string>) => {
-      state.userToken = action.payload;
-    },
-    User: (state, action: PayloadAction<object>) => {
-      state.status = "none";
-      state.user = action.payload;
-    },
     sigendOut: (state, action: PayloadAction<null>) => {
-      state.status = "none";
       window.localStorage.removeItem("Login_userFit_Focus");
       state.user = action.payload;
     },
     Estado:(state, action: PayloadAction<string>) => {
         state.EstadoCuenta=action.payload
     },
-    Status: (state, action: PayloadAction<string  |null>) => {
+    Status: (state, action: PayloadAction<string  |undefined>) => {
       state.status = action.payload;
     },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(User_Register_State.pending, (state) => {
-        state.status = "none";
-      })
+    //sing
 
-      .addCase(User_Login_State.pending, (state, action) => {
+      .addCase(User_Register_State.pending, (state) => {
         state.status = "log";
       })
-      .addCase(User_Login_State.fulfilled, (state, action) => {
-        state.status = "none";
+      .addCase(User_Register_State.rejected, (state,action) => {
+        state.status = action.error.message ;
       })
+      .addCase(User_Register_State.fulfilled, (state,action) => {
+        state.status = "none";
+        console.log(action)
+        if (typeof action.payload ==="string") {
+          state.error=action.payload
+        }else{
+          state.user=action.payload;
+        }
+      })
+    ///login
+
+      .addCase(User_Login_State.pending, (state) => {
+        state.status = "log";
+      })
+      .addCase(User_Login_State.rejected, (state, action) => {
+        state.status = action.error.message;
+      })
+      .addCase(User_Login_State.fulfilled, (state,action) => {
+        state.status = "none";
+        console.log(action);
+        if (action.payload.length < 50) {
+          state.error=action.payload
+        }else{
+          state.userToken=action.payload;
+        }
+      })
+      //Ejecicios
+
+      .addCase(Exercises_Get.pending, (state) => {
+        state.status = "log";
+      })
+      .addCase(Exercises_Get.rejected, (state) => {
+        state.status = "erro";
+      })
+      .addCase(Exercises_Get.fulfilled, (state,action) => {
+          state.status = "none";
+          state.exercises=action.payload;
+      })
+      // //getProfileInfo
+
+      .addCase(getProfileInfo.pending, (state) => {
+        state.status = "log";
+      })
+      .addCase(getProfileInfo.rejected, (state) => {
+        state.status = "erro";
+      })
+      .addCase(getProfileInfo.fulfilled, (state,action) => {
+          state.status = "none";
+          state.user=action.payload;
+      })
+      // //activeCuenta
+
+      .addCase(Activecuenta.pending, (state) => {
+        state.status = "log";
+      })
+      .addCase(Activecuenta.rejected, (state) => {
+        state.status = "erro";
+      })
+      .addCase(Activecuenta.fulfilled, (state,action) => {
+          state.status = "none";
+          state.EstadoCuenta="none"
+      })
+
+      .addCase(ActivecuentaGoogle.pending, (state) => {
+        state.status = "log";
+      })
+      .addCase(ActivecuentaGoogle.rejected, (state) => {
+        state.status = "erro";
+      })
+      .addCase(ActivecuentaGoogle.fulfilled, (state,action) => {
+          state.status = "none";
+          state.EstadoCuenta="none"
+
+      })
+      // //edit perfil
+
       .addCase(EditUser.pending, (state, action) => {
         state.status = "log";
       })
-      .addCase(EditUser.fulfilled, (state, action) => {
-        state.status = "none";
+      .addCase(EditUser.rejected, (state, action) => {
+        state.status = "error";
       })
-      .addCase(authGoogle.pending, (state, action) => {})
+      .addCase(EditUser.fulfilled, (state, action) => {
+          state.status = "none";
+      })
+      // //GoogleAuth
+
+      .addCase(authGoogle.pending, (state, action) => {
+        state.status = "log";
+      })
+      .addCase(authGoogle.rejected, (state, action) => {
+        
+        state.status = "error"+action.error.message;
+      })
       .addCase(authGoogle.fulfilled, (state, action) => {
         state.status = "none";
         state.userToken = action.payload;
-      });
+      })
+
+      // //rutinas
+
+      .addCase(Rutines_Get.pending, (state) => {
+        state.status = "log";
+      })
+      .addCase(Rutines_Get.rejected, (state) => {
+        state.status = "error";
+      })
+      .addCase(Rutines_Get.fulfilled, (state, action) => {
+          state.status = "none";
+          state.rutines=action.payload;
+      })
+      ///ifo extrad del user
+      .addCase(infoUserRutina.pending, (state) => {
+        state.status = "log";
+      })
+      .addCase(infoUserRutina.rejected, (state) => {
+        state.status = "error";
+      })
+      .addCase(infoUserRutina.fulfilled, (state, action) => {
+          state.status = "none";
+          state.rutines=action.payload;
+      })
+      //rewind ejec 
+      .addCase(rewindExercise.pending, (state) => {
+        state.status = "log";
+      })
+      .addCase(rewindExercise.rejected, (state) => {
+        state.status = "error";
+      })
+      .addCase(rewindExercise.fulfilled, (state, action) => {
+          state.status = "none";
+      })
+
   },
 });
 
-export const { User, sigendOut, Status, Estado,Rutines, UserToken, Exercises } =
+export const {  sigendOut, Status, Estado,Rutines, Exercises } =
   StateSlice.actions;
 
 export const selectUser = (state: RootState) => state.user;

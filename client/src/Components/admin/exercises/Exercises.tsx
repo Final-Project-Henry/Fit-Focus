@@ -65,7 +65,6 @@ export default function Exercises() {
   };
 
   const actionCell = (user: any) => {
-    console.log(user);
     return (
       <td style={{ display: "flex", justifyContent: "space-around" }}>
         <button
@@ -169,6 +168,8 @@ export default function Exercises() {
       </GridToolbar>
       <GridColumn field="_id" title="ID" />
       <GridColumn field="name" title="Name" />
+      <GridColumn field="difficulty" title="Difficulty" />
+      <GridColumn field="muscles" title="Muscles" />
       <GridColumn field="premium" title="Plan" cell={planCell} />
       <GridColumn field="actions" title="Action" cell={actionCell} width="150px" />
     </Grid>
