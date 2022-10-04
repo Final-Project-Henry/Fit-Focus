@@ -13,6 +13,8 @@ import {
 
   selectUser,
   Estado,
+  Status,
+  Error,
 } from "../../features/counter/counterSlice";
 import GoogleAuth from "../GoogleAuth/GoogleAuth";
 interface Propos {
@@ -25,7 +27,7 @@ const regexName = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/;
 const regexPassword = /^[a-zA-Z0-9]{6,10}$/;
 
 
-const Login2: React.FC<Propos> = ({ loading_icon, icon }) => {
+const SingUp: React.FC<Propos> = ({ loading_icon, icon }) => {
 
 
   const user_logeao = useAppSelector(selectUser);
@@ -47,6 +49,9 @@ const Login2: React.FC<Propos> = ({ loading_icon, icon }) => {
 
   let user = useAppSelector(selectUser);
 
+  useEffect(()=>{
+    dispatch(Error())
+  },[])
 
   //////////obtencion de datos  por medio de los input//////////////////////////////////////////
 
@@ -61,7 +66,6 @@ const Login2: React.FC<Propos> = ({ loading_icon, icon }) => {
   function handleSubmit(event: React.FormEvent): void {
     event.preventDefault();
     dispatch(Estado(""))
-
 
     if (!regexName.test(Form_data.name)) {
       Swal.fire({
@@ -239,7 +243,7 @@ const Login2: React.FC<Propos> = ({ loading_icon, icon }) => {
   )
 }
 
-export default Login2
+export default SingUp
 
 
 

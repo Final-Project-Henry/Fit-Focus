@@ -8,6 +8,7 @@ import {
   selectUser,
   Activecuenta,
   Estado,
+  Error,
 } from "../../features/counter/counterSlice";
 
 import { Link } from "react-router-dom";
@@ -37,6 +38,11 @@ const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
     email: "",
     password: "",
   });
+
+  useEffect(()=>{
+    dispatch(Error())
+  },[])
+
 
   useEffect(() => {
     if (user.userToken?.length > 50) {
