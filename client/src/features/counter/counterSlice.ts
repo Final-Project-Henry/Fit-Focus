@@ -40,7 +40,7 @@ export interface userFeedback {
 
 export const Rutines_Get = createAsyncThunk(
   "user/rutinesSlice",
-  async (token: string, thunkAPI) => {
+  async ({token,cualqu}: any, thunkAPI) => {
     try {
       let headersList = {
         Accept: "/",
@@ -49,7 +49,7 @@ export const Rutines_Get = createAsyncThunk(
       };
 
       let reqOptions = {
-        url: "http://localhost:3001/auth/getroutine",
+        url: `http://localhost:3001/auth/getroutine?get=${cualqu}`,
         method: "GET",
         headers: headersList,
       };
