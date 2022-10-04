@@ -31,7 +31,7 @@ const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
     email: "",
     password: "",
   });
-
+  
   const [error, setError] = useState({
     name: "",
     email: "",
@@ -72,7 +72,7 @@ const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
   ): void {
     Set_form_data((pv) => ({ ...pv, [event.target.name]: event.target.value }));
   }
-
+console.log(user.status)
   //////////enviar de datos  por medio de los input//////////////////////////////////////////
   function handleSubmit(event: React.FormEvent): void {
     event.preventDefault();
@@ -133,10 +133,10 @@ const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
           </div>
           <div className="w-full p-8 lg:w-1/2">
             <h2 className="text-2xl font-semibold text-gray-700 text-center">
-              Inicia sesion
+              {Activar?"Activar cuenta":"Inicia sesion"}
             </h2>
             <p className="text-xl text-gray-600 text-center">
-              Bienvenido de vuelta!
+              {!Activar&& "Bienvenido de vuelta!"}
             </p>
             <div className="mt-4">
               <label className="block text-gray-700 text-sm font-bold mb-2">
