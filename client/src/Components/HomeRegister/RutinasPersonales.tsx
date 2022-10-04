@@ -55,7 +55,7 @@ export default function RutinasPersonales() {
         <div style={{width:"100%", display:"flex", alignItems:"center", justifyContent:"center"}} >
           {user?.userinfo?.length > 0 ? (
             <div>
-              <Rutins rutins={users.rutines?.exercises} />
+              <Rutins rutins={users.rutines?.exercises} reps={users.rutines.reps} dif={users.rutines.difficulty}/>
             </div>
           ) : (
             <>
