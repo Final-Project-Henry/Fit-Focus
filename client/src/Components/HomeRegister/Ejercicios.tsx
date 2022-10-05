@@ -17,6 +17,9 @@ import Footer2 from "../footer/Footer2";
 const Ejercicios = () => {
   const dispatch = useAppDispatch();
   useMemo(() => {
+
+console.log("carga ex")
+
     dispatch(Exercises_Get());
   }, []);
 

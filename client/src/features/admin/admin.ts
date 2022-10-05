@@ -11,6 +11,8 @@ export interface State {
   delete_exer: string;
   delete_user: string;
   change_exer: string;
+  question_status:string,
+  questions:Array<any>,
 }
 export interface data {
   name: string;
@@ -31,6 +33,8 @@ const initialState: State = {
   delete_exer: "default",
   delete_user: "default",
   change_exer: "default",
+  question_status:'default',
+  questions:[],
 };
 
 export interface comments {
@@ -50,6 +54,26 @@ export const get_users = createAsyncThunk(
       }
     }
     const response = await axios.get("http://localhost:3001/admin/allusers", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  }
+);
+
+export const get_questions = createAsyncThunk(
+  "admin/get_questions",
+  async (_, thunkAPI) => {
+    let userJSON = window.localStorage.getItem("Login_userFit_Focus");
+    let token;
+    if (userJSON) {
+      if (userJSON.length > 3) {
+        let userlogin = JSON.parse(userJSON);
+        token = userlogin.token;
+      }
+    }
+    const response = await axios.get("http://localhost:3001/admin/questions", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -320,6 +344,13 @@ export const AdminSlice = createSlice({
       })
       .addCase(change_exercise.rejected, (state, action) => {
         state.change_exer = "rejected";
+      })
+      .addCase(get_questions.fulfilled, (state, action) => {
+        state.question_status = "load";
+        state.questions=action.payload;
+      })
+      .addCase(get_questions.rejected, (state, action) => {
+        state.question_status = "rejected";
       });
   },
 });
