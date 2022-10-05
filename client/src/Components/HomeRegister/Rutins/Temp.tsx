@@ -1,53 +1,51 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
-import images from './images';
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import images from "./images";
 
 export default function Temp(props: {
-  time:number,
-  isRunning: boolean,
-  temp:number,
-  handleCurrent:(direct:string)=>void,
-  handleTemp:(time:number)=>void,
-  handleInit:()=>void,
-  handleReset:()=>void,
-  img?:number,
-  name?:string,
+  time: number;
+  isRunning: boolean;
+  temp: number;
+  handleCurrent: (direct: string) => void;
+  handleTemp: (time: number) => void;
+  handleInit: () => void;
+  handleReset: () => void;
+  img?: number;
+  name?: string;
 }) {
+  const handleCurrent = (control: string) => {
+    props.handleCurrent(control);
+  };
 
-const handleCurrent = (control:string)=>{
-  props.handleCurrent(control);
-}
+  const navigate = useNavigate();
 
-const navigate = useNavigate();
+  const handleEnd = () => {
+    Swal.fire({
+      title: "¿Estas seguro que quieres terminar el entrenamiento?",
+      text: "No se guardara el progreso de lo realizado",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      cancelButtonText: "Cancelar",
+      confirmButtonText: "Terminar",
+    }).then((result: any) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          "Terminado",
+          "Terminaste el entrenamiento completo, felicidades!!!!!!",
+          "success"
+        ).then(() => {
+          navigate("/fitFocus");
+        });
+      }
+    });
+  };
 
-const handleEnd = ()=>{
-  Swal.fire({
-    title: '¿Estas seguro que quieres terminar el entrenamiento?',
-    text: "No se guardara el progreso de lo realizado",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    cancelButtonText: "Cancelar",
-    confirmButtonText: 'Terminar',
-  }).then((result: any) => {
-    if (result.isConfirmed) {
-      Swal.fire(
-        'Terminado',
-        'Terminaste el entrenamiento completo, felicidades!!!!!!',
-        'success'
-      ).then(() => {
-        navigate('/fitFocus')
-      })
-    }
-  })
-}
-
-useEffect(()=>{
-  props.handleTemp(props.time);
-  console.log("settt");
-},[props.time])
+  useEffect(() => {
+    props.handleTemp(props.time);
+  }, [props.time]);
   return (
     <div className='ml-5' style={{ width: "35vw", height: "50vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-around" }}>
 
@@ -75,7 +73,6 @@ useEffect(()=>{
         style={{ backgroundColor: "#111827", color: "white", padding: "10px" }}>
           Siguiente {`>>`}
         </button>
-
       </div>
 
       <div style={{ width: "95%", display: "flex", justifyContent: "space-around" }}>
@@ -100,8 +97,7 @@ useEffect(()=>{
         style={{ backgroundColor: "#111827", color: "white", width: "8vw" }}>
           Terminar
         </button>
-
       </div>
     </div>
-  )
+  );
 }

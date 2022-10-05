@@ -1,49 +1,48 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
-import { useAppDispatch, useAppSelector } from '../../../app/hooks';
-import { Rutines_Get } from '../../../features/counter/counterSlice';
-import Loading from '../../loading/Loading';
-import Temp from './Temp';
-import VisualExerc from './VisualComponents/VisualExerc';
-import VisualRest from './VisualComponents/VisualRest';
-
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import { useAppDispatch, useAppSelector } from "../../../app/hooks";
+import { Rutines_Get } from "../../../features/counter/counterSlice";
+import Loading from "../../loading/Loading";
+import Temp from "./Temp";
+import VisualExerc from "./VisualComponents/VisualExerc";
+import VisualRest from "./VisualComponents/VisualRest";
 
 export default function Training() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const users = useAppSelector(state => state.user);
+  const users = useAppSelector((state) => state.user);
   const [currentOrder, setOrder] = useState(1);
   const [endTraining, setEnd] = useState(false);
   const [isRunning, setRun] = useState(false);
   const [temp, setTemp] = useState(0);
 
-
-  let timer = users.rutines.exercises?.find((e: any, i: number) => i + 1 == currentOrder);
+  let timer = users.rutines.exercises?.find(
+    (e: any, i: number) => i + 1 == currentOrder
+  );
 
   const handleChangeOrder = (direc: string) => {
     if (direc === "next") {
-      if (currentOrder < 29) setOrder(state => state + 1);
-    }
-    else {
-      if (currentOrder > 1) setOrder(state => state - 1);
+      if (currentOrder < 29) setOrder((state) => state + 1);
+    } else {
+      if (currentOrder > 1) setOrder((state) => state - 1);
     }
     setRun(false);
-  }
+  };
 
   const handleTemp = (time: number) => {
     setTemp(time);
-  }
+  };
 
   const handleReset = () => {
     setTemp(timer.time);
     setRun(false);
-  }
+  };
 
   const handleInit = () => {
     if (isRunning) setRun(false);
     else setRun(true);
-  }
+  };
 
   if (temp === 0 && timer && !isRunning) {
     setTemp(timer.time);
@@ -51,12 +50,12 @@ export default function Training() {
   if (currentOrder == 29 && temp === 0) {
     setRun(false);
     Swal.fire(
-      'Terminado',
-      'Terminaste el entrenamiento completo, felicidades!!!!!!',
-      'success'
+      "Terminado",
+      "Terminaste el entrenamiento completo, felicidades!!!!!!",
+      "success"
     ).then(() => {
-      navigate('/fitFocus')
-    })
+      navigate("/fitFocus");
+    });
   }
 
   useEffect(() => {
@@ -73,16 +72,15 @@ export default function Training() {
 
     interval = setInterval(() => {
       if (isRunning) {
-        setTemp(state => state - 1);
+        setTemp((state) => state - 1);
         if (temp === 0 && currentOrder < 29) {
-          setOrder(state => state + 1);
-          console.log("next")
+          setOrder((state) => state + 1);
         }
       }
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [isRunning, temp])
+  }, [isRunning, temp]);
   return (
     <div className='h-full'>
       {
@@ -121,11 +119,23 @@ export default function Training() {
                       name={e.exerc ? e.exerc.name : null}
                     />
                   </div>
-                )
-              })
-            }
-          </div >
-      }
+                  {!e.exer ? <VisualExerc datos={e} /> : <VisualRest />}
+                  <Temp
+                    time={e.time}
+                    isRunning={isRunning}
+                    temp={temp}
+                    handleCurrent={handleChangeOrder}
+                    handleTemp={handleTemp}
+                    handleInit={handleInit}
+                    handleReset={handleReset}
+                    img={e.order ? e.order : null}
+                    name={e.exerc ? e.exerc.name : null}
+                  />
+                </div>
+              );
+          })}
+        </div>
+      )}
     </div>
-  )
+  );
 }

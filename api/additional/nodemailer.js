@@ -16,16 +16,6 @@ module.exports = {
             from: 'fitfocus43@gmail.com',
             to: email,
             subject: '¡Bienvenido a Fit Focus!',
-            // html: `
-            // <b>¡Su usuario ha sido creado con éxito! </b>
-            // <p> Nos alegra que estes aqui. Fit Focus tiene una comunidad enorme y apasionada, lista para ver y celebrar todas las cosas que te gustan, y hemos apartado un asiento solo para ti. </p> 
-            // <b> Al crear una cuenta, aceptas los Términos y la Política de privacidad de Fit Focus.   </b>
-
-            //   <br/>
-            //   <br/>
-
-            //     <img width=50% src="https://cdn.cienradios.com/wp-content/uploads/sites/3/2020/04/entrenar.jpg"></img>
-            // `
             html: `
             <img width=80% src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1664736356/baner_register_ytyrlb.png"></img>
             `,
@@ -38,18 +28,6 @@ module.exports = {
             to: email,
             subject: '¡Regresa cuando quieras!',
             html:
-                //  `
-                // <b>Tu cuenta ha sido desactivada exitosamente. </b>
-                // <p> ¡Regrasa cuendo quieras! Te estaremos esperando.</p>
-                // <p>Esta desactivación implica que: </p>
-                // <p> Tu perfil y todo lo asociado a el desaparecerá de Fit Focus inmediatamente aunque quedará guardado en nuestro servidor por si algún día decides volver a activarla.
-                // Para reactivarla, solo tienes que acceder con tu correo electrónico y contraseña de inicio de sesión. Es posible que la reactivación de la cuenta tarde hasta 24 horas.  </p>
-
-                //   <br/>
-                //   <br/>
-
-                //     <img width=50% src="https://i0.wp.com/brunoramos.es/wp-content/uploads/2020/05/cuenta-adsense-inhabilitada.png?resize=605%2C320&ssl=1"></img>
-                // `
                 `
             <img width=80% src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1664737396/baner_delete_nabiqw.png" />
             `
@@ -61,24 +39,41 @@ module.exports = {
             from: 'fitfocus43@gmail.com',
             to: email,
             subject: 'Nueva contraseña',
-            html: 
-            // `
-            // <p>Opss! ¿Olvidaste tu contraseña? </p>
-            // <p> No hay problema, para cambiarla rederijete al siguiente enlace y crea una nueva. </p>
-            // <b> Este vence en 10 minutos. </b>
-            // <br/>
-            // <a href=${link}>${link}</a>
-            //     <br/>
-            //     <br/>  
-            // <img width=50% src="https://img.freepik.com/vector-gratis/ilustracion-concepto-olvide-contrasena_114360-1010.jpg?size=338&ext=jpg"></img>
-            // `
-            `
+            html:
+                `
             <img width=80% src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1664738286/baner_password_gcnbhz.png"></img>
             <br/>
             <a href=${link} ><b>LINK</b></a>
             `
             ,
         }
-    }
+    },
+    mailResponse: (email, name, response, comment) => {
+        return {
+            from: 'fitfocus43@gmail.com',
+            to: email,
+            subject: 'Respuesta del administrador de Fit Focus',
+            html:
+                `
+                <h1>Estimado <b>${name}</b></h1>
+                <p> Es un placer poder solucionar algun inconveniente surgido en la app, o despejar alguna duda con respecto a la misma.</p>
+                <br/>
+                <p><b>La pregunta que realizo:</b></p>
+                <p>${comment}</p>
+                <br/>
+                <p>Respuesta del admin:</p>
+                <p>${response}</p>
+
+                  <br/>
+                  <br/>
+
+                <p>Esperamos poder haberlo(a) ayudado con su pregunta</p>
+                <p>Despues de respondida su pregunta, es eliminada automaticamente. Sientase libre de hacer otra pregunta si la tuviera</p>
+                <a href="http://localhost:3000">Puedes usar este LINK para ir a la app</a>
+                <a href="http://localhost:3000/contactanos">Puedes usar este LINK para hacer otra pregunta</a>
+                   `
+            ,
+        }
+    },
 
 }
