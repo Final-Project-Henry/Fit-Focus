@@ -75,4 +75,29 @@ export default {
     } else return false
 
     },
+    MejorRewind:(ejercicios:Array<any>)=>{
+    let rewind = ejercicios.map(e=>{
+            if(e.feedback.length > 0){
+                 let sum=0
+                 e.feedback.map((x:any)=>{
+                        sum = sum + parseInt(x.rating)
+                            })
+                let rating={rating:sum, id:e._id}
+                
+                return rating
+            }  
+        })
+        rewind=rewind.filter(e=>e!== undefined)
+
+        rewind.sort((a, b) => {
+            //@ts-ignore // error: posible undefined, si lo sabes joya
+            return b?.rating - a?.rating;
+          });
+        rewind = rewind.map(e=>{
+                let ejerBast=ejercicios.find(x=> x._id === e?.id)
+                return {...ejerBast, rating:e?.rating}
+          })
+        console.log(rewind)
+       return rewind.slice(0,4)
+    }
 }
