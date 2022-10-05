@@ -177,16 +177,12 @@ const Navbar = () => {
                 </li>
                 {!userInfo &&
                   <li>
-                    <Scroll
-                      to="Nosotros"
-                      spy={true}
-                      smooth={true}
-                      offset={-100}
-                      duration={500}
-                      className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent  md:p-0 cursor-pointer"
+                    <Link
+                      to={`/AboutUs`}
+                      className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
                     >
                       Nosotros
-                    </Scroll>
+                    </Link>
                   </li>}
               </ul>
             </div>
