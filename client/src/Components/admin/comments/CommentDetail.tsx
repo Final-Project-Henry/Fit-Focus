@@ -8,6 +8,7 @@ interface feedback {
   email: string;
   comment: string;
   rating: number | string;
+  report: Array<string>
 }
 
 export default function CommentDetail(props: {
@@ -64,6 +65,10 @@ export default function CommentDetail(props: {
       <p>
         <b>Comment: </b>
         {props.feedback.comment}
+      </p>
+      <p>
+        <b>Reportado por: </b>
+        {props.feedback.report.map((e:string)=>(<p>{e}</p>))}
       </p>
       <button
         onClick={onDelete}

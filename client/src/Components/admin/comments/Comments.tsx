@@ -20,13 +20,13 @@ export default function Comments() {
           fontWeight: "500",
           margin: "25px 0 10px 0",
         }}
-      >Questions</h1>
+      >Comment's exercises</h1>
       {comments.length > 0 ? (
         comments.map((e: any) => (
           <Card datos={{ feedback: e.feedback, name: e.name }} />
         ))
       ) : (
-        <h1>COMMENTS NOT FOUND</h1>
+        <h1>No hay comentarios</h1>
       )}
     </div>
   );
