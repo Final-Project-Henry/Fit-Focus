@@ -57,6 +57,7 @@ const HomeRegister = () => {
   const State = useAppSelector(selectUser);
 
   const [exercises, setExercises] = useState<Array<card>>([]);
+  const [Bastexercises, setBastExercises] = useState<Array<any>>([]);
 
   const [Render, SetRender] = useState({
     rejercisio: true,
@@ -69,6 +70,7 @@ const HomeRegister = () => {
   useEffect(() => {
     if (State.exercises.length > 0) {
       setExercises(funcion.get_exercises(State.exercises));
+      setBastExercises(funcion.MejorRewind(State.exercises))
     }
   }, [State.exercises]);
 
@@ -151,8 +153,8 @@ const HomeRegister = () => {
             </div>
 
             <div className="grid grid-cols-4 grid-row-1 my-[60px] bg-[#59656F] mt-[30px]">
-              {exercises.length > 0 ? (
-                exercises?.map(
+              {Bastexercises.length > 0 ? (
+                Bastexercises?.map(
                   ({
                     _id,
                     video,
@@ -161,6 +163,7 @@ const HomeRegister = () => {
                     muscles,
                     genre,
                     premium,
+                    rating
                   }) => (
                     <RandomCards
                       _id={_id}
@@ -168,6 +171,7 @@ const HomeRegister = () => {
                       name={name}
                       difficulty={difficulty}
                       genre={genre}
+                      rating={rating}
                       muscles={muscles}
                       premium={premium}
                       equipment={true}
