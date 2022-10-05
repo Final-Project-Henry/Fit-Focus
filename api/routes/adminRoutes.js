@@ -2,6 +2,7 @@ const { Router } = require('express')
 const user = require('../models/User.js')
 const Exercise = require('../models/Exercise.js');
 const Comment = require('../models/Comment.js');
+const mailSettings = require("../additional/nodemailer");
 
 const router = Router()
 
@@ -128,13 +129,37 @@ router.put("/change_exercise", async (req, res) => {
   }
 });
 
-router.get('questions', async (req, res)=>{
+router.get('/questions', async (req, res)=>{
   try {
     const questions = await Comment.find()
     res.status(200).send(questions)
   } catch (error) {
     res.status(500).send(error.message)
   }
-})
+});
+
+router.put('/response_ask', async (req, res) => {
+
+  try {
+    const {email, response} = req.body;
+    const question = await Comment.findOne({ email: email });
+
+    const transporter = mailSettings.transporter;
+    const mailDetails = mailSettings.mailResponse(email, question.name, response, question.comment);
+    transporter.sendMail(mailDetails, (error, info) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log("Email enviado");
+      }
+    });
+
+    await Comment.deleteOne({email:email});
+
+    res.status(201).send('success')
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+});
 
 module.exports = router;
