@@ -18,7 +18,6 @@ const exercises = [
     "video": "https://c.tenor.com/W_cGMvJdlWQAAAAC/widegrip-pushups.gif",
     "premium": false,
     "description": "Arrodíllate en el suelo. Extiende los brazos y separa las manos a la anchura de los hombros en el suelo frente a ti. Apriete los abdominales mientras dobla los brazos, bajando el torso hasta que el pecho roce el suelo. Empuje el torso hacia arriba enderezando los brazos. Lento, constante y repita."
-
   },
   {
     "name": "DIAMOND PUSH UPS",
@@ -29,7 +28,6 @@ const exercises = [
     "video": "https://thumbs.gfycat.com/AffectionateImmenseIrishdraughthorse-size_restricted.gif",
     "premium": false,
     "description": " El cuerpo debe estar apretado y recto, lo que se puede mantener apretando los muslos y los glúteos para aumentar el apoyo. A medida que el pecho se baja hacia el suelo, los codos deben apuntar hacia los pies. El cuerpo se baja hasta que los brazos están a lo largo del lado de la caja torácica, deteniéndose por un segundo antes de iniciar el movimiento hacia arriba. Mientras se mantiene la alineación, el cuerpo se impulsa hacia arriba empujando el piso hasta que los codos se enderezan."
-
   },
   {
     "name": "CLAP PUSH UPS",
@@ -40,7 +38,6 @@ const exercises = [
     "video": "https://c.tenor.com/EbRmSXrs5JQAAAAd/clap-pushups-stephen-farrelly.gif",
     "premium": false,
     "description": " Asuma una posición de flexión estándar con las manos fuera de los hombros y los pies separados por el ancho de la cadera. Comience el ejercicio doblando los codos y bajando el pecho al suelo, haga una pausa, luego explote del suelo, empujando tan fuerte como pueda para que sus manos salgan del suelo.Inmediatamente aplaudan sus manos rápidamente en el aire. Una vez que tus manos golpeen el suelo, deja caer el pecho de nuevo al suelo y explota de nuevo"
-
   },
   {
     "name": "SQUATS",
@@ -51,7 +48,6 @@ const exercises = [
     "video": "https://c.tenor.com/g6XQ1z_Op0QAAAAC/squats-body-weight-training.gif",
     "premium": false,
     "description": "Comience con los pies ligeramente más anchos que el ancho de la cadera separados, los dedos de los pies se volvieron ligeramente hacia afuera. Mantenga el pecho hacia arriba y hacia afuera y la presión incluso en los pies, involucre sus abdominales y mueva su peso hacia los talones mientras empuja las caderas hacia atrás. Bájese en una sentadilla hasta que sus talones comiencen a levantarse del piso, o hasta que su torso comience a redondearse o flexionarse hacia adelante. Su profundidad debe estar determinada por su forma."
-
   },
   {
     "name": "SUMO SQUATS",
@@ -62,7 +58,6 @@ const exercises = [
     "video": "https://i.pinimg.com/originals/19/5b/a7/195ba798f4246ae9930a97ea2e084aae.gif",
     "premium": false,
     "description": "Párese con los pies más anchos que el ancho de los hombros separados y los dedos de los pies ligeramente girados. Sostenga una mancuerna en cada mano frente a sus caderas.Empuje las caderas hacia atrás y póngase en cuclillas hacia abajo, manteniendo el pecho hacia arriba y las rodillas hacia afuera. Lleva las pesas al suelo entre tus piernas. Luego vuelva a la posición inicial.Empuje las caderas hacia atrás y póngase en cuclillas hacia abajo, manteniendo el pecho hacia arriba y las rodillas hacia afuera. Lleva las pesas al suelo entre tus piernas. Luego vuelva a la posición inicial.Empuje las caderas hacia atrás y póngase en cuclillas hacia abajo, manteniendo el pecho hacia arriba y las rodillas hacia afuera. Lleva las pesas al suelo entre tus piernas. Luego vuelva a la posición inicial."
-
   },
   {
     "name": "SIDE TAP SQUAT",
@@ -73,7 +68,6 @@ const exercises = [
     "video": "https://workout-gifs.s3.amazonaws.com/routines/ecfc6c6f-8889-485b-85a2-b87b5a6c905a.gif",
     "premium": false,
     "description": "Comience a pararse con los pies separados por la distancia de la cadera y siéntese de nuevo en una posición de sentadilla doblando las rodillas. Mantenga sus abdominales apretados y la espalda recta. Pase ancho hacia un lado permaneciendo en su posición de sentadilla, regrese a su posición inicial y luego acurrúquese de lado en la otra dirección usando todos los músculos de la parte inferior del cuerpo y luego vuelva al centro. "
-
   },
   {
     "name": "BULGARIAN SQUAT",
@@ -84,7 +78,6 @@ const exercises = [
     "video": "https://www.historia.waszczyk.com/60865fa9e6169b29ad8e78a66069cc1f/bulgarian-split-squat.gif",
     "premium": false,
     "description": "Párese de 2 a 3 pies frente a una plataforma hasta la rodilla. Extiende la pierna derecha detrás de ti y apoya los dedos de los pies en el banco. Los dedos de los pies pueden ser planos o metidos, según las preferencias personales. Cuadra tus caderas y hombros. Manteniendo el torso erguido, baja lentamente la rodilla derecha hacia el suelo. Su rodilla delantera formará aproximadamente un ángulo de 90 grados"
-
   },
   {
     "name": "JUMP SQUAT",
