@@ -19,26 +19,24 @@ const Navbar = () => {
   const [lenguage, setLenguage] = useState(false);
   const [userData, setUser] = useState(false);
   const [userInfo, setUserInfo] = useState<any>(false);
-  const [hiddenTimeOut, setHiddenTimeOut] = useState<any>()
+  const [hiddenTimeOut, setHiddenTimeOut] = useState<any>();
 
   const dispatch = useAppDispatch();
-  const { user, userToken } = useAppSelector(selectUser)
-  const userSeccion = useSesion()
-  const Navegation = useNavigate()
+  const { user, userToken } = useAppSelector(selectUser);
+  const userSeccion = useSesion();
+  const Navegation = useNavigate();
 
   const onClick = () => {
     window.scrollTo(0, 0);
-    Navegation(userInfo ? '/fitFocus' : '/home')
-  }
+    Navegation(userInfo ? "/fitFocus" : "/home");
+  };
 
   useEffect(() => {
     if (user) {
-      setUserInfo(user)
-    } else
-      if (userSeccion) {
-        setUserInfo(userSeccion)
-
-      }
+      setUserInfo(user);
+    } else if (userSeccion) {
+      setUserInfo(userSeccion);
+    }
   }, [userSeccion, user]);
 
   function signOut(): void {
@@ -53,26 +51,21 @@ const Navbar = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(sigendOut(null));
-        Navegation("/home")
+        Navegation("/home");
         window.location.reload();
       }
     });
   }
 
   const handleShow = (type: string) => {
-
-    console.log(type)
-
     if (type === "leave") {
-
-      setHiddenTimeOut(setTimeout(() => {
-        dropdown && setDropdown(false)
-      }, 1500))
-
+      setHiddenTimeOut(
+        setTimeout(() => {
+          dropdown && setDropdown(false);
+        }, 1500)
+      );
     } else clearTimeout(hiddenTimeOut);
-
-  }
-
+  };
 
   return (
     <div style={{ backgroundColor: "white" }}>

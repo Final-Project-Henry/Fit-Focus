@@ -75,8 +75,6 @@ const Carousel: React.FC<Props> = ({
       const slice = slideshow.current.children[0] as HTMLElement;
       const sliceSize = slice.offsetWidth;
 
-
-
       slideshow.current.style.transform = `translateX(-${sliceSize}px)`;
 
       setTimeout(() => {
@@ -89,7 +87,6 @@ const Carousel: React.FC<Props> = ({
   };
 
   useEffect(() => {
-    console.log("Hola");
     if (autoplay) {
       intervalSlides.current = setInterval(() => {
         next();
@@ -97,7 +94,6 @@ const Carousel: React.FC<Props> = ({
 
       if (buttons.current) {
         buttons.current.addEventListener("mouseenter", () => {
-          console.log("Entre boton");
           clearInterval(intervalSlides.current);
         });
 
@@ -122,47 +118,46 @@ const Carousel: React.FC<Props> = ({
 
   return (
     <div className="w-[100%] mx-auto max-h-[400px] flex justify-center content-center overflow-hidden rounded-xl ">
-    <div className="relative flex z-[1] content-center">
-      <div
-        className="flex flex-nowrap max-h-full items-center content-center"
-        ref={slideshow}
-      >
-        {content.map(
-          ({ src, text, stylesContent, stylesImage, stylesText }) => {
-            
-            return (
-              <div
-                className={` min-w-full  ease-linear duration-300  flex items-center  rounded-2xl ${stylesContent}`}
-              >
-                {text && (
-                  <div
-                    className="absolute bg-[#111828c4] flex flex-col  w-full py-60 px-10 text-white z-10"
-                  >
-                    <p className="font-extrabold  py-5 w-[50%] text-[2rem]">
-                    {text}
-                    </p>
-                  <Link to="/mercadopago" className="inline-flex items-center py-2 px-[2rem] w-40 text-2xl font-black text-center text-white bg-[#004cff] duration-150 rounded-lg hover:bg-blue-800">
-                    Premium
-                  </Link>
-                  </div>
-                )}
-                {src.slice(-3) === "mp4" ? (
-                  <video src={src} autoPlay loop muted />
-                ) : (
-                  <img
-                    src={src}
-                    className={`w-full aling-top bg-cover ${stylesImage}`}
-                    alt="Img to slide"
-                  />
-                  
-                )}
-              </div>
-            );
-          }
-        )}
+      <div className="relative flex z-[1] content-center">
+        <div
+          className="flex flex-nowrap max-h-full items-center content-center"
+          ref={slideshow}
+        >
+          {content.map(
+            ({ src, text, stylesContent, stylesImage, stylesText }) => {
+              return (
+                <div
+                  className={` min-w-full  ease-linear duration-300  flex items-center  rounded-2xl ${stylesContent}`}
+                >
+                  {text && (
+                    <div className="absolute bg-[#111828c4] flex flex-col  w-full py-60 px-10 text-white z-10">
+                      <p className="font-extrabold  py-5 w-[50%] text-[2rem]">
+                        {text}
+                      </p>
+                      <Link
+                        to="/mercadopago"
+                        className="inline-flex items-center py-2 px-[2rem] w-40 text-2xl font-black text-center text-white bg-[#004cff] duration-150 rounded-lg hover:bg-blue-800"
+                      >
+                        Premium
+                      </Link>
+                    </div>
+                  )}
+                  {src.slice(-3) === "mp4" ? (
+                    <video src={src} autoPlay loop muted />
+                  ) : (
+                    <img
+                      src={src}
+                      className={`w-full aling-top bg-cover ${stylesImage}`}
+                      alt="Img to slide"
+                    />
+                  )}
+                </div>
+              );
+            }
+          )}
+        </div>
       </div>
     </div>
-  </div>
   );
 };
 

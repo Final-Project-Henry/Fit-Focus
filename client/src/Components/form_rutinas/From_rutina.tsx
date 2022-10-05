@@ -9,11 +9,9 @@ import {
 } from "../../features/counter/counterSlice";
 import Navbar from "../Navbar/Navbar";
 
-
 import imagen from "../assets/homeRegister-media/imagen.jpg";
 
 //const imagen = require("../assets/imagen.jpg");
-
 
 interface data_user {
   age: number | string;
@@ -23,7 +21,6 @@ interface data_user {
   experience: string;
   equipment: boolean | string;
   goal: string;
-
 }
 
 //const regexDecimalNums = /^\d.\d+$/;
@@ -32,9 +29,8 @@ const regexAge = /^((60)|([2-5][0-9]{1}))$/;
 
 const regexNumPosivos = /^((150)|(1[0-4][0-9]{1})|([5-9][0-9]{1}))$/;
 
-const regexNumPosivosAltura = /^((220)|(2[0-1][0-9]{1})|(1[0-9]{2})|([5-9][0-9]{1}))$/;
-
-
+const regexNumPosivosAltura =
+  /^((220)|(2[0-1][0-9]{1})|(1[0-9]{2})|([5-9][0-9]{1}))$/;
 
 export default function Form_rutinas(props: { function: { (): void } }) {
   let user = useAppSelector(selectUser);
@@ -54,22 +50,19 @@ export default function Form_rutinas(props: { function: { (): void } }) {
     name: "",
     email: "",
     password: "",
-  })
+  });
 
   function handleChange(
     event: React.ChangeEvent<
       HTMLFormElement | HTMLInputElement | HTMLTextAreaElement | any
     >
   ): void {
-
     //  if (form_data.genre) {
     //    event.target.checked=null
     //    Set_form_data((pv: any) => ({
     //     ...pv,
     //     [event.target.name]: event.target.value,
     //   }));
-
-
 
     Set_form_data((pv: any) => ({
       ...pv,
@@ -84,9 +77,7 @@ export default function Form_rutinas(props: { function: { (): void } }) {
 
     //const age = parseInt(form_data.age);
 
-    console.log(form_data.age, regexAge.test(form_data.age))
     if (!regexAge.test(form_data.age)) {
-
       Swal.fire({
         title: "Por favor ingrese una edad entre 20 y 60 años",
         icon: "info",
@@ -95,23 +86,22 @@ export default function Form_rutinas(props: { function: { (): void } }) {
         cancelButtonColor: "#d33",
         confirmButtonText: "Aceptar",
       }).then((result) => {
-        setError({ ...error, name: "border-red-600" })
+        setError({ ...error, name: "border-red-600" });
       });
       return;
     }
 
-    //const weight = parseInt(form_data.weight);`
-    console.log(form_data.weight, regexNumPosivos.test(form_data.weight))
     if (!regexNumPosivos.test(form_data.weight)) {
       Swal.fire({
-        title: "Por favor ingrese un peso entre 50 y 120 kilogramos, de lo contrario, consulte a su médico",
+        title:
+          "Por favor ingrese un peso entre 50 y 120 kilogramos, de lo contrario, consulte a su médico",
         icon: "info",
         showCancelButton: false,
         confirmButtonColor: "#230bf8",
         cancelButtonColor: "#d33",
         confirmButtonText: "Aceptar",
       }).then((result) => {
-        setError({ ...error, name: "border-red-600" })
+        setError({ ...error, name: "border-red-600" });
       });
       return;
     }
@@ -125,7 +115,7 @@ export default function Form_rutinas(props: { function: { (): void } }) {
         cancelButtonColor: "#d33",
         confirmButtonText: "Aceptar",
       }).then((result) => {
-        setError({ ...error, name: "border-red-600" })
+        setError({ ...error, name: "border-red-600" });
       });
       return;
     }
@@ -138,7 +128,7 @@ export default function Form_rutinas(props: { function: { (): void } }) {
         confirmButtonColor: "#230bf8",
         cancelButtonColor: "#d33",
         confirmButtonText: "Aceptar",
-      })
+      });
       return;
     }
 
@@ -150,7 +140,7 @@ export default function Form_rutinas(props: { function: { (): void } }) {
         confirmButtonColor: "#230bf8",
         cancelButtonColor: "#d33",
         confirmButtonText: "Aceptar",
-      })
+      });
       return;
     }
 
@@ -162,7 +152,7 @@ export default function Form_rutinas(props: { function: { (): void } }) {
         confirmButtonColor: "#230bf8",
         cancelButtonColor: "#d33",
         confirmButtonText: "Aceptar",
-      })
+      });
       return;
     }
 
@@ -174,19 +164,21 @@ export default function Form_rutinas(props: { function: { (): void } }) {
         confirmButtonColor: "#230bf8",
         cancelButtonColor: "#d33",
         confirmButtonText: "Aceptar",
-      })
+      });
       return;
     }
 
     dispatch(infoUserRutina({ token, form_data }));
     props.function();
-
   }
 
   return (
     <>
       <div className="bg-gray-900 w-[100%]">
-        <img src={imagen} className="w-full h-[100vh] object-fit:cover absolute " />
+        <img
+          src={imagen}
+          className="w-full h-[100vh] object-fit:cover absolute "
+        />
         <div className="w-full flex justify-center items-center flex-col relative  ">
           <form
             className="flex flex-col justify-center items-center w-full h-[100vh] bg-[#11182852]"
@@ -194,10 +186,14 @@ export default function Form_rutinas(props: { function: { (): void } }) {
             method="POST"
           >
             <div className=" bg-gray-200 px-20 py-10 bg-opacity-80 ">
-              <h1 className="flex flex-col text-3xl text-[#111827]" >Formulario de rutinas personalizadas</h1>
-              <h1 className="flex flex-col justify-center items-center text-2xl text-[#111827]">Por favor ingrese sus datos</h1>
+              <h1 className="flex flex-col text-3xl text-[#111827]">
+                Formulario de rutinas personalizadas
+              </h1>
+              <h1 className="flex flex-col justify-center items-center text-2xl text-[#111827]">
+                Por favor ingrese sus datos
+              </h1>
               <br />
-              <div className="flex justify-start" >
+              <div className="flex justify-start">
                 <label className="mr-3 text-[#111827] "> Género: </label>
                 <br />
                 <input
@@ -357,7 +353,9 @@ export default function Form_rutinas(props: { function: { (): void } }) {
                   name="goal"
                   value="lower fat percentage"
                   className="mx-2 rounded-full p-2 cursor-pointer mr-2"
-                  checked={form_data.goal == "lower fat percentage" ? true : false}
+                  checked={
+                    form_data.goal == "lower fat percentage" ? true : false
+                  }
                   onChange={handleChange}
                 />
                 <label className="mr-1">Perder peso</label>
