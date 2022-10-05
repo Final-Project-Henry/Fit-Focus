@@ -24,8 +24,6 @@ export default function Visitor1() {
     const dispatch = useAppDispatch()
 
     const divComment1 = useRef<HTMLHeadingElement>(null);
-    const divComment2 = useRef<HTMLHeadingElement>(null);
-    const divComment3 = useRef<HTMLHeadingElement>(null);
 
     const [datosState, setDatosState] = useState(datos)
     const [comments, setComments] = useState<any>(functions.random(datosState));
@@ -38,6 +36,7 @@ export default function Visitor1() {
 
     useEffect(() => {
         dispatch(getFeedback())
+        sr.reveal(divComment1.current, config);
     }, []);
 
     useEffect(() => {
@@ -65,15 +64,6 @@ export default function Visitor1() {
         console.log(datosState, "iam")
 
     }, [datosState])
-    
-
-
-    
-    useLayoutEffect(() => {
-        sr.reveal(divComment1.current, config);
-        // sr.reveal(divComment2.current, config);
-        // sr.reveal(divComment3.current, config);
-      },[])
 
     return (
         <div className={styles.container} >
@@ -90,13 +80,12 @@ export default function Visitor1() {
             </div>
             <div className={styles.container_3}>
                 <p className={styles.tittle_2}>Lo que opinan algunos miembros:</p>
-                <div className={styles.comments} ref={divComment1}>
+                <div className={styles.comments}
+                 ref={divComment1}
+                 >
                     {comments?.map((comment:any) => (
                         <Comment avatar={comment.avatar} comment={comment.comment} name={comment.name} />
                     ))}
-                    {/* {comments&&<div ref={divComment1}><Comment data={(datos as data)[comments[0]]} /></div>}
-                    {comments&&<div ref={divComment2}><Comment data={(datos as data)[comments[1]]} /></div>}
-                    {comments&&<div ref={divComment3}><Comment data={(datos as data)[comments[2]]} /></div>} */}
                 </div>
             </div>
         </div>
