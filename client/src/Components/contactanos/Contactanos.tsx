@@ -53,9 +53,9 @@ const Contactanos = () => {
       return;
     }
 
-    if (feedback.comment.length > 50) {
+    if (feedback.comment.length > 100) {
       Swal.fire({
-        title: "Su comentario debe tener menos de 50 caracteres",
+        title: "Su comentario debe tener menos de 100 caracteres",
         icon: "info",
         showCancelButton: false,
         confirmButtonColor: "#230bf8",
