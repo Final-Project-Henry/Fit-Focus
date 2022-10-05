@@ -292,7 +292,7 @@ const Navbar = () => {
                       to="/admin"
                       className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 "
                     >
-                      Dashboard
+                      Tablero
                     </Link>
                   </li>}
                   <li

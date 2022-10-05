@@ -13,13 +13,20 @@ export default function Comments() {
   }, [dispatch, user.exercises?.length]);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "2vh" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "2vh", marginLeft:"3vw" }}>
+      <h1
+        style={{
+          fontSize: "3rem",
+          fontWeight: "500",
+          margin: "25px 0 10px 0",
+        }}
+      >Comment's exercises</h1>
       {comments.length > 0 ? (
         comments.map((e: any) => (
           <Card datos={{ feedback: e.feedback, name: e.name }} />
         ))
       ) : (
-        <h1>COMMENTS NOT FOUND</h1>
+        <h1>No hay comentarios</h1>
       )}
     </div>
   );

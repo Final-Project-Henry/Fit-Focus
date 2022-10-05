@@ -6,6 +6,7 @@ interface feedback {
   email: string;
   comment: string;
   rating: number | string;
+  report: Array<string>
 }
 
 interface datos {
