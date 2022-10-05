@@ -18,7 +18,6 @@ const exercises = [
     "video": "https://c.tenor.com/W_cGMvJdlWQAAAAC/widegrip-pushups.gif",
     "premium": false,
     "description": "Arrodíllate en el suelo. Extiende los brazos y separa las manos a la anchura de los hombros en el suelo frente a ti. Apriete los abdominales mientras dobla los brazos, bajando el torso hasta que el pecho roce el suelo. Empuje el torso hacia arriba enderezando los brazos. Lento, constante y repita."
-
   },
   {
     "name": "DIAMOND PUSH UPS",
@@ -29,7 +28,6 @@ const exercises = [
     "video": "https://thumbs.gfycat.com/AffectionateImmenseIrishdraughthorse-size_restricted.gif",
     "premium": false,
     "description": " El cuerpo debe estar apretado y recto, lo que se puede mantener apretando los muslos y los glúteos para aumentar el apoyo. A medida que el pecho se baja hacia el suelo, los codos deben apuntar hacia los pies. El cuerpo se baja hasta que los brazos están a lo largo del lado de la caja torácica, deteniéndose por un segundo antes de iniciar el movimiento hacia arriba. Mientras se mantiene la alineación, el cuerpo se impulsa hacia arriba empujando el piso hasta que los codos se enderezan."
-
   },
   {
     "name": "CLAP PUSH UPS",
@@ -40,7 +38,6 @@ const exercises = [
     "video": "https://c.tenor.com/EbRmSXrs5JQAAAAd/clap-pushups-stephen-farrelly.gif",
     "premium": false,
     "description": " Asuma una posición de flexión estándar con las manos fuera de los hombros y los pies separados por el ancho de la cadera. Comience el ejercicio doblando los codos y bajando el pecho al suelo, haga una pausa, luego explote del suelo, empujando tan fuerte como pueda para que sus manos salgan del suelo.Inmediatamente aplaudan sus manos rápidamente en el aire. Una vez que tus manos golpeen el suelo, deja caer el pecho de nuevo al suelo y explota de nuevo"
-
   },
   {
     "name": "SQUATS",
@@ -62,7 +59,6 @@ const exercises = [
     "video": "https://i.pinimg.com/originals/19/5b/a7/195ba798f4246ae9930a97ea2e084aae.gif",
     "premium": false,
     "description": "Párese con los pies más anchos que el ancho de los hombros separados y los dedos de los pies ligeramente girados. Sostenga una mancuerna en cada mano frente a sus caderas.Empuje las caderas hacia atrás y póngase en cuclillas hacia abajo, manteniendo el pecho hacia arriba y las rodillas hacia afuera. Lleva las pesas al suelo entre tus piernas. Luego vuelva a la posición inicial.Empuje las caderas hacia atrás y póngase en cuclillas hacia abajo, manteniendo el pecho hacia arriba y las rodillas hacia afuera. Lleva las pesas al suelo entre tus piernas. Luego vuelva a la posición inicial.Empuje las caderas hacia atrás y póngase en cuclillas hacia abajo, manteniendo el pecho hacia arriba y las rodillas hacia afuera. Lleva las pesas al suelo entre tus piernas. Luego vuelva a la posición inicial."
-
   },
   {
     "name": "SIDE TAP SQUAT",
@@ -632,7 +628,7 @@ const exercises = [
     "description": "Colócate en posición de cuadrupedia y asegúrate que tus muñecas están correctamente alineadas bajo los hombros y las rodillas bajo las caderas, abiertas a su misma anchura. Coloca la espalda recta y el cuello neutro. Inhalando, arquea la espalda mientras dejas caer el abdomen hacia abajo, elevando el pecho y la barbilla hacia el techo. Exhala metiendo el abdomen y redondeando la columna con la barbilla hacia el pecho y la mirada hacia al abdomen"
   },
   {
-    "name": "PSOAS STRETCHING",
+    "name": "LUMBAR STRETCHING",
     "difficulty": "medium",
     "equipment": false,
     "muscles": "stretching",

@@ -18,7 +18,7 @@ const LandingPage = () => {
       <div className={styles.overlay}></div>
       <video src={landingTrain} height='100vh' autoPlay loop muted />
       <div className={styles.titleApp}>
-        <h1>FIT FOCUS</h1>
+        <h1 className={styles.name}>FIT FOCUS</h1>
       </div>
       <div className={styles.content}>
         <div className={styles.noPainDiv}>
