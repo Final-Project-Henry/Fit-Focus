@@ -49,7 +49,7 @@ export const Rutines_Get = createAsyncThunk(
       };
 
       let reqOptions = {
-        url: `http://localhost:3001/auth/getroutine?get=${cualqu}`,
+        url: cualqu?`http://localhost:3001/auth/getroutine?get=${cualqu}`:"http://localhost:3001/auth/getroutine",
         method: "GET",
         headers: headersList,
       };
