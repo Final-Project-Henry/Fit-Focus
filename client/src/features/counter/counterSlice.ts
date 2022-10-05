@@ -27,7 +27,7 @@ const initialState: State = {
   error: "",
   EstadoCuenta: "",
   userToken: null,
-  status: "default",
+  status: "none",
   rutines: {},
   exercises: [],
 };
@@ -143,16 +143,15 @@ export const Exercises_Get = createAsyncThunk(
 export const Activecuenta = createAsyncThunk(
   "user/active",
   async (user: object, thunkAPI) => {
-    thunkAPI.dispatch(Status("none"));
-
     try {
       const response = await axios.put("http://localhost:3001/account", user);
       const resp = response.data;
-      thunkAPI.dispatch(Status(resp));
+  
+      thunkAPI.fulfillWithValue(resp);
       return resp;
     } catch (error: any) {
-      thunkAPI.dispatch(Status(error.response.data));
-      return;
+      thunkAPI.fulfillWithValue(error.response.data);
+      return error.response.data;
     }
   }
 );
@@ -168,8 +167,8 @@ export const ActivecuentaGoogle = createAsyncThunk(
       thunkAPI.fulfillWithValue(resp);
       return resp;
     } catch (error: any) {
-      thunkAPI.dispatch(Status(error.response.data));
-      return;
+      thunkAPI.fulfillWithValue(error.response.data);
+      return error.response.data;
     }
   }
 );
@@ -430,6 +429,7 @@ export const StateSlice = createSlice({
     sigendOut: (state, action: PayloadAction<null>) => {
       window.localStorage.removeItem("Login_userFit_Focus");
       state.user = action.payload;
+      state.userToken = action.payload;
     },
     Estado: (state, action: PayloadAction<string>) => {
       state.EstadoCuenta = action.payload;
@@ -440,6 +440,7 @@ export const StateSlice = createSlice({
     Response: (state) => {
       state.response = "none";
     },
+
     DelateDetail: (state) => {
       state.detailEjec = undefined;
     },
@@ -515,6 +516,7 @@ export const StateSlice = createSlice({
       })
       .addCase(Activecuenta.fulfilled, (state, action) => {
         state.status = "none";
+        state.response=action.payload;
         state.EstadoCuenta = "none";
       })
 

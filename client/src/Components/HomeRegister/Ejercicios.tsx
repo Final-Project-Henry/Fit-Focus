@@ -9,18 +9,19 @@ import slice from "../assets/homeRegister-media/slic2.jpg";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../footer/Footer";
 import { useMemo } from "react";
-import { Exercises_Get } from "../../features/counter/counterSlice";
-import { useAppDispatch } from "../../app/hooks";
+import { Exercises_Get, selectUser } from "../../features/counter/counterSlice";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import Footer2 from "../footer/Footer2";
 
 
 const Ejercicios = () => {
   const dispatch = useAppDispatch();
+  const {exercises} = useAppSelector(selectUser);
+
   useMemo(() => {
-
-console.log("carga ex")
-
-    dispatch(Exercises_Get());
+      if(exercises.length==0){
+        dispatch(Exercises_Get());
+      }
   }, []);
 
   return (
