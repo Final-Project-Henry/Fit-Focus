@@ -34,6 +34,7 @@ export default function RutinasPersonales() {
   const fullForm = () => {
     setfomr(false);
   }
+
   useEffect(() => {
     let token;
     let userJSON = window.localStorage.getItem("Login_userFit_Focus");
@@ -47,8 +48,8 @@ export default function RutinasPersonales() {
 
 
     if (!form) dispatch(getProfileInfo(token));
-    
-    if(Object.keys(users.rutines).length===0)dispatch(Rutines_Get(token));
+  
+    if(Object.keys(users.rutines).length===0)dispatch(Rutines_Get({token}));
   }, []);
 
 
