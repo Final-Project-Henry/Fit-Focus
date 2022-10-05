@@ -223,6 +223,30 @@ export const add_exercise = createAsyncThunk(
   }
 );
 
+export const add_response = createAsyncThunk(
+  "admin/add_response",
+  async (data: { email: string; response: string }, thunkAPI) => {
+    let userJSON = window.localStorage.getItem("Login_userFit_Focus");
+    let token;
+    if (userJSON) {
+      if (userJSON.length > 3) {
+        let userlogin = JSON.parse(userJSON);
+        token = userlogin.token;
+      }
+    }
+    const response = await axios.put(
+      "http://localhost:3001/admin/response_ask",
+      { email: data.email, response: data.response },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  }
+);
+
 export const delete_exer = createAsyncThunk(
   "admin/delete_exer",
   async (id: string, thunkAPI) => {
@@ -291,6 +315,9 @@ export const AdminSlice = createSlice({
     reset_change_exer(state) {
       state.change_exer = "default";
     },
+    reset_status_res(state) {
+      state.question_status = 'default';
+    },
   },
 
   extraReducers: (builder) => {
@@ -351,7 +378,13 @@ export const AdminSlice = createSlice({
       })
       .addCase(get_questions.rejected, (state, action) => {
         state.question_status = "rejected";
-      });
+      })
+      .addCase(add_response.fulfilled, (state, action) => {
+        state.question_status = action.payload;
+      })
+      .addCase(add_response.rejected, (state, action) => {
+        state.question_status = "rejected";
+      })
   },
 });
 
@@ -362,6 +395,7 @@ export const {
   reset_admin_status,
   reset_change_info,
   reset_change_exer,
+  reset_status_res,
 } = AdminSlice.actions;
 export const admin = (state: RootState) => state.admin;
 
