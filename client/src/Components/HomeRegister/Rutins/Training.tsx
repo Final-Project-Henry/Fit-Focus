@@ -68,7 +68,8 @@ export default function Training() {
         token = userlogin.token;
       }
     }
-    if (users.status === "default") dispatch(Rutines_Get({ token: token }));
+    
+    if (users.status === "none") dispatch(Rutines_Get({ token: token }));
 
     interval = setInterval(() => {
       if (isRunning) {

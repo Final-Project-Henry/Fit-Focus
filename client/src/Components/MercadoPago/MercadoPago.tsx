@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   useAppDispatch,
   useAppSelector,
@@ -13,11 +14,17 @@ import Plan_premium from "./Plans/Plan_premium";
 
 export default function MercadoPago() {
   const token = useToken();
+  const Navegation = useNavigate();
   const mercadoData = useAppSelector((state) => state.mercadopago);
+  const user = useAppSelector((state) => state.user.user);
   const dispatch = useAppDispatch();
   const [pay, setPay] = useState(false);
   const url = `https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=${mercadoData.id}`;
-
+  useEffect(() => { 
+    if(user?.plan=="premium"){
+      Navegation("/fitFocus")
+    }
+},[user])
   useEffect(() => {
     let userJSON = window.localStorage.getItem("Login_userFit_Focus");
     let token = null;

@@ -33,9 +33,9 @@ const NewPassword = () => {
       Swal.fire({
         title: "Su contraseña fue cambiada correctamente",
         icon: "info",
-        showCancelButton: true,
-        confirmButtonColor: "#1900ff",
-        confirmButtonText: "Aceptar y ir a iniciar sesión"
+        showCancelButton: false,
+        confirmButtonColor: "#5f4efc",
+        confirmButtonText: "iniciar sesión"
       }).then((result) => {
         if (result.isConfirmed) {
           Navegation("/auth/login")

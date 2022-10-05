@@ -61,10 +61,10 @@ export default function FilterExercises() {
   useEffect(() => {
     let filt= exercises.filter(e => {
       let {muscle, genre, difficulty,premium} =  selected;
-     muscle =false
-     genre =false
-     difficulty =false
-     premium =false
+        muscle =false
+        genre =false
+        difficulty =false
+        premium =false
 
       if(selected.muscle === "none" ) muscle = true
       else muscle = selected.muscle === e.muscles

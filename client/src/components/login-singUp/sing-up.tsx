@@ -206,7 +206,7 @@ const SingUp: React.FC<Propos> = ({ loading_icon, icon }) => {
               <button className="bg-gray-700 text-white font-bold py-2 px-4 w-full :bg-gray-600"
                 onClick={handleSubmit}
               >
-                {user_logeao.status == "default" ? (
+                {user_logeao.status == "none" ? (
                   "Registrarse"
                 ) : (
                   <span className=" flex justify-center">

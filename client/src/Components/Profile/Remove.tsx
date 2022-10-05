@@ -24,9 +24,8 @@ const Remove = () => {
             if (result.isConfirmed) {
                 dispatch(sigendOut(null))
                 dispatch(removeAccount(token))
-
                 navigate("/home")
-                window.location.reload();
+     
                 Swal.fire(
                     'Desactivado',
                     'Tu cuenta ha sido desactivada exitosamente',
