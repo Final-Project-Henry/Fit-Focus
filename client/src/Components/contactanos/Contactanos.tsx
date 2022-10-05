@@ -4,87 +4,92 @@ import { opiniom, useAppDispatch, useToken } from "../../app/hooks";
 import { feedbackFooter } from "../../features/counter/counterSlice";
 
 interface FeedbackUsuario {
-    asunto: string;
-    comment: string;
-  }
+  asunto: string;
+  comment: string;
+}
 
 const Contactanos = () => {
-    const token = useToken();
+  const token = useToken();
 
-    const dispatch = useAppDispatch()
-    const [feedback, setFeedback] = useState<FeedbackUsuario>({
-      asunto: "",
-      comment: "",
-    });
-  
-    const [error, setError] = useState({
-      asunto: "",
-      comment: "",
-    })
-  
-  
-    function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void {
-        setFeedback((pv :any) => ({ ...pv, [event.target.name]: event.target.value }));
-      }
+  const dispatch = useAppDispatch();
+  const [feedback, setFeedback] = useState<FeedbackUsuario>({
+    asunto: "",
+    comment: "",
+  });
 
+  const [error, setError] = useState({
+    asunto: "",
+    comment: "",
+  });
 
-    const validation = ()=>{
-      if(token)return false;
-      else return true;
+  function handleChange(
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ): void {
+    setFeedback((pv: any) => ({
+      ...pv,
+      [event.target.name]: event.target.value,
+    }));
+  }
+
+  const validation = () => {
+    if (token) return false;
+    else return true;
+  };
+
+  const handleSubmmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    if (feedback.comment.length < 10) {
+      Swal.fire({
+        title: "Su comentario debe tener mas de 10 caracteres",
+        icon: "info",
+        showCancelButton: false,
+        confirmButtonColor: "#230bf8",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Aceptar",
+      }).then((result) => {
+        setError({ ...error, comment: "border-red-600" });
+      });
+      return;
     }
-  
-    const handleSubmmit = async (event: React.FormEvent) => {
-      event.preventDefault();
-  
-  
-      if (feedback.comment.length < 10) {
-        Swal.fire({
-          title: "Su comentario debe tener mas de 10 caracteres", 
-          icon: "info",
-          showCancelButton: false,
-          confirmButtonColor: "#230bf8",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Aceptar",
-        }).then((result) => {
-          setError({ ...error, comment: "border-red-600" })
-        });
-        return;
-      }
-  
-      if (feedback.comment.length > 50) {
-        Swal.fire({
-          title: "Su comentario debe tener menos de 50 caracteres", 
-          icon: "info",
-          showCancelButton: false,
-          confirmButtonColor: "#230bf8",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Aceptar",
-        }).then((result) => {
-          setError({ ...error, comment: "border-red-600" })
-        });
-        return;
-      }
-  
-  
-      if (feedback.comment.length > 0 && feedback.asunto.length > 0) {
-        Swal.fire({
-          title: "¿Desea enviar tu opinion?",
-          icon: "info",
-          showCancelButton: true,
-          confirmButtonColor: "#006eff",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Eviar opinion",
-          cancelButtonText: "Cancelar",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            console.log("entre")
-            dispatch(feedbackFooter({asunto: feedback.asunto, comment: feedback.comment, token}))
-            setFeedback({ comment: "", asunto: "" });
-          }
-        });
-      }
-    };
 
+    if (feedback.comment.length > 50) {
+      Swal.fire({
+        title: "Su comentario debe tener menos de 50 caracteres",
+        icon: "info",
+        showCancelButton: false,
+        confirmButtonColor: "#230bf8",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Aceptar",
+      }).then((result) => {
+        setError({ ...error, comment: "border-red-600" });
+      });
+      return;
+    }
+
+    if (feedback.comment.length > 0 && feedback.asunto.length > 0) {
+      Swal.fire({
+        title: "¿Desea enviar tu opinion?",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#006eff",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Eviar opinion",
+        cancelButtonText: "Cancelar",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          dispatch(
+            feedbackFooter({
+              asunto: feedback.asunto,
+              comment: feedback.comment,
+              token,
+            })
+          );
+          setFeedback({ comment: "", asunto: "" });
+        }
+      });
+    }
+  };
 
   return (
     <div>
@@ -116,7 +121,9 @@ const Contactanos = () => {
                   consulta sin costo adicional. Espere a ser respondido por
                   nuestro equipo tecnico.
                   <hr />
-                  <span className="font-extralight text-xl  " >¡Muchas Gracias!</span>
+                  <span className="font-extralight text-xl  ">
+                    ¡Muchas Gracias!
+                  </span>
                 </p>
                 <div className="flex mb-8 max-w-[370px] w-full">
                   <div
@@ -148,13 +155,16 @@ const Contactanos = () => {
                     </svg>
                   </div>
                   <div className="w-full">
-                  <a href='http://wa.me/+51917341261?text=Me encanta la app de Fit Focus y quisiera saber mas de ella' target="_blank">
-                    <h4 className="font-bold text-gray-900 text-xl mb-1">
-                      Número telefónico
-                    </h4>
-                    <p className="text-base text-body-color">
-                      (+51) 91 7341 261
-                    </p>
+                    <a
+                      href="http://wa.me/+51917341261?text=Me encanta la app de Fit Focus y quisiera saber mas de ella"
+                      target="_blank"
+                    >
+                      <h4 className="font-bold text-gray-900 text-xl mb-1">
+                        Número telefónico
+                      </h4>
+                      <p className="text-base text-body-color">
+                        (+51) 91 7341 261
+                      </p>
                     </a>
                   </div>
                 </div>
@@ -186,13 +196,13 @@ const Contactanos = () => {
                     </svg>
                   </div>
                   <div className="w-full">
-                  <a href='https://mail.google.com/' target="_blank">
-                    <h4 className="font-bold text-gray-900 text-xl mb-1">
-                      Email
-                    </h4>
-                    <p className="text-base text-body-color">
-                      fitfocus@gmail.com
-                    </p>
+                    <a href="https://mail.google.com/" target="_blank">
+                      <h4 className="font-bold text-gray-900 text-xl mb-1">
+                        Email
+                      </h4>
+                      <p className="text-base text-body-color">
+                        fitfocus@gmail.com
+                      </p>
                     </a>
                   </div>
                 </div>

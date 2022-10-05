@@ -6,11 +6,11 @@ export interface State {
   user_status: string;
   users: Array<any> | null;
   load_exer: string;
-  change_info: string,
-  admin_status: string,
+  change_info: string;
+  admin_status: string;
   delete_exer: string;
-  delete_user: string,
-  change_exer: string,
+  delete_user: string;
+  change_exer: string;
 }
 export interface data {
   name: string;
@@ -25,12 +25,12 @@ export interface data {
 const initialState: State = {
   user_status: "default",
   users: [],
-  change_info: 'default',
+  change_info: "default",
   load_exer: "default",
-  admin_status: 'default',
+  admin_status: "default",
   delete_exer: "default",
   delete_user: "default",
-  change_exer:'default',
+  change_exer: "default",
 };
 
 export interface comments {
@@ -82,7 +82,7 @@ export const add_admin = createAsyncThunk(
 );
 export const change_profile = createAsyncThunk(
   "admin/change_profile",
-  async (data: { _id: string, data: any }, thunkAPI) => {
+  async (data: { _id: string; data: any }, thunkAPI) => {
     let userJSON = window.localStorage.getItem("Login_userFit_Focus");
     let token;
     if (userJSON) {
@@ -105,7 +105,7 @@ export const change_profile = createAsyncThunk(
 );
 export const change_info = createAsyncThunk(
   "admin/change_info",
-  async (data: { _id: string, data: any }, thunkAPI) => {
+  async (data: { _id: string; data: any }, thunkAPI) => {
     let userJSON = window.localStorage.getItem("Login_userFit_Focus");
     let token;
     if (userJSON) {
@@ -129,7 +129,7 @@ export const change_info = createAsyncThunk(
 
 export const change_exercise = createAsyncThunk(
   "admin/change_exercise",
-  async (data: { _id: string, data: any }, thunkAPI) => {
+  async (data: { _id: string; data: any }, thunkAPI) => {
     let userJSON = window.localStorage.getItem("Login_userFit_Focus");
     let token;
     if (userJSON) {
@@ -138,7 +138,6 @@ export const change_exercise = createAsyncThunk(
         token = userlogin.token;
       }
     }
-    console.log(data);
     const response = await axios.put(
       "http://localhost:3001/admin/change_exercise",
       { _id: data._id, data: data.data },
@@ -254,19 +253,19 @@ export const AdminSlice = createSlice({
 
   reducers: {
     reset_delete_user(state) {
-      state.delete_user = 'default';
+      state.delete_user = "default";
     },
     reset_delete_exer(state) {
-      state.delete_exer = 'default';
+      state.delete_exer = "default";
     },
     reset_admin_status(state) {
-      state.admin_status = 'default';
+      state.admin_status = "default";
     },
     reset_change_info(state) {
-      state.change_info = 'default';
+      state.change_info = "default";
     },
     reset_change_exer(state) {
-      state.change_exer = 'default';
+      state.change_exer = "default";
     },
   },
 
@@ -281,7 +280,7 @@ export const AdminSlice = createSlice({
       })
       .addCase(add_admin.fulfilled, (state, action) => {
         state.user_status = "loaded";
-        state.admin_status = 'change';
+        state.admin_status = "change";
       })
       .addCase(add_admin.rejected, (state, action) => {
         state.user_status = "rejected";
@@ -321,13 +320,11 @@ export const AdminSlice = createSlice({
       })
       .addCase(change_exercise.rejected, (state, action) => {
         state.change_exer = "rejected";
-      })
+      });
   },
 });
 
-
-
-export const { } = AdminSlice.actions;
+export const {} = AdminSlice.actions;
 export const {
   reset_delete_user,
   reset_delete_exer,
