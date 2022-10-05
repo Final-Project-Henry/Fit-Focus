@@ -36,7 +36,8 @@ router.put("/userinfo", async (req, res) => {
 
 router.put("/userfeedback", async (req, res) => {
   try {
-    const { comment, email } = req.body;
+    const { email } = req.user;
+    const { comment } = req.body;
 
     if (!/^.{10,50}$/.test(comment)) {
       return res.status(403).send('Comment must contain at least 10 characters')
@@ -63,19 +64,19 @@ router.get("/getroutine", async (req, res) => {
     const check = await user.findOne({ email: email }).select("userinfo");
     const routine = await get_Routine(check.userinfo[0], exercises);
 
-    if(check.userinfo.length===0)return res.status(500).send('You need userInfo');
-    if(!get){
-        const already = await user.findOne({email:email});
-        if(already.routines.length>0)
+    if (check.userinfo.length === 0) return res.status(500).send('You need userInfo');
+    if (!get) {
+      const already = await user.findOne({ email: email });
+      if (already.routines.length > 0)
         return res.status(200).json(already.routines[0]);
     }
-      await user.updateOne(
-        { email: email },
-        {
-          routines: routine,
-        }
-      );
-    
+    await user.updateOne(
+      { email: email },
+      {
+        routines: routine,
+      }
+    );
+
     res.status(200).json(routine);
   } catch (error) {
     res.status(500).send(error.message);
@@ -263,38 +264,38 @@ router.put("/report", async (req, res) => {
     const { email: emailUsuario } = req.user;
     const { email, id } = req.body;
     if (emailUsuario === email) return res.status(403).send('You cannot report your own feedback')
-  
-  
+
+
     const ComentarioDenunciado = await exercise.findById(id).select('feedback').where('email').equals(email)
-  
+
     if (isEmpty(ComentarioDenunciado.feedback)) return res.status(404).send('Feedback not found')
-  
+
     const reportAntiguo = ComentarioDenunciado.feedback[0].report.find(report => report === emailUsuario)
-  
+
     if (reportAntiguo) return res.status(403).send('Report already added')
-  
+
     ComentarioDenunciado.feedback[0].report.push(emailUsuario)
-  
+
     await ComentarioDenunciado.save()
     res.status(200).send('Report added')
-    
+
   } catch (error) {
     res.status(500).send(error.message)
   }
 });
 
-router.post('/ask', async (req, res)=>{
+router.post('/ask', async (req, res) => {
 
   try {
-    const {name,email} = req.user
-    const {asunto, comment} = req.body
+    const { name, email } = req.user
+    const { asunto, comment } = req.body
 
-    const preguntaAntigua = await Comment.findOne({email : email})
+    const preguntaAntigua = await Comment.findOne({ email: email })
 
-    if(preguntaAntigua) return res.status(409).send('You already sent a question')
+    if (preguntaAntigua) return res.status(409).send('You already sent a question')
 
-    await Comment.create({name, email, asunto, comment})
-  
+    await Comment.create({ name, email, asunto, comment })
+
     res.status(201).send('Question sent succesfully')
   } catch (error) {
     res.status(500).send(error.message)

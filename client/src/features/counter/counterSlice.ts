@@ -49,7 +49,7 @@ export const Rutines_Get = createAsyncThunk(
       };
 
       let reqOptions = {
-        url: `http://localhost:3001/auth/getroutine?get=${cualqu}`,
+        url: cualqu?`http://localhost:3001/auth/getroutine?get=${cualqu}`:"http://localhost:3001/auth/getroutine",
         method: "GET",
         headers: headersList,
       };
@@ -275,7 +275,7 @@ export const userFeedback = createAsyncThunk(
         url: "http://localhost:3001/auth/userfeedback",
         method: "PUT",
         headers: headersList,
-        data: { email: data.email, comment: data.comment },
+        data: { comment: data.comment },
       };
 
       let response = await axios.request(reqOptions);

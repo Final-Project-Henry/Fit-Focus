@@ -5,6 +5,7 @@ import { Exercises_Get, getProfileInfo, selectUser } from '../../features/counte
 import baner from "../assets/Fotos y Videos HomeVisitor/lanegra.jpeg";
 import notPremiunImg2 from "../assets/homeRegister-media/Img3.jpg";
 import Footer from '../footer/Footer';
+import Footer2 from '../footer/Footer2';
 import LoadingCards from '../loading/LoadingCards';
 
 interface ejerciciosData {
@@ -124,7 +125,7 @@ const Favoritos=() =>{
         
         }
       </div>
-      <Footer />
+      <Footer2 />
     </>
   )
 }

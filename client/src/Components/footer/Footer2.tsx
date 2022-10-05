@@ -16,7 +16,7 @@ const Footer2 = () => {
             </h2>
             <ul className="text-gray-300 ">
               <li className="mb-4 ">
-                <a href="/AboutUs" target="_blank" className="hover:underline">
+                <a href="/AboutUs" className="hover:underline">
                   Nosotros
                 </a>
               </li>
@@ -56,7 +56,6 @@ const Footer2 = () => {
               <li className="mb-4">
                 <a
                   href="/contactanos"
-                  target="_blank"
                   className="hover:underline "
                 >
                   Contactos
@@ -147,7 +146,7 @@ const Footer2 = () => {
             <span className="sr-only">Twitter page</span>
           </a>
           <a
-            href="https://github.com/"
+            href="https://github.com/Final-Project-Henry/Fit-Focus"
             target="_blank"
             className="text-gray-300 hover:text-white"
           >

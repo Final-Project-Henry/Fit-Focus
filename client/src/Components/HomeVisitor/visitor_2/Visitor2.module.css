@@ -6,6 +6,7 @@
     align-items: center;
     justify-content: center;
     background-color: white;
+    gap: 5vw;
 }
 
 .animation {
@@ -41,7 +42,7 @@
     text-align: justify;
     margin-right:35px;
     align-items: center;
-    width: 55vw;
+    width: 40vw;
     gap: 50px;
     color: #111828;
 }
