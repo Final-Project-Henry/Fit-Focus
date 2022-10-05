@@ -49,13 +49,10 @@ useEffect(()=>{
   console.log("settt");
 },[props.time])
   return (
-    <div style={{ border: "1px solid red", width: "35vw", height: "50vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-around" }}>
-
-      <h1 style={{ fontSize: "2rem", fontWeight: "500" }}>
-        {props.name?props.name:"Descanso"}
-      </h1>
+    <div className='ml-5' style={{ width: "35vw", height: "50vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-around" }}>
 
       <img
+      className='rounded-md'
       src={(images as any)[props.img?props.img:'z']}
       style={{ width: "5vw" }} />
 
@@ -63,37 +60,44 @@ useEffect(()=>{
 
         <button
         onClick={()=>handleCurrent('prev')}
-        style={{ backgroundColor: "#111827", color: "white", padding: "10px" }}>Anterior {`<<`}</button>
+        className="hover:scale-105 duration-300 rounded-sm bg-[#111827] hover:bg-gray-700"
+        style={{color: "white", padding: "10px" }}>
+          {`<<`} Anterior 
+          </button>
 
-        <h1 style={{ border: "2px solid #111827", padding: "10px", fontSize: "2rem" }}>
+        <h1 style={{padding: "10px", fontSize: "2rem" }}>
           {props.temp} segs
         </h1>
 
         <button 
         onClick={()=>handleCurrent('next')}
+        className="hover:scale-105 duration-300 rounded-sm"
         style={{ backgroundColor: "#111827", color: "white", padding: "10px" }}>
           Siguiente {`>>`}
         </button>
 
       </div>
 
-      <div style={{ width: "100%", display: "flex", justifyContent: "space-around" }}>
+      <div style={{ width: "95%", display: "flex", justifyContent: "space-around" }}>
 
         <button
         onClick={props.handleInit}
-        style={{ backgroundColor: "#111827", color: "white", width: "10vw" }}>
+        className="rounded-tr-md rounded-bl-md py-1"
+        style={{ backgroundColor: "#111827", color: "white", width: "8vw" }}>
           {props.isRunning?"Pausa":props.time==props.temp?"Iniciar":"Reanudar" }
         </button>
 
         <button
         onClick={props.handleReset}
+        className="py-1 rounded-sm"
         style={{ backgroundColor: "#111827", color: "white", width: "10vw" }}>
           Resetear
         </button>
 
         <button
         onClick={handleEnd}
-        style={{ backgroundColor: "#111827", color: "white", width: "10vw" }}>
+        className="py-1 rounded-tr-md rounded-bl-md "
+        style={{ backgroundColor: "#111827", color: "white", width: "8vw" }}>
           Terminar
         </button>
 
