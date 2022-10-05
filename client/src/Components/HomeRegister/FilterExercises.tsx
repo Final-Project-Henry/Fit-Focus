@@ -160,6 +160,7 @@ export default function FilterExercises() {
           <option value="upper_body">Upper_body</option>
           <option value="functional">Functional</option>
           <option value="lower_body">Lower_body</option>
+          <option value="stretching">stretching</option>
           <option value="abs">abs</option>
         </select>
 
