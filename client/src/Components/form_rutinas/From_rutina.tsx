@@ -168,7 +168,13 @@ export default function Form_rutinas(props: { function: { (): void } }) {
       return;
     }
 
-    dispatch(infoUserRutina({ token, form_data }));
+    if (form_data !== "otro") {
+      dispatch(infoUserRutina({ token, form_data }));
+    } else {
+      dispatch(infoUserRutina({ token, form_data: {...form_data, genre: "woman"} }));
+    }
+
+    
     props.function();
   }
 
@@ -217,6 +223,17 @@ export default function Form_rutinas(props: { function: { (): void } }) {
                   checked={form_data.genre == "woman" ? true : false}
                 />
                 <label className="mr-1">Femenino</label>
+                <br />
+                <input
+                  type="checkbox"
+                  autoComplete="off"
+                  name="genre"
+                  value="woman"
+                  className="mx-2 rounded-full p-2 cursor-pointer"
+                  onChange={handleChange}
+                  checked={form_data.genre == "otro" ? true : false}
+                />
+                <label className="mr-1">Otro</label>
                 <br />
               </div>
               <div className="relative z-0 mb-6 w-[100%] group mt-5">
