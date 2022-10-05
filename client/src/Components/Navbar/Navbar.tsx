@@ -175,15 +175,14 @@ const Navbar = () => {
                     Rutinas personalizadas
                   </Link>
                 </li>
-                {!userInfo &&
-                  <li>
-                    <Link
-                      to={`/AboutUs`}
-                      className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
-                    >
-                      Nosotros
-                    </Link>
-                  </li>}
+                <li>
+                  <Link
+                    to={`/AboutUs`}
+                    className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                  >
+                    Nosotros
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
