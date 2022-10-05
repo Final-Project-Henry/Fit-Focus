@@ -118,18 +118,6 @@ export default function Training() {
                       img={e.order ? e.order : null}
                       name={e.exerc ? e.exerc.name : null}
                     />
-                    {!e.exer ? <VisualExerc datos={e} /> : <VisualRest />}
-                    <Temp
-                      time={e.time}
-                      isRunning={isRunning}
-                      temp={temp}
-                      handleCurrent={handleChangeOrder}
-                      handleTemp={handleTemp}
-                      handleInit={handleInit}
-                      handleReset={handleReset}
-                      img={e.order ? e.order : null}
-                      name={e.exerc ? e.exerc.name : null}
-                    />
                   </div>
                 );
               })}
