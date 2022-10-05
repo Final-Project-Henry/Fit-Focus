@@ -148,7 +148,7 @@ const Contactanos = () => {
                     </svg>
                   </div>
                   <div className="w-full">
-                  <a href='https://web.whatsapp.com/' target="_blank">
+                  <a href='http://wa.me/+51917341261?text=Me encanta la app de Fit Focus y quisiera saber mas de ella' target="_blank">
                     <h4 className="font-bold text-gray-900 text-xl mb-1">
                       Número telefónico
                     </h4>
