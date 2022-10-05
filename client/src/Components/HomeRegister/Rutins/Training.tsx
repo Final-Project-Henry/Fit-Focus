@@ -131,18 +131,10 @@ export default function Training() {
                       name={e.exerc ? e.exerc.name : null}
                     />
                   </div>
-<<<<<<< HEAD
                 );
               })}
           </div>
       }
-=======
-                </div>
-              );
-          })}
-    </div>
-}
->>>>>>> acf5f63005cc31f172ca88758e2099d671291ce3
     </div >
   );
 }
