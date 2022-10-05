@@ -632,7 +632,7 @@ const exercises = [
     "description": "Colócate en posición de cuadrupedia y asegúrate que tus muñecas están correctamente alineadas bajo los hombros y las rodillas bajo las caderas, abiertas a su misma anchura. Coloca la espalda recta y el cuello neutro. Inhalando, arquea la espalda mientras dejas caer el abdomen hacia abajo, elevando el pecho y la barbilla hacia el techo. Exhala metiendo el abdomen y redondeando la columna con la barbilla hacia el pecho y la mirada hacia al abdomen"
   },
   {
-    "name": "PSOAS STRETCHING",
+    "name": "LUMBAR STRETCHING",
     "difficulty": "medium",
     "equipment": false,
     "muscles": "stretching",
