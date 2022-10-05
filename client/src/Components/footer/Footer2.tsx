@@ -16,7 +16,7 @@ const Footer2 = () => {
             </h2>
             <ul className="text-gray-300 ">
               <li className="mb-4 ">
-                <a href="/AboutUs" target="_blank" className="hover:underline">
+                <a href="/AboutUs" className="hover:underline">
                   Nosotros
                 </a>
               </li>

@@ -11,6 +11,7 @@ import Footer from "../footer/Footer";
 import { useMemo } from "react";
 import { Exercises_Get } from "../../features/counter/counterSlice";
 import { useAppDispatch } from "../../app/hooks";
+import Footer2 from "../footer/Footer2";
 
 
 const Ejercicios = () => {
@@ -30,7 +31,7 @@ const Ejercicios = () => {
       <div>
         <FilterExercises />
       </div>
-      <Footer/>
+      <Footer2/>
     </>
   );
 }

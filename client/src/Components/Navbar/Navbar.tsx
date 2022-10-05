@@ -22,24 +22,24 @@ const Navbar = () => {
   const [hiddenTimeOut, setHiddenTimeOut] = useState<any>()
 
   const dispatch = useAppDispatch();
-  const {user , userToken} = useAppSelector( selectUser )
+  const { user, userToken } = useAppSelector(selectUser)
   const userSeccion = useSesion()
- const Navegation=  useNavigate()  
- 
- const onClick = ()=>{
-  window.scrollTo(0,0);
-  Navegation(userInfo?'/fitFocus':'/home')
- }
+  const Navegation = useNavigate()
+
+  const onClick = () => {
+    window.scrollTo(0, 0);
+    Navegation(userInfo ? '/fitFocus' : '/home')
+  }
 
   useEffect(() => {
-      if(user){
-        setUserInfo(user)
-      }else
-       if(userSeccion){
+    if (user) {
+      setUserInfo(user)
+    } else
+      if (userSeccion) {
         setUserInfo(userSeccion)
-        
+
       }
-  }, [userSeccion,user]);
+  }, [userSeccion, user]);
 
   function signOut(): void {
     Swal.fire({
@@ -75,7 +75,7 @@ const Navbar = () => {
 
 
   return (
-    <div style={{backgroundColor:"white"}}>
+    <div style={{ backgroundColor: "white" }}>
       <nav className=" border-gray-200 px-2 sm:px-4  bg-white  w-full border-b-4">
         <div className="container-fluid w-full flex flex-wrap items-center justify-between px-8 p-4">
           <div className="flex items-center">
@@ -114,74 +114,70 @@ const Navbar = () => {
               id="mobile-menu-2"
             >
               <ul className="flex flex-col p-4 mt-4 ml-4 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
-              <li>
-                        <Link
-                           to={userInfo?`/fitFocus`:`/home`}
-                          className="block py-2 p pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
-                        >
-                          Inicio
-                        </Link>
-                      </li>
-              
-                    <li>
-                      <Scroll
-                      to="feedbacks"
-                      spy={true}
-                      smooth={true}
-                      offset={-100}
-                      duration={500}
-                      className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black rounded md:bg-transparent  md:p-0 cursor-pointer"
-                    >
-                      Opiniones
-                    </Scroll>
-                    </li>
-            
-                      <li>
-                        <Link
-                           to={userInfo?`/ejercicios`:`/auth/sing-up`}
-                          className="block py-2 p pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
-                        >
-                          Ejercicios
-                        </Link>
-                      </li>
-                      
-                      <li>
-                        <Link
-                           to={userInfo?`/calculadora`:`/auth/sing-up`}
-                          className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
-                        >
-                          Calculadora
-                        </Link>
-                      </li>
-                      
-                      <li>
-                        <Link
-                            to={userInfo?`/noticias`:`/auth/sing-up`}
-                          className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
-                        >
-                          Noticias
-                        </Link>
-                      </li>
+                <li>
+                  <Link
+                    to={userInfo ? `/fitFocus` : `/home`}
+                    className="block py-2 p pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                  >
+                    Inicio
+                  </Link>
+                </li>
 
-                      <li>
-                        <Link
-                            to={userInfo?`/Favoritos`:`/auth/sing-up`}
-                          className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
-                        >
-                          Favoritos
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                            to={userInfo?`/rutinas`:`/auth/sing-up`}
-                          className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
-                        >
-                          Rutinas personalizadas
-                        </Link>
-                      </li>
-                  {!userInfo&&
-                      <li>
-                      <Scroll
+                <li>
+                  <Link
+                    to={userInfo ? `/contact` : `/auth/sing-up`}
+                    className="block py-2 p pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                  >
+                    Opiniones
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to={userInfo ? `/ejercicios` : `/auth/sing-up`}
+                    className="block py-2 p pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                  >
+                    Ejercicios
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to={userInfo ? `/calculadora` : `/auth/sing-up`}
+                    className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                  >
+                    Calculadora
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to={userInfo ? `/noticias` : `/auth/sing-up`}
+                    className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                  >
+                    Noticias
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
+                    to={userInfo ? `/Favoritos` : `/auth/sing-up`}
+                    className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                  >
+                    Favoritos
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to={userInfo ? `/rutinas` : `/auth/sing-up`}
+                    className="block py-2 pr-4 pl-3 text-gray-400 hover:text-black  rounded md:bg-transparent  md:p-0 cursor-pointer"
+                  >
+                    Rutinas personalizadas
+                  </Link>
+                </li>
+                {!userInfo &&
+                  <li>
+                    <Scroll
                       to="Nosotros"
                       spy={true}
                       smooth={true}
@@ -191,7 +187,7 @@ const Navbar = () => {
                     >
                       Nosotros
                     </Scroll>
-                    </li>}
+                  </li>}
               </ul>
             </div>
           </div>
@@ -242,7 +238,7 @@ const Navbar = () => {
               data-dropdown-toggle="user-dropdown"
               data-dropdown-placement="bottom"
             >
-              {userInfo? (
+              {userInfo ? (
                 <div>
                   <span className="sr-only">Open user menu</span>
                   <img
@@ -289,7 +285,7 @@ const Navbar = () => {
                 onMouseEnter={() => handleShow("enter")}
                 onMouseLeave={() => handleShow("leave")}
               >
-           <div className="py-3 px-4">
+                <div className="py-3 px-4">
                   <span className="block text-3xl text-gray-900">
                     {userInfo?.name}
                   </span>
@@ -323,7 +319,7 @@ const Navbar = () => {
                       Cerrar Sesión
                     </div>
                   </li>
-                  </ul>
+                </ul>
               </div>
             )}
           </div>

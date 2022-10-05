@@ -58,11 +58,11 @@ export default [
         git: 'https://github.com/Adr-AA',
         link: 'https://www.linkedin.com/in/adrian-acurero/',
     },
-    {
-        name:"Rodrigo Santesteban",
-        avatar: "https://media-exp1.licdn.com/dms/image/C4E03AQFgViQkVACOIg/profile-displayphoto-shrink_800_800/0/1657227230243?e=1669852800&v=beta&t=iClq4NHelL3tRdvdAZxzhl9s0_iCPpfBzE60TDfod5o",
-        mail: 'mailto:rodrisantes89@gmail.com',
-        git: 'https://github.com/rodrisantes',
-        link: 'https://www.linkedin.com/in/rodrigo-santesteban-7334b5240/',
-    },
+    // {
+    //     name:"Rodrigo Santesteban",
+    //     avatar: "https://media-exp1.licdn.com/dms/image/C4E03AQFgViQkVACOIg/profile-displayphoto-shrink_800_800/0/1657227230243?e=1669852800&v=beta&t=iClq4NHelL3tRdvdAZxzhl9s0_iCPpfBzE60TDfod5o",
+    //     mail: 'mailto:rodrisantes89@gmail.com',
+    //     git: 'https://github.com/rodrisantes',
+    //     link: 'https://www.linkedin.com/in/rodrigo-santesteban-7334b5240/',
+    // },
 ]

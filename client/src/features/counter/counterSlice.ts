@@ -275,7 +275,7 @@ export const userFeedback = createAsyncThunk(
         url: "http://localhost:3001/auth/userfeedback",
         method: "PUT",
         headers: headersList,
-        data: { email: data.email, comment: data.comment },
+        data: { comment: data.comment },
       };
 
       let response = await axios.request(reqOptions);

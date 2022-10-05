@@ -4,10 +4,6 @@ export default {
     random: (data:any)=>{
 
         const comments = Object.keys(data);
-
-
-        
-
         const result:any=[];
         const result2 = []
         let index:number;
