@@ -14,13 +14,13 @@ import {
 import { Link } from "react-router-dom";
 import GoogleAuth from "../GoogleAuth/GoogleAuth";
 
-
 interface Propos {
   loading_icon?: string;
   icon?: string;
 }
 
-const regexEmail = /^[a-zA-Z0-9.,!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/; 
+const regexEmail =
+  /^[a-zA-Z0-9.,!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 const regexPassword = /^[a-zA-Z0-9]{6,10}$/;
 
 const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
@@ -32,21 +32,20 @@ const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
     email: "",
     password: "",
   });
-  
+
   const [error, setError] = useState({
     name: "",
     email: "",
     password: "",
   });
 
-  useEffect(()=>{
-    dispatch(Error())
-  },[])
-
+  useEffect(() => {
+    dispatch(Error());
+  }, []);
 
   useEffect(() => {
     if (user.userToken?.length > 50) {
-      dispatch(Estado(""))
+      dispatch(Estado(""));
       let time = new Date();
       let token = user.userToken;
       window.localStorage.setItem(
@@ -68,7 +67,7 @@ const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
       }).then((result) => {
         if (result.isConfirmed) {
           SetActivar(true);
-          dispatch(Estado("Activar"))
+          dispatch(Estado("Activar"));
         }
       });
     }
@@ -78,7 +77,6 @@ const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
   ): void {
     Set_form_data((pv) => ({ ...pv, [event.target.name]: event.target.value }));
   }
-console.log(user.status)
   //////////enviar de datos  por medio de los input//////////////////////////////////////////
   function handleSubmit(event: React.FormEvent): void {
     event.preventDefault();
@@ -92,21 +90,22 @@ console.log(user.status)
         cancelButtonColor: "#d33",
         confirmButtonText: "Aceptar",
       }).then((result) => {
-        setError({ ...error, email: "border-red-600" })
+        setError({ ...error, email: "border-red-600" });
       });
       return;
     }
 
     if (!regexPassword.test(Form_data.password)) {
       Swal.fire({
-        title: "Por favor ingrese una contraseña entre 6 y 10 letras y/o números",
+        title:
+          "Por favor ingrese una contraseña entre 6 y 10 letras y/o números",
         icon: "info",
         showCancelButton: false,
         confirmButtonColor: "#230bf8",
         cancelButtonColor: "#d33",
         confirmButtonText: "Aceptar",
       }).then((result) => {
-        setError({ ...error, password: "border-red-600" })
+        setError({ ...error, password: "border-red-600" });
       });
       return;
     }
@@ -129,20 +128,29 @@ console.log(user.status)
           <div
             className="hidden lg:block lg:w-[50%] bg-no-repeat bg-center bg-[length:350px_200px]"
             style={{
-              backgroundImage:
-                `url(${icon})`,
-              backgroundSize: "cover"
-            }} >
-            <h1 style={{ color: "white", fontSize: "2rem", width: "20vw", marginLeft: "7vw", marginTop: "30vh" }}>“La clave para iniciar algo
-              es dejar de hablar y
-              ponerse a hacerlo”</h1>
+              backgroundImage: `url(${icon})`,
+              backgroundSize: "cover",
+            }}
+          >
+            <h1
+              style={{
+                color: "white",
+                fontSize: "2rem",
+                width: "20vw",
+                marginLeft: "7vw",
+                marginTop: "30vh",
+              }}
+            >
+              “La clave para iniciar algo es dejar de hablar y ponerse a
+              hacerlo”
+            </h1>
           </div>
           <div className="w-full p-8 lg:w-1/2">
             <h2 className="text-2xl font-semibold text-gray-700 text-center">
-              {Activar?"Activar cuenta":"Inicia sesion"}
+              {Activar ? "Activar cuenta" : "Inicia sesion"}
             </h2>
             <p className="text-xl text-gray-600 text-center">
-              {!Activar&& "Bienvenido de vuelta!"}
+              {!Activar && "Bienvenido de vuelta!"}
             </p>
             <div className="mt-4">
               <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -206,9 +214,7 @@ console.log(user.status)
             </div>
             <div className="mt-4 flex items-center justify-between">
               <span className="border-b w-1/5 lg:w-1/4" />
-              <p
-                className="text-xs text-center text-gray-500 uppercase"
-              >
+              <p className="text-xs text-center text-gray-500 uppercase">
                 or login with google
               </p>
               <span className="border-b w-1/5 lg:w-1/4" />

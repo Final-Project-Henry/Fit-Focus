@@ -8,10 +8,10 @@ export interface State {
   user: null | string | any;
   userToken: null | string | any;
   status: string | undefined;
-  response:string | undefined;
-  detailEjec?:object;
+  response: string | undefined;
+  detailEjec?: object;
   rutines: any | null;
-  error:string,
+  error: string;
   EstadoCuenta: string | null;
   exercises: Array<any> | [];
 }
@@ -23,9 +23,9 @@ export interface infoRutina {
 
 const initialState: State = {
   user: null,
-  response:"",
-  error:"",
-  EstadoCuenta:"",
+  response: "",
+  error: "",
+  EstadoCuenta: "",
   userToken: null,
   status: "default",
   rutines: {},
@@ -40,7 +40,7 @@ export interface userFeedback {
 
 export const Rutines_Get = createAsyncThunk(
   "user/rutinesSlice",
-  async ({token,cualqu}: any, thunkAPI) => {
+  async ({ token, cualqu }: any, thunkAPI) => {
     try {
       let headersList = {
         Accept: "/",
@@ -49,7 +49,9 @@ export const Rutines_Get = createAsyncThunk(
       };
 
       let reqOptions = {
-        url: cualqu?`http://localhost:3001/auth/getroutine?get=${cualqu}`:"http://localhost:3001/auth/getroutine",
+        url: cualqu
+          ? `http://localhost:3001/auth/getroutine?get=${cualqu}`
+          : "http://localhost:3001/auth/getroutine",
         method: "GET",
         headers: headersList,
       };
@@ -101,7 +103,6 @@ export const EditUser = createAsyncThunk(
 export const Detail = createAsyncThunk(
   "user/detailEj",
   async ({ token, id }: any, thunkAPI) => {
-
     try {
       let headersList = {
         Accept: "*/*",
@@ -113,7 +114,7 @@ export const Detail = createAsyncThunk(
         method: "GET",
         headers: headersList,
       };
-    
+
       let response = await axios.request(reqOptions);
       const resp = response.data;
       return resp;
@@ -130,7 +131,7 @@ export const Exercises_Get = createAsyncThunk(
     try {
       const response = await axios.get("http://localhost:3001/exercises");
       const resp = response.data;
-      thunkAPI.fulfillWithValue(resp)
+      thunkAPI.fulfillWithValue(resp);
       return resp;
     } catch (error: any) {
       thunkAPI.rejectWithValue(error);
@@ -158,14 +159,15 @@ export const Activecuenta = createAsyncThunk(
 export const ActivecuentaGoogle = createAsyncThunk(
   "user/activeGoogle",
   async (user: object, thunkAPI) => {
-
     try {
-      const response = await axios.put("http://localhost:3001/accountGoogle", user);
+      const response = await axios.put(
+        "http://localhost:3001/accountGoogle",
+        user
+      );
       const resp = response.data;
       thunkAPI.fulfillWithValue(resp);
       return resp;
     } catch (error: any) {
-      console.log(error)
       thunkAPI.dispatch(Status(error.response.data));
       return;
     }
@@ -220,7 +222,7 @@ export const getProfileInfo = createAsyncThunk(
       };
 
       let response = await axios.request(reqOptions);
-      
+
       thunkAPI.fulfillWithValue(response.data);
 
       return response.data;
@@ -229,8 +231,6 @@ export const getProfileInfo = createAsyncThunk(
     }
   }
 );
-
-
 
 export const infoUserRutina = createAsyncThunk(
   "user/DataRutinas",
@@ -259,7 +259,6 @@ export const infoUserRutina = createAsyncThunk(
     }
   }
 );
-
 
 export const userFeedback = createAsyncThunk(
   "user/feedback",
@@ -290,8 +289,10 @@ export const userFeedback = createAsyncThunk(
 
 export const report = createAsyncThunk(
   "user/report",
-  async (data: { id:string | undefined, email:string,token:string}, thunkAPI) => {
-    console.log(data)
+  async (
+    data: { id: string | undefined; email: string; token: string },
+    thunkAPI
+  ) => {
     try {
       let headersList = {
         Accept: "*/*",
@@ -307,12 +308,11 @@ export const report = createAsyncThunk(
       };
 
       let response = await axios.request(reqOptions);
-      thunkAPI.fulfillWithValue(response.data)
+      thunkAPI.fulfillWithValue(response.data);
 
       return response.data;
-
     } catch (error: any) {
-      thunkAPI.rejectWithValue(error.response.data)
+      thunkAPI.rejectWithValue(error.response.data);
       return error.response.data;
     }
   }
@@ -335,7 +335,7 @@ export const rewindExercise = createAsyncThunk(
       };
 
       let response = await axios.request(reqOptions);
-       thunkAPI.dispatch(Status("success"));
+      thunkAPI.dispatch(Status("success"));
       return response.data;
     } catch (error: any) {
       thunkAPI.dispatch(Status(error.response.data));
@@ -343,7 +343,6 @@ export const rewindExercise = createAsyncThunk(
     }
   }
 );
-
 
 export const User_Register_State = createAsyncThunk(
   "user/sing_upUser",
@@ -363,11 +362,10 @@ export const User_Register_State = createAsyncThunk(
 export const User_Login_State = createAsyncThunk(
   "user/login",
   async (user: object, thunkAPI) => {
-
     try {
       const response = await axios.post("http://localhost:3001/login", user);
       const resp = response.data;
-      thunkAPI.fulfillWithValue(resp)
+      thunkAPI.fulfillWithValue(resp);
       return resp;
     } catch (error: any) {
       thunkAPI.rejectWithValue(error.response.data);
@@ -379,44 +377,42 @@ export const User_Login_State = createAsyncThunk(
 export const authGoogle = createAsyncThunk(
   "user/auth_google",
   async (code: { code: String }, thunkAPI) => {
-  
     try {
       const response = await axios.post(
         "http://localhost:3001/authGoogle",
         code
       );
-      let resp=response.data
+      let resp = response.data;
       thunkAPI.fulfillWithValue(resp);
       return resp;
-
-    } catch (error:any) {
-      thunkAPI.dispatch(Status(error.response.data))
+    } catch (error: any) {
+      thunkAPI.dispatch(Status(error.response.data));
       thunkAPI.rejectWithValue(error.response.data);
-      return error.response.data
+      return error.response.data;
     }
   }
 );
 
-export const feedbackFooter = createAsyncThunk("user/feedbackFooter", async (body: any, thunkAPI) => {
-  
-  let headersList = {
-    Accept: "*/*",
-    Authorization: "Bearer " + body.token,
-    "Content-Type": "application/json",
-  };
+export const feedbackFooter = createAsyncThunk(
+  "user/feedbackFooter",
+  async (body: any, thunkAPI) => {
+    let headersList = {
+      Accept: "*/*",
+      Authorization: "Bearer " + body.token,
+      "Content-Type": "application/json",
+    };
 
-  let reqOptions = {
-    url: "http://localhost:3001/auth/ask",
-    method: "POST",
-    headers: headersList,
-    data: body
-  };
+    let reqOptions = {
+      url: "http://localhost:3001/auth/ask",
+      method: "POST",
+      headers: headersList,
+      data: body,
+    };
 
-  let temp = await axios.request(reqOptions)
-  console.log(temp)
-  return temp
-})
-
+    let temp = await axios.request(reqOptions);
+    return temp;
+  }
+);
 
 export const StateSlice = createSlice({
   name: "user",
@@ -424,7 +420,6 @@ export const StateSlice = createSlice({
 
   reducers: {
     Rutines: (state, action: PayloadAction<any>) => {
-    
       state.rutines = action.payload;
     },
 
@@ -436,42 +431,41 @@ export const StateSlice = createSlice({
       window.localStorage.removeItem("Login_userFit_Focus");
       state.user = action.payload;
     },
-    Estado:(state, action: PayloadAction<string>) => {
-        state.EstadoCuenta=action.payload
+    Estado: (state, action: PayloadAction<string>) => {
+      state.EstadoCuenta = action.payload;
     },
-    Status: (state, action: PayloadAction<string  |undefined>) => {
+    Status: (state, action: PayloadAction<string | undefined>) => {
       state.status = action.payload;
     },
-    Response: ( state)=>{
-      state.response="none"
+    Response: (state) => {
+      state.response = "none";
     },
-    DelateDetail: ( state)=>{
-      state.detailEjec=undefined;
+    DelateDetail: (state) => {
+      state.detailEjec = undefined;
     },
-    Error: ( state)=>{
-      state.error=""
-    }
+    Error: (state) => {
+      state.error = "";
+    },
   },
   extraReducers: (builder) => {
     builder
-    //sing
+      //sing
 
       .addCase(User_Register_State.pending, (state) => {
         state.status = "log";
       })
-      .addCase(User_Register_State.rejected, (state,action) => {
-        state.status = action.error.message ;
+      .addCase(User_Register_State.rejected, (state, action) => {
+        state.status = action.error.message;
       })
-      .addCase(User_Register_State.fulfilled, (state,action) => {
+      .addCase(User_Register_State.fulfilled, (state, action) => {
         state.status = "none";
-        console.log(action)
-        if (typeof action.payload ==="string") {
-          state.error=action.payload
-        }else{
-          state.user=action.payload;
+        if (typeof action.payload === "string") {
+          state.error = action.payload;
+        } else {
+          state.user = action.payload;
         }
       })
-    ///login
+      ///login
 
       .addCase(User_Login_State.pending, (state) => {
         state.status = "log";
@@ -479,13 +473,12 @@ export const StateSlice = createSlice({
       .addCase(User_Login_State.rejected, (state, action) => {
         state.status = action.error.message;
       })
-      .addCase(User_Login_State.fulfilled, (state,action) => {
+      .addCase(User_Login_State.fulfilled, (state, action) => {
         state.status = "none";
-        console.log(action);
         if (action.payload.length < 50) {
-          state.error=action.payload
-        }else{
-          state.userToken=action.payload;
+          state.error = action.payload;
+        } else {
+          state.userToken = action.payload;
         }
       })
       //Ejecicios
@@ -496,9 +489,9 @@ export const StateSlice = createSlice({
       .addCase(Exercises_Get.rejected, (state) => {
         state.status = "erro";
       })
-      .addCase(Exercises_Get.fulfilled, (state,action) => {
-          state.status = "none";
-          state.exercises=action.payload;
+      .addCase(Exercises_Get.fulfilled, (state, action) => {
+        state.status = "none";
+        state.exercises = action.payload;
       })
       // //getProfileInfo
 
@@ -508,9 +501,9 @@ export const StateSlice = createSlice({
       .addCase(getProfileInfo.rejected, (state) => {
         state.status = "erro";
       })
-      .addCase(getProfileInfo.fulfilled, (state,action) => {
-          state.status = "none";
-          state.user=action.payload;
+      .addCase(getProfileInfo.fulfilled, (state, action) => {
+        state.status = "none";
+        state.user = action.payload;
       })
       // //activeCuenta
 
@@ -520,9 +513,9 @@ export const StateSlice = createSlice({
       .addCase(Activecuenta.rejected, (state) => {
         state.status = "erro";
       })
-      .addCase(Activecuenta.fulfilled, (state,action) => {
-          state.status = "none";
-          state.EstadoCuenta="none"
+      .addCase(Activecuenta.fulfilled, (state, action) => {
+        state.status = "none";
+        state.EstadoCuenta = "none";
       })
 
       .addCase(ActivecuentaGoogle.pending, (state) => {
@@ -531,10 +524,9 @@ export const StateSlice = createSlice({
       .addCase(ActivecuentaGoogle.rejected, (state) => {
         state.status = "erro";
       })
-      .addCase(ActivecuentaGoogle.fulfilled, (state,action) => {
-          state.status = "none";
-          state.EstadoCuenta="none"
-
+      .addCase(ActivecuentaGoogle.fulfilled, (state, action) => {
+        state.status = "none";
+        state.EstadoCuenta = "none";
       })
       // //edit perfil
 
@@ -545,7 +537,7 @@ export const StateSlice = createSlice({
         state.status = "error";
       })
       .addCase(EditUser.fulfilled, (state, action) => {
-          state.status = "none";
+        state.status = "none";
       })
       // //GoogleAuth
 
@@ -553,8 +545,7 @@ export const StateSlice = createSlice({
         state.status = "log";
       })
       .addCase(authGoogle.rejected, (state, action) => {
-        
-        state.status = "error"+action.error.message;
+        state.status = "error" + action.error.message;
       })
       .addCase(authGoogle.fulfilled, (state, action) => {
         state.status = "none";
@@ -570,8 +561,8 @@ export const StateSlice = createSlice({
         state.status = "error";
       })
       .addCase(Rutines_Get.fulfilled, (state, action) => {
-          state.status = "none";
-          state.rutines = action.payload;
+        state.status = "none";
+        state.rutines = action.payload;
       })
       ///ifo extrad del user
       .addCase(infoUserRutina.pending, (state) => {
@@ -581,10 +572,10 @@ export const StateSlice = createSlice({
         state.status = "error";
       })
       .addCase(infoUserRutina.fulfilled, (state, action) => {
-          state.status = "none";
-          state.rutines=action.payload;
+        state.status = "none";
+        state.rutines = action.payload;
       })
-      //rewind ejec 
+      //rewind ejec
       .addCase(rewindExercise.pending, (state) => {
         state.status = "log";
       })
@@ -592,13 +583,12 @@ export const StateSlice = createSlice({
         state.status = "error";
       })
       .addCase(rewindExercise.fulfilled, (state, action) => {
-          state.status = "none";
-          console.log(action.payload)
-          if( action.payload!=="Feedback added"){
-            state.error=action.payload
-          }else{
-            state.response = action.payload;
-          }
+        state.status = "none";
+        if (action.payload !== "Feedback added") {
+          state.error = action.payload;
+        } else {
+          state.response = action.payload;
+        }
       })
       //detail ejercicio
       .addCase(Detail.pending, (state, action) => {
@@ -606,7 +596,7 @@ export const StateSlice = createSlice({
       })
 
       .addCase(Detail.rejected, (state, action) => {
-        state.status = "error"+action.error.message
+        state.status = "error" + action.error.message;
       })
       .addCase(Detail.fulfilled, (state, action) => {
         state.status = "none";
@@ -619,28 +609,35 @@ export const StateSlice = createSlice({
         state.status = "log";
       })
       .addCase(report.rejected, (state, action) => {
-        state.status = "error"+action.error.message
+        state.status = "error" + action.error.message;
       })
       .addCase(report.fulfilled, (state, action) => {
         state.status = "none";
         state.response = action.payload;
       })
-     
+
       .addCase(feedbackFooter.pending, (state) => {
-        state.status = "log"
+        state.status = "log";
       })
       .addCase(feedbackFooter.fulfilled, (state) => {
-        state.status = "none"
+        state.status = "none";
       })
       .addCase(feedbackFooter.rejected, (state) => {
-        state.status = "error"
-      })
-
+        state.status = "error";
+      });
   },
 });
 
-export const {  sigendOut, Status, Estado,Rutines,Response,DelateDetail, Exercises, Error } =
-  StateSlice.actions;
+export const {
+  sigendOut,
+  Status,
+  Estado,
+  Rutines,
+  Response,
+  DelateDetail,
+  Exercises,
+  Error,
+} = StateSlice.actions;
 
 export const selectUser = (state: RootState) => state.user;
 
