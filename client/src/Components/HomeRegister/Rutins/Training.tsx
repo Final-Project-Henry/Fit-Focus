@@ -90,7 +90,7 @@ export default function Training() {
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
             <h1 className='rounded-tr-md rounded-bl-md' style={{ fontWeight: "500", fontSize: "3.5rem", color: "white", margin: "3vh 0 20px 0", backgroundColor: "#111827", width: "50vw", display: "flex", justifyContent: "center" }}>
               Modo Entrenamiento
-              </h1>
+            </h1>
             <div style={{ display: "flex", gap: "5vw", justifyContent: "center" }}>
               <label className='text-xl'>Tiempo estimado: <b>{users.rutines.reps === "long" ? "25 min APROX." : "21 min APROX."}</b></label>
               <label className='text-xl'>Dificultad: <b className={`${users.rutines.difficulty === "easy" ? "text-green-500" : users.rutines.difficulty === "medium" ? "text-yellow-500" : "text-red-500"}`}>{users.rutines.difficulty.toUpperCase()}</b></label>
@@ -118,24 +118,23 @@ export default function Training() {
                       img={e.order ? e.order : null}
                       name={e.exerc ? e.exerc.name : null}
                     />
+                    {!e.exer ? <VisualExerc datos={e} /> : <VisualRest />}
+                    <Temp
+                      time={e.time}
+                      isRunning={isRunning}
+                      temp={temp}
+                      handleCurrent={handleChangeOrder}
+                      handleTemp={handleTemp}
+                      handleInit={handleInit}
+                      handleReset={handleReset}
+                      img={e.order ? e.order : null}
+                      name={e.exerc ? e.exerc.name : null}
+                    />
                   </div>
-                  {!e.exer ? <VisualExerc datos={e} /> : <VisualRest />}
-                  <Temp
-                    time={e.time}
-                    isRunning={isRunning}
-                    temp={temp}
-                    handleCurrent={handleChangeOrder}
-                    handleTemp={handleTemp}
-                    handleInit={handleInit}
-                    handleReset={handleReset}
-                    img={e.order ? e.order : null}
-                    name={e.exerc ? e.exerc.name : null}
-                  />
-                </div>
-              );
-          })}
-        </div>
-      )}
-    </div>
+                );
+              })}
+          </div>
+      }
+    </div >
   );
 }

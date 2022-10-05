@@ -18,13 +18,19 @@ export default function Questions() {
   }, [admin.question_status]);
 
   return (
-    <div style={{ width: "100%" }}>
+    <div style={{ width: "100%", marginLeft: "3vw"}}>
       {
         admin.question_status === 'default' ?
           <Loading />
           :
           <div>
-            <h1>Questions</h1>
+            <h1
+            style={{
+              fontSize: "3rem",
+              fontWeight: "500",
+              margin: "25px 0 10px 0",
+            }}
+            >Questions</h1>
             {
               admin.questions?.map((question: any, i:number) => (
                 <Question
