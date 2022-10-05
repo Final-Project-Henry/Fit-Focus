@@ -63,9 +63,11 @@ export default function Temp(props: {
           {`<<`} Anterior 
           </button>
 
-        <h1 style={{padding: "10px", fontSize: "2rem" }}>
-          {props.temp} segs
-        </h1>
+          <div className="w-24 mx-1 p-2 bg-white text-gray-700 rounded-lg shadow-lg flex flex-col">
+                <div className="font-mono leading-none text-5xl font-bold text-gray-800 mx-auto" x-text="seconds">{props.temp}</div>
+                <div className="font-mono uppercase text-sm leading-none mx-auto">segs</div>
+          </div>
+        
 
         <button 
         onClick={()=>handleCurrent('next')}
