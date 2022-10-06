@@ -33,11 +33,9 @@ const Favoritos=() =>{
     }
   },[token])
 
-  useMemo(() => {
-    if(exercises?.length===0){
-
+  useEffect(() => {
+    if(exercises?.length===0)
       dispatch(Exercises_Get());
-    }
   },[exercises])
 
   useEffect(() => {
