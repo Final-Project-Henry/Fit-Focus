@@ -249,12 +249,11 @@ export const infoUserRutina = createAsyncThunk(
       };
 
       let response = await axios.request(reqOptions);
-      thunkAPI.dispatch(Status("success"));
-      return;
+      thunkAPI.fulfillWithValue(response.data)
+      return response.data;
     } catch (error: any) {
-      thunkAPI.dispatch(Status(error.response.data));
-
-      return error;
+      thunkAPI.rejectWithValue(error.response.data)
+      return error.response.data;
     }
   }
 );
@@ -575,7 +574,7 @@ export const StateSlice = createSlice({
       })
       .addCase(infoUserRutina.fulfilled, (state, action) => {
         state.status = "none";
-        state.rutines = action.payload;
+        state.response = action.payload;
       })
       //rewind ejec
       .addCase(rewindExercise.pending, (state) => {

@@ -8,6 +8,7 @@ import errors from '../../additional_info/errors';
 import Loading from '../loading/Loading';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../app/store';
+import { getProfileInfo } from '../../features/counter/counterSlice';
 
 export default function Mercadoresponse() {
   const id = useParams().payment_id;
