@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import edits from '../additional/edits';
 
 
 interface info {
@@ -30,13 +31,26 @@ export default function UserEditInfo(props: { data: data, save: (e: any) => void
     return (
         <div>
             {
-                ["genre", "age","weight","height", "goal", "experience"].map((prop: string) => {
-                    if (prop !== "_id" && prop!=="equipment") return (
+                edits.userInfoProps.map((prop: string) => {
+                    if (Object.keys(edits.userInfoOptions).includes(prop)) return (
                         <div style={{ display: "flex", justifyContent: 'space-between', gap: "10px", }}>
-                            <p>{prop}: </p>
-                            <input name={prop} value={(info as any)[prop]} onChange={onChange}/>
-                        </div>)
-                    else return;
+                            <p>{prop}:</p>
+                            <select name={prop}  value={(info as any)[prop]}  onChange={onChange}>
+                                {(edits.userInfoOptions as any)[prop].map((option: string) => (
+                                    <option style={{ width: "70%" }}>
+                                        {option}
+                                    </option>
+                                ))
+                                }
+                            </select>
+                        </div>
+                    )
+                    else return (
+                        <div style={{ display: "flex", justifyContent: 'space-between', gap: "10px", }}>
+                            <p>{prop}:</p>
+                            <input style={{ width: "70%" }} onChange={onChange} name={prop} value={(info as any)[prop]} />
+                        </div>
+                    )
                 })
             }
         </div>
