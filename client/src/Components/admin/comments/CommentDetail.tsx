@@ -69,7 +69,11 @@ export default function CommentDetail(props: {
       </p>
       <p>
         <b>Reportado por: </b>
-        {props.feedback.report.map((e:string)=>(<span className="block" key={uuidv4()} >{e}</span>))}
+        {
+        props.feedback.report.length===0? <p>Nadie</p>
+        :
+        props.feedback.report.map((e:string)=>(<span className="block" key={uuidv4()} >{e}</span>))
+        }
       </p>
       <button
         onClick={onDelete}
