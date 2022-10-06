@@ -1,6 +1,4 @@
-
 import { useEffect, useMemo, useState } from "react";
-
 import {
   Exercises_Get,
   selectUser,
@@ -15,6 +13,8 @@ import RandomCards from "./RandomCards";
 import baner from "../assets/homeRegister-media/ejerc.jpg";
 import LoadingCards from "../loading/LoadingCards";
 import Footer2 from "../footer/Footer2";
+
+import { v4 as uuidv4 } from "uuid"
 
 interface card {
   _id: string;
@@ -38,16 +38,15 @@ const HomeRegister = () => {
 
 
   useEffect(() => {
-    if (State.exercises.length > 0&&exercises.length==0&&Bastexercises.length==0) {
+    if (State.exercises.length > 0 && exercises.length === 0 && Bastexercises.length === 0) {
       setExercises(funcion.get_exercises(State.exercises));
       setBastExercises(funcion.MejorRewind(State.exercises))
     }
   }, [State.exercises]);
 
-  useMemo(() => {
+  useEffect(() => {
     dispatch(Exercises_Get());
-  }, []);
-
+  }, [])
 
   return (
     <>
@@ -85,6 +84,7 @@ const HomeRegister = () => {
               exercises.map(
                 ({ _id, video, name, difficulty, muscles, genre, premium }) => (
                   <RandomCards
+                    key={uuidv4()}
                     _id={_id}
                     video={video}
                     name={name}
@@ -128,6 +128,7 @@ const HomeRegister = () => {
                     rating
                   }) => (
                     <RandomCards
+                      key={uuidv4()}
                       _id={_id}
                       video={video}
                       name={name}
@@ -161,6 +162,7 @@ const HomeRegister = () => {
         <div className=" flex justify-center mt-[20px] mb-[10px]">
           <div>
             <CardNews
+              key={uuidv4()}
               id={2}
               title={"Ejercitarse enfermo?"}
               description={"Tips"}
@@ -173,6 +175,7 @@ const HomeRegister = () => {
           </div>
           <div>
             <CardNews
+              key={uuidv4()}
               id={0}
               title={"Dieta o ejercicio?"}
               description={"Tips"}

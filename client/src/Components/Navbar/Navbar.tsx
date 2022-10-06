@@ -27,7 +27,6 @@ const Navbar = () => {
     if (user||userToken) {
       setUserInfo(user);
     }else{
-      console.log("entroo")
       setUserInfo(false)
     }
   }, [userSeccion, user]);

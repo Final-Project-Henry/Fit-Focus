@@ -183,7 +183,7 @@ export default function Form_rutinas(props: { function: { (): void } }) {
       return;
     }
 
-    if (form_data !== "otro") {
+    if (form_data.genre !== "otro") {
       dispatch(infoUserRutina({ token, form_data }));
     } else {
       dispatch(infoUserRutina({ token, form_data: {...form_data, genre: "woman"} }));
@@ -242,7 +242,7 @@ export default function Form_rutinas(props: { function: { (): void } }) {
                   type="checkbox"
                   autoComplete="off"
                   name="genre"
-                  value="woman"
+                  value="otro"
                   className="mx-2 rounded-full p-2 cursor-pointer"
                   onChange={handleChange}
                   checked={form_data.genre == "otro" ? true : false}
@@ -343,6 +343,7 @@ export default function Form_rutinas(props: { function: { (): void } }) {
                   type="checkbox"
                   autoComplete="off"
                   name="equipment"
+                  readOnly
                   className="mx-2 rounded-full p-2 cursor-pointer mr-2"
                   checked={form_data.equipment == false ? true : false}
                   onClick={() =>
@@ -355,6 +356,7 @@ export default function Form_rutinas(props: { function: { (): void } }) {
                   type="checkbox"
                   autoComplete="off"
                   name="equipment"
+                  readOnly
                   value="false"
                   className="mx-2 rounded-full p-2 cursor-pointer"
                   checked={form_data.equipment == true ? true : false}

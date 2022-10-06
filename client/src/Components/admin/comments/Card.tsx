@@ -1,6 +1,7 @@
 import React from "react";
 import { datos } from "../../../additional_info/comments";
 import CommentDetail from "./CommentDetail";
+import { v4 as uuidv4 } from "uuid"
 
 interface feedback {
   email: string;
@@ -15,6 +16,9 @@ interface datos {
 }
 
 export default function Card(props: { datos: datos }) {
+
+  let id:number = 0;
+
   return (
     <div
       style={{
@@ -38,7 +42,7 @@ export default function Card(props: { datos: datos }) {
       </h1>
       <div style={{ display: "flex", flexWrap: "wrap", padding: "10px" }}>
         {props.datos.feedback.map((e: feedback) => (
-          <CommentDetail feedback={e} name={props.datos.name} />
+          <CommentDetail key={++id} feedback={e} name={props.datos.name} />
         ))}
       </div>
     </div>

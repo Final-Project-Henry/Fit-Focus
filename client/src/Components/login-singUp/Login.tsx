@@ -140,7 +140,6 @@ const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
       ? dispatch(Activecuenta(Form_data))
       : dispatch(User_Login_State(Form_data));
   }
-  console.log(user.status)
 
   return (
     <div className="h-full w-full flex justify-center content-center">

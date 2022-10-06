@@ -598,7 +598,6 @@ export const StateSlice = createSlice({
       })
       .addCase(rewindExercise.fulfilled, (state, action) => {
         state.status = "none";
-        console.log(action.payload);
         if (action.payload !== "Feedback added") {
           state.error = action.payload;
         } else {
