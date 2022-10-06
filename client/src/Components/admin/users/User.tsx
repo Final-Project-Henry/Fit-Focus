@@ -52,7 +52,7 @@ export default function User() {
     height: user?.userinfo[0]?.height,
     goal: user?.userinfo[0]?.goal,
     experience: user?.userinfo[0]?.experience,
-});
+  });
 
   const onClick = () => {
     Swal.fire({
@@ -78,15 +78,32 @@ export default function User() {
   };
 
   const onSaveChanges = (edit: string) => {
+    Swal.fire({
+      title: '¿Estas seguro que quieres cambiar la informacion del usuario?',
+      text: "Esta seguro?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: "Cancelar",
+      confirmButtonText: 'Cambiar',
+    }).then((result: any) => {
+      if (result.isConfirmed) {
+        if (edit === 'profile') {
+          dispatch(change_profile({ _id: user._id, data: profile }))
+          setEditProfile(false);
+        }
+        else if (edit === 'info') {
+          dispatch(change_info({ _id: user._id, data: info }))
+          setEditInfo(false);
+        }
+      }
+      else {
+        if (edit === 'profile') setEditProfile(false);
+        if (edit === 'info') setEditInfo(false);
+      }
+    })
 
-    if (edit === 'profile') {
-      dispatch(change_profile({ _id: user._id, data: profile }))
-      setEditProfile(false);
-    }
-    else if (edit === 'info'){
-      dispatch(change_info({_id:user._id, data:info}))
-      setEditInfo(false);
-    }
   }
 
   const onChange = (e: any) => {
@@ -153,7 +170,7 @@ export default function User() {
             </div>
             <div style={{ width: "30vw", backgroundColor: "white", padding: "20px", display: "flex", flexDirection: "column", gap: "20px" }}>
               <h1 style={{ fontSize: "1.5rem", fontWeight: "500" }}>User info</h1>
-              <img hidden={user?.userinfo.length===0?true:false} src={editInfo ? save : edit} onClick={() => editInfo ? onSaveChanges('info') : onEdit("info")} style={{ width: "15px", height: "15px", cursor: "pointer", alignSelf: "flex-end" }} />
+              <img hidden={user?.userinfo.length === 0 ? true : false} src={editInfo ? save : edit} onClick={() => editInfo ? onSaveChanges('info') : onEdit("info")} style={{ width: "15px", height: "15px", cursor: "pointer", alignSelf: "flex-end" }} />
               {
                 user.userinfo.length > 0 ?
                   editInfo ?
