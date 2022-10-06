@@ -237,7 +237,14 @@ export default function Form_rutinas(props: { function: { (): void } }) {
                 <br />
               </div>
               <div className="relative z-0 mb-6 w-[100%] group mt-5">
-               
+                <input
+                  type="number"
+                  name="age"
+                  value={form_data?.age}
+                  onChange={handleChange}
+                  className="block py-1.2 px-2 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  peer"
+                  placeholder=" "
+                />
                 <label
                   htmlFor="Año"
                   className=" peer-focus:font-medium absolute text-sm text-gray-700 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-2 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
