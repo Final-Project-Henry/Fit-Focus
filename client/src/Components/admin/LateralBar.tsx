@@ -34,7 +34,7 @@ export default function LateralBar() {
               onClick={() => onClick(btn.url)}
             >
               <img
-                className="bg-gray-200 p-1 rounded-full "
+                className="p-1"
                 src={btn.img}
                 width="30px"
               />
