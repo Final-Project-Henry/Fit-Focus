@@ -36,14 +36,15 @@ export default function Exerc(props: { exer: exercise, time: number, order: numb
             sr.clean();
         }
     }, [])
+    
     return (
         <div style={{ display: "flex", justifyContent:"space-between",width: "50vw", marginRight: "35vw", alignItems: "center", gap: "20px", boxShadow: "0 0 40px 5px #111827" }} ref={left}>
             <div style={{ display: "flex" }}>
                 <img src={(images as any)[props.order]} style={{ height: "20vh", width: "20vh" }}></img>
-                <img src={props.exer.video} style={{ height: "20vh", width: "10vw" }}></img>
+                <img src={props.exer?.video} style={{ height: "20vh", width: "10vw" }}></img>
             </div>
             <img src={props.time == 120 ? dos : props.time == 90 ? unoMedio : props.time == 60 ? uno : props.time == 30 ? medio : cuarto} style={{ height: "10vh" }}></img>
-            <h1 style={{ fontSize: "1.5rem", color: "#111827", fontWeight: "500" }}>{props.exer.name}</h1>
+            <h1 style={{ fontSize: "1.5rem", color: "#111827", fontWeight: "500" }}>{props.exer?.name}</h1>
             <div onClick={onClick} style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
                 <p style={{marginBottom:"10px"}}>Detalles</p>
                 <img src={detail} className={styles.redirect}></img>

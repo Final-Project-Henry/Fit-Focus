@@ -1,6 +1,8 @@
 import React from 'react';
 import devs from '../../../additional_info/devs';
 import Dev from './Dev';
+import { v4 as uuidv4 } from "uuid"
+
 
 interface dev {
   name: string,
@@ -18,7 +20,7 @@ export default function Visitor7() {
       <div style={{ display: 'grid', gridTemplateColumns: "1fr 1fr 1fr 1fr", width: "90vw", gap: "50px", margin: "5vh 0 5vh 0" }}>
         {
           devs.map((e: dev) => (
-            <Dev data={e} />
+            <Dev key={uuidv4()} data={e} />
           ))
         }
       </div>

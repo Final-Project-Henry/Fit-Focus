@@ -27,7 +27,7 @@ const initialState: State = {
   error: "",
   EstadoCuenta: "",
   userToken: null,
-  status: "default",
+  status: "none",
   rutines: {},
   exercises: [],
 };
@@ -143,16 +143,15 @@ export const Exercises_Get = createAsyncThunk(
 export const Activecuenta = createAsyncThunk(
   "user/active",
   async (user: object, thunkAPI) => {
-    thunkAPI.dispatch(Status("none"));
-
     try {
       const response = await axios.put("http://localhost:3001/account", user);
       const resp = response.data;
-      thunkAPI.dispatch(Status(resp));
+  
+      thunkAPI.fulfillWithValue(resp);
       return resp;
     } catch (error: any) {
-      thunkAPI.dispatch(Status(error.response.data));
-      return;
+      thunkAPI.fulfillWithValue(error.response.data);
+      return error.response.data;
     }
   }
 );
@@ -168,8 +167,8 @@ export const ActivecuentaGoogle = createAsyncThunk(
       thunkAPI.fulfillWithValue(resp);
       return resp;
     } catch (error: any) {
-      thunkAPI.dispatch(Status(error.response.data));
-      return;
+      thunkAPI.fulfillWithValue(error.response.data);
+      return error.response.data;
     }
   }
 );
@@ -250,12 +249,11 @@ export const infoUserRutina = createAsyncThunk(
       };
 
       let response = await axios.request(reqOptions);
-      thunkAPI.dispatch(Status("success"));
-      return;
+      thunkAPI.fulfillWithValue(response.data)
+      return response.data;
     } catch (error: any) {
-      thunkAPI.dispatch(Status(error.response.data));
-
-      return error;
+      thunkAPI.rejectWithValue(error.response.data)
+      return error.response.data;
     }
   }
 );
@@ -396,21 +394,28 @@ export const authGoogle = createAsyncThunk(
 export const feedbackFooter = createAsyncThunk(
   "user/feedbackFooter",
   async (body: any, thunkAPI) => {
-    let headersList = {
-      Accept: "*/*",
-      Authorization: "Bearer " + body.token,
-      "Content-Type": "application/json",
-    };
-
-    let reqOptions = {
-      url: "http://localhost:3001/auth/ask",
-      method: "POST",
-      headers: headersList,
-      data: body,
-    };
-
-    let temp = await axios.request(reqOptions);
-    return temp;
+    try {
+      let headersList = {
+        Accept: "*/*",
+        Authorization: "Bearer " + body.token,
+        "Content-Type": "application/json",
+      };
+  
+      let reqOptions = {
+        url: "http://localhost:3001/auth/ask",
+        method: "POST",
+        headers: headersList,
+        data: body,
+      };
+  
+      let temp = await axios.request(reqOptions);
+      thunkAPI.fulfillWithValue(temp.data)
+      return temp.data;
+    } catch (error:any) {
+      thunkAPI.fulfillWithValue(error.response.data)
+      return error.response.data;
+    }
+   
   }
 );
 
@@ -430,6 +435,7 @@ export const StateSlice = createSlice({
     sigendOut: (state, action: PayloadAction<null>) => {
       window.localStorage.removeItem("Login_userFit_Focus");
       state.user = action.payload;
+      state.userToken = action.payload;
     },
     Estado: (state, action: PayloadAction<string>) => {
       state.EstadoCuenta = action.payload;
@@ -440,6 +446,7 @@ export const StateSlice = createSlice({
     Response: (state) => {
       state.response = "none";
     },
+
     DelateDetail: (state) => {
       state.detailEjec = undefined;
     },
@@ -515,6 +522,7 @@ export const StateSlice = createSlice({
       })
       .addCase(Activecuenta.fulfilled, (state, action) => {
         state.status = "none";
+        state.response=action.payload;
         state.EstadoCuenta = "none";
       })
 
@@ -549,7 +557,13 @@ export const StateSlice = createSlice({
       })
       .addCase(authGoogle.fulfilled, (state, action) => {
         state.status = "none";
-        state.userToken = action.payload;
+        if(action.payload=="User google desactivated"){
+          state.error = action.payload;
+
+        }else{
+          state.userToken = action.payload;
+
+        }
       })
 
       // //rutinas
@@ -573,7 +587,7 @@ export const StateSlice = createSlice({
       })
       .addCase(infoUserRutina.fulfilled, (state, action) => {
         state.status = "none";
-        state.rutines = action.payload;
+        state.response = action.payload;
       })
       //rewind ejec
       .addCase(rewindExercise.pending, (state) => {
@@ -584,7 +598,6 @@ export const StateSlice = createSlice({
       })
       .addCase(rewindExercise.fulfilled, (state, action) => {
         state.status = "none";
-        console.log(action.payload);
         if (action.payload !== "Feedback added") {
           state.error = action.payload;
         } else {
@@ -620,8 +633,13 @@ export const StateSlice = createSlice({
       .addCase(feedbackFooter.pending, (state) => {
         state.status = "log";
       })
-      .addCase(feedbackFooter.fulfilled, (state) => {
+      .addCase(feedbackFooter.fulfilled, (state,action) => {
         state.status = "none";
+        if(action.payload=="Question sent succesfully"){
+          state.response = action.payload;
+        }else{
+          state.error = action.payload;
+        }
       })
       .addCase(feedbackFooter.rejected, (state) => {
         state.status = "error";

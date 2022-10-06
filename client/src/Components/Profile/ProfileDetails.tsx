@@ -65,13 +65,13 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
     })
 
     const [statusUser, setStatusUser] = useState<statusUser>({
-        age: age,
-        equipment: equipment,
-        experience: experience,
-        genre: genre,
-        goal: goal,
-        height: height,
-        weight: weight
+        age: undefined,
+        equipment: undefined,
+        experience: undefined,
+        genre: undefined,
+        goal: undefined,
+        height: undefined,
+        weight: undefined
     })
 
     /* Handles */
@@ -317,6 +317,7 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
                                                 ? <select onChange={handleChangeStatus} className="" name="genre" id="select">
                                                     <option value="man">Masculino</option>
                                                     <option value="woman">Femenino</option>
+                                                    <option value="woman">Otro</option>
                                                 </select>
                                                 : <ContentEditable id="genre" html={statusUser.genre !== undefined ? statusUser.genre : "Cargando..."} onChange={handleChangeStatus} disabled={!editable.status} spellCheck={false} className={`${editable.status && "border-b-2 border-gray-200 hover:border-gray-500 focus:border-blue-600"}  duration-500 delay-100 rounded-b-lg outline-none px-2 inline`} />
                                         }

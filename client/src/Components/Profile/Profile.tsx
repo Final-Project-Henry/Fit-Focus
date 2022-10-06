@@ -173,8 +173,8 @@ const Profile = () => {
                                 <div onClick={() => handleClickAside("profile")} className={`${styles.selected === "profile" && styles.div} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg  bg-center stroke-0 text-center xl:p-2.5`}>
                                     <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                                         <title>customer-support</title>
-                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <g transform="translate(-1717.000000, -291.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                                        <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                                            <g transform="translate(-1717.000000, -291.000000)" fill="#FFFFFF" fillRule="nonzero">
                                                 <g transform="translate(1716.000000, 291.000000)">
                                                     <g transform="translate(1.000000, 0.000000)">
                                                         <path onClick={() => handleClickAside("profile")} className={`${styles.selected !== "profile" && styles.path} duration-500 opacity-60`} d="M45,0 L26,0 C25.447,0 25,0.447 25,1 L25,20 C25,20.379 25.214,20.725 25.553,20.895 C25.694,20.965 25.848,21 26,21 C26.212,21 26.424,20.933 26.6,20.8 L34.333,15 L45,15 C45.553,15 46,14.553 46,14 L46,1 C46,0.447 45.553,0 45,0 Z"></path>
@@ -194,8 +194,8 @@ const Profile = () => {
                                 <div onClick={() => handleClickAside("progress")} className={`${styles.selected === "progress" && styles.div} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5`}>
                                     <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                                         <title>office</title>
-                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                                        <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                                            <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF" fillRule="nonzero">
                                                 <g transform="translate(1716.000000, 291.000000)">
                                                     <g transform="translate(153.000000, 2.000000)">
                                                         <path onClick={() => handleClickAside("progress")} className={`${styles.selected !== "progress" && styles.path} opacity-60 duration-500`} d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z"></path>
@@ -214,8 +214,8 @@ const Profile = () => {
                                 <div onClick={() => handleClickAside("pay")} className={`${styles.selected === "pay" && styles.div} shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5`}>
                                     <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                                         <title>credit-card</title>
-                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                                        <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                                            <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fillRule="nonzero">
                                                 <g transform="translate(1716.000000, 291.000000)">
                                                     <g transform="translate(453.000000, 454.000000)">
                                                         <path onClick={() => handleClickAside("pay")} className={`${styles.selected !== "pay" && styles.path} opacity-60 duration-500`} d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"></path>
@@ -271,7 +271,7 @@ const Profile = () => {
                                     <img src={imageUrl} className="rounded-3xl border-solid app_uploadButton w-[74px] h-[74px] shadow-soft-sm object-cover" />
                                     <div onMouseEnter={() => handleHover(true, "camera")} onMouseLeave={() => handleHover(false, "camera")} className={`${hover.hoverCamera && hover.div} rounded-full absolute hover:duration-500 bottom-0 right-0 bg-white delay-100 duration-500 w-6 h-6 leading-8 overflow-hidden flex justify-center content-center`}>
                                         <input type="file" accept="image/*" onChange={handlePreview} className="app_uploadInput absolute scale-110 opacity-0" />
-                                        <svg height="19px" width="19px" className="mt-[2px]" id="Layer_1" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+                                        <svg height="19px" width="19px" className="mt-[2px]" id="Layer_1" enableBackground="new 0 0 512 512" version="1.1" viewBox="0 0 512 512" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                                             <g>
                                                 <path className={`${hover.hoverCamera && hover.pathCamera} duration-500 delay-100 `} d="M430.4,147h-67.5l-40.4-40.8c0,0-0.2-0.2-0.3-0.2l-0.2-0.2v0c-6-6-14.1-9.8-23.3-9.8h-84c-9.8,0-18.5,4.2-24.6,10.9l0,0.1   l-39.5,40H81.6C63,147,48,161.6,48,180.2v202.1c0,18.6,15,33.7,33.6,33.7h348.8c18.5,0,33.6-15.1,33.6-33.7V180.2   C464,161.6,448.9,147,430.4,147z M256,365.5c-50.9,0-92.4-41.6-92.4-92.6c0-51.1,41.5-92.6,92.4-92.6c51,0,92.4,41.5,92.4,92.6   C348.4,323.9,307,365.5,256,365.5z M424.1,200.5c-7.7,0-14-6.3-14-14.1s6.3-14.1,14-14.1c7.7,0,14,6.3,14,14.1   S431.8,200.5,424.1,200.5z" />
                                                 <path className={`${hover.hoverCamera && hover.pathCamera} duration-500 delay-100 `} d="M256,202.9c-38.6,0-69.8,31.3-69.8,70c0,38.6,31.2,70,69.8,70c38.5,0,69.8-31.3,69.8-70C325.8,234.2,294.5,202.9,256,202.9   z" />
@@ -337,14 +337,14 @@ const Profile = () => {
                                 <div className="leading-normal text-center text-size-sm text-slate-500 lg:text-left">
                                     © 2022,
                                     Desarrollado por el equipo de<i className="fa fa-heart" aria-hidden="true"></i>
-                                    <a href="localhost:3000/hola" className="font-semibold text-slate-700" target="_blank"> FIT FOCUS </a>
+                                    <a href="/contactanos" className="font-semibold text-slate-700"> FIT FOCUS </a>
                                     en Henry
                                 </div>
                             </div>
                             <div className="w-full max-w-full px-3 mt-0 shrink-0 lg:w-1/2 lg:flex-none">
                                 <ul className="flex flex-wrap justify-center pl-0 mb-0 list-none lg:justify-end">
                                     <li className="nav-item">
-                                        <a href="/AboutUs" className="block px-4 pt-0 pb-1 font-normal transition-colors ease-soft-in-out text-size-sm text-slate-500" target="_blank">About Us</a>
+                                        <a href="/AboutUs" className="block px-4 pt-0 pb-1 font-normal transition-colors ease-soft-in-out text-size-sm text-slate-500">Acerca de nosotros</a>
                                     </li>
                                 </ul>
                             </div>

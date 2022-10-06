@@ -5,7 +5,10 @@ import { useAppDispatch, useAppSelector, useToken } from "../../app/hooks";
 import {
   User_Login_State,
   selectUser,
+  Response,
   infoUserRutina,
+  Rutines_Get,
+  getProfileInfo,
 } from "../../features/counter/counterSlice";
 import Navbar from "../Navbar/Navbar";
 
@@ -57,12 +60,6 @@ export default function Form_rutinas(props: { function: { (): void } }) {
       HTMLFormElement | HTMLInputElement | HTMLTextAreaElement | any
     >
   ): void {
-    //  if (form_data.genre) {
-    //    event.target.checked=null
-    //    Set_form_data((pv: any) => ({
-    //     ...pv,
-    //     [event.target.name]: event.target.value,
-    //   }));
 
     Set_form_data((pv: any) => ({
       ...pv,
@@ -70,6 +67,24 @@ export default function Form_rutinas(props: { function: { (): void } }) {
     }));
     setError({ ...error, [event.target.name]: "" }); //este setError
   }
+  useEffect(() => {
+    if (user.response === "User updated") {
+      Swal.fire({
+        icon: 'success',
+        showConfirmButton: true,
+        backdrop: `#1919247f`,
+        confirmButtonText: "Aceptar",
+      }).then((result) => {
+        if(result.isConfirmed){
+          dispatch(Response())
+          dispatch(getProfileInfo(token));
+
+          props.function()
+
+        }
+      });
+    }
+  }, [user.response]);
 
   //////////enviar de datos  por medio de los input//////////////////////////////////////////
   function handleSubmit(event: React.FormEvent): void {
@@ -168,8 +183,13 @@ export default function Form_rutinas(props: { function: { (): void } }) {
       return;
     }
 
-    dispatch(infoUserRutina({ token, form_data }));
-    props.function();
+    if (form_data.genre !== "otro") {
+      dispatch(infoUserRutina({ token, form_data }));
+    } else {
+      dispatch(infoUserRutina({ token, form_data: {...form_data, genre: "woman"} }));
+    }
+
+    
   }
 
   return (
@@ -217,6 +237,17 @@ export default function Form_rutinas(props: { function: { (): void } }) {
                   checked={form_data.genre == "woman" ? true : false}
                 />
                 <label className="mr-1">Femenino</label>
+                <br />
+                <input
+                  type="checkbox"
+                  autoComplete="off"
+                  name="genre"
+                  value="otro"
+                  className="mx-2 rounded-full p-2 cursor-pointer"
+                  onChange={handleChange}
+                  checked={form_data.genre == "otro" ? true : false}
+                />
+                <label className="mr-1">Otro</label>
                 <br />
               </div>
               <div className="relative z-0 mb-6 w-[100%] group mt-5">
@@ -312,6 +343,7 @@ export default function Form_rutinas(props: { function: { (): void } }) {
                   type="checkbox"
                   autoComplete="off"
                   name="equipment"
+                  readOnly
                   className="mx-2 rounded-full p-2 cursor-pointer mr-2"
                   checked={form_data.equipment == false ? true : false}
                   onClick={() =>
@@ -324,6 +356,7 @@ export default function Form_rutinas(props: { function: { (): void } }) {
                   type="checkbox"
                   autoComplete="off"
                   name="equipment"
+                  readOnly
                   value="false"
                   className="mx-2 rounded-full p-2 cursor-pointer"
                   checked={form_data.equipment == true ? true : false}

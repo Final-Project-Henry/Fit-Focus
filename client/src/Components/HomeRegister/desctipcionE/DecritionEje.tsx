@@ -109,6 +109,7 @@ export default function DecriptionEjer() {
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    //rafa pone una regex  para no enviar espacioas basios
     setcomment(e.target.value)
   }
 
@@ -131,15 +132,12 @@ export default function DecriptionEjer() {
             setValidac(false)
           }
         });
-
-        
+        dispatch(Exercises_Get())
         dispatch(Detail({token, id}))
         dispatch(Response())
     }
 
   },[response])
-
-
 
   return (
     <>
@@ -182,20 +180,20 @@ export default function DecriptionEjer() {
               <div className="w-full flex justify-end items-end p-5">
               {
                <span  className={` decoration-red-700 text-red-700`}>
-                    {comment.length<10&&"El comentario debe tener maximo 10 letras"}
+
+                    {comment.length<10&&"El comentario debe tener mínimo 10 letras"}
+                    
                   </span>  
                 }
                 <span className={`${comment.length>=10?"text-blue-900":"text-red-700"} px-5 `}>
                    {comment.length}/50
                 </span>
-
                 {
                   descripcionEjersicio?.find((e: any) => e?.email == user?.email)&&
                   <span onClick={() => setValidac(false)} className={` decoration-red-700 text-red-700 cursor-pointer`}>
                     cancelar
                   </span>
                 }
-            
               </div>
             </div>
           </div>

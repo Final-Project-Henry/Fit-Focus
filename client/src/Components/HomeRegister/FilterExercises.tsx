@@ -1,5 +1,5 @@
 import "./styles/HomeRegister.css";
-import React, { useMemo } from "react";
+import React, { useMemo, useRef } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
@@ -10,6 +10,7 @@ import notPremiunImg from "../assets/homeRegister-media/padlock.png";
 import notPremiunImg2 from "../assets/homeRegister-media/Img3.jpg";
 import { Link } from "react-router-dom";
 import LoadingCards from "../loading/LoadingCards";
+import { v4 as uuidv4 } from "uuid"
 
 //Linia 261  etiquetas de card (deficualtad, etc)
 
@@ -36,6 +37,7 @@ let num  = 8
 let nuevoArray : Array<ejerciciosData> = []
 
 export default function FilterExercises() {
+  const SelecReset = useRef<any>()
   const { exercises ,user} = useAppSelector(selectUser);
   const [filtrado, setFiltrado] = useState<Array<ejerciciosData>| [] >([]);
   const [selected, setSelected] = useState<selectData>({
@@ -60,10 +62,10 @@ export default function FilterExercises() {
   useEffect(() => {
     let filt= exercises.filter(e => {
       let {muscle, genre, difficulty,premium} =  selected;
-     muscle =false
-     genre =false
-     difficulty =false
-     premium =false
+        muscle =false
+        genre =false
+        difficulty =false
+        premium =false
 
       if(selected.muscle === "none" ) muscle = true
       else muscle = selected.muscle === e.muscles
@@ -88,6 +90,7 @@ export default function FilterExercises() {
   
   const handleSelectGenre = (event:React.ChangeEvent<HTMLSelectElement>| { [x: string]: any; value: string }) => {
     setSelected({ ...selected, genre: event.target.value });
+    
   };
 
  const handleSelectMusc = (event:React.ChangeEvent<HTMLSelectElement>| { [x: string]: any; value: string }) => {
@@ -110,7 +113,8 @@ export default function FilterExercises() {
   };
   
   const handleSelectLimpiar = () => {
-    setSelected({
+    SelecReset.current.reset()
+    setSelected({...selected,
       genre: "none",
       muscle: "none",
       difficulty: "none",
@@ -118,26 +122,27 @@ export default function FilterExercises() {
     })
   };
 
+
   return (
     <>
       <div className="bg-white flex shadow  justify-around items-center w-[80%] m-auto">
-        <div>
+        <form ref={SelecReset}>
         <select
           className="cursor-pointer  m-5  text-sm text-back font-normal leading-loose border-none outline-none py-0 shadow-md"
           onChange={(e)=>handleSelectGenre(e)}
         >
-          {selected.genre !== "none" ? (
-            <option value="none" className="option cancel">
+          {selected.genre !== "none"?
+            <option  value="none">
               Todos
             </option>
-          ) : (
+           : 
             <option className="option" hidden>
               Genero
             </option>
-          )}
-          <option value="both">Ambos</option>
-          <option value="man">Hombres</option>
-          <option value="woman">Mujeres</option>
+          }
+          <option  value="both">Ambos</option>
+          <option  value="man">Hombres</option>
+          <option  value="woman">Mujeres</option>
         </select>
 
         <select
@@ -156,12 +161,14 @@ export default function FilterExercises() {
           <option value="upper_body">Upper_body</option>
           <option value="functional">Functional</option>
           <option value="lower_body">Lower_body</option>
+          <option value="stretching">stretching</option>
           <option value="abs">abs</option>
         </select>
 
         <select
           className="cursor-pointer m-5 py-0   text-sm text-back font-normal leading-loose  border-none outline-none  shadow-md"
           onChange={handleSelectDific}
+      
         >
           {selected.difficulty !== "none" ? (
             <option value="none" className="option cancel">
@@ -203,7 +210,7 @@ export default function FilterExercises() {
             Gratis
           </option>
         </select>
-        </div>
+        </form>
         <div>
           <button className=" text-red-500 p-2 cursor-pointer m-5 py-0   text-sm text-back font-normal leading-loose  border-none outline-none  shadow-md active:shadow" onClick={()=> handleSelectLimpiar()}>
             Limpiar filtro
@@ -216,7 +223,7 @@ export default function FilterExercises() {
             filtrado.length>0 || exercises.length>0?filtrado.map(
             ({_id, video, name, difficulty, muscles, genre, premium }) => {
               return (
-                <>
+                <div key={uuidv4()}>
                   <Link key={_id} to={(premium&&user?.plan=="normal")?`/mercadopago`:`/ejercicio/${_id}`} className={`max-w-[75%] min-h-[240px] m-10 flex flex-col bg-white  shadow-md duration-150 cursor-pointer  hover:outline hover:outline-offset-1 ${
                       premium
                         ? "outline-blue-400"
@@ -285,7 +292,7 @@ export default function FilterExercises() {
                       </span>
                     </div>
                   </Link>
-                </>
+                </div>
               );
             }
           ) : 

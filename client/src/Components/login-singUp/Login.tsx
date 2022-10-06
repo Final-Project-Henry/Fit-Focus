@@ -9,6 +9,8 @@ import {
   Activecuenta,
   Estado,
   Error,
+  Response,
+  Status,
 } from "../../features/counter/counterSlice";
 
 import { Link } from "react-router-dom";
@@ -41,6 +43,7 @@ const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
 
   useEffect(() => {
     dispatch(Error());
+    dispatch(Status("none"));
   }, []);
 
   useEffect(() => {
@@ -54,24 +57,47 @@ const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
       );
     }
   }, [user.userToken]);
+
+  
   useEffect(() => {
-    if (user.status === "User desactivated") {
+    if (user.error === "User desactivated" || user.error === "User google desactivated" ) {
       Swal.fire({
         title: "Esta cuenta esta desactivada.",
         icon: "info",
         showCancelButton: true,
-        confirmButtonColor: "#230bf8",
+        confirmButtonColor: "#4d83f8",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Recuperar cuenta",
+        confirmButtonText: "Activar cuenta",
         cancelButtonText: "Cancelar",
       }).then((result) => {
         if (result.isConfirmed) {
           SetActivar(true);
-          dispatch(Estado("Activar"));
+          dispatch(Error());
+          Set_form_data({...Form_data, email: "",password: "",})
+          user.error === "User google desactivated"&&dispatch(Estado("Activar"));
         }
       });
     }
-  }, [user.status]);
+  }, [user.error]);
+
+  useEffect(() => {
+    if (user.response === "Account activated") {
+      Swal.fire({
+        title:"Su cuenta se activo correctamente",
+        icon: 'success',
+        showConfirmButton: true,
+        backdrop: `#1919247f`,
+        confirmButtonText: "Aceptar",
+      }).then((result) => {
+        if(result.isConfirmed){
+          SetActivar(false)
+          dispatch(Response())
+        }
+      });
+    }
+  }, [user.response]);
+
+
   function handleChange(
     event: React.ChangeEvent<HTMLFormElement | HTMLInputElement>
   ): void {
@@ -198,7 +224,7 @@ const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
                 className="bg-gray-700 text-white font-bold py-2 px-4 w-full :bg-gray-600"
                 onClick={handleSubmit}
               >
-                {user.status == "default" ? (
+                {user.status == "none" ? (
                   Activar ? (
                     "Recuperar cuenta"
                   ) : (

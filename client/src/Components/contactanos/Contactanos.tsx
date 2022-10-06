@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import { opiniom, useAppDispatch, useToken } from "../../app/hooks";
-import { feedbackFooter } from "../../features/counter/counterSlice";
-
+import { opiniom, useAppDispatch, useAppSelector, useToken } from "../../app/hooks";
+import { Error, feedbackFooter, Response } from "../../features/counter/counterSlice";
+import icon from "../admin/imgs/comments.png"
 interface FeedbackUsuario {
   asunto: string;
   comment: string;
@@ -10,7 +10,7 @@ interface FeedbackUsuario {
 
 const Contactanos = () => {
   const token = useToken();
-
+  const response = useAppSelector(state => state.user)
   const dispatch = useAppDispatch();
   const [feedback, setFeedback] = useState<FeedbackUsuario>({
     asunto: "",
@@ -21,7 +21,29 @@ const Contactanos = () => {
     asunto: "",
     comment: "",
   });
-
+  useEffect(() => {
+    if (response.response==="Question sent succesfully" ) {
+      Swal.fire({
+        title:"Ya tu pregunta fue enviada correctamente, Nuestros equipo te respondera lo mas pronto posible" ,
+        icon: "success",
+        showCancelButton: false,
+        confirmButtonColor: "#230bf8",
+        confirmButtonText: "Aceptar",
+      }).then((result) => {
+          dispatch(Response())
+      })
+    }else if(response.error=="You already sent a question"){
+      Swal.fire({
+        title:"Te responderemos lo mas rapido posible",
+        imageUrl:icon,
+        showCancelButton: false,
+        confirmButtonColor: "#230bf8",
+        confirmButtonText: "Aceptar",
+      }).then((result) => {
+          dispatch(Error())
+      })
+    }
+  },[response.response,response.error])
   function handleChange(
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ): void {
@@ -53,9 +75,9 @@ const Contactanos = () => {
       return;
     }
 
-    if (feedback.comment.length > 50) {
+    if (feedback.comment.length > 300) {
       Swal.fire({
-        title: "Su comentario debe tener menos de 50 caracteres",
+        title: "Su comentario debe tener menos de 300 caracteres",
         icon: "info",
         showCancelButton: false,
         confirmButtonColor: "#230bf8",
@@ -120,7 +142,6 @@ const Contactanos = () => {
                   Por este medio vas a poder realizar cualquier tipo de duda y/o
                   consulta sin costo adicional. Espere a ser respondido por
                   nuestro equipo tecnico.
-                  <hr />
                   <span className="font-extralight text-xl  ">
                     ¡Muchas Gracias!
                   </span>
@@ -267,7 +288,6 @@ const Contactanos = () => {
                   focus-visible:shadow-none
                   focus:border-primary
                   "
-                      defaultValue={""}
                     />
                   </div>
                   <div>

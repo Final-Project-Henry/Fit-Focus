@@ -85,7 +85,8 @@ function App() {
         <ScrollButton />
         {pathname !== "/" && <Navbar />}
         <Routes>
-          {/* Rutas públicas */}
+          {/* Rutas admi */}
+
           <Route path="/admin" element={<Dashboard />} >
             <Route path="" element={<Home />} />
             <Route path="users" element={<Users />} />
@@ -97,27 +98,30 @@ function App() {
             <Route path="news" element={<NewsAdmin />} />
             <Route path="questions" element={<Questions />} />
           </Route>
+
+          {/* Rutas públicas */}
+
           <Route path="/" element={<LandingPage />} />
           <Route path="NewPassword/:id" element={<NewPassword />} />
-
           <Route path="/auth/:id" element={<SingUp_Login />} />
           <Route path="/home" element={<HomeVisitor_2 />} />
           <Route path="auth/google" element={<GoogleAuth />} />
           <Route path="/home2" element={<HomeVisitor />} />
           <Route path="loading" element={<Loading />} />
           <Route path="mercadopago" element={<MercadoPago />} />
-          <Route path="contactanos" element={<Contactanos />} />
           <Route path="/AboutUs" element={<AboutUs />} />
           <Route
             path={"*"}
             element={<Error_page error="URL inexistente." numb_error="404" />}
           />
-          <Route path="/contact" element={<ContactUs />} />
           <Route path="/politicadeprivacidad" element={<PoliticaPriv/>}/> 
           <Route path="/terminosycondiciones" element={<TerminosYCondiciones/>}/>
          
           {/* Rutas privadas */}
           <Route element={<ProtectedRoute user={user} />}>
+          <Route path="contactanos" element={<Contactanos />} />
+          <Route path="/contact" element={<ContactUs />} />
+            
             <Route path="/fitFocus" element={<HomeRegister />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/ejercicio/:id" element={<DecriptionEjer />} />

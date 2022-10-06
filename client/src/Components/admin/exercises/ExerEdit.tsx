@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import edits from '../additional/edits';
 
 
 interface exercise {
@@ -32,8 +33,21 @@ export default function ExerEdit(props: { exer: exercise, save: (e: any) => void
     return (
         <div>
             {
-                ["name","difficulty", "muscles", "genre", "video", 'premium','description'].map((prop: string) => {
-                    if (!["_id", "feedback", "__v"].includes(prop)) return (
+                edits.exerProps.map((prop: string) => {
+                    if (Object.keys(edits.exerOptions).includes(prop)) return (
+                        <div style={{ display: "flex", justifyContent: 'space-between', gap: "10px", }}>
+                            <p>{prop}:</p>
+                            <select name={prop}  value={(exercise as any)[prop]}  onChange={onChange}>
+                                {(edits.exerOptions as any)[prop].map((option: string) => (
+                                    <option style={{ width: "70%" }}>
+                                        {option}
+                                    </option>
+                                ))
+                                }
+                            </select>
+                        </div>
+                    )
+                    else return (
                         <div style={{ display: "flex", justifyContent: 'space-between', gap: "10px", }}>
                             <p>{prop}:</p>
                             <input style={{ width: "70%" }} onChange={onChange} name={prop} value={(exercise as any)[prop]} />

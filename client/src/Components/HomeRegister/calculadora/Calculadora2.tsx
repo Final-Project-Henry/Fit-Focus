@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { isVariableDeclarationList } from 'typescript';
 import styles from "./Calculadora2.module.css";
 
 export default function Calculadora2(props:{function:{(imc:number):void}, info:{(peso:number, altura:number):void}}) {

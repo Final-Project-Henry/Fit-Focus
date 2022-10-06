@@ -7,6 +7,7 @@ import notPremiunImg2 from "../assets/homeRegister-media/Img3.jpg";
 import Footer from '../footer/Footer';
 import Footer2 from '../footer/Footer2';
 import LoadingCards from '../loading/LoadingCards';
+import { v4 as uuidv4 } from "uuid"
 
 interface ejerciciosData {
   _id: string;
@@ -25,19 +26,20 @@ const Favoritos=() =>{
   const dispatch = useAppDispatch();
   const [dataFav , setDatafav] = useState<[ejerciciosData]|[]>([]);
   let token=useToken()
+
   useEffect(() => {
     if(token){
       dispatch(getProfileInfo(token));
     }
   },[token])
-  useMemo(() => {
-    if(exercises.length===0){
+
+  useEffect(() => {
+    if(exercises?.length===0)
       dispatch(Exercises_Get());
-    }
   },[exercises])
 
   useEffect(() => {
-    if(exercises.length>0){
+    if(exercises?.length>0){
       let fav = user?.fav?.map( ({id} :any) => {
         let favArrg =exercises.find(e=>e._id === id)
         if (favArrg) {
@@ -61,7 +63,7 @@ const Favoritos=() =>{
         {user?.fav.length>0?
         dataFav?.length>0?dataFav?.map(({_id, video, name, difficulty, muscles, genre, premium}) => {
               return (
-                <>
+                <div key={uuidv4()}>
                   <Link key={_id} to={`/ejercicio/${_id}`} className={` max-w-[75%] min-h-[50px] flex flex-col bg-white  shadow-md duration-150 cursor-pointer  hover:outline hover:outline-offset-1  ${
                       premium
                         ? "outline-blue-400"
@@ -114,7 +116,7 @@ const Favoritos=() =>{
                       </span>
                     </div>
                 </Link>
-            </>
+            </div>
           )
         })
         :<LoadingCards num={"1234"}/>

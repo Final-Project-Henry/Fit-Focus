@@ -2,16 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 // Icons
 import icon from "../assets/icons/nav-icon2.png";
-import defaultPhoto from "../assets/icons/monkey.jpg";
-import spanish from "../../Components/assets/icons/spanish.png";
-import english from "../../Components/assets/icons/english.png";
 
-import { Link as Scroll } from "react-scroll";
-import { useAppDispatch, useAppSelector, useSesion } from "../../app/hooks";
+import { useAppDispatch, useAppSelector, useSesion, useToken } from "../../app/hooks";
 import "./styles/Navbar.css";
 import { sigendOut, selectUser } from "../../features/counter/counterSlice";
 import Swal from "sweetalert2";
-import funcion from "../../additional_info/functions";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState<boolean>(false);
@@ -22,20 +17,17 @@ const Navbar = () => {
   const [hiddenTimeOut, setHiddenTimeOut] = useState<any>();
 
   const dispatch = useAppDispatch();
-  const { user, userToken } = useAppSelector(selectUser);
+  const { user, userToken,status } = useAppSelector(selectUser);
   const userSeccion = useSesion();
+  const token = useToken()
   const Navegation = useNavigate();
 
-  const onClick = () => {
-    window.scrollTo(0, 0);
-    Navegation(userInfo ? "/fitFocus" : "/home");
-  };
 
   useEffect(() => {
-    if (user) {
+    if (user||userToken) {
       setUserInfo(user);
-    } else if (userSeccion) {
-      setUserInfo(userSeccion);
+    }else{
+      setUserInfo(false)
     }
   }, [userSeccion, user]);
 
@@ -44,15 +36,17 @@ const Navbar = () => {
       title: "¿Desea cerrar sesión?",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#000000",
+      confirmButtonColor: "#1673ff",
       cancelButtonColor: "#d33",
       confirmButtonText: "Cerrar sesión",
       cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(sigendOut(null));
+        setUserInfo(false)
+
         Navegation("/home");
-        window.location.reload();
+        //  window.location.reload();
       }
     });
   }
@@ -68,6 +62,8 @@ const Navbar = () => {
   };
 
   return (
+    <>
+
     <div style={{ backgroundColor: "white" }}>
       <nav className=" border-gray-200 px-2 sm:px-4  bg-white  w-full border-b-4">
         <div className="container-fluid w-full flex flex-wrap items-center justify-between px-8 p-4">
@@ -290,14 +286,14 @@ const Navbar = () => {
                       Mi Perfil
                     </Link>
                   </li>
-                  <li>
+                  {user?.admin&&<li>
                     <Link
                       to="/admin"
                       className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 "
                     >
-                      Dashboard
+                      Tablero
                     </Link>
-                  </li>
+                  </li>}
                   <li
                     onClick={() => {
                       signOut();
@@ -314,6 +310,7 @@ const Navbar = () => {
         </div>
       </nav>
     </div>
+    </>
   );
 };
 

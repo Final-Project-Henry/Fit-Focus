@@ -9,6 +9,7 @@ import VisualExerc from "./VisualComponents/VisualExerc";
 import VisualRest from "./VisualComponents/VisualRest";
 
 export default function Training() {
+  let id:number = 0;
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const users = useAppSelector((state) => state.user);
@@ -68,7 +69,8 @@ export default function Training() {
         token = userlogin.token;
       }
     }
-    if (users.status === "default") dispatch(Rutines_Get({ token: token }));
+
+    if (users.status === "none") dispatch(Rutines_Get({ token: token }));
 
     interval = setInterval(() => {
       if (isRunning) {
@@ -82,77 +84,50 @@ export default function Training() {
     return () => clearInterval(interval);
   }, [isRunning, temp]);
   return (
-    <div style={{ height: "100%" }}>
-      {Object.keys(users.rutines).length === 0 ? (
-        <Loading />
-      ) : (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <h1
-            style={{
-              fontWeight: "500",
-              fontSize: "3.5rem",
-              color: "white",
-              margin: "3vh 0 20px 0",
-              backgroundColor: "#111827",
-              width: "50vw",
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            Modo Entrenamiento
-          </h1>
-          <div
-            style={{ display: "flex", gap: "5vw", justifyContent: "center" }}
-          >
-            <label>
-              Tiempo estimado:{" "}
-              <b>
-                {users.rutines.reps === "long"
-                  ? "25 min APROX."
-                  : "21 min APROX."}
-              </b>
-            </label>
-            <label>
-              Dificultad: <b>{users.rutines.difficulty.toUpperCase()}</b>
-            </label>
-          </div>
-          {users.rutines.exercises.map((e: any, i: number) => {
-            if (i + 1 === currentOrder)
-              return (
-                <div style={{ display: "flex", marginTop: "5vh" }}>
-                  <div style={{ width: "25vw", border: "1px solid red" }}>
-                    <img
-                      style={{ height: "50vh", width: "25vw" }}
-                      src={
-                        e.exer
-                          ? "https://media1.giphy.com/media/d8p3S8WcCRCnHJhW2S/giphy.gif?cid=ecf05e477t1wecvob5zi671125bk5hpdo7b5gotmfw7i4rn6&rid=giphy.gif&ct=g"
-                          : e.exerc?.video
+    <div className='h-full'>
+      {
+        Object.keys(users.rutines).length === 0 ?
+          <Loading />
+          :
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <h1 className='rounded-tr-md rounded-bl-md' style={{ fontWeight: "500", fontSize: "3.5rem", color: "white", margin: "3vh 0 20px 0", backgroundColor: "#111827", width: "50vw", display: "flex", justifyContent: "center" }}>
+              Modo Entrenamiento
+            </h1>
+            <div style={{ display: "flex", gap: "5vw", justifyContent: "center" }}>
+              <label className='text-xl'>Tiempo estimado: <b>{users.rutines.reps === "long" ? "25 min APROX." : "21 min APROX."}</b></label>
+              <label className='text-xl'>Dificultad: <b className={`${users.rutines.difficulty === "easy" ? "text-green-500" : users.rutines.difficulty === "medium" ? "text-yellow-500" : "text-red-500"}`}>{users.rutines.difficulty.toUpperCase()}</b></label>
+            </div>
+            {
+              users.rutines.exercises.map((e: any, i: number) => {
+                if (i + 1 === currentOrder) return (
+                  <div key={id++}>
+                    <div style={{ display: "flex", marginTop: "5vh" }}>
+                      <div className="w-[25vw]">
+                        <img className="rounded-l-2xl h-[50vh] w-[25vw]" src={!e.exer ? e.exerc?.video : "https://media1.giphy.com/media/d8p3S8WcCRCnHJhW2S/giphy.gif?cid=ecf05e477t1wecvob5zi671125bk5hpdo7b5gotmfw7i4rn6&rid=giphy.gif&ct=g"}></img>
+                      </div>
+                      {!e.exer ?
+                        <VisualExerc datos={e} />
+                        :
+                        <VisualRest />
                       }
-                    ></img>
+                      <Temp
+
+                        time={e.time}
+                        isRunning={isRunning}
+                        temp={temp}
+                        handleCurrent={handleChangeOrder}
+                        handleTemp={handleTemp}
+                        handleInit={handleInit}
+                        handleReset={handleReset}
+                        img={e.order ? e.order : null}
+                        name={e.exerc ? e.exerc.name : null}
+                      />
+                    </div>
                   </div>
-                  {!e.exer ? <VisualExerc datos={e} /> : <VisualRest />}
-                  <Temp
-                    time={e.time}
-                    isRunning={isRunning}
-                    temp={temp}
-                    handleCurrent={handleChangeOrder}
-                    handleTemp={handleTemp}
-                    handleInit={handleInit}
-                    handleReset={handleReset}
-                    img={e.order ? e.order : null}
-                    name={e.exerc ? e.exerc.name : null}
-                  />
-                </div>
-              );
-          })}
-        </div>
-      )}
-    </div>
+                );
+              })}
+          </div>
+      }
+    </div >
   );
 }

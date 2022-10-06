@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
     const mailDetails = mailSettings.mailDetails(data.email);
   
     let oldUser = await user.findOne({ email: data.email });
-    if(oldUser?.status === 'desactivated') return res.status(401).send('User desactivated');
+    if(oldUser?.status === 'desactivated') return res.status(401).send('User google desactivated');
     
     if (!oldUser) {
       const hashPassword = await bcrypt.hash(data.sub, 10)

@@ -20,7 +20,7 @@ interface User {
 }
 
 export default function RutinasPersonales() {
-  const { user } = useAppSelector(selectUser);
+  const { user,rutines } = useAppSelector(selectUser);
   const users = useAppSelector(state=>state.user);
   const dispatch = useAppDispatch();
   const [form, setfomr] = useState(false);
@@ -38,28 +38,25 @@ export default function RutinasPersonales() {
   useEffect(() => {
     let token;
     let userJSON = window.localStorage.getItem("Login_userFit_Focus");
-
     if (userJSON) {
       if (userJSON.length > 3) {
         let userlogin = JSON.parse(userJSON);
         token = userlogin.token;
       }
     }
-
-
-    if (!form) dispatch(getProfileInfo(token));
-  
-    if(Object.keys(users.rutines).length===0)dispatch(Rutines_Get({token}));
-  }, []);
+    if(user){
+      dispatch(Rutines_Get({token}))
+    }
+  }, [user]);
 
 
   return (
     <>
       <div style={{width:"100%", marginBottom:"10vh"}}>
         <div style={{width:"100%", display:"flex", alignItems:"center", justifyContent:"center"}} >
-          {user?.userinfo?.length > 0 ? (
+          {user?.userinfo.length ? (
             <div>
-              <Rutins rutins={users.rutines?.exercises} reps={users.rutines.reps} dif={users.rutines.difficulty}/>
+              <Rutins rutins={users.rutines?.exercises} reps={users.rutines?.reps} dif={users.rutines?.difficulty}/>
             </div>
           ) : (
             <>

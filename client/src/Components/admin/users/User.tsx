@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import Swal from 'sweetalert2';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { add_admin, change_profile, get_users, reset_admin_status, reset_change_info, change_info } from '../../../features/admin/admin';
+import Loading from '../../loading/Loading';
 import edit from '../imgs/edit.png';
 import save from '../imgs/save.png';
 import UserEditInfo from './UserEditInfo';
@@ -52,7 +53,7 @@ export default function User() {
     height: user?.userinfo[0]?.height,
     goal: user?.userinfo[0]?.goal,
     experience: user?.userinfo[0]?.experience,
-});
+  });
 
   const onClick = () => {
     Swal.fire({
@@ -78,15 +79,32 @@ export default function User() {
   };
 
   const onSaveChanges = (edit: string) => {
+    Swal.fire({
+      title: '¿Estas seguro que quieres cambiar la informacion del usuario?',
+      text: "Esta seguro?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: "Cancelar",
+      confirmButtonText: 'Cambiar',
+    }).then((result: any) => {
+      if (result.isConfirmed) {
+        if (edit === 'profile') {
+          dispatch(change_profile({ _id: user._id, data: profile }))
+          setEditProfile(false);
+        }
+        else if (edit === 'info') {
+          dispatch(change_info({ _id: user._id, data: info }))
+          setEditInfo(false);
+        }
+      }
+      else {
+        if (edit === 'profile') setEditProfile(false);
+        if (edit === 'info') setEditInfo(false);
+      }
+    })
 
-    if (edit === 'profile') {
-      dispatch(change_profile({ _id: user._id, data: profile }))
-      setEditProfile(false);
-    }
-    else if (edit === 'info'){
-      dispatch(change_info({_id:user._id, data:info}))
-      setEditInfo(false);
-    }
   }
 
   const onChange = (e: any) => {
@@ -118,53 +136,61 @@ export default function User() {
   }, [users.admin_status, users.change_info])
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "10vh", marginLeft: "3vw" }}>
-      <h1
-        style={{
-          fontSize: "3rem",
-          fontWeight: "500",
-          margin: "25px 0 10px 0",
-        }}
-      >Edit User</h1>
+    <div>
       {
-        user ?
-          <div style={{ display: "flex", justifyContent: "center", gap: "5vw", width: "100%" }}>
-            <div style={{ width: "30vw", backgroundColor: "white", padding: "20px", display: "flex", gap: "20px", flexDirection: "column" }}>
-              <h1 style={{ fontSize: "1.5rem", fontWeight: "500" }}>Account Detail</h1>
-              <div style={{ display: "flex", alignItems: "center", gap: "10px", justifyContent: "space-around" }}>
-                <img style={{ width: "40px", height: "40px", borderRadius: "20px" }} src={user.avatar} />
-                <p>{user.name}</p>
-                <img src={editProfile ? save : edit} onClick={() => editProfile ? onSaveChanges('profile') : onEdit("profile")} style={{ width: "15px", height: "15px", cursor: "pointer", marginLeft: "15vw" }} />
-              </div>
-              {
-                editProfile ?
-                  <UserEditProfile data={{ user: user }} save={onChange} />
-                  :
-                  <UserProfile data={{ user: user }} />
-              }
-              {
-                admin.user?.superAdmin &&
-                <div style={{ display: "flex", justifyContent: 'space-between', gap: "10px", }}>
-                  <p>Admin: </p>
-                  <p>{`${user.admin}`}</p>
-                  <img onClick={onClick} src={edit} style={{ width: "15px", height: "15px", cursor: "pointer" }} />
+        !user ?
+          <h1>No se encontro al usuario</h1>
+          :
+          <div style={{ display: "flex", flexDirection: "column", gap: "10vh", marginLeft: "3vw" }}>
+            <h1
+              style={{
+                fontSize: "3rem",
+                fontWeight: "500",
+                margin: "25px 0 10px 0",
+              }}
+            >Edit User</h1>
+            {
+              user.user_status === 'default' ?
+                <Loading />
+                :
+                <div style={{ display: "flex", justifyContent: "center", gap: "5vw", width: "100%" }}>
+                  <div style={{ width: "30vw", backgroundColor: "white", padding: "20px", display: "flex", gap: "20px", flexDirection: "column" }}>
+                    <h1 style={{ fontSize: "1.5rem", fontWeight: "500" }}>Account Detail</h1>
+                    <div style={{ display: "flex", alignItems: "center", gap: "10px", justifyContent: "space-around" }}>
+                      <img style={{ width: "40px", height: "40px", borderRadius: "20px" }} src={user.avatar} />
+                      <p>{user.name}</p>
+                      <img src={editProfile ? save : edit} onClick={() => editProfile ? onSaveChanges('profile') : onEdit("profile")} style={{ width: "15px", height: "15px", cursor: "pointer", marginLeft: "15vw" }} />
+                    </div>
+                    {
+                      editProfile ?
+                        <UserEditProfile data={{ user: user }} save={onChange} />
+                        :
+                        <UserProfile data={{ user: user }} />
+                    }
+                    {
+                      admin.user?.superAdmin &&
+                      <div style={{ display: "flex", justifyContent: 'space-between', gap: "10px", }}>
+                        <p>Admin: </p>
+                        <p>{`${user.admin}`}</p>
+                        <img onClick={onClick} src={edit} style={{ width: "15px", height: "15px", cursor: "pointer" }} />
+                      </div>
+                    }
+                  </div>
+                  <div style={{ width: "30vw", backgroundColor: "white", padding: "20px", display: "flex", flexDirection: "column", gap: "20px" }}>
+                    <h1 style={{ fontSize: "1.5rem", fontWeight: "500" }}>User info</h1>
+                    <img hidden={user?.userinfo.length === 0 ? true : false} src={editInfo ? save : edit} onClick={() => editInfo ? onSaveChanges('info') : onEdit("info")} style={{ width: "15px", height: "15px", cursor: "pointer", alignSelf: "flex-end" }} />
+                    {
+                      user.userinfo.length > 0 ?
+                        editInfo ?
+                          <UserEditInfo data={{ info: user.userinfo }} save={onChange2} />
+                          :
+                          <UserInfo data={{ info: user.userinfo }} />
+                        : <p>No User info</p>
+                    }
+                  </div>
                 </div>
-              }
-            </div>
-            <div style={{ width: "30vw", backgroundColor: "white", padding: "20px", display: "flex", flexDirection: "column", gap: "20px" }}>
-              <h1 style={{ fontSize: "1.5rem", fontWeight: "500" }}>User info</h1>
-              <img hidden={user?.userinfo.length===0?true:false} src={editInfo ? save : edit} onClick={() => editInfo ? onSaveChanges('info') : onEdit("info")} style={{ width: "15px", height: "15px", cursor: "pointer", alignSelf: "flex-end" }} />
-              {
-                user.userinfo.length > 0 ?
-                  editInfo ?
-                    <UserEditInfo data={{ info: user.userinfo }} save={onChange2} />
-                    :
-                    <UserInfo data={{ info: user.userinfo }} />
-                  : <p>No User info</p>
-              }
-            </div>
+            }
           </div>
-          : <h1>USER NOT FOUND</h1>
       }
     </div>
   )

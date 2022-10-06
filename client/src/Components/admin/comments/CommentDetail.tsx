@@ -3,11 +3,13 @@ import Swal from "sweetalert2";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { delete_comment } from "../../../features/admin/admin";
 import { Exercises_Get } from "../../../features/counter/counterSlice";
+import { v4 as uuidv4 } from "uuid";
 
 interface feedback {
   email: string;
   comment: string;
   rating: number | string;
+  report: Array<string>;
 }
 
 export default function CommentDetail(props: {
@@ -43,13 +45,13 @@ export default function CommentDetail(props: {
 
   return (
     <div
+      className="rounded p-3"
       style={{
         backgroundColor: "white",
         display: "flex",
         flexDirection: "column",
         margin: "5px",
         width: "auto",
-        padding: "5px 10px 5px 10px",
         gap: "5px",
       }}
     >
@@ -65,19 +67,21 @@ export default function CommentDetail(props: {
         <b>Comment: </b>
         {props.feedback.comment}
       </p>
+      <p>
+        <b>Report by: </b>
+        {props.feedback.report.length === 0 ? (
+          <span>No one</span>
+        ) : (
+          props.feedback.report.map((e: string) => (
+            <span className="block" key={uuidv4()}>
+              {e}
+            </span>
+          ))
+        )}
+      </p>
       <button
         onClick={onDelete}
-        className="font-semibold"
-        style={{
-          margin: " auto",
-          backgroundColor: "#A70E0E",
-          color: "white",
-          width: "30%",
-          padding: "2px",
-          marginBottom: "10px",
-          marginTop: "10px",
-          borderRadius: "0.375rem",
-        }}
+        className="font-semibold hover:bg-red-800 bg-red-700 text-white w-20 rounded m-auto mt-2 p-2"
       >
         Delete
       </button>
