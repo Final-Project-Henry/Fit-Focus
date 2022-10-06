@@ -57,13 +57,15 @@ const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
       );
     }
   }, [user.userToken]);
+
+  
   useEffect(() => {
     if (user.error === "User desactivated" || user.error === "User google desactivated" ) {
       Swal.fire({
         title: "Esta cuenta esta desactivada.",
         icon: "info",
         showCancelButton: true,
-        confirmButtonColor: "#5e4df8",
+        confirmButtonColor: "#4d83f8",
         cancelButtonColor: "#d33",
         confirmButtonText: "Activar cuenta",
         cancelButtonText: "Cancelar",

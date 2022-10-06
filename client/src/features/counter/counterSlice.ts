@@ -394,21 +394,28 @@ export const authGoogle = createAsyncThunk(
 export const feedbackFooter = createAsyncThunk(
   "user/feedbackFooter",
   async (body: any, thunkAPI) => {
-    let headersList = {
-      Accept: "*/*",
-      Authorization: "Bearer " + body.token,
-      "Content-Type": "application/json",
-    };
-
-    let reqOptions = {
-      url: "http://localhost:3001/auth/ask",
-      method: "POST",
-      headers: headersList,
-      data: body,
-    };
-
-    let temp = await axios.request(reqOptions);
-    return temp;
+    try {
+      let headersList = {
+        Accept: "*/*",
+        Authorization: "Bearer " + body.token,
+        "Content-Type": "application/json",
+      };
+  
+      let reqOptions = {
+        url: "http://localhost:3001/auth/ask",
+        method: "POST",
+        headers: headersList,
+        data: body,
+      };
+  
+      let temp = await axios.request(reqOptions);
+      thunkAPI.fulfillWithValue(temp.data)
+      return temp.data;
+    } catch (error:any) {
+      thunkAPI.fulfillWithValue(error.response.data)
+      return error.response.data;
+    }
+   
   }
 );
 
@@ -550,7 +557,13 @@ export const StateSlice = createSlice({
       })
       .addCase(authGoogle.fulfilled, (state, action) => {
         state.status = "none";
-        state.userToken = action.payload;
+        if(action.payload=="User google desactivated"){
+          state.error = action.payload;
+
+        }else{
+          state.userToken = action.payload;
+
+        }
       })
 
       // //rutinas
@@ -621,8 +634,13 @@ export const StateSlice = createSlice({
       .addCase(feedbackFooter.pending, (state) => {
         state.status = "log";
       })
-      .addCase(feedbackFooter.fulfilled, (state) => {
+      .addCase(feedbackFooter.fulfilled, (state,action) => {
         state.status = "none";
+        if(action.payload=="Question sent succesfully"){
+          state.response = action.payload;
+        }else{
+          state.error = action.payload;
+        }
       })
       .addCase(feedbackFooter.rejected, (state) => {
         state.status = "error";
