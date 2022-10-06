@@ -132,7 +132,7 @@ export default function DecriptionEjer() {
             setValidac(false)
           }
         });
-
+        dispatch(Exercises_Get())
         dispatch(Detail({token, id}))
         dispatch(Response())
     }

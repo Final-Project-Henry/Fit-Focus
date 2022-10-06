@@ -38,9 +38,13 @@ const HomeRegister = () => {
 
 
   useEffect(() => {
-    if (State.exercises.length > 0 && exercises.length === 0 && Bastexercises.length === 0) {
+    if (State.exercises.length > 0 && exercises.length === 0) {
+      
       setExercises(funcion.get_exercises(State.exercises));
+    }
+    if(State.exercises.length > 0 ){
       setBastExercises(funcion.MejorRewind(State.exercises))
+
     }
   }, [State.exercises]);
 
