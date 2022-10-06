@@ -10,7 +10,7 @@ const get_Routine = async (info, exercises) => {
     const av4 = imc >= 25 ? 1 : imc >= 18.5 ? 2 : 3;
 
     const average = Math.round((av1 + av2 + av3 + av4) / 4);
-    const totalAv2 = Math.round((average + (info.goal === 'gain muscles' ? 2 : 1)) / 2);
+    const totalAv2 = (average + (info.goal === 'gain muscles' ? 2 : 1)) / 2;
     const totalAv = totalAv2<1.8?1:Math.round(totalAv2);
 
     const random = (number) => Math.round(Math.random() * number);
@@ -136,7 +136,7 @@ const get_Routine = async (info, exercises) => {
         //functional
         funct.push(exercises.filter(e => e.muscles === 'functional' && e.difficulty === "easy")[random(7)]);
         add = exercises.filter(e => e.muscles === 'functional' && e.difficulty === "easy")[random(7)];
-        while (low.includes(add)) {
+        while (funct.includes(add)) {
             add = exercises.filter(e => e.muscles === 'functional' && e.difficulty === "easy")[random(7)];
         }
         funct.push(add);
@@ -165,7 +165,7 @@ const get_Routine = async (info, exercises) => {
             { exer: "rest", time: 30 },
             { order: 11, exerc: upper[2], time: 90 },
             { exer: "rest", time: 30 },
-            { order: 12, exerc: low[3], time: 90 },
+            { order: 12, exerc: low[2], time: 90 },
             { exer: "rest", time: 30 },
             { order: 13, exerc: funct[0], time: 30 },
             { exer: "rest", time: 15 },
