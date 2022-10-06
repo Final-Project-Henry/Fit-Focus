@@ -9,7 +9,7 @@ import {
     Title,
     Tooltip,
     Legend,
-    Filler
+    Filler,
 } from "chart.js"
 import {Chart} from "react-chartjs-2"
 
@@ -21,7 +21,7 @@ ChartJS.register(
     Title,
     Tooltip,
     Legend,
-    Filler
+    Filler,
 )
 
 interface props {
