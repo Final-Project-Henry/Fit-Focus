@@ -17,10 +17,10 @@ export default function LateralBar() {
       <div
         className={`${
           open ? "w-60" : "w-30"
-        } duration-300 h-[100vh] p-5  pt-8 bg-amber-200 relative`}
+        } duration-300 h-[100vh] p-5  pt-8 bg-gray-900 relative`}
       >
         <img
-          className={` absolute cursor-pointer -right-3 rounded-full top-9  w-9 border-2 ${
+          className={`  bg-gray-200 absolute cursor-pointer -right-3 rounded-full top-9  w-9 border-2 ${
             !open && "rotate-180"
           } `}
           src={arrow}
@@ -30,15 +30,19 @@ export default function LateralBar() {
         <ul className="pt-4">
           {btns.map((btn: any, index: any) => (
             <li
-              className={`flex items-center gap-x-4 cursor-pointer rounded-md p-2 mt-6 hover:bg-amber-300 ${
+              className={`flex items-center gap-x-4 cursor-pointer rounded-md p-2 mt-6 hover:bg-gray-800 ${
                 btn.gap ? "mt-9" : "mt-2"
               }`}
               key={index}
               onClick={() => onClick(btn.url)}
             >
-              <img src={btn.img} width="30px" />
+              <img
+                className="bg-gray-200 p-1 rounded-full "
+                src={btn.img}
+                width="30px"
+              />
               <p
-                className={`text-gray-700 font-semibold text-ms ${
+                className={`text-gray-200 font-semibold text-ms ${
                   !open && "scale-0"
                 } `}
               >
