@@ -50,6 +50,7 @@ export default function Question(props: { datos: datos; index: number }) {
         width: "20vw",
         padding: "5px 10px 5px 10px",
         gap: "5px",
+        height: isResponse?"50vh":"25vh",
         boxShadow: "0 0 20px 3px gray",
       }}
     >
