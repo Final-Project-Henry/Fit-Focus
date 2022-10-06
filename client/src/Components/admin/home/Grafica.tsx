@@ -77,7 +77,7 @@ export default function Grafica({ lastUsersWeek }: Props) {
   
 
   return (
-    <div className="bg-gray-200 w-[30vw] h-[15vw] overflow-scroll">
+    <div className="bg-gray-200 w-[40vw] h-[40vh] overflow-scroll">
       {
         dataWeek &&
         <Chart
