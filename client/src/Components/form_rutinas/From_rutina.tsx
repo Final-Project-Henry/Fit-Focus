@@ -5,7 +5,10 @@ import { useAppDispatch, useAppSelector, useToken } from "../../app/hooks";
 import {
   User_Login_State,
   selectUser,
+  Response,
   infoUserRutina,
+  Rutines_Get,
+  getProfileInfo,
 } from "../../features/counter/counterSlice";
 import Navbar from "../Navbar/Navbar";
 
@@ -57,12 +60,6 @@ export default function Form_rutinas(props: { function: { (): void } }) {
       HTMLFormElement | HTMLInputElement | HTMLTextAreaElement | any
     >
   ): void {
-    //  if (form_data.genre) {
-    //    event.target.checked=null
-    //    Set_form_data((pv: any) => ({
-    //     ...pv,
-    //     [event.target.name]: event.target.value,
-    //   }));
 
     Set_form_data((pv: any) => ({
       ...pv,
@@ -70,6 +67,23 @@ export default function Form_rutinas(props: { function: { (): void } }) {
     }));
     setError({ ...error, [event.target.name]: "" }); //este setError
   }
+  useEffect(() => {
+    if (user.response === "User updated") {
+      Swal.fire({
+        icon: 'success',
+        showConfirmButton: true,
+        backdrop: `#1919247f`,
+        confirmButtonText: "Aceptar",
+      }).then((result) => {
+        if(result.isConfirmed){
+          dispatch(Response())
+          dispatch(getProfileInfo(token));
+          props.function()
+
+        }
+      });
+    }
+  }, [user.response]);
 
   //////////enviar de datos  por medio de los input//////////////////////////////////////////
   function handleSubmit(event: React.FormEvent): void {
@@ -175,7 +189,6 @@ export default function Form_rutinas(props: { function: { (): void } }) {
     }
 
     
-    props.function();
   }
 
   return (
