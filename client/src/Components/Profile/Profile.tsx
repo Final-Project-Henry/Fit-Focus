@@ -337,14 +337,14 @@ const Profile = () => {
                                 <div className="leading-normal text-center text-size-sm text-slate-500 lg:text-left">
                                     © 2022,
                                     Desarrollado por el equipo de<i className="fa fa-heart" aria-hidden="true"></i>
-                                    <a href="localhost:3000/hola" className="font-semibold text-slate-700" target="_blank"> FIT FOCUS </a>
+                                    <a href="/contactanos" className="font-semibold text-slate-700"> FIT FOCUS </a>
                                     en Henry
                                 </div>
                             </div>
                             <div className="w-full max-w-full px-3 mt-0 shrink-0 lg:w-1/2 lg:flex-none">
                                 <ul className="flex flex-wrap justify-center pl-0 mb-0 list-none lg:justify-end">
                                     <li className="nav-item">
-                                        <a href="/AboutUs" className="block px-4 pt-0 pb-1 font-normal transition-colors ease-soft-in-out text-size-sm text-slate-500" target="_blank">Acerca de nosotros</a>
+                                        <a href="/AboutUs" className="block px-4 pt-0 pb-1 font-normal transition-colors ease-soft-in-out text-size-sm text-slate-500">Acerca de nosotros</a>
                                     </li>
                                 </ul>
                             </div>

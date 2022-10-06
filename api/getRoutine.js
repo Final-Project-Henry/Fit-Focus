@@ -1,13 +1,17 @@
 
 
-const get_Routine = async(info, exercises) => {
+const get_Routine = async (info, exercises) => {
     let routine;
+    const alt = parseInt(info.height) / 100;
+    const imc = parseInt(info.weight) / (alt * alt);
     const av1 = info.genre === 'man' ? 3 : 2;
     const av2 = info.age > 50 ? 1 : info.age > 35 ? 2 : 3;
     const av3 = info.experience === 'beginner' ? 1 : info.experience === 'medium' ? 2 : 3;
+    const av4 = imc >= 25 ? 1 : imc >= 18.5 ? 2 : 3;
 
-    const average = Math.round((av1 + av2 + av3) / (Object.keys(info).length - 2));
-    const totalAv = Math.round((average + (info.goal === 'gain muscles' ? 3 : 1)) / 2);
+    const average = Math.round((av1 + av2 + av3 + av4) / 4);
+    const totalAv2 = Math.round((average + (info.goal === 'gain muscles' ? 2 : 1)) / 2);
+    const totalAv = totalAv2<1.8?1:Math.round(totalAv2);
 
     const random = (number) => Math.round(Math.random() * number);
 
@@ -138,7 +142,7 @@ const get_Routine = async(info, exercises) => {
         funct.push(add);
         funct.push(exercises.filter(e => e.muscles === 'functional' && e.difficulty === "medium")[random(3)]);
 
-        routine=[
+        routine = [
             { order: 1, exerc: stretch[0], time: 30 },
             { exer: "rest", time: 15 },
             { order: 2, exerc: stretch[1], time: 30 },
@@ -174,7 +178,7 @@ const get_Routine = async(info, exercises) => {
     return {
         exercises: routine,
         difficulty: totalAv == 3 ? "hard" : totalAv == 2 ? "medium" : "easy",
-        reps: totalAv>1?'long':'short',
+        reps: totalAv > 1 ? 'long' : 'short',
         type: 'mix',
     }
 }
