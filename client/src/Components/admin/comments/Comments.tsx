@@ -4,7 +4,7 @@ import { Exercises_Get } from "../../../features/counter/counterSlice";
 import Card from "./Card";
 
 export default function Comments() {
-  let id:number = 0;
+  let id: number = 0;
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.user);
   const comments = user.exercises?.filter((e: any) => e.feedback.length > 0);
@@ -14,21 +14,19 @@ export default function Comments() {
   }, [dispatch, user.exercises?.length]);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "2vh", marginLeft:"3vw" }}>
-      <h1
-        style={{
-          fontSize: "3rem",
-          fontWeight: "500",
-          margin: "25px 0 10px 0",
-        }}
-      >Comment's exercises</h1>
-      {comments.length > 0 ? (
-        comments.map((e: any) => (
-          <Card key={id++} datos={{ feedback: e.feedback, name: e.name }} />
-        ))
-      ) : (
-        <h1>No hay comentarios</h1>
-      )}
+    <div>
+      <h1 style={{ fontSize: "3rem", fontWeight: "500", padding: "20px" }}>
+        Comments
+      </h1>
+      <div className="grid grid-cols-4">
+        {comments.length > 0 ? (
+          comments.map((e: any) => (
+            <Card key={id++} datos={{ feedback: e.feedback, name: e.name }} />
+          ))
+        ) : (
+          <h1>No hay comentarios</h1>
+        )}
+      </div>
     </div>
   );
 }
