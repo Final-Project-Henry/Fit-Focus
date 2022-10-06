@@ -124,7 +124,7 @@ const ContactUs = () => {
               id="Nombre"
               className="p-2 bg-white w-full mt-6 rounded-lg"
               disabled
-              value={user?.user?.email}
+              defaultValue={user?.user?.email}
               {...register("email")}
             />
             <textarea
