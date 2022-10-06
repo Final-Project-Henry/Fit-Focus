@@ -120,7 +120,6 @@ const Contactanos = () => {
                   Por este medio vas a poder realizar cualquier tipo de duda y/o
                   consulta sin costo adicional. Espere a ser respondido por
                   nuestro equipo tecnico.
-                  <hr />
                   <span className="font-extralight text-xl  ">
                     ¡Muchas Gracias!
                   </span>
@@ -267,7 +266,6 @@ const Contactanos = () => {
                   focus-visible:shadow-none
                   focus:border-primary
                   "
-                      defaultValue={""}
                     />
                   </div>
                   <div>

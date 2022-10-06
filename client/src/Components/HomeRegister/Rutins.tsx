@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import RandomCards from './RandomCards';
 import styles from './Rutins.module.css';
 import Exerc from './Rutins/Exerc';
 import Rest from './Rutins/Rest';
+import { v4 as uuidv4 } from "uuid"
 
 interface exercise {
     _id: string;
@@ -24,8 +25,9 @@ interface rutin {
 
 export default function Rutins(props: { rutins: Array<rutin>, reps:string, dif:string }) {
 
-    const navigate = useNavigate();
+    let id:number = 0;
 
+    const navigate = useNavigate();
     const onClick = () => {
         navigate('/training');
     }
@@ -45,13 +47,14 @@ export default function Rutins(props: { rutins: Array<rutin>, reps:string, dif:s
                 </div>
                 {
                     props.rutins?.map((e: rutin) => {
+
                         if (e.order) {
                             return (
-                                <Exerc exer={e?.exerc} time={e.time} order={e.order} />
+                                <Exerc key={e.exerc._id} exer={e?.exerc} time={e.time} order={e.order} />
                             )
                         } else {
                             return (
-                                <Rest time={e.time} />
+                                <Rest key={++id} time={e.time} />
                             )
                         }
                     })

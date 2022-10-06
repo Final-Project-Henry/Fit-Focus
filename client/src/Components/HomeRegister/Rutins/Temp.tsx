@@ -46,6 +46,7 @@ export default function Temp(props: {
   useEffect(() => {
     props.handleTemp(props.time);
   }, [props.time]);
+
   return (
     <div className='ml-5' style={{ width: "35vw", height: "50vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-around" }}>
 

@@ -9,6 +9,7 @@ import VisualExerc from "./VisualComponents/VisualExerc";
 import VisualRest from "./VisualComponents/VisualRest";
 
 export default function Training() {
+  let id:number = 0;
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const users = useAppSelector((state) => state.user);
@@ -68,7 +69,7 @@ export default function Training() {
         token = userlogin.token;
       }
     }
-    
+
     if (users.status === "none") dispatch(Rutines_Get({ token: token }));
 
     interval = setInterval(() => {
@@ -99,33 +100,34 @@ export default function Training() {
             {
               users.rutines.exercises.map((e: any, i: number) => {
                 if (i + 1 === currentOrder) return (
-                  <div>
-                  <div style={{ display: "flex", marginTop: "5vh" }}>
-                    <div className="w-[25vw]">
-                      <img className="rounded-l-2xl h-[50vh] w-[25vw]" src={!e.exer ? e.exerc?.video : "https://media1.giphy.com/media/d8p3S8WcCRCnHJhW2S/giphy.gif?cid=ecf05e477t1wecvob5zi671125bk5hpdo7b5gotmfw7i4rn6&rid=giphy.gif&ct=g"}></img>
+                  <div key={id++}>
+                    <div style={{ display: "flex", marginTop: "5vh" }}>
+                      <div className="w-[25vw]">
+                        <img className="rounded-l-2xl h-[50vh] w-[25vw]" src={!e.exer ? e.exerc?.video : "https://media1.giphy.com/media/d8p3S8WcCRCnHJhW2S/giphy.gif?cid=ecf05e477t1wecvob5zi671125bk5hpdo7b5gotmfw7i4rn6&rid=giphy.gif&ct=g"}></img>
+                      </div>
+                      {!e.exer ?
+                        <VisualExerc datos={e} />
+                        :
+                        <VisualRest />
+                      }
+                      <Temp
+
+                        time={e.time}
+                        isRunning={isRunning}
+                        temp={temp}
+                        handleCurrent={handleChangeOrder}
+                        handleTemp={handleTemp}
+                        handleInit={handleInit}
+                        handleReset={handleReset}
+                        img={e.order ? e.order : null}
+                        name={e.exerc ? e.exerc.name : null}
+                      />
                     </div>
-                    {!e.exer ?
-                      <VisualExerc datos={e} />
-                      :
-                      <VisualRest />
-                    }
-                    <Temp
-                      time={e.time}
-                      isRunning={isRunning}
-                      temp={temp}
-                      handleCurrent={handleChangeOrder}
-                      handleTemp={handleTemp}
-                      handleInit={handleInit}
-                      handleReset={handleReset}
-                      img={e.order ? e.order : null}
-                      name={e.exerc ? e.exerc.name : null}
-                    />
                   </div>
-                </div>
-              );
-          })}
-    </div>
-}
+                );
+              })}
+          </div>
+      }
     </div >
   );
 }

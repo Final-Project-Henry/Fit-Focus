@@ -10,6 +10,7 @@ import notPremiunImg from "../assets/homeRegister-media/padlock.png";
 import notPremiunImg2 from "../assets/homeRegister-media/Img3.jpg";
 import { Link } from "react-router-dom";
 import LoadingCards from "../loading/LoadingCards";
+import { v4 as uuidv4 } from "uuid"
 
 //Linia 261  etiquetas de card (deficualtad, etc)
 
@@ -222,7 +223,7 @@ export default function FilterExercises() {
             filtrado.length>0 || exercises.length>0?filtrado.map(
             ({_id, video, name, difficulty, muscles, genre, premium }) => {
               return (
-                <>
+                <div key={uuidv4()}>
                   <Link key={_id} to={(premium&&user?.plan=="normal")?`/mercadopago`:`/ejercicio/${_id}`} className={`max-w-[75%] min-h-[240px] m-10 flex flex-col bg-white  shadow-md duration-150 cursor-pointer  hover:outline hover:outline-offset-1 ${
                       premium
                         ? "outline-blue-400"
@@ -291,7 +292,7 @@ export default function FilterExercises() {
                       </span>
                     </div>
                   </Link>
-                </>
+                </div>
               );
             }
           ) : 
