@@ -76,7 +76,7 @@ export default function SdGrafica({ lastUsersMonth }: Props) {
   }, [lastUsersMonth])
   
   return (
-    <div className="bg-gray-200 w-[40vw] h-[40vh] overflow-scroll">
+    <div className="bg-gray-200 w-[36vw] h-[40vh] overflow-scroll">
 
       {
         lastUsersMonth &&
