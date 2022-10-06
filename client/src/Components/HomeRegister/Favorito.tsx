@@ -31,13 +31,13 @@ const Favoritos=() =>{
     }
   },[token])
   useMemo(() => {
-    if(exercises.length===0){
+    if(exercises?.length===0){
       dispatch(Exercises_Get());
     }
   },[exercises])
 
   useEffect(() => {
-    if(exercises.length>0){
+    if(exercises?.length>0){
       let fav = user?.fav?.map( ({id} :any) => {
         let favArrg =exercises.find(e=>e._id === id)
         if (favArrg) {
