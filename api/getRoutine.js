@@ -132,6 +132,10 @@ const get_Routine = async (info, exercises) => {
             add = exercises.filter(e => e.muscles === 'lower_body' && e.difficulty === "medium")[random(9)];
         }
         low.push(add);
+        while (low.includes(add)) {
+            add = exercises.filter(e => e.muscles === 'lower_body' && e.difficulty === "medium")[random(9)];
+        }
+        low.push(add);
 
         //functional
         funct.push(exercises.filter(e => e.muscles === 'functional' && e.difficulty === "easy")[random(7)]);
@@ -165,7 +169,7 @@ const get_Routine = async (info, exercises) => {
             { exer: "rest", time: 30 },
             { order: 11, exerc: upper[2], time: 90 },
             { exer: "rest", time: 30 },
-            { order: 12, exerc: low[2], time: 90 },
+            { order: 12, exerc: low[3], time: 90 },
             { exer: "rest", time: 30 },
             { order: 13, exerc: funct[0], time: 30 },
             { exer: "rest", time: 15 },
