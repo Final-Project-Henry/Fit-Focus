@@ -248,7 +248,7 @@ export default function HomeVisitor() {
         </div>
 
         {/* screen 5 */}
-        <div className="flex justify-center w-full items-center  h-screen h-[20vh] space-x-5 ">
+        <div className="flex justify-center w-full items-center  h-[20vh] space-x-5 ">
           <Span_decoration4></Span_decoration4>
           <div className="p-4 w-full max-w-sm h-[500px] mt-[60px]   bg-white rounded-lg border shadow-md sm:p-8   ">
             <h5 className="mb-4 text-xl font-medium text-gray-500">Gratis!</h5>

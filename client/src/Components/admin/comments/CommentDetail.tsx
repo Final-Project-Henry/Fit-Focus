@@ -3,11 +3,13 @@ import Swal from "sweetalert2";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { delete_comment } from "../../../features/admin/admin";
 import { Exercises_Get } from "../../../features/counter/counterSlice";
+import { v4 as uuidv4 } from "uuid"
 
 interface feedback {
   email: string;
   comment: string;
   rating: number | string;
+  report: Array<string>
 }
 
 export default function CommentDetail(props: {
@@ -64,6 +66,10 @@ export default function CommentDetail(props: {
       <p>
         <b>Comment: </b>
         {props.feedback.comment}
+      </p>
+      <p>
+        <b>Reportado por: </b>
+        {props.feedback.report.map((e:string)=>(<span className="block" key={uuidv4()} >{e}</span>))}
       </p>
       <button
         onClick={onDelete}

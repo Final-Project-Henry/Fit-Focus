@@ -7,6 +7,7 @@ import styles from "./Visitor_1.module.css";
 import sr, { config } from "./scroll";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { getFeedback } from "../../../features/homeVisitor/visitorSlice";
+import { v4 as uuidv4 } from "uuid"
 
 interface data {
   [key: string]: {
@@ -87,6 +88,7 @@ export default function Visitor1() {
         <div className={styles.comments} ref={divComment1}>
           {comments?.map((comment: any) => (
             <Comment
+              key={uuidv4()}
               avatar={comment.avatar}
               comment={comment.comment}
               name={comment.name}

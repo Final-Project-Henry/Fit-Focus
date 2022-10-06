@@ -36,6 +36,7 @@ export default function Exerc(props: { exer: exercise, time: number, order: numb
             sr.clean();
         }
     }, [])
+    
     return (
         <div style={{ display: "flex", justifyContent:"space-between",width: "50vw", marginRight: "35vw", alignItems: "center", gap: "20px", boxShadow: "0 0 40px 5px #111827" }} ref={left}>
             <div style={{ display: "flex" }}>

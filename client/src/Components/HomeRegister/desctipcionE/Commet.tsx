@@ -11,7 +11,7 @@ export default function Comment (props: Props){
   
   return(
     <>
-            <img className="rounded-full w-12 h-12 object-cover m-2 " src={props.avatar} />
+            <img className="rounded-full w-12 h-12 object-cover m-2 " src={props.avatar?props.avatar:"https://i0.wp.com/www.repol.copl.ulaval.ca/wp-content/uploads/2019/01/default-user-icon.jpg"} />
              <div className="flex flex-col">
                <p className="m-2">{props.user}</p>
                 <div className="flex">

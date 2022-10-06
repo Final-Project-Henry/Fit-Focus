@@ -8,7 +8,7 @@ export const COLUMNS = [
     accesor: "area",
   },
   {
-    Header: "EMAIL",
+    Header: "CORREO",
     accesor: "email",
   },
   {

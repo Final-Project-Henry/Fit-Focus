@@ -2,6 +2,8 @@ import React, { useMemo } from "react";
 import { COLUMNS } from "./Table/columns";
 import DEVS_DATA from "./developers/devs.json";
 import "./Table/Table.css";
+import { v4 as uuidv4 } from "uuid"
+
 
 const Table = () => {
   const columns = useMemo(() => COLUMNS, []);
@@ -11,14 +13,16 @@ const Table = () => {
     <div>
       <table className="table-auto">
         <thead>
+          <tr>
           {columns.map((column) => (
-            <th> {column.Header} </th>
+            <th key={uuidv4()}> {column.Header} </th>
           ))}
+          </tr>
         </thead>
 
         <tbody>
           {data.map((dev) => (
-            <tr>
+            <tr key={uuidv4()}>
               <td> {dev.nombre} </td>
               <td> {dev.area} </td>
               <td> {dev.email} </td>

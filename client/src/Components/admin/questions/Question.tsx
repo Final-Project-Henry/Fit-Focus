@@ -47,7 +47,7 @@ export default function Question(props: { datos: datos, index: number }) {
             display: "flex",
             flexDirection: "column",
             alignItems:"center",
-            margin: "5px",
+            margin: "20px",
             width: "40vw",
             padding: "5px 10px 5px 10px",
             gap: "5px",

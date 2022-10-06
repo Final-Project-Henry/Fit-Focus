@@ -31,7 +31,6 @@ export function useSesion() {
         }else{
           dispatch(sigendOut(null))
           Navegation("/home")
-
           window.location.reload();
         }
       }
@@ -54,7 +53,7 @@ export function useToken() {
         setToken(userlogin.token);
       }
     }
-  }, [userStado.userToken]);
+  }, [userStado]);
 
   return token;
 }
