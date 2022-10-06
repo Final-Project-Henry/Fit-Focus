@@ -42,7 +42,7 @@ export default function GoogleAuth() {
         onSuccess={(res) => {
           if (typeof res.credential === "string") setCode(res.credential);
         }}
-        onError={() => console.log("Login Error")}
+        onError={() => alert("Login Error")}
       />
     </Fragment>
   );

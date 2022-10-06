@@ -2,6 +2,8 @@ import React from 'react'
 import CardNews from './CardNews'
 import news from "./newsData"
 import mina from "../../assets/homeRegister-media/mina.jpeg"
+import { v4 as uuidv4 } from "uuid"
+
 
 const News = () => {
   return (
@@ -14,7 +16,7 @@ const News = () => {
       </div>
       <div className='grid grid-cols-2'>
         {news && news.map(({ author, title, description, date, tags, image, id }) =>
-          <CardNews author={author} title={title} description={description} date={date} tags={tags} image={image} id={id} />)}
+          <CardNews key={uuidv4()} author={author} title={title} description={description} date={date} tags={tags} image={image} id={id} />)}
       </div>
     </div>
   )

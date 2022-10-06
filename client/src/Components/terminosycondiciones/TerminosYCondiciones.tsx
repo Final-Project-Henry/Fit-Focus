@@ -17,20 +17,25 @@ function TerminosYCondiciones() {
                     <br />
                     En <b>FIT FOCUS</b> queremos mantener un entorno respetuoso para todos y, por eso, debes seguir estas normas de conducta basicas.
                     <br/>
+                    </p>
+                    <div className='mx-[20px] mt-[10px] mb-[10px]'>
                     <ul>
                         <li>
-                            Respetar los derechos de los demás, incluidos los de privacidad y propiedad intelectual.
+                            • Respetar los derechos de los demás, incluidos los de privacidad y propiedad intelectual.
                         </li>
                         <li>
-                            No abusar o causar daños a otras personas ni a uno mismo (ni coaccionar o fomentar tales conductas); por ejemplo, a través del engaño, la estafa, la suplantacion de identidad ilegal, la difamación, el acoso, la intimdación o el acechamiento.
+                            • No abusar o causar daños a otras personas ni a uno mismo (ni coaccionar o fomentar tales conductas); por ejemplo, a través del engaño, la estafa, la suplantacion de identidad ilegal, la difamación, el acoso, la intimdación o el acechamiento.
                         </li>
                         <li>
-                            No hacer uso inadecuado de los servicios ni dañarlos, interrumpirlos o interferir con ellos; por ejemplo, usandolos o accediendo a ellos de forma fraudulenta o engañosa, introduciendo software malicioso, enviando spam, realizando ataques de pirateria o eludiendo nuestros sistemas o medidas de protección.
+                            • No hacer uso inadecuado de los servicios ni dañarlos, interrumpirlos o interferir con ellos; por ejemplo, usandolos o accediendo a ellos de forma fraudulenta o engañosa, introduciendo software malicioso, enviando spam, realizando ataques de pirateria o eludiendo nuestros sistemas o medidas de protección.
                         </li>
                         <li>
-                            De no cumplir con las normas mencionadas previamente y incurrir en alguna de esas faltas, <b>FIT FOCUS</b> se reserva el derecho de suspender o cancelar el acceso del usuario a los servicios o de eliminar la cuenta.  
+                            • De no cumplir con las normas mencionadas previamente y incurrir en alguna de esas faltas, <b>FIT FOCUS</b> se reserva el derecho de suspender o cancelar el acceso del usuario a los servicios o de eliminar la cuenta.  
                         </li>
                     </ul>
+                    </div>
+                    
+                    <p className='mx-[20px] mt-[10px] mb-[10px]'>
                     <br />
                     <br />
                     <b>FIT FOCUS</b> está compuesto por un grupo de desarrolladores web, ninguno del equipo es nutricionista ni medico, <b>no nos hacemos responsables por el uso inadecuado de la aplicación</b>, si tiene algun antecedente medico grave o alguna condicion en su salud, <b>POR FAVOR CONSULTE A SU MEDICO PRIMERO.</b> 
