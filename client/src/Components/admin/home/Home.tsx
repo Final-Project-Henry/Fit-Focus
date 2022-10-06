@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import DataCard from "./DataCard";
-import users from "../imgs/users.png";
+import users2 from "../imgs/users.png";
 import money from "../imgs/money.png";
 import time from "../imgs/time.png";
 import Grafica from "./Grafica";
@@ -114,7 +114,7 @@ export default function Home() {
               }}
               className=""
             >
-              <DataCard data={{ img: users, tittle: "Total Users", value: cant }} />
+              <DataCard data={{ img: users2, tittle: "Total Users", value: cant }} />
             </div>
             <div
               style={{
