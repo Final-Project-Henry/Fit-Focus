@@ -48,7 +48,6 @@ const to30 = () => {
 
   for (let i = 0; i < 30; i++) {
     arrayDays[i] = String(i + 1)
-    console.log(i)
   }
   return arrayDays
 }
