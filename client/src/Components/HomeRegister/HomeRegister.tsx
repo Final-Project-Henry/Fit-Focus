@@ -153,7 +153,7 @@ const HomeRegister = () => {
         </div>
 
         <div className="flex items-end w-full h-24">
-          <h1 className="ml-0 text-5xl font-dark w-[80%] mx-[20px] ">
+          <h1 className="ml-9 text-5xl font-dark w-[80%] mx-[20px] ">
             Noticias de interés:
           </h1>
           <Link
