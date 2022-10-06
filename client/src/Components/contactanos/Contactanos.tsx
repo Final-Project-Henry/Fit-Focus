@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import { opiniom, useAppDispatch, useToken } from "../../app/hooks";
-import { feedbackFooter } from "../../features/counter/counterSlice";
-
+import { opiniom, useAppDispatch, useAppSelector, useToken } from "../../app/hooks";
+import { Error, feedbackFooter, Response } from "../../features/counter/counterSlice";
+import icon from "../admin/imgs/comments.png"
 interface FeedbackUsuario {
   asunto: string;
   comment: string;
@@ -10,7 +10,7 @@ interface FeedbackUsuario {
 
 const Contactanos = () => {
   const token = useToken();
-
+  const response = useAppSelector(state => state.user)
   const dispatch = useAppDispatch();
   const [feedback, setFeedback] = useState<FeedbackUsuario>({
     asunto: "",
@@ -21,7 +21,29 @@ const Contactanos = () => {
     asunto: "",
     comment: "",
   });
-
+  useEffect(() => {
+    if (response.response==="Question sent succesfully" ) {
+      Swal.fire({
+        title:"Ya tu pregunta fue enviada correctamente, Nuestros equipo te respondera lo mas pronto posible" ,
+        icon: "success",
+        showCancelButton: false,
+        confirmButtonColor: "#230bf8",
+        confirmButtonText: "Aceptar",
+      }).then((result) => {
+          dispatch(Response())
+      })
+    }else if(response.error=="You already sent a question"){
+      Swal.fire({
+        title:"Te responderemos lo mas rapido posible",
+        imageUrl:icon,
+        showCancelButton: false,
+        confirmButtonColor: "#230bf8",
+        confirmButtonText: "Aceptar",
+      }).then((result) => {
+          dispatch(Error())
+      })
+    }
+  },[response.response,response.error])
   function handleChange(
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ): void {
