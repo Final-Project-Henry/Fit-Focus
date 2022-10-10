@@ -80,7 +80,7 @@ export default function Exercise() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "10vh", marginLeft: "3vw" }}>
-      <h1 style={{ fontSize: "3rem", fontWeight: "500" }}>Edit Exercise</h1>
+      <h1 style={{ fontSize: "3rem", fontWeight: "500" }}>Editar Ejercicio</h1>
       {
         exercise ?
           <div style={{ display: "flex", justifyContent: "center", gap: "5vw", width: "100%" }}>
@@ -94,7 +94,7 @@ export default function Exercise() {
               }
             </div>
           </div>
-          : <h1>EXERCISE NOT FOUND</h1>
+          : <h1>EJERCICIO NO ENCONTRADO</h1>
       }
     </div>
   )

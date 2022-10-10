@@ -12,7 +12,7 @@ function AboutUs() {
             Somos un grupo de programadores que por medio de los conocimientos
             adquiridos en Henry y el gran esfuerzo del trabajo en equipo,
             diseñamos y desarrollamos la aplicación FIT FOCUS la cual es una
-            herramienta para mejorar la salud de todos para que cualquier
+            herramienta para mejorar la salud de todos y para que cualquier
             persona pueda ejercitarse cuando quiera y donde quiera, esperamos
             que sea de su gusto y utilidad, puedes contactar y conocer a los
             brillantes integrantes a continuación.

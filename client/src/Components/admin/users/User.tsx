@@ -139,7 +139,7 @@ export default function User() {
     <div>
       {
         !user ?
-          <h1>No se encontro al usuario</h1>
+          <h1>No se encontró al usuario</h1>
           :
           <div style={{ display: "flex", flexDirection: "column", gap: "10vh", marginLeft: "3vw" }}>
             <h1
@@ -148,14 +148,14 @@ export default function User() {
                 fontWeight: "500",
                 margin: "25px 0 10px 0",
               }}
-            >Edit User</h1>
+            >Editar usuario</h1>
             {
               user.user_status === 'default' ?
                 <Loading />
                 :
                 <div style={{ display: "flex", justifyContent: "center", gap: "5vw", width: "100%" }}>
                   <div style={{ width: "30vw", backgroundColor: "white", padding: "20px", display: "flex", gap: "20px", flexDirection: "column" }}>
-                    <h1 style={{ fontSize: "1.5rem", fontWeight: "500" }}>Account Detail</h1>
+                    <h1 style={{ fontSize: "1.5rem", fontWeight: "500" }}>Detalle de la cuenta</h1>
                     <div style={{ display: "flex", alignItems: "center", gap: "10px", justifyContent: "space-around" }}>
                       <img style={{ width: "40px", height: "40px", borderRadius: "20px" }} src={user.avatar} />
                       <p>{user.name}</p>
@@ -170,14 +170,14 @@ export default function User() {
                     {
                       admin.user?.superAdmin &&
                       <div style={{ display: "flex", justifyContent: 'space-between', gap: "10px", }}>
-                        <p>Admin: </p>
+                        <p>Administrador: </p>
                         <p>{`${user.admin}`}</p>
                         <img onClick={onClick} src={edit} style={{ width: "15px", height: "15px", cursor: "pointer" }} />
                       </div>
                     }
                   </div>
                   <div style={{ width: "30vw", backgroundColor: "white", padding: "20px", display: "flex", flexDirection: "column", gap: "20px" }}>
-                    <h1 style={{ fontSize: "1.5rem", fontWeight: "500" }}>User info</h1>
+                    <h1 style={{ fontSize: "1.5rem", fontWeight: "500" }}>Información de usuario</h1>
                     <img hidden={user?.userinfo.length === 0 ? true : false} src={editInfo ? save : edit} onClick={() => editInfo ? onSaveChanges('info') : onEdit("info")} style={{ width: "15px", height: "15px", cursor: "pointer", alignSelf: "flex-end" }} />
                     {
                       user.userinfo.length > 0 ?
@@ -185,7 +185,7 @@ export default function User() {
                           <UserEditInfo data={{ info: user.userinfo }} save={onChange2} />
                           :
                           <UserInfo data={{ info: user.userinfo }} />
-                        : <p>No User info</p>
+                        : <p>No hay información del usuario</p>
                     }
                   </div>
                 </div>
