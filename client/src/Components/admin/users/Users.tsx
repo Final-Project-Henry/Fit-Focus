@@ -18,6 +18,7 @@ import { GridPDFExport } from "@progress/kendo-react-pdf";
 import '@progress/kendo-theme-material/dist/all.css';
 import { orderBy, SortDescriptor } from "@progress/kendo-data-query";
 import Swal from "sweetalert2";
+import Loading from "../../loading/Loading";
 
 interface Page {
   skip: number;
@@ -55,7 +56,7 @@ export default function Users() {
       confirmButtonText: 'Eliminar',
     }).then((result: any) => {
       if (result.isConfirmed) {
-        dispatch(delete_user(id))
+        dispatch(delete_user(id));
       }
     })
   };
@@ -171,35 +172,42 @@ export default function Users() {
   )
 
   useEffect(() => {
-    if(users.delete_user==='deleted'){
+    if (users.delete_user === 'deleted') {
       Swal.fire(
         'Eliminado',
         'El Usuario fue eliminado de la DB exitosamente',
         'success'
-    )
-    }
-    dispatch(get_users());
-    return ()=>{
+      );
       dispatch(reset_delete_user())
     }
-  }, []);
+    dispatch(get_users());
+    return () => {
+      dispatch(reset_delete_user())
+    }
+  }, [users.delete_user]);
 
 
   return (
     <div style={{ marginLeft: "3vw" }}>
-      <h1
-        style={{
-          fontSize: "3rem",
-          fontWeight: "500",
-          margin: "25px 0 10px 0",
-        }}
-      >
-        Users
-      </h1>
-      {grid}
-      <GridPDFExport ref={(pdfExport) => (gridPDFExport = pdfExport)}>
-        {grid}
-      </GridPDFExport>
+      {users.user_status === "default" ?
+        <Loading />
+        :
+        <div>
+          <h1
+            style={{
+              fontSize: "3rem",
+              fontWeight: "500",
+              margin: "25px 0 10px 0",
+            }}
+          >
+            Users
+          </h1>
+          {grid}
+          <GridPDFExport ref={(pdfExport) => (gridPDFExport = pdfExport)}>
+            {grid}
+          </GridPDFExport>
+        </div>
+      }
     </div>
   );
 }

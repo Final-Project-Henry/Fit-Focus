@@ -38,9 +38,13 @@ const HomeRegister = () => {
 
 
   useEffect(() => {
-    if (State.exercises.length > 0 && exercises.length === 0 && Bastexercises.length === 0) {
+    if (State.exercises.length > 0 && exercises.length === 0) {
+      
       setExercises(funcion.get_exercises(State.exercises));
+    }
+    if(State.exercises.length > 0 ){
       setBastExercises(funcion.MejorRewind(State.exercises))
+
     }
   }, [State.exercises]);
 
@@ -149,7 +153,7 @@ const HomeRegister = () => {
         </div>
 
         <div className="flex items-end w-full h-24">
-          <h1 className="ml-0 text-5xl font-dark w-[80%] mx-[20px] ">
+          <h1 className="ml-9 text-5xl font-dark w-[80%] mx-[20px] ">
             Noticias de interés:
           </h1>
           <Link

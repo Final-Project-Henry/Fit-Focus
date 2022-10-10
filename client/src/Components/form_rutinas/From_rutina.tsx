@@ -78,6 +78,7 @@ export default function Form_rutinas(props: { function: { (): void } }) {
         if(result.isConfirmed){
           dispatch(Response())
           dispatch(getProfileInfo(token));
+
           props.function()
 
         }

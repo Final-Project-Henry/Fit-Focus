@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector, useToken } from '../../app/hooks';
 import { Exercises_Get, getProfileInfo, selectUser } from '../../features/counter/counterSlice';
@@ -33,11 +33,9 @@ const Favoritos=() =>{
     }
   },[token])
 
-  useMemo(() => {
-    if(exercises?.length===0){
-
+  useEffect(() => {
+    if(exercises?.length===0)
       dispatch(Exercises_Get());
-    }
   },[exercises])
 
   useEffect(() => {

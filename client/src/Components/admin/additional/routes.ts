@@ -2,7 +2,6 @@ import Home from "../imgs/home.png";
 import Users from "../imgs/userss.png";
 import Exercises from "../imgs/exer.png";
 import Comments from "../imgs/comments.png";
-import News from "../imgs/news.png";
 import Questions from "../imgs/qya.png";
 
 export default [

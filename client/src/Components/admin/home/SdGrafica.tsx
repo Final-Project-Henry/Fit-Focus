@@ -20,40 +20,72 @@ ChartJS.register(
   Legend
 );
 
-const dataMonth = [
+interface Props {
+  lastUsersMonth: Array<any>
+}
+
+const lengthUserDays = (lastUsersWeek: Array<any>, typeUser: string) => {
+
+  if (typeUser === "premium") {
+
+    return lastUsersWeek?.map((e, index, array) => {
+      return array[index].premium.length
+    })
+
+  }
+  else {
+
+    return lastUsersWeek?.map((e, index, array) => {
+      return array[index].normal.length
+    })
+
+  }
+}
+
+const to30 = () => {
+
+  const arrayDays = []
+
+  for (let i = 0; i < 30; i++) {
+    arrayDays[i] = String(i + 1)
+  }
+  return arrayDays
+}
+
+const dataMonthFunction = (lastUsersMonth : Array<any>) => [
   {
-    labels: [
-      "Enero",
-      "Febrero",
-      "Marzo",
-      "Abril",
-      "Mayo",
-      "Junio",
-      "Julio",
-      "Agosto",
-      "Septiembre",
-      "Octubre",
-      "Noviembre",
-      "Diciembre",
-    ],
+    labels: to30(),
     data: [
       {
-        values: [8, 15, 30, 20, 25, 30, 20, 25, 18, 24, 25, 28],
+        values: lengthUserDays(lastUsersMonth, "normal"),
       },
       {
-        values: [10, 25, 35, 30, 40, 25, 24, 17, 8, 9, 30, 12, 14],
+        values: lengthUserDays(lastUsersMonth, "premium"),
       },
     ],
   },
 ];
-export default function SdGrafica() {
+export default function SdGrafica({ lastUsersMonth }: Props) {
+  
+
+  const [dataMonth, setDataMonth] = useState<any>()
+
+
+  useEffect(() => {
+    setDataMonth(dataMonthFunction(lastUsersMonth))
+  }, [lastUsersMonth])
+  
   return (
-    <div className="bg-gray-200" style={{ width: "100%", height: "15vw" }}>
-      <Chart
-        labels={dataMonth[0].labels}
-        data1={dataMonth[0].data[0].values}
-        data2={dataMonth[0].data[1].values}
-      />
+    <div className="bg-gray-200 w-[36vw] h-[40vh] overflow-scroll">
+
+      {
+        lastUsersMonth &&
+        <Chart
+          labels={dataMonth[0].labels}
+          data1={dataMonth[0].data[0].values}
+          data2={dataMonth[0].data[1].values}
+        />
+      }
     </div>
   );
 }
