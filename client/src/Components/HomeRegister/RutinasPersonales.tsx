@@ -20,8 +20,8 @@ interface User {
 }
 
 export default function RutinasPersonales() {
-  const { user,rutines } = useAppSelector(selectUser);
-  const users = useAppSelector(state=>state.user);
+  const { user, rutines } = useAppSelector(selectUser);
+  const users = useAppSelector(state => state.user);
   const dispatch = useAppDispatch();
   const [form, setfomr] = useState(false);
   let token = useToken();
@@ -44,19 +44,19 @@ export default function RutinasPersonales() {
         token = userlogin.token;
       }
     }
-    if(user){
-      dispatch(Rutines_Get({token}))
+    if (user) {
+      dispatch(Rutines_Get({ token }))
     }
   }, [user]);
 
 
   return (
     <>
-      <div style={{width:"100%", marginBottom:"10vh"}}>
-        <div style={{width:"100%", display:"flex", alignItems:"center", justifyContent:"center"}} >
+      <div style={{ width: "100%", marginBottom: "10vh" }}>
+        <div style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center" }} >
           {user?.userinfo.length ? (
             <div>
-              <Rutins rutins={users.rutines?.exercises} reps={users.rutines?.reps} dif={users.rutines?.difficulty}/>
+              <Rutins rutins={users.rutines?.exercises} reps={users.rutines?.reps} dif={users.rutines?.difficulty} />
             </div>
           ) : (
             <>
@@ -96,10 +96,7 @@ export default function RutinasPersonales() {
                         </button>
                       </div>
                       <img className="w-full object-cover" src={plancha} />
-
                     </div>
-
-
                   )}
                 </>
               )}

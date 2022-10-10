@@ -72,7 +72,7 @@ export default function Users() {
           }}
           onClick={() => onEdit(user.dataItem._id)}
         >
-          Edit
+          Editar
         </button>
         <p
           style={{
@@ -159,15 +159,15 @@ export default function Users() {
           className="k-button k-button-md k-rounded-md k-button-solid k-button-solid-primary"
           onClick={exportPDF}
         >
-          Export table PDF
+          Exportar tabla PDF
         </button>
       </GridToolbar>
       <GridColumn field="_id" title="ID" />
-      <GridColumn field="name" title="User" />
-      <GridColumn field="email" title="Email" />
-      <GridColumn field="status" title="Status" cell={statusCell} />
+      <GridColumn field="name" title="Usuario" />
+      <GridColumn field="email" title="Correo" />
+      <GridColumn field="status" title="Estado" cell={statusCell} />
       <GridColumn field="plan" title="Plan" cell={planCell} />
-      <GridColumn field="actions" title="Action" cell={actionCell} width="150px" />
+      <GridColumn field="actions" title="Acción" cell={actionCell} width="150px" />
     </Grid>
   )
 
@@ -200,7 +200,7 @@ export default function Users() {
               margin: "25px 0 10px 0",
             }}
           >
-            Users
+            Usuarios
           </h1>
           {grid}
           <GridPDFExport ref={(pdfExport) => (gridPDFExport = pdfExport)}>

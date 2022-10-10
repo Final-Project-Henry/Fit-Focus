@@ -65,10 +65,10 @@ export default function Question(props: { datos: datos; index: number }) {
         {props.datos.name}
       </h1>
       <p>
-        <b>Email:</b> {props.datos.email}
+        <b>Correo:</b> {props.datos.email}
       </p>
       <p>
-        <b>Question:</b> {props.datos.comment}
+        <b>Pregunta:</b> {props.datos.comment}
       </p>
       <div className="p-4">
         <button

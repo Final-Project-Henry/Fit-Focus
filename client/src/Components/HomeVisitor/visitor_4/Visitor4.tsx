@@ -15,13 +15,13 @@ export default function Visitor4() {
     }
 
     return (
-        <div style={{display:'flex', justifyContent: 'center', marginBottom:"20vh"}}>
-            <div style={{width: '40vw', display:'flex', flexDirection:'column', alignItems:'center', marginLeft:"5vw"}}>
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: "20vh" }}>
+            <div style={{ width: '40vw', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: "5vw" }}>
                 <img src={exercises[4].video} width="450px"></img>
-                <p style={{backgroundColor: '#111828', color:'white', width:'450px', height:"30px",display:'flex',justifyContent:"center"}}>SENTADILLA</p>
+                <p style={{ backgroundColor: '#111828', color: 'white', width: '450px', height: "30px", display: 'flex', justifyContent: "center" }}>SENTADILLA</p>
             </div>
             <div className="flex justify-center w-full items-center  h-screen h-[20vh] space-x-5 "
-                style={{ marginTop: '5vh', alignItems:"center"}}>
+                style={{ marginTop: '5vh', alignItems: "center" }}>
                 <div className="p-4 w-full max-w-sm h-[520px]  bg-white rounded-lg border shadow-md sm:p-8   ">
                     <h5 className="mb-4 text-xl font-medium text-gray-500">Gratis!</h5>
                     <div className="flex items-baseline text-gray-900">
@@ -62,7 +62,7 @@ export default function Visitor4() {
                                     fillRule="evenodd"
                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                     clipRule="evenodd"
-                                ></path>    
+                                ></path>
                             </svg>
                             <span className="text-base font-normal leading-tight text-gray-500 ">
                                 Calculadora
@@ -103,7 +103,7 @@ export default function Visitor4() {
                                 ></path>
                             </svg>
                             <span className="text-base font-normal leading-tight text-gray-500">
-                               Puntuar ejercicios
+                                Puntuar ejercicios
                             </span>
                         </li>
                         <li className="flex space-x-3 line-through decoration-gray-500">
@@ -141,7 +141,7 @@ export default function Visitor4() {
                                 ></path>
                             </svg>
                             <span className="text-base font-normal leading-tight text-gray-500">
-                               Favoritos
+                                Favoritos
                             </span>
                         </li>
                         <li className="flex space-x-3 line-through decoration-gray-500">

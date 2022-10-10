@@ -36,7 +36,7 @@ export default function Questions() {
               margin: "25px 0 10px 0",
             }}
           >
-            Questions
+            Preguntas
           </h1>
           <div className="grid grid-cols-4">
             {admin.questions.length === 0 ? (

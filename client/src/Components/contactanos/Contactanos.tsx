@@ -22,28 +22,28 @@ const Contactanos = () => {
     comment: "",
   });
   useEffect(() => {
-    if (response.response==="Question sent succesfully" ) {
+    if (response.response === "Question sent succesfully") {
       Swal.fire({
-        title:"Ya tu pregunta fue enviada correctamente, Nuestros equipo te respondera lo mas pronto posible" ,
+        title: "Ya tu pregunta fue enviada correctamente, Nuestros equipo te respondera lo mas pronto posible",
         icon: "success",
         showCancelButton: false,
         confirmButtonColor: "#230bf8",
         confirmButtonText: "Aceptar",
       }).then((result) => {
-          dispatch(Response())
+        dispatch(Response())
       })
-    }else if(response.error=="You already sent a question"){
+    } else if (response.error == "You already sent a question") {
       Swal.fire({
-        title:"Te responderemos lo mas rapido posible",
-        imageUrl:icon,
+        title: "Te responderemos lo mas rapido posible",
+        imageUrl: icon,
         showCancelButton: false,
         confirmButtonColor: "#230bf8",
         confirmButtonText: "Aceptar",
       }).then((result) => {
-          dispatch(Error())
+        dispatch(Error())
       })
     }
-  },[response.response,response.error])
+  }, [response.response, response.error])
   function handleChange(
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ): void {
@@ -141,7 +141,7 @@ const Contactanos = () => {
                 <p className="text-lg text-body-color leading-relaxed mb-9">
                   Por este medio vas a poder realizar cualquier tipo de duda y/o
                   consulta sin costo adicional. Espere a ser respondido por
-                  nuestro equipo tecnico.
+                  nuestro equipo técnico.
                   <span className="font-extralight text-xl  ">
                     ¡Muchas Gracias!
                   </span>
@@ -184,7 +184,7 @@ const Contactanos = () => {
                         Número telefónico
                       </h4>
                       <p className="text-base text-body-color">
-                        (+51) 91 7341 261
+                        (+51) 917 341 261
                       </p>
                     </a>
                   </div>
@@ -219,7 +219,7 @@ const Contactanos = () => {
                   <div className="w-full">
                     <a href="https://mail.google.com/" target="_blank">
                       <h4 className="font-bold text-gray-900 text-xl mb-1">
-                        Email
+                        Correo
                       </h4>
                       <p className="text-base text-body-color">
                         fitfocus@gmail.com
@@ -252,23 +252,6 @@ const Contactanos = () => {
                   "
                     />
                   </div>
-                  {/* <div className="mb-6">
-                <input
-                  type="email"
-                  placeholder="Your Email"
-                  className="
-                  w-full
-                  rounded
-                  py-3
-                  px-[14px]
-                  text-body-color text-base
-                  border border-[f0f0f0]
-                  outline-none
-                  focus-visible:shadow-none
-                  focus:border-primary
-                  "
-                />
-              </div> */}
                   <div className="mb-6">
                     <textarea
                       rows={6}
@@ -1121,7 +1104,6 @@ const Contactanos = () => {
           </div>
         </div>
       </section>
-      {/* ====== Contact Section End */}
     </div>
   );
 };

@@ -93,16 +93,18 @@ const ContactUs = () => {
             justifyContent: "space-around",
           }}
         >
-          <h1 style={{ fontSize: "2rem" }}>
-            En Fit Focus nos interesa tu opinion!
-          </h1>
-          <p style={{ width: "35vw", fontSize: "1rem" }}>
-            Te agradecemos que dediques un momento para darnos tu opinion, su
-            objetivo es ayudarnos a conocerte mejor y encontrar formas de seguir
-            mejorando, y que asi, pueda seguir ayudandote a cambiar tu estilo de
-            vida. La mejor parte de esto es que, con tu apoyo, esta app te sera
-            de mas ayuda en tu meta por tener un vida mas sana.
-          </p>
+          <div >
+            <h1 style={{ fontSize: "2rem", marginBottom: "30px", marginTop: "-20px", textAlign: "center" }}>
+              En Fit Focus nos interesa tu opinion!
+            </h1>
+            <p style={{ width: "35vw", fontSize: "1rem", marginTop: "10px", textAlign: "justify" }}>
+              Te agradecemos que dediques un momento para darnos tu opinion, su
+              objetivo es ayudarnos a conocerte mejor y encontrar formas de seguir
+              mejorando, y que asi, pueda seguir ayudandote a cambiar tu estilo de
+              vida. La mejor parte de esto es que, con tu apoyo, esta app te sera
+              de mas ayuda en tu meta por tener un vida mas sana.
+            </p>
+          </div>
         </div>
         <div
           style={{
@@ -116,7 +118,7 @@ const ContactUs = () => {
         >
           <form
             onSubmit={handleSubmit(onSubmit)}
-            style={{ textAlign: "center", width: "85%", height: "100%" }}
+            style={{ textAlign: "center", width: "85%", height: "90%" }}
           >
             <input
               type="email"
@@ -128,7 +130,7 @@ const ContactUs = () => {
               {...register("email")}
             />
             <textarea
-              className="block rounded-lg w-full  mt-4 h-20 resize-none"
+              className="block rounded-lg w-full  mt-6 h-20 resize-none"
               placeholder="Mensaje..."
               rows={8}
               {...register("comment", { required: true })}
@@ -140,7 +142,7 @@ const ContactUs = () => {
             <button
               disabled={user?.user?.feedback}
               type="submit"
-              className="text-white active:scale-90 duration-100  font-medium rounded-lg text-sm px-7 py-1.5  mt-4 bg-amber-700 hover:bg-amber-800 focus:outline-none"
+              className="text-white active:scale-90 duration-100  font-medium rounded-lg text-sm px-7 py-1.5  mt-6 bg-amber-700 hover:bg-amber-800 focus:outline-none"
             >
               Enviar
             </button>

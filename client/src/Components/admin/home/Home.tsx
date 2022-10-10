@@ -99,7 +99,7 @@ export default function Home() {
           textAlign: "center",
         }}
       >
-        Welcome <b>{user.user?.name}</b> to the Admin Dashboard!
+        Bienvenido <b>{user.user?.name}</b> al tablero de administrador!
       </h1>
       <div className="">
         <div>
@@ -114,7 +114,7 @@ export default function Home() {
               }}
               className=""
             >
-              <DataCard data={{ img: users2, tittle: "Total Users", value: cant }} />
+              <DataCard data={{ img: users2, tittle: "Usuarios totales", value: cant }} />
             </div>
             <div
               style={{
@@ -126,7 +126,7 @@ export default function Home() {
               <DataCard
                 data={{
                   img: money,
-                  tittle: "Total Money",
+                  tittle: "Ingresos totales",
                   value: `$ ${premiums ? premiums * 3000 : 0}`,
                 }}
               />
@@ -136,7 +136,7 @@ export default function Home() {
               <DataCard
                 data={{
                   img: time,
-                  tittle: "Current Date",
+                  tittle: "Fecha actual",
                   value: window.Date().slice(0, 25),
                 }}
               />

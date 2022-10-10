@@ -28,15 +28,15 @@ export default function ExerciseForm() {
       <div className="w-full px-24 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-md sm:rounded-lg m-auto">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col justify-center items-center"
+          className="flex flex-col"
         >
-          <h2 className="p-4 font-semibold text-md">Create a new excercise:</h2>
+          <h2 className="p-4 font-semibold text-black text-md">Crear nuevo ejercicio:</h2>
           <div>
             <label
               htmlFor="name"
               className="block text-sm font-medium text-gray-700 undefined"
             >
-              Name
+              Nombre
             </label>
             <div className="flex flex-col items-start">
               <input
@@ -49,7 +49,7 @@ export default function ExerciseForm() {
                 {...register("name")}
                 type="text"
                 name="name"
-                className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                className="block w-[114%] mt-1 font-gray-300 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               />
             </div>
           </div>
@@ -58,17 +58,17 @@ export default function ExerciseForm() {
               htmlFor="difficulty"
               className="block text-sm font-medium text-gray-700 undefined"
             >
-              Difficulty
+              Dificultad
             </label>
             <select
               id="difficulty"
               {...register("difficulty")}
-              className="block pr-[100px] w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              className="block pr-[100px] w-[114%] text-gray-500 mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
             >
-              <option hidden>Select difficulty</option>
-              <option value="easy">easy</option>
-              <option value="medium">medium</option>
-              <option value="hard">hard</option>
+              <option hidden>Seleccionar dificultad</option>
+              <option value="easy">Fácil</option>
+              <option value="medium">Intermedio</option>
+              <option value="hard">Difícil</option>
             </select>
           </div>
           <div className="mt-4">
@@ -76,19 +76,19 @@ export default function ExerciseForm() {
               htmlFor="muscles"
               className="block text-sm font-medium text-gray-700 undefined"
             >
-              Muscles
+              Musculos
             </label>
             <select
               id="muscles"
               {...register("muscles")}
-              className="block pr-[100px] w-[100%] mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              className="block pr-[100px] w-[114%] mt-1 text-gray-500 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
             >
-              <option hidden>Select Muscles</option>
-              <option value="upper_body">upper body</option>
-              <option value="lower_body">lower body</option>
-              <option value="stretching">stretching</option>
-              <option value="functional">functional</option>
-              <option value="abs">abs</option>
+              <option hidden>Seleccionar musculos</option>
+              <option value="upper_body">Parte superior</option>
+              <option value="lower_body">Parte inferior</option>
+              <option value="stretching">Estiramiento</option>
+              <option value="functional">Funcional</option>
+              <option value="abs">Abdominales</option>
             </select>
           </div>
           <div className="mt-4">
@@ -96,17 +96,17 @@ export default function ExerciseForm() {
               htmlFor="genre"
               className="block text-sm font-medium text-gray-700 undefined"
             >
-              Genre
+              Género
             </label>
             <select
               id="genre"
               {...register("genre")}
-              className="block pr-[115px] w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              className="block pr-[115px] w-[114%] mt-1 text-gray-500 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
             >
-              <option hidden>Select Genre</option>
-              <option value="man">man</option>
-              <option value="woman">woman</option>
-              <option value="both">both</option>
+              <option hidden>Seleccionar género</option>
+              <option value="man">Hombre</option>
+              <option value="woman">Mujer</option>
+              <option value="both">Ambos</option>
             </select>
           </div>
           <div className="mt-4">
@@ -122,7 +122,7 @@ export default function ExerciseForm() {
                 {...register("video")}
                 type="url"
                 name="video"
-                className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                className="block w-[114%] mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               />
             </div>
           </div>
@@ -136,11 +136,11 @@ export default function ExerciseForm() {
             <select
               id="premium"
               {...register("premium")}
-              className="block pr-[115px] w-[100%] mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+              className="block pr-[115px] w-[114%] mt-1 text-gray-500 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
             >
-              <option hidden>Select Plan</option>
-              <option value="true">yes</option>
-              <option value="false">no</option>
+              <option hidden>Seleccionar plan</option>
+              <option value="true">Si</option>
+              <option value="false">No</option>
             </select>
           </div>
           <div className="mt-4">
@@ -148,7 +148,7 @@ export default function ExerciseForm() {
               htmlFor="description"
               className="block text-sm font-medium text-gray-700 undefined"
             >
-              Description
+              Descripción
             </label>
             <div className="flex flex-col items-start">
               <textarea
@@ -156,24 +156,27 @@ export default function ExerciseForm() {
                 id="description"
                 {...register("description")}
                 name="description"
-                className="resize-none block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                className="resize-none block w-[114%] mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               />
             </div>
           </div>
 
           <div className="flex items-center justify-center mt-5 mb-4">
+
             <button
               type="submit"
-              className="items-center px-4 py-2 ml-4 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out bg-amber-900 border border-transparent rounded-md active:bg-gray-900 false"
+              className="items-center w-[100%] px-4 py-2 ml-4 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out bg-amber-900 border border-transparent rounded-md active:bg-gray-900 false"
             >
-              Create
+              Crear
             </button>
+            
             <button
-              className="items-center px-4 py-2 ml-4 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out bg-amber-900 border border-transparent rounded-md active:bg-gray-900 false"
+              className="items-center w-[100%] px-4 py-2 ml-4 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out bg-amber-900 border border-transparent rounded-md active:bg-gray-900 false"
               onClick={onClean}
             >
-              Clean
+              Limpiar
             </button>
+
           </div>
         </form>
       </div>
