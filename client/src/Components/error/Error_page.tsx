@@ -40,7 +40,7 @@ export default function Error_page(props: {
         <div className={styles.text}>
           <p>Su cliente no tiene permiso para acceder a esta URL.</p>
           <p>
-            Si el problema persiste, pongase en contacto con servicio tecnico.
+            Si el problema persiste, pongase en contacto con servicio técnico.
           </p>
           <p className="mt-5">
             <b>

@@ -13,7 +13,7 @@ export default function Visitor6() {
             <h1 className={styles.tittle}>¿Por que esperar?</h1>
             <div className={styles.container_2} >
                 <div className={styles.container_3}>
-                    <h1 className={styles.tittle_2}>Obten todo esto y mas!!</h1>
+                    <h1 className={styles.tittle_2}>Obten todo esto y más!!</h1>
                     <div className={styles.text}>
                         <p>Calculadora</p>
                         <p>Rutinas personalizadas</p>

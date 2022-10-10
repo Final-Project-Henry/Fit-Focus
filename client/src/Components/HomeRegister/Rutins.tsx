@@ -37,7 +37,7 @@ export default function Rutins(props: { rutins: Array<rutin>, reps:string, dif:s
             <div className={styles.container_2}>
                 <p className={styles.tittle}>Rutinas Personalizadas</p>
             </div>
-            <h1 className={styles.tittle_2}>Esta la rutina que se adapta a tu condicion fisica</h1>
+            <h1 className={styles.tittle_2}>Esta es la rutina que se adapta a tu condición física</h1>
             <button onClick={onClick} style={{ color: "white", backgroundColor: "#111827", width: "40vw", height: "8vh", fontWeight: "500", fontSize: "1.5rem", display: "block", alignSelf: "center" }}>Empezar entrenamiento</button>
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "5vh" }}>
                 <h1 className={styles.tittle_2}>Resumen</h1>
