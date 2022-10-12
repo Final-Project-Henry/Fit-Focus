@@ -48,49 +48,109 @@ Mongo DB, Mongoose, Mongo Atlas, Node JS, Json Web Token authentication, Nodemai
 - Imagenes del Proyecto
 
 - Landing-Page
+<br/>
 
-  <video src="videito.mp4" width="640" height="480" autoplay muted loop> </video>
+  <image src="01LandingPage.png" width="640" height="280" alt="Landing Page"/>
+  <video src="videito.mp4" width="640" height="280" autoplay muted loop> </video>
+<br/>
+<br/>
 
 - Home de usuario visitante
+<br/>
 
-  <video src="videito.mp4" width="640" height="480" autoplay muted loop> </video>
+  <image src="02HomeVisitor.png" width="640" height="280" alt="Landing Page"/>
+  <image src="03HomeVisitor.png" width="640" height="280" alt="Landing Page"/>
+  <image src="04HomeVisitor.png" width="640" height="280" alt="Landing Page"/>
+  <video src="videito.mp4" width="640" height="280" autoplay muted loop> </video>
+<br/>
+<br/>
 
 - Registro e inicio de sesión
+<br/>
 
-  <video src="videito.mp4" width="640" height="480" autoplay muted loop> </video>
-
-- Perfil de usuario registrado
-
-  <video src="videito.mp4" width="640" height="480" autoplay muted loop> </video>
+  <image src="05Register.png" width="640" height="280" alt="Landing Page"/>
+  <image src="06Login.png" width="640" height="280" alt="Landing Page"/>
+<br/>
+<br/>
 
 - Home de usuario registrado
+<br/>
 
-  <video src="videito.mp4" width="640" height="480" autoplay muted loop> </video>
+  <image src="07HomeRegisterd.png" width="640" height="280" alt="Landing Page"/>
+  <image src="08Homeregister.png" width="640" height="280" alt="Landing Page"/>
+  <image src="09Homeregister.png" width="640" height="280" alt="Landing Page"/>
+  <image src="10Homeregister.png" width="640" height="280" alt="Landing Page"/>
+  <video src="videito.mp4" width="640" height="280" autoplay muted loop> </video>
+<br/>
+<br/>
 
-- Perfil de Usuario registrado
+- Perfil de usuario registrado
+<br/>
 
-  <video src="videito.mp4" width="640" height="480" autoplay muted loop> </video>
+  <image src="17PerfilRegistrado.png" width="640" height="280" alt="Landing Page"/>
+  <video src="videito.mp4" width="640" height="280" autoplay muted loop> </video>
+<br/>
+<br/>
+
+- Pago y formulario para Rutinas Personalizadas
+<br/>
+
+  <image src="29Mercadopago.png" width="640" height="280" alt="Landing Page"/>
+  <image src="30rutinapersonalizada.png" width="640" height="280" alt="Landing Page"/>
+<br/>
+<br/>
 
 - Opiniones
+<br/>
 
-  <video src="videito.mp4" width="640" height="480" autoplay muted loop> </video>
+  <image src="11Opiniones.png" width="640" height="280" alt="Landing Page"/>
+<br/>
+<br/>
 
 - Ejercicios y filtros combinados
+<br/>
 
-  <video src="videito.mp4" width="640" height="480" autoplay muted loop> </video>
+  <image src="12Ejercicios.png" width="640" height="280" alt="Landing Page"/>
+  <video src="videito.mp4" width="640" height="280" autoplay muted loop> </video>
+<br/>
+<br/>
 
 - Calculadora, noticias, favoritos, nosotros
+<br/>
 
-  <video src="videito.mp4" width="640" height="480" autoplay muted loop> </video>
+  <image src="13Calculadora.png" width="640" height="280" alt="Landing Page"/>
+  <image src="14Noicias.png" width="640" height="280" alt="Landing Page"/>
+  <image src="15Favoritos.png" width="640" height="280" alt="Landing Page"/>
+  <image src="16Nosotros.png" width="640" height="280" alt="Landing Page"/>
+  <video src="videito.mp4" width="640" height="280" autoplay muted loop> </video>
+<br/>
+<br/>
 
-- Registro y pago Premium
+- Perfil Premium
+<br/>
 
-  <video src="videito.mp4" width="640" height="480" autoplay muted loop> </video>
+  <image src="18PerfilPremium.png" width="640" height="280" alt="Landing Page"/>
+  <image src="19PerfilPremium.png" width="640" height="280" alt="Landing Page"/>
+  <video src="videito.mp4" width="640" height="280" autoplay muted loop> </video>
+<br/>
+<br/>
 
 - Formulario y rutinas personalizadas
+<br/>
 
-  <video src="videito.mp4" width="640" height="480" autoplay muted loop> </video>
+  <image src="20RutinasPersonalizadas.png" width="640" height="280" alt="Landing Page"/>
+  <image src="21RutinasPersonalizadas.png" width="640" height="280" alt="Landing Page"/>
+  <image src="22RutinasPersonalizadas.png" width="640" height="280" alt="Landing Page"/>
+  <video src="videito.mp4" width="640" height="280" autoplay muted loop> </video>
+<br/>
+<br/>
 
 - Tablero de Administrador
+  <br/>
 
-  <video src="videito.mp4" width="640" height="480" autoplay muted loop> </video>
+  <image src="24Admin.png" width="640" height="280" alt="Landing Page"/>
+  <image src="25Admin.png" width="640" height="280" alt="Landing Page"/>
+  <image src="26Admin.png" width="640" height="280" alt="Landing Page"/>
+  <image src="27Admin.png" width="640" height="280" alt="Landing Page"/>
+  <image src="28Admin.png" width="640" height="280" alt="Landing Page"/>
+  <video src="videito.mp4" width="640" height="280" autoplay muted loop> </video>

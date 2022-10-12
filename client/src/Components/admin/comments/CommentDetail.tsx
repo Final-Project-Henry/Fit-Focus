@@ -56,7 +56,7 @@ export default function CommentDetail(props: {
       }}
     >
       <p>
-        <b>Email: </b>
+        <b>Correo: </b>
         {props.feedback.email}
       </p>
       <p>
@@ -64,13 +64,13 @@ export default function CommentDetail(props: {
         {props.feedback.rating}
       </p>
       <p>
-        <b>Comment: </b>
+        <b>Comentario: </b>
         {props.feedback.comment}
       </p>
       <p>
-        <b>Report by: </b>
+        <b>Reportado por: </b>
         {props.feedback.report.length === 0 ? (
-          <span>No one</span>
+          <span>Nadie</span>
         ) : (
           props.feedback.report.map((e: string) => (
             <span className="block" key={uuidv4()}>
@@ -83,7 +83,7 @@ export default function CommentDetail(props: {
         onClick={onDelete}
         className="font-semibold hover:bg-red-800 bg-red-700 text-white w-20 rounded m-auto mt-2 p-2"
       >
-        Delete
+        Borrar
       </button>
     </div>
   );

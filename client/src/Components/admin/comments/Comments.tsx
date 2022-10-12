@@ -16,7 +16,7 @@ export default function Comments() {
   return (
     <div>
       <h1 style={{ fontSize: "3rem", fontWeight: "500", padding: "20px" }}>
-        Comments
+        Comentarios
       </h1>
       <div className="grid grid-cols-4">
         {comments.length > 0 ? (
