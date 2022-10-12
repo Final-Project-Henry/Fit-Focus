@@ -38,22 +38,21 @@ Mongo DB, Mongoose, Mongo Atlas, Node JS, Json Web Token authentication, Nodemai
   - En la ruta <b>cliente</b>, ejecutar el comando <b>npm install</b>
   - Por ultimo, en la ruta <b>cliente<b>, ejecutar <b>npm start</b>
 
-# Para probar el modo PRMIUM deberá usar los daots de tarjeta de prueba
+# Para probar el modo PREMIUM deberá usar los daots de tarjeta de prueba
 
     - Numero de tarjeta: 5031 7557 3453 0604
     - Fecha de vencimiento: 11/25
     - Codigo de seguridad: 123
-    - En los otros datospude colocar lo que desée
+    - En los otros datos puedes colocar lo que desée
 
-- Imagenes del Proyecto
+# Imagenes del Proyecto
 
 - Landing-Page
-<br/>
+  <br/>
 
-  <image src="01LandingPage.png" width="640" height="280" alt="Landing Page"/>
-  <video src="videito.mp4" width="640" height="280" autoplay muted loop> </video>
-<br/>
-<br/>
+  <video src="Landing.mp4" width="640" height="280" autoplay muted loop> </video>
+  <br/>
+  <br/>
 
 - Home de usuario visitante
 <br/>
@@ -61,7 +60,7 @@ Mongo DB, Mongoose, Mongo Atlas, Node JS, Json Web Token authentication, Nodemai
   <image src="02HomeVisitor.png" width="640" height="280" alt="Landing Page"/>
   <image src="03HomeVisitor.png" width="640" height="280" alt="Landing Page"/>
   <image src="04HomeVisitor.png" width="640" height="280" alt="Landing Page"/>
-  <video src="videito.mp4" width="640" height="280" autoplay muted loop> </video>
+  <video src="Homevisitor.mp4" width="640" height="280" autoplay muted loop> </video>
 <br/>
 <br/>
 
@@ -70,6 +69,7 @@ Mongo DB, Mongoose, Mongo Atlas, Node JS, Json Web Token authentication, Nodemai
 
   <image src="05Register.png" width="640" height="280" alt="Landing Page"/>
   <image src="06Login.png" width="640" height="280" alt="Landing Page"/>
+  <video src="Registroylogin.mp4" width="640" height="280" autoplay muted loop> </video>
 <br/>
 <br/>
 
@@ -80,7 +80,7 @@ Mongo DB, Mongoose, Mongo Atlas, Node JS, Json Web Token authentication, Nodemai
   <image src="08Homeregister.png" width="640" height="280" alt="Landing Page"/>
   <image src="09Homeregister.png" width="640" height="280" alt="Landing Page"/>
   <image src="10Homeregister.png" width="640" height="280" alt="Landing Page"/>
-  <video src="videito.mp4" width="640" height="280" autoplay muted loop> </video>
+  <video src="Homeregistrado.mp4" width="640" height="280" autoplay muted loop> </video>
 <br/>
 <br/>
 
@@ -88,7 +88,6 @@ Mongo DB, Mongoose, Mongo Atlas, Node JS, Json Web Token authentication, Nodemai
 <br/>
 
   <image src="17PerfilRegistrado.png" width="640" height="280" alt="Landing Page"/>
-  <video src="videito.mp4" width="640" height="280" autoplay muted loop> </video>
 <br/>
 <br/>
 
@@ -111,7 +110,7 @@ Mongo DB, Mongoose, Mongo Atlas, Node JS, Json Web Token authentication, Nodemai
 <br/>
 
   <image src="12Ejercicios.png" width="640" height="280" alt="Landing Page"/>
-  <video src="videito.mp4" width="640" height="280" autoplay muted loop> </video>
+  <video src="ejerciciosfiltros.mp4" width="640" height="280" autoplay muted loop> </video>
 <br/>
 <br/>
 
@@ -122,7 +121,7 @@ Mongo DB, Mongoose, Mongo Atlas, Node JS, Json Web Token authentication, Nodemai
   <image src="14Noicias.png" width="640" height="280" alt="Landing Page"/>
   <image src="15Favoritos.png" width="640" height="280" alt="Landing Page"/>
   <image src="16Nosotros.png" width="640" height="280" alt="Landing Page"/>
-  <video src="videito.mp4" width="640" height="280" autoplay muted loop> </video>
+  <video src="calculadorayotros.mp4" width="640" height="280" autoplay muted loop> </video>
 <br/>
 <br/>
 
@@ -131,7 +130,7 @@ Mongo DB, Mongoose, Mongo Atlas, Node JS, Json Web Token authentication, Nodemai
 
   <image src="18PerfilPremium.png" width="640" height="280" alt="Landing Page"/>
   <image src="19PerfilPremium.png" width="640" height="280" alt="Landing Page"/>
-  <video src="videito.mp4" width="640" height="280" autoplay muted loop> </video>
+
 <br/>
 <br/>
 
@@ -141,7 +140,7 @@ Mongo DB, Mongoose, Mongo Atlas, Node JS, Json Web Token authentication, Nodemai
   <image src="20RutinasPersonalizadas.png" width="640" height="280" alt="Landing Page"/>
   <image src="21RutinasPersonalizadas.png" width="640" height="280" alt="Landing Page"/>
   <image src="22RutinasPersonalizadas.png" width="640" height="280" alt="Landing Page"/>
-  <video src="videito.mp4" width="640" height="280" autoplay muted loop> </video>
+  <video src="rutinasyformulario.mp4" width="640" height="280" autoplay muted loop> </video>
 <br/>
 <br/>
 
@@ -153,4 +152,4 @@ Mongo DB, Mongoose, Mongo Atlas, Node JS, Json Web Token authentication, Nodemai
   <image src="26Admin.png" width="640" height="280" alt="Landing Page"/>
   <image src="27Admin.png" width="640" height="280" alt="Landing Page"/>
   <image src="28Admin.png" width="640" height="280" alt="Landing Page"/>
-  <video src="videito.mp4" width="640" height="280" autoplay muted loop> </video>
+  <video src="admin.mp4" width="640" height="280" autoplay muted loop> </video>
