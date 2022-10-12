@@ -49,7 +49,7 @@ Mongo DB, Mongoose, Mongo Atlas, Node JS, Json Web Token authentication, Nodemai
 
 - Landing-Page
   <br/>
-
+  <image src="01LandingPage.png" width="640" height="280" alt="Landing Page"/>
   <video src="Landing.mp4" width="640" height="280" autoplay muted loop> </video>
   <br/>
   <br/>
