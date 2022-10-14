@@ -593,7 +593,7 @@ const exercises = [
     "equipment": false,
     "muscles": "stretching",
     "genre": "both",
-    "video": "https://lh6.googleusercontent.com/jOGOVrTYzUqLbWAbAo7wr8w0JvgwXZKPjUMIBksY8odakj9AO7SiqCkgdqppFSQ2jgriilUDW8_PHZjcUxRmEkHZkC42vYb1JEUl0cMMnCXqnwtLdze3PP-HI3FlwF-qm0Ye7zVEEbBuE3U6Ag",
+    "video": "https://cdn-prod.medicalnewstoday.com/content/images/articles/325/325373/shoulder-roll-stretch-and-exercise-gif.gif",
     "premium": true,
     "description": "Inspira y levanta los hombros, manteniendo esta postura durante 6 segundos y expulsando a continuación el aire para relajar."
   },
