@@ -57,21 +57,21 @@ const HomeRegister = () => {
       <div className="bg-slate-100">
         <div className=" w-full ">
          {State.user?.plan!=="premium"?<Link to="/mercadopago">
-            <img src={baner} alt="" className="object-cover h-[450px] w-full" />
-            <h1 className="h-[50px] w-full bg-[#111827] flex items-center text-white font-medium justify-center text-2xl">
+            <img src={baner} alt="" className="object-cover md:h-[450px] h-[350px] xl:h-[68vh] w-full" />
+            <h1 className=" md:h-[50px] sm:min-h w-full bg-[#111827] flex items-center text-white font-medium justify-center md:text-2xl sm:text-xl">
               Hazte premium para obtener rutinas personalizadas
             </h1>
           </Link>:
           <div>
-          <img src={baner} alt="" className="object-cover h-[450px] w-full" />
+          <img src={baner} alt="" className="object-cover md:h-[450px] h-[350px] xl:h-[68vh] w-full" />
         </div>
           }
         </div>
 
         {/* cartas de ejercicios */}
-        <div className="flex mt-[5%] flex-col bg-gray-200 ">
+        <div className="flex md:mt-[5%] sm:mt-[2%] flex-col bg-gray-200 ">
           <div className="flex items-end w-full h-24">
-            <h1 className="ml-9 text-5xl font-dark w-[80%] mx-[20px]">
+            <h1 className="ml-2 md:ml-9 sm:ml-2 text-xl md:text-5xl sm:text-xl  font-dark w-[80%] md:mx-[20px] sm:mx-[10px]">
               Ejercicios de la semana:
             </h1>
 
@@ -83,7 +83,7 @@ const HomeRegister = () => {
             </Link>
           </div>
 
-          <div className="grid grid-cols-4 grid-row-1  content-center my-[60px] bg-gray-200 mt-[30px]">
+          <div className="block  md:grid grid-cols-4 grid-row-1 sm:flex overflow-x-auto  content-center my-[60px] bg-gray-200 mt-[30px]">
             {exercises.length > 0 ? (
               exercises.map(
                 ({ _id, video, name, difficulty, muscles, genre, premium }) => (
@@ -107,7 +107,7 @@ const HomeRegister = () => {
 
           <div className="bg-[#59656F]">
             <div className="flex items-end w-full h-24">
-              <h1 className="ml-9 text-5xl text-white font-dark w-[80%] mx-[20px] ">
+              <h1 className="m-2 sm:m-2  md:ml-9 text-xl sm:text-xl md:text-5xl text-white font-dark w-[80%] mx-[20px] ">
                 Ejercicios con mejor calificación:
               </h1>
               <Link
@@ -118,7 +118,7 @@ const HomeRegister = () => {
               </Link>
             </div>
 
-            <div className="grid grid-cols-4 grid-row-1 my-[60px] bg-[#59656F] mt-[30px]">
+            <div className="block  md:grid grid-cols-4 grid-row-1 sm:flex my-[60px] bg-[#59656F] mt-[30px]">
               {Bastexercises.length > 0 ? (
                 Bastexercises?.map(
                   ({
@@ -153,7 +153,7 @@ const HomeRegister = () => {
         </div>
 
         <div className="flex items-end w-full h-24">
-          <h1 className="ml-9 text-5xl font-dark w-[80%] mx-[20px] ">
+          <h1 className="ml-2 md:ml-9 sm:ml-2 text-xl md:text-5xl sm:text-xl  font-dark w-[80%] md:mx-[20px] sm:mx-[10px]">
             Noticias de interés:
           </h1>
           <Link

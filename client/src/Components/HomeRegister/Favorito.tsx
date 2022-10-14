@@ -55,44 +55,47 @@ const Favoritos = () => {
     <>
       <div className="flex justify-center w-full overflow-hidden h-[500px]">
         <div className="absolute text-center flex justify-center  h-[500px] bg-[#11182852] w-full">
-          <p className="p-5 w-[30%] m-auto bg-[#1118288f] font-normal text-white text-5xl">Favoritos ❤️</p>
+          <p className="p-5 md:w-[30%]  m-auto bg-[#1118288f] font-normal text-white text-5xl">Favoritos ❤️</p>
         </div>
         <img className="w-full object-cover" src={baner} />
       </div>
-      <div className="grid grid-cols-4 m-8">
-        {user?.fav.length > 0 ?
-          dataFav?.length > 0 ? dataFav?.map(({ _id, video, name, difficulty, muscles, genre, premium }) => {
-            return (
-              <div key={uuidv4()}>
-                <Link key={_id} to={`/ejercicio/${_id}`} className={` max-w-[75%] min-h-[50px] flex flex-col bg-white  shadow-md duration-150 cursor-pointer  hover:outline hover:outline-offset-1  ${premium
-                    ? "outline-blue-400"
-                    : difficulty == "easy"
-                      ? "outline-green-400"
-                      : difficulty == "medium"
+<div className="md:grid md:grid-cols-4 sm:grid-cols-1 m-8">
+        {user?.fav.length>0?
+        dataFav?.length>0?dataFav?.map(({_id, video, name, difficulty, muscles, genre, premium}) => {
+              return (
+                <div key={uuidv4()}>
+                  <Link key={_id} to={`/ejercicio/${_id}`} className={`w-[98%] md:max-w-[74%] sm:w-[98%] min-h-[400px] sm:min-h-[400px] md:min-h-[240px] m-1 mt-5 sm:mt-5 sm:m-1  md:m-10  flex flex-col bg-white  shadow-md duration-150 cursor-pointer  hover:outline hover:outline-offset-1  ${
+                      premium
+                        ? "outline-blue-400"
+                        : difficulty == "easy"
+                        ? "outline-green-400"
+                        : difficulty == "medium"
                         ? "outline-yellow-400"
                         : "outline-red-400"
-                  }
-                      ${(premium && user?.plan == "normal") ? "bg-slate-100" : "bg-slate-50"}`}
-                >
-
-                  <div
-                    className={`h-[200px] overflow-hidden  ${(premium && user?.plan == "normal") ? "blur-[5px]" : "blur-0"
+                    }
+                      ${(premium&&user?.plan=="normal") ? "bg-slate-100" : "bg-slate-50"}`}
+                  >
+                 
+                 <div
+                      className={`h-[400px] sm:h-[400px] md:h-[200px] overflow-hidden  ${
+                        (premium&&user?.plan=="normal") ? "blur-[5px]" : "blur-0"
                       }`}
-                  >
-                    <img className="object-cover h-[200px] w-full" src={(premium && user?.plan == "normal") ? notPremiunImg2 : video} alt="" />
-                  </div>
-                  <div className={`${(premium && user?.plan == "normal") ? "blur-[5px]" : "blur-0"}`}>
-                    <h5 className="p-2 text-center text-xl font-bold -tracking-widest text-gray-900">
-                      {name}
-                    </h5>
-                  </div>
-                  <div
-                    className={` text-center ${(premium && user?.plan == "normal") ? "blur-[5px]" : "blur-0"}`}
-                  >
-                    <span
-                      className={`inline-block ${difficulty == "easy"
-                          ? "bg-green-200"
-                          : difficulty == "medium"
+                    >
+                      <img className="object-cover h-[400px] sm:h-[400px] md:h-[200px] w-full" src={(premium&&user?.plan=="normal")?notPremiunImg2:video} alt="" />
+                    </div>
+                    <div className={`${(premium&&user?.plan=="normal")? "blur-[5px]" : "blur-0"}`}>
+                      <h5 className="p-2 text-center text-xl font-bold -tracking-widest text-gray-900">
+                        {name}
+                      </h5>
+                    </div>
+                    <div
+                      className={` text-center ${(premium&&user?.plan=="normal") ? "blur-[5px]" : "blur-0"}`}
+                    >
+                      <span
+                        className={`inline-block ${
+                          difficulty == "easy"
+                            ? "bg-green-200"
+                            : difficulty == "medium"
                             ? "bg-yellow-200"
                             : "bg-red-200"
                         }  px-2 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}

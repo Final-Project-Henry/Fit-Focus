@@ -126,7 +126,7 @@ export default function FilterExercises() {
 
   return (
     <>
-      <div className="bg-white flex shadow  justify-around items-center w-[80%] m-auto">
+      <div className="bg-white flex  shadow flex-col sm:flex-col md:flex-row justify-around items-center w-[100%] sm:w-[100%] md:w-[80%] m-auto">
         <form ref={SelecReset}>
           <select
             className="cursor-pointer  m-5  text-sm text-back font-normal leading-loose border-none outline-none py-0 shadow-md"
@@ -190,7 +190,6 @@ export default function FilterExercises() {
               Difícil
             </option>
           </select>
-
           <select
             className="cursor-pointer m-5 py-0   text-sm text-back font-normal leading-loose  border-none outline-none  shadow-md"
             onChange={handleSelectPlan}
@@ -219,38 +218,52 @@ export default function FilterExercises() {
         </div>
       </div>
       <div>
-        <section className="grid grid-cols-4">
+        <section className="md:grid md:grid-cols-4 sm:grid-cols-1">
           {
-            filtrado.length > 0 || exercises.length > 0 ? filtrado.map(
-              ({ _id, video, name, difficulty, muscles, genre, premium }) => {
-                return (
-                  <div key={uuidv4()}>
-                    <Link key={_id} to={(premium && user?.plan == "normal") ? `/mercadopago` : `/ejercicio/${_id}`} className={`max-w-[75%] min-h-[240px] m-10 flex flex-col bg-white  shadow-md duration-150 cursor-pointer  hover:outline hover:outline-offset-1 ${premium
+
+            filtrado.length>0 || exercises.length>0?filtrado.map(
+            ({_id, video, name, difficulty, muscles, genre, premium }) => {
+              return (
+                <div key={uuidv4()} className="">
+                  <Link key={_id} to={(premium&&user?.plan=="normal")?`/mercadopago`:`/ejercicio/${_id}`} className={`w-[98%] md:max-w-[74%] sm:w-[98%] min-h-[400px] sm:min-h-[400px] md:min-h-[240px] m-1 mt-5 sm:mt-5 sm:m-1  md:m-10  flex flex-col bg-white  shadow-md duration-150 cursor-pointer  hover:outline hover:outline-offset-1 ${
+                      premium
                         ? "outline-blue-400"
                         : difficulty == "easy"
-                          ? "outline-green-400"
-                          : difficulty == "medium"
-                            ? "outline-yellow-400"
-                            : "outline-red-400"
-                      }
-                      ${(premium && user?.plan == "normal") ? "bg-slate-100" : "bg-slate-50"}`}
-                    >
-                      {(premium && user?.plan == "normal") && (
-                        <div className="flex flex-col justify-center  items-center">
-                          <div className="absolute flex min-h-[10px] w-[10%] justify-center items-center z-10 ">
-                            <br />
-                            <img
-                              className="absolute z-10  w-[50%]"
-                              src={notPremiunImg}
-                              alt=""
-                            />
-                            <Link to="/mercadopago" className=" absolute z-10 m-[50px] py-2 px-3 text-sm font-medium text-center text-white bg-[#6c63ff] duration-150 rounded-lg hover:bg-blue-800">
-                              Premium
-                            </Link>
-                          </div>
-                        </div>
-                      )}
+                        ? "outline-green-400"
+                        : difficulty == "medium"
+                        ? "outline-yellow-400"
+                        : "outline-red-400"
+                    }
+                      ${(premium&&user?.plan=="normal") ? "bg-slate-100" : "bg-slate-50"}`}
+                  >
+                    {(premium&&user?.plan=="normal") && (
+                      <div className="flex flex-col justify-center items-center">
+                      <div className="absolute flex min-h-[10px] w-[10%] justify-center items-center z-10 ">
+                      <br />
+                      <img
+                        className="absolute z-10  w-[50%]"
+                        src={notPremiunImg}
+                        alt=""
+                      />
+                      <Link to="/mercadopago" className="absolute z-10 m-[50px] py-2 px-3 text-sm font-medium text-center text-white bg-[#6c63ff] duration-150 rounded-lg hover:bg-blue-800">
+                        Premium
+                      </Link>
+                      </div>
+                    </div>
+                    )}
 
+                    <div
+                      className={`h-[400px] sm:h-[400px] md:h-[200px] overflow-hidden  ${
+                        (premium&&user?.plan=="normal") ? "blur-[5px]" : "blur-0"
+                      }`}
+                    >
+                      <img className="object-cover h-[400px] sm:h-[400px] md:h-[200px]  w-full" src={(premium&&user?.plan=="normal")?notPremiunImg2:video} alt="" />
+                    </div>
+                    <div className={`${(premium&&user?.plan=="normal")? "blur-[5px]" : "blur-0"}`}>
+                      <h5 className="p-2 text-center text-xl font-bold -tracking-widest text-gray-900">
+                        {name}
+                      </h5>
+                    </div>
                       <div
                         className={`h-[200px] overflow-hidden  ${(premium && user?.plan == "normal") ? "blur-[5px]" : "blur-0"
                           }`}
@@ -296,10 +309,12 @@ export default function FilterExercises() {
               <LoadingCards num={"12345678"} />}
         </section>
       </div>
-      {filtrado.length < 50 ?
-        <div className="w-fill border flex shadow-[0 0 5px #111828e8] justify-center">
-          <button className="p-4" onClick={sumaDeAOcho}>Ver Mas ▽</button>
-        </div> : ""}
+      {filtrado.length>4 && filtrado.length<exercises.length?
+        <div onClick={sumaDeAOcho} className="w-fill cursor-pointer border flex bg-[#111828e8] text-white hover:bg-black justify-center duration-200">
+         <button className="p-4">Ver Mas ▽</button>
+        </div>:
+       (exercises.length>0||filtrado.length>exercises.length)&&<div className="flex justify-center item-center text-5xl"></div>}
+       
     </>
   );
 }

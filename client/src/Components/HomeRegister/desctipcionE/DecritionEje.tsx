@@ -12,6 +12,7 @@ import LoadingCards from "../../loading/LoadingCards";
 import CardEjetcicio from "./CardEejercicio";
 import Comment from "./Commet";
 import Swal from "sweetalert2";
+import Footer2 from "../../footer/Footer2";
 interface commet {
   comment: string;
   email: string;
@@ -146,7 +147,7 @@ export default function DecriptionEjer() {
       }
       <div>
         {validac && <form onSubmit={SubmitCommet}>
-          <div className="mt-10 mb-1  w-[90%] m-auto bg-gray-50  border border-gray-200">
+          <div className="md:mt-10 mb-1  md:w-[90%] m-auto bg-gray-50  border border-gray-200">
             <div className="py-2 px-4 bg-white  ">
               <label htmlFor="comment" className="sr-only">
                 Tu comentario
@@ -162,7 +163,7 @@ export default function DecriptionEjer() {
                 required
               ></textarea>
             </div>
-            <div className="flex  items-center py-2 px-3 border-t dark:border-gray-600">
+            <div className="flex md:flex-row flex-col-reverse items-center py-2 px-3 border-t dark:border-gray-600">
               <button
                 type="submit"
                 disabled={false}
@@ -170,14 +171,14 @@ export default function DecriptionEjer() {
               >
                 Enviar
               </button>
-              <div className="flex mx-5 items-center">
+              <div className="flex mx-5 md:my-0 my-4 items-center">
                 <svg onClick={() => rewind.cont >= 1 ? setrewind(pv => ({ ...pv, cont: 1 })) : setrewind(pv => ({ ...pv, cont: 1 }))} aria-hidden="true" className={`w-6 h-6 cursor-pointer active:animate-ping ${rewind.cont >= 1 ? "text-yellow-400" : "text-gray-500"}`} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                 <svg onClick={() => rewind.cont >= 2 ? setrewind(pv => ({ ...pv, cont: 1 })) : setrewind(pv => ({ ...pv, cont: 2 }))} aria-hidden="true" className={`w-6 h-6 cursor-pointer active:animate-ping ${rewind.cont >= 2 ? "text-yellow-400" : "text-gray-500"}`} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                 <svg onClick={() => rewind.cont >= 3 ? setrewind(pv => ({ ...pv, cont: 2 })) : setrewind(pv => ({ ...pv, cont: 3 }))} aria-hidden="true" className={`w-6 h-6 cursor-pointer active:animate-ping ${rewind.cont >= 3 ? "text-yellow-400" : "text-gray-500"}`} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                 <svg onClick={() => rewind.cont >= 4 ? setrewind(pv => ({ ...pv, cont: 3 })) : setrewind(pv => ({ ...pv, cont: 4 }))} aria-hidden="true" className={`w-6 h-6 cursor-pointer active:animate-ping ${rewind.cont >= 4 ? "text-yellow-400" : "text-gray-500"}`} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                 <svg onClick={() => rewind.cont >= 5 ? setrewind(pv => ({ ...pv, cont: 4 })) : setrewind(pv => ({ ...pv, cont: 5 }))} aria-hidden="true" className={`w-6 h-6 cursor-pointer active:animate-ping ${rewind.cont >= 5 ? "text-yellow-400" : "text-gray-500"}`} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>First star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
               </div>
-              <div className="w-full flex justify-end items-end p-5">
+              <div className="w-full flex justify-end items-end md:p-5">
               {
                <span  className={` decoration-red-700 text-red-700`}>
 
@@ -198,10 +199,10 @@ export default function DecriptionEjer() {
             </div>
           </div>
         </form>}
-        <div className={`flex ${!validac && "mt-20"}  flex-col py-5 bg-slate-200 w-[90%] m-auto`}>
+        <div className={`flex ${!validac && "mt-20"}  flex-col md:py-5 bg-slate-200 w-[90%] m-auto`}>
           {detailEjec&&descripcionEjersicio?.map(({ _id, comment, rating, email, avatar }: any) => {
               return (
-                <div key={_id} className=" m-5 w-[40%] overflow-hidden bg-slate-100">
+                <div key={_id} className="m-5 md:w-[40%] overflow-hidden bg-slate-100">
                   <div className="flex">
                     <Comment avatar={avatar} user={email} rewind={rating} />
                     <span className={`p-2 flex ${user?.email !== email && "text-red-700"} text-lg justify-end w-full`}>
@@ -222,6 +223,8 @@ export default function DecriptionEjer() {
           }
         </div>
       </div>
+      <br/>
+      <Footer2 />
     </>
   );
 }

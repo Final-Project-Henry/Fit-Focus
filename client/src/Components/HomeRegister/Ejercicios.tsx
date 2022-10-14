@@ -26,16 +26,16 @@ const Ejercicios = () => {
 
   return (
     <>
-      <div className="flex justify-center w-full overflow-hidden h-[500px]">
-        <div className="absolute text-center flex justify-center  h-[500px] bg-[#11182852] w-full">
-          <p className="p-5 w-[30%] m-auto bg-[#11182873] font-normal text-white text-5xl">Ejercicios</p>
+      <div className="flex justify-center w-full overflow-hidden h-[400px] md:h-[500px]">
+        <div className="absolute text-center flex justify-center  h-[400px] md:h-[500px] bg-[#11182852] w-full">
+          <p className="p-5 w-[90%] md:w-[30%] m-auto bg-[#11182873] font-normal text-white text-5xl">Ejercicios</p>
         </div>
         <img className="w-full object-cover" src={slice}/>
       </div>
       <div>
         <FilterExercises key={uuidv4()} />
       </div>
-      <Footer2/>
+      <Footer2 />
     </>
   );
 }
