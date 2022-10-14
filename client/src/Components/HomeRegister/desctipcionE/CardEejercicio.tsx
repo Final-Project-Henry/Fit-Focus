@@ -89,13 +89,13 @@ export default function CardEjetcicio (descripcionEjersicio:ejerciciosData ){
       <div
         className={`max-w-full flex flex-col bg-white  shadow-md   `}
          >
-        <div className={`min-h-[150px] w-full flex overflow-hidden }`}>
-          <img className=" w-[50%]" src={descripcionEjersicio?.video} />
+        <div className={`min-h-[150px] w-full flex md:flex-nowrap flex-wrap overflow-hidden }`}>
+          <img className="w-full md:w-[50%] " src={descripcionEjersicio?.video} />
           <div className="p-5">
             <h5 className=" text-2xl font-bold tracking-tight text-gray-900">
               {descripcionEjersicio?.name}
             </h5>
-            <p className="">{descripcionEjersicio?.description}</p>
+            <p className="font-normal">{descripcionEjersicio?.description}</p>
 
             <div className="py-5">
               <span

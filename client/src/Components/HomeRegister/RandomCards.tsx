@@ -32,7 +32,6 @@ const RandomCards = ({
 
   return (
     <div>
-
       <Link
         key={_id}
         to={
