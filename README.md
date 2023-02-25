@@ -50,7 +50,8 @@ Mongo DB, Mongoose, Mongo Atlas, Node JS, Json Web Token authentication, Nodemai
 - Landing-Page
   <br/>
   <image width="640" src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677331056/Fit-Focus/01LandingPage_v0np0e.png" width="640" height="280" alt="Landing Page"/>
-  <video width="640" height="280" autoplay muted loop><source  src="Landing.mp4"></source></video>
+  <!-- <video width="640" height="280" autoplay muted loop><source  src="Landing.mp4"></source></video> -->
+  <image width="640" src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677331807/Fit-Focus/Landing_qhel3p.gif"/>
   <br/>
   <br/>
 
