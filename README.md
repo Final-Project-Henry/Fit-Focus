@@ -50,88 +50,86 @@ Mongo DB, Mongoose, Mongo Atlas, Node JS, Json Web Token authentication, Nodemai
 - Landing-Page
   <br/>
   <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677331056/Fit-Focus/01LandingPage_v0np0e.png" width="640px" height="280px" alt="Landing Page"/>
-  <!-- <video width="640" height="280" autoplay muted loop><source  src="Landing.mp4"></source></video> -->
-  <p><img width="640px" height='280px' alt="Landing Page gif" align='center' src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677331807/Fit-Focus/Landing_qhel3p.gif"/></p>
-  ![](https://res.cloudinary.com/dm0fwscsy/image/upload/v1677331807/Fit-Focus/Landing_qhel3p.gif)
+  <video width="640" height="280" autoplay muted loop><source  src="https://res.cloudinary.com/dm0fwscsy/video/upload/v1677333634/Fit-Focus/videos/Landing_ix2874.mp4"></source></video>
   <br/>
   <br/>
 
 - Home de usuario visitante
 <br/>
 
-  <image src="02HomeVisitor.png" width="640" height="280" alt="Landing Page"/>
-  <image src="03HomeVisitor.png" width="640" height="280" alt="Landing Page"/>
-  <image src="04HomeVisitor.png" width="640" height="280" alt="Landing Page"/>
-  <video src="Homevisitor.mp4" width="640" height="280" autoplay muted loop> </video>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333186/Fit-Focus/02HomeVisitor_xgeu7w.png" width="640" height="280" alt="Landing Page"/>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333186/Fit-Focus/03HomeVisitor_c5dxiu.png" width="640" height="280" alt="Landing Page"/>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333186/Fit-Focus/04HomeVisitor_hkszzq.png" width="640" height="280" alt="Landing Page"/>
+  <video width="640" height="280" autoplay muted loop><source  src="https://res.cloudinary.com/dm0fwscsy/video/upload/v1677333634/Fit-Focus/videos/Homevisitor_ubppee.mp4"></source></video>
 <br/>
 <br/>
 
 - Registro e inicio de sesión
 <br/>
 
-  <image src="05Register.png" width="640" height="280" alt="Landing Page"/>
-  <image src="06Login.png" width="640" height="280" alt="Landing Page"/>
-  <video src="Registroylogin.mp4" width="640" height="280" autoplay muted loop> </video>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333186/Fit-Focus/05Register_ds0r1k.png" width="640" height="280" alt="Landing Page"/>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333186/Fit-Focus/06Login_vlmfst.png" width="640" height="280" alt="Landing Page"/>
+  <video width="640" height="280" autoplay muted loop><source  src="https://res.cloudinary.com/dm0fwscsy/video/upload/v1677333634/Fit-Focus/videos/Registroylogin_m4z5x2.mp4"></source></video>
 <br/>
 <br/>
 
 - Home de usuario registrado
 <br/>
 
-  <image src="07HomeRegisterd.png" width="640" height="280" alt="Landing Page"/>
-  <image src="08Homeregister.png" width="640" height="280" alt="Landing Page"/>
-  <image src="09Homeregister.png" width="640" height="280" alt="Landing Page"/>
-  <image src="10Homeregister.png" width="640" height="280" alt="Landing Page"/>
-  <video src="Homeregistrado.mp4" width="640" height="280" autoplay muted loop> </video>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333188/Fit-Focus/07HomeRegisterd_bakgeb.png" width="640" height="280" alt="Landing Page"/>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333186/Fit-Focus/08Homeregister_y7eh9c.png" width="640" height="280" alt="Landing Page"/>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333186/Fit-Focus/09Homeregister_huhgvb.png" width="640" height="280" alt="Landing Page"/>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333186/Fit-Focus/10Homeregister_xofl15.png" width="640" height="280" alt="Landing Page"/>
+  <video width="640" height="280" autoplay muted loop><source  src="https://res.cloudinary.com/dm0fwscsy/video/upload/v1677333634/Fit-Focus/videos/Homeregistrado_w5nz0t.mp4"></source></video>
 <br/>
 <br/>
 
 - Perfil de usuario registrado
 <br/>
 
-  <image src="17PerfilRegistrado.png" width="640" height="280" alt="Landing Page"/>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333186/Fit-Focus/17PerfilRegistrado_hotqg6.png" width="640" height="280" alt="Landing Page"/>
 <br/>
 <br/>
 
 - Pago y formulario para Rutinas Personalizadas
 <br/>
 
-  <image src="29Mercadopago.png" width="640" height="280" alt="Landing Page"/>
-  <image src="30rutinapersonalizada.png" width="640" height="280" alt="Landing Page"/>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333187/Fit-Focus/29Mercadopago_bo33fi.png" width="640" height="280" alt="Landing Page"/>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333189/Fit-Focus/30rutinapersonalizada_a8wclk.png" width="640" height="280" alt="Landing Page"/>
 <br/>
 <br/>
 
 - Opiniones
 <br/>
 
-  <image src="11Opiniones.png" width="640" height="280" alt="Landing Page"/>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333188/Fit-Focus/11Opiniones_y0kxae.png" width="640" height="280" alt="Landing Page"/>
 <br/>
 <br/>
 
 - Ejercicios y filtros combinados
 <br/>
 
-  <image src="12Ejercicios.png" width="640" height="280" alt="Landing Page"/>
-  <video src="ejerciciosfiltros.mp4" width="640" height="280" autoplay muted loop> </video>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333188/Fit-Focus/12Ejercicios_f3tz6l.png" width="640" height="280" alt="Landing Page"/>
+  <video width="640" height="280" autoplay muted loop><source  src="https://res.cloudinary.com/dm0fwscsy/video/upload/v1677333635/Fit-Focus/videos/ejerciciosfiltros_emtnxk.mp4"></source></video>
 <br/>
 <br/>
 
 - Calculadora, noticias, favoritos, nosotros
 <br/>
 
-  <image src="13Calculadora.png" width="640" height="280" alt="Landing Page"/>
-  <image src="14Noicias.png" width="640" height="280" alt="Landing Page"/>
-  <image src="15Favoritos.png" width="640" height="280" alt="Landing Page"/>
-  <image src="16Nosotros.png" width="640" height="280" alt="Landing Page"/>
-  <video src="calculadorayotros.mp4" width="640" height="280" autoplay muted loop> </video>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333186/Fit-Focus/13Calculadora_mafhga.png" width="640" height="280" alt="Landing Page"/>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333188/Fit-Focus/14Noicias_bkktyp.png" width="640" height="280" alt="Landing Page"/>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333188/Fit-Focus/15Favoritos_gzr8nn.png" width="640" height="280" alt="Landing Page"/>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333186/Fit-Focus/16Nosotros_gt29is.png" width="640" height="280" alt="Landing Page"/>
+  <video width="640" height="280" autoplay muted loop><source  src="https://res.cloudinary.com/dm0fwscsy/video/upload/v1677333634/Fit-Focus/videos/calculadorayotros_hgsmlz.mp4"></source></video>
 <br/>
 <br/>
 
 - Perfil Premium
 <br/>
 
-  <image src="18PerfilPremium.png" width="640" height="280" alt="Landing Page"/>
-  <image src="19PerfilPremium.png" width="640" height="280" alt="Landing Page"/>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333186/Fit-Focus/18PerfilPremium_qgneem.png" width="640" height="280" alt="Landing Page"/>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333187/Fit-Focus/19PerfilPremium_kdqmu7.png" width="640" height="280" alt="Landing Page"/>
 
 <br/>
 <br/>
@@ -139,19 +137,19 @@ Mongo DB, Mongoose, Mongo Atlas, Node JS, Json Web Token authentication, Nodemai
 - Formulario y rutinas personalizadas
 <br/>
 
-  <image src="20RutinasPersonalizadas.png" width="640" height="280" alt="Landing Page"/>
-  <image src="21RutinasPersonalizadas.png" width="640" height="280" alt="Landing Page"/>
-  <image src="22RutinasPersonalizadas.png" width="640" height="280" alt="Landing Page"/>
-  <video src="rutinasyformulario.mp4" width="640" height="280" autoplay muted loop> </video>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333188/Fit-Focus/20RutinasPersonalizadas_b5vdlt.png" width="640" height="280" alt="Landing Page"/>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333187/Fit-Focus/21RutinasPersonalizadas_or8jag.png" width="640" height="280" alt="Landing Page"/>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333187/Fit-Focus/22RutinasPersonalizadas_dked1m.png" width="640" height="280" alt="Landing Page"/>
+  <video width="640" height="280" autoplay muted loop><source  src="https://res.cloudinary.com/dm0fwscsy/video/upload/v1677333636/Fit-Focus/videos/rutinasyformulario_haxndt.mp4"></source></video>
 <br/>
 <br/>
 
 - Tablero de Administrador
   <br/>
 
-  <image src="24Admin.png" width="640" height="280" alt="Landing Page"/>
-  <image src="25Admin.png" width="640" height="280" alt="Landing Page"/>
-  <image src="26Admin.png" width="640" height="280" alt="Landing Page"/>
-  <image src="27Admin.png" width="640" height="280" alt="Landing Page"/>
-  <image src="28Admin.png" width="640" height="280" alt="Landing Page"/>
-  <video src="admin.mp4" width="640" height="280" autoplay muted loop> </video>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333187/Fit-Focus/24Admin_lnai3l.png" width="640" height="280" alt="Landing Page"/>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333187/Fit-Focus/25Admin_gd2ewz.png" width="640" height="280" alt="Landing Page"/>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333187/Fit-Focus/26Admin_aiizfs.png" width="640" height="280" alt="Landing Page"/>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333187/Fit-Focus/27Admin_lizqdf.png" width="640" height="280" alt="Landing Page"/>
+  <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677333187/Fit-Focus/28Admin_xjcimz.png" width="640" height="280" alt="Landing Page"/>
+  <video width="640" height="280" autoplay muted loop><source  src="https://res.cloudinary.com/dm0fwscsy/video/upload/v1677333634/Fit-Focus/videos/admin_ivagit.mp4"></source></video>
