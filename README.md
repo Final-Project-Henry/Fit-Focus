@@ -51,7 +51,7 @@ Mongo DB, Mongoose, Mongo Atlas, Node JS, Json Web Token authentication, Nodemai
   <br/>
   <image src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677331056/Fit-Focus/01LandingPage_v0np0e.png" width="640px" height="280px" alt="Landing Page"/>
   <!-- <video width="640" height="280" autoplay muted loop><source  src="Landing.mp4"></source></video> -->
-  <p><img width="640px" height='280px' align='center' src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677331807/Fit-Focus/Landing_qhel3p.gif"/></p>
+  <p><img width="640px" height='280px' alt="Landing Page gif" align='center' src="https://res.cloudinary.com/dm0fwscsy/image/upload/v1677331807/Fit-Focus/Landing_qhel3p.gif"/></p>
   <br/>
   <br/>
 
