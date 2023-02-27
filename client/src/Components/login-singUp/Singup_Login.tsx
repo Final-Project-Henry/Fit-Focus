@@ -8,7 +8,7 @@ import icon from '../assets/icons/login.jpg'
 import { selectUser } from '../../features/counter/counterSlice'
 
 import Login from './Login'
-// import SingUp from "./sing-up";
+import SingUp from './Sign-up'
 import { Link } from 'react-router-dom'
 import facebook from '../assets/login-singup_media/icons8-facebook.svg'
 import google from '../assets/login-singup_media/icons8-google.svg'
@@ -34,9 +34,7 @@ export default function SingUp_Login() {
           {user_existing && <Navigate to='/fitFocus' />}
           <div className='flex  w-full h-full '>
             {id == 'login' && <Login loading_icon={loading_icon} icon={icon} />}
-            {/* {id == "sing-up" && (
-              <SingUp icon={icon} loading_icon={loading_icon} />
-            )} */}
+            {id == 'sing-up' && <SingUp icon={icon} loading_icon={loading_icon} />}
             {id == 'nuevaContraseña' && <ValidadUser loading_icon={loading_icon} icon={icon} />}
           </div>
         </Div_img>
