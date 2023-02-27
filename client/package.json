@@ -49,7 +49,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --collectCoverage=true",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
+    "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
+    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "browserslist": {
     "production": [
@@ -73,8 +76,16 @@
     "@types/react-scroll": "^1.8.4",
     "@types/react-table": "^7.7.12",
     "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
     "autoprefixer": "^10.4.10",
+    "eslint": "^8.35.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "postcss": "^8.4.16",
+    "prettier": "^2.8.4",
     "tailwindcss": "^3.1.8",
     "typescript": "^4.9.5"
   }
