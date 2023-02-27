@@ -1,10 +1,10 @@
-import React from 'react';
-import {datos} from '../../../additional_info/comments';
-import styles from './Comment.module.css';
+import React from 'react'
+import { datos } from '../../../additional_info/comments'
+import styles from './Comment.module.css'
 
 interface data {
-  avatar?: any,
-  name?: string,
+  avatar?: any
+  name?: string
   comment: string
 }
 

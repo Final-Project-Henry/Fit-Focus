@@ -1,57 +1,55 @@
 .container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 20vw;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 20vw;
 }
 .container:before {
-    content: "";
-    width: 200px;
-    height: 35px;
-    background-color: #111828;
-    position: absolute;
-    display: flex;
-    margin-top: 40px;
-    margin-left: 40px;
-    z-index: -1;
+  content: '';
+  width: 200px;
+  height: 35px;
+  background-color: #111828;
+  position: absolute;
+  display: flex;
+  margin-top: 40px;
+  margin-left: 40px;
+  z-index: -1;
 }
 
 .container_2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .name {
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 0;
-    margin: 0;
-    margin-bottom: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 12px;
 }
 
 .social {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
-
 
 .git {
-    background-image: url('../../assets/visitors/social_logos/github.png');
-    background-size: contain;
-    width: 20px;
-    height: 20px;
+  background-image: url('../../assets/visitors/social_logos/github.png');
+  background-size: contain;
+  width: 20px;
+  height: 20px;
 }
 .mail {
-    background-image: url('../../assets/visitors/social_logos/email.png');
-    background-size: contain;
-    width: 20px;
-    height: 20px;
+  background-image: url('../../assets/visitors/social_logos/email.png');
+  background-size: contain;
+  width: 20px;
+  height: 20px;
 }
 .link {
-    background-image: url('../../assets/visitors/social_logos/linkedIn.png');
-    background-size: contain;
-    width: 20px;
-    height: 20px;
+  background-image: url('../../assets/visitors/social_logos/linkedIn.png');
+  background-size: contain;
+  width: 20px;
+  height: 20px;
 }

@@ -1,12 +1,10 @@
 import React from 'react'
-import News from './News/News';
+import News from './News/News'
 
 type Props = {}
 
 const Noticias = (props: Props) => {
-  return (
-      <News />
-  )
+  return <News />
 }
 
-export default Noticias;
+export default Noticias

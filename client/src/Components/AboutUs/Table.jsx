@@ -1,27 +1,26 @@
-import React, { useMemo } from "react";
-import { COLUMNS } from "./Table/columns";
-import DEVS_DATA from "./developers/devs.json";
-import "./Table/Table.css";
-import { v4 as uuidv4 } from "uuid"
-
+import React, { useMemo } from 'react'
+import { COLUMNS } from './Table/columns'
+import DEVS_DATA from './developers/devs.json'
+import './Table/Table.css'
+import { v4 as uuidv4 } from 'uuid'
 
 const Table = () => {
-  const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => DEVS_DATA, []);
+  const columns = useMemo(() => COLUMNS, [])
+  const data = useMemo(() => DEVS_DATA, [])
 
   return (
     <div>
-      <table className="table-auto">
+      <table className='table-auto'>
         <thead>
           <tr>
-          {columns.map((column) => (
-            <th key={uuidv4()}> {column.Header} </th>
-          ))}
+            {columns.map(column => (
+              <th key={uuidv4()}> {column.Header} </th>
+            ))}
           </tr>
         </thead>
 
         <tbody>
-          {data.map((dev) => (
+          {data.map(dev => (
             <tr key={uuidv4()}>
               <td> {dev.nombre} </td>
               <td> {dev.area} </td>
@@ -32,7 +31,7 @@ const Table = () => {
         </tbody>
       </table>
     </div>
-  );
-};
+  )
+}
 
-export default Table;
+export default Table

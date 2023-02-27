@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styles from './Visitor3.module.css';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import styles from './Visitor3.module.css'
 
 export default function Visitor3() {
   return (

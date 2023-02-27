@@ -1,6 +1,6 @@
-import ScrollReveal from 'scrollreveal';
+import ScrollReveal from 'scrollreveal'
 
-const sr = ScrollReveal({ reset: true });
+const sr = ScrollReveal({ reset: true })
 export const config = {
   origin: 'top',
   duration: 1500,
@@ -8,6 +8,6 @@ export const config = {
   distance: '300px',
   scale: 1,
   easing: 'ease',
-};
+}
 
-export default sr;
+export default sr

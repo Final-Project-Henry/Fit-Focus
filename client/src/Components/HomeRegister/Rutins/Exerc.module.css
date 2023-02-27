@@ -1,8 +1,8 @@
 .redirect {
-    height: 10vh;
-    margin-right: 20px;
+  height: 10vh;
+  margin-right: 20px;
 }
 
 .redirect:hover {
-    cursor: pointer;
+  cursor: pointer;
 }

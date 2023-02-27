@@ -1,16 +1,16 @@
 const LoadingCards = (props: { num: any }) => {
-  const cards = [...props.num];
+  const cards = [...props.num]
 
   return (
     <>
-      {cards.map((e) => {
+      {cards.map(e => {
         return (
           <div
-          key={e}
+            key={e}
             className={`max-w-[75%] min-h-[40px] m-2 flex flex-col animate-pulse bg-[#111828cb]  shadow-md `}
           >
             <div className={`h-[200px] overflow-hidden  `}>
-              <span className="object-cover h-[200px] w-full"></span>
+              <span className='object-cover h-[200px] w-full'></span>
             </div>
             <div className={` text-center `}>
               <span
@@ -24,9 +24,9 @@ const LoadingCards = (props: { num: any }) => {
               ></span>
             </div>
           </div>
-        );
+        )
       })}
     </>
-  );
-};
-export default LoadingCards;
+  )
+}
+export default LoadingCards

@@ -1,28 +1,28 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 //solo los componentes llevan tsx
 
 interface AuthState {
-  isLogged: boolean;
+  isLogged: boolean
 }
 
 const initialState: AuthState = {
   isLogged: true,
-};
+}
 
 export const authSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState,
   reducers: {
     login: (state, action: PayloadAction) => {
-      state.isLogged = true;
+      state.isLogged = true
     },
     logout: (state, action: PayloadAction) => {
-      state.isLogged = false;
+      state.isLogged = false
     },
   },
-});
+})
 
-export const { login, logout } = authSlice.actions;
+export const { login, logout } = authSlice.actions
 
-export default authSlice.reducer;
+export default authSlice.reducer

@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import decoration1 from "../../assets/Fotos y Videos HomeVisitor/decoration.svg";
-import decoration2 from "../../assets/Fotos y Videos HomeVisitor/decoration2.svg";
+import styled from 'styled-components'
+import decoration1 from '../../assets/Fotos y Videos HomeVisitor/decoration.svg'
+import decoration2 from '../../assets/Fotos y Videos HomeVisitor/decoration2.svg'
 
 const Div_cards = styled.div`
   display: flex;
@@ -27,8 +27,7 @@ const Div_cards = styled.div`
     }
 
     button:hover {
-      background-color: #0a3fFc;
-
+      background-color: #0a3ffc;
     }
   }
 
@@ -61,7 +60,7 @@ const Div_cards = styled.div`
       }
     }
   }
-`;
+`
 
 const Div_screem3 = styled.div`
   background: url(${decoration1});
@@ -69,10 +68,10 @@ const Div_screem3 = styled.div`
   background-size: 56%;
   background-position: 100% -500%;
 
-  img{
-     margin:10px;
+  img {
+    margin: 10px;
   }
-`;
+`
 
 const Div_screem2 = styled.div`
   display: flex;
@@ -88,12 +87,12 @@ const Div_screem2 = styled.div`
   h3 {
     font-size: 2.7rem;
     position: relative;
-    z-index:50;
+    z-index: 50;
     margin: 20px 100px;
   }
   p {
     position: relative;
-    z-index:10;
+    z-index: 10;
     width: 70%;
     margin: 5px 100px;
     font-size: 1.5rem;
@@ -101,63 +100,62 @@ const Div_screem2 = styled.div`
   #img-2 {
     position: absolute;
     margin: -10% -20%;
-    
   }
-`;
+`
 
 const Span_decoration = styled.div`
-width: 100%;
-height: 600px;
-position: absolute;
-z-index:10;
-margin:300px;
-background-color: transparent;
-background: url(${decoration2});
-background-repeat: no-repeat;
-background-size: 34%;
-opacity: 20%;
-background-position:1% 300px;
+  width: 100%;
+  height: 600px;
+  position: absolute;
+  z-index: 10;
+  margin: 300px;
+  background-color: transparent;
+  background: url(${decoration2});
+  background-repeat: no-repeat;
+  background-size: 34%;
+  opacity: 20%;
+  background-position: 1% 300px;
 `
 
 const Span_decoration2 = styled.div`
-width: 100%;
-height: 600px;
-position: absolute;
-z-index:10;
-margin:-100px;
-background-color: transparent;
-background: url(${decoration2});
-background-repeat: no-repeat;
-background-size: 20%;
-background-position:50px 90px;
-opacity: 30%;
-`;
+  width: 100%;
+  height: 600px;
+  position: absolute;
+  z-index: 10;
+  margin: -100px;
+  background-color: transparent;
+  background: url(${decoration2});
+  background-repeat: no-repeat;
+  background-size: 20%;
+  background-position: 50px 90px;
+  opacity: 30%;
+`
 const Span_decoration3 = styled.div`
-width: 50%;
-height: 100vh;
-position: absolute;
-z-index:10;
-background-color: transparent;
-background: url(${decoration1});
-background-repeat: no-repeat;
-background-size: 100%;
-background-position:0px -70px;
-opacity: 50%;
-margin-top: 30%;
-`;
+  width: 50%;
+  height: 100vh;
+  position: absolute;
+  z-index: 10;
+  background-color: transparent;
+  background: url(${decoration1});
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 0px -70px;
+  opacity: 50%;
+  margin-top: 30%;
+`
 const Span_decoration4 = styled.div`
-width: 100%;
-min-height: 120vh;
-position: absolute;
-z-index:-1;
-transform: rotate(80deg);
-background-color: transparent;
-background: url(${decoration1});
-background-repeat: no-repeat;
-background-size: 70%;
-background-position:200px -70px;
-opacity: 80%;
-`;
+  width: 100%;
+  min-height: 120vh;
+  position: absolute;
+  z-index: -1;
+  transform: rotate(80deg);
+  background-color: transparent;
+  background: url(${decoration1});
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: 200px -70px;
+  opacity: 80%;
+`
 const Div_about = styled.div`
   flex-direction: row-reverse;
   #text-about {
@@ -227,7 +225,7 @@ const Div_about = styled.div`
     flex-wrap: wrap;
     height: 100vh;
   }
-`;
+`
 
 export {
   Div_about,
@@ -237,5 +235,5 @@ export {
   Span_decoration,
   Span_decoration2,
   Span_decoration3,
-  Span_decoration4
-};
+  Span_decoration4,
+}

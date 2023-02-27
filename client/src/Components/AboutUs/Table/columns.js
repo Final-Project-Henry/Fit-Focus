@@ -1,18 +1,18 @@
 export const COLUMNS = [
   {
-    Header: "NOMBRE",
-    accesor: "nombre",
+    Header: 'NOMBRE',
+    accesor: 'nombre',
   },
   {
-    Header: "AREA",
-    accesor: "area",
+    Header: 'AREA',
+    accesor: 'area',
   },
   {
-    Header: "CORREO",
-    accesor: "email",
+    Header: 'CORREO',
+    accesor: 'email',
   },
   {
-    Header: "NACIONALIDAD",
-    accesor: "nacionalidad",
+    Header: 'NACIONALIDAD',
+    accesor: 'nacionalidad',
   },
-];
+]

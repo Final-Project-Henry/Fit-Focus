@@ -1,20 +1,17 @@
-const app = require('./app.js');
+const app = require('./app.js')
 require('dotenv').config()
-const {connection} = require('./db.js')
-const dbLoader = require ('./addDB')
+const { connection } = require('./db.js')
+const dbLoader = require('./addDB')
 
+const { PORT } = process.env
 
-
- const {PORT} = process.env
-
-connection.syncIndexes()
-.then(async()=>{
-  await dbLoader()})
-.then(()=>{
-  app.listen(PORT, () => {
-  console.log(`Server is listening on PORT: ${PORT}`)
-});
-})
-
-
-
+connection
+  .syncIndexes()
+  .then(async () => {
+    await dbLoader()
+  })
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server is listening on PORT: ${PORT}`)
+    })
+  })

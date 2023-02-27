@@ -45,7 +45,7 @@ const SignUp: React.FC<Propos> = ({ loading_icon, icon }) => {
   //////////obtencion de datos  por medio de los input//////////////////////////////////////////
 
   function handleChange(event: React.ChangeEvent<HTMLFormElement | HTMLInputElement>): void {
-    Set_form_data((pv) => ({ ...pv, [event.target.name]: event.target.value }))
+    Set_form_data(pv => ({ ...pv, [event.target.name]: event.target.value }))
     setError({ ...error, [event.target.name]: '' })
   }
 
@@ -62,7 +62,7 @@ const SignUp: React.FC<Propos> = ({ loading_icon, icon }) => {
         confirmButtonColor: '#230bf8',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Aceptar',
-      }).then((result) => {
+      }).then(result => {
         setError({ ...error, name: 'border-red-600' })
       })
 
@@ -77,7 +77,7 @@ const SignUp: React.FC<Propos> = ({ loading_icon, icon }) => {
         confirmButtonColor: '#230bf8',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Aceptar',
-      }).then((result) => {
+      }).then(result => {
         setError({ ...error, email: 'border-red-600' })
       })
       return
@@ -91,7 +91,7 @@ const SignUp: React.FC<Propos> = ({ loading_icon, icon }) => {
         confirmButtonColor: '#230bf8',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Aceptar',
-      }).then((result) => {
+      }).then(result => {
         setError({ ...error, password: 'border-red-600' })
       })
       return
@@ -138,7 +138,7 @@ const SignUp: React.FC<Propos> = ({ loading_icon, icon }) => {
                 autoComplete='off'
                 placeholder='Alex'
                 value={Form_data.name}
-                onChange={(event) => handleChange(event)}
+                onChange={event => handleChange(event)}
               />
             </div>
             <div className='mt-4'>
@@ -149,7 +149,7 @@ const SignUp: React.FC<Propos> = ({ loading_icon, icon }) => {
                 name='email'
                 placeholder='Alex@gmail.com'
                 value={Form_data.email}
-                onChange={(event) => handleChange(event)}
+                onChange={event => handleChange(event)}
               />
               {user.error?.includes('User') && <label className='text-red-500'>Esta cuanta ya existe</label>}
             </div>
@@ -164,7 +164,7 @@ const SignUp: React.FC<Propos> = ({ loading_icon, icon }) => {
                 autoComplete='off'
                 placeholder='••••••••'
                 value={Form_data.password}
-                onChange={(event) => handleChange(event)}
+                onChange={event => handleChange(event)}
               />
               {user.error?.includes('Password') && <label className='text-red-500'>Contraseña no validad</label>}
             </div>
