@@ -3,10 +3,8 @@ import { useToken } from '../../app/hooks'
 import styles from './styles/LandingPage.module.css'
 import { useNavigate } from 'react-router-dom'
 
-const landingTrain = require('../assets/landing-media/landingTrain.mp4')
-
 const LandingPage = () => {
-  let user = useToken()
+  const user = useToken()
   const navigate = useNavigate()
 
   const onClick = () => {
@@ -15,7 +13,13 @@ const LandingPage = () => {
   return (
     <div className={styles.main}>
       <div className={styles.overlay}></div>
-      <video src={landingTrain} height='100vh' autoPlay loop muted />
+      <video
+        src='https://res.cloudinary.com/dm0fwscsy/video/upload/v1677647332/Fit-Focus/videos/landingTrain_lgruzz.mp4'
+        height='100vh'
+        autoPlay
+        loop
+        muted
+      />
       <div className={styles.titleApp}>
         <h1 className={styles.name}>FIT FOCUS</h1>
       </div>

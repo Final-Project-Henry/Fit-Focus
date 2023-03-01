@@ -4,7 +4,7 @@ import { Exercises_Get } from '../../../features/counter/counterSlice'
 import Card from './Card'
 
 export default function Comments() {
-  let id: number = 0
+  let id = 0
   const dispatch = useAppDispatch()
   const user = useAppSelector(state => state.user)
   const comments = user.exercises?.filter((e: any) => e.feedback.length > 0)

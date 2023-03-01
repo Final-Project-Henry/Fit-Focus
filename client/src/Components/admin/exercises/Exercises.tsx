@@ -16,6 +16,11 @@ interface Page {
   skip: number
   take: number
 }
+interface Cell {
+  dataItem: {
+    premium: string
+  }
+}
 
 const initialSort: Array<SortDescriptor> = [{ field: 'name', dir: 'asc' }]
 
@@ -25,8 +30,8 @@ export default function Exercises() {
   const admin = useAppSelector(state => state.admin)
   const navigate = useNavigate()
 
-  let total: number | undefined = user.exercises?.length
-  let pageSize: number = 10
+  const total: number | undefined = user.exercises?.length
+  const pageSize = 10
 
   const [page, setPage] = React.useState<Page>({ skip: 0, take: pageSize })
   const [sort, setSort] = React.useState(initialSort)
@@ -88,7 +93,7 @@ export default function Exercises() {
     )
   }
 
-  const planCell = (props: any) => {
+  const planCell = ({ dataItem }: Cell) => {
     return (
       <td>
         <div
@@ -98,8 +103,8 @@ export default function Exercises() {
             gap: '5px',
           }}
         >
-          <img style={{ width: '20px', height: '20px' }} src={props.dataItem.premium ? premium : free} />
-          {props.dataItem.premium ? 'Premium' : 'Normal'}
+          <img style={{ width: '20px', height: '20px' }} src={dataItem.premium ? premium : free} />
+          {dataItem.premium ? 'Premium' : 'Normal'}
         </div>
       </td>
     )

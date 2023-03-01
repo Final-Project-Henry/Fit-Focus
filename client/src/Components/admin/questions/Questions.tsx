@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import Swal from 'sweetalert2'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import { get_questions, reset_status_res } from '../../../features/admin/admin'
@@ -38,7 +38,11 @@ export default function Questions() {
             {admin.questions.length === 0 ? (
               <h1>No hay preguntas</h1>
             ) : (
-              admin.questions?.map((question: any, i: number) => <Question datos={question} index={i} />)
+              admin.questions?.map((question: any, i: number) => (
+                <div key={i}>
+                  <Question datos={question} index={i} />
+                </div>
+              ))
             )}
           </div>
         </div>

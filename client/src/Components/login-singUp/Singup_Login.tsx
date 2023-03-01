@@ -22,8 +22,8 @@ import ProtectedRoute from '../../routes/ProtectedRoute'
 
 export default function SingUp_Login() {
   const { id } = useParams()
-  let user = useAppSelector(selectUser)
-  let user_existing = useSesion()
+  const user = useAppSelector(selectUser)
+  const user_existing = useSesion()
 
   return (
     <>

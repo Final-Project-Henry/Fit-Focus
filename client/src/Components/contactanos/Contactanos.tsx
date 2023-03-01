@@ -167,6 +167,7 @@ const Contactanos = () => {
                     <a
                       href='http://wa.me/+51917341261?text=Me encanta la app de Fit Focus y quisiera saber mas de ella'
                       target='_blank'
+                      rel='noreferrer'
                     >
                       <h4 className='font-bold text-gray-900 text-xl mb-1'>Número telefónico</h4>
                       <p className='text-base text-body-color'>(+51) 917 341 261</p>
@@ -196,7 +197,7 @@ const Contactanos = () => {
                     </svg>
                   </div>
                   <div className='w-full'>
-                    <a href='https://mail.google.com/' target='_blank'>
+                    <a href='https://mail.google.com/' target='_blank' rel='noreferrer'>
                       <h4 className='font-bold text-gray-900 text-xl mb-1'>Correo</h4>
                       <p className='text-base text-body-color'>fitfocus@gmail.com</p>
                     </a>

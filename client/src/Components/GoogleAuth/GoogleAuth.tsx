@@ -7,9 +7,9 @@ import { composeWithDevTools } from '@reduxjs/toolkit/dist/devtoolsExtension'
 import jwtDecode from 'jwt-decode'
 
 interface response {
-  clientId: String
-  credential: String
-  select_by: String
+  clientId: string
+  credential: string
+  select_by: string
 }
 
 export default function GoogleAuth() {
@@ -17,7 +17,7 @@ export default function GoogleAuth() {
   const [code, setCode] = useState('')
   const dispatch = useAppDispatch()
 
-  const sendInfo = (code: String) => {
+  const sendInfo = (code: string) => {
     dispatch(authGoogle({ code: code }))
   }
 
@@ -25,8 +25,8 @@ export default function GoogleAuth() {
     if (code.length > 0 && EstadoCuenta != 'Activar') {
       sendInfo(code)
     } else if (EstadoCuenta === 'Activar') {
-      let user = jwtDecode(code)
-      let data: any = user
+      const user = jwtDecode(code)
+      const data: any = user
       dispatch(ActivecuentaGoogle({ email: data.email, password: data.sub }))
     }
   }, [code, EstadoCuenta])

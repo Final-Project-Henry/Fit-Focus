@@ -1,5 +1,3 @@
-import React from 'react'
-
 const News5 = () => {
   return (
     <div>
@@ -60,9 +58,9 @@ const News5 = () => {
                 >
                   <div data-qa='body' className='FaRDqXgS responsive-body-2-1 mt6-sm text-color-primary-dark'>
                     <p>
-                      Cuando se trata de entrenar, si nos atenemos a la teoría, "sin dolor no hay ganancia" (incluso si
+                      {`Cuando se trata de entrenar, si nos atenemos a la teoría, "sin dolor no hay ganancia" (incluso si
                       sientes mucho dolor), es posible que cruces la línea entre las grandes ganancias y las posibles
-                      lesiones.
+                      lesiones.`}
                     </p>
                     <p>
                       El dolor no siempre es causa de alarma, de hecho, es muy común, sobre todo después de un
@@ -70,6 +68,7 @@ const News5 = () => {
                         target='_blank'
                         data-analytics-action-id='2dde6fc1-3369-4182-b15a-21594612b0aa'
                         href='https://www.nike.com/us/es/a/beneficios-running-entrenamiento-intervalos'
+                        rel='noreferrer'
                       >
                         entrenamiento intenso
                       </a>
@@ -79,6 +78,7 @@ const News5 = () => {
                         target='_blank'
                         data-analytics-action-id='03e6e7c1-964f-4957-b2b8-15bcd41e9b65'
                         href='https://www.nike.com/us/es/a/mejor-calzado-de-cross-training'
+                        rel='noreferrer'
                       >
                         practicar cross training
                       </a>
@@ -89,6 +89,7 @@ const News5 = () => {
                         target='_blank'
                         data-analytics-action-id='0fe74403-18f1-483f-866a-c13ab41d3ebd'
                         href='https://www.nike.com/us/es/a/consejos-recuperacion-running'
+                        rel='noreferrer'
                       >
                         ayudar a tu cuerpo a recuperarse
                       </a>
@@ -136,6 +137,7 @@ const News5 = () => {
                         target='_blank'
                         data-analytics-action-id='df99307f-cf5b-42e2-bbd6-0550cffb15a9'
                         href='https://pubmed.ncbi.nlm.nih.gov/12617692/#:~:text=DOMS%20is%20most%20prevalent%20at,of%20the%20time%20of%20year'
+                        rel='noreferrer'
                       >
                         comunes de dolor
                       </a>
@@ -146,6 +148,7 @@ const News5 = () => {
                         target='_blank'
                         data-analytics-action-id='8a711f11-ad95-4725-8963-0bcebefd012b'
                         href='https://extension.tennessee.edu/publications/Documents/W968.pdf'
+                        rel='noreferrer'
                       >
                         dolor agudo
                       </a>
@@ -163,31 +166,32 @@ const News5 = () => {
                         target='_blank'
                         data-analytics-action-id='01dd266b-6c15-4855-8666-4b28534e81c1'
                         href='https://pubmed.ncbi.nlm.nih.gov/27409551/'
+                        rel='noreferrer'
                       >
                         la acumulación de ácido láctico
                       </a>
                       , según las investigaciones recientes.
                     </p>
                     <p>
-                      Sin embargo, algo muy cierto es que el dolor no debería ser un indicador de si tu entrenamiento
+                      {`Sin embargo, algo muy cierto es que el dolor no debería ser un indicador de si tu entrenamiento
                       fue un fracaso o un éxito. "El dolor no indica automáticamente un entrenamiento eficaz y tampoco
                       significa que hiciste ejercicio en exceso o que hiciste algo mal", comenta DiSarro. "Todo depende
-                      realmente de cómo te sientas y qué es tolerable para ti".
+                      realmente de cómo te sientas y qué es tolerable para ti".`}
                     </p>
                     <p>
-                      Megan Steele, P.T., D.P.T., fisióloga del ejercicio, fisioterapeuta y miembro adjunta de la
+                      {`Megan Steele, P.T., D.P.T., fisióloga del ejercicio, fisioterapeuta y miembro adjunta de la
                       facultad en la Universidad Mount Saint Mary's con sede en Los Ángeles, agrega que el daño muscular
                       inducido por el ejercicio ocurre a menudo cuando estiramos los músculos después de un
                       entrenamiento. Por ejemplo, dolor en la pantorrilla al subir o bajar escaleras después de una
                       larga carrera o sensibilidad en el cuádriceps al sentarse los días posteriores a hacer
-                      sentadillas.
+                      sentadillas.`}
                     </p>
                     <p>
-                      "El dolor ocurre con el ejercicio debido al daño muscular menor, también llamado daño muscular
+                      {`"El dolor ocurre con el ejercicio debido al daño muscular menor, también llamado daño muscular
                       inducido por el ejercicio, y el proceso inflamatorio asociado que ocurre como consecuencia de la
                       sobrecarga mecánica de los músculos. Este dolor es a menudo más leve y ligero por naturaleza y,
                       por lo general, se expande a lo largo del músculo", afirma Steele. "Estos son signos normales de
-                      dolor".
+                      dolor".`}
                     </p>
                   </div>
                 </div>
@@ -269,21 +273,21 @@ const News5 = () => {
                     </p>
                     <ul>
                       <li>
-                        <strong className='u-bold'>Hay un inicio tardío del dolor.</strong>
-                        Si se siente dolor en los días posteriores al entrenamiento, es probable que puedas atribuirlo
+                        <strong className='u-bold'>{`Hay un inicio tardío del dolor.`}</strong>
+                        {`Si se siente dolor en los días posteriores al entrenamiento, es probable que puedas atribuirlo
                         al DOMS. "Puedes tranquilizarte si experimentas un inicio tardío en el dolor", comenta DiSarro.
                         "Esta molestia puede aparecer entre las 24 y 72 horas, [incluso] hasta después de no haber
-                        sentido ningún dolor durante 12 o 24 horas posteriores al entrenamiento".
+                        sentido ningún dolor durante 12 o 24 horas posteriores al entrenamiento".`}
                         <br />
                         <br />
                       </li>
                       <li>
                         <strong className='u-bold'>El dolor se disipa después de 72 horas.</strong>
-                        Si estás experimentando DOMS, deberías notar que el dolor disminuye en los días posteriores al
+                        {`Si estás experimentando DOMS, deberías notar que el dolor disminuye en los días posteriores al
                         entrenamiento (y con respecto al dolor agudo, debería disiparse dentro de la hora posterior al
                         haber finalizado el ejercicio). "La buena noticia es que el dolor tiene una limitación de tiempo
                         relativamente corta", dice Steele. "Si algo dura más de un par de días [...], es posible que
-                        debas consultar con tu médico o un fisioterapeuta".
+                        debas consultar con tu médico o un fisioterapeuta".`}
                         <br />
                         <br />
                       </li>
@@ -312,11 +316,11 @@ const News5 = () => {
                       </li>
                       <li>
                         <strong className='u-bold'>No experimentas dolor cuando descansas.</strong>
-                        Steele comenta que la molestia normal después del ejercicio se siente "cuando les pedimos a
+                        {`Steele comenta que la molestia normal después del ejercicio se siente "cuando les pedimos a
                         nuestros músculos que estiren después de un entrenamiento" (como el dolor en el cuádriceps al
                         sentarte o el dolor en las pantorrillas cuando usas las escaleras). "Algunas señales [anormales]
                         de molestia pueden ser el dolor en reposo, o bien cuando no utilizamos nuestros músculos o les
-                        pedimos que se contraigan", afirma Steele.
+                        pedimos que se contraigan", afirma Steele.`}
                       </li>
                     </ul>
                   </div>
@@ -352,18 +356,18 @@ const News5 = () => {
                   </h4>
                   <div data-qa='body' className='FaRDqXgS responsive-body-2-1 mt6-sm text-color-primary-dark'>
                     <p>
-                      Debido a que el dolor es a menudo una parte normal del ejercicio, la clave es enfatizar en la
+                      {`Debido a que el dolor es a menudo una parte normal del ejercicio, la clave es enfatizar en la
                       recuperación. DiSarro explica que esto se debe a que el dolor es "una señal de que estás
                       desafiando el tejido muscular". Las investigaciones han sido inconclusas sobre el régimen de
                       recuperación exacto para aliviar el DOMS. DiSarro recomienda una buena nutrición, hidratación
                       adecuada y calidad de sueño para ayudar a los músculos a recuperarse y seguir teniendo un alto
-                      rendimiento a largo plazo.
+                      rendimiento a largo plazo.`}
                     </p>
                     <p>
-                      "Por lo general, si estás empezando a entrenar o vuelves a hacerlo después de un período de
+                      {`"Por lo general, si estás empezando a entrenar o vuelves a hacerlo después de un período de
                       inactividad, debes permitir períodos de recuperación adecuados entre los entrenamientos", comenta
                       DiSarro. "Esto puede incluir trabajar la movilidad, estiramiento, cardio liviano o estirando una
-                      zona del cuerpo diferente mientras te recuperas del entrenamiento anterior".
+                      zona del cuerpo diferente mientras te recuperas del entrenamiento anterior".`}
                     </p>
                     <p>
                       Según un
@@ -371,6 +375,7 @@ const News5 = () => {
                         target='_blank'
                         data-analytics-action-id='fc93ea72-86bb-49d6-9768-becdc7723286'
                         href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4299735/#:~:text=After%20an%20intense%20bout%20of,the%20recovery%20of%20muscular%20performance'
+                        rel='noreferrer'
                       >
                         estudio pequeño
                       </a>
@@ -380,6 +385,7 @@ const News5 = () => {
                         target='_blank'
                         data-analytics-action-id='8fae2ce6-a474-4e52-8e88-e4e50d3d97b7'
                         href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5932411/'
+                        rel='noreferrer'
                       >
                         Algunas pruebas
                       </a>
@@ -388,6 +394,7 @@ const News5 = () => {
                         target='_blank'
                         data-analytics-action-id='12f28288-0124-426e-8a4c-4a11b59065f0'
                         href='https://pubmed.ncbi.nlm.nih.gov/12617692/'
+                        rel='noreferrer'
                       >
                         investigaciones arrojan lo contrario
                       </a>
@@ -435,9 +442,9 @@ const News5 = () => {
                       neuromusculares, la amplitud de movimiento articular, la fuerza, la potencia y el control motor.
                     </p>
                     <p>
-                      "Puede ser una buena idea omitir un entrenamiento debido al dolor si la amplitud de movimiento
+                      {`"Puede ser una buena idea omitir un entrenamiento debido al dolor si la amplitud de movimiento
                       está tan limitada que no puedes hacer ningún ejercicio correctamente", afirma Steele. "Esto puede
-                      conducir a una [sobre]compensación o estrés en otras estructuras que pueden causar una lesión".
+                      conducir a una [sobre]compensación o estrés en otras estructuras que pueden causar una lesión".`}
                     </p>
                     <p>
                       La tolerancia al dolor es diferente para cada uno de nosotros. Y, como tal, la extensión y la

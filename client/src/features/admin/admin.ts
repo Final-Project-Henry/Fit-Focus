@@ -43,15 +43,15 @@ export interface comments {
 }
 
 export const get_users = createAsyncThunk('admin/get_users', async (_, thunkAPI) => {
-  let userJSON = window.localStorage.getItem('Login_userFit_Focus')
+  const userJSON = window.localStorage.getItem('Login_userFit_Focus')
   let token
   if (userJSON) {
     if (userJSON.length > 3) {
-      let userlogin = JSON.parse(userJSON)
+      const userlogin = JSON.parse(userJSON)
       token = userlogin.token
     }
   }
-  const response = await axios.get('http://localhost:3001/admin/allusers', {
+  const response = await axios.get(`${process.env.REACT_APP_API_URL}/admin/allusers`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -60,15 +60,15 @@ export const get_users = createAsyncThunk('admin/get_users', async (_, thunkAPI)
 })
 
 export const get_questions = createAsyncThunk('admin/get_questions', async (_, thunkAPI) => {
-  let userJSON = window.localStorage.getItem('Login_userFit_Focus')
+  const userJSON = window.localStorage.getItem('Login_userFit_Focus')
   let token
   if (userJSON) {
     if (userJSON.length > 3) {
-      let userlogin = JSON.parse(userJSON)
+      const userlogin = JSON.parse(userJSON)
       token = userlogin.token
     }
   }
-  const response = await axios.get('http://localhost:3001/admin/questions', {
+  const response = await axios.get(`${process.env.REACT_APP_API_URL}/admin/questions`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -76,16 +76,16 @@ export const get_questions = createAsyncThunk('admin/get_questions', async (_, t
   return response.data
 })
 export const add_admin = createAsyncThunk('admin/add_admin', async (_id: string, thunkAPI) => {
-  let userJSON = window.localStorage.getItem('Login_userFit_Focus')
+  const userJSON = window.localStorage.getItem('Login_userFit_Focus')
   let token
   if (userJSON) {
     if (userJSON.length > 3) {
-      let userlogin = JSON.parse(userJSON)
+      const userlogin = JSON.parse(userJSON)
       token = userlogin.token
     }
   }
   const response = await axios.post(
-    'http://localhost:3001/superAdmin/admin',
+    `${process.env.REACT_APP_API_URL}/superAdmin/admin`,
     { _id: _id },
     {
       headers: {
@@ -98,16 +98,16 @@ export const add_admin = createAsyncThunk('admin/add_admin', async (_id: string,
 export const change_profile = createAsyncThunk(
   'admin/change_profile',
   async (data: { _id: string; data: any }, thunkAPI) => {
-    let userJSON = window.localStorage.getItem('Login_userFit_Focus')
+    const userJSON = window.localStorage.getItem('Login_userFit_Focus')
     let token
     if (userJSON) {
       if (userJSON.length > 3) {
-        let userlogin = JSON.parse(userJSON)
+        const userlogin = JSON.parse(userJSON)
         token = userlogin.token
       }
     }
     const response = await axios.put(
-      'http://localhost:3001/admin/changeUserInfo',
+      `${process.env.REACT_APP_API_URL}/admin/changeUserInfo`,
       { _id: data._id, data: data.data },
       {
         headers: {
@@ -119,16 +119,16 @@ export const change_profile = createAsyncThunk(
   },
 )
 export const change_info = createAsyncThunk('admin/change_info', async (data: { _id: string; data: any }, thunkAPI) => {
-  let userJSON = window.localStorage.getItem('Login_userFit_Focus')
+  const userJSON = window.localStorage.getItem('Login_userFit_Focus')
   let token
   if (userJSON) {
     if (userJSON.length > 3) {
-      let userlogin = JSON.parse(userJSON)
+      const userlogin = JSON.parse(userJSON)
       token = userlogin.token
     }
   }
   const response = await axios.put(
-    'http://localhost:3001/admin/changeInfo',
+    `${process.env.REACT_APP_API_URL}/admin/changeInfo`,
     { _id: data._id, data: data.data },
     {
       headers: {
@@ -142,16 +142,16 @@ export const change_info = createAsyncThunk('admin/change_info', async (data: { 
 export const change_exercise = createAsyncThunk(
   'admin/change_exercise',
   async (data: { _id: string; data: any }, thunkAPI) => {
-    let userJSON = window.localStorage.getItem('Login_userFit_Focus')
+    const userJSON = window.localStorage.getItem('Login_userFit_Focus')
     let token
     if (userJSON) {
       if (userJSON.length > 3) {
-        let userlogin = JSON.parse(userJSON)
+        const userlogin = JSON.parse(userJSON)
         token = userlogin.token
       }
     }
     const response = await axios.put(
-      'http://localhost:3001/admin/change_exercise',
+      `${process.env.REACT_APP_API_URL}/admin/change_exercise`,
       { _id: data._id, data: data.data },
       {
         headers: {
@@ -164,15 +164,15 @@ export const change_exercise = createAsyncThunk(
 )
 
 export const delete_user = createAsyncThunk('admin/delete_user', async (id: string, thunkAPI) => {
-  let userJSON = window.localStorage.getItem('Login_userFit_Focus')
+  const userJSON = window.localStorage.getItem('Login_userFit_Focus')
   let token
   if (userJSON) {
     if (userJSON.length > 3) {
-      let userlogin = JSON.parse(userJSON)
+      const userlogin = JSON.parse(userJSON)
       token = userlogin.token
     }
   }
-  const response = await axios.delete('http://localhost:3001/admin/deleteUser', {
+  const response = await axios.delete(`${process.env.REACT_APP_API_URL}/admin/deleteUser`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -182,16 +182,16 @@ export const delete_user = createAsyncThunk('admin/delete_user', async (id: stri
 })
 
 export const add_exercise = createAsyncThunk('admin/add_exercise', async (data: data, thunkAPI) => {
-  let userJSON = window.localStorage.getItem('Login_userFit_Focus')
+  const userJSON = window.localStorage.getItem('Login_userFit_Focus')
   let token
   if (userJSON) {
     if (userJSON.length > 3) {
-      let userlogin = JSON.parse(userJSON)
+      const userlogin = JSON.parse(userJSON)
       token = userlogin.token
     }
   }
   const response = await axios.post(
-    'http://localhost:3001/admin/addExercise',
+    `${process.env.REACT_APP_API_URL}/admin/addExercise`,
     { datos: data },
     {
       headers: {
@@ -205,16 +205,16 @@ export const add_exercise = createAsyncThunk('admin/add_exercise', async (data: 
 export const add_response = createAsyncThunk(
   'admin/add_response',
   async (data: { email: string; response: string }, thunkAPI) => {
-    let userJSON = window.localStorage.getItem('Login_userFit_Focus')
+    const userJSON = window.localStorage.getItem('Login_userFit_Focus')
     let token
     if (userJSON) {
       if (userJSON.length > 3) {
-        let userlogin = JSON.parse(userJSON)
+        const userlogin = JSON.parse(userJSON)
         token = userlogin.token
       }
     }
     const response = await axios.put(
-      'http://localhost:3001/admin/response_ask',
+      `${process.env.REACT_APP_API_URL}/admin/response_ask`,
       { email: data.email, response: data.response },
       {
         headers: {
@@ -227,15 +227,15 @@ export const add_response = createAsyncThunk(
 )
 
 export const delete_exer = createAsyncThunk('admin/delete_exer', async (id: string, thunkAPI) => {
-  let userJSON = window.localStorage.getItem('Login_userFit_Focus')
+  const userJSON = window.localStorage.getItem('Login_userFit_Focus')
   let token
   if (userJSON) {
     if (userJSON.length > 3) {
-      let userlogin = JSON.parse(userJSON)
+      const userlogin = JSON.parse(userJSON)
       token = userlogin.token
     }
   }
-  const response = await axios.delete('http://localhost:3001/admin/deleteExercise', {
+  const response = await axios.delete(`${process.env.REACT_APP_API_URL}/admin/deleteExercise`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -245,15 +245,15 @@ export const delete_exer = createAsyncThunk('admin/delete_exer', async (id: stri
 })
 
 export const delete_comment = createAsyncThunk('admin/delete_comment', async (data: comments) => {
-  let userJSON = window.localStorage.getItem('Login_userFit_Focus')
+  const userJSON = window.localStorage.getItem('Login_userFit_Focus')
   let token
   if (userJSON) {
     if (userJSON.length > 3) {
-      let userlogin = JSON.parse(userJSON)
+      const userlogin = JSON.parse(userJSON)
       token = userlogin.token
     }
   }
-  const response = await axios.delete('http://localhost:3001/admin/deleteUserComment', {
+  const response = await axios.delete(`${process.env.REACT_APP_API_URL}/admin/deleteUserComment`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -355,7 +355,7 @@ export const AdminSlice = createSlice({
   },
 })
 
-export const {} = AdminSlice.actions
+// export const {} = AdminSlice.actions
 export const {
   reset_delete_user,
   reset_delete_exer,

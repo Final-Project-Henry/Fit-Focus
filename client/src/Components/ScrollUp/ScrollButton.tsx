@@ -5,7 +5,7 @@ const ScrollButton = () => {
   const [topButton, setTopButton] = useState<HTMLElement>()
 
   window.onscroll = function () {
-    var scroll = document.documentElement.scrollTop
+    const scroll = document.documentElement.scrollTop
 
     if (scroll > 500 && topButton) {
       topButton.style.transform = 'scale(1.3)'

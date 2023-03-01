@@ -134,7 +134,7 @@ router.post('/newpassword', async (req, res) => {
   try {
     const User = await user.findOne({ email: email })
     const token = jwt.sign({ name: User.name, id: User._id }, '' + SECRET, { expiresIn: '10m' })
-    const LinknewPassword = 'http://localhost:3000/NewPassword/' + token
+    const LinknewPassword = `${process.env.APP_URL}/NewPassword/${token}`
 
     const transporter = mailSettings.transporter
     const mailDetails = mailSettings.mailNewPassword(email, LinknewPassword)
@@ -156,7 +156,7 @@ router.get('/feedback', async (req, res) => {
     const { payment_id } = req.query
 
     return res.redirect(
-      payment_id ? `http://localhost:3000/mercadopago/${payment_id}` : 'http://localhost:3000/mercadopago',
+      payment_id ? `${process.env.APP_URL}/mercadopago/${payment_id}` : `${process.env.APP_URL}/mercadopago`,
     )
   } catch (error) {
     res.status(500).send(error.message)

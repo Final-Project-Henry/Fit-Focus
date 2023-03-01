@@ -1,13 +1,12 @@
-import React, { useEffect, useMemo, useState } from 'react'
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
-import { useAppDispatch, useAppSelector, useSesion, useToken } from './app/hooks'
+import React, { useEffect } from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom'
+import { useAppDispatch, useSesion, useToken } from './app/hooks'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 
 /* Componentes */
-import { getProfileInfo, selectUser, sigendOut } from './features/counter/counterSlice'
+import { getProfileInfo } from './features/counter/counterSlice'
 import HomeRegister from './Components/HomeRegister/HomeRegister'
 import SingUp_Login from './Components/login-singUp/Singup_Login'
-import Form_rutinas from './Components/form_rutinas/From_rutina'
 import LandingPage from './Components/LandingPage/LandingPage'
 import GoogleAuth from './Components/GoogleAuth/GoogleAuth'
 import MercadoPago from './Components/MercadoPago/MercadoPago'
@@ -28,11 +27,8 @@ import RutinasPersonales from './Components/HomeRegister/RutinasPersonales'
 import Dashboard from './Components/admin/Dashboard'
 import Error_page from './Components/error/Error_page'
 import ContactUs from './Components/Contact/Contact'
-import Login2 from './Components/login-singUp/Login2'
 import PoliticaPriv from './Components/PoliticaPrivacidad/PoliticaPriv'
 import TerminosYCondiciones from './Components/terminosycondiciones/TerminosYCondiciones'
-import LoadingCards from './Components/loading/LoadingCards'
-import functions from './additional_info/functions'
 import Contactanos from './Components/contactanos/Contactanos'
 import AboutUs from './Components/AboutUs/AboutUs'
 //admin components
@@ -49,7 +45,7 @@ import Training from './Components/HomeRegister/Rutins/Training'
 
 function App() {
   const { pathname } = useLocation()
-  let token = useToken()
+  const token = useToken()
   const user = useSesion()
   const dispacht = useAppDispatch()
 

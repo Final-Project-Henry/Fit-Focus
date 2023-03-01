@@ -62,14 +62,14 @@ export default function DecriptionEjer() {
   }, [id, token])
 
   useEffect(() => {
-    let commentExist = descripcionEjersicio?.find((e: any) => e?.email == user?.email)
+    const commentExist = descripcionEjersicio?.find((e: any) => e?.email == user?.email)
     if (commentExist) setValidac(false)
     else setValidac(true)
   }, [descripcionEjersicio])
 
   useEffect(() => {
     if (detailEjec) {
-      let newarr: commet[] = []
+      const newarr: commet[] = []
 
       detailEjec?.feedback?.map((e: any) => {
         if (e.email === user?.email) {
@@ -81,7 +81,7 @@ export default function DecriptionEjer() {
   }, [detailEjec, user])
 
   const AddEdit = () => {
-    let commentuser = descripcionEjersicio?.find((e: any) => e?.email == user?.email)
+    const commentuser = descripcionEjersicio?.find((e: any) => e?.email == user?.email)
     if (commentuser) {
       setcomment(commentuser?.comment)
       setrewind({ cont: commentuser?.rating })
@@ -107,7 +107,7 @@ export default function DecriptionEjer() {
   const SubmitCommet = (e: Event | any) => {
     e.preventDefault()
 
-    let data = { avatar: user?.avatar, email: user?.email, rating: rewind.cont, id, comment, token }
+    const data = { avatar: user?.avatar, email: user?.email, rating: rewind.cont, id, comment, token }
     dispatch(rewindExercise(data))
   }
 

@@ -19,11 +19,11 @@ export function useSesion() {
 
   const [user, setuser] = useState<any>(false)
   useEffect(() => {
-    let userJSON = window.localStorage.getItem('Login_userFit_Focus')
+    const userJSON = window.localStorage.getItem('Login_userFit_Focus')
     if (userJSON) {
       if (userJSON.length > 3) {
         let userlogin = JSON.parse(userJSON)
-        let respuesta = funcion.caducaToken(userlogin.time)
+        const respuesta = funcion.caducaToken(userlogin.time)
         if (!respuesta) {
           userlogin = jwtDecode(userlogin.token)
           setuser(userlogin)
@@ -45,10 +45,10 @@ export function useToken() {
   const userStado = useAppSelector(selectUser)
 
   useEffect(() => {
-    let userJSON = window.localStorage.getItem('Login_userFit_Focus')
+    const userJSON = window.localStorage.getItem('Login_userFit_Focus')
     if (userJSON) {
       if (userJSON.length > 3) {
-        let userlogin = JSON.parse(userJSON)
+        const userlogin = JSON.parse(userJSON)
         setToken(userlogin.token)
       }
     }
@@ -58,20 +58,20 @@ export function useToken() {
 }
 
 export async function opiniom(token: string, feedback: object) {
-  let headersList = {
+  const headersList = {
     Accept: '*/*',
     Authorization: 'Bearer ' + token,
     'Content-Type': 'application/json',
   }
 
-  let bodyContent = JSON.stringify(feedback)
+  const bodyContent = JSON.stringify(feedback)
 
-  let reqOptions = {
-    url: 'http://localhost:3001/auth/userfeedback',
+  const reqOptions = {
+    url: `${process.env.REACT_APP_API_URL}/auth/userfeedback`,
     method: 'PUT',
     headers: headersList,
     data: bodyContent,
   }
 
-  let response = await axios.request(reqOptions)
+  const response = await axios.request(reqOptions)
 }

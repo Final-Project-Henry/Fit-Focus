@@ -69,6 +69,7 @@ const News6 = () => {
                       target='_blank'
                       data-analytics-action-id='21350457-d9a1-47cb-9786-43c73eb1d7c7'
                       href='https://www.mountsinai.org/locations/physiolab'
+                      rel='noreferrer'
                     >
                       Mount Sinai Physiolab
                     </a>
@@ -84,6 +85,7 @@ const News6 = () => {
                       target='_blank'
                       data-analytics-action-id='aab98498-aefd-4935-9ccf-bb216c3d9e61'
                       href='https://nyulangone.org/locations/sports-performance-center'
+                      rel='noreferrer'
                     >
                       centro de rendimiento deportivo Langone de la NYU
                     </a>
@@ -97,6 +99,7 @@ const News6 = () => {
                       target='_blank'
                       data-analytics-action-id='914ce9d6-6d73-4008-8148-753a5c6004b5'
                       href='https://www.nike.com/us/es/a/que-son-los-electrolitos'
+                      rel='noreferrer'
                     >
                       electrolitos
                     </a>
@@ -141,12 +144,12 @@ const News6 = () => {
                     más clásicos, según Baird y Kittrell.
                   </p>
                   <p>
-                    “Cuando la orina está muy oscura, significa que tiene una mayor concentración de diferentes
+                    {`“Cuando la orina está muy oscura, significa que tiene una mayor concentración de diferentes
                     nutrientes, por lo que podría ser una señal de que te has deshidratado y necesitas beber más
                     líquidos, mientras que, cuando tiene un color amarillo pálido, indica un estado de hidratación
                     normal”, dice Kittrell. "En términos de frecuencia en la micción, si orinas cada dos o tres horas,
                     probablemente tu nivel de hidratación sea óptimo. Si pasa mucho más tiempo entre cada micción, eso
-                    podría ser una señal de que te has deshidratado".
+                    podría ser una señal de que te has deshidratado".`}
                   </p>
                   <p>
                     Otros síntomas de deshidratación en adultos pueden ser la fatiga, el estado letárgico y el
@@ -156,6 +159,7 @@ const News6 = () => {
                       target='_blank'
                       data-analytics-action-id='b2021614-dd43-4200-be45-cbfb0ef15a97'
                       href='https://www.nike.com/us/es/a/frecuencia-cardiaca-normal-running'
+                      rel='noreferrer'
                     >
                       ritmo cardíaco alto
                     </a>
@@ -230,6 +234,7 @@ const News6 = () => {
                       target='_blank'
                       data-analytics-action-id='1e4ffe5c-4234-4770-b6a9-9b86f3ee5ee2'
                       href='https://www.ncbi.nlm.nih.gov/books/NBK470386/'
+                      rel='noreferrer'
                     >
                       hiponatremia
                     </a>
@@ -274,11 +279,12 @@ const News6 = () => {
                       target='_blank'
                       data-analytics-action-id='f076f7fe-eecc-4ccb-93e6-1e7f1014f66f'
                       href='https://www.nike.com/us/es/a/cuanta-agua-hay-que-beber-diariamente'
+                      rel='noreferrer'
                     >
                       se recomienda tener un enfoque proactivo con la hidratación
                     </a>
-                    y beber mucho líquido antes de tener sed, "porque si esperas a tener sed para tomar líquidos,
-                    probablemente ya te hayas deshidratado un poco”, dice Kittrell.
+                    {`y beber mucho líquido antes de tener sed, "porque si esperas a tener sed para tomar líquidos,
+                    probablemente ya te hayas deshidratado un poco”, dice Kittrell.`}
                   </p>
                   <p>
                     Una manera fácil de mantenerse hidratado es comer alimentos con un alto contenido de agua, como la
@@ -372,6 +378,7 @@ const News6 = () => {
                       target='_blank'
                       data-analytics-action-id='76bdefb2-f3e3-438c-aee1-41394873ada0'
                       href='https://link.springer.com/chapter/10.1007/978-3-662-65064-6_4'
+                      rel='noreferrer'
                     >
                       A medida que surgen más investigaciones
                     </a>
@@ -380,6 +387,7 @@ const News6 = () => {
                       target='_blank'
                       data-analytics-action-id='c203e09b-f9e3-4276-ad7c-734415a0660e'
                       href='https://www.mdpi.com/2072-6643/11/6/1289/htm'
+                      rel='noreferrer'
                     >
                       recomendaciones según el peso corporal
                     </a>

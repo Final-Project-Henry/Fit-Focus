@@ -19,7 +19,7 @@ const Footer2 = () => {
                 </a>
               </li>
               <li style={{ textDecoration: 'none' }} className='mb-4   no-underline'>
-                <a href='https://www.soyhenry.com/' target='_blank' className='hover:underline'>
+                <a href='https://www.soyhenry.com/' target='_blank' className='hover:underline' rel='noreferrer'>
                   Henry
                 </a>
               </li>
@@ -34,7 +34,12 @@ const Footer2 = () => {
                 </a>
               </li>
               <li className='mb-4'>
-                <a href='https://www.instagram.com/fitfocushenry/' target='_blank' className='hover:underline '>
+                <a
+                  href='https://www.instagram.com/fitfocushenry/'
+                  target='_blank'
+                  className='hover:underline '
+                  rel='noreferrer'
+                >
                   Instagram
                 </a>
               </li>
@@ -72,6 +77,7 @@ const Footer2 = () => {
             href='https://web.facebook.com/profile.php?id=100086259135598'
             target='_blank'
             className='text-gray-300 hover:text-white'
+            rel='noreferrer'
           >
             <svg fill='currentColor' viewBox='0 0 24 24' aria-hidden='true'>
               <path
@@ -82,7 +88,12 @@ const Footer2 = () => {
             </svg>
             <span className='sr-only'>Facebook page</span>
           </a>
-          <a href='https://www.instagram.com/fitfocushenry/' target='_blank' className='text-gray-300 hover:text-white'>
+          <a
+            href='https://www.instagram.com/fitfocushenry/'
+            target='_blank'
+            className='text-gray-300 hover:text-white'
+            rel='noreferrer'
+          >
             <svg className='w-5 h-5' fill='currentColor' viewBox='0 0 24 24' aria-hidden='true'>
               <path
                 fillRule='evenodd'
@@ -102,6 +113,7 @@ const Footer2 = () => {
             href='https://github.com/Final-Project-Henry/Fit-Focus'
             target='_blank'
             className='text-gray-300 hover:text-white'
+            rel='noreferrer'
           >
             <svg className='w-5 h-5' fill='currentColor' viewBox='0 0 24 24' aria-hidden='true'>
               <path

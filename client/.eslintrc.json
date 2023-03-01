@@ -3,9 +3,16 @@
     "browser": true,
     "es2021": true
   },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "eslint-config-prettier",
     "plugin:@typescript-eslint/recommended",
     "prettier" //Only for prettier && eslint
   ],

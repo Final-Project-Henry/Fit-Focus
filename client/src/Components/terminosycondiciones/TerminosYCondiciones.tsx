@@ -1,5 +1,3 @@
-import React from 'react'
-
 function TerminosYCondiciones() {
   return (
     <div>
@@ -12,10 +10,15 @@ function TerminosYCondiciones() {
           línea de propiedad, operados, de marca o proporcionados por <b>FIT FOCUS</b> (tal y como se define a
           continuación) en cada momento relacionados con (a) la plataforma de ejercicios <b>FIT FOCUS</b> incluyendo sin
           limitación las versiones web y optimizada para móvil de los sitios web identificados por el localizador
-          uniforme de recurso de <b>FIT FOCUS</b> y las aplicaciones móviles de la plataforma de ejercicios FIT FOCUS
+          uniforme de recurso de <b>FIT FOCUS</b>
+          {` y las aplicaciones móviles de la plataforma de ejercicios FIT FOCUS
           (los “Sitios”); Este documento es un acuerdo legalmente vinculante entre usted como usuario de los Sitios (en
-          lo sucesivo, referido como "usted", "su" o "Usuario") y la entidad contratante <b>FIT FOCUS</b> a continuación
-          (en lo sucesivo, referido como "nosotros", "nuestro" o "<b>FIT FOCUS</b>").
+          lo sucesivo, referido como "usted", "su" o "Usuario") y la entidad contratante `}
+          <b>FIT FOCUS</b>
+          {` a continuación
+          (en lo sucesivo, referido como "nosotros", "nuestro" o "`}
+          <b>FIT FOCUS</b>
+          {`").`}
           <br />
           <br />
           <b>1. Aplicación y aceptación de los términos.</b>
@@ -23,11 +26,12 @@ function TerminosYCondiciones() {
           1.1 El acceso y uso por usted de los Sitios y los servicios, el software y los productos de <b>FIT FOCUS</b> a
           través de los Sitios, lo cual incluirá las plataformas web está sujeto a los términos y las condiciones
           contenidos en este documento, así como en la Política de privacidad, la Política de listado de ejercicios y
-          cualquier otra normativa y política de los Sitios que pueda publicar <b>FIT FOCUS</b> puntualmente. En lo
+          cualquier otra normativa y política de los Sitios que pueda publicar <b>FIT FOCUS</b>
+          {` puntualmente. En lo
           sucesivo, el presente documento y dichas otras normativas y políticas de los Sitios se denominan,
           conjuntamente, los "Términos". Al acceder a y utilizar los Sitios y Servicios, usted se compromete a aceptar y
           someterse (BAJO SU PROPIA RESPONSABILIDAD) a estos Términos de uso. Por favor, no acceda o utilice los
-          Servicios o los Sitios si no acepta todos los Términos.
+          Servicios o los Sitios si no acepta todos los Términos.`}
           <br />
           <br />
           En <b>FIT FOCUS</b> queremos mantener un entorno respetuoso para todos y, por eso, debes seguir estas normas

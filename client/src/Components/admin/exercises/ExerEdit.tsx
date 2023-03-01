@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import edits from '../additional/edits'
 
 interface exercise {
@@ -41,8 +41,10 @@ export default function ExerEdit(props: { exer: exercise; save: (e: any) => void
             <div style={{ display: 'flex', justifyContent: 'space-between', gap: '10px' }}>
               <p>{prop}:</p>
               <select name={prop} value={(exercise as any)[prop]} onChange={onChange}>
-                {(edits.exerOptions as any)[prop].map((option: string) => (
-                  <option style={{ width: '70%' }}>{option}</option>
+                {(edits.exerOptions as any)[prop].map((option: string, i: number) => (
+                  <option key={i} style={{ width: '70%' }}>
+                    {option}
+                  </option>
                 ))}
               </select>
             </div>

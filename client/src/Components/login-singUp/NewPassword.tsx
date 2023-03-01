@@ -8,8 +8,8 @@ import { User_Login_State, selectUser, EditUser } from '../../features/counter/c
 import Swal from 'sweetalert2'
 
 const NewPassword = () => {
-  let { id } = useParams()
-  let user = useAppSelector(selectUser)
+  const { id } = useParams()
+  const user = useAppSelector(selectUser)
   const dispatch = useAppDispatch()
   const Navegation = useNavigate()
   const [validar, setvalidadr] = useState(false)
@@ -40,7 +40,7 @@ const NewPassword = () => {
   function handleSubmit(event: React.FormEvent): void {
     event.preventDefault()
     if (Form_data.password === Form_data.Validpassword) {
-      let data = { password: Form_data.password }
+      const data = { password: Form_data.password }
       const token = id
       dispatch(EditUser({ token, data }))
     } else {

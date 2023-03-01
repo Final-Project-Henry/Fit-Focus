@@ -48,7 +48,7 @@ export default function FilterExercises() {
 
   const sumaDeAOcho = () => {
     num = num + 8
-    let ochoFiltrados2 = nuevoArray.slice(0, num)
+    const ochoFiltrados2 = nuevoArray.slice(0, num)
     setFiltrado(ochoFiltrados2)
   }
 
@@ -59,7 +59,7 @@ export default function FilterExercises() {
   }, [exercises])
 
   useEffect(() => {
-    let filt = exercises.filter(e => {
+    const filt = exercises.filter(e => {
       let { muscle, genre, difficulty, premium } = selected
       muscle = false
       genre = false

@@ -1,6 +1,4 @@
-import { saveAs } from '@progress/kendo-drawing/pdf'
-import React, { useState } from 'react'
-import { StateSlice } from '../../../features/counter/counterSlice'
+import { useState } from 'react'
 import edits from '../additional/edits'
 
 interface profile {
@@ -29,21 +27,23 @@ export default function UserEditProfile(props: { data: data; save: (e: any) => v
   }
   return (
     <div>
-      {edits.userProfileProps.map((prop: string) => {
+      {edits.userProfileProps.map((prop: string, i: number) => {
         if (Object.keys(edits.userProfileOptions).includes(prop))
           return (
-            <div style={{ display: 'flex', justifyContent: 'space-between', gap: '10px' }}>
+            <div key={i} style={{ display: 'flex', justifyContent: 'space-between', gap: '10px' }}>
               <p>{prop}:</p>
               <select name={prop} value={(profile as any)[prop]} onChange={onChange}>
-                {(edits.userProfileOptions as any)[prop].map((option: string) => (
-                  <option style={{ width: '70%' }}>{option}</option>
+                {(edits.userProfileOptions as any)[prop].map((option: string, i: number) => (
+                  <option key={i} style={{ width: '70%' }}>
+                    {option}
+                  </option>
                 ))}
               </select>
             </div>
           )
         else
           return (
-            <div style={{ display: 'flex', justifyContent: 'space-between', gap: '10px' }}>
+            <div key={i} style={{ display: 'flex', justifyContent: 'space-between', gap: '10px' }}>
               <p>{prop}:</p>
               <input style={{ width: '70%' }} onChange={onChange} name={prop} value={(profile as any)[prop]} />
             </div>

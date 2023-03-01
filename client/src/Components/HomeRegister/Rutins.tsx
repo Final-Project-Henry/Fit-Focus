@@ -24,7 +24,7 @@ interface rutin {
 }
 
 export default function Rutins(props: { rutins: Array<rutin>; reps: string; dif: string }) {
-  let id: number = 0
+  let id = 0
 
   const navigate = useNavigate()
   const onClick = () => {

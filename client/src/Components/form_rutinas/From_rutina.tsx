@@ -35,9 +35,9 @@ const regexNumPosivos = /^((150)|(1[0-4][0-9]{1})|([5-9][0-9]{1}))$/
 const regexNumPosivosAltura = /^((220)|(2[0-1][0-9]{1})|(1[0-9]{2})|([5-9][0-9]{1}))$/
 
 export default function Form_rutinas(props: { function: { (): void } }) {
-  let user = useAppSelector(selectUser)
+  const user = useAppSelector(selectUser)
   const dispatch = useAppDispatch()
-  let token = useToken()
+  const token = useToken()
   const [form_data, Set_form_data] = useState<data_user | any>({
     age: '',
     genre: '',

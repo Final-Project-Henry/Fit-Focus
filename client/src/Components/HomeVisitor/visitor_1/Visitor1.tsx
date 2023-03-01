@@ -45,7 +45,7 @@ export default function Visitor1() {
     }
 
     if (added) {
-      let interval = setInterval(() => {
+      const interval = setInterval(() => {
         setComments(functions.random(datosState))
       }, 5000)
       return () => {

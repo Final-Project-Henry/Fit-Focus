@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react'
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
-function Chart(props) {
+function Chart({ labels, data1, data2 }: any) {
   /* const chartRef = useRef()
   const [chartData, setChartData] = useState({
     datasets: [],
@@ -24,16 +23,16 @@ function Chart(props) {
   }
 
   const data = {
-    labels: props.labels,
+    labels: labels,
     datasets: [
       {
         label: 'Usuarios Normales',
-        data: props.data1,
+        data: data1,
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
       {
         label: 'Usuarios Premium',
-        data: props.data2,
+        data: data2,
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
     ],

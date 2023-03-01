@@ -13,7 +13,7 @@ interface Propos {
 }
 
 const Login2: React.FC<Propos> = ({ loading_icon }) => {
-  let user = useAppSelector(selectUser)
+  const user = useAppSelector(selectUser)
 
   const user_logeao = useAppSelector(selectUser)
   const dispatch = useAppDispatch()

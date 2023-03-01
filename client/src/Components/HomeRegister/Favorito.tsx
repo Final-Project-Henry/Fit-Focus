@@ -25,7 +25,7 @@ const Favoritos = () => {
   const { user, exercises } = useAppSelector(selectUser)
   const dispatch = useAppDispatch()
   const [dataFav, setDatafav] = useState<[ejerciciosData] | []>([])
-  let token = useToken()
+  const token = useToken()
 
   useEffect(() => {
     if (token) {
@@ -40,7 +40,7 @@ const Favoritos = () => {
   useEffect(() => {
     if (exercises?.length > 0) {
       let fav = user?.fav?.map(({ id }: any) => {
-        let favArrg = exercises.find(e => e._id === id)
+        const favArrg = exercises.find(e => e._id === id)
         if (favArrg) {
           return favArrg
         }

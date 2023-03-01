@@ -1,5 +1,3 @@
-import jwtDecode from 'jwt-decode'
-
 export default {
   random: (data: any) => {
     const comments = Object.keys(data)
@@ -57,11 +55,11 @@ export default {
     }
   },
   caducaToken: (time: string) => {
-    let actual = new Date()
+    const actual = new Date()
     let vence = new Date(time)
 
-    var MlSeconds = vence.getTime()
-    var addMlSeconds = 720 * 60000
+    const MlSeconds = vence.getTime()
+    const addMlSeconds = 720 * 60000
     vence = new Date(MlSeconds + addMlSeconds)
 
     if (actual > vence) {
@@ -75,7 +73,7 @@ export default {
         e.feedback.map((x: any) => {
           sum = sum + parseInt(x.rating)
         })
-        let rating = { rating: sum, id: e._id }
+        const rating = { rating: sum, id: e._id }
 
         return rating
       }
@@ -83,11 +81,10 @@ export default {
     rewind = rewind.filter(e => e !== undefined)
 
     rewind.sort((a, b) => {
-      //@ts-ignore // error: posible undefined, si lo sabes joya
-      return b?.rating - a?.rating
+      return (b?.rating ? b.rating : 0) - (a?.rating ? a.rating : 0)
     })
     rewind = rewind.map(e => {
-      let ejerBast = ejercicios.find(x => x._id === e?.id)
+      const ejerBast = ejercicios.find(x => x._id === e?.id)
       return { ...ejerBast, rating: e?.rating }
     })
     return rewind.slice(0, 4)

@@ -1,5 +1,3 @@
-import React from 'react'
-
 const News8 = () => {
   return (
     <div>
@@ -33,18 +31,20 @@ const News8 = () => {
                       target='_blank'
                       data-analytics-action-id='25425ed8-3213-4f41-820b-fd4007700c78'
                       href='https://www.nike.com/us/es/a/que-es-entrenamiento-calistenia'
+                      rel='noreferrer'
                     >
                       puedes hacer sin equipo
                     </a>
                     y que mejorarán tu fuerza, equilibrio y movilidad.
                   </p>
                   <p>
-                    "Cualquier persona, sea cual sea su nivel de condición física, puede beneficiarse y sentirse
-                    desafiada por un programa de ejercicios o de entrenamiento con el peso del cuerpo", afirma
+                    {`"Cualquier persona, sea cual sea su nivel de condición física, puede beneficiarse y sentirse
+                    desafiada por un programa de ejercicios o de entrenamiento con el peso del cuerpo", afirma`}
                     <a
                       target='_blank'
                       data-analytics-action-id='528be2b3-28d8-4212-9ec2-968aeeeb54fb'
                       href='https://www.instagram.com/christine.torde/?hl=en'
+                      rel='noreferrer'
                     >
                       Christine Torde
                     </a>
@@ -59,18 +59,19 @@ const News8 = () => {
                     sigas avanzando.
                   </p>
                   <p>
-                    "Incorporar el entrenamiento con el peso del cuerpo puede hacer que las cosas sean interesantes y
-                    que sigas rindiendo al máximo", señala
+                    {`"Incorporar el entrenamiento con el peso del cuerpo puede hacer que las cosas sean interesantes y
+                    que sigas rindiendo al máximo", señala`}
                     <a
                       target='_blank'
                       data-analytics-action-id='a6a5d48c-cbf1-4c45-a017-8876b5b52a84'
                       href='https://www.instagram.com/orartzi/?hl=en'
+                      rel='noreferrer'
                     >
                       Or Artzi
                     </a>
-                    , entrenador personal e instructor de condición física grupal certificado por la NASM. "Lo mejor es
+                    {`, entrenador personal e instructor de condición física grupal certificado por la NASM. "Lo mejor es
                     que puedes progresar y retroceder fácilmente en cada movimiento, lo que te da infinitas
-                    posibilidades de experimentar y jugar".
+                    posibilidades de experimentar y jugar".`}
                   </p>
                   <p>
                     Además de la fuerza, los ejercicios con el peso del cuerpo también pueden utilizarse para entrenar
@@ -80,6 +81,7 @@ const News8 = () => {
                       target='_blank'
                       data-analytics-action-id='4b4acbaa-b024-4d57-9cfc-8eebf12a890e'
                       href='https://www.nike.com/us/es/a/entrenamientos-con-banda-de-resistencia-para-principiantes'
+                      rel='noreferrer'
                     >
                       bandas de resistencia
                     </a>
@@ -89,6 +91,7 @@ const News8 = () => {
                       target='_blank'
                       data-analytics-action-id='211736d6-1087-4464-8145-0dc7643318e7'
                       href='https://www.nike.com/us/es/a/consejos-calentamiento-entrenamiento'
+                      rel='noreferrer'
                     >
                       ejercicios de calentamiento
                     </a>
@@ -192,8 +195,8 @@ const News8 = () => {
                       >
                         <div data-qa='body' className='FaRDqXgS responsive-body-2-1 mt6-sm text-color-primary-dark'>
                           <p>
-                            "La flexión es uno de los movimientos más básicos y eficaces para mejorar la fuerza general
-                            de la parte superior del cuerpo", afirma Artzi.
+                            {`"La flexión es uno de los movimientos más básicos y eficaces para mejorar la fuerza general
+                            de la parte superior del cuerpo", afirma Artzi.`}
                           </p>
                           <p>
                             Las
@@ -201,6 +204,7 @@ const News8 = () => {
                               target='_blank'
                               data-analytics-action-id='d0b9348f-8b40-4680-a296-d45366d70b14'
                               href='https://www.nike.com/us/es/a/beneficios-de-hacer-lagartijas-cada-dia'
+                              rel='noreferrer'
                             >
                               flexiones
                             </a>
@@ -238,8 +242,8 @@ const News8 = () => {
                             cuerpo, señala Artzi. También es un ejercicio increíble para fortalecer la espalda.
                           </p>
                           <p>
-                            "Permite trabajar múltiples grupos musculares, incluida la espalda, los bíceps y los
-                            hombros, y requiere mucha ayuda de los abdominales", sostiene.
+                            {`"Permite trabajar múltiples grupos musculares, incluida la espalda, los bíceps y los
+                            hombros, y requiere mucha ayuda de los abdominales", sostiene.`}
                           </p>
                           <p>
                             La dominada se realiza con un agarre de la barra por encima de la mano, de modo que las
@@ -270,12 +274,12 @@ const News8 = () => {
                       >
                         <div data-qa='body' className='FaRDqXgS responsive-body-2-1 mt6-sm text-color-primary-dark'>
                           <p>
-                            "Este es el ejercicio perfecto para practicar si buscas tener una mejor postura, algo que
+                            {`"Este es el ejercicio perfecto para practicar si buscas tener una mejor postura, algo que
                             muchos de nosotros necesitamos debido a las largas horas que pasamos sentados en nuestro
                             escritorio o revisando nuestros teléfonos", señala Torde. Concéntrate en activar tus
                             glúteos, espalda baja y tronco para levantar el pecho y las piernas del suelo. A
                             continuación, agrega el estiramiento para activar los hombros y la parte superior de la
-                            espalda.
+                            espalda.`}
                           </p>
                         </div>
                       </div>
@@ -373,11 +377,11 @@ const News8 = () => {
                       >
                         <div data-qa='body' className='FaRDqXgS responsive-body-2-1 mt6-sm text-color-primary-dark'>
                           <p>
-                            Los glúteos (el principal grupo muscular de las caderas y las nalgas) desempeñan un papel
+                            {`Los glúteos (el principal grupo muscular de las caderas y las nalgas) desempeñan un papel
                             importante en muchos de nuestros movimientos. Los puentes son una forma excelente de
                             activarlos para que estén calientes y listos para participar en una carrera o en
                             levantamientos más grandes, señala Artzi. "Hazlo más desafiante levantando una pierna del
-                            suelo, cambiando el ritmo y añadiendo carga cuando estés preparado", indica.
+                            suelo, cambiando el ritmo y añadiendo carga cuando estés preparado", indica.`}
                           </p>
                         </div>
                       </div>
@@ -401,10 +405,10 @@ const News8 = () => {
                       >
                         <div data-qa='body' className='FaRDqXgS responsive-body-2-1 mt6-sm text-color-primary-dark'>
                           <p>
-                            "No hay nada como una sentadilla", sostiene Artzi. "La sentadilla es un movimiento funcional
+                            {`"No hay nada como una sentadilla", sostiene Artzi. "La sentadilla es un movimiento funcional
                             de la parte inferior del cuerpo que se dirige a tus glúteos, cuádriceps, isquiotibiales,
                             pantorrillas y flexores de la cadera. Y es absolutamente crucial dominarla teniendo en
-                            cuenta el hecho de que nos ponemos en cuclillas cada vez que nos sentamos y nos levantamos".
+                            cuenta el hecho de que nos ponemos en cuclillas cada vez que nos sentamos y nos levantamos".`}
                           </p>
                           <p>Consejo profesional: también es un movimiento de estabilización del tronco.</p>
                         </div>
@@ -429,12 +433,12 @@ const News8 = () => {
                       >
                         <div data-qa='body' className='FaRDqXgS responsive-body-2-1 mt6-sm text-color-primary-dark'>
                           <p>
-                            Este es un movimiento pliométrico que despierta el sistema nervioso y los pies, afirma
+                            {`Este es un movimiento pliométrico que despierta el sistema nervioso y los pies, afirma
                             Torde. "Es estupendo para las pantorrillas, y asombroso para los corredores: los pogos
                             calientan los pies, fortalecen las pantorrillas y ayudan a la salud del tendón de Aquiles".
                             También puede ser un excelente ejercicio de calentamiento, señala. También sentirás que tu
                             frecuencia cardíaca aumenta mientras te mueves. Si buscas una modificación, las elevaciones
-                            de pantorrillas serían una buena alternativa, aunque eliminan el cardio del movimiento.
+                            de pantorrillas serían una buena alternativa, aunque eliminan el cardio del movimiento.`}
                           </p>
                         </div>
                       </div>
@@ -458,11 +462,11 @@ const News8 = () => {
                       >
                         <div data-qa='body' className='FaRDqXgS responsive-body-2-1 mt6-sm text-color-primary-dark'>
                           <p>
-                            Torde llama a esto una "versión más picante" del salto en cuclillas normal o salto vertical
+                            {`Torde llama a esto una "versión más picante" del salto en cuclillas normal o salto vertical
                             que te enseña una habilidad funcional muy importante: cómo aterrizar. "Practicar la
                             habilidad de saltar (producir fuerza) y aterrizar (absorber fuerza), es decir, trabajar la
                             pliometría, puede ayudar a reducir lesiones", afirma. "Por ejemplo, si te tropiezas, tienes
-                            más posibilidades de recuperar el paso sin lesionarte ni caerte".
+                            más posibilidades de recuperar el paso sin lesionarte ni caerte".`}
                           </p>
                         </div>
                       </div>
@@ -486,11 +490,11 @@ const News8 = () => {
                       >
                         <div data-qa='body' className='FaRDqXgS responsive-body-2-1 mt6-sm text-color-primary-dark'>
                           <p>
-                            Desplante inverso, desplante curvo, desplante caminando, desplante caminando hacia atrás;
+                            {`Desplante inverso, desplante curvo, desplante caminando, desplante caminando hacia atrás;
                             las variaciones son muchas. "Además de trabajar casi todos los músculos de las piernas, los
                             desplantes son estupendos para estabilizar el tronco y trabajar la fuerza de una sola
                             pierna", señala Torde. "La fuerza en una pierna es muy importante, porque para caminar y
-                            correr (algo que hacemos constantemente) nos apoyamos sobre una sola pierna".
+                            correr (algo que hacemos constantemente) nos apoyamos sobre una sola pierna".`}
                           </p>
                         </div>
                       </div>
@@ -588,8 +592,8 @@ const News8 = () => {
                       >
                         <div data-qa='body' className='FaRDqXgS responsive-body-2-1 mt6-sm text-color-primary-dark'>
                           <p>
-                            "Cuando se ejecuta correctamente, la plancha es un ejercicio excelente para mejorar la
-                            estabilidad y la fuerza del tronco y la postura", afirma Artzi.
+                            {`"Cuando se ejecuta correctamente, la plancha es un ejercicio excelente para mejorar la
+                            estabilidad y la fuerza del tronco y la postura", afirma Artzi.`}
                           </p>
                           <p>
                             Además, no solo se ejercita la sección media del cuerpo. Por ejemplo, los hombros y la parte
@@ -631,10 +635,10 @@ const News8 = () => {
                             rápidamente.
                           </p>
                           <p>
-                            "Imagina que alguien tiene una toalla debajo de la parte baja de la espalda/el coxis y que
+                            {`"Imagina que alguien tiene una toalla debajo de la parte baja de la espalda/el coxis y que
                             intenta sacarla de debajo de ti. No se lo permitas", indica. Mientras activas el tronco y
                             mantienes la parte inferior de la espalda plana en el suelo, extiende lentamente un brazo y
-                            la pierna opuesta. Haz una pausa y luego vuelve a colocar ambas en el centro.
+                            la pierna opuesta. Haz una pausa y luego vuelve a colocar ambas en el centro.`}
                           </p>
                         </div>
                       </div>
@@ -662,9 +666,9 @@ const News8 = () => {
                             corporal.
                           </p>
                           <p>
-                            "Con el gateo ganas la carrera despacio y con constancia", señala Torde. Este también es un
+                            {`"Con el gateo ganas la carrera despacio y con constancia", señala Torde. Este también es un
                             gran movimiento para practicar durante una rutina de calentamiento para ayudar a que todo el
-                            tronco se active y coordine para moverse con la parte superior e inferior del cuerpo.
+                            tronco se active y coordine para moverse con la parte superior e inferior del cuerpo.`}
                           </p>
                         </div>
                       </div>
@@ -688,13 +692,13 @@ const News8 = () => {
                       >
                         <div data-qa='body' className='FaRDqXgS responsive-body-2-1 mt6-sm text-color-primary-dark'>
                           <p>
-                            Una patada lateral es un movimiento en el que empiezas en posición de cuatro puntos,
+                            {`Una patada lateral es un movimiento en el que empiezas en posición de cuatro puntos,
                             levantas las rodillas del suelo y luego pateas moviendo la pierna debajo de tu cuerpo y
                             giras el torso hacia un lado a la vez. El tronco, los glúteos, las piernas, los hombros y la
                             parte superior de la espalda trabajan durante este movimiento, señala Artzi. "También
                             desafías tu equilibrio y coordinación al girar tu cuerpo y pasar la pierna por debajo al
                             mismo tiempo", indica. Una vez que le encuentres el truco, agrega algo de velocidad para
-                            hacer un poco de cardio.
+                            hacer un poco de cardio.`}
                           </p>
                         </div>
                       </div>

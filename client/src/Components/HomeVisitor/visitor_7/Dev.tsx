@@ -16,13 +16,13 @@ export default function Dev(props: { data: dev }) {
       <div className={styles.container_2}>
         <p className={styles.name}>{props.data.name}</p>
         <div className={styles.social}>
-          <a className={styles.git} href={props.data.git} target='_blank'>
+          <a className={styles.git} href={props.data.git} target='_blank' rel='noreferrer'>
             {' '}
           </a>
-          <a className={styles.link} href={props.data.link} target='_blank'>
+          <a className={styles.link} href={props.data.link} target='_blank' rel='noreferrer'>
             {' '}
           </a>
-          <a className={styles.mail} href={props.data.mail} target='_blank'>
+          <a className={styles.mail} href={props.data.mail} target='_blank' rel='noreferrer'>
             {' '}
           </a>
         </div>

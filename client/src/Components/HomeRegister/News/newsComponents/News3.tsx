@@ -1,5 +1,3 @@
-import React from 'react'
-
 const News3 = () => {
   return (
     <div>
@@ -32,6 +30,7 @@ const News3 = () => {
                       target='_blank'
                       data-analytics-action-id='9c46dc1d-0e3f-4aff-82f5-42e408f989d9'
                       href='https://www.nike.com/us/es/a/recuperacion-banos-hielo'
+                      rel='noreferrer'
                     >
                       acelerar la recuperación
                     </a>
@@ -40,6 +39,7 @@ const News3 = () => {
                       target='_blank'
                       data-analytics-action-id='39c3cf4d-0067-4388-a40d-9282f2a5149c'
                       href='https://www.nike.com/us/es/a/cuanta-agua-hay-que-beber-diariamente'
+                      rel='noreferrer'
                     >
                       mucho líquido
                     </a>
@@ -54,6 +54,7 @@ const News3 = () => {
                       target='_blank'
                       data-analytics-action-id='a09842c2-b359-4cd2-bec8-37ed39952fc8'
                       href='https://www.nike.com/us/es/a/como-retomar-el-running'
+                      rel='noreferrer'
                     >
                       cómo retomar el ejercicio físico
                     </a>
@@ -92,22 +93,23 @@ const News3 = () => {
                 </h4>
                 <div data-qa='body' className='FaRDqXgS responsive-body-2-1 mt6-sm text-color-primary-dark'>
                   <p>
-                    "La decisión de ejercitarte o no mientras no te encuentras bien o te estás recuperando de una
-                    enfermedad depende del tipo de enfermedad y la gravedad de los síntomas", dice
+                    {`"La decisión de ejercitarte o no mientras no te encuentras bien o te estás recuperando de una
+                    enfermedad depende del tipo de enfermedad y la gravedad de los síntomas", dice`}
                     <a
                       target='_blank'
                       data-analytics-action-id='187c8e66-204b-43ed-8cd8-057d6cbe94ff'
                       href='https://www.northwell.edu/find-care/find-a-doctor/emergency-medicine/dr-anjali-pournima-bharati-do-11363323'
+                      rel='noreferrer'
                     >
                       Anjali Bharati, doctora en medicina osteopática
                     </a>
                     , médica de emergencia en Lenox Health Greenwich Village en la ciudad de Nueva York.
                   </p>
                   <p>
-                    Por lo general, ejercitarte si los síntomas se sitúan por encima del cuello es seguro e incluso
+                    {`Por lo general, ejercitarte si los síntomas se sitúan por encima del cuello es seguro e incluso
                     puede ser beneficioso. "Si tienes síntomas de las vías respiratorias altas, como tos leve o goteo
                     nasal, salir a caminar o trotar puede hacer que te sientas mejor. Puede despejar la sinusitis y
-                    aliviar la congestión nasal", dice Bharati.
+                    aliviar la congestión nasal", dice Bharati.`}
                   </p>
                   <p>
                     Sin embargo, si te diagnosticaron COVID-19 o si los síntomas incluyen fiebre, dolor corporal,
@@ -121,6 +123,7 @@ const News3 = () => {
                       target='_blank'
                       data-analytics-action-id='9aa20711-c0cf-4ea7-b72a-2be864ed0dea'
                       href='https://nyulangone.org/doctors/1043224520/dennis-a-cardone'
+                      rel='noreferrer'
                     >
                       Dennis Cardone, doctor en medicina osteopática
                     </a>
@@ -135,6 +138,7 @@ const News3 = () => {
                       target='_blank'
                       data-analytics-action-id='65df8c27-c69d-452a-8df1-723b05f8a30a'
                       href='https://www.mayoclinic.org/diseases-conditions/myocarditis/symptoms-causes/syc-20352539'
+                      rel='noreferrer'
                     >
                       Clínica Mayo
                     </a>
@@ -146,6 +150,7 @@ const News3 = () => {
                       target='_blank'
                       data-analytics-action-id='8f073d55-30bb-4c7e-8d3a-f4a3e7e3e707'
                       href='https://www.bvhealthsystem.org/expert-health-articles/covid-19-and-myocarditis-a-risk-for-athletes#:~:text=Experts%20believe%20that%20exercising%20while,and%20swelling%20in%20the%20extremities.'
+                      rel='noreferrer'
                     >
                       Blanchard Valley Health System
                     </a>
@@ -158,6 +163,7 @@ const News3 = () => {
                       target='_blank'
                       data-analytics-action-id='96a69be2-9588-4da4-b364-610f6ef1ea05'
                       href='https://www.nike.com/us/es/a/que-son-los-electrolitos'
+                      rel='noreferrer'
                     >
                       electrolitos
                     </a>
@@ -172,6 +178,7 @@ const News3 = () => {
                       target='_blank'
                       data-analytics-action-id='6b2c2f43-4cad-4189-bfa8-cc5318d66780'
                       href='https://www.nike.com/us/es/a/cuanta-agua-hay-que-beber-diariamente'
+                      rel='noreferrer'
                     >
                       Según los expertos, esta es la cantidad exacta de agua que deberías consumir diariamente
                     </a>
@@ -209,11 +216,11 @@ const News3 = () => {
                 </h4>
                 <div data-qa='body' className='FaRDqXgS responsive-body-2-1 mt6-sm text-color-primary-dark'>
                   <p>
-                    Para entrenar, no es necesario que esperes hasta sentirte al 100 por ciento, pero al menos deberías
+                    {`Para entrenar, no es necesario que esperes hasta sentirte al 100 por ciento, pero al menos deberías
                     estar en un 90 por ciento. Eso significa que tus niveles de energía estarán cercanos a lo normal, la
                     mente se habrá despejado y la hidratación y la nutrición ya se habrán normalizado. También es
                     posible que comiences a anhelar el ejercicio nuevamente: "Todas las señales indican 'avanzar'", dice
-                    Cardone.
+                    Cardone.`}
                   </p>
                   <p>
                     Sin embargo, si todavía sientes cierto aturdimiento, dolor, fatiga o falta de aire, date más tiempo
@@ -222,6 +229,7 @@ const News3 = () => {
                       target='_blank'
                       data-analytics-action-id='c1717879-c23d-4d5f-82f1-e5d4647d491e'
                       href='https://www.nike.com/us/es/a/hacer-ejercicio-sin-equipo'
+                      rel='noreferrer'
                     >
                       rutina de entrenamiento
                     </a>
@@ -238,6 +246,7 @@ const News3 = () => {
                       target='_blank'
                       data-analytics-action-id='7597738b-b69c-459c-bf7b-409a4ed41837'
                       href='https://www.cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html#:~:text=If%20you%20have%20COVID%2D19,for%20at%20least%205%20days.&text=Stay%20home%20for%205%20days,Do%20not%20travel.'
+                      rel='noreferrer'
                     >
                       Centros para el Control y la Prevención de Enfermedades
                     </a>
@@ -246,16 +255,16 @@ const News3 = () => {
                     <br />
                   </p>
                   <p>
-                    La intensidad del entrenamiento variará dependiendo de los síntomas y de cuánto tiempo haya pasado
+                    {`La intensidad del entrenamiento variará dependiendo de los síntomas y de cuánto tiempo haya pasado
                     desde la última vez que te ejercitaste. En cualquier caso, no creas que estarás al cien por ciento
                     en tu primer entrenamiento. "Para las personas es fácil debilitarse y perder la condición física con
                     solo unos pocos días de no hacer nada. Recuperarse y volver a estar al mismo nivel toma tiempo",
-                    dice Cardone.
+                    dice Cardone.`}
                   </p>
                   <p>
-                    Cuando retomes el ejercicio físico, apunta a aplicar un 50 por ciento de tu intensidad normal, como
+                    {`Cuando retomes el ejercicio físico, apunta a aplicar un 50 por ciento de tu intensidad normal, como
                     máximo. "Va a depender de cuánto tiempo haya transcurrido desde tu último entrenamiento, pero el 50
-                    por ciento es una buena regla general", dice Cardone.
+                    por ciento es una buena regla general", dice Cardone.`}
                   </p>
                   <p>
                     Por ejemplo, si corres, al volver después de una enfermedad, divide tus kilómetros semanales entre
@@ -264,6 +273,7 @@ const News3 = () => {
                       target='_blank'
                       data-analytics-action-id='d46b1ae9-0a16-4319-a08a-f851de361fd2'
                       href='https://www.nike.com/us/es/a/ciclismo-bueno-para-dolor-rodilla'
+                      rel='noreferrer'
                     >
                       como ciclismo
                     </a>
@@ -273,9 +283,9 @@ const News3 = () => {
                     personas a tus gérmenes.
                   </p>
                   <p>
-                    Si tu elección de entrenamiento implica el levantamiento de pesas, reduce la carga habitual al menos
+                    {`Si tu elección de entrenamiento implica el levantamiento de pesas, reduce la carga habitual al menos
                     a la mitad. "Ahora no es el momento de poner a prueba cuánto peso muerto puedes levantar", dice
-                    Bharati. Otra buena medida es rebajar la duración y la frecuencia del entrenamiento.
+                    Bharati. Otra buena medida es rebajar la duración y la frecuencia del entrenamiento.`}
                   </p>
                   <p>
                     Para volver a entrenar luego de una enfermedad, Bharati y Cardone recomiendan probar primero estos
@@ -300,6 +310,7 @@ const News3 = () => {
                         target='_blank'
                         data-analytics-action-id='0c22c699-2acd-4d2b-bff3-b633b6c42f9e'
                         href='https://www.nike.com/us/es/a/beneficios-running-entrenamiento-intervalos'
+                        rel='noreferrer'
                       >
                         Intervalos de alta intensidad
                       </a>
@@ -356,14 +367,14 @@ const News3 = () => {
                 </h4>
                 <div data-qa='body' className='FaRDqXgS responsive-body-2-1 mt6-sm text-color-primary-dark'>
                   <p>
-                    Mientras te recuperas de la enfermedad, presta especial atención a hidratarte más de lo normal,
+                    {`Mientras te recuperas de la enfermedad, presta especial atención a hidratarte más de lo normal,
                     especialmente si planeas hacer ejercicio físico. "A menudo, las personas dejan de hidratarse bien
-                    mientras están enfermas, por lo que es importante aumentar la ingestión de líquidos", dice Cardone.
+                    mientras están enfermas, por lo que es importante aumentar la ingestión de líquidos", dice Cardone.`}
                   </p>
                   <p>
-                    La manera más fácil de calibrar tu nivel de hidratación es controlar el color de la orina. "Debe ser
+                    {`La manera más fácil de calibrar tu nivel de hidratación es controlar el color de la orina. "Debe ser
                     de un color amarillo muy claro o transparente. Si es color ámbar o amarillo oscuro, es una
-                    indicación de que debes hidratarte más", dice Cardone.
+                    indicación de que debes hidratarte más", dice Cardone.`}
                   </p>
                 </div>
               </div>
@@ -404,6 +415,7 @@ const News3 = () => {
                       target='_blank'
                       data-analytics-action-id='b5cda08b-b769-4d5d-8b25-a2ce5f6587e6'
                       href='https://journals.lww.com/acsm-msse/Fulltext/2016/09000/Leisure_Time_Physical_Activity_and_the_Risk_of.13.aspx'
+                      rel='noreferrer'
                     >
                       Medicine and Science in Sports and Exercise
                     </a>
@@ -426,6 +438,7 @@ const News3 = () => {
                       target='_blank'
                       data-analytics-action-id='e5174058-a2d1-49a9-baf8-eeca7e367b8f'
                       href='https://www.frontiersin.org/articles/10.3389/fimmu.2018.00648/full'
+                      rel='noreferrer'
                     >
                       Frontiers in Immunology
                     </a>

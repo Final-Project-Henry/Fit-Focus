@@ -1,6 +1,4 @@
-import React from 'react'
 import styles from './Loading.module.css'
-const loading_video = require('../assets/icons/loading_video.mp4')
 
 export default function Loading() {
   return (
@@ -13,7 +11,13 @@ export default function Loading() {
         height: '100vh',
       }}
     >
-      <video className={styles.animation} src={loading_video} autoPlay loop muted></video>
+      <video
+        className={styles.animation}
+        src='https://res.cloudinary.com/dm0fwscsy/video/upload/v1677647549/Fit-Focus/videos/loading_video_zddlle.mp4'
+        autoPlay
+        loop
+        muted
+      ></video>
       <p className={styles.text}>Cargando...espere por favor</p>
     </div>
   )

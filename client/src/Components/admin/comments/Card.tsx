@@ -16,7 +16,7 @@ interface datos {
 }
 
 export default function Card(props: { datos: datos }) {
-  let id: number = 0
+  let id = 0
 
   return (
     <div>

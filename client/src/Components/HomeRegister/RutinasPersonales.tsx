@@ -19,7 +19,7 @@ export default function RutinasPersonales() {
   const users = useAppSelector(state => state.user)
   const dispatch = useAppDispatch()
   const [form, setfomr] = useState(false)
-  let token = useToken()
+  const token = useToken()
   useMemo(() => {
     if (token) {
       dispatch(getProfileInfo(token))
@@ -32,10 +32,10 @@ export default function RutinasPersonales() {
 
   useEffect(() => {
     let token
-    let userJSON = window.localStorage.getItem('Login_userFit_Focus')
+    const userJSON = window.localStorage.getItem('Login_userFit_Focus')
     if (userJSON) {
       if (userJSON.length > 3) {
-        let userlogin = JSON.parse(userJSON)
+        const userlogin = JSON.parse(userJSON)
         token = userlogin.token
       }
     }

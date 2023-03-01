@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
 import { useAppSelector, useToken } from '../../../app/hooks'
 import { selectUser } from '../../../features/counter/counterSlice'
@@ -15,7 +15,7 @@ interface ejerciciosData {
 }
 
 export default function CardEjetcicio(descripcionEjersicio: ejerciciosData) {
-  let token = useToken()
+  const token = useToken()
   const [addFav, SetAddfav] = useState<boolean | string>('default')
   const { user, status } = useAppSelector(selectUser)
 
@@ -44,7 +44,7 @@ export default function CardEjetcicio(descripcionEjersicio: ejerciciosData) {
     }).then(async result => {
       if (result.isConfirmed) {
         try {
-          const res = await axios.put('http://localhost:3001/auth/addfav', descripcionEjersicio, {
+          const res = await axios.put(`${process.env.REACT_APP_API_URL}/auth/addfav`, descripcionEjersicio, {
             headers: { Authorization: 'Bearer ' + token },
           })
           if (res.data) {

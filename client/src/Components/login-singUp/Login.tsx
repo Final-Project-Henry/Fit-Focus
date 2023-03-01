@@ -22,11 +22,11 @@ interface Propos {
 }
 
 const regexEmail =
-  /^[a-zA-Z0-9.,!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+  /^[a-zA-Z0-9.,!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
 const regexPassword = /^[a-zA-Z0-9]{6,10}$/
 
 const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
-  let user = useAppSelector(selectUser)
+  const user = useAppSelector(selectUser)
   const dispatch = useAppDispatch()
   const Navegation = useNavigate()
   const [Activar, SetActivar] = useState(false)
@@ -49,8 +49,8 @@ const Login: React.FC<Propos> = ({ loading_icon, icon }) => {
   useEffect(() => {
     if (user.userToken?.length > 50) {
       dispatch(Estado(''))
-      let time = new Date()
-      let token = user.userToken
+      const time = new Date()
+      const token = user.userToken
       window.localStorage.setItem('Login_userFit_Focus', JSON.stringify({ token, time }))
     }
   }, [user.userToken])

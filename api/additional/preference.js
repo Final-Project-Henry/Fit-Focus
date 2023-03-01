@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   get_preference: (name, email, id) => {
     return {
@@ -39,9 +41,9 @@ module.exports = {
         },
       ],
       back_urls: {
-        success: 'http://localhost:3001/feedback',
-        failure: 'http://localhost:3000',
-        pending: 'http://localhost:3001/feedback',
+        success: `${process.env.API_URL}/feedback`,
+        failure: process.env.APP_URL,
+        pending: `${process.env.API_URL}/feedback`,
       },
       auto_return: 'approved',
     }

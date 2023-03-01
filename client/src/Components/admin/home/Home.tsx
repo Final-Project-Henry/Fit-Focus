@@ -36,7 +36,7 @@ export default function Home() {
   }
 
   const sortLastUser = (lastUsers: any, days: number) => {
-    let sortLastUser: Array<LastUsers> = []
+    const sortLastUser: Array<LastUsers> = []
 
     for (let i = 0; i <= days; i++) {
       sortLastUser.push({ premium: [], normal: [] })

@@ -13,7 +13,7 @@ export default function Dashboard() {
   const user = useAppSelector(state => state.user)
 
   useEffect(() => {
-    let userJSON = window.localStorage.getItem('Login_userFit_Focus')
+    const userJSON = window.localStorage.getItem('Login_userFit_Focus')
     let token
     if (userJSON) {
       if (userJSON.length > 3) {

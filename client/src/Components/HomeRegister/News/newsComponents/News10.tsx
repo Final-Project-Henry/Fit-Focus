@@ -75,6 +75,7 @@ const News10 = () => {
                       target='_blank'
                       data-analytics-action-id='faa7c613-d617-47f1-b3b7-a5874186f0ac'
                       href='https://www.cdc.gov/niosh/topics/heatstress/heatrelillness.html'
+                      rel='noreferrer'
                     >
                       según los Centros para el Control y la Prevención de Enfermedades
                     </a>
@@ -91,16 +92,17 @@ const News10 = () => {
                       target='_blank'
                       data-analytics-action-id='832e7291-b15b-4a18-8fd7-82dbaffb04bb'
                       href='https://drmesiwala.com/'
+                      rel='noreferrer'
                     >
                       Ali Mesiwala
                     </a>
                     , neurocirujano y especialista en DISC Sports and Spine Center en Newport Beach, California.
                   </p>
                   <p>
-                    "El cuerpo debe regular la pérdida de calor en condiciones climáticas frías o el aumento de la
+                    {`"El cuerpo debe regular la pérdida de calor en condiciones climáticas frías o el aumento de la
                     temperatura en condiciones climáticas cálidas para mantener una temperatura central normal", afirmó.
                     "Por lo general, el cuerpo suda cuando te ejercitas y la evaporación del sudor enfría el cuerpo. En
-                    condiciones climáticas cálidas y húmedas, este sistema de enfriamiento no funciona bien".
+                    condiciones climáticas cálidas y húmedas, este sistema de enfriamiento no funciona bien".`}
                   </p>
                   <p>
                     Si sufres de deshidratación, ingeriste grandes cantidades de alcohol o usas ropa que no permite que
@@ -109,6 +111,7 @@ const News10 = () => {
                       target='_blank'
                       data-analytics-action-id='83324fc4-2fd5-4947-a2fa-50c1ceb14ee6'
                       href='https://www.nike.com/us/es/w/transpirabilidad-prendas-4u644z6ymx6'
+                      rel='noreferrer'
                     >
                       esta ropa absorbente de sudor
                     </a>
@@ -117,10 +120,10 @@ const News10 = () => {
                     de mucha humedad.
                   </p>
                   <p>
-                    "Cuando el cuerpo no puede regular la temperatura central en esta situación, los síntomas aparecen
+                    {`"Cuando el cuerpo no puede regular la temperatura central en esta situación, los síntomas aparecen
                     rápidamente y si no se tratan puede ocurrir una catástrofe", comentó. Ese es el extremo donde se
                     encuentra el golpe de calor, afirmó. Pero ya que el agotamiento por calor puede ser una fase en esa
-                    trayectoria, es crucial identificarlo antes de que se vuelva más grave.
+                    trayectoria, es crucial identificarlo antes de que se vuelva más grave.`}
                   </p>
                 </div>
               </div>
@@ -164,6 +167,7 @@ const News10 = () => {
                       target='_blank'
                       data-analytics-action-id='faa7c613-d617-47f1-b3b7-a5874186f0ac'
                       href='https://www.cdc.gov/niosh/topics/heatstress/heatrelillness.html'
+                      rel='noreferrer'
                     >
                       según los Centros para el Control y la Prevención de Enfermedades
                     </a>
@@ -180,16 +184,17 @@ const News10 = () => {
                       target='_blank'
                       data-analytics-action-id='832e7291-b15b-4a18-8fd7-82dbaffb04bb'
                       href='https://drmesiwala.com/'
+                      rel='noreferrer'
                     >
                       Ali Mesiwala
                     </a>
                     , neurocirujano y especialista en DISC Sports and Spine Center en Newport Beach, California.
                   </p>
                   <p>
-                    "El cuerpo debe regular la pérdida de calor en condiciones climáticas frías o el aumento de la
+                    {`"El cuerpo debe regular la pérdida de calor en condiciones climáticas frías o el aumento de la
                     temperatura en condiciones climáticas cálidas para mantener una temperatura central normal", afirmó.
                     "Por lo general, el cuerpo suda cuando te ejercitas y la evaporación del sudor enfría el cuerpo. En
-                    condiciones climáticas cálidas y húmedas, este sistema de enfriamiento no funciona bien".
+                    condiciones climáticas cálidas y húmedas, este sistema de enfriamiento no funciona bien".`}
                   </p>
                   <p>
                     Si sufres de deshidratación, ingeriste grandes cantidades de alcohol o usas ropa que no permite que
@@ -198,6 +203,7 @@ const News10 = () => {
                       target='_blank'
                       data-analytics-action-id='83324fc4-2fd5-4947-a2fa-50c1ceb14ee6'
                       href='https://www.nike.com/us/es/w/transpirabilidad-prendas-4u644z6ymx6'
+                      rel='noreferrer'
                     >
                       esta ropa absorbente de sudor
                     </a>
@@ -206,10 +212,10 @@ const News10 = () => {
                     de mucha humedad.
                   </p>
                   <p>
-                    "Cuando el cuerpo no puede regular la temperatura central en esta situación, los síntomas aparecen
+                    {`"Cuando el cuerpo no puede regular la temperatura central en esta situación, los síntomas aparecen
                     rápidamente y si no se tratan puede ocurrir una catástrofe", comentó. Ese es el extremo donde se
                     encuentra el golpe de calor, afirmó. Pero ya que el agotamiento por calor puede ser una fase en esa
-                    trayectoria, es crucial identificarlo antes de que se vuelva más grave.
+                    trayectoria, es crucial identificarlo antes de que se vuelva más grave.`}
                   </p>
                 </div>
               </div>
@@ -256,6 +262,7 @@ const News10 = () => {
                         target='_blank'
                         data-analytics-action-id='a2b8991a-4819-4a15-b781-328e330b799e'
                         href='https://www.nike.com/us/es/a/que-son-los-electrolitos'
+                        rel='noreferrer'
                       >
                         bebida con electrolitos
                       </a>
@@ -323,6 +330,7 @@ const News10 = () => {
                         target='_blank'
                         data-analytics-action-id='a1a438d2-8bc4-49af-867e-c079d08adc18'
                         href='https://www.nike.com/us/es/a/cuanta-agua-hay-que-beber-diariamente'
+                        rel='noreferrer'
                       >
                         Hidrátate
                       </a>
@@ -334,6 +342,7 @@ const News10 = () => {
                         target='_blank'
                         data-analytics-action-id='b4de86eb-82d4-4b0c-bf16-94930a55fef6'
                         href='https://www.nike.com/us/es/a/mejores-leggings-para-running'
+                        rel='noreferrer'
                       >
                         absorbente de sudor
                       </a>

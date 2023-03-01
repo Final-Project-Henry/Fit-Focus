@@ -13,7 +13,7 @@ const initialState = {
 
 export const getFeedback = createAsyncThunk('user/feedback', async (_, thunkApi) => {
   try {
-    const { data } = await axios.get<Array<string>>('http://localhost:3001/feedbackUser')
+    const { data } = await axios.get<Array<string>>(`${process.env.REACT_APP_API_URL}/feedbackUser`)
     return data
   } catch (error: any) {
     thunkApi.rejectWithValue(error.message)

@@ -1,9 +1,6 @@
-import React from 'react'
 import News from './News/News'
 
-type Props = {}
-
-const Noticias = (props: Props) => {
+const Noticias = () => {
   return <News />
 }
 

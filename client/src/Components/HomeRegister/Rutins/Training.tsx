@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
@@ -9,16 +9,15 @@ import VisualExerc from './VisualComponents/VisualExerc'
 import VisualRest from './VisualComponents/VisualRest'
 
 export default function Training() {
-  let id: number = 0
+  let id = 0
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const users = useAppSelector(state => state.user)
   const [currentOrder, setOrder] = useState(1)
-  const [endTraining, setEnd] = useState(false)
   const [isRunning, setRun] = useState(false)
   const [temp, setTemp] = useState(0)
 
-  let timer = users.rutines.exercises?.find((e: any, i: number) => i + 1 == currentOrder)
+  const timer = users.rutines.exercises?.find((e: any, i: number) => i + 1 == currentOrder)
 
   const handleChangeOrder = (direc: string) => {
     if (direc === 'next') {
@@ -54,19 +53,18 @@ export default function Training() {
   }
 
   useEffect(() => {
-    let interval: any
     let token
-    let userJSON = window.localStorage.getItem('Login_userFit_Focus')
+    const userJSON = window.localStorage.getItem('Login_userFit_Focus')
     if (userJSON) {
       if (userJSON.length > 3) {
-        let userlogin = JSON.parse(userJSON)
+        const userlogin = JSON.parse(userJSON)
         token = userlogin.token
       }
     }
 
     if (users.status === 'none') dispatch(Rutines_Get({ token: token }))
 
-    interval = setInterval(() => {
+    const interval = setInterval(() => {
       if (isRunning) {
         setTemp(state => state - 1)
         if (temp === 0 && currentOrder < 29) {

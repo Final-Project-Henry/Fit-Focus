@@ -1,5 +1,3 @@
-import React from 'react'
-
 const News9 = () => {
   return (
     <div>
@@ -38,6 +36,7 @@ const News9 = () => {
                       target='_blank'
                       data-analytics-action-id='5f43a4cc-c3de-4d38-95ac-3d8e71d46974'
                       href='https://pubmed.ncbi.nlm.nih.gov/12617692/'
+                      rel='noreferrer'
                     >
                       las investigaciones han sugerido
                     </a>
@@ -108,12 +107,13 @@ const News9 = () => {
                             especialista en fuerza y preparación física certificada en CLE Sports PT &amp; Performance.
                           </p>
                           <p>
-                            Después de un entrenamiento duro, los movimientos suaves son el mejor método para mitigar el
-                            dolor", afirma Mack, y agrega que actividades como una caminata lenta de 20 minutos, una
+                            {`Después de un entrenamiento duro, los movimientos suaves son el mejor método para mitigar el
+                            dolor", afirma Mack, y agrega que actividades como una caminata lenta de 20 minutos, una`}
                             <a
                               target='_blank'
                               data-analytics-action-id='6be94ae8-d3e5-46b2-878f-c620ed89bc74'
                               href='https://www.nike.com/us/es/a/yoga-para-relajarse'
+                              rel='noreferrer'
                             >
                               secuencia lenta de yoga
                             </a>
@@ -127,6 +127,7 @@ const News9 = () => {
                               target='_blank'
                               data-analytics-action-id='19643d21-a4fe-4310-a6b9-08c47cdf25bc'
                               href='https://pubmed.ncbi.nlm.nih.gov/12617692/'
+                              rel='noreferrer'
                             >
                               una investigación
                             </a>
@@ -162,11 +163,11 @@ const News9 = () => {
                             el doctor en farmacia Daniel Breisch, de Mountain View Pharmacy en Utah.
                           </p>
                           <p>
-                            "La terapia tópica para aliviar el dolor es excelente, ya que te permite enfocarte en el
+                            {`"La terapia tópica para aliviar el dolor es excelente, ya que te permite enfocarte en el
                             área específica donde se concentra el dolor, por lo que minimiza los efectos secundarios
                             sistémicos que pueden causar los medicamentos orales", afirma. "Un aspecto negativo es que,
                             por lo general, se debe aplicar el producto de dos a cuatro veces al día, según la potencia
-                            de la fórmula".
+                            de la fórmula".`}
                           </p>
                           <p>
                             Si solo tienes un dolor leve en un área, como dolor en los hombros por hacer levantamientos
@@ -200,6 +201,7 @@ const News9 = () => {
                               target='_blank'
                               data-analytics-action-id='fdfcf5b0-ccf2-46b8-80c3-6219dbc1d6cd'
                               href='https://www.nike.com/us/es/a/sentadillas-o-peso-muerto'
+                              rel='noreferrer'
                             >
                               entrenamiento duro
                             </a>
@@ -208,6 +210,7 @@ const News9 = () => {
                               target='_blank'
                               data-analytics-action-id='45ef949c-0827-4067-8222-705bd497c00c'
                               href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5623674/'
+                              rel='noreferrer'
                             >
                               revisión de una investigación
                             </a>
@@ -264,16 +267,17 @@ const News9 = () => {
                               target='_blank'
                               data-analytics-action-id='d746f169-16a9-46c8-a18d-f4b5cbdb2571'
                               href='https://www.nike.com/us/es/a/el-mejor-momento-para-tomar-batidos-de-proteinas'
+                              rel='noreferrer'
                             >
                               batido rico en proteínas
                             </a>
                             o un sándwich de atún.
                           </p>
                           <p>
-                            "La proteína ayudará a reparar y fortalecer los músculos dañados, reducir el dolor muscular
+                            {`"La proteína ayudará a reparar y fortalecer los músculos dañados, reducir el dolor muscular
                             y acelerar la recuperación", señala. "Los carbohidratos son necesarios para reponer el
                             glucógeno, la energía que almacenamos en nuestros músculos, y eso mejora la calidad de tu
-                            próxima sesión de entrenamiento y te ayuda a recuperarte más rápido".
+                            próxima sesión de entrenamiento y te ayuda a recuperarte más rápido".`}
                           </p>
                           <p>
                             No te pierdas
@@ -281,6 +285,7 @@ const News9 = () => {
                               target='_blank'
                               data-analytics-action-id='6a45d20b-7737-4255-a266-6e1348414dba'
                               href='https://www.nike.com/us/es/a/cuanta-proteina-por-dia'
+                              rel='noreferrer'
                             >
                               ¿Cuánta proteína necesitas realmente para aumentar la masa muscular?
                             </a>
@@ -313,9 +318,9 @@ const News9 = () => {
                             fisioterapia de la Universidad de Winston-Salem en Carolina del Norte.
                           </p>
                           <p>
-                            "La investigación simplemente no respalda la idea de que el rodillo de espuma después del
+                            {`"La investigación simplemente no respalda la idea de que el rodillo de espuma después del
                             ejercicio altera el proceso de curación normal que es parte del crecimiento muscular, o que
-                            puede reducir el dolor de una manera que ayude al rendimiento", dice ella.
+                            puede reducir el dolor de una manera que ayude al rendimiento", dice ella.`}
                           </p>
                           <p>
                             Pero eso tampoco significa que el rodillo de espuma no tenga ningún tipo de efecto. Una
@@ -323,6 +328,7 @@ const News9 = () => {
                               target='_blank'
                               data-analytics-action-id='5e1146a1-6bfc-4a8b-88db-7981aecd7adf'
                               href='https://www.jssm.org/jssm-20-535.xml%3EFulltext'
+                              rel='noreferrer'
                             >
                               investigación
                             </a>
@@ -332,6 +338,7 @@ const News9 = () => {
                               target='_blank'
                               data-analytics-action-id='caf2eb09-c686-4a83-9d42-b76403c958b1'
                               href='https://www.nike.com/us/es/a/beneficios-de-hacer-estiramientos-diariamente'
+                              rel='noreferrer'
                             >
                               estiramiento dinámico
                             </a>
@@ -343,6 +350,7 @@ const News9 = () => {
                               target='_blank'
                               data-analytics-action-id='635a170e-0c4e-44bf-b8fc-08e6ea8c9723'
                               href='https://www.mayoclinic.org/diseases-conditions/back-pain/expert-answers/myofascial-release/faq-20058136'
+                              rel='noreferrer'
                             >
                               según Mayo Clinic.
                             </a>
@@ -380,8 +388,8 @@ const News9 = () => {
                             cuerpo tenga tiempo de recuperarse.
                           </p>
                           <p>
-                            "La única estrategia comprobada para reducir el dolor muscular posterior al ejercicio y
-                            mejorar la recuperación es adoptar un enfoque progresivo del ejercicio", dice Millar.
+                            {`"La única estrategia comprobada para reducir el dolor muscular posterior al ejercicio y
+                            mejorar la recuperación es adoptar un enfoque progresivo del ejercicio", dice Millar.`}
                           </p>
                           <p>
                             ¿Cómo saber si te estás esforzando demasiado todo el tiempo? Mack dice que, además del
@@ -390,6 +398,7 @@ const News9 = () => {
                               target='_blank'
                               data-analytics-action-id='e5ffca55-34be-43f3-be38-80a6d194a670'
                               href='https://www.nike.com/us/es/a/que-es-el-sindrome-de-sobreentrenamiento'
+                              rel='noreferrer'
                             >
                               signos de sobreentrenamiento
                             </a>

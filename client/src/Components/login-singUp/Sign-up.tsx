@@ -15,7 +15,7 @@ interface Propos {
 }
 
 const regexEmail =
-  /^[a-zA-Z0-9.,!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+  /^[a-zA-Z0-9.,!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
 const regexName = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/
 const regexPassword = /^[a-zA-Z0-9]{6,10}$/
 
@@ -36,7 +36,7 @@ const SignUp: React.FC<Propos> = ({ loading_icon, icon }) => {
 
   const navigate = useNavigate()
 
-  let user = useAppSelector(selectUser)
+  const user = useAppSelector(selectUser)
 
   useEffect(() => {
     dispatch(Error())
@@ -102,8 +102,8 @@ const SignUp: React.FC<Propos> = ({ loading_icon, icon }) => {
 
   useEffect(() => {
     if (user.userToken?.length > 50) {
-      let time = new Date()
-      let token = user.userToken
+      const time = new Date()
+      const token = user.userToken
       window.localStorage.setItem('Login_userFit_Focus', JSON.stringify({ token, time }))
     }
   }, [user.userToken])

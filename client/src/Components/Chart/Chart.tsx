@@ -25,8 +25,8 @@ interface props {
 
 const ChartLine: FC<props> = ({ ejeX, ejeY, label, backgroundColor, borderColor }) => {
   const limit = (type: string) => {
-    if (type === 'min') return Math.min.apply(Math, ejeY) - Math.round((Math.min.apply(Math, ejeY) * 8) / 100)
-    else if (type === 'max') return Math.max.apply(Math, ejeY) + Math.round((Math.max.apply(Math, ejeY) * 6) / 100)
+    if (type === 'min') return Math.min.apply(null, ejeY) - Math.round((Math.min.apply(null, ejeY) * 8) / 100)
+    else if (type === 'max') return Math.max.apply(null, ejeY) + Math.round((Math.max.apply(null, ejeY) * 6) / 100)
   }
 
   const options = {

@@ -63,8 +63,8 @@ module.exports = {
 
                 <p>Esperamos poder haberlo(a) ayudado con su pregunta</p>
                 <p>Despues de respondida su pregunta, es eliminada automaticamente. Sientase libre de hacer otra pregunta si la tuviera</p>
-                <a href="http://localhost:3000">Puedes usar este LINK para ir a la app</a>
-                <a href="http://localhost:3000/contactanos">Puedes usar este LINK para hacer otra pregunta</a>
+                <a href="${process.env.APP_URL}">Puedes usar este LINK para ir a la app</a>
+                <a href="${process.env.APP_URL}/contactanos">Puedes usar este LINK para hacer otra pregunta</a>
                    `,
     }
   },

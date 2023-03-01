@@ -22,7 +22,7 @@ interface pay {
 }
 
 export const get_payment = createAsyncThunk('user/get_payment', async (data: pay, thunkAPI) => {
-  const response = await axios.get('http://localhost:3001/auth/payment', {
+  const response = await axios.get(`${process.env.REACT_APP_API_URL}/auth/payment`, {
     headers: {
       Authorization: `Bearer ${data.token}`,
     },
@@ -30,7 +30,7 @@ export const get_payment = createAsyncThunk('user/get_payment', async (data: pay
   return response.data
 })
 export const verify_payment = createAsyncThunk('user/verify_payment', async (data: pay, thunkAPI) => {
-  const response = await axios.get(`http://localhost:3001/auth/confirmation?payment_id=${data.id}`, {
+  const response = await axios.get(`${process.env.REACT_APP_API_URL}/auth/confirmation?payment_id=${data.id}`, {
     headers: {
       Authorization: `Bearer ${data.token}`,
     },
@@ -63,7 +63,7 @@ export const StateSlice = createSlice({
   },
 })
 
-export const {} = StateSlice.actions
+// export const {} = StateSlice.actions
 export const mercadopago = (state: RootState) => state.mercadopago
 
 export default StateSlice.reducer

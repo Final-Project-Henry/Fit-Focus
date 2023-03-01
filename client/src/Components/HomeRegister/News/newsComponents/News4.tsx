@@ -36,6 +36,7 @@ const News4 = () => {
                       target='_blank'
                       data-analytics-action-id='087e0235-311a-47a3-9966-52809f98f9e3'
                       href='https://www.nike.com/us/es/a/ntc-entrenamientos-en-casa'
+                      rel='noreferrer'
                     >
                       empieza a hacer ejercicio
                     </a>
@@ -128,6 +129,7 @@ const News4 = () => {
                               target='_blank'
                               data-analytics-action-id='012e0ffe-52e2-41a6-9333-00fe61278c0f'
                               href='https://www.nike.com/us/es/a/entrenamientos-cardio-y-fuerza'
+                              rel='noreferrer'
                             >
                               entrenamientos de cardio y fuerza
                             </a>
@@ -137,6 +139,7 @@ const News4 = () => {
                               target='_blank'
                               data-analytics-action-id='d2eae673-b0d0-4f5f-8237-58f5f2c01c60'
                               href='https://www.nike.com/us/es/a/como-quemar-grasa-vientre'
+                              rel='noreferrer'
                             >
                               pierdes grasa
                             </a>
@@ -218,6 +221,7 @@ const News4 = () => {
                               target='_blank'
                               data-analytics-action-id='4364adea-af27-4747-83e5-b58635f3d591'
                               href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3771367/'
+                              rel='noreferrer'
                             >
                               <em>Obesity Reviews</em>
                             </a>
@@ -227,6 +231,7 @@ const News4 = () => {
                               target='_blank'
                               data-analytics-action-id='a6d6e811-3489-4fd2-bcde-ff9a624a4973'
                               href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4561833/'
+                              rel='noreferrer'
                             >
                               <em>Advances in Nutrition</em>
                             </a>
@@ -252,6 +257,7 @@ const News4 = () => {
                               target='_blank'
                               data-analytics-action-id='3dcbc682-7961-4f4d-8e79-2b300bac7c93'
                               href='https://www.nike.com/us/es/a/como-retomar-tu-rutina-de-entrenamiento'
+                              rel='noreferrer'
                             >
                               modificar tu programa de entrenamiento
                             </a>
@@ -265,6 +271,7 @@ const News4 = () => {
                               target='_blank'
                               data-analytics-action-id='e23ade5b-da52-4817-84e8-917ace143a71'
                               href='https://www.nike.com/us/es/a/planifica-tu-entrenamiento-ideal-para-el-dia-de-recuperacion'
+                              rel='noreferrer'
                             >
                               entrenamientos de recuperación
                             </a>
@@ -341,6 +348,7 @@ const News4 = () => {
                               target='_blank'
                               data-analytics-action-id='0dc1e956-1294-477f-b3f6-6b9a1fe346a5'
                               href='https://www.nasm.org/resources/calorie-calculator'
+                              rel='noreferrer'
                             >
                               Body Weight Planner (Planificador de peso corporal)
                             </a>
@@ -353,6 +361,7 @@ const News4 = () => {
                               target='_blank'
                               data-analytics-action-id='c8821667-5434-4456-aead-64e4271d43ed'
                               href='https://www.nike.com/us/es/a/como-lidiar-con-los-antojos'
+                              rel='noreferrer'
                             >
                               hambre todo el tiempo
                             </a>
@@ -426,6 +435,7 @@ const News4 = () => {
                               target='_blank'
                               data-analytics-action-id='616788bc-80b7-4b76-b3fc-13552639e6bb'
                               href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5639963/'
+                              rel='noreferrer'
                             >
                               <em>Perspectives on Psychological Science)</em>
                             </a>
@@ -449,6 +459,7 @@ const News4 = () => {
                               target='_blank'
                               data-analytics-action-id='339d6bdb-808b-4bd0-a00a-a1d82a4b2363'
                               href='https://www.nike.com/us/es/a/cuantas-calorias-consumir-por-dia'
+                              rel='noreferrer'
                             >
                               para desarrollar un plan alimenticio
                             </a>
@@ -459,7 +470,7 @@ const News4 = () => {
                           <a
                             href='https://niketraining.app.link/srJCiQW7Dkb'
                             target='_blank'
-                            rel='noopener'
+                            rel='noopener noreferrer'
                             data-analytics-action-id='f15e2fc0-b5e9-4591-b73c-533f0196936b'
                             data-analytics-allow='false'
                             className='dz_xjzja _2minRfAM ncss-btn-primary-dark bihGx79a'
@@ -525,6 +536,7 @@ const News4 = () => {
                               target='_blank'
                               data-analytics-action-id='f1e505e8-82db-4c84-9db1-757a24b5c83d'
                               href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7833027/'
+                              rel='noreferrer'
                             >
                               <em>International Journal of Qualitative Studies in Health and Well-Being</em>
                             </a>
@@ -537,6 +549,7 @@ const News4 = () => {
                               target='_blank'
                               data-analytics-action-id='9684fcbb-bf8b-459c-8675-78f99f138d69'
                               href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6796229/'
+                              rel='noreferrer'
                             >
                               metas deben ser realistas
                             </a>
@@ -546,6 +559,7 @@ const News4 = () => {
                               target='_blank'
                               data-analytics-action-id='e96e2c95-f89e-4ce4-858b-ee22ad23cb60'
                               href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5764193/'
+                              rel='noreferrer'
                             >
                               afectar de manera negativa
                             </a>

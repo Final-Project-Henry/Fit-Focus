@@ -67,7 +67,7 @@ export default function Temp(props: {
         </button>
 
         <div className='w-24 mx-1 p-2 bg-white text-gray-700 rounded-lg shadow-lg flex flex-col'>
-          <div className='font-mono leading-none text-5xl font-bold text-gray-800 mx-auto' x-text='seconds'>
+          <div className='font-mono leading-none text-5xl font-bold text-gray-800 mx-auto x-text=seconds'>
             {props.temp}
           </div>
           <div className='font-mono uppercase text-sm leading-none mx-auto'>segs</div>

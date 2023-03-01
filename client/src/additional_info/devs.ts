@@ -1,12 +1,3 @@
-import adrian from '../Components/assets/visitors/avatars_staff/adrian.png'
-import cate from '../Components/assets/visitors/avatars_staff/caterina.png'
-import david from '../Components/assets/visitors/avatars_staff/david.png'
-import ivan from '../Components/assets/visitors/avatars_staff/ivan.png'
-import marcel from '../Components/assets/visitors/avatars_staff/marcel.png'
-import martin from '../Components/assets/visitors/avatars_staff/martin.png'
-import rafael from '../Components/assets/visitors/avatars_staff/rafael.png'
-import rodrigo from '../Components/assets/visitors/avatars_staff/rodrigo.png'
-
 export default [
   {
     name: 'Caterina Aracil',
@@ -63,11 +54,4 @@ export default [
     git: 'https://github.com/Adr-AA',
     link: 'https://www.linkedin.com/in/adrian-acurero/',
   },
-  // {
-  //     name:"Rodrigo Santesteban",
-  //     avatar: "https://media-exp1.licdn.com/dms/image/C4E03AQFgViQkVACOIg/profile-displayphoto-shrink_800_800/0/1657227230243?e=1669852800&v=beta&t=iClq4NHelL3tRdvdAZxzhl9s0_iCPpfBzE60TDfod5o",
-  //     mail: 'mailto:rodrisantes89@gmail.com',
-  //     git: 'https://github.com/rodrisantes',
-  //     link: 'https://www.linkedin.com/in/rodrigo-santesteban-7334b5240/',
-  // },
 ]

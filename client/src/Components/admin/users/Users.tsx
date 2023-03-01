@@ -18,6 +18,12 @@ interface Page {
   skip: number
   take: number
 }
+interface Cell {
+  dataItem: {
+    status: string
+    plan: string
+  }
+}
 
 const initialSort: Array<SortDescriptor> = [{ field: 'name', dir: 'asc' }]
 
@@ -26,8 +32,8 @@ export default function Users() {
   const users = useAppSelector(state => state.admin)
   const navigate = useNavigate()
 
-  let total: number | undefined = users.users?.length
-  let pageSize: number = 10
+  const total: number | undefined = users.users?.length
+  const pageSize = 10
 
   const [page, setPage] = React.useState<Page>({ skip: 0, take: pageSize })
   const [sort, setSort] = React.useState(initialSort)
@@ -85,19 +91,16 @@ export default function Users() {
     )
   }
 
-  const statusCell = (props: any) => {
+  const statusCell = ({ dataItem }: Cell) => {
     return (
       <td style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-        <img
-          style={{ width: '10px', height: '10px' }}
-          src={props.dataItem.status === 'activated' ? active : desactive}
-        />
-        {props.dataItem.status}
+        <img style={{ width: '10px', height: '10px' }} src={dataItem.status === 'activated' ? active : desactive} />
+        {dataItem.status}
       </td>
     )
   }
 
-  const planCell = (props: any) => {
+  const planCell = ({ dataItem }: Cell) => {
     return (
       <td>
         <div
@@ -107,8 +110,8 @@ export default function Users() {
             gap: '5px',
           }}
         >
-          <img style={{ width: '20px', height: '20px' }} src={props.dataItem.plan === 'normal' ? free : premium} />
-          {props.dataItem.plan}
+          <img style={{ width: '20px', height: '20px' }} src={dataItem.plan === 'normal' ? free : premium} />
+          {dataItem.plan}
         </div>
       </td>
     )

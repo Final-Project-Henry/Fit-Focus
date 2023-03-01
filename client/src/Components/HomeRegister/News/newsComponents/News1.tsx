@@ -3,12 +3,13 @@ const News1 = () => {
     <div>
       <div data-qa='body' className='FaRDqXgS responsive-body-2-1 mt6-sm text-color-primary-dark'>
         <p>
-          Quizás hayas escuchado esta frase: "No se puede superar con el ejercicio una dieta mala". Y es cierta (casi
-          siempre). Si estás comiendo comida chatarra en exceso y no estás alimentando tu cuerpo con
+          {`Quizás hayas escuchado esta frase: "No se puede superar con el ejercicio una dieta mala". Y es cierta (casi
+          siempre). Si estás comiendo comida chatarra en exceso y no estás alimentando tu cuerpo con`}
           <a
             target='_blank'
             data-analytics-action-id='9f3fcc90-7369-46ee-8c75-ec16112bdf37'
             href='https://www.nike.com/us/es/a/el-mejor-momento-para-tomar-batidos-de-proteinas'
+            rel='noreferrer'
           >
             alimentos ricos en nutrientes
           </a>
@@ -22,6 +23,7 @@ const News1 = () => {
             target='_blank'
             data-analytics-action-id='82930b65-a1c0-40bd-88ee-f0e8b38434ff'
             href='https://www.nike.com/us/es/a/posturas-yoga-estres'
+            rel='noreferrer'
           >
             beneficios para la salud mental
           </a>
@@ -125,6 +127,7 @@ const News1 = () => {
                       target='_blank'
                       data-analytics-action-id='880b5152-131c-4f60-8b57-08bb3ce9acba'
                       href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3406229/'
+                      rel='noreferrer'
                     >
                       ensayo controlado aleatorio de 2012
                     </a>
@@ -195,6 +198,7 @@ const News1 = () => {
                               target='_blank'
                               data-analytics-action-id='bb252844-0f5e-4285-ab19-d16d688e753d'
                               href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3661116/'
+                              rel='noreferrer'
                             >
                               aumentar tu GEDT
                             </a>
@@ -227,6 +231,7 @@ const News1 = () => {
                               target='_blank'
                               data-analytics-action-id='5ac78583-ab97-4ef3-b556-4fa2b820fa69'
                               href='https://adaa.org/living-with-anxiety/managing-anxiety/exercise-stress-and-anxiety#:~:text=Scientists%20have%20found%20that%20regular,to%20stimulate%20anti%2Danxiety%20effects.'
+                              rel='noreferrer'
                             >
                               Numerosos estudios
                             </a>
@@ -237,6 +242,7 @@ const News1 = () => {
                               target='_blank'
                               data-analytics-action-id='c9a997bb-6051-4463-9dc7-707494cdda5c'
                               href='https://www.cambridge.org/core/journals/the-british-journal-of-psychiatry/article/effects-of-exercise-on-depressive-symptoms-in-older-adults-with-poorly-responsive-depressive-disorder/700D4C1AC0B8C034F1AD27D4C200915C'
+                              rel='noreferrer'
                             >
                               estudio
                             </a>
@@ -272,6 +278,7 @@ const News1 = () => {
                               target='_blank'
                               data-analytics-action-id='6a08aeb9-4e2a-48ce-bf3f-acb57795fe65'
                               href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2804956/'
+                              rel='noreferrer'
                             >
                               estudios
                             </a>
@@ -307,6 +314,7 @@ const News1 = () => {
                               target='_blank'
                               data-analytics-action-id='612446d9-e587-490a-b32d-856a5d8ba593'
                               href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6481017/'
+                              rel='noreferrer'
                             >
                               reduce el riesgo
                             </a>
@@ -350,6 +358,7 @@ const News1 = () => {
                               target='_blank'
                               data-analytics-action-id='a0cadcbb-a8e5-412f-9290-662cb40e42e5'
                               href='https://www.sciencedirect.com/science/article/pii/S0001691817301336?dgcid=raven_sd_via_email'
+                              rel='noreferrer'
                             >
                               estudio
                             </a>
@@ -386,6 +395,7 @@ const News1 = () => {
                               target='_blank'
                               data-analytics-action-id='85bcce5b-e2a6-43a3-881a-7186c7105e4b'
                               href='https://www.pnas.org/content/108/7/3017'
+                              rel='noreferrer'
                             >
                               aumenta
                             </a>
@@ -448,6 +458,7 @@ const News1 = () => {
                               target='_blank'
                               data-analytics-action-id='cc2d214b-3aec-43aa-8b2a-537b51820404'
                               href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6299531/'
+                              rel='noreferrer'
                             >
                               combatir la soledad
                             </a>

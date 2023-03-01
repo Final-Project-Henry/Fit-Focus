@@ -17,7 +17,7 @@ export default function Mercadoresponse() {
   const numb_error = '400'
 
   useEffect(() => {
-    let userJSON = window.localStorage.getItem('Login_userFit_Focus')
+    const userJSON = window.localStorage.getItem('Login_userFit_Focus')
     let userlogin
     if (userJSON) {
       if (userJSON.length > 3) {

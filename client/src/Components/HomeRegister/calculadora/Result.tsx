@@ -4,7 +4,7 @@ import styles from './Result.module.css'
 import functions from '../../../additional_info/functions'
 
 export default function Result(props: { function: { (): void }; IMC: number; peso: number; altura: number }) {
-  let indice = props.IMC.toFixed(1)
+  const indice = props.IMC.toFixed(1)
 
   const data = functions.get_message_IMC(parseInt(indice))
 

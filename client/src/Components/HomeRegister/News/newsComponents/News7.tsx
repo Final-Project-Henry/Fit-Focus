@@ -31,6 +31,7 @@ const News7 = () => {
                       target='_blank'
                       data-analytics-action-id='18e011e6-b98d-4a6f-98fe-53b0d80b1ec6'
                       href='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6027933/'
+                      rel='noreferrer'
                     >
                       las investigaciones indican
                     </a>
@@ -42,8 +43,8 @@ const News7 = () => {
                     de ejercicios grupales certificada por la AFAA.
                   </p>
                   <p>
-                    "Sabemos que el ejercicio puede ayudar a reducir el riesgo de desarrollar muchas afecciones a largo
-                    plazo, como enfermedades cardíacas, diabetes tipo 2 y algunos cánceres", afirma.
+                    {`"Sabemos que el ejercicio puede ayudar a reducir el riesgo de desarrollar muchas afecciones a largo
+                    plazo, como enfermedades cardíacas, diabetes tipo 2 y algunos cánceres", afirma.`}
                   </p>
                   <p>
                     Y la buena noticia es que no importa la cantidad de tiempo que dediques a ejercitarte, existen
@@ -82,17 +83,17 @@ const News7 = () => {
                 </h4>
                 <div data-qa='body' className='FaRDqXgS responsive-body-2-1 mt6-sm text-color-primary-dark'>
                   <p>
-                    "Según tus objetivos de condición física y tu experiencia de ejercicios actual, un entrenamiento
+                    {`"Según tus objetivos de condición física y tu experiencia de ejercicios actual, un entrenamiento
                     prolongado podría significar algo diferente para ti de lo que es para otras personas", comenta la
                     M.S. Aimee Nicotera, entrenadora personal certificada por la AFAA, fisióloga de ejercicio
                     certificada por el ACSM y dueña de Virtual Fitness Studio. En general, la duración promedio de un
-                    entrenamiento prolongado sería de una hora, afirma.
+                    entrenamiento prolongado sería de una hora, afirma.`}
                   </p>
                   <p>
-                    "Si eres un atleta de resistencia o un novato que busca entrenar para su primer maratón o paseo en
+                    {`"Si eres un atleta de resistencia o un novato que busca entrenar para su primer maratón o paseo en
                     bicicleta century ride, las sesiones prolongadas de actividad cardiovascular, como el running y el
                     ciclismo, mejorarán tu rendimiento. Esto implicaría sesiones de entrenamiento de dos horas o hasta
-                    más para cumplir tus objetivos", afirma.
+                    más para cumplir tus objetivos", afirma.`}
                   </p>
                   <p>
                     Para que un entrenamiento sea prolongado y eficaz, debe realizarse con una intensidad más baja que
@@ -101,6 +102,7 @@ const News7 = () => {
                       target='_blank'
                       data-analytics-action-id='977dfc99-fd24-498c-a728-116f73f93da6'
                       href='https://www.instagram.com/officialseanruff/'
+                      rel='noreferrer'
                     >
                       Sean Ruff
                     </a>
@@ -108,9 +110,9 @@ const News7 = () => {
                     personal.
                   </p>
                   <p>
-                    "Todo esto tiene sus raíces en el metabolismo del ejercicio y la bioenergética, la cual examina cómo
+                    {`"Todo esto tiene sus raíces en el metabolismo del ejercicio y la bioenergética, la cual examina cómo
                     la energía se transforma mediante diversas reacciones químicas en relación con los cambios y
-                    demandas que le impone el ejercicio".
+                    demandas que le impone el ejercicio".`}
                   </p>
                 </div>
               </div>
@@ -157,6 +159,7 @@ const News7 = () => {
                               target='_blank'
                               data-analytics-action-id='afc7cf94-277e-4c34-98ba-c453e86bf89d'
                               href='https://bjsm.bmj.com/content/early/2022/01/19/bjsports-2021-105061'
+                              rel='noreferrer'
                             >
                               British Journal of Sports Medicine
                             </a>
@@ -204,6 +207,7 @@ const News7 = () => {
                               target='_blank'
                               data-analytics-action-id='d892c87c-40e1-43ba-9afc-bf71340c4e24'
                               href='https://www.annualreviews.org/doi/10.1146/annurev-med-060619-022943'
+                              rel='noreferrer'
                             >
                               evaluación de 2021
                             </a>
@@ -239,6 +243,7 @@ const News7 = () => {
                               target='_blank'
                               data-analytics-action-id='d8843138-c7b8-4457-9f13-2fae3410fe28'
                               href='https://jamanetwork.com/journals/jamainternalmedicine/article-abstract/2772939'
+                              rel='noreferrer'
                             >
                               estudio de cohorte de 2020
                             </a>
@@ -286,14 +291,14 @@ const News7 = () => {
                 <div data-qa='body' className='FaRDqXgS responsive-body-2-1 mt6-sm text-color-primary-dark'>
                   <p>Un entrenamiento corto puede durar entre 10 y 30 minutos.</p>
                   <p>
-                    "Incluso si tienes presión por el tiempo, una sesión de ejercicio más corta (hasta una rutina de 10
+                    {`"Incluso si tienes presión por el tiempo, una sesión de ejercicio más corta (hasta una rutina de 10
                     minutos) vale la pena", afirma Nicotera. Si bien existen beneficios físicos, también existe un gran
-                    beneficio psicológico.
+                    beneficio psicológico.`}
                   </p>
                   <p>
-                    "Estar abiertos a entrenamientos más cortos nos permite mantener la constancia y crear un hábito de
+                    {`"Estar abiertos a entrenamientos más cortos nos permite mantener la constancia y crear un hábito de
                     movernos a diario", continúa. "El punto es que queremos movernos más: siempre que podamos,
-                    dondequiera que podamos y durante todo el tiempo que podamos".
+                    dondequiera que podamos y durante todo el tiempo que podamos".`}
                   </p>
                 </div>
               </div>
@@ -340,6 +345,7 @@ const News7 = () => {
                               target='_blank'
                               data-analytics-action-id='7638e623-8f37-40c6-b01e-2c8c979a5a5d'
                               href='https://digitalcommons.wku.edu/ijes/vol14/iss3/2/'
+                              rel='noreferrer'
                             >
                               International Journal of Exercise Science
                             </a>
@@ -382,6 +388,7 @@ const News7 = () => {
                               target='_blank'
                               data-analytics-action-id='562d6c20-6a97-4053-9a2a-cbef1c94e593'
                               href='https://journals.lww.com/acsm-msse/Citation/2021/06000/Inertial_Load_Power_Cycling_Training_Increases.10.aspx'
+                              rel='noreferrer'
                             >
                               Medicine &amp; Science in Sports &amp; Exercise
                             </a>
@@ -428,6 +435,7 @@ const News7 = () => {
                               target='_blank'
                               data-analytics-action-id='cb1824c1-715e-4a02-a953-2c8b0603f1d9'
                               href='https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0111489#abstract0'
+                              rel='noreferrer'
                             >
                               PLoS One
                             </a>
@@ -477,9 +485,9 @@ const News7 = () => {
                     masa muscular y la salud cardiovascular.
                   </p>
                   <p>
-                    "Cambiar con frecuencia nuestras rutinas, incluida la incorporación de entrenamientos más cortos y
+                    {`"Cambiar con frecuencia nuestras rutinas, incluida la incorporación de entrenamientos más cortos y
                     la experimentación con sesiones de entrenamiento más prolongadas, crea una máquina más resiliente
-                    preparada para una vida activa y saludable", agrega Nicotera.
+                    preparada para una vida activa y saludable", agrega Nicotera.`}
                   </p>
                   <p>
                     Como primer paso para determinar la longitud de entrenamiento ideal para tus objetivos, asegúrate de

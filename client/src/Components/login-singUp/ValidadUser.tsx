@@ -10,7 +10,7 @@ interface Propos {
 }
 
 const ValidadUser: React.FC<Propos> = ({ loading_icon, icon }) => {
-  let user = useAppSelector(selectUser)
+  const user = useAppSelector(selectUser)
 
   const dispatch = useAppDispatch()
   const [loagi, setloagin] = useState(false)
@@ -27,7 +27,7 @@ const ValidadUser: React.FC<Propos> = ({ loading_icon, icon }) => {
   async function handleSubmit(event: React.FormEvent): Promise<void> {
     event.preventDefault()
     setloagin(true)
-    const response = await axios.post('http://localhost:3001/newpassword', Form_data)
+    const response = await axios.post(`${process.env.REACT_APP_API_URL}/newpassword`, Form_data)
     const resp = response.data
     SetResp(resp)
     if (resp) {
