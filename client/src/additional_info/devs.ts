@@ -1,8 +1,7 @@
 export default [
   {
     name: 'Caterina Aracil',
-    avatar:
-      'https://media-exp1.licdn.com/dms/image/C4D03AQG9rR9v5Iy5FQ/profile-displayphoto-shrink_800_800/0/1658155056432?e=1669852800&v=beta&t=-pdfHYsWTQ4Jj9_Cj_gjFnS7jpm5ASWgl-ciGOcQBHA',
+    avatar: 'https://res.cloudinary.com/dm0fwscsy/image/upload/v1677731345/Fit-Focus/avatars/1676987125680_chm556.jpg',
     mail: 'mailto:caterinaaracil@gmail.com',
     git: 'https://github.com/catearacil',
     link: 'https://www.linkedin.com/in/caterina-aracil-42256722b/',
@@ -10,7 +9,7 @@ export default [
   {
     name: 'Martin Angulo',
     avatar:
-      'https://media-exp1.licdn.com/dms/image/C4E03AQGKw9NmZTJAVw/profile-displayphoto-shrink_800_800/0/1663136455438?e=1669852800&v=beta&t=V5jj_9D0SJfuLu7FIkAcshab5Xnnn4geCxP6TzpWAGo',
+      'https://res.cloudinary.com/dm0fwscsy/image/upload/v1677732065/Fit-Focus/avatars/IMG_20220208_221954_gzecic.jpg',
     mail: 'mailto:martinangulo1194@gmail.com',
     git: 'https://github.com/MartinAngulo',
     link: 'https://www.linkedin.com/in/martinangulo1194/',
@@ -18,38 +17,35 @@ export default [
   {
     name: 'Ivan Garcia',
     avatar:
-      'https://media-exp1.licdn.com/dms/image/C4D03AQHgn-AZZWBnJA/profile-displayphoto-shrink_800_800/0/1654361227567?e=1669852800&v=beta&t=ajjyB_rduNtoiarrg87j_YMxhNog_RGuyFJJMiozPj8',
+      'https://res.cloudinary.com/dm0fwscsy/image/upload/v1677731416/Fit-Focus/avatars/1d2d4b10-995a-48b1-9ebe-35f60d66d24f_lvr5wu.jpg',
     mail: 'mailto:ivanx467@gmail.com',
     git: 'https://github.com/x1vaan',
     link: 'https://www.linkedin.com/in/sergio-ivan-garcia/',
   },
   {
     name: 'Rafael Betancourt',
-    avatar:
-      'https://media-exp1.licdn.com/dms/image/C4E03AQGsV9iS0u958Q/profile-displayphoto-shrink_800_800/0/1656624616593?e=1669852800&v=beta&t=oSkCc_KQhDw_g7NiS3X0pWqhvbR38YePYXsC8h4ZkZE',
+    avatar: 'https://res.cloudinary.com/dm0fwscsy/image/upload/v1677731665/Fit-Focus/avatars/1656624616593_jrwk14.jpg',
     mail: 'mailto:rafael18282@gmail.com',
     git: 'https://github.com/RafaelBetancourt',
     link: 'https://www.linkedin.com/in/rafaelgbetancourto/',
   },
   {
     name: 'Marcel Franco',
-    avatar: 'https://avatars.githubusercontent.com/u/98562281?v=4',
+    avatar: 'https://res.cloudinary.com/dm0fwscsy/image/upload/v1677731717/Fit-Focus/avatars/1672960136569_nnqxyp.jpg',
     mail: 'mailto:Hola12lf@gmail.com',
     git: 'https://github.com/LautaroFranc',
     link: 'https://www.linkedin.com/in/lautaro-franco-a1358722b/',
   },
   {
     name: 'David Cicconi',
-    avatar:
-      'https://media-exp1.licdn.com/dms/image/C4D03AQHK-oXb9z_4xw/profile-displayphoto-shrink_800_800/0/1628914569483?e=1669852800&v=beta&t=r1AjTE2Ke2He44zl1Fyyf1-k54FvCGJ8nzoF1yTUZ2k',
+    avatar: 'https://res.cloudinary.com/dm0fwscsy/image/upload/v1677731372/Fit-Focus/avatars/1628914569483_ysmwaj.jpg',
     mail: 'mailto:david.cicconi94@gmail.com',
     git: 'https://github.com/davidcicconi94',
     link: 'https://www.linkedin.com/in/david-cicconi-dev/',
   },
   {
     name: 'Adrian Acurero',
-    avatar:
-      'https://media-exp1.licdn.com/dms/image/C4D03AQG3qIvYok9uXA/profile-displayphoto-shrink_800_800/0/1656938727487?e=1669852800&v=beta&t=vErZy3ILkIjmQlY0Gc6UAqL6AwtbjknnafSbIoc6Aa8',
+    avatar: 'https://res.cloudinary.com/dm0fwscsy/image/upload/v1677731694/Fit-Focus/avatars/1674146930649_sboloo.jpg',
     mail: 'mailto:adrianacurero@gmail.com',
     git: 'https://github.com/Adr-AA',
     link: 'https://www.linkedin.com/in/adrian-acurero/',
