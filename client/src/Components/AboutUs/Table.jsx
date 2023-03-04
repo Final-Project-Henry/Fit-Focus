@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import { useMemo } from 'react'
 import { COLUMNS } from './Table/columns'
 import DEVS_DATA from './developers/devs.json'
 import './Table/Table.css'
