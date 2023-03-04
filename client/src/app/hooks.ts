@@ -38,7 +38,7 @@ export function useSesion() {
   return user
 }
 
-//hook para obtener
+//hook para obtener el token guardado en el localStorage
 
 export function useToken() {
   const [token, setToken] = useState<string>('')

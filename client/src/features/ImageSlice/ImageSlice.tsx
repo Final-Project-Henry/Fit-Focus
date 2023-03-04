@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import monkey from '../../Components/assets/icons/monkey.jpg'
+import monkey from 'components/assets/icons/monkey.jpg'
 
 export interface Image {
   image: string
