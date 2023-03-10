@@ -1,5 +1,15 @@
+import Navbar from 'components/Navbar/Navbar'
+import { ContainerScreen, Container } from '../styles'
+
 const Register = () => {
-  return <div>Register</div>
+  return (
+    <ContainerScreen>
+      <Navbar />
+      <Container>
+        <span>Register</span>
+      </Container>
+    </ContainerScreen>
+  )
 }
 
 export default Register
