@@ -5,9 +5,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { createRoot } from 'react-dom/client'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import { store } from './app/store'
-import LandingPage from './screens/no-auth/LandingPage'
-import ErrorAndRedirectPage from './components/ErrorAndRedirectPage/ErrorAndRedirectPage'
-import { errors } from 'shared/shareData'
+import RoutesComponent from 'routes/Routes'
 import './index.css'
 
 const rootElement = document.getElementById('root') as HTMLElement
@@ -22,19 +20,7 @@ root.render(
     <GoogleOAuthProvider clientId={googleId}>
       <Provider store={store}>
         <BrowserRouter>
-          <Routes>
-            <Route path='/' element={<LandingPage />} />
-            <Route
-              path={'*'}
-              element={
-                <ErrorAndRedirectPage
-                  message={errors.notFound.message}
-                  number={errors.notFound.number}
-                />
-              }
-            />
-            <Route path='*' element={<Navigate to='/' />} />
-          </Routes>
+          <RoutesComponent />
         </BrowserRouter>
       </Provider>
     </GoogleOAuthProvider>

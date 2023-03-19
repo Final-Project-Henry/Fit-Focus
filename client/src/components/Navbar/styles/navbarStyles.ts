@@ -39,6 +39,9 @@ export const LoginArea = styled(divBase)`
 export const Image = styled.div`
   width: 100px;
   padding: 0 15px;
+  :hover {
+    cursor: pointer;
+  }
 `
 export const MenuButton = styled(divBase)`
   padding: 0 15px;

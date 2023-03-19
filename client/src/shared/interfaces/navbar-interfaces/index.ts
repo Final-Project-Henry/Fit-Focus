@@ -1,6 +1,11 @@
-export interface MobileNavbarInterfaces {
+export interface MobileNavbarProps {
   handleOpenMenu: () => void
   isOpenMenu: boolean
+  goHome: () => void
+}
+
+export interface FullNavbarProps {
+  goHome: () => void
 }
 
 export interface SubMenuRoute {

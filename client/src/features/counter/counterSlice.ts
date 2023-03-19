@@ -38,223 +38,264 @@ export interface userFeedback {
   token: string
 }
 
-export const Rutines_Get = createAsyncThunk('user/rutinesSlice', async ({ token, cualqu }: any, thunkAPI) => {
-  try {
-    const headersList = {
-      Accept: '/',
-      Authorization: 'Bearer ' + token,
-      'Content-Type': 'application/json',
+export const Rutines_Get = createAsyncThunk(
+  'user/rutinesSlice',
+  async ({ token, cualqu }: any, thunkAPI) => {
+    try {
+      const headersList = {
+        Accept: '/',
+        Authorization: 'Bearer ' + token,
+        'Content-Type': 'application/json',
+      }
+
+      const reqOptions = {
+        url: cualqu
+          ? `${process.env.REACT_APP_API_URL}/auth/getroutine?get=${cualqu}`
+          : `${process.env.REACT_APP_API_URL}/auth/getroutine`,
+        method: 'GET',
+        headers: headersList,
+      }
+
+      const response = await axios.request(reqOptions)
+      const resp = response.data
+
+      thunkAPI.dispatch(Rutines(resp))
+      return resp
+    } catch (error: any) {
+      thunkAPI.dispatch(Status(error.response.data))
+      thunkAPI.rejectWithValue(error)
+      return
     }
+  },
+)
 
-    const reqOptions = {
-      url: cualqu
-        ? `${process.env.REACT_APP_API_URL}/auth/getroutine?get=${cualqu}`
-        : `${process.env.REACT_APP_API_URL}/auth/getroutine`,
-      method: 'GET',
-      headers: headersList,
+export const EditUser = createAsyncThunk(
+  'user/Edit',
+  async ({ token, data }: any, thunkAPI) => {
+    try {
+      const headersList = {
+        Accept: '/',
+        Authorization: 'Bearer ' + token,
+        'Content-Type': 'application/json',
+      }
+
+      const reqOptions = {
+        url: `${process.env.REACT_APP_API_URL}/auth/changeinfo`,
+        method: 'PUT',
+        headers: headersList,
+        data: data,
+      }
+
+      const response = await axios.request(reqOptions)
+      const resp = response.data
+
+      thunkAPI.dispatch(Status(response.data))
+
+      return resp
+    } catch (error: any) {
+      thunkAPI.dispatch(Status(error.response.data))
+      thunkAPI.rejectWithValue(error)
+      return
     }
+  },
+)
 
-    const response = await axios.request(reqOptions)
-    const resp = response.data
+export const Detail = createAsyncThunk(
+  'user/detailEj',
+  async ({ token, id }: any, thunkAPI) => {
+    try {
+      const headersList = {
+        Accept: '*/*',
+        Authorization: 'Bearer ' + token,
+        'Content-Type': 'application/json',
+      }
+      const reqOptions = {
+        url: `${process.env.REACT_APP_API_URL}/auth/exercise?id=${id}`,
+        method: 'GET',
+        headers: headersList,
+      }
 
-    thunkAPI.dispatch(Rutines(resp))
-    return resp
-  } catch (error: any) {
-    thunkAPI.dispatch(Status(error.response.data))
-    thunkAPI.rejectWithValue(error)
-    return
-  }
-})
-
-export const EditUser = createAsyncThunk('user/Edit', async ({ token, data }: any, thunkAPI) => {
-  try {
-    const headersList = {
-      Accept: '/',
-      Authorization: 'Bearer ' + token,
-      'Content-Type': 'application/json',
+      const response = await axios.request(reqOptions)
+      const resp = response.data
+      return resp
+    } catch (error: any) {
+      thunkAPI.rejectWithValue(error.response.data)
+      return error.response.data
     }
+  },
+)
 
-    const reqOptions = {
-      url: `${process.env.REACT_APP_API_URL}/auth/changeinfo`,
-      method: 'PUT',
-      headers: headersList,
-      data: data,
+export const Exercises_Get = createAsyncThunk(
+  'user/exercices',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/exercises`,
+      )
+      const resp = response.data
+      thunkAPI.fulfillWithValue(resp)
+      return resp
+    } catch (error: any) {
+      thunkAPI.rejectWithValue(error)
+      return
     }
+  },
+)
 
-    const response = await axios.request(reqOptions)
-    const resp = response.data
+export const Activecuenta = createAsyncThunk(
+  'user/active',
+  async (user: object, thunkAPI) => {
+    try {
+      const response = await axios.put(
+        `${process.env.REACT_APP_API_URL}/account`,
+        user,
+      )
+      const resp = response.data
 
-    thunkAPI.dispatch(Status(response.data))
-
-    return resp
-  } catch (error: any) {
-    thunkAPI.dispatch(Status(error.response.data))
-    thunkAPI.rejectWithValue(error)
-    return
-  }
-})
-
-export const Detail = createAsyncThunk('user/detailEj', async ({ token, id }: any, thunkAPI) => {
-  try {
-    const headersList = {
-      Accept: '*/*',
-      Authorization: 'Bearer ' + token,
-      'Content-Type': 'application/json',
+      thunkAPI.fulfillWithValue(resp)
+      return resp
+    } catch (error: any) {
+      thunkAPI.fulfillWithValue(error.response.data)
+      return error.response.data
     }
-    const reqOptions = {
-      url: `${process.env.REACT_APP_API_URL}/auth/exercise?id=${id}`,
-      method: 'GET',
-      headers: headersList,
+  },
+)
+export const ActivecuentaGoogle = createAsyncThunk(
+  'user/activeGoogle',
+  async (user: object, thunkAPI) => {
+    try {
+      const response = await axios.put(
+        `${process.env.REACT_APP_API_URL}/accountGoogle`,
+        user,
+      )
+      const resp = response.data
+      thunkAPI.fulfillWithValue(resp)
+      return resp
+    } catch (error: any) {
+      thunkAPI.fulfillWithValue(error.response.data)
+      return error.response.data
     }
+  },
+)
 
-    const response = await axios.request(reqOptions)
-    const resp = response.data
-    return resp
-  } catch (error: any) {
-    thunkAPI.rejectWithValue(error.response.data)
-    return error.response.data
-  }
-})
+export const removeAccount = createAsyncThunk(
+  'user/remove',
+  async (tokenUser: string, thunkAPI) => {
+    try {
+      const headersList = {
+        Accept: '*/*',
+        Authorization: 'Bearer ' + tokenUser,
+        'Content-Type': 'application/json',
+      }
 
-export const Exercises_Get = createAsyncThunk('user/exercices', async (_, thunkAPI) => {
-  try {
-    const response = await axios.get(`${process.env.REACT_APP_API_URL}/exercises`)
-    const resp = response.data
-    thunkAPI.fulfillWithValue(resp)
-    return resp
-  } catch (error: any) {
-    thunkAPI.rejectWithValue(error)
-    return
-  }
-})
+      const userData = jwtDecode(tokenUser)
 
-export const Activecuenta = createAsyncThunk('user/active', async (user: object, thunkAPI) => {
-  try {
-    const response = await axios.put(`${process.env.REACT_APP_API_URL}/account`, user)
-    const resp = response.data
+      const reqOptions = {
+        url: `${process.env.REACT_APP_API_URL}/auth/delete`,
+        method: 'delete',
+        headers: headersList,
+        data: userData,
+      }
 
-    thunkAPI.fulfillWithValue(resp)
-    return resp
-  } catch (error: any) {
-    thunkAPI.fulfillWithValue(error.response.data)
-    return error.response.data
-  }
-})
-export const ActivecuentaGoogle = createAsyncThunk('user/activeGoogle', async (user: object, thunkAPI) => {
-  try {
-    const response = await axios.put(`${process.env.REACT_APP_API_URL}/accountGoogle`, user)
-    const resp = response.data
-    thunkAPI.fulfillWithValue(resp)
-    return resp
-  } catch (error: any) {
-    thunkAPI.fulfillWithValue(error.response.data)
-    return error.response.data
-  }
-})
+      const response = await axios.request(reqOptions)
 
-export const removeAccount = createAsyncThunk('user/remove', async (tokenUser: string, thunkAPI) => {
-  try {
-    const headersList = {
-      Accept: '*/*',
-      Authorization: 'Bearer ' + tokenUser,
-      'Content-Type': 'application/json',
+      return response.data
+    } catch (error: any) {
+      return error
     }
+  },
+)
 
-    const userData = jwtDecode(tokenUser)
+export const getProfileInfo = createAsyncThunk(
+  'user/getProfileInfo',
+  async (tokenUser: string, thunkAPI) => {
+    try {
+      const headersList = {
+        Accept: '*/*',
+        Authorization: 'Bearer ' + tokenUser,
+        'Content-Type': 'application/json',
+      }
 
-    const reqOptions = {
-      url: `${process.env.REACT_APP_API_URL}/auth/delete`,
-      method: 'delete',
-      headers: headersList,
-      data: userData,
+      const userData = jwtDecode(tokenUser)
+
+      const reqOptions = {
+        url: `${process.env.REACT_APP_API_URL}/auth/profile`,
+        method: 'GET',
+        headers: headersList,
+        data: userData,
+      }
+
+      const response = await axios.request(reqOptions)
+
+      thunkAPI.fulfillWithValue(response.data)
+
+      return response.data
+    } catch (error: any) {
+      return error
     }
+  },
+)
 
-    const response = await axios.request(reqOptions)
+export const infoUserRutina = createAsyncThunk(
+  'user/DataRutinas',
+  async (data: infoRutina, thunkAPI) => {
+    try {
+      const headersList = {
+        Accept: '*/*',
+        Authorization: 'Bearer ' + data.token,
+        'Content-Type': 'application/json',
+      }
 
-    return response.data
-  } catch (error: any) {
-    return error
-  }
-})
+      const reqOptions = {
+        url: `${process.env.REACT_APP_API_URL}/auth/userinfo`,
+        method: 'PUT',
+        headers: headersList,
+        data: data.form_data,
+      }
 
-export const getProfileInfo = createAsyncThunk('user/getProfileInfo', async (tokenUser: string, thunkAPI) => {
-  try {
-    const headersList = {
-      Accept: '*/*',
-      Authorization: 'Bearer ' + tokenUser,
-      'Content-Type': 'application/json',
+      const response = await axios.request(reqOptions)
+      thunkAPI.fulfillWithValue(response.data)
+      return response.data
+    } catch (error: any) {
+      thunkAPI.rejectWithValue(error.response.data)
+      return error.response.data
     }
+  },
+)
 
-    const userData = jwtDecode(tokenUser)
+export const userFeedback = createAsyncThunk(
+  'user/feedback',
+  async (data: userFeedback, thunkAPI) => {
+    try {
+      const headersList = {
+        Accept: '*/*',
+        Authorization: 'Bearer ' + data.token,
+        'Content-Type': 'application/json',
+      }
 
-    const reqOptions = {
-      url: `${process.env.REACT_APP_API_URL}/auth/profile`,
-      method: 'GET',
-      headers: headersList,
-      data: userData,
+      const reqOptions = {
+        url: `${process.env.REACT_APP_API_URL}/auth/userfeedback`,
+        method: 'PUT',
+        headers: headersList,
+        data: { comment: data.comment },
+      }
+
+      const response = await axios.request(reqOptions)
+      thunkAPI.dispatch(Status('success'))
+      return
+    } catch (error: any) {
+      thunkAPI.dispatch(Status(error.response.data))
+      return error
     }
-
-    const response = await axios.request(reqOptions)
-
-    thunkAPI.fulfillWithValue(response.data)
-
-    return response.data
-  } catch (error: any) {
-    return error
-  }
-})
-
-export const infoUserRutina = createAsyncThunk('user/DataRutinas', async (data: infoRutina, thunkAPI) => {
-  try {
-    const headersList = {
-      Accept: '*/*',
-      Authorization: 'Bearer ' + data.token,
-      'Content-Type': 'application/json',
-    }
-
-    const reqOptions = {
-      url: `${process.env.REACT_APP_API_URL}/auth/userinfo`,
-      method: 'PUT',
-      headers: headersList,
-      data: data.form_data,
-    }
-
-    const response = await axios.request(reqOptions)
-    thunkAPI.fulfillWithValue(response.data)
-    return response.data
-  } catch (error: any) {
-    thunkAPI.rejectWithValue(error.response.data)
-    return error.response.data
-  }
-})
-
-export const userFeedback = createAsyncThunk('user/feedback', async (data: userFeedback, thunkAPI) => {
-  try {
-    const headersList = {
-      Accept: '*/*',
-      Authorization: 'Bearer ' + data.token,
-      'Content-Type': 'application/json',
-    }
-
-    const reqOptions = {
-      url: `${process.env.REACT_APP_API_URL}/auth/userfeedback`,
-      method: 'PUT',
-      headers: headersList,
-      data: { comment: data.comment },
-    }
-
-    const response = await axios.request(reqOptions)
-    thunkAPI.dispatch(Status('success'))
-    return
-  } catch (error: any) {
-    thunkAPI.dispatch(Status(error.response.data))
-    return error
-  }
-})
+  },
+)
 
 export const report = createAsyncThunk(
   'user/report',
-  async (data: { id: string | undefined; email: string; token: string }, thunkAPI) => {
+  async (
+    data: { id: string | undefined; email: string; token: string },
+    thunkAPI,
+  ) => {
     try {
       const headersList = {
         Accept: '*/*',
@@ -280,89 +321,113 @@ export const report = createAsyncThunk(
   },
 )
 
-export const rewindExercise = createAsyncThunk('user/rewind', async (data: any, thunkAPI) => {
-  try {
-    const headersList = {
-      Accept: '*/*',
-      Authorization: 'Bearer ' + data.token,
-      'Content-Type': 'application/json',
+export const rewindExercise = createAsyncThunk(
+  'user/rewind',
+  async (data: any, thunkAPI) => {
+    try {
+      const headersList = {
+        Accept: '*/*',
+        Authorization: 'Bearer ' + data.token,
+        'Content-Type': 'application/json',
+      }
+      const reqOptions = {
+        url: `${process.env.REACT_APP_API_URL}/auth/feedbackExercise`,
+        method: 'PUT',
+        headers: headersList,
+        data,
+      }
+
+      const response = await axios.request(reqOptions)
+      thunkAPI.dispatch(Status('success'))
+      return response.data
+    } catch (error: any) {
+      thunkAPI.dispatch(Status(error.response.data))
+      return error.response.data
     }
-    const reqOptions = {
-      url: `${process.env.REACT_APP_API_URL}/auth/feedbackExercise`,
-      method: 'PUT',
-      headers: headersList,
-      data,
+  },
+)
+
+export const User_Register_State = createAsyncThunk(
+  'user/sing_upUser',
+  async (user: object, thunkAPI) => {
+    try {
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/register`,
+        user,
+      )
+      const resp = response.data
+      thunkAPI.fulfillWithValue(resp)
+      return resp
+    } catch (error: any) {
+      thunkAPI.rejectWithValue(error.response.data)
+      return error.response.data
     }
+  },
+)
 
-    const response = await axios.request(reqOptions)
-    thunkAPI.dispatch(Status('success'))
-    return response.data
-  } catch (error: any) {
-    thunkAPI.dispatch(Status(error.response.data))
-    return error.response.data
-  }
-})
-
-export const User_Register_State = createAsyncThunk('user/sing_upUser', async (user: object, thunkAPI) => {
-  try {
-    const response = await axios.post(`${process.env.REACT_APP_API_URL}/register`, user)
-    const resp = response.data
-    thunkAPI.fulfillWithValue(resp)
-    return resp
-  } catch (error: any) {
-    thunkAPI.rejectWithValue(error.response.data)
-    return error.response.data
-  }
-})
-
-export const User_Login_State = createAsyncThunk('user/login', async (user: object, thunkAPI) => {
-  try {
-    const response = await axios.post(`${process.env.REACT_APP_API_URL}/login`, user)
-    const resp = response.data
-    thunkAPI.fulfillWithValue(resp)
-    return resp
-  } catch (error: any) {
-    thunkAPI.rejectWithValue(error.response.data)
-    return error.response.data
-  }
-})
-
-export const authGoogle = createAsyncThunk('user/auth_google', async (code: { code: string }, thunkAPI) => {
-  try {
-    const response = await axios.post(`${process.env.REACT_APP_API_URL}/authGoogle`, code)
-    const resp = response.data
-    thunkAPI.fulfillWithValue(resp)
-    return resp
-  } catch (error: any) {
-    thunkAPI.dispatch(Status(error.response.data))
-    thunkAPI.rejectWithValue(error.response.data)
-    return error.response.data
-  }
-})
-
-export const feedbackFooter = createAsyncThunk('user/feedbackFooter', async (body: any, thunkAPI) => {
-  try {
-    const headersList = {
-      Accept: '*/*',
-      Authorization: 'Bearer ' + body.token,
-      'Content-Type': 'application/json',
+export const User_Login_State = createAsyncThunk(
+  'user/login',
+  async (user: object, thunkAPI) => {
+    try {
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/login`,
+        user,
+      )
+      const resp = response.data
+      thunkAPI.fulfillWithValue(resp)
+      return resp
+    } catch (error: any) {
+      thunkAPI.rejectWithValue(error.response.data)
+      return error.response.data
     }
+  },
+)
 
-    const reqOptions = {
-      url: `${process.env.REACT_APP_API_URL}/auth/ask`,
-      method: 'POST',
-      headers: headersList,
-      data: body,
+export const authGoogle = createAsyncThunk(
+  'user/auth_google',
+  async (code: { code: string }, thunkAPI) => {
+    try {
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/authGoogle`,
+        code,
+      )
+      const resp = response.data
+      thunkAPI.fulfillWithValue(resp)
+      return resp
+    } catch (error: any) {
+      thunkAPI.dispatch(Status(error.response.data))
+      thunkAPI.rejectWithValue(error.response.data)
+      return error.response.data
     }
+  },
+)
 
-    const temp = await axios.request(reqOptions)
-    thunkAPI.fulfillWithValue(temp.data)
-    return temp.data
-  } catch (error: any) {
-    thunkAPI.fulfillWithValue(error.response.data)
-    return error.response.data
-  }
-})
+export const feedbackFooter = createAsyncThunk(
+  'user/feedbackFooter',
+  async (body: any, thunkAPI) => {
+    try {
+      const headersList = {
+        Accept: '*/*',
+        Authorization: 'Bearer ' + body.token,
+        'Content-Type': 'application/json',
+      }
+
+      const reqOptions = {
+        url: `${process.env.REACT_APP_API_URL}/auth/ask`,
+        method: 'POST',
+        headers: headersList,
+        data: body,
+      }
+
+      const temp = await axios.request(reqOptions)
+      thunkAPI.fulfillWithValue(temp.data)
+      return temp.data
+    } catch (error: any) {
+      thunkAPI.fulfillWithValue(error.response.data)
+      return error.response.data
+    }
+  },
+)
 
 export const StateSlice = createSlice({
   name: 'user',
@@ -590,7 +655,16 @@ export const StateSlice = createSlice({
   },
 })
 
-export const { sigendOut, Status, Estado, Rutines, Response, DelateDetail, Exercises, Error } = StateSlice.actions
+export const {
+  sigendOut,
+  Status,
+  Estado,
+  Rutines,
+  Response,
+  DelateDetail,
+  Exercises,
+  Error,
+} = StateSlice.actions
 
 export const selectUser = (state: RootState) => state.user
 

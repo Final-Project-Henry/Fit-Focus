@@ -3,7 +3,6 @@ import { Error } from '@mui/icons-material'
 import GridContainer from 'components/Grid/GridContainer'
 import GridItem from 'components/Grid/GridItem'
 import { Props } from 'shared/interfaces/error-interfaces'
-import useToken from 'shared/customHooks/useToken'
 import { logoError, logoLight } from 'shared/shareData'
 import {
   Button,
@@ -16,11 +15,10 @@ import {
 } from './styles/errorPageStyles'
 
 const ErrorPage = ({ errorMessage, numberError, counter }: Props) => {
-  const token = useToken()
   const navigate = useNavigate()
 
   const handleClick = () => {
-    navigate(token ? '/register' : '/visit')
+    navigate('/home')
   }
   return (
     <GridContainer alignItems='stretch' justifyContent='center'>

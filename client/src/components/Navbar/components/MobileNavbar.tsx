@@ -7,12 +7,13 @@ import {
   Navbar,
   RoutesArea,
 } from '../styles/navbarStyles'
-import { MobileNavbarInterfaces } from 'shared/interfaces/navbar-interfaces'
+import { MobileNavbarProps } from 'shared/interfaces/navbar-interfaces'
 
 const MobileNavbar = ({
   handleOpenMenu,
   isOpenMenu,
-}: MobileNavbarInterfaces) => {
+  goHome,
+}: MobileNavbarProps) => {
   return (
     <>
       <Container>
@@ -21,7 +22,7 @@ const MobileNavbar = ({
             <MenuButton onClick={handleOpenMenu}>
               <Menu />
             </MenuButton>
-            <Image>
+            <Image onClick={goHome}>
               <img src={logoLight} width='70%' />
             </Image>
           </RoutesArea>

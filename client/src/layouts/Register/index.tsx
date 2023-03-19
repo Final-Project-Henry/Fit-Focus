@@ -1,12 +1,13 @@
-import Navbar from 'components/Navbar/Navbar'
+import NewNavbar from 'components/Navbar/NewNavbar'
+import { Outlet } from 'react-router-dom'
 import { ContainerScreen, Container } from '../styles'
 
 const Register = () => {
   return (
     <ContainerScreen>
-      <Navbar />
+      <NewNavbar />
       <Container>
-        <span>Register</span>
+        <Outlet />
       </Container>
     </ContainerScreen>
   )

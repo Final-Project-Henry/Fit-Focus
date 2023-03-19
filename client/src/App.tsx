@@ -63,7 +63,7 @@ function App() {
         <Routes>
           {/* Rutas admi */}
 
-          <Route path='/admin' element={<Dashboard />}>
+          {/* <Route path='/admin' element={<Dashboard />}>
             <Route path='' element={<Home />} />
             <Route path='users' element={<Users />} />
             <Route path='users/:id' element={<User />} />
@@ -72,40 +72,51 @@ function App() {
             <Route path='exercises/:id' element={<Exercise />} />
             <Route path='comments' element={<Comments />} />
             <Route path='questions' element={<Questions />} />
-          </Route>
+          </Route> */}
 
           {/* Rutas públicas */}
 
-          <Route path='/' element={<LandingPage />} />
+          {/* <Route path='/' element={<LandingPage />} /> */}
           <Route path='NewPassword/:id' element={<NewPassword />} />
-          <Route path='/auth/:id' element={<SingUp_Login />} />
-          <Route path='/home' element={<HomeVisitor_2 />} />
+          {/* <Route path='/auth/:id' element={<SingUp_Login />} /> */}
+          {/* <Route path='/home' element={<HomeVisitor_2 />} /> */}
           <Route path='auth/google' element={<GoogleAuth />} />
           <Route path='loading' element={<Loading />} />
           <Route path='mercadopago' element={<MercadoPago />} />
           <Route path='/AboutUs' element={<AboutUs />} />
-          <Route path={'*'} element={<Error_page errorMessage='URL inexistente.' numberError={404} />} />
+          <Route
+            path={'*'}
+            element={
+              <Error_page errorMessage='URL inexistente.' numberError={404} />
+            }
+          />
           <Route path='/politicadeprivacidad' element={<PoliticaPriv />} />
-          <Route path='/terminosycondiciones' element={<TerminosYCondiciones />} />
+          <Route
+            path='/terminosycondiciones'
+            element={<TerminosYCondiciones />}
+          />
 
           {/* Rutas privadas */}
 
           <Route element={<ProtectedRoute user={user} />}>
-            <Route path='contactanos' element={<Contactanos />} />
-            <Route path='/contact' element={<ContactUs />} />
-            <Route path='/fitFocus' element={<HomeRegister />} />
+            {/* <Route path='contactanos' element={<Contactanos />} /> */}
+            {/* <Route path='/contact' element={<ContactUs />} /> */}
+            {/* <Route path='/fitFocus' element={<HomeRegister />} /> */}
             <Route path='/profile' element={<Profile />} />
-            <Route path='/ejercicio/:id' element={<DecriptionEjer />} />
-            <Route path='/Calculadora' element={<Calculadora />} />
-            <Route path='/ejercicios' element={<Ejercicios />} />
-            <Route path='/rutinas' element={<RutinasPersonales />} />
-            <Route path='/Favoritos' element={<Favoritos />} />
-            <Route path='/training' element={<Training />} />
+            {/* <Route path='/ejercicio/:id' element={<DecriptionEjer />} /> */}
+            {/* <Route path='/Calculadora' element={<Calculadora />} /> */}
+            {/* <Route path='/ejercicios' element={<Ejercicios />} /> */}
+            {/* <Route path='/rutinas' element={<RutinasPersonales />} /> */}
+            {/* <Route path='/Favoritos' element={<Favoritos />} /> */}
+            {/* <Route path='/training' element={<Training />} /> */}
 
             {/* <Route path="/form_user" element={<Form_rutinas />} /> */}
 
-            <Route path='mercadopago/:payment_id' element={<MercadoFeedback />} />
-            <Route path='/noticias' element={<News />} />
+            <Route
+              path='mercadopago/:payment_id'
+              element={<MercadoFeedback />}
+            />
+            {/* <Route path='/noticias' element={<News />} /> */}
             <Route path='/newsBlog/:id' element={<NewsBlog />} />
           </Route>
         </Routes>

@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
-import { RouteInterface } from 'shared/interfaces/navbar-interfaces'
+import {
+  FullNavbarProps,
+  RouteInterface,
+} from 'shared/interfaces/navbar-interfaces'
 import { logoLight, routes } from 'shared/shareData'
 import {
   Container,
@@ -10,12 +13,12 @@ import {
   RoutesList,
 } from '../styles/navbarStyles'
 
-const FullNavbar = () => {
+const FullNavbar = ({ goHome }: FullNavbarProps) => {
   return (
     <Container>
       <Navbar>
         <RoutesArea>
-          <Image>
+          <Image onClick={goHome}>
             <img src={logoLight} />
           </Image>
           <RoutesList>
