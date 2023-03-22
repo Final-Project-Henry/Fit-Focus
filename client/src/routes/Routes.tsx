@@ -10,7 +10,7 @@ import { errors } from 'shared/shareData'
 import LandingPage from 'components/LandingPage/LandingPage'
 
 const ManagementRoutes = () => {
-  const user = { role: 'logged' }
+  const user = { role: '' }
 
   const [role, setRole] = useState(roles.visitRole)
   const [filteredRoutes, setFilteredRoutes] = useState<RouteInterface[]>([])
@@ -37,9 +37,10 @@ const ManagementRoutes = () => {
     }
   }, [role])
   useEffect(() => {
-    if (user && user?.role && user?.role === 'admin') {
-      setRole(roles.adminRole)
-    } else if (user) {
+    if (user) {
+      if (user?.role === 'admin') {
+        setRole(roles.adminRole)
+      }
       setRole(roles.loggedRole)
     } else {
       setRole(roles.visitRole)
@@ -49,11 +50,14 @@ const ManagementRoutes = () => {
   return (
     <Routes>
       <Route path='/' element={<LandingPage />} />
-      <Route element={layout}>
-        {adminRoutes &&
-          adminRoutes.map((route: RouteInterface, index: number) => (
+      {adminRoutes && (
+        <Route path='/admin' element={layout}>
+          {adminRoutes.map((route: RouteInterface, index: number) => (
             <Route key={index} path={route.path} element={route.component} />
           ))}
+        </Route>
+      )}
+      <Route element={layout}>
         {filteredRoutes.map((route: RouteInterface, index: number) => (
           <Route key={index} path={route.path} element={route.component} />
         ))}

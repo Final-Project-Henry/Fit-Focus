@@ -3,7 +3,15 @@ import { Props } from '../../shared/interfaces/grid-interfaces'
 
 const GridItem = ({ children, ...rest }: Props) => {
   return (
-    <Grid item {...rest}>
+    <Grid
+      item
+      {...rest}
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
       {children}
     </Grid>
   )

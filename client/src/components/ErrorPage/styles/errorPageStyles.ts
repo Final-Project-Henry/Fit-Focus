@@ -1,4 +1,3 @@
-import GridContainer from 'components/Grid/GridContainer'
 import styled from 'styled-components'
 
 export const Button = styled.button`
@@ -22,23 +21,30 @@ export const ButtonArea = styled.div`
     gap: 0;
   }
 `
-export const GridContainerStyled = styled(GridContainer)`
+export const GridContainerStyled = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
 `
 export const Logo = styled.img`
   width: 200px;
+  margin: auto;
 `
 export const ErrorImage = styled.img`
   max-width: 80%;
+  margin: auto;
   @media (max-width: 500px) {
     margin-bottom: 50px;
+    margin-top: 20px;
   }
 `
 export const CenterContainer = styled.div`
-  margin: 0;
-  display: flex;
+  padding: 0 20px;
+  text-align: center;
   width: 80%;
-  gap: 20px;
   align-items: center;
-  justify-content: center;
 `

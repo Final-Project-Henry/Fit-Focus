@@ -21,7 +21,7 @@ const ErrorPage = ({ errorMessage, numberError, counter }: Props) => {
     navigate('/home')
   }
   return (
-    <GridContainer alignItems='stretch' justifyContent='center'>
+    <GridContainer>
       <GridItem xs={12} md={6}>
         <ErrorImage src={logoError}></ErrorImage>
       </GridItem>
@@ -42,14 +42,18 @@ const ErrorPage = ({ errorMessage, numberError, counter }: Props) => {
           </GridItem>
           <GridItem xs={12}>
             <CenterContainer>
-              Su cliente no tiene permiso para acceder a esta URL. Si el
-              problema persiste, pongase en contacto con servicio técnico.
+              <span style={{ flexWrap: 'wrap' }}>
+                Su cliente no tiene permiso para acceder a esta URL. Si el
+                problema persiste, pongase en contacto con servicio técnico.
+              </span>
             </CenterContainer>
           </GridItem>
           <GridItem xs={12}>
-            <ErrorMessage>
-              <i>Error: {errorMessage}</i>
-            </ErrorMessage>
+            <CenterContainer>
+              <ErrorMessage>
+                <i>Error: {errorMessage}</i>
+              </ErrorMessage>
+            </CenterContainer>
           </GridItem>
           <GridItem xs={12}>
             <ButtonArea>

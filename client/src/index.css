@@ -1,7 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: 'Oswald';
+  src: url('../public/assets/fonts/Oswald-VariableFont_wght.ttf');
+}
 
 body {
   background-color: rgb(248 250 252);
+}
+
+#root {
+  height: 100vh;
 }

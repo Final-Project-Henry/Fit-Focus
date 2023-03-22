@@ -10,6 +10,7 @@ const divBase = styled.div`
 
 export const Container = styled(divBase)`
   justify-content: center;
+  font-family: 'Oswald';
 `
 export const Navbar = styled(divBase)`
   width: 95%;
