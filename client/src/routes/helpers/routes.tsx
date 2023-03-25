@@ -17,6 +17,7 @@ import RutinasPersonales from '../../components/HomeRegister/RutinasPersonales'
 import ContactUs from '../../components/Contact/Contact'
 import AboutUs from '../../components/AboutUs/AboutUs'
 import Training from '../../components/HomeRegister/Rutins/Training'
+import UserLoginScreen from 'screens/no-auth/UserLoginScreen/UserLoginScreen'
 
 export const roles = {
   visitRole: 'visit',
@@ -155,7 +156,7 @@ export const routes = [
   {
     path: 'login',
     title: 'Inicia Sesión',
-    component: <SingUp_Login />,
+    component: <UserLoginScreen />,
     layout: 'visit',
     role: roles.visitRole,
   },

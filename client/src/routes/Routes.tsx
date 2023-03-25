@@ -29,11 +29,11 @@ const ManagementRoutes = () => {
   }, [role])
   useEffect(() => {
     if (role === roles.adminRole) {
-      setLayout(AdminLayout)
+      setLayout(<AdminLayout />)
     } else if (role === roles.loggedRole) {
-      setLayout(RegisterLayout)
+      setLayout(<RegisterLayout />)
     } else {
-      setLayout(VisitLayout)
+      setLayout(<VisitLayout />)
     }
   }, [role])
   useEffect(() => {
@@ -55,22 +55,31 @@ const ManagementRoutes = () => {
           {adminRoutes.map((route: RouteInterface, index: number) => (
             <Route key={index} path={route.path} element={route.component} />
           ))}
+          <Route
+            path={'*'}
+            element={
+              <ErrorAndRedirectPage
+                message={errors.notFound.message}
+                number={errors.notFound.number}
+              />
+            }
+          />
         </Route>
       )}
       <Route element={layout}>
         {filteredRoutes.map((route: RouteInterface, index: number) => (
           <Route key={index} path={route.path} element={route.component} />
         ))}
+        <Route
+          path={'*'}
+          element={
+            <ErrorAndRedirectPage
+              message={errors.notFound.message}
+              number={errors.notFound.number}
+            />
+          }
+        />
       </Route>
-      <Route
-        path={'*'}
-        element={
-          <ErrorAndRedirectPage
-            message={errors.notFound.message}
-            number={errors.notFound.number}
-          />
-        }
-      />
     </Routes>
   )
 }

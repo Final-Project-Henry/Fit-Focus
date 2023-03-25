@@ -38,6 +38,7 @@ specifiers:
   autoprefixer: ^10.4.10
   axios: ^0.27.2
   chart.js: ^3.9.1
+  date-fns: ^2.29.3
   eslint: ^8.35.0
   eslint-config-prettier: ^8.6.0
   eslint-plugin-prettier: ^4.2.1
@@ -95,6 +96,7 @@ dependencies:
   '@reduxjs/toolkit': 1.9.3_k4ae6lp43ej6mezo3ztvx6pykq
   axios: 0.27.2
   chart.js: 3.9.1
+  date-fns: 2.29.3
   jwt-decode: 3.1.2
   ra-data-simple-rest: 4.8.1
   react: 18.2.0
@@ -4821,6 +4823,11 @@ packages:
       abab: 2.0.6
       whatwg-mimetype: 2.3.0
       whatwg-url: 8.7.0
+    dev: false
+
+  /date-fns/2.29.3:
+    resolution: {integrity: sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==}
+    engines: {node: '>=0.11'}
     dev: false
 
   /debug/2.6.9:

@@ -3,6 +3,7 @@ import useWindowsSize from 'shared/customHooks/useWindowsSize'
 import MobileNavbar from './components/MobileNavbar'
 import FullNavbar from './components/FullNavbar'
 import { useNavigate } from 'react-router-dom'
+import useToken from 'shared/customHooks/useToken'
 
 const NewNavbar = () => {
   const { width } = useWindowsSize()
@@ -10,6 +11,7 @@ const NewNavbar = () => {
 
   const [isOpenMenu, setIsOpenMenu] = useState(false)
   const [isSmall, setIsSmall] = useState(false)
+  const token = useToken()
 
   useEffect(() => {
     if (width && width < 760) {
@@ -24,6 +26,7 @@ const NewNavbar = () => {
   }
   const goHome = () => {
     navigate('/home')
+    console.log('aqui va el token', token)
   }
 
   return isSmall ? (
