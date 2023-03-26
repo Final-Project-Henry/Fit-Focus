@@ -8,8 +8,10 @@ const GridItem = ({ children, ...rest }: Props) => {
       {...rest}
       style={{
         display: 'flex',
+        width: '100%',
         justifyContent: 'center',
-        alignItems: 'center',
+        height: 'fit-content',
+        margin: 0,
       }}
     >
       {children}

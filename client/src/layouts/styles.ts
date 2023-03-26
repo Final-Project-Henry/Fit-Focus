@@ -7,5 +7,7 @@ export const ContainerScreen = styled.div`
 `
 export const Container = styled.div`
   height: 100%;
-  /* margin: 50px; */
+  /* @media (max-width: 500px) {
+    height: auto;
+  } */
 `

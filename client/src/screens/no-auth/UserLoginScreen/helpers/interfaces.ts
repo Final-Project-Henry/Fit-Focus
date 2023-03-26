@@ -5,4 +5,6 @@ export interface LoginInputsProps {
     viewPassword: boolean
   }
   handleInfo: (key: string, value: string | boolean) => void
+  recoveryPass: () => void
+  submit: () => void
 }

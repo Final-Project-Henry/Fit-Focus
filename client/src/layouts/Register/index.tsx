@@ -4,7 +4,7 @@ import { ContainerScreen, Container } from '../styles'
 
 const Register = () => {
   return (
-    <ContainerScreen>
+    <ContainerScreen id='layout-container'>
       <NewNavbar />
       <Container>
         <Outlet />

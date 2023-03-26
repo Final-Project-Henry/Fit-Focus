@@ -6,7 +6,10 @@ const GridContainer = ({ children, ...rest }: Props) => {
     <Grid
       container
       {...rest}
-      style={{ height: '100%', justifyContent: 'center', alignItems: 'center' }}
+      style={{
+        width: '100%',
+        height: '100%',
+      }}
     >
       {children}
     </Grid>
