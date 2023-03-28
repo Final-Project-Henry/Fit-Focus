@@ -3,7 +3,7 @@ import { useAppSelector } from 'shared/customHooks/reduxHooks'
 
 const useToken = () => {
   const [token, setToken] = useState<string>('')
-  const userStado = useAppSelector(state => state.userProfile)
+  const userStado = useAppSelector(state => state.userLogin)
 
   useEffect(() => {
     const userJSON = window.localStorage.getItem('token-user')

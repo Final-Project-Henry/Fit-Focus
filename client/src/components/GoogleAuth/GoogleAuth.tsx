@@ -1,44 +1,29 @@
-import React, { Fragment, useEffect, useState } from 'react'
-import { GoogleLogin } from '@react-oauth/google'
-import { ActivecuentaGoogle, authGoogle, selectUser } from '../../features/counter/counterSlice'
+import { Fragment, useEffect, useState } from 'react'
+import { CredentialResponse, GoogleLogin } from '@react-oauth/google'
+// import { ActivecuentaGoogle, authGoogle, selectUser } from '../../features/counter/counterSlice'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
-import { useGoogleLogin } from '@react-oauth/google'
-import { composeWithDevTools } from '@reduxjs/toolkit/dist/devtoolsExtension'
 import jwtDecode from 'jwt-decode'
 
-interface response {
-  clientId: string
-  credential: string
-  select_by: string
-}
-
 export default function GoogleAuth() {
-  const { EstadoCuenta } = useAppSelector(selectUser)
-  const [code, setCode] = useState('')
+  const [googleToken, setGoogleToken] = useState('')
   const dispatch = useAppDispatch()
 
-  const sendInfo = (code: string) => {
-    dispatch(authGoogle({ code: code }))
-  }
-
-  useEffect(() => {
-    if (code.length > 0 && EstadoCuenta != 'Activar') {
-      sendInfo(code)
-    } else if (EstadoCuenta === 'Activar') {
-      const user = jwtDecode(code)
-      const data: any = user
-      dispatch(ActivecuentaGoogle({ email: data.email, password: data.sub }))
+  const handleSuccess = (res: CredentialResponse) => {
+    if (res.credential && res.credential?.length > 3) {
+      setGoogleToken(res.credential)
+      console.log(googleToken)
     }
-  }, [code, EstadoCuenta])
+  }
+  const handleError = () => {
+    alert('Ocurrio un error al iniciar sesion')
+  }
 
   return (
     <Fragment>
       <GoogleLogin
-        width='200'
-        onSuccess={res => {
-          if (typeof res.credential === 'string') setCode(res.credential)
-        }}
-        onError={() => alert('Login Error')}
+        width='200px'
+        onSuccess={handleSuccess}
+        onError={handleError}
       />
     </Fragment>
   )

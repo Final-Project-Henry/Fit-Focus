@@ -1,6 +1,7 @@
 import { combineReducers } from '@reduxjs/toolkit'
-import { userProfileReducer } from './userReducer'
+import { userLoginReducer, userRefreshTokenReducer } from './userReducer'
 
 export default combineReducers({
-  userProfile: userProfileReducer,
+  userLogin: userLoginReducer,
+  userRefreshToken: userRefreshTokenReducer,
 })

@@ -22,13 +22,12 @@ const userSchema = new Schema({
     default: 'https://i0.wp.com/www.repol.copl.ulaval.ca/wp-content/uploads/2019/01/default-user-icon.jpg',
     required: false,
   },
-
   plan: {
     type: String,
     enum: ['normal', 'premium'],
     default: 'normal',
   },
-  admin: {
+  isAdmin: {
     type: Boolean,
     default: false,
   },

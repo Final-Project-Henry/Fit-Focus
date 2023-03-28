@@ -1,12 +1,34 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
+import jwtDecode from 'jwt-decode'
 import reducer from './reducers'
 
+const userInfoFromStorage = localStorage.getItem('token-user')
+  ? JSON.parse(localStorage.getItem('token-user') || 'no llegara aqui')
+  : null
+const decoded =
+  userInfoFromStorage === null ? null : jwtDecode(userInfoFromStorage)
+
+const userSession =
+  userInfoFromStorage === null
+    ? null
+    : {
+        ...(decoded as object),
+        token: userInfoFromStorage,
+      }
+
+const preloadedState = {
+  userLogin: {
+    userInfo: userSession,
+  },
+}
+
 export const store = configureStore({
-  reducer: reducer,
+  reducer,
+  preloadedState,
 })
 
 export type AppDispatch = typeof store.dispatch
-export type RootState = ReturnType<typeof store.getState>
+export type RootState = ReturnType<typeof reducer>
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
   RootState,
