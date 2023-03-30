@@ -1,16 +1,9 @@
 import axios from 'axios'
 import jwtDecode from 'jwt-decode'
-import { AppDispatch, RootState as DefaultRootState } from 'redux/store'
+import { AppDispatch } from 'redux/store'
 import { PayloadError } from 'shared/interfaces/redux'
+import { RootState } from 'shared/interfaces/routes-interfaces'
 import * as types from '../constants/userConstants'
-
-type RootState = DefaultRootState & {
-  userLogin: {
-    userInfo: {
-      token: string | null
-    } | null
-  }
-}
 
 export const Loginn =
   (email: string, password: string) => async (dispatch: AppDispatch) => {

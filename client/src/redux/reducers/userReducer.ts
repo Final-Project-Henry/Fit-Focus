@@ -1,12 +1,13 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import * as types from '../constants/userConstants'
 
-const initialState = {}
+// const initialState = {
+//   userInfo: {
+//     token: '',
+//   },
+// }
 
-export const userLoginReducer = (
-  state = initialState,
-  action: PayloadAction,
-) => {
+export const userLoginReducer = (state = {}, action: PayloadAction) => {
   switch (action.type) {
     case types.GET_USER_LOGIN_REQUEST:
       return { loadingUserLogin: true }
@@ -28,10 +29,7 @@ export const userLoginReducer = (
   }
 }
 
-export const userRefreshTokenReducer = (
-  state = initialState,
-  action: PayloadAction,
-) => {
+export const userRefreshTokenReducer = (state = {}, action: PayloadAction) => {
   switch (action.type) {
     case types.USER_REFRESH_TOKEN_REQUEST:
       return { loadingRefreshToken: true }

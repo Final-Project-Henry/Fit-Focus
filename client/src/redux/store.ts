@@ -20,6 +20,7 @@ const preloadedState = {
   userLogin: {
     userInfo: userSession,
   },
+  userRefreshToken: {},
 }
 
 export const store = configureStore({

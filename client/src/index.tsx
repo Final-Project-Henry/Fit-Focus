@@ -1,14 +1,13 @@
-import axios from 'axios'
 import { StrictMode } from 'react'
 import { Provider } from 'react-redux'
+import { store } from 'redux/store'
 import { BrowserRouter } from 'react-router-dom'
 import { createRoot } from 'react-dom/client'
+import { ThemeProvider } from 'styled-components'
 import { GoogleOAuthProvider } from '@react-oauth/google'
-// import { store } from './app/store'
-import { store } from 'redux/store'
+import axios from 'axios'
 import RoutesComponent from 'routes/Routes'
 import theme from 'shared/theme'
-import { ThemeProvider } from 'styled-components'
 import './index.css'
 
 const rootElement = document.getElementById('root') as HTMLElement

@@ -1,3 +1,4 @@
+/* eslint-env node */
 const { Router } = require('express')
 // const getGoogleToken = require('../service/userService.js');
 const jwt = require('jsonwebtoken')

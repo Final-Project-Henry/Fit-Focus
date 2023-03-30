@@ -4,14 +4,13 @@ import { CredentialResponse, GoogleLogin } from '@react-oauth/google'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import jwtDecode from 'jwt-decode'
 
-export default function GoogleAuth() {
-  const [googleToken, setGoogleToken] = useState('')
+const GoogleAuth = () => {
   const dispatch = useAppDispatch()
 
   const handleSuccess = (res: CredentialResponse) => {
     if (res.credential && res.credential?.length > 3) {
-      setGoogleToken(res.credential)
-      console.log(googleToken)
+      console.log(res.credential)
+      console.log(jwtDecode(res.credential))
     }
   }
   const handleError = () => {
@@ -28,3 +27,5 @@ export default function GoogleAuth() {
     </Fragment>
   )
 }
+
+export default GoogleAuth

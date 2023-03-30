@@ -8,15 +8,26 @@ import { RouteInterface } from 'shared/interfaces/routes-interfaces'
 import ErrorAndRedirectPage from 'components/ErrorAndRedirectPage/ErrorAndRedirectPage'
 import { errors } from 'shared/shareData'
 import LandingPage from 'components/LandingPage/LandingPage'
+import { useAppSelector } from 'shared/customHooks/reduxHooks'
 
 const ManagementRoutes = () => {
-  const user = { role: '' }
-
   const [role, setRole] = useState(roles.visitRole)
   const [filteredRoutes, setFilteredRoutes] = useState<RouteInterface[]>([])
   const [adminRoutes, setAdminRoutes] = useState<RouteInterface[] | null>(null)
   const [layout, setLayout] = useState<React.ReactNode>()
 
+  const { userInfo } = useAppSelector(state => state.userLogin)
+
+  useEffect(() => {
+    if (userInfo) {
+      if (userInfo?.role === 'admin') {
+        setRole(roles.adminRole)
+      }
+      setRole(roles.loggedRole)
+    } else {
+      setRole(roles.visitRole)
+    }
+  }, [userInfo])
   useEffect(() => {
     if (role === roles.adminRole) {
       const aditionalRoutes = routes.filter(route => route.layout === 'admin')
@@ -36,16 +47,6 @@ const ManagementRoutes = () => {
       setLayout(<VisitLayout />)
     }
   }, [role])
-  useEffect(() => {
-    if (user) {
-      if (user?.role === 'admin') {
-        setRole(roles.adminRole)
-      }
-      setRole(roles.loggedRole)
-    } else {
-      setRole(roles.visitRole)
-    }
-  }, [user])
 
   return (
     <Routes>

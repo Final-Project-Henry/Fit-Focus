@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useAppSelector } from 'shared/customHooks/reduxHooks'
 
 const useToken = () => {
+  //This hook isn't necesary because the store get the local storage key automatically
   const [token, setToken] = useState<string>('')
   const userStado = useAppSelector(state => state.userLogin)
 
