@@ -1,3 +1,4 @@
+/* eslint-env node */
 const nodemailer = require('nodemailer')
 require('dotenv').config()
 

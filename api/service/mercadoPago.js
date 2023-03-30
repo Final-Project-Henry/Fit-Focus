@@ -1,3 +1,4 @@
+/* eslint-env node */
 const mercadopago = require('mercadopago')
 require('dotenv').config()
 

@@ -1,3 +1,4 @@
+/* eslint-env node */
 const app = require('./app.js')
 require('dotenv').config()
 const { connection } = require('./db.js')

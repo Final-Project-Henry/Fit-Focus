@@ -1,3 +1,4 @@
+/* eslint-env node */
 const { Router } = require('express')
 const bcrypt = require('bcrypt')
 const user = require('../models/User.js')

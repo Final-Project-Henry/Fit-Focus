@@ -1,3 +1,4 @@
+/* eslint-env node */
 const express = require('express')
 const freeAccess = require('./routes/freeAccess.js')
 const authRoutes = require('./routes/authRoutes.js')
