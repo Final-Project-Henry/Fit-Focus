@@ -1,12 +1,12 @@
-const Exercise = require('./models/Exercise.js')
 const ejercicio = require('./Exercises/exercises.js')
+const exerciseRepository = require('./shared/repositories/exercise-repository')
 
-async function loader() {
+const loader = async () => {
   try {
-    const push = await Exercise.insertMany(ejercicio)
-    console.log('exercisesInDB')
+    await exerciseRepository.createMany(ejercicio)
+    console.log('Exercises loaded successfully'.green.bold)
   } catch (err) {
-    console.log('EXERCISE ALREADY LOADED')
+    console.log('Exercises already loaded'.red.bold)
     return
   }
 }

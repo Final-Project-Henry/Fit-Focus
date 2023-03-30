@@ -1,7 +1,7 @@
 const { Router } = require('express')
-const user = require('../models/User.js')
-const Exercise = require('../models/Exercise.js')
-const Comment = require('../models/Comment.js')
+const user = require('../config/mongoose/models/usersModel')
+const Exercise = require('../config/mongoose/models/exercisesModel')
+const Comment = require('../config/mongoose/models/qaAdminModel')
 const mailSettings = require('../additional/nodemailer')
 
 const router = Router()
