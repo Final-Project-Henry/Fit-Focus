@@ -7,8 +7,6 @@ const jwt = require('jsonwebtoken')
 const validation = require('../validations/validations.js')
 const mailSettings = require('../additional/nodemailer')
 
-require('dotenv').config()
-
 const { SECRET } = process.env
 
 const router = Router()

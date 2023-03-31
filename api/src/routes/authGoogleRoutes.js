@@ -6,8 +6,6 @@ const user = require('../models/User.js')
 const bcrypt = require('bcrypt')
 const mailSettings = require('../additional/nodemailer')
 
-require('dotenv').config()
-
 const { SECRET } = process.env
 
 const router = Router()

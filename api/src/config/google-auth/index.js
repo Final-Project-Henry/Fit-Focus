@@ -1,5 +1,5 @@
 /* eslint-env node */
-require('dotenv').config()
+
 const axios = require('axios')
 const querystring = require('node:querystring')
 

@@ -13,7 +13,7 @@ export type RootState = DefaultRootState & {
   userLogin: {
     userInfo: {
       token: string | null
-      role: string | null
+      isAdmin?: boolean
     } | null
   }
 }

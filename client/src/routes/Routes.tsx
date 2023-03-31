@@ -20,7 +20,7 @@ const ManagementRoutes = () => {
 
   useEffect(() => {
     if (!userInfo) return setRole(roles.loggedRole) //change for visitRole
-    if (userInfo && userInfo?.role === 'admin') return setRole(roles.adminRole)
+    if (userInfo && userInfo?.isAdmin) return setRole(roles.adminRole)
     setRole(roles.visitRole) //change for loggedRole
   }, [userInfo])
   useEffect(() => {
