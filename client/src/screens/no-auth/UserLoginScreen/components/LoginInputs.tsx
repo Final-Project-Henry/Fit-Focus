@@ -5,6 +5,8 @@ import {
   VisibilityOff,
 } from '@mui/icons-material'
 import {
+  Alert,
+  CircularProgress,
   Divider,
   IconButton,
   InputAdornment,
@@ -29,6 +31,9 @@ const LoginInputs = ({
   handleInfo,
   recoveryPass,
   submit,
+  error,
+  errorLogin,
+  disableButton,
 }: LoginInputsProps) => {
   return (
     <GridContainer>
@@ -46,8 +51,11 @@ const LoginInputs = ({
             id='email'
             name='email'
             label='Correo'
+            error={!!error.email}
+            helperText={error.email}
             type='email'
             placeholder='alex.perez@hotmail.com'
+            required={true}
             value={data.email}
             onChange={({ target: { value } }) => handleInfo('email', value)}
             InputProps={{
@@ -63,6 +71,8 @@ const LoginInputs = ({
             name='password'
             label='Contraseña'
             placeholder='********'
+            required={true}
+            error={!!error.password}
             helperText='La contraseña debe tener un mínimo de 8 caracteres'
             type={data.viewPassword ? 'text' : 'password'}
             value={data.password}
@@ -92,17 +102,37 @@ const LoginInputs = ({
             <RecoveryText onClick={recoveryPass}>
               Olvidaste tu contraseña?
             </RecoveryText>
-            <SubmitButton onClick={submit}>Iniciar sesión</SubmitButton>
+            <SubmitButton onClick={submit} disabled={disableButton}>
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}
+              >
+                {disableButton && (
+                  <CircularProgress color='inherit' size={15} />
+                )}
+                {disableButton ? 'Iniciando...' : 'Iniciar sesión'}
+              </div>
+            </SubmitButton>
           </ActionArea>
         </InputsContainer>
       </GridItem>
-      <GridItem xs={12} sx={{ alignItems: 'center' }}>
-        <Divider style={{ width: '80%' }}>
-          <Typography>O INICIA CON GOOGLE</Typography>
-        </Divider>
+      <GridItem xs={12}>
+        <GridContainer>
+          <GridItem xs={12} sx={{ alignItems: 'center' }}>
+            <Divider style={{ width: '80%', marginBottom: '5px' }}>
+              <Typography>O INICIA CON GOOGLE</Typography>
+            </Divider>
+          </GridItem>
+          <GridItem xs={12}>
+            <GoogleAuth />
+          </GridItem>
+        </GridContainer>
       </GridItem>
       <GridItem xs={12}>
-        <GoogleAuth />
+        {errorLogin && <Alert severity='error'>{errorLogin}</Alert>}
       </GridItem>
     </GridContainer>
   )

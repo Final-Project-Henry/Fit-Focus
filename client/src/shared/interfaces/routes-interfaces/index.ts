@@ -9,11 +9,24 @@ export interface RouteInterface {
   role: string
 }
 
-export type RootState = DefaultRootState & {
-  userLogin: {
-    userInfo: {
-      token: string | null
-      isAdmin?: boolean
-    } | null
+export type userLoginInterface = {
+  loadingUserLogin?: boolean
+  successUserLogin?: boolean
+  errorUserLogin?: string
+  userInfo?: {
+    _id?: string
+    name?: string
+    email?: string
+    plan?: string
+    lastLogin?: string
+    fav?: []
+    status?: string
+    isAdmin?: boolean
+    isSuper?: boolean
+    token?: string
   }
+}
+
+export type RootState = DefaultRootState & {
+  userLogin?: userLoginInterface
 }

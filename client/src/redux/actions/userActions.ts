@@ -5,7 +5,7 @@ import { PayloadError } from 'shared/interfaces/redux'
 import { RootState } from 'shared/interfaces/routes-interfaces'
 import * as types from '../constants/userConstants'
 
-export const Loginn =
+export const Login =
   (email: string, password: string) => async (dispatch: AppDispatch) => {
     try {
       dispatch({ type: types.GET_USER_LOGIN_REQUEST })
@@ -16,14 +16,18 @@ export const Loginn =
         },
       }
 
-      const { data } = await axios.post('/', { email, password }, config)
+      const { data } = await axios.post(
+        '/api/users/login',
+        { email, password },
+        config,
+      )
 
       const decode = jwtDecode(data.token)
       const userInfo = {
         ...(decode as object),
         token: data.token,
       }
-      dispatch({ type: types.GET_USER_LOGIN_SUCCESS, paylaod: userInfo })
+      dispatch({ type: types.GET_USER_LOGIN_SUCCESS, payload: userInfo })
 
       localStorage.setItem('token-user', JSON.stringify(data.token))
     } catch (error) {
@@ -53,7 +57,7 @@ export const refreshToken =
         },
       }
 
-      const { data } = await axios.get('ruta para refrescar', config)
+      const { data } = await axios.get('/api/users/refresh-token', config)
 
       if (data.token) {
         const decoded = jwtDecode(data.token)

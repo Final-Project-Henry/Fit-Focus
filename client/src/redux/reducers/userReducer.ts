@@ -1,11 +1,8 @@
 import { PayloadAction } from '@reduxjs/toolkit'
+import { userLoginInterface } from 'shared/interfaces/routes-interfaces'
 import * as types from '../constants/userConstants'
 
-// const initialState = {
-//   userInfo: {
-//     token: '',
-//   },
-// }
+const initialState = {}
 
 export const userLoginReducer = (state = {}, action: PayloadAction) => {
   switch (action.type) {
