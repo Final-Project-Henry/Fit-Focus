@@ -7,6 +7,7 @@ api/.pnp
 client/node_modules
 client/.pnp
 .pnp.js
+api/src/seederData.js
 
 # testing
 /coverage

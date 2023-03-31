@@ -10,14 +10,14 @@ const morgan = require('morgan')
 const connectDB = require('../mongoose/db')
 const apiRoutes = require('../../routes')
 const { notFound, errorHandler } = require('../../middleware/errorMiddleware')
-const dbLoader = require('../../addDB')
+const loadExercisesToDB = require('../../loadExercisesToDB')
 
 // const { checkOrigin } = require('../../middleware/authMiddleware')
 colors
 // Server Config
 dotenv.config()
 connectDB().then(async () => {
-  await dbLoader()
+  await loadExercisesToDB()
 })
 
 //apply middlewares

@@ -5,7 +5,7 @@ const querystring = require('node:querystring')
 
 const { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, REDIRECT_URI } = process.env
 
-module.exports = async function getGoogleToken({ code }) {
+const getGoogleToken = async ({ code }) => {
   const url = 'https://oauth2.googleapis.com/token'
 
   const value = {
@@ -26,3 +26,5 @@ module.exports = async function getGoogleToken({ code }) {
     console.log(error.message)
   }
 }
+
+module.exports = getGoogleToken
