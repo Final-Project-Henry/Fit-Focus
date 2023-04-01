@@ -1,23 +1,43 @@
-import Home from '../../components/admin/home/Home'
-import Users from '../../components/admin/users/Users'
-import User from '../../components/admin/users/User'
-import Exercises from '../../components/admin/exercises/Exercises'
-import ExerciseForm from '../../components/admin/exercises/ExerciseForm'
-import Exercise from '../../components/admin/exercises/Exercise'
-import Comments from '../../components/admin/comments/Comments'
-import Questions from '../../components/admin/questions/Questions'
-import HomeVisitor2 from '../../components/HomeVisitor/HomeVisitor2'
-import SingUp_Login from '../../components/login-singUp/Singup_Login'
-import News from '../../components/HomeRegister/News/News'
-import DecriptionEjer from '../../components/HomeRegister/desctipcionE/DecritionEje'
-import Ejercicios from '../../components/HomeRegister/Ejercicios'
-import Calculadora from '../../components/HomeRegister/Calculadora'
-import Favoritos from '../../components/HomeRegister/Favorito'
-import RutinasPersonales from '../../components/HomeRegister/RutinasPersonales'
-import ContactUs from '../../components/Contact/Contact'
-import AboutUs from '../../components/AboutUs/AboutUs'
-import Training from '../../components/HomeRegister/Rutins/Training'
-import UserLoginScreen from 'screens/no-auth/UserLoginScreen/UserLoginScreen'
+// import Home from '../../components/admin/home/Home'
+// import Users from '../../components/admin/users/Users'
+// import User from '../../components/admin/users/User'
+// import Exercises from '../../components/admin/exercises/Exercises'
+// import Exercise from '../../components/admin/exercises/Exercise'
+// import Questions from '../../components/admin/questions/Questions'
+// import HomeVisitor2 from '../../components/HomeVisitor/HomeVisitor2'
+// import SingUp_Login from '../../components/login-singUp/Singup_Login'
+// import News from '../../components/HomeRegister/News/News'
+// import DecriptionEjer from '../../components/HomeRegister/desctipcionE/DecritionEje'
+// import Ejercicios from '../../components/HomeRegister/Ejercicios'
+// import Calculadora from '../../components/HomeRegister/Calculadora'
+// import Favoritos from '../../components/HomeRegister/Favorito'
+// import RutinasPersonales from '../../components/HomeRegister/RutinasPersonales'
+// import ContactUs from '../../components/Contact/Contact'
+// import AboutUs from '../../components/AboutUs/AboutUs'
+// import Training from '../../components/HomeRegister/Rutins/Training'
+// import UserLoginScreen from 'screens/auth/UserLoginScreen/UserLoginScreen'
+import {
+  UserLoginScreen,
+  UserRegisterScreen,
+  AboutUsScreen,
+  CalculatorScreen,
+  ContactUsScreen,
+  ExerciseDetailScreen,
+  ExercisesScreen,
+  FavoritesExercisesScreen,
+  HomeScreen,
+  NewsScreen,
+  RoutineScreen,
+  TrainingModeScreen,
+} from '../module_imports/public-auth-routes'
+import {
+  DashboardScreen,
+  ExerciseInformationScreen,
+  ExercisesListScreen,
+  QuestionsAdminScreen,
+  UserInformationcreen,
+  UsersListScreen,
+} from '../module_imports/admin-routes'
 
 export const roles = {
   visitRole: 'visit',
@@ -27,129 +47,117 @@ export const roles = {
 }
 
 export const routes = [
+  //admin-routes
   {
     path: '',
     title: 'Panel Administrador',
-    component: <Home />,
+    component: <DashboardScreen />,
     layout: 'admin',
     role: roles.adminRole,
   },
   {
     path: 'users',
     title: 'Lista de usuarios',
-    component: <Users />,
+    component: <UsersListScreen />,
     layout: 'admin',
     role: roles.adminRole,
   },
   {
     path: 'users/:id',
     title: 'Usuario',
-    component: <User />,
+    component: <UserInformationcreen />,
     layout: 'admin',
     role: roles.adminRole,
   },
   {
     path: 'exercises',
     title: 'Lista de Ejercicios',
-    component: <Exercises />,
-    layout: 'admin',
-    role: roles.adminRole,
-  },
-  {
-    path: 'exercises/new',
-    title: 'Agregar ejercicio',
-    component: <ExerciseForm />,
+    component: <ExercisesListScreen />,
     layout: 'admin',
     role: roles.adminRole,
   },
   {
     path: 'exercises/:id',
     title: 'Ejercicio',
-    component: <Exercise />,
-    layout: 'admin',
-    role: roles.adminRole,
-  },
-  {
-    path: 'comments',
-    title: 'Comentarios',
-    component: <Comments />,
+    component: <ExerciseInformationScreen />,
     layout: 'admin',
     role: roles.adminRole,
   },
   {
     path: 'questions',
     title: 'Preguntas',
-    component: <Questions />,
+    component: <QuestionsAdminScreen />,
     layout: 'admin',
     role: roles.adminRole,
   },
+  //public-routes
   {
     path: 'home',
     title: '',
-    component: <HomeVisitor2 />,
+    component: <HomeScreen />,
     layout: 'visit',
     role: roles.visitRole,
   },
   {
     path: 'exercises',
     title: 'Ejercicios',
-    component: <Ejercicios />,
+    component: <ExercisesScreen />,
     layout: 'visit',
     role: roles.visitRole,
   },
   {
     path: 'exercises/:id',
     title: 'Detalle Ejercicio',
-    component: <DecriptionEjer />,
+    component: <ExerciseDetailScreen />,
     layout: 'visit',
     role: roles.visitRole,
   },
   {
     path: 'calculator',
     title: 'Calculadora de IMC',
-    component: <Calculadora />,
+    component: <CalculatorScreen />,
     layout: 'visit',
     role: roles.visitRole,
   },
   {
     path: 'news',
     title: 'Noticias',
-    component: <News />,
+    component: <NewsScreen />,
     layout: 'visit',
     role: roles.visitRole,
   },
   {
     path: 'exercises/favorites',
     title: 'Ejercicios Favoritos',
-    component: <Favoritos />,
+    component: <FavoritesExercisesScreen />,
     layout: 'visit',
     role: roles.visitRole,
   },
   {
     path: 'routine',
     title: 'Rutina Personalizada',
-    component: <RutinasPersonales />,
+    component: <RoutineScreen />,
     layout: 'visit',
     role: roles.visitRole,
   },
   {
     path: 'routine/training',
     title: 'Modo Entrenamiento',
-    component: <Training />,
+    component: <TrainingModeScreen />,
     layout: 'visit',
     role: roles.visitRole,
   },
   {
     path: 'about-us',
     title: 'Sobre Nosotros',
-    component: <AboutUs />,
+    component: <AboutUsScreen />,
     layout: 'visit',
     role: roles.visitRole,
   },
   {
     path: 'contact-us',
     title: 'Contáctanos',
-    component: <ContactUs />,
+    component: <ContactUsScreen />,
     layout: 'visit',
     role: roles.visitRole,
   },
@@ -163,7 +171,7 @@ export const routes = [
   {
     path: 'register',
     title: 'Registrate',
-    component: <SingUp_Login />,
+    component: <UserRegisterScreen />,
     layout: 'visit',
     role: roles.visitRole,
   },

@@ -1,14 +1,12 @@
 import Typewriter from 'react-ts-typewriter'
-import { useToken } from '../../app/hooks'
 import styles from './styles/LandingPage.module.css'
 import { useNavigate } from 'react-router-dom'
 
 const LandingPage = () => {
-  const user = useToken()
   const navigate = useNavigate()
 
   const onClick = () => {
-    navigate(user ? './fitFocus' : '/home')
+    navigate('/home')
   }
   return (
     <div className={styles.main}>

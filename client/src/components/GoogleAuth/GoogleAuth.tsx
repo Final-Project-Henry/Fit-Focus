@@ -1,8 +1,8 @@
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment } from 'react'
 import { CredentialResponse, GoogleLogin } from '@react-oauth/google'
 // import { ActivecuentaGoogle, authGoogle, selectUser } from '../../features/counter/counterSlice'
-import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import jwtDecode from 'jwt-decode'
+import { useAppDispatch } from 'shared/customHooks/reduxHooks'
 
 const GoogleAuth = () => {
   const dispatch = useAppDispatch()

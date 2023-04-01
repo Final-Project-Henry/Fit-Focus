@@ -1,11 +1,11 @@
-import NewNavbar from 'components/Navbar/NewNavbar'
+import Navbar from 'components/Navbar/Navbar'
 import { Outlet } from 'react-router-dom'
 import { ContainerScreen, Container } from '../styles'
 
 const Register = () => {
   return (
     <ContainerScreen id='layout-container'>
-      <NewNavbar />
+      <Navbar />
       <Container>
         <Outlet />
       </Container>
