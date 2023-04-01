@@ -35,6 +35,7 @@ export const LoginArea = styled(divBase)`
   justify-content: space-between;
   width: 200px;
   padding: 0 20px;
+  gap: 10px;
 `
 
 export const Image = styled.div`
@@ -55,4 +56,13 @@ export const MenuOpen = styled.div`
   left: 0;
   top: 62px;
   z-index: 100;
+`
+export const AvatarContainer = styled.div`
+  cursor: pointer;
+`
+
+export const ExmailText = styled.span`
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `

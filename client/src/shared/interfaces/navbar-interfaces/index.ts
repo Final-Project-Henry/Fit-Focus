@@ -6,6 +6,9 @@ export interface MobileNavbarProps {
 
 export interface FullNavbarProps {
   goHome: () => void
+  isLogged: boolean
+  avatar?: string
+  email: string
 }
 
 export interface SubMenuRoute {

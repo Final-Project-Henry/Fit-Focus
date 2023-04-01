@@ -1,12 +1,12 @@
-const LoadingCards = (props: { num: any }) => {
-  const cards = [...props.num]
+const LoadingCards = () => {
+  const cards = ['']
 
   return (
     <>
-      {cards.map(e => {
+      {cards.map((e, i: number) => {
         return (
           <div
-            key={e}
+            key={i}
             className={`max-w-[75%] min-h-[40px] m-2 flex flex-col animate-pulse bg-[#111828cb]  shadow-md `}
           >
             <div className={`h-[200px] overflow-hidden  `}>

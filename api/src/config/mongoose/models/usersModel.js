@@ -34,9 +34,6 @@ const userSchema = mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Routine',
     },
-    feedback: {
-      type: String,
-    },
     fav: [
       {
         type: mongoose.Schema.Types.ObjectId,

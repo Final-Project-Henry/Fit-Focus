@@ -44,6 +44,7 @@ specifiers:
   eslint-plugin-prettier: ^4.2.1
   eslint-plugin-react: ^7.32.2
   eslint-plugin-react-hooks: ^4.6.0
+  js-sha256: ^0.9.0
   jwt-decode: ^3.1.2
   postcss: ^8.4.16
   prettier: ^2.8.4
@@ -97,6 +98,7 @@ dependencies:
   axios: 0.27.2
   chart.js: 3.9.1
   date-fns: 2.29.3
+  js-sha256: 0.9.0
   jwt-decode: 3.1.2
   ra-data-simple-rest: 4.8.1
   react: 18.2.0
@@ -7281,6 +7283,10 @@ packages:
 
   /js-sdsl/4.3.0:
     resolution: {integrity: sha512-mifzlm2+5nZ+lEcLJMoBK0/IH/bDg8XnJfd/Wq6IP+xoCjLZsTOnV2QpxlVbX9bMnkl5PdEjNtBJ9Cj1NjifhQ==}
+
+  /js-sha256/0.9.0:
+    resolution: {integrity: sha512-sga3MHh9sgQN2+pJ9VYZ+1LPwXOxuBJBA5nrR5/ofPfuiJBE2hnjsaN8se8JznOmGLN2p49Pe5U/ttafcs/apA==}
+    dev: false
 
   /js-tokens/4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}

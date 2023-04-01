@@ -19,17 +19,19 @@ const ManagementRoutes = () => {
   const { userInfo } = useAppSelector(state => state.userLogin)
 
   useEffect(() => {
-    if (!userInfo) return setRole(roles.loggedRole) //change for visitRole
+    if (!userInfo) return setRole(roles.visitRole)
     if (userInfo && userInfo?.isAdmin) return setRole(roles.adminRole)
-    setRole(roles.visitRole) //change for loggedRole
+    setRole(roles.loggedRole)
   }, [userInfo])
   useEffect(() => {
     if (role === roles.adminRole) {
-      const aditionalRoutes = routes.filter(route => route.layout === 'admin')
+      const aditionalRoutes = routes.filter(route =>
+        route.role.includes(roles.adminRole),
+      )
       setAdminRoutes(aditionalRoutes)
     }
-    const routeFilter = routes.filter(
-      (route: RouteInterface) => route.layout === 'visit',
+    const routeFilter = routes.filter((route: RouteInterface) =>
+      route.role.includes(role),
     )
     setFilteredRoutes(routeFilter)
   }, [role])

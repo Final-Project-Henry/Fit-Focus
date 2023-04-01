@@ -1,19 +1,13 @@
-export default (data: any) => {
-  const comments = Object.keys(data)
-  const result: any = []
-  const result2 = []
-  let index: number
+import { CommentExerciseInterface } from 'shared/interfaces/payloads-interfaces'
 
-  while (result.length < 3) {
-    index = Math.floor(Math.random() * comments.length)
-    if (!result.includes(comments[index])) {
-      result.push(comments[index])
-    }
-  }
+export default (data: CommentExerciseInterface[]) => {
+  if (data.length < 3) return data
+  const result = []
+  const randomNumber = () => Math.floor(Math.random() * data.length)
+  //fix it
+  result.push(data[randomNumber()])
+  result.push(data[randomNumber()])
+  result.push(data[randomNumber()])
 
-  for (let i = 0; i < result.length; i++) {
-    result2.push(data[result[i]])
-  }
-
-  return result2
+  return result
 }

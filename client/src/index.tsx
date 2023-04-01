@@ -6,7 +6,7 @@ import { createRoot } from 'react-dom/client'
 import { ThemeProvider } from 'styled-components'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import axios from 'axios'
-import RoutesComponent from 'routes/Routes'
+import RoutesComponent from 'routes/ManagementRoutes'
 import theme from 'shared/theme'
 import './index.css'
 

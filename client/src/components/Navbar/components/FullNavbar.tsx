@@ -3,17 +3,20 @@ import {
   FullNavbarProps,
   RouteInterface,
 } from 'shared/interfaces/navbar-interfaces'
-import { logoLight, routes } from 'shared/shareData'
+import { defaultAvatar, logoLight, routes } from 'shared/shareData'
 import {
+  AvatarContainer,
   Container,
+  ExmailText,
   Image,
   LoginArea,
   Navbar,
   RoutesArea,
   RoutesList,
 } from '../styles/navbarStyles'
+import { Avatar } from '@mui/material'
 
-const FullNavbar = ({ goHome }: FullNavbarProps) => {
+const FullNavbar = ({ goHome, isLogged, avatar, email }: FullNavbarProps) => {
   return (
     <Container>
       <Navbar>
@@ -29,14 +32,23 @@ const FullNavbar = ({ goHome }: FullNavbarProps) => {
             ))}
           </RoutesList>
         </RoutesArea>
-        <LoginArea>
-          <Link to='/login'>
-            <span>Iniciar</span>
-          </Link>
-          <Link to='/register'>
-            <span>Registrarse</span>
-          </Link>
-        </LoginArea>
+        {isLogged ? (
+          <LoginArea>
+            <ExmailText>{email}</ExmailText>
+            <AvatarContainer onClick={() => alert('algo')}>
+              <Avatar src={avatar || defaultAvatar} alt='avatar' />
+            </AvatarContainer>
+          </LoginArea>
+        ) : (
+          <LoginArea>
+            <Link to='/login'>
+              <span>Iniciar</span>
+            </Link>
+            <Link to='/register'>
+              <span>Registrarse</span>
+            </Link>
+          </LoginArea>
+        )}
       </Navbar>
     </Container>
   )

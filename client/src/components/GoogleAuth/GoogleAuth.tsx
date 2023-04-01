@@ -2,10 +2,10 @@ import { Fragment } from 'react'
 import { CredentialResponse, GoogleLogin } from '@react-oauth/google'
 // import { ActivecuentaGoogle, authGoogle, selectUser } from '../../features/counter/counterSlice'
 import jwtDecode from 'jwt-decode'
-import { useAppDispatch } from 'shared/customHooks/reduxHooks'
+// import { useAppDispatch } from 'shared/customHooks/reduxHooks'
 
 const GoogleAuth = () => {
-  const dispatch = useAppDispatch()
+  // const dispatch = useAppDispatch()
 
   const handleSuccess = (res: CredentialResponse) => {
     if (res.credential && res.credential?.length > 3) {

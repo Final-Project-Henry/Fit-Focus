@@ -1,24 +1,35 @@
-import styles from './Loading.module.css'
+import { videoLoading } from 'shared/shareData'
+import {
+  LoadingContainer,
+  TextContainer,
+  VideoContainer,
+} from './styles/LoadingScreen'
+import { useEffect, useState } from 'react'
 
-export default function Loading() {
+const Loading = () => {
+  const [isLongTime, setIsLongTime] = useState<boolean>(false)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLongTime(true)
+    }, 10000)
+  }, [])
   return (
-    <div
-      style={{
-        backgroundColor: 'white',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        height: '100vh',
-      }}
-    >
-      <video
-        className={styles.animation}
-        src='https://res.cloudinary.com/dm0fwscsy/video/upload/v1677647549/Fit-Focus/videos/loading_video_zddlle.mp4'
-        autoPlay
-        loop
-        muted
-      ></video>
-      <p className={styles.text}>Cargando...espere por favor</p>
-    </div>
+    <LoadingContainer>
+      <VideoContainer autoPlay loop muted>
+        <source src={videoLoading} />
+      </VideoContainer>
+      <TextContainer>
+        <span>Cargando... Espere por favor</span>
+        {isLongTime && (
+          <>
+            <span>Si esto toma mas de 1 min.</span>
+            <span>reacargue la página</span>
+          </>
+        )}
+      </TextContainer>
+    </LoadingContainer>
   )
 }
+
+export default Loading
