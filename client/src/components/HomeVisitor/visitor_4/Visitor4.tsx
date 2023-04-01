@@ -1,6 +1,4 @@
-import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { exercises } from '../../../additional_info/exercises'
 
 export default function Visitor4() {
   const navigate = useNavigate()
@@ -13,9 +11,23 @@ export default function Visitor4() {
   }
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20vh' }}>
-      <div style={{ width: '40vw', display: 'flex', flexDirection: 'column', alignItems: 'center', marginLeft: '5vw' }}>
-        <img src={exercises[4].video} width='450px'></img>
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        marginBottom: '20vh',
+      }}
+    >
+      <div
+        style={{
+          width: '40vw',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          marginLeft: '5vw',
+        }}
+      >
+        {/* <img src={exercises[4].video} width='450px'></img> */}
         <p
           style={{
             backgroundColor: '#111828',
@@ -56,7 +68,9 @@ export default function Visitor4() {
                   clipRule='evenodd'
                 ></path>
               </svg>
-              <span className='text-base font-normal text-gray-500  '>30 ejercicios por mes</span>
+              <span className='text-base font-normal text-gray-500  '>
+                30 ejercicios por mes
+              </span>
             </li>
             <li className='flex space-x-3'>
               <svg
@@ -73,7 +87,9 @@ export default function Visitor4() {
                   clipRule='evenodd'
                 ></path>
               </svg>
-              <span className='text-base font-normal leading-tight text-gray-500 '>Calculadora</span>
+              <span className='text-base font-normal leading-tight text-gray-500 '>
+                Calculadora
+              </span>
             </li>
             <li className='flex space-x-3'>
               <svg
@@ -90,7 +106,9 @@ export default function Visitor4() {
                   clipRule='evenodd'
                 ></path>
               </svg>
-              <span className='text-base font-normal leading-tight text-gray-500'>Noticias relacionadas</span>
+              <span className='text-base font-normal leading-tight text-gray-500'>
+                Noticias relacionadas
+              </span>
             </li>
             <li className='flex space-x-3'>
               <svg
@@ -107,7 +125,9 @@ export default function Visitor4() {
                   clipRule='evenodd'
                 ></path>
               </svg>
-              <span className='text-base font-normal leading-tight text-gray-500'>Puntuar ejercicios</span>
+              <span className='text-base font-normal leading-tight text-gray-500'>
+                Puntuar ejercicios
+              </span>
             </li>
             <li className='flex space-x-3 line-through decoration-gray-500'>
               <svg
@@ -124,7 +144,9 @@ export default function Visitor4() {
                   clipRule='evenodd'
                 ></path>
               </svg>
-              <span className='text-base font-normal leading-tight text-gray-500'>Rutinas personalizadas</span>
+              <span className='text-base font-normal leading-tight text-gray-500'>
+                Rutinas personalizadas
+              </span>
             </li>
             <li className='flex space-x-3 line-through decoration-gray-500'>
               <svg
@@ -141,7 +163,9 @@ export default function Visitor4() {
                   clipRule='evenodd'
                 ></path>
               </svg>
-              <span className='text-base font-normal leading-tight text-gray-500'>Favoritos</span>
+              <span className='text-base font-normal leading-tight text-gray-500'>
+                Favoritos
+              </span>
             </li>
             <li className='flex space-x-3 line-through decoration-gray-500'>
               <svg
@@ -158,7 +182,9 @@ export default function Visitor4() {
                   clipRule='evenodd'
                 ></path>
               </svg>
-              <span className='text-base font-normal leading-tight text-gray-500'>Ejercicios de estiramiento</span>
+              <span className='text-base font-normal leading-tight text-gray-500'>
+                Ejercicios de estiramiento
+              </span>
             </li>
           </ul>
           <button
@@ -170,7 +196,9 @@ export default function Visitor4() {
           </button>
         </div>
         <div className='p-4 w-full max-w-sm bg-white h-[520px] rounded-lg border shadow-md sm:p-8   '>
-          <h5 className='mb-4 text-xl font-medium text-gray-500'>Pago unico!</h5>
+          <h5 className='mb-4 text-xl font-medium text-gray-500'>
+            Pago unico!
+          </h5>
           <div className='flex items-baseline text-gray-900'>
             <span className='text-3xl font-semibold'>$</span>
             <span className='text-5xl font-extrabold tracking-tight'>3000</span>
@@ -192,7 +220,9 @@ export default function Visitor4() {
                   clipRule='evenodd'
                 ></path>
               </svg>
-              <span className='text-base font-normal text-gray-500  '>Rutinas personalizadas</span>
+              <span className='text-base font-normal text-gray-500  '>
+                Rutinas personalizadas
+              </span>
             </li>
             <li className='flex space-x-3'>
               <svg
@@ -228,7 +258,9 @@ export default function Visitor4() {
                   clipRule='evenodd'
                 ></path>
               </svg>
-              <span className='text-base font-normal leading-tight text-gray-500'>Calculadora</span>
+              <span className='text-base font-normal leading-tight text-gray-500'>
+                Calculadora
+              </span>
             </li>
             <li className='flex space-x-3'>
               <svg
@@ -245,7 +277,9 @@ export default function Visitor4() {
                   clipRule='evenodd'
                 ></path>
               </svg>
-              <span className='text-base font-normal leading-tight text-gray-500'>Noticias relacionadas</span>
+              <span className='text-base font-normal leading-tight text-gray-500'>
+                Noticias relacionadas
+              </span>
             </li>
             <li className='flex space-x-3'>
               <svg
@@ -262,7 +296,9 @@ export default function Visitor4() {
                   clipRule='evenodd'
                 ></path>
               </svg>
-              <span className='text-base font-normal leading-tight text-gray-500'>Favoritos</span>
+              <span className='text-base font-normal leading-tight text-gray-500'>
+                Favoritos
+              </span>
             </li>
             <li className='flex space-x-3'>
               <svg
@@ -279,7 +315,9 @@ export default function Visitor4() {
                   clipRule='evenodd'
                 ></path>
               </svg>
-              <span className='text-base font-normal leading-tight text-gray-500'>Puntuar ejercicios</span>
+              <span className='text-base font-normal leading-tight text-gray-500'>
+                Puntuar ejercicios
+              </span>
             </li>
             <li className='flex space-x-3'>
               <svg
@@ -296,7 +334,9 @@ export default function Visitor4() {
                   clipRule='evenodd'
                 ></path>
               </svg>
-              <span className='text-base font-normal leading-tight text-gray-500'>Ejercicios de estiramiento</span>
+              <span className='text-base font-normal leading-tight text-gray-500'>
+                Ejercicios de estiramiento
+              </span>
             </li>
           </ul>
           <button

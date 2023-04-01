@@ -1,7 +1,5 @@
-import React, { useEffect, useRef, useLayoutEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import functions from '../../../additional_info/functions'
-import { datos } from '../../../additional_info/comments'
 import Comment from '../comments/Comment'
 import styles from './Visitor_1.module.css'
 import sr, { config } from './scroll'
@@ -25,8 +23,8 @@ export default function Visitor1() {
 
   const divComment1 = useRef<HTMLHeadingElement>(null)
 
-  const [datosState, setDatosState] = useState(datos)
-  const [comments, setComments] = useState<any>(functions.random(datosState))
+  const [datosState, setDatosState] = useState([])
+  // const [comments, setComments] = useState<any>(functions.random(datosState))
   const [added, setAdded] = useState(false)
 
   const onClick = () => {
@@ -38,21 +36,21 @@ export default function Visitor1() {
     sr.reveal(divComment1.current, config)
   }, [])
 
-  useEffect(() => {
-    if (!added && feedbacks.length) {
-      setDatosState([...datosState, ...feedbacks])
-      setAdded(true)
-    }
+  // useEffect(() => {
+  //   if (!added && feedbacks.length) {
+  //     setDatosState([...datosState, ...feedbacks])
+  //     setAdded(true)
+  //   }
 
-    if (added) {
-      const interval = setInterval(() => {
-        setComments(functions.random(datosState))
-      }, 5000)
-      return () => {
-        clearInterval(interval)
-      }
-    }
-  }, [feedbacks, added])
+  //   if (added) {
+  //     const interval = setInterval(() => {
+  //       setComments(functions.random(datosState))
+  //     }, 5000)
+  //     return () => {
+  //       clearInterval(interval)
+  //     }
+  //   }
+  // }, [feedbacks, added])
 
   // useEffect(() => {
 
@@ -75,7 +73,9 @@ export default function Visitor1() {
             <p>¿No sabes como empezar a cambiar</p>
             <p>tu vida y mejorar tu salud?</p>
           </div>
-          <p className={styles.text_1}>No tienes que preocuparte, nosotros te ayudamos a lograrlo</p>
+          <p className={styles.text_1}>
+            No tienes que preocuparte, nosotros te ayudamos a lograrlo
+          </p>
           <button className={styles.btn} onClick={onClick}>
             HAZ CLICK AQUI
           </button>
@@ -84,9 +84,14 @@ export default function Visitor1() {
       <div className={styles.container_3}>
         <p className={styles.tittle_2}>Lo que opinan algunos miembros:</p>
         <div className={styles.comments} ref={divComment1}>
-          {comments?.map((comment: any) => (
-            <Comment key={uuidv4()} avatar={comment.avatar} comment={comment.comment} name={comment.name} />
-          ))}
+          {/* {comments?.map((comment: any) => (
+            <Comment
+              key={uuidv4()}
+              avatar={comment.avatar}
+              comment={comment.comment}
+              name={comment.name}
+            />
+          ))} */}
         </div>
       </div>
     </div>

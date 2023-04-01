@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
-import errors from '../../additional_info/errors'
+// import errors from '../../additional_info/errors'
 import { useAppDispatch, useAppSelector, useToken } from '../../app/hooks'
 import { getProfileInfo } from '../../features/counter/counterSlice'
 import Error_page from '../ErrorPage/ErrorPage'
@@ -25,7 +25,7 @@ export default function Dashboard() {
 
   return (
     <div>
-      {!token2 ? (
+      {/* {!token2 ? (
         <Error_page errorMessage={errors.forbidden_access} numberError={400} />
       ) : !user.user ? (
         <Loading />
@@ -38,7 +38,7 @@ export default function Dashboard() {
         </div>
       ) : (
         <Error_page errorMessage={errors.forbidden_access} numberError={400} />
-      )}
+      )} */}
     </div>
   )
 }

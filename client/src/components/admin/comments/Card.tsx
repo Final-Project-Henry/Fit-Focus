@@ -1,7 +1,4 @@
-import React from 'react'
-import { datos } from '../../../additional_info/comments'
 import CommentDetail from './CommentDetail'
-import { v4 as uuidv4 } from 'uuid'
 
 interface feedback {
   email: string

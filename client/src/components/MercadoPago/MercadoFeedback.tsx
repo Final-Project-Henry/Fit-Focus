@@ -4,7 +4,7 @@ import { useAppDispatch } from '../../app/hooks'
 import { verify_payment } from '../../features/mercadopago/mercadopago'
 import Error_page from '../ErrorPage/ErrorPage'
 import Premium_welcome from './premium_welcome/Premium_welcome'
-import errors from '../../additional_info/errors'
+// import errors from '../../additional_info/errors'
 import Loading from '../loading/Loading'
 import { useSelector } from 'react-redux'
 import type { RootState } from '../../app/store'
@@ -32,8 +32,9 @@ export default function Mercadoresponse() {
       {mercadoData.payment == 'pending' ? (
         <Loading />
       ) : mercadoData.payment == 'rejected' ? (
-        <Error_page errorMessage={errors.payment} numberError={numb_error} />
+        <div></div>
       ) : (
+        // <Error_page errorMessage={errors.payment} numberError={numb_error} />
         <Premium_welcome />
       )}
     </Fragment>

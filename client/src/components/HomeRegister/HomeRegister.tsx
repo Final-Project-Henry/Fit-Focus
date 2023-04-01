@@ -4,7 +4,6 @@ import { useAppDispatch, useAppSelector, useToken } from '../../app/hooks'
 import { Link, useParams } from 'react-router-dom'
 
 import CardNews from './News/CardNews'
-import funcion from '../../additional_info/functions'
 
 import RandomCards from './RandomCards'
 import baner from '../assets/homeRegister-media/ejerc.jpg'
@@ -29,18 +28,6 @@ const HomeRegister = () => {
   const dispatch = useAppDispatch()
   const State = useAppSelector(selectUser)
 
-  const [exercises, setExercises] = useState<Array<card>>([])
-  const [Bastexercises, setBastExercises] = useState<Array<any>>([])
-
-  useEffect(() => {
-    if (State.exercises.length > 0 && exercises.length === 0) {
-      setExercises(funcion.get_exercises(State.exercises))
-    }
-    if (State.exercises.length > 0) {
-      setBastExercises(funcion.MejorRewind(State.exercises))
-    }
-  }, [State.exercises])
-
   useEffect(() => {
     dispatch(Exercises_Get())
   }, [])
@@ -51,14 +38,22 @@ const HomeRegister = () => {
         <div className=' w-full '>
           {State.user?.plan !== 'premium' ? (
             <Link to='/mercadopago'>
-              <img src={baner} alt='' className='object-cover md:h-[450px] h-[350px] xl:h-[68vh] w-full' />
+              <img
+                src={baner}
+                alt=''
+                className='object-cover md:h-[450px] h-[350px] xl:h-[68vh] w-full'
+              />
               <h1 className=' md:h-[50px] sm:min-h w-full bg-[#111827] flex items-center text-white font-medium justify-center md:text-2xl sm:text-xl'>
                 Hazte premium para obtener rutinas personalizadas
               </h1>
             </Link>
           ) : (
             <div>
-              <img src={baner} alt='' className='object-cover md:h-[450px] h-[350px] xl:h-[68vh] w-full' />
+              <img
+                src={baner}
+                alt=''
+                className='object-cover md:h-[450px] h-[350px] xl:h-[68vh] w-full'
+              />
             </div>
           )}
         </div>
@@ -70,13 +65,16 @@ const HomeRegister = () => {
               Ejercicios de la semana:
             </h1>
 
-            <Link to='/ejercicios' className='p-0 text-red-700 underline hover:text-gray-900'>
+            <Link
+              to='/ejercicios'
+              className='p-0 text-red-700 underline hover:text-gray-900'
+            >
               Ver todos{'>>'}
             </Link>
           </div>
 
           <div className='block  md:grid grid-cols-4 grid-row-1 sm:flex overflow-x-auto  content-center my-[60px] bg-gray-200 mt-[30px]'>
-            {exercises.length > 0 ? (
+            {/* {exercises.length > 0 ? (
               exercises.map(({ _id, video, name, difficulty, muscles, genre, premium }) => (
                 <RandomCards
                   key={uuidv4()}
@@ -92,7 +90,7 @@ const HomeRegister = () => {
               ))
             ) : (
               <LoadingCards num={'1234'} />
-            )}
+            )} */}
           </div>
 
           <div className='bg-[#59656F]'>
@@ -100,13 +98,16 @@ const HomeRegister = () => {
               <h1 className='m-2 sm:m-2  md:ml-9 text-xl sm:text-xl md:text-5xl text-white font-dark w-[80%] mx-[20px] '>
                 Ejercicios con mejor calificación:
               </h1>
-              <Link to='/ejercicios' className='px-3 py-1 underline text-red-600 hover:text-gray-900'>
+              <Link
+                to='/ejercicios'
+                className='px-3 py-1 underline text-red-600 hover:text-gray-900'
+              >
                 Ver todos{'>>'}
               </Link>
             </div>
 
             <div className='block  md:grid grid-cols-4 grid-row-1 sm:flex my-[60px] bg-[#59656F] mt-[30px]'>
-              {Bastexercises.length > 0 ? (
+              {/* {Bastexercises.length > 0 ? (
                 Bastexercises?.map(({ _id, video, name, difficulty, muscles, genre, premium, rating }) => (
                   <RandomCards
                     key={uuidv4()}
@@ -123,7 +124,7 @@ const HomeRegister = () => {
                 ))
               ) : (
                 <LoadingCards num={'1234'} />
-              )}
+              )} */}
             </div>
           </div>
         </div>
@@ -132,7 +133,10 @@ const HomeRegister = () => {
           <h1 className='ml-2 md:ml-9 sm:ml-2 text-xl md:text-5xl sm:text-xl  font-dark w-[80%] md:mx-[20px] sm:mx-[10px]'>
             Noticias de interés:
           </h1>
-          <Link to='/noticias' className='px-3 py-1 underline text-red-600 hover:text-red-200'>
+          <Link
+            to='/noticias'
+            className='px-3 py-1 underline text-red-600 hover:text-red-200'
+          >
             Ver todos{'>>'}
           </Link>
         </div>
@@ -144,7 +148,9 @@ const HomeRegister = () => {
               title={'Ejercitarse enfermo?'}
               description={'Tips'}
               author={'Lauren Bedosky'}
-              image={'https://www.revistamoi.com/wp-content/uploads/2016/11/es-bueno-entrenar-enfermo.jpg'}
+              image={
+                'https://www.revistamoi.com/wp-content/uploads/2016/11/es-bueno-entrenar-enfermo.jpg'
+              }
               date={'abril 26, 2022'}
             />
           </div>
@@ -155,7 +161,9 @@ const HomeRegister = () => {
               title={'Dieta o ejercicio?'}
               description={'Tips'}
               author={'Adrian Acurero'}
-              image={'https://workwithdrtiff.com/wp-content/uploads/diet-vs-food-article.jpg'}
+              image={
+                'https://workwithdrtiff.com/wp-content/uploads/diet-vs-food-article.jpg'
+              }
               date={'abril 26, 2022'}
             />
           </div>

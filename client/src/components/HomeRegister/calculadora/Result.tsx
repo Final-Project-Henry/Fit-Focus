@@ -1,12 +1,16 @@
-import React from 'react'
 import tabla from '../../assets/homeRegister-media/tabla.png'
 import styles from './Result.module.css'
-import functions from '../../../additional_info/functions'
+import getIMCmessage from 'shared/matchData/getIMCmessage'
 
-export default function Result(props: { function: { (): void }; IMC: number; peso: number; altura: number }) {
+export default function Result(props: {
+  function: { (): void }
+  IMC: number
+  peso: number
+  altura: number
+}) {
   const indice = props.IMC.toFixed(1)
 
-  const data = functions.get_message_IMC(parseInt(indice))
+  const data = getIMCmessage(parseInt(indice))
 
   return (
     <div className={styles.container}>
@@ -23,8 +27,8 @@ export default function Result(props: { function: { (): void }; IMC: number; pes
             <b>Peso:</b> {props.peso} kilogramos
           </p>
           <p>
-            Su IMC es <b>{indice}</b>, lo que indica que su peso está en la categoría: <b>{data.nivel}</b> para adultos
-            de su misma estatura.
+            Su IMC es <b>{indice}</b>, lo que indica que su peso está en la
+            categoría: <b>{data.nivel}</b> para adultos de su misma estatura.
           </p>
         </div>
         <img className={styles.img} src={tabla} />

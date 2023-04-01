@@ -11,6 +11,10 @@ export const errors = {
     number: 404,
     message: 'URL inexistente.',
   },
+  payment: {
+    number: 500,
+    message: 'Hubo un problema al procesar su pago.',
+  },
   undefined: {
     number: 500,
     message: 'Ocurrió un error inesperado :(',

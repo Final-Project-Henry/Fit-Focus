@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
 import jwtDecode from 'jwt-decode'
-import { exercises } from '../../additional_info/exercises'
 import { RootState, AppThunk } from '../../app/store'
 
 export interface State {

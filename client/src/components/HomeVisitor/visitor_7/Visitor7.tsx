@@ -1,5 +1,5 @@
 import React from 'react'
-import devs from '../../../additional_info/devs'
+import devs from 'shared/shareData/devs'
 import Dev from './Dev'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -13,8 +13,13 @@ interface dev {
 
 export default function Visitor7() {
   return (
-    <div id='Nosotros' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <h1 style={{ fontSize: '3.5rem', color: '#111828', marginTop: '5vh' }}>Acerca de Nosotros</h1>
+    <div
+      id='Nosotros'
+      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+    >
+      <h1 style={{ fontSize: '3.5rem', color: '#111828', marginTop: '5vh' }}>
+        Acerca de Nosotros
+      </h1>
       <div
         style={{
           display: 'grid',
