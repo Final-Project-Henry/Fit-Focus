@@ -40,3 +40,6 @@ export const RoutineScreen = React.lazy(
 export const TrainingModeScreen = React.lazy(
   () => import('screens/public/TrainingModeScreen/TrainingModeScreen'),
 )
+export const UserProfileScreen = React.lazy(
+  () => import('screens/public/UserProfileScreen/UserProfileScreen'),
+)

@@ -15,8 +15,20 @@ import {
   RoutesList,
 } from '../styles/navbarStyles'
 import { Avatar } from '@mui/material'
+import UserMenu from './UserMenu'
 
-const FullNavbar = ({ goHome, isLogged, avatar, email }: FullNavbarProps) => {
+const FullNavbar = ({
+  goHome,
+  isLogged,
+  avatar,
+  name,
+  email,
+  openUserMenu,
+  handleUserMenu,
+  closeUserMenu,
+  isAdmin,
+  handleMenuSelect,
+}: FullNavbarProps) => {
   return (
     <Container>
       <Navbar>
@@ -35,8 +47,18 @@ const FullNavbar = ({ goHome, isLogged, avatar, email }: FullNavbarProps) => {
         {isLogged ? (
           <LoginArea>
             <ExmailText>{email}</ExmailText>
-            <AvatarContainer onClick={() => alert('algo')}>
+            <AvatarContainer onClick={handleUserMenu} id='avatar-logo'>
               <Avatar src={avatar || defaultAvatar} alt='avatar' />
+              {openUserMenu && (
+                <UserMenu
+                  openUserMenu={openUserMenu}
+                  close={closeUserMenu}
+                  isAdmin={isAdmin}
+                  name={name}
+                  email={email}
+                  handleMenuSelect={handleMenuSelect}
+                />
+              )}
             </AvatarContainer>
           </LoginArea>
         ) : (

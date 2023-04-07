@@ -1,10 +1,10 @@
+import { useEffect, useState } from 'react'
 import { videoLoading } from 'shared/shareData'
 import {
   LoadingContainer,
   TextContainer,
   VideoContainer,
 } from './styles/LoadingScreen'
-import { useEffect, useState } from 'react'
 
 const Loading = () => {
   const [isLongTime, setIsLongTime] = useState<boolean>(false)

@@ -3,14 +3,17 @@ import useWindowsSize from 'shared/customHooks/useWindowsSize'
 import MobileNavbar from './components/MobileNavbar'
 import FullNavbar from './components/FullNavbar'
 import { useNavigate } from 'react-router-dom'
-import { useAppSelector } from 'shared/customHooks/reduxHooks'
+import { useAppDispatch, useAppSelector } from 'shared/customHooks/reduxHooks'
+import { GET_USER_LOGOUT } from 'redux/constants/userConstants'
 
-const NewNavbar = () => {
+const Navbar = () => {
   const { width } = useWindowsSize()
   const navigate = useNavigate()
+  const dispatch = useAppDispatch()
 
   const [isOpenMenu, setIsOpenMenu] = useState(false)
   const [isSmall, setIsSmall] = useState(false)
+  const [openUserMenu, setOpenUserMenu] = useState(false)
 
   const { userInfo } = useAppSelector(state => state.userLogin)
 
@@ -28,6 +31,19 @@ const NewNavbar = () => {
   const goHome = () => {
     navigate('/home')
   }
+  const handleUserMenu = () => {
+    setOpenUserMenu(!openUserMenu)
+  }
+  const handleMenuSelect = (action: string) => {
+    let path = ''
+    if (action === 'logout') {
+      path = '/home'
+      dispatch({ type: GET_USER_LOGOUT })
+    } else {
+      path = action === 'profile' ? '/profile' : 'admin/'
+    }
+    navigate(path)
+  }
 
   return isSmall ? (
     <MobileNavbar
@@ -40,9 +56,15 @@ const NewNavbar = () => {
       goHome={goHome}
       isLogged={!!userInfo}
       avatar={userInfo?.avatar}
+      name={userInfo?.name || ''}
       email={userInfo?.email || ''}
+      openUserMenu={openUserMenu}
+      handleUserMenu={handleUserMenu}
+      closeUserMenu={handleUserMenu}
+      isAdmin={!!userInfo?.isAdmin}
+      handleMenuSelect={handleMenuSelect}
     />
   )
 }
 
-export default NewNavbar
+export default Navbar

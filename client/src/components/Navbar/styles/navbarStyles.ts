@@ -66,3 +66,16 @@ export const ExmailText = styled.span`
   white-space: nowrap;
   text-overflow: ellipsis;
 `
+export const MenuTitle = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`
+export const MenuName = styled.h4`
+  font-size: 1.5rem;
+  font-weight: 700;
+`
+export const MenuEmail = styled.h4`
+  font-size: 0.9rem;
+  font-weight: 500;
+`
