@@ -13,3 +13,29 @@ body {
 #root {
   height: 100vh;
 }
+
+.swal2-modal {
+  background-color: #f1f1f1;
+  width: fit-content;
+  padding: 12px 0;
+  max-width: 500px;
+  box-shadow: 0 4px 10px #000e3e55;
+}
+.swal2-actions {
+  width: 100%;
+}
+.swal2-confirm {
+  width: 50%;
+}
+.swal2-styled.swal2-cancel {
+  color: #0a131c;
+}
+.swal2-material-ui-icon {
+  font-size: 24px;
+  color: #00bcd4;
+}
+
+
+
+
+

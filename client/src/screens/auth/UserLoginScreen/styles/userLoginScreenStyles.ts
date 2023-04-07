@@ -11,7 +11,7 @@ export const CardContainer = styled.div`
   width: 800px;
   height: 500px;
   position: relative;
-  box-shadow: 0 4px 10px #000e3e55;
+  box-shadow: ${({ theme }) => theme.shadows.depth4};
   z-index: 0;
   @media (max-width: 500px) {
     width: 100%;

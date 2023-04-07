@@ -5,6 +5,7 @@ import FullNavbar from './components/FullNavbar'
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from 'shared/customHooks/reduxHooks'
 import { GET_USER_LOGOUT } from 'redux/constants/userConstants'
+import CustomAlert from 'components/Alert/CustomAlert'
 
 const Navbar = () => {
   const { width } = useWindowsSize()
@@ -37,8 +38,16 @@ const Navbar = () => {
   const handleMenuSelect = (action: string) => {
     let path = ''
     if (action === 'logout') {
-      path = '/home'
-      dispatch({ type: GET_USER_LOGOUT })
+      return CustomAlert({
+        title: '¿Desea cerrar sesión?',
+        showCancel: true,
+        confirmText: 'Cerrar Sesión',
+        cancelText: 'Cancelar',
+        confirmAction: () => {
+          navigate('/home')
+          dispatch({ type: GET_USER_LOGOUT })
+        },
+      })
     } else {
       path = action === 'profile' ? '/profile' : 'admin/'
     }
