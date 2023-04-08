@@ -8,13 +8,13 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-evenly;
   @media (max-width: 500px) {
-    height: 100%;
+    height: 100vh;
   }
 `
 export const BgVideo = styled.video`
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   object-fit: cover;
   transition: ease-in-out 5s;
   z-index: -1;

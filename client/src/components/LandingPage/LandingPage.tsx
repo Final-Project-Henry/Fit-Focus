@@ -23,10 +23,8 @@ const LandingPage = () => {
   const { width } = useWindowsSize()
 
   const [isSmall, setIsSmall] = useState(false)
-  // const [videoSource, setVideoSource] = useState<any>()
 
   useEffect(() => {
-    console.log(width)
     if (width && width < 760) {
       setIsSmall(true)
     } else if (width && width >= 760) {

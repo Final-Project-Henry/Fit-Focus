@@ -14,3 +14,18 @@ export const bgMobileLanding =
   'https://res.cloudinary.com/dm0fwscsy/video/upload/v1680928807/Fit-Focus/assets/Pexels-Mart-Production-8027961-2160X4096-25Fps_fnukr2.mp4'
 export const bgNormalLanding =
   'https://res.cloudinary.com/dm0fwscsy/video/upload/v1680928807/Fit-Focus/assets/Landingtrain_Lgruzz_lkkeoe.mp4'
+
+export const CaterinaAvatar =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1677731345/Fit-Focus/avatars/1676987125680_chm556.jpg'
+export const MartinAvatar =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1677732065/Fit-Focus/avatars/IMG_20220208_221954_gzecic.jpg'
+export const IvanAvatar =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1677731416/Fit-Focus/avatars/1d2d4b10-995a-48b1-9ebe-35f60d66d24f_lvr5wu.jpg'
+export const RafaelAvatar =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1677731665/Fit-Focus/avatars/1656624616593_jrwk14.jpg'
+export const MarcelAvatar =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1677731717/Fit-Focus/avatars/1672960136569_nnqxyp.jpg'
+export const DavidAvatar =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1677731372/Fit-Focus/avatars/1628914569483_ysmwaj.jpg'
+export const AdrianAvatar =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1677731694/Fit-Focus/avatars/1674146930649_sboloo.jpg'
