@@ -1,20 +1,18 @@
-import { roles, routes } from './helpers/routes'
-import { Route, Routes } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import AdminLayout from 'layouts/Admin'
-import RegisterLayout from 'layouts/Register'
-import VisitLayout from 'layouts/Visit'
-import { RouteInterface } from 'shared/interfaces/routes-interfaces'
+import { Route, Routes } from 'react-router-dom'
 import ErrorAndRedirectPage from 'components/ErrorAndRedirectPage/ErrorAndRedirectPage'
-import { errors } from 'shared/shareData'
 import LandingPage from 'components/LandingPage/LandingPage'
+import AdminLayout from 'layouts/Admin'
+import PublicLayout from 'layouts/Public'
+import { roles, routes } from './helpers/routes'
+import { RouteInterface } from 'shared/interfaces/routes-interfaces'
 import { useAppSelector } from 'shared/customHooks/reduxHooks'
+import { errors } from 'shared/shareData'
 
 const ManagementRoutes = () => {
   const [role, setRole] = useState(roles.visitRole)
   const [filteredRoutes, setFilteredRoutes] = useState<RouteInterface[]>([])
   const [adminRoutes, setAdminRoutes] = useState<RouteInterface[] | null>(null)
-  const [layout, setLayout] = useState<React.ReactNode>()
 
   const { userInfo } = useAppSelector(state => state.userLogin)
 
@@ -24,32 +22,28 @@ const ManagementRoutes = () => {
     setRole(roles.loggedRole)
   }, [userInfo])
   useEffect(() => {
-    if (role === roles.adminRole) {
-      const aditionalRoutes = routes.filter(route =>
-        route.role.includes(roles.adminRole),
+    let routeFilter: RouteInterface[]
+    if ([roles.loggedRole, roles.adminRole].includes(role)) {
+      routeFilter = routes.filter(route =>
+        route.role.includes(roles.loggedRole),
       )
-      setAdminRoutes(aditionalRoutes)
-    }
-    const routeFilter = routes.filter((route: RouteInterface) =>
-      route.role.includes(role),
-    )
-    setFilteredRoutes(routeFilter)
-  }, [role])
-  useEffect(() => {
-    if (role === roles.adminRole) {
-      setLayout(<AdminLayout />)
-    } else if (role === roles.loggedRole) {
-      setLayout(<RegisterLayout />)
+      if (role === roles.adminRole) {
+        const aditionalRoutes = routes.filter(route =>
+          route.role.includes(roles.adminRole),
+        )
+        setAdminRoutes(aditionalRoutes)
+      }
     } else {
-      setLayout(<VisitLayout />)
+      routeFilter = routes.filter(route => route.role.includes(roles.visitRole))
     }
+    setFilteredRoutes(routeFilter)
   }, [role])
 
   return (
     <Routes>
       <Route path='/' element={<LandingPage />} />
       {adminRoutes && (
-        <Route path='/admin' element={layout}>
+        <Route path='/admin' element={<AdminLayout />}>
           {adminRoutes.map((route: RouteInterface, index: number) => (
             <Route key={index} path={route.path} element={route.component} />
           ))}
@@ -64,7 +58,7 @@ const ManagementRoutes = () => {
           />
         </Route>
       )}
-      <Route element={layout}>
+      <Route path='/' element={<PublicLayout />}>
         {filteredRoutes.map((route: RouteInterface, index: number) => (
           <Route key={index} path={route.path} element={route.component} />
         ))}

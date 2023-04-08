@@ -1,6 +1,5 @@
 export interface FunctionData {
-  title: string
-  text?: string
+  text: string
   icon?: string
   confirmText: string
   showCancel?: boolean

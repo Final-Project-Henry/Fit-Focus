@@ -1,7 +1,6 @@
 import { Fragment } from 'react'
-import { CredentialResponse, GoogleLogin } from '@react-oauth/google'
-// import { ActivecuentaGoogle, authGoogle, selectUser } from '../../features/counter/counterSlice'
 import jwtDecode from 'jwt-decode'
+import { CredentialResponse, GoogleLogin } from '@react-oauth/google'
 // import { useAppDispatch } from 'shared/customHooks/reduxHooks'
 
 const GoogleAuth = () => {

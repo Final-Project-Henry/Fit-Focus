@@ -15,22 +15,25 @@ const Navbar = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false)
   const [isSmall, setIsSmall] = useState(false)
   const [openUserMenu, setOpenUserMenu] = useState(false)
+  const [openMenuRoutes, setOpenMenuRoutes] = useState(false)
 
   const { userInfo } = useAppSelector(state => state.userLogin)
 
   useEffect(() => {
     if (width && width < 760) {
       setIsSmall(true)
-    } else {
+      setOpenUserMenu(false)
+    } else if (width && width >= 760) {
       setIsSmall(false)
+      setIsOpenMenu(false)
     }
   }, [width])
 
   const handleOpenMenu = () => {
     setIsOpenMenu(!isOpenMenu)
   }
-  const goHome = () => {
-    navigate('/home')
+  const goToPage = (path: string) => {
+    navigate(path)
   }
   const handleUserMenu = () => {
     setOpenUserMenu(!openUserMenu)
@@ -39,7 +42,7 @@ const Navbar = () => {
     let path = ''
     if (action === 'logout') {
       return CustomAlert({
-        title: '¿Desea cerrar sesión?',
+        text: '¿Desea cerrar sesión?',
         showCancel: true,
         confirmText: 'Cerrar Sesión',
         cancelText: 'Cancelar',
@@ -53,16 +56,25 @@ const Navbar = () => {
     }
     navigate(path)
   }
+  const handleOpenMenuRoutes = () => {
+    setOpenMenuRoutes(!openMenuRoutes)
+  }
 
   return isSmall ? (
     <MobileNavbar
       handleOpenMenu={handleOpenMenu}
+      handleMenuSelect={handleMenuSelect}
       isOpenMenu={isOpenMenu}
-      goHome={goHome}
+      goToPage={goToPage}
+      isLogged={!!userInfo}
+      avatar={userInfo?.avatar}
+      name={userInfo?.name || ''}
+      email={userInfo?.email || ''}
+      isAdmin={!!userInfo?.isAdmin}
     />
   ) : (
     <FullNavbar
-      goHome={goHome}
+      goToPage={goToPage}
       isLogged={!!userInfo}
       avatar={userInfo?.avatar}
       name={userInfo?.name || ''}
@@ -72,6 +84,8 @@ const Navbar = () => {
       closeUserMenu={handleUserMenu}
       isAdmin={!!userInfo?.isAdmin}
       handleMenuSelect={handleMenuSelect}
+      openMenuRoutes={openMenuRoutes}
+      handleOpenMenuRoutes={handleOpenMenuRoutes}
     />
   )
 }

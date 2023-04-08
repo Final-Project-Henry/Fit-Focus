@@ -1,6 +1,6 @@
-import ErrorPage from 'components/ErrorPage/ErrorPage'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import ErrorPage from 'components/ErrorPage/ErrorPage'
 import { ErrorRedirectProps } from 'shared/interfaces/error-interfaces'
 import { Container, ContainerScreen } from './styles/errorAndRedirectStyles'
 

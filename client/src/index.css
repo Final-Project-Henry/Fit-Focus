@@ -16,13 +16,14 @@ body {
 
 .swal2-modal {
   background-color: #f1f1f1;
-  width: fit-content;
+  width: 25em;
   padding: 12px 0;
-  max-width: 500px;
   box-shadow: 0 4px 10px #000e3e55;
 }
 .swal2-actions {
   width: 100%;
+  padding: 0;
+  margin: 30px 0 10px;
 }
 .swal2-confirm {
   width: 50%;

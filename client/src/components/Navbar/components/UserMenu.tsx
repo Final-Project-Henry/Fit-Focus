@@ -39,7 +39,7 @@ const UserMenu = ({
         <ListItemIcon>
           <Person />
         </ListItemIcon>
-        Profile
+        Mi Perfil
       </MenuItem>
       {isAdmin && (
         <MenuItem onClick={() => handleMenuSelect('admin')}>

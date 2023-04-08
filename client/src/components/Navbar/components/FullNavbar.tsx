@@ -13,12 +13,14 @@ import {
   Navbar,
   RoutesArea,
   RoutesList,
+  SubMenuTitle,
 } from '../styles/navbarStyles'
 import { Avatar } from '@mui/material'
 import UserMenu from './UserMenu'
+import DropdownMenu from 'components/DropdownMenu/DropdownMenu'
 
 const FullNavbar = ({
-  goHome,
+  goToPage,
   isLogged,
   avatar,
   name,
@@ -28,20 +30,69 @@ const FullNavbar = ({
   closeUserMenu,
   isAdmin,
   handleMenuSelect,
+  openMenuRoutes,
+  handleOpenMenuRoutes,
 }: FullNavbarProps) => {
+  const exerciseAnchorEl = document.getElementById('exercise-link-route')
   return (
     <Container>
       <Navbar>
         <RoutesArea>
-          <Image onClick={goHome}>
+          <Image onClick={() => goToPage('/home')}>
             <img src={logoLight} />
           </Image>
           <RoutesList>
-            {routes.map((route: RouteInterface, index: number) => (
-              <Link to={route.path} key={index}>
-                <span>{route.title}</span>
-              </Link>
-            ))}
+            {routes.map((route: RouteInterface, index: number) => {
+              if (route.subMenus) {
+                return (
+                  <SubMenuTitle
+                    id='exercise-link-route'
+                    key={index}
+                    onClick={handleOpenMenuRoutes}
+                  >
+                    <span>{route.title}</span>
+                  </SubMenuTitle>
+                )
+              } else {
+                return (
+                  <Link to={route.path} key={index}>
+                    <span>{route.title}</span>
+                  </Link>
+                )
+              }
+            })}
+            {openMenuRoutes && (
+              <DropdownMenu
+                options={
+                  routes[0].menus?.map(e => ({
+                    label: e.title,
+                    select: () => {
+                      goToPage(e.path)
+                      handleOpenMenuRoutes()
+                    },
+                  })) || []
+                }
+                anchorEl={exerciseAnchorEl}
+                open={openMenuRoutes}
+                close={handleOpenMenuRoutes}
+                sx={{
+                  marginTop: '15px',
+                  marginLeft: '-16px',
+                  minWidth: '150px',
+                  padding: 0,
+                  background: 'skyblue',
+                  fontFamily: 'Oswald',
+                }}
+                transformOrigin={{
+                  horizontal: 'left',
+                  vertical: 'top',
+                }}
+                anchorOrigin={{
+                  horizontal: 'left',
+                  vertical: 'bottom',
+                }}
+              />
+            )}
           </RoutesList>
         </RoutesArea>
         {isLogged ? (

@@ -10,3 +10,7 @@ export const videoLoading =
   'https://res.cloudinary.com/dm0fwscsy/video/upload/v1677647549/Fit-Focus/videos/loading_video_zddlle.mp4'
 export const defaultAvatar =
   'https://res.cloudinary.com/dm0fwscsy/image/upload/v1680154708/Fit-Focus/assets/default-user-icon_pprnqj.jpg'
+export const bgMobileLanding =
+  'https://res.cloudinary.com/dm0fwscsy/video/upload/v1680921780/Fit-Focus/assets/pexels-mart-production-8027961-2160x4096-25fps_n3kxdk.mp4'
+export const bgNormalLanding =
+  'https://res.cloudinary.com/dm0fwscsy/video/upload/v1677647332/Fit-Focus/videos/landingTrain_lgruzz.mp4'

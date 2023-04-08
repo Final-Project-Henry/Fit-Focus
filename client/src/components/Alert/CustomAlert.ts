@@ -1,9 +1,8 @@
 import Swal, { SweetAlertResult } from 'sweetalert2'
 import { FunctionData } from './helper/interfaces'
-import { getIconColor, getIconName } from './helper/get-icon-name'
+import { getIconColor, getIconName, getTitle } from './helper/get-icon-name'
 
 const CustomAlert = async ({
-  title,
   confirmText,
   text = '',
   icon = '',
@@ -18,6 +17,7 @@ const CustomAlert = async ({
 }: FunctionData) => {
   const iconAlert = getIconName(icon)
   const iconColor = getIconColor(icon)
+  const title = getTitle(icon)
   return Swal.fire({
     title,
     text,

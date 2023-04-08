@@ -30,3 +30,19 @@ export const getIconColor = (icon: string) => {
       return '#ffa503'
   }
 }
+export const getTitle = (icon: string) => {
+  switch (icon) {
+    case 'warning':
+      return 'Seguro?!'
+    case 'error':
+      return 'Cuidado!!'
+    case 'success':
+      return 'Hecho!!'
+    case 'info':
+      return 'Opps...'
+    case 'question':
+      return 'Sabias que...'
+    default:
+      return 'Seguro?!'
+  }
+}

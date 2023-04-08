@@ -1,11 +1,17 @@
 export interface MobileNavbarProps {
   handleOpenMenu: () => void
+  handleMenuSelect: (actionn: string) => void
   isOpenMenu: boolean
-  goHome: () => void
+  goToPage: (path: string) => void
+  isLogged: boolean
+  avatar?: string
+  name: string
+  email: string
+  isAdmin: boolean
 }
 
 export interface FullNavbarProps {
-  goHome: () => void
+  goToPage: (path: string) => void
   isLogged: boolean
   avatar?: string
   name: string
@@ -15,6 +21,8 @@ export interface FullNavbarProps {
   closeUserMenu: () => void
   isAdmin: boolean
   handleMenuSelect: (actionn: string) => void
+  openMenuRoutes: boolean
+  handleOpenMenuRoutes: () => void
 }
 
 export interface SubMenuRoute {
@@ -35,5 +43,16 @@ export interface UserMenuProps {
   isAdmin: boolean
   name: string
   email: string
+  handleMenuSelect: (actionn: string) => void
+}
+
+export interface MenuHeaderProps {
+  goToPage: (path: string) => void
+  handleOpenMenu: () => void
+  isLogged: boolean
+  avatar?: string
+  name: string
+  email: string
+  isAdmin: boolean
   handleMenuSelect: (actionn: string) => void
 }

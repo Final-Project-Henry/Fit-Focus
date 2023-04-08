@@ -7,7 +7,6 @@ const divBase = styled.div`
   align-items: center;
   background: skyblue;
 `
-
 export const Container = styled(divBase)`
   justify-content: center;
   font-family: 'Oswald';
@@ -25,7 +24,10 @@ export const Navbar = styled(divBase)`
 export const RoutesArea = styled(divBase)`
   justify-content: space-between;
 `
-
+export const SubMenuTitle = styled.div`
+  cursor: pointer;
+  text-align: center;
+`
 export const RoutesList = styled(divBase)`
   width: 300px;
   justify-content: space-evenly;
@@ -33,11 +35,9 @@ export const RoutesList = styled(divBase)`
 
 export const LoginArea = styled(divBase)`
   justify-content: space-between;
-  width: 200px;
   padding: 0 20px;
-  gap: 10px;
+  gap: 15px;
 `
-
 export const Image = styled.div`
   width: 100px;
   padding: 0 15px;
@@ -60,7 +60,6 @@ export const MenuOpen = styled.div`
 export const AvatarContainer = styled.div`
   cursor: pointer;
 `
-
 export const ExmailText = styled.span`
   overflow: hidden;
   white-space: nowrap;
@@ -78,4 +77,18 @@ export const MenuName = styled.h4`
 export const MenuEmail = styled.h4`
   font-size: 0.9rem;
   font-weight: 500;
+`
+export const HeaderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+export const ImageResponsive = styled(Image)`
+  margin-top: 20px;
+`
+export const MenuTitleMobile = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 0 15px 15px;
 `

@@ -1,12 +1,12 @@
 import Navbar from 'components/Navbar/Navbar'
-import { Container, ContainerScreen } from '../styles'
 import { Outlet } from 'react-router-dom'
+import { ContainerScreen, Container } from '../styles'
 import { Suspense } from 'react'
 import Loading from 'components/loading/Loading'
 
-const Visit = () => {
+const Public = () => {
   return (
-    <ContainerScreen>
+    <ContainerScreen id='layout-container'>
       <Navbar />
       <Container>
         <Suspense fallback={<Loading />}>
@@ -17,4 +17,4 @@ const Visit = () => {
   )
 }
 
-export default Visit
+export default Public
