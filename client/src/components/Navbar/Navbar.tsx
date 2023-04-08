@@ -23,6 +23,7 @@ const Navbar = () => {
     if (width && width < 760) {
       setIsSmall(true)
       setOpenUserMenu(false)
+      setOpenMenuRoutes(false)
     } else if (width && width >= 760) {
       setIsSmall(false)
       setIsOpenMenu(false)

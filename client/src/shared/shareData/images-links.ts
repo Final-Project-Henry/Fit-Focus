@@ -11,6 +11,6 @@ export const videoLoading =
 export const defaultAvatar =
   'https://res.cloudinary.com/dm0fwscsy/image/upload/v1680154708/Fit-Focus/assets/default-user-icon_pprnqj.jpg'
 export const bgMobileLanding =
-  'https://res.cloudinary.com/dm0fwscsy/video/upload/v1680921780/Fit-Focus/assets/pexels-mart-production-8027961-2160x4096-25fps_n3kxdk.mp4'
+  'https://res.cloudinary.com/dm0fwscsy/video/upload/v1680928807/Fit-Focus/assets/Pexels-Mart-Production-8027961-2160X4096-25Fps_fnukr2.mp4'
 export const bgNormalLanding =
-  'https://res.cloudinary.com/dm0fwscsy/video/upload/v1677647332/Fit-Focus/videos/landingTrain_lgruzz.mp4'
+  'https://res.cloudinary.com/dm0fwscsy/video/upload/v1680928807/Fit-Focus/assets/Landingtrain_Lgruzz_lkkeoe.mp4'

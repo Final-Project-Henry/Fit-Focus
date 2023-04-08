@@ -5,6 +5,10 @@
   font-family: 'Oswald';
   src: url('../public/assets/fonts/Oswald-VariableFont_wght.ttf');
 }
+@font-face {
+  font-family: 'Tiro';
+  src: url('../public/assets/fonts/TiroDevanagariHindi-Italic.ttf');
+}
 
 body {
   background-color: rgb(248 250 252);

@@ -10,6 +10,7 @@ export default {
     blue: '#2f4574',
     silver: '#C0C0C0',
     electricBlue: '#0828C9',
+    orange: '#ffa000',
   },
   backgrounds: {
     dark: '20, 25, 46, 0.5',

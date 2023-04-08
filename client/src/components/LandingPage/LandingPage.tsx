@@ -1,51 +1,61 @@
-// import { useNavigate } from 'react-router-dom'
-// import Typewriter from 'react-ts-typewriter'
-import { BgVideo, Container } from './styles/landingPageStyles'
-import { bgMobileLanding, bgNormalLanding } from 'shared/shareData'
+import { useEffect, useState } from 'react'
+import Typewriter from 'react-ts-typewriter'
+import { useNavigate } from 'react-router-dom'
+import useWindowsSize from 'shared/customHooks/useWindowsSize'
+import {
+  bgMobileLanding,
+  bgNormalLanding,
+  landingBodyText,
+} from 'shared/shareData'
+import {
+  ActionArea,
+  BgVideo,
+  Body,
+  ButtonLanding,
+  Container,
+  SubTitle,
+  Title,
+  TitleContainer,
+} from './styles/landingPageStyles'
 
 const LandingPage = () => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
+  const { width } = useWindowsSize()
 
-  // const onClick = () => {
-  //   navigate('/home')
-  // }
+  const [isSmall, setIsSmall] = useState(false)
+  // const [videoSource, setVideoSource] = useState<any>()
+
+  useEffect(() => {
+    console.log(width)
+    if (width && width < 760) {
+      setIsSmall(true)
+    } else if (width && width >= 760) {
+      setIsSmall(false)
+    }
+  }, [width])
+
+  const handleOnClick = () => {
+    navigate('/home')
+  }
+
   return (
     <Container>
-      <BgVideo autoPlay loop muted>
-        <source src={bgMobileLanding || bgNormalLanding} />
-      </BgVideo>
-
-      {/* <div className={styles.main}>
-        <div className={styles.overlay}></div>
-        <video
-          src='https://res.cloudinary.com/dm0fwscsy/video/upload/v1677647332/Fit-Focus/videos/landingTrain_lgruzz.mp4'
-          height='100vh'
-          autoPlay
-          loop
-          muted
-        />
-        <div className={styles.titleApp}>
-          <h1 className={styles.name}>FIT FOCUS</h1>
-        </div>
-        <div className={styles.content}>
-          <div className={styles.noPainDiv}>
-            <p>NO PAIN, NO GAIN!</p>
-          </div>
-
-          <div className={styles.typewriterDiv}>
-            <Typewriter
-              text='¿No tienes tiempo para ir al gimnasio? ¿No sabes cómo comenzar tu vida fit? FIT FOCUS® es ideal para ti, esta aplicación nace como una iniciativa deportiva para aquellos que desean mantener un cuerpo fuerte y saludable ya que la modificación de hábitos y estilos de vida conlleva grandes beneficios para la salud y todo esto lo puedes hacer desde la comodidad de tu casa.
-            Además, vas a poder ver y crear tu estilo de entrenamiento adecuado a través de nuestra biblioteca de ejercicios y rutinas, ¡¡vamos a entrenar!!'
-              speed={20}
-            />
-          </div>
-          <div className={styles.buttonDiv}>
-            <button onClick={onClick} className={styles.landingButton}>
-              COMENCEMOS
-            </button>
-          </div>
-        </div>
-      </div> */}
+      <BgVideo
+        autoPlay
+        loop
+        muted
+        src={isSmall ? bgMobileLanding : bgNormalLanding}
+      />
+      <TitleContainer>
+        <Title>FIT FOCUS</Title>
+        <SubTitle>NO PAIN, NO GAIN</SubTitle>
+      </TitleContainer>
+      <Body>
+        <Typewriter text={landingBodyText} speed={50} />
+      </Body>
+      <ActionArea>
+        <ButtonLanding onClick={handleOnClick}>COMENCEMOS</ButtonLanding>
+      </ActionArea>
     </Container>
   )
 }
