@@ -17,11 +17,11 @@ export default [
     link: 'caterina-aracil-42256722b',
   },
   {
-    name: 'Martin Angulo',
-    avatar: MartinAvatar,
-    mail: 'martinangulo1194',
-    git: 'MartinAngulo',
-    link: 'martinangulo1194',
+    name: 'Adrian Acurero',
+    avatar: AdrianAvatar,
+    mail: 'adrianacurero',
+    git: 'Adr-AA',
+    link: 'adrian-acurero',
   },
   {
     name: 'Ivan Garcia',
@@ -52,10 +52,10 @@ export default [
     link: 'david-cicconi-dev',
   },
   {
-    name: 'Adrian Acurero',
-    avatar: AdrianAvatar,
-    mail: 'adrianacurero',
-    git: 'Adr-AA',
-    link: 'adrian-acurero',
+    name: 'Martin Angulo',
+    avatar: MartinAvatar,
+    mail: 'martinangulo1194',
+    git: 'MartinAngulo',
+    link: 'martinangulo1194',
   },
 ]

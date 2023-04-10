@@ -1,3 +1,5 @@
+import styled from 'styled-components'
+
 export default {
   colors: {
     white: '#ffffff',
@@ -57,3 +59,23 @@ export default {
     depth4: '0 4px 10px #000e3e55',
   },
 }
+
+export const bgImagesLoading = styled.div`
+  width: 100%;
+  height: 100%;
+  background: gray;
+  animation-name: loading-images;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  @keyframes loading-images {
+    0% {
+      filter: brightness(0.5);
+    }
+    50% {
+      filter: brightness(1);
+    }
+    100% {
+      filter: brightness(0.5);
+    }
+  }
+`

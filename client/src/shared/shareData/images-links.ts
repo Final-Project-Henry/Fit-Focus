@@ -1,3 +1,5 @@
+export const logoDark =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1680972383/Fit-Focus/assets/nav-icon.404fca8f8ab0576767de_gynthi.png'
 export const logoLight =
   'https://res.cloudinary.com/dm0fwscsy/image/upload/v1677913843/Fit-Focus/assets/nav-icon2.eef255e9e6a8d554a3a8_ohaamt.png'
 export const logoError =
@@ -29,3 +31,5 @@ export const DavidAvatar =
   'https://res.cloudinary.com/dm0fwscsy/image/upload/v1677731372/Fit-Focus/avatars/1628914569483_ysmwaj.jpg'
 export const AdrianAvatar =
   'https://res.cloudinary.com/dm0fwscsy/image/upload/v1677731694/Fit-Focus/avatars/1674146930649_sboloo.jpg'
+export const visitImage1 =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1681101680/Fit-Focus/assets/GettyImages-915116594_s8ofab.webp'
