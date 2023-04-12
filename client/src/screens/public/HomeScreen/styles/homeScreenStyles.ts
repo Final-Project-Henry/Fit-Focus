@@ -1,10 +1,11 @@
+import { visitImage2, visitImageFront } from 'shared/shareData'
 import styled from 'styled-components'
 
 const BasicDiv = styled.div`
   display: flex;
   width: 100%;
   height: 100vh;
-  background: red;
+  background: ${({ theme }) => theme.colors.white};
   max-width: 1280px;
 `
 const ResponsiveContainer = styled.div`
@@ -23,21 +24,74 @@ export const VisitScreenContainer = styled(BasicDiv)`
 `
 export const FrontContainer = styled(BasicDiv)`
   background: transparent;
+  position: relative;
+  align-items: center;
+  z-index: 0;
+  img {
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 `
 export const FrontCover = styled(ResponsiveContainer)`
-  background: green;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  z-index: -1;
+  &::before {
+    background-image: url(${visitImageFront});
+    background-repeat: repeat-x;
+    background-size: contain;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: scale(1.2);
+    filter: blur(20px);
+  }
 `
 export const DetailContainer = styled(BasicDiv)`
   background: transparent;
+  height: fit-content;
+  align-items: center;
+  justify-content: space-evenly;
+  video {
+    width: 50%;
+    margin: 30px 0;
+  }
+  @media (max-width: 500px) {
+    flex-direction: column;
+    video {
+      width: 90%;
+    }
+  }
 `
 export const DetailCover = styled(ResponsiveContainer)`
-  background: blue;
+  background: transparent;
 `
 export const QuestionContainer = styled(BasicDiv)`
   background: transparent;
+  height: 600px;
+  align-items: center;
 `
 export const QuestionCover = styled(ResponsiveContainer)`
-  background: brown;
+  background: transparent;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    top: 150px;
+    left: 0;
+    background: ${({ theme }) => theme.colors.gray};
+    z-index: -1;
+  }
 `
 export const OffersContainer = styled(BasicDiv)`
   background: transparent;
@@ -47,9 +101,26 @@ export const OfferCover = styled(ResponsiveContainer)`
 `
 export const MotivationalPhraseContainer = styled(BasicDiv)`
   background: transparent;
+  justify-content: center;
+  height: 50vh;
+  z-index: 1;
 `
 export const MotivationalCover = styled(ResponsiveContainer)`
-  background: purple;
+  position: relative;
+  overflow: hidden;
+  &::before {
+    background-image: url(${visitImage2});
+    background-repeat: repeat-x;
+    background-size: contain;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: scale(1.2);
+    filter: blur(20px);
+  }
 `
 export const BenefitsContainer = styled(BasicDiv)`
   background: transparent;
@@ -198,4 +269,147 @@ export const ButtonBenefit = styled.button`
   background: white;
   margin-top: 10px;
   color: ${({ theme }) => theme.colors.darkBlue};
+`
+export const BgImageVisit = styled.img`
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  @media (max-width: 500px) {
+    object-position: top 0 right 60%;
+  }
+`
+export const Message = styled.p`
+  padding: 30px;
+  font-family: 'Oswald';
+  font-size: 3rem;
+  color: white;
+  position: absolute;
+  text-align: center;
+  max-width: 50%;
+  top: 25%;
+  background: rgba(${({ theme }) => theme.backgrounds.dark});
+  @media (max-width: 500px) {
+    font-size: 1.5rem;
+  }
+  @media (min-width: 1280px) {
+    max-width: 40%;
+  }
+`
+export const BarQuestion = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 300px;
+  width: 100%;
+  img {
+    height: 500px;
+    filter: drop-shadow(${({ theme }) => theme.shadows.depth4});
+  }
+  @media (max-width: 500px) {
+    flex-direction: column;
+    position: relative;
+  }
+  @media (max-width: 760px) {
+    img {
+      height: 450px;
+    }
+  }
+`
+export const TextQuestion = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-family: 'Oswald';
+  h2 {
+    font-size: 3rem;
+    font-weight: 500;
+  }
+  span {
+    font-size: 1.5rem;
+  }
+  a {
+    font-size: 0.8rem;
+    text-decoration: underline;
+    cursor: pointer;
+    color: ${({ theme }) => theme.colors.electricBlue};
+  }
+  @media (max-width: 500px) {
+    position: absolute;
+    padding: 20px;
+    z-index: 1;
+    background: rgba(${({ theme }) => theme.backgrounds.dark});
+  }
+  @media (max-width: 760px) {
+    h2 {
+      font-size: 2rem;
+    }
+    span {
+      font-size: 1rem;
+    }
+  }
+`
+export const TextDescription = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 30%;
+  height: 350px;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.darkBlue};
+  font-family: 'Oswald';
+  h2 {
+    font-weight: 500;
+    font-size: 3rem;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+  @media (max-width: 500px) {
+    width: 90%;
+  }
+  @media (max-width: 760px) {
+    h2 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+`
+export const TextFront = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: 'Oswald';
+  width: 60%;
+  height: 60%;
+  text-align: center;
+  color: white;
+  z-index: 1;
+  padding: 30px;
+  background: rgba(${({ theme }) => theme.backgrounds.dark});
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 0 51%, 0% 0%);
+  h1 {
+    font-size: 4rem;
+    font-weight: 500;
+  }
+  h3 {
+    font-size: 3rem;
+    width: 90%;
+  }
+  h4 {
+    font-size: 1.5rem;
+    width: 70%;
+  }
+  button {
+    width: 200px;
+    padding: 10px;
+    background: ${({ theme }) => theme.colors.darkBlue};
+    cursor: pointer;
+  }
+  @media (max-width: 760px) {
+    width: 90%;
+  }
 `

@@ -33,3 +33,11 @@ export const AdrianAvatar =
   'https://res.cloudinary.com/dm0fwscsy/image/upload/v1677731694/Fit-Focus/avatars/1674146930649_sboloo.jpg'
 export const visitImage1 =
   'https://res.cloudinary.com/dm0fwscsy/image/upload/v1681101680/Fit-Focus/assets/GettyImages-915116594_s8ofab.webp'
+export const visitImage2 =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1681268327/Fit-Focus/assets/pexels-photo-6443525_lfal7m.jpg'
+export const visitImageBar =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1681275889/Fit-Focus/assets/visitor3_img_dmmg7d.png'
+export const visitVideo =
+  'https://res.cloudinary.com/dm0fwscsy/video/upload/v1677647247/Fit-Focus/videos/laptop_page_g8ee5i.mp4'
+export const visitImageFront =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1681278450/Fit-Focus/assets/photo-1612823334879-01148de469d9_f2ebej.avif'
