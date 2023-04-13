@@ -16,7 +16,6 @@ export const bgMobileLanding =
   'https://res.cloudinary.com/dm0fwscsy/video/upload/v1680928807/Fit-Focus/assets/Pexels-Mart-Production-8027961-2160X4096-25Fps_fnukr2.mp4'
 export const bgNormalLanding =
   'https://res.cloudinary.com/dm0fwscsy/video/upload/v1680928807/Fit-Focus/assets/Landingtrain_Lgruzz_lkkeoe.mp4'
-
 export const CaterinaAvatar =
   'https://res.cloudinary.com/dm0fwscsy/image/upload/v1677731345/Fit-Focus/avatars/1676987125680_chm556.jpg'
 export const MartinAvatar =
@@ -41,3 +40,7 @@ export const visitVideo =
   'https://res.cloudinary.com/dm0fwscsy/video/upload/v1677647247/Fit-Focus/videos/laptop_page_g8ee5i.mp4'
 export const visitImageFront =
   'https://res.cloudinary.com/dm0fwscsy/image/upload/v1681278450/Fit-Focus/assets/photo-1612823334879-01148de469d9_f2ebej.avif'
+export const visitImageFrontMobile =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1681360303/Fit-Focus/assets/pexels-photo-6303468_l85tru.webp'
+export const squadAnimation =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1681361774/Fit-Focus/assets/squats-body-weight-training_zfjyj5.gif'

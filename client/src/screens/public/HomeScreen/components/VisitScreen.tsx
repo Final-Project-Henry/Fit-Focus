@@ -2,6 +2,7 @@ import devs from 'shared/shareData/devs'
 import {
   AboutUsContainer,
   AboutUsCover,
+  AnimatedContainer,
   BarQuestion,
   BenefitCover,
   BenefitsContainer,
@@ -28,22 +29,38 @@ import {
 import CardDev from './CardDev'
 import { DevInterface } from '../helper/interfaces'
 import {
+  squadAnimation,
   visitImage1,
   visitImage2,
   visitImageBar,
   visitImageFront,
+  visitImageFrontMobile,
   visitVideo,
 } from 'shared/shareData'
 import BenefitsTable from './BenefitsTable'
 import { Link } from 'react-router-dom'
+import useWindowsSize from 'shared/customHooks/useWindowsSize'
+import CardOffer from './CardOffer'
+import { useEffect, useState } from 'react'
 
 const VisitScreen = () => {
+  const { width } = useWindowsSize()
+
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    if (width && width <= 500) {
+      setIsMobile(true)
+    } else {
+      setIsMobile(false)
+    }
+  }, [width])
   return (
     <VisitScreenContainer id='visit-container'>
       {/* ------------------------Front Area------------------------ */}
       <FrontCover>
         <FrontContainer>
-          <img src={visitImageFront} />
+          <img src={isMobile ? visitImageFrontMobile : visitImageFront} />
           <TextFront>
             <h1>Fit Focus</h1>
             <h3>
@@ -86,7 +103,14 @@ const VisitScreen = () => {
       </QuestionCover>
       {/* -------------------------Offer Area------------------------- */}
       <OfferCover>
-        <OffersContainer>Algo 4</OffersContainer>
+        <OffersContainer>
+          <AnimatedContainer>
+            <img src={squadAnimation} alt='squat animation' />
+            <span>SENTADILLA</span>
+          </AnimatedContainer>
+          <CardOffer isFree={false} />
+          <CardOffer isFree={true} />
+        </OffersContainer>
       </OfferCover>
       {/* ------------------Motivational Phrase Area------------------ */}
       <MotivationalCover>

@@ -9,6 +9,7 @@ export const LoadingContainer = styled.div`
   height: 100%;
   width: 100%;
   background-color: white;
+  margin-top: 50px;
 `
 export const VideoContainer = styled.video`
   width: 500px;

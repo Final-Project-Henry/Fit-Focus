@@ -9,3 +9,7 @@ export interface DevInterface {
 export interface CardDevProps {
   dev: DevInterface
 }
+
+export interface CardOfferProps {
+  isFree: boolean
+}

@@ -3,8 +3,8 @@ import { useWindowsInterface } from '../interfaces/custom-hooks-interfaces'
 
 const useWindowsSize = () => {
   const [windowSize, setWindowSize] = useState<useWindowsInterface>({
-    width: undefined,
-    height: undefined,
+    width: 0,
+    height: 0,
   })
   useEffect(() => {
     function handleResize() {

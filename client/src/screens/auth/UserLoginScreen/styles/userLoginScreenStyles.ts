@@ -13,10 +13,12 @@ export const CardContainer = styled.div`
   position: relative;
   box-shadow: ${({ theme }) => theme.shadows.depth4};
   z-index: 0;
+  margin-top: 50px;
   @media (max-width: 500px) {
     width: 100%;
     height: 100%;
     box-shadow: inherit;
+    margin-top: 0;
   }
 `
 export const FormContainer = styled.div`

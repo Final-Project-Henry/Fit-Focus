@@ -15,7 +15,8 @@ body {
 }
 
 #root {
-  height: 100vh;
+  min-height: 100vh;
+  height: fit-content;
 }
 
 .swal2-modal {

@@ -29,6 +29,7 @@ export const FrontContainer = styled(BasicDiv)`
   z-index: 0;
   img {
     height: 100%;
+    max-height: 100vh;
     object-fit: cover;
     opacity: 0.7;
     position: absolute;
@@ -58,8 +59,9 @@ export const FrontCover = styled(ResponsiveContainer)`
 export const DetailContainer = styled(BasicDiv)`
   background: transparent;
   height: fit-content;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-evenly;
+  padding: 20px 0;
   video {
     width: 50%;
     margin: 30px 0;
@@ -95,9 +97,16 @@ export const QuestionCover = styled(ResponsiveContainer)`
 `
 export const OffersContainer = styled(BasicDiv)`
   background: transparent;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: fit-content;
+  padding: 30px;
+  gap: 30px;
+  flex-wrap: wrap;
 `
 export const OfferCover = styled(ResponsiveContainer)`
-  background: magenta;
+  background: ${({ theme }) => theme.colors.lightGray};
 `
 export const MotivationalPhraseContainer = styled(BasicDiv)`
   background: transparent;
@@ -291,6 +300,9 @@ export const Message = styled.p`
   @media (max-width: 500px) {
     font-size: 1.5rem;
   }
+  @media (max-width: 760px) {
+    top: 8%;
+  }
   @media (min-width: 1280px) {
     max-width: 40%;
   }
@@ -329,7 +341,7 @@ export const TextQuestion = styled.div`
     font-size: 1.5rem;
   }
   a {
-    font-size: 0.8rem;
+    font-size: 1rem;
     text-decoration: underline;
     cursor: pointer;
     color: ${({ theme }) => theme.colors.electricBlue};
@@ -352,18 +364,17 @@ export const TextQuestion = styled.div`
 export const TextDescription = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   width: 30%;
-  height: 350px;
   text-align: center;
   color: ${({ theme }) => theme.colors.darkBlue};
   font-family: 'Oswald';
   h2 {
     font-weight: 500;
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   @media (max-width: 500px) {
     width: 90%;
@@ -411,5 +422,77 @@ export const TextFront = styled.div`
   }
   @media (max-width: 760px) {
     width: 90%;
+    h1 {
+      font-size: 3rem;
+    }
+    h3 {
+      font-size: 2rem;
+    }
+    h4 {
+      font-size: 1rem;
+    }
+  }
+`
+export const AnimatedContainer = styled.div`
+  width: 300px;
+  height: fit-content;
+  display: flex;
+  flex: 300px 0 300px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: ${({ theme }) => theme.shadows.depth4};
+  img {
+    width: 100%;
+  }
+  span {
+    width: 100%;
+    background: ${({ theme }) => theme.colors.darkBlue};
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-family: 'Oswald';
+    font-weight: 500;
+  }
+`
+export const CardOfferContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex: 350px 0 350px;
+  align-items: flex-start;
+  padding: 30px;
+  width: 350px;
+  height: fit-content;
+  background: white;
+  font-family: 'Oswald';
+  box-shadow: ${({ theme }) => theme.shadows.depth4};
+  span {
+    font-size: 1.5rem;
+    color: ${({ theme }) => theme.colors.gray};
+  }
+  button {
+    width: 100%;
+    background: ${({ theme }) => theme.colors.darkBlue};
+    color: white;
+    padding: 10px 0;
+  }
+`
+export const PriceContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  p {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+  }
+  a {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: ${({ theme }) => theme.colors.gray};
   }
 `
