@@ -19,7 +19,7 @@ const GoogleAuth = () => {
   return (
     <Fragment>
       <GoogleLogin
-        width='200px'
+        width='350px'
         onSuccess={handleSuccess}
         onError={handleError}
       />

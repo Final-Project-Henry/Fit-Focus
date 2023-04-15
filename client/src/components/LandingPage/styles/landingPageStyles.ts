@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,11 +13,13 @@ export const Container = styled.div`
 `
 export const BgVideo = styled.video`
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
   object-fit: cover;
   transition: ease-in-out 5s;
-  z-index: -1;
+  z-index: 0;
   filter: brightness(0.5);
 `
 export const Title = styled.h4`
@@ -32,6 +34,7 @@ export const SubTitle = styled.h4`
 export const Body = styled.span`
   color: white;
   width: 60%;
+  z-index: 0;
   @media (max-width: 500px) {
     width: 80%;
   }
@@ -43,12 +46,14 @@ export const TitleContainer = styled.div`
   width: 90%;
   align-items: center;
   color: ${({ theme }) => theme.colors.orange};
+  z-index: 0;
 `
 export const ActionArea = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 0;
 `
 export const ButtonLanding = styled.button`
   width: 50px;

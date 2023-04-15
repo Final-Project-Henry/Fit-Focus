@@ -3,10 +3,9 @@ import styled from 'styled-components'
 export const ContainerScreen = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  height: 100%;
+  height: 100vh;
 `
 export const Container = styled.div`
-  height: 100%;
+  height: 100vh;
   width: 100%;
 `

@@ -5,14 +5,15 @@ const GridItem = ({ children, ...rest }: Props) => {
   return (
     <Grid
       item
-      {...rest}
       style={{
         display: 'flex',
         width: '100%',
         justifyContent: 'center',
         height: 'fit-content',
         margin: 0,
+        padding: 0,
       }}
+      {...rest}
     >
       {children}
     </Grid>

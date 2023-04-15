@@ -6,7 +6,7 @@ import { createRoot } from 'react-dom/client'
 import { ThemeProvider } from 'styled-components'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import axios from 'axios'
-import RoutesComponent from 'routes/ManagementRoutes'
+import ManagementRoutes from 'routes/ManagementRoutes'
 import theme from 'shared/theme'
 import './index.css'
 
@@ -23,7 +23,7 @@ root.render(
       <ThemeProvider theme={theme}>
         <Provider store={store}>
           <BrowserRouter>
-            <RoutesComponent />
+            <ManagementRoutes />
           </BrowserRouter>
         </Provider>
       </ThemeProvider>

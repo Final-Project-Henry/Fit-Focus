@@ -6,7 +6,7 @@ import Loading from 'components/loading/Loading'
 
 const Public = () => {
   return (
-    <ContainerScreen id='layout-container'>
+    <ContainerScreen id='public-layout'>
       <Navbar />
       <Container>
         <Suspense fallback={<Loading />}>

@@ -5,11 +5,11 @@ const GridContainer = ({ children, ...rest }: Props) => {
   return (
     <Grid
       container
-      {...rest}
       style={{
         width: '100%',
         height: '100%',
       }}
+      {...rest}
     >
       {children}
     </Grid>

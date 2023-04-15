@@ -13,12 +13,10 @@ export const CardContainer = styled.div`
   position: relative;
   box-shadow: ${({ theme }) => theme.shadows.depth4};
   z-index: 0;
-  margin-top: 50px;
   @media (max-width: 500px) {
     width: 100%;
     height: 100%;
     box-shadow: inherit;
-    margin-top: 0;
   }
 `
 export const FormContainer = styled.div`
@@ -28,6 +26,14 @@ export const FormContainer = styled.div`
     width: 90%;
     z-index: 0;
   }
+`
+export const LoginFormContainer = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px 10px;
+  font-family: 'Oswald';
 `
 export const ImageContainer = styled.div`
   width: 400px;
@@ -54,32 +60,30 @@ export const Phrase = styled.span`
 export const InputsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  width: 350px;
+  gap: 10px;
 `
 export const Titles = styled.div`
-  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
-`
-export const ActionArea = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
+  h1 {
+    font-size: 2.5rem;
+  }
 `
 export const RecoveryText = styled.span`
   color: ${({ theme }) => theme.colors.electricBlue};
   font-size: 0.8em;
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 `
 export const SubmitButton = styled.button`
   background: ${({ theme }) => theme.colors.blue};
   color: ${({ theme }) => theme.colors.white};
-  padding: 5px 15px;
+  padding: 10px 15px;
   font-weight: 500;
-  width: 40%;
+  width: 350px;
   border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `

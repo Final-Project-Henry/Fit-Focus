@@ -20,7 +20,7 @@ export const VisitScreenContainer = styled(BasicDiv)`
   height: fit-content;
   position: absolute;
   top: 0;
-  z-index: -1;
+  z-index: 0;
 `
 export const FrontContainer = styled(BasicDiv)`
   background: transparent;
