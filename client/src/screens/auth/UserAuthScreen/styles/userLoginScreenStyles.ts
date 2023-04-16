@@ -13,7 +13,6 @@ export const CardContainer = styled.div`
   position: relative;
   box-shadow: ${({ theme }) => theme.shadows.depth4};
   z-index: 0;
-  transition: all ease-in-out 3s;
   @media (max-width: 500px) {
     width: 100%;
     height: 100%;

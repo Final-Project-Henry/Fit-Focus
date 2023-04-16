@@ -24,7 +24,7 @@ import {
   ScreenContainer,
 } from './styles/userLoginScreenStyles'
 import RegisterInputs from './components/RegisterInputs'
-import { USER_REGISTER_RESET } from 'redux/constants/userConstants'
+import { GOOGLE_AUTH_RESET, USER_REGISTER_RESET } from 'redux/constants/userConstants'
 
 const UserLoginScreen = () => {
   const navigate = useNavigate()
@@ -39,22 +39,21 @@ const UserLoginScreen = () => {
 
   const { loadingUserLogin, successUserLogin, errorUserLogin } = useAppSelector(state => state.userLogin)
   const { loadingUserRegister, successUserRegister, errorUserRegister } = useAppSelector(state => state.userRegister)
+  const { loadingUserAuthGoogle, successUserAuthGoogle, errorUserAuthGoogle } = useAppSelector(
+    state => state.userAuthGoogle,
+  )
 
   useEffect(() => {
     return () => {
       dispatch({ type: USER_REGISTER_RESET })
+      dispatch({ type: GOOGLE_AUTH_RESET })
     }
   }, [])
   useEffect(() => {
-    if (successUserLogin) {
+    if (successUserLogin || successUserRegister || successUserAuthGoogle) {
       navigate('/home')
     }
-  }, [successUserLogin])
-  useEffect(() => {
-    if (successUserRegister) {
-      navigate('/home')
-    }
-  }, [successUserRegister])
+  }, [successUserLogin, successUserRegister, successUserAuthGoogle])
   useEffect(() => {
     setUserInfo(inputInitialState)
     setUserRegisterInfo(inputRegisterInitialState)
@@ -131,8 +130,8 @@ const UserLoginScreen = () => {
                   recoveryPass={recoveryPass}
                   submit={handleSubmit}
                   error={error}
-                  errorLogin={errorUserLogin}
-                  disableButton={!!loadingUserLogin}
+                  errorLogin={errorUserLogin || errorUserAuthGoogle}
+                  disableButton={!!loadingUserLogin || !!loadingUserAuthGoogle}
                 />
               </FormContainer>
             </GridItem>
@@ -146,8 +145,8 @@ const UserLoginScreen = () => {
                   handleInfo={handleRegisterInfo}
                   submit={handleRegisterSubmit}
                   error={errorRegister}
-                  errorLogin={errorUserRegister}
-                  disableButton={!!loadingUserRegister}
+                  errorLogin={errorUserRegister || errorUserAuthGoogle}
+                  disableButton={!!loadingUserRegister || !!loadingUserAuthGoogle}
                 />
               </FormContainer>
             </GridItem>

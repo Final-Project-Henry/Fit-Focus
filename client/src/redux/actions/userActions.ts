@@ -22,7 +22,7 @@ export const Login = (email: string, password: string) => async (dispatch: AppDi
       ...(decode as object),
       token: data.token,
     }
-    await dispatch({ type: types.GET_USER_LOGIN_SUCCESS, payload: userInfo })
+    dispatch({ type: types.GET_USER_LOGIN_SUCCESS, payload: userInfo })
 
     localStorage.setItem('token-user', JSON.stringify(data.token))
   } catch (error) {
@@ -108,6 +108,39 @@ export const Register = (name: string, email: string, password: string) => async
     const payloadError = error as PayloadError
     dispatch({
       type: types.USER_REGISTER_FAIL,
+      payload:
+        payloadError.response && payloadError.response.data?.message
+          ? payloadError.response.data.message
+          : payloadError.message,
+    })
+  }
+}
+
+export const AuthGoogle = (token: string) => async (dispatch: AppDispatch) => {
+  try {
+    dispatch({ type: types.GOOGLE_AUTH_REQUEST })
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+
+    const { data } = await axios.post('/api/users/google', { token }, config)
+
+    const decode = jwtDecode(data.token)
+    const userInfo = {
+      ...(decode as object),
+      token: data.token,
+    }
+    dispatch({ type: types.GOOGLE_AUTH_SUCCESS })
+    dispatch({ type: types.GET_USER_LOGIN_SUCCESS, payload: userInfo })
+
+    localStorage.setItem('token-user', JSON.stringify(data.token))
+  } catch (error) {
+    const payloadError = error as PayloadError
+    dispatch({
+      type: types.GOOGLE_AUTH_FAIL,
       payload:
         payloadError.response && payloadError.response.data?.message
           ? payloadError.response.data.message

@@ -67,3 +67,24 @@ export const userRegisterReducer = (state = {}, action: PayloadAction) => {
       return state
   }
 }
+
+export const userAuthGoogleReducer = (state = {}, action: PayloadAction) => {
+  switch (action.type) {
+    case types.GOOGLE_AUTH_REQUEST:
+      return { loadingUserAuthGoogle: true }
+    case types.GOOGLE_AUTH_SUCCESS:
+      return {
+        loadingUserAuthGoogle: false,
+        successUserAuthGoogle: true,
+      }
+    case types.GOOGLE_AUTH_FAIL:
+      return {
+        loadingUserAuthGoogle: false,
+        errorUserAuthGoogle: action.payload,
+      }
+    case types.GOOGLE_AUTH_RESET:
+      return {}
+    default:
+      return state
+  }
+}

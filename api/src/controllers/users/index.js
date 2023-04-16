@@ -1,9 +1,11 @@
-const registerUser = require('./register-user-controller')
+const googleAuth = require('./google-auth-controller')
 const loginUser = require('./login-user-controller')
 const refreshToken = require('./refresh-token-controller')
+const registerUser = require('./register-user-controller')
 
 module.exports = {
-  registerUser,
+  googleAuth,
   loginUser,
   refreshToken,
+  registerUser,
 }

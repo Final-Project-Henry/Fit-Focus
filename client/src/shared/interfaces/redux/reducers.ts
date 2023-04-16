@@ -12,3 +12,8 @@ export type userRegisterInterface = {
   successUserRegister?: boolean
   errorUserRegister?: string
 }
+export type userAuthGoogleInterface = {
+  loadingUserAuthGoogle?: boolean
+  successUserAuthGoogle?: boolean
+  errorUserAuthGoogle?: string
+}

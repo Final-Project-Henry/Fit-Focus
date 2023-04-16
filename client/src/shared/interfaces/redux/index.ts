@@ -1,5 +1,5 @@
 import { RootState as DefaultRootState } from 'redux/store'
-import { userLoginInterface, userRegisterInterface } from './reducers'
+import { userAuthGoogleInterface, userLoginInterface, userRegisterInterface } from './reducers'
 export * from './payloads'
 export * from './reducers'
 
@@ -15,4 +15,5 @@ export interface PayloadError extends Error {
 export type RootState = DefaultRootState & {
   userLogin?: userLoginInterface
   userRegister?: userRegisterInterface
+  userAuthGoogle?: userAuthGoogleInterface
 }
