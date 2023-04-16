@@ -2,10 +2,7 @@ import React from 'react'
 
 //Auth-routes
 export const UserLoginScreen = React.lazy(
-  () => import('screens/auth/UserLoginScreen/UserLoginScreen'),
-)
-export const UserRegisterScreen = React.lazy(
-  () => import('screens/auth/UserRegisterScreen/UserRegisterScreen'),
+  () => import('screens/auth/UserAuthScreen/UserAuthScreen'),
 )
 
 //Public-routes

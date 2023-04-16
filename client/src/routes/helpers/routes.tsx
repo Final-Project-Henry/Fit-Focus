@@ -1,6 +1,5 @@
 import {
   UserLoginScreen,
-  UserRegisterScreen,
   AboutUsScreen,
   CalculatorScreen,
   ContactUsScreen,
@@ -162,7 +161,7 @@ export const routes = [
   {
     path: 'register',
     title: 'Registrate',
-    component: <UserRegisterScreen />,
+    component: <UserLoginScreen />,
     layout: 'visit',
     role: [roles.visitRole],
   },

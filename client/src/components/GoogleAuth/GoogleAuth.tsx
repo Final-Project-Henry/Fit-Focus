@@ -22,6 +22,7 @@ const GoogleAuth = () => {
         width='350px'
         onSuccess={handleSuccess}
         onError={handleError}
+        auto_select
       />
     </Fragment>
   )

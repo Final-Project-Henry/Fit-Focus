@@ -6,7 +6,6 @@ import {
   InputAdornment,
   TextField,
   Tooltip,
-  Typography,
 } from '@mui/material'
 import {
   AccountCircle,
@@ -40,10 +39,7 @@ const LoginInputs = ({
       <GridContainer>
         <GridItem xs={12}>
           <Titles>
-            <h1>
-              <strong>Inicia sesión</strong>
-            </h1>
-            <span>Bienvenido de vuelta!</span>
+            <strong>Inicia sesión</strong>
           </Titles>
         </GridItem>
         <GridItem xs={12}>
@@ -51,6 +47,8 @@ const LoginInputs = ({
             <TextField
               id='email'
               name='email'
+              variant='standard'
+              margin='normal'
               label='Correo'
               error={!!error.email}
               helperText={error.email}
@@ -70,9 +68,11 @@ const LoginInputs = ({
             <TextField
               id='password'
               name='password'
+              variant='standard'
+              margin='normal'
               label='Contraseña'
               error={!!error.password}
-              helperText='La contraseña debe tener un mínimo de 8 caracteres'
+              helperText={error.password}
               type={data.viewPassword ? 'text' : 'password'}
               placeholder='********'
               required={true}
@@ -138,7 +138,11 @@ const LoginInputs = ({
           <GoogleAuth />
         </GridItem>
         <GridItem xs={12}>
-          {errorLogin && <Alert severity='error'>{errorLogin}</Alert>}
+          {errorLogin && (
+            <Alert severity='error' sx={{ width: '350px' }}>
+              {errorLogin}
+            </Alert>
+          )}
         </GridItem>
       </GridContainer>
     </LoginFormContainer>
