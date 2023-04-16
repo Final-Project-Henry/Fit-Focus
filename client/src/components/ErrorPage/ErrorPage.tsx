@@ -43,8 +43,8 @@ const ErrorPage = ({ errorMessage, numberError, counter }: Props) => {
           <GridItem xs={12}>
             <CenterContainer>
               <span style={{ flexWrap: 'wrap' }}>
-                Su cliente no tiene permiso para acceder a esta URL. Si el
-                problema persiste, pongase en contacto con servicio técnico.
+                Su cliente no tiene permiso para acceder a esta URL. Si el problema persiste, pongase en contacto con
+                servicio técnico.
               </span>
             </CenterContainer>
           </GridItem>

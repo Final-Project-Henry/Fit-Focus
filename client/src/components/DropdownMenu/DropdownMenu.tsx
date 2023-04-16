@@ -22,18 +22,12 @@ const DropdownMenu = ({
         style: sx || {},
         sx: sx || {},
       }}
-      transformOrigin={
-        transformOrigin || { horizontal: 'right', vertical: 'top' }
-      }
+      transformOrigin={transformOrigin || { horizontal: 'right', vertical: 'top' }}
       anchorOrigin={anchorOrigin || { horizontal: 'right', vertical: 'bottom' }}
     >
       {header && <MenuItem>{header}</MenuItem>}
       {options?.map((option: OptionMenu, index: number) => (
-        <MenuItem
-          key={index}
-          onClick={option.select}
-          style={{ fontFamily: 'Oswald' }}
-        >
+        <MenuItem key={index} onClick={option.select} style={{ fontFamily: 'Oswald' }}>
           {option.label}
           {option.divider && <Divider />}
         </MenuItem>

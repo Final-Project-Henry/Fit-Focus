@@ -3,14 +3,7 @@ import { Divider, ListItemIcon, Menu, MenuItem } from '@mui/material'
 import { UserMenuProps } from 'shared/interfaces/navbar-interfaces'
 import { MenuEmail, MenuName, MenuTitle } from '../styles/navbarStyles'
 
-const UserMenu = ({
-  openUserMenu,
-  close,
-  isAdmin,
-  name,
-  email,
-  handleMenuSelect,
-}: UserMenuProps) => {
+const UserMenu = ({ openUserMenu, close, isAdmin, name, email, handleMenuSelect }: UserMenuProps) => {
   const anchorEl = document.getElementById('avatar-logo')
   return (
     <Menu

@@ -9,9 +9,7 @@ import {
 const BenefitsTable = () => {
   return (
     <BenefitsTableContainer>
-      <BenefitsTitle>
-        Obten todo esto y mas por tu membresia Premium!
-      </BenefitsTitle>
+      <BenefitsTitle>Obten todo esto y mas por tu membresia Premium!</BenefitsTitle>
       <ListBenefit>
         <ListItemBenefit>Calculadora de IMC</ListItemBenefit>
         <ListItemBenefit>Rutinas PersonaListItemBenefitzadas</ListItemBenefit>

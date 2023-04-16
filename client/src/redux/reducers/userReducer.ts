@@ -8,6 +8,7 @@ export const userLoginReducer = (state = {}, action: PayloadAction) => {
     case types.GET_USER_LOGIN_SUCCESS:
       return {
         loadingUserLogin: false,
+        successUserLogin: true,
         userInfo: action.payload,
       }
     case types.GET_USER_LOGIN_FAIL:
@@ -17,7 +18,9 @@ export const userLoginReducer = (state = {}, action: PayloadAction) => {
       }
     case types.GET_USER_LOGOUT:
       localStorage.removeItem('token-user')
-      return {}
+      return {
+        userInfo: null,
+      }
     default:
       return state
   }
@@ -38,6 +41,27 @@ export const userRefreshTokenReducer = (state = {}, action: PayloadAction) => {
         errorRefreshToken: action.payload,
       }
     case types.USER_REFRESH_TOKEN_RESET:
+      return {}
+    default:
+      return state
+  }
+}
+
+export const userRegisterReducer = (state = {}, action: PayloadAction) => {
+  switch (action.type) {
+    case types.USER_REGISTER_REQUEST:
+      return { loadingUserRegister: true }
+    case types.USER_REGISTER_SUCCESS:
+      return {
+        loadingUserRegister: false,
+        successUserRegister: true,
+      }
+    case types.USER_REGISTER_FAIL:
+      return {
+        loadingUserRegister: false,
+        errorUserRegister: action.payload,
+      }
+    case types.USER_REGISTER_RESET:
       return {}
     default:
       return state

@@ -6,8 +6,6 @@ export const inputsValidation = (userInfo: DataLogin) => {
 }
 export const inputsRegisterValidation = (userRegisterInfo: DataRegister) => {
   return (
-    verifyEmail(userRegisterInfo.email) &&
-    userRegisterInfo.password.length > 8 &&
-    userRegisterInfo.name.length >= 3
+    verifyEmail(userRegisterInfo.email) && userRegisterInfo.password.length > 8 && userRegisterInfo.name.length >= 3
   )
 }

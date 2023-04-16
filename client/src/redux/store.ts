@@ -5,8 +5,7 @@ import reducer from './reducers'
 const userInfoFromStorage = localStorage.getItem('token-user')
   ? JSON.parse(localStorage.getItem('token-user') || 'no llegara aqui')
   : null
-const decoded =
-  userInfoFromStorage === null ? null : jwtDecode(userInfoFromStorage)
+const decoded = userInfoFromStorage === null ? null : jwtDecode(userInfoFromStorage)
 
 const userSession =
   userInfoFromStorage === null
@@ -30,9 +29,4 @@ export const store = configureStore({
 
 export type AppDispatch = typeof store.dispatch
 export type RootState = ReturnType<typeof reducer>
-export type AppThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  RootState,
-  unknown,
-  Action<string>
->
+export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, Action<string>>

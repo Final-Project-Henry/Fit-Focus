@@ -1,8 +1,5 @@
 import { Link } from 'react-router-dom'
-import {
-  FullNavbarProps,
-  RouteInterface,
-} from 'shared/interfaces/navbar-interfaces'
+import { FullNavbarProps, RouteInterface } from 'shared/interfaces/navbar-interfaces'
 import { defaultAvatar, logoLight, routes } from 'shared/shareData'
 import {
   AvatarContainer,
@@ -45,11 +42,7 @@ const FullNavbar = ({
             {routes.map((route: RouteInterface, index: number) => {
               if (route.subMenus) {
                 return (
-                  <SubMenuTitle
-                    id='exercise-link-route'
-                    key={index}
-                    onClick={handleOpenMenuRoutes}
-                  >
+                  <SubMenuTitle id='exercise-link-route' key={index} onClick={handleOpenMenuRoutes}>
                     <span>{route.title}</span>
                   </SubMenuTitle>
                 )

@@ -2,11 +2,7 @@ import { useEffect, useState } from 'react'
 import Typewriter from 'react-ts-typewriter'
 import { useNavigate } from 'react-router-dom'
 import useWindowsSize from 'shared/customHooks/useWindowsSize'
-import {
-  bgMobileLanding,
-  bgNormalLanding,
-  landingBodyText,
-} from 'shared/shareData'
+import { bgMobileLanding, bgNormalLanding, landingBodyText } from 'shared/shareData'
 import {
   ActionArea,
   BgVideo,
@@ -38,12 +34,7 @@ const LandingPage = () => {
 
   return (
     <Container>
-      <BgVideo
-        autoPlay
-        loop
-        muted
-        src={isSmall ? bgMobileLanding : bgNormalLanding}
-      />
+      <BgVideo autoPlay loop muted src={isSmall ? bgMobileLanding : bgNormalLanding} />
       <TitleContainer>
         <Title>FIT FOCUS</Title>
         <SubTitle>NO PAIN, NO GAIN</SubTitle>

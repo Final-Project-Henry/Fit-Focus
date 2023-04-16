@@ -63,12 +63,8 @@ const VisitScreen = () => {
           <img src={isMobile ? visitImageFrontMobile : visitImageFront} />
           <TextFront>
             <h1>Fit Focus</h1>
-            <h3>
-              ¿No sabes como empezar a cambiar tu vida y mejorar tu salud?
-            </h3>
-            <h4>
-              No tienes que preocuparte, nosotros te ayudamos a lograrlo!!
-            </h4>
+            <h3>¿No sabes como empezar a cambiar tu vida y mejorar tu salud?</h3>
+            <h4>No tienes que preocuparte, nosotros te ayudamos a lograrlo!!</h4>
             <button>Haz click AQUI</button>
           </TextFront>
         </FrontContainer>
@@ -80,10 +76,9 @@ const VisitScreen = () => {
           <TextDescription>
             <h2>Esta aplicación:</h2>
             <p>
-              Ofrece una gran variedad de ejercicios para realizarlos en casa,
-              dependiendo la parte del cuerpo que se desee trabajar. Tambien nos
-              brinda una calculadora para conocer el indice de masa corporal y
-              asi tener un mayor conocimiento de nuestra salud.
+              Ofrece una gran variedad de ejercicios para realizarlos en casa, dependiendo la parte del cuerpo que se
+              desee trabajar. Tambien nos brinda una calculadora para conocer el indice de masa corporal y asi tener un
+              mayor conocimiento de nuestra salud.
             </p>
           </TextDescription>
         </DetailContainer>
@@ -117,10 +112,7 @@ const VisitScreen = () => {
         <MotivationalPhraseContainer>
           <BgImageVisit src={visitImage2} alt='background visit' />
           <Message>
-            <i>
-              “La edad no es una barrera. Es una limitación que pones en tu
-              mente.”
-            </i>
+            <i>“La edad no es una barrera. Es una limitación que pones en tu mente.”</i>
           </Message>
         </MotivationalPhraseContainer>
       </MotivationalCover>

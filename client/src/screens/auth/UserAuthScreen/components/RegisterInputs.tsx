@@ -1,38 +1,12 @@
-import {
-  Alert,
-  CircularProgress,
-  Divider,
-  IconButton,
-  InputAdornment,
-  TextField,
-  Tooltip,
-} from '@mui/material'
-import {
-  AccountCircle,
-  Email,
-  Lock,
-  Visibility,
-  VisibilityOff,
-} from '@mui/icons-material'
+import { Alert, CircularProgress, Divider, IconButton, InputAdornment, TextField, Tooltip } from '@mui/material'
+import { AccountCircle, Email, Lock, Visibility, VisibilityOff } from '@mui/icons-material'
 import GoogleAuth from 'components/GoogleAuth/GoogleAuth'
 import GridContainer from 'components/Grid/GridContainer'
 import GridItem from 'components/Grid/GridItem'
 import { RegisterInputsProps } from '../helpers/interfaces'
-import {
-  InputsContainer,
-  LoginFormContainer,
-  SubmitButton,
-  Titles,
-} from '../styles/userLoginScreenStyles'
+import { InputsContainer, LoginFormContainer, SubmitButton, Titles } from '../styles/userLoginScreenStyles'
 
-const RegisterInputs = ({
-  data,
-  handleInfo,
-  submit,
-  error,
-  errorLogin,
-  disableButton,
-}: RegisterInputsProps) => {
+const RegisterInputs = ({ data, handleInfo, submit, error, errorLogin, disableButton }: RegisterInputsProps) => {
   return (
     <LoginFormContainer>
       <GridContainer>
@@ -97,9 +71,7 @@ const RegisterInputs = ({
               placeholder='********'
               required={true}
               value={data.password}
-              onChange={({ target: { value } }) =>
-                handleInfo('password', value)
-              }
+              onChange={({ target: { value } }) => handleInfo('password', value)}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position='start'>
@@ -109,19 +81,12 @@ const RegisterInputs = ({
                 endAdornment: (
                   <InputAdornment position='end'>
                     {data.viewPassword ? (
-                      <IconButton
-                        onClick={() => handleInfo('viewPassword', false)}
-                      >
+                      <IconButton onClick={() => handleInfo('viewPassword', false)}>
                         <VisibilityOff />
                       </IconButton>
                     ) : (
-                      <IconButton
-                        onClick={() => handleInfo('viewPassword', true)}
-                      >
-                        <Tooltip
-                          title='Mostrar contraseña'
-                          placement='top-start'
-                        >
+                      <IconButton onClick={() => handleInfo('viewPassword', true)}>
+                        <Tooltip title='Mostrar contraseña' placement='top-start'>
                           <Visibility />
                         </Tooltip>
                       </IconButton>

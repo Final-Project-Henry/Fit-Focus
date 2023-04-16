@@ -50,7 +50,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
   const token = generateToken(userInfo)
 
-  res.status(201).json({ ...userInfo, token })
+  res.status(201).json({ token })
 })
 
 module.exports = registerUser

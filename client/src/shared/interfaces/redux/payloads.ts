@@ -1,3 +1,4 @@
+//PAYLOADS
 export interface CommentExerciseInterface {
   _id: string
   user: string
@@ -7,7 +8,6 @@ export interface CommentExerciseInterface {
   report: number
   createAt: string
 }
-
 export interface UserInfoInterface {
   _id: string
   name: string

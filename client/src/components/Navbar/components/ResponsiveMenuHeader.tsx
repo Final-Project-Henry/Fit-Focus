@@ -9,13 +9,7 @@ import {
 } from '../styles/navbarStyles'
 import { MenuHeaderProps } from 'shared/interfaces/navbar-interfaces'
 import { Avatar, Divider, ListItemIcon, MenuItem } from '@mui/material'
-import {
-  AdminPanelSettings,
-  LockOpen,
-  Logout,
-  Person,
-  PersonAdd,
-} from '@mui/icons-material'
+import { AdminPanelSettings, LockOpen, Logout, Person, PersonAdd } from '@mui/icons-material'
 
 const ResponsiveMenuHeader = ({
   goToPage,
@@ -31,11 +25,7 @@ const ResponsiveMenuHeader = ({
     <HeaderContainer>
       <MenuTitleMobile>
         <AvatarContainer>
-          <Avatar
-            src={avatar || defaultAvatar}
-            alt='avatar'
-            sx={{ width: '50px', height: '50px' }}
-          />
+          <Avatar src={avatar || defaultAvatar} alt='avatar' sx={{ width: '50px', height: '50px' }} />
         </AvatarContainer>
         <MenuTitle>
           <MenuName>{name}</MenuName>
@@ -93,11 +83,7 @@ const ResponsiveMenuHeader = ({
     <HeaderContainer>
       <MenuTitleMobile>
         <AvatarContainer>
-          <Avatar
-            src={avatar || defaultAvatar}
-            alt='avatar'
-            sx={{ width: '50px', height: '50px' }}
-          />
+          <Avatar src={avatar || defaultAvatar} alt='avatar' sx={{ width: '50px', height: '50px' }} />
         </AvatarContainer>
         <MenuTitle>
           <MenuName>Visitante</MenuName>

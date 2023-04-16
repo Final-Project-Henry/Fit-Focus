@@ -1,18 +1,5 @@
-import {
-  Alert,
-  CircularProgress,
-  Divider,
-  IconButton,
-  InputAdornment,
-  TextField,
-  Tooltip,
-} from '@mui/material'
-import {
-  AccountCircle,
-  Lock,
-  Visibility,
-  VisibilityOff,
-} from '@mui/icons-material'
+import { Alert, CircularProgress, Divider, IconButton, InputAdornment, TextField, Tooltip } from '@mui/material'
+import { AccountCircle, Lock, Visibility, VisibilityOff } from '@mui/icons-material'
 import GoogleAuth from 'components/GoogleAuth/GoogleAuth'
 import GridContainer from 'components/Grid/GridContainer'
 import GridItem from 'components/Grid/GridItem'
@@ -77,9 +64,7 @@ const LoginInputs = ({
               placeholder='********'
               required={true}
               value={data.password}
-              onChange={({ target: { value } }) =>
-                handleInfo('password', value)
-              }
+              onChange={({ target: { value } }) => handleInfo('password', value)}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position='start'>
@@ -89,19 +74,12 @@ const LoginInputs = ({
                 endAdornment: (
                   <InputAdornment position='end'>
                     {data.viewPassword ? (
-                      <IconButton
-                        onClick={() => handleInfo('viewPassword', false)}
-                      >
+                      <IconButton onClick={() => handleInfo('viewPassword', false)}>
                         <VisibilityOff />
                       </IconButton>
                     ) : (
-                      <IconButton
-                        onClick={() => handleInfo('viewPassword', true)}
-                      >
-                        <Tooltip
-                          title='Mostrar contraseña'
-                          placement='top-start'
-                        >
+                      <IconButton onClick={() => handleInfo('viewPassword', true)}>
+                        <Tooltip title='Mostrar contraseña' placement='top-start'>
                           <Visibility />
                         </Tooltip>
                       </IconButton>
@@ -110,9 +88,7 @@ const LoginInputs = ({
                 ),
               }}
             />
-            <RecoveryText onClick={recoveryPass}>
-              Olvidaste tu contraseña?
-            </RecoveryText>
+            <RecoveryText onClick={recoveryPass}>Olvidaste tu contraseña?</RecoveryText>
           </InputsContainer>
         </GridItem>
         <GridItem xs={12}>

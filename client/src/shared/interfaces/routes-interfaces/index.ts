@@ -1,6 +1,4 @@
 import React from 'react'
-import { RootState as DefaultRootState } from 'redux/store'
-import { UserInfoInterface } from '../payloads-interfaces'
 
 export interface RouteInterface {
   path: string
@@ -8,15 +6,4 @@ export interface RouteInterface {
   component: React.ReactNode
   layout: string
   role: string[]
-}
-
-export type userLoginInterface = {
-  loadingUserLogin?: boolean
-  successUserLogin?: boolean
-  errorUserLogin?: string
-  userInfo?: UserInfoInterface
-}
-
-export type RootState = DefaultRootState & {
-  userLogin?: userLoginInterface
 }

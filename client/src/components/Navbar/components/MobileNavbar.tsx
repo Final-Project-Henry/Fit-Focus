@@ -1,12 +1,6 @@
 import { Menu } from '@mui/icons-material'
 import { logoLight } from 'shared/shareData'
-import {
-  Container,
-  Image,
-  MenuButton,
-  Navbar,
-  RoutesArea,
-} from '../styles/navbarStyles'
+import { Container, Image, MenuButton, Navbar, RoutesArea } from '../styles/navbarStyles'
 import { MobileNavbarProps } from 'shared/interfaces/navbar-interfaces'
 import DropdownMenu from 'components/DropdownMenu/DropdownMenu'
 import options from '../helper/optionsRoute'

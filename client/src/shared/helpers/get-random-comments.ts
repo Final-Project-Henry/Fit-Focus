@@ -1,4 +1,4 @@
-import { CommentExerciseInterface } from 'shared/interfaces/payloads-interfaces'
+import { CommentExerciseInterface } from 'shared/interfaces/redux'
 
 export default (data: CommentExerciseInterface[]) => {
   if (data.length < 3) return data

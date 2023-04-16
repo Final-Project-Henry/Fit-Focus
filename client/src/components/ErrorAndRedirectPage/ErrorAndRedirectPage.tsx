@@ -25,11 +25,7 @@ const ErrorAndRedirectPage = ({ message, number }: ErrorRedirectProps) => {
   return (
     <ContainerScreen>
       <Container>
-        <ErrorPage
-          errorMessage={message}
-          numberError={number}
-          counter={counter}
-        />
+        <ErrorPage errorMessage={message} numberError={number} counter={counter} />
       </Container>
     </ContainerScreen>
   )

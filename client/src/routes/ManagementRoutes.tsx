@@ -24,13 +24,9 @@ const ManagementRoutes = () => {
   useEffect(() => {
     let routeFilter: RouteInterface[]
     if ([roles.loggedRole, roles.adminRole].includes(role)) {
-      routeFilter = routes.filter(route =>
-        route.role.includes(roles.loggedRole),
-      )
+      routeFilter = routes.filter(route => route.role.includes(roles.loggedRole))
       if (role === roles.adminRole) {
-        const aditionalRoutes = routes.filter(route =>
-          route.role.includes(roles.adminRole),
-        )
+        const aditionalRoutes = routes.filter(route => route.role.includes(roles.adminRole))
         setAdminRoutes(aditionalRoutes)
       }
     } else {
@@ -49,12 +45,7 @@ const ManagementRoutes = () => {
           ))}
           <Route
             path={'*'}
-            element={
-              <ErrorAndRedirectPage
-                message={errors.notFound.message}
-                number={errors.notFound.number}
-              />
-            }
+            element={<ErrorAndRedirectPage message={errors.notFound.message} number={errors.notFound.number} />}
           />
         </Route>
       )}
@@ -64,12 +55,7 @@ const ManagementRoutes = () => {
         ))}
         <Route
           path={'*'}
-          element={
-            <ErrorAndRedirectPage
-              message={errors.notFound.message}
-              number={errors.notFound.number}
-            />
-          }
+          element={<ErrorAndRedirectPage message={errors.notFound.message} number={errors.notFound.number} />}
         />
       </Route>
     </Routes>

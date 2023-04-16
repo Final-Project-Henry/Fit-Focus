@@ -2,7 +2,7 @@ import GridContainer from 'components/Grid/GridContainer'
 import GridItem from 'components/Grid/GridItem'
 import { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { Login } from 'redux/actions/userActions'
+import { Login, Register } from 'redux/actions/userActions'
 import { useAppDispatch, useAppSelector } from 'shared/customHooks/reduxHooks'
 import { loginScreen } from 'shared/shareData'
 import { verifyEmail } from 'shared/validations/validationInputs'
@@ -14,10 +14,7 @@ import {
   inputRegisterInitialState,
 } from './helpers/initialStates'
 import { ErrorInput, ErrorRegisterInput } from './helpers/interfaces'
-import {
-  inputsRegisterValidation,
-  inputsValidation,
-} from './helpers/validations'
+import { inputsRegisterValidation, inputsValidation } from './helpers/validations'
 import {
   CardContainer,
   FormContainer,
@@ -27,6 +24,7 @@ import {
   ScreenContainer,
 } from './styles/userLoginScreenStyles'
 import RegisterInputs from './components/RegisterInputs'
+import { USER_REGISTER_RESET } from 'redux/constants/userConstants'
 
 const UserLoginScreen = () => {
   const navigate = useNavigate()
@@ -34,27 +32,29 @@ const UserLoginScreen = () => {
   const location = useLocation()
 
   const [userInfo, setUserInfo] = useState(inputInitialState)
-  const [userRegisterInfo, setUserRegisterInfo] = useState(
-    inputRegisterInitialState,
-  )
+  const [userRegisterInfo, setUserRegisterInfo] = useState(inputRegisterInitialState)
   const [error, setError] = useState<ErrorInput>(errorInitialState)
-  const [errorRegister, setErrorRegister] = useState<ErrorRegisterInput>(
-    errorRegisterInitialState,
-  )
+  const [errorRegister, setErrorRegister] = useState<ErrorRegisterInput>(errorRegisterInitialState)
   const [isLogin, setIsLogin] = useState<boolean>(true)
 
-  const { loadingUserLogin, successUserLogin, errorUserLogin } = useAppSelector(
-    state => state.userLogin,
-  )
-  // const { loadingUserRegister, successUserRegister, errorUserRegister } = useAppSelector(
-  //   state => state.userRegister,
-  // )
+  const { loadingUserLogin, successUserLogin, errorUserLogin } = useAppSelector(state => state.userLogin)
+  const { loadingUserRegister, successUserRegister, errorUserRegister } = useAppSelector(state => state.userRegister)
 
+  useEffect(() => {
+    return () => {
+      dispatch({ type: USER_REGISTER_RESET })
+    }
+  }, [])
   useEffect(() => {
     if (successUserLogin) {
       navigate('/home')
     }
   }, [successUserLogin])
+  useEffect(() => {
+    if (successUserRegister) {
+      navigate('/home')
+    }
+  }, [successUserRegister])
   useEffect(() => {
     setUserInfo(inputInitialState)
     setUserRegisterInfo(inputRegisterInitialState)
@@ -90,10 +90,7 @@ const UserLoginScreen = () => {
   const handleSubmit = () => {
     if (!inputsValidation(userInfo)) {
       return setError({
-        password:
-          userInfo.password.length < 8
-            ? 'La contraseña debe tener 8 caracteres'
-            : '',
+        password: userInfo.password.length < 8 ? 'La contraseña debe tener 8 caracteres' : '',
         email: !verifyEmail(userInfo.email) ? 'Escriba un correo valido' : '',
       })
     }
@@ -102,20 +99,12 @@ const UserLoginScreen = () => {
   const handleRegisterSubmit = () => {
     if (!inputsRegisterValidation(userRegisterInfo)) {
       return setErrorRegister({
-        name:
-          userRegisterInfo.name.length < 3
-            ? 'El nombre debe tener al menos 3 letras'
-            : '',
-        password:
-          userRegisterInfo.password.length < 8
-            ? 'La contraseña debe tener 8 caracteres'
-            : '',
-        email: !verifyEmail(userRegisterInfo.email)
-          ? 'Escriba un correo valido'
-          : '',
+        name: userRegisterInfo.name.length < 3 ? 'El nombre debe tener al menos 3 letras' : '',
+        password: userRegisterInfo.password.length < 8 ? 'La contraseña debe tener 8 caracteres' : '',
+        email: !verifyEmail(userRegisterInfo.email) ? 'Escriba un correo valido' : '',
       })
     }
-    dispatch(Login(userRegisterInfo.email, userRegisterInfo.password))
+    dispatch(Register(userRegisterInfo.name, userRegisterInfo.email, userRegisterInfo.password))
   }
 
   return (
@@ -128,10 +117,7 @@ const UserLoginScreen = () => {
                 <Image src={loginScreen} alt='Login screen' />
                 <Phrase>
                   <h1>
-                    <i>
-                      “La clave para iniciar algo es dejar de hablar y ponerse a
-                      hacerlo”
-                    </i>
+                    <i>“La clave para iniciar algo es dejar de hablar y ponerse a hacerlo”</i>
                   </h1>
                   <Link to={'/register'}>Aún no tengo una cuenta.</Link>
                 </Phrase>
@@ -160,8 +146,8 @@ const UserLoginScreen = () => {
                   handleInfo={handleRegisterInfo}
                   submit={handleRegisterSubmit}
                   error={errorRegister}
-                  errorLogin={errorUserLogin} //cambiar
-                  disableButton={!!loadingUserLogin} //cambiar
+                  errorLogin={errorUserRegister}
+                  disableButton={!!loadingUserRegister}
                 />
               </FormContainer>
             </GridItem>
@@ -170,10 +156,7 @@ const UserLoginScreen = () => {
                 <Image src={loginScreen} alt='Login screen' />
                 <Phrase>
                   <h1>
-                    <i>
-                      “La clave para iniciar algo es dejar de hablar y ponerse a
-                      hacerlo”
-                    </i>
+                    <i>“La clave para iniciar algo es dejar de hablar y ponerse a hacerlo”</i>
                   </h1>
                   <Link to={'/login'}>Ya tengo una cuenta.</Link>
                 </Phrase>

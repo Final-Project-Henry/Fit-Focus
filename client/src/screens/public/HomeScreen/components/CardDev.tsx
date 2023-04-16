@@ -34,18 +34,10 @@ const CardDev = ({ dev }: CardDevProps) => {
         </InfoContainer>
       </UserInfo>
       <SocialContainer>
-        <IconButton
-          color='primary'
-          size='large'
-          onClick={() => goTolink(`https://github.com/${dev.git}`)}
-        >
+        <IconButton color='primary' size='large' onClick={() => goTolink(`https://github.com/${dev.git}`)}>
           <GitHub titleAccess='Github' />
         </IconButton>
-        <IconButton
-          color='primary'
-          size='large'
-          onClick={() => goTolink(`https://www.linkedin.com/in/${dev.link}`)}
-        >
+        <IconButton color='primary' size='large' onClick={() => goTolink(`https://www.linkedin.com/in/${dev.link}`)}>
           <LinkedIn titleAccess='LinkedIn' />
         </IconButton>
       </SocialContainer>

@@ -1,3 +1,8 @@
+import { RootState as DefaultRootState } from 'redux/store'
+import { userLoginInterface, userRegisterInterface } from './reducers'
+export * from './payloads'
+export * from './reducers'
+
 export interface PayloadError extends Error {
   response?: {
     data?: {
@@ -5,4 +10,9 @@ export interface PayloadError extends Error {
     }
     status?: number
   }
+}
+
+export type RootState = DefaultRootState & {
+  userLogin?: userLoginInterface
+  userRegister?: userRegisterInterface
 }
