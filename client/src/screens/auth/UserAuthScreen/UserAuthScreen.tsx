@@ -110,8 +110,8 @@ const UserLoginScreen = () => {
     <ScreenContainer>
       <CardContainer id='card-container'>
         {isLogin ? (
-          <GridContainer>
-            <GridItem xs={12} md={6}>
+          <GridContainer id='gridContainer'>
+            <GridItem xs={12} md={6} id='image-login'>
               <ImageContainer>
                 <Image src={loginScreen} alt='Login screen' />
                 <Phrase>
@@ -122,7 +122,7 @@ const UserLoginScreen = () => {
                 </Phrase>
               </ImageContainer>
             </GridItem>
-            <GridItem xs={12} md={6}>
+            <GridItem xs={12} md={6} id='grid-form'>
               <FormContainer id='form-container'>
                 <LoginInputs
                   data={userInfo}
@@ -137,8 +137,8 @@ const UserLoginScreen = () => {
             </GridItem>
           </GridContainer>
         ) : (
-          <GridContainer>
-            <GridItem xs={12} md={6}>
+          <GridContainer id='gridContainer'>
+            <GridItem xs={12} md={6} id='grid-form'>
               <FormContainer id='form-container'>
                 <RegisterInputs
                   data={userRegisterInfo}
@@ -150,7 +150,7 @@ const UserLoginScreen = () => {
                 />
               </FormContainer>
             </GridItem>
-            <GridItem xs={12} md={6}>
+            <GridItem xs={12} md={6} id='image-register'>
               <ImageContainer>
                 <Image src={loginScreen} alt='Login screen' />
                 <Phrase>
