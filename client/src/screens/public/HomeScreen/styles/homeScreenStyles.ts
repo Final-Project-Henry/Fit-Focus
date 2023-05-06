@@ -142,6 +142,7 @@ export const BenefitsContainer = styled(BasicDiv)`
   }
 `
 export const BenefitCover = styled(ResponsiveContainer)`
+  padding-top: 20px;
   background: ${({ theme }) => theme.colors.lightGray};
 `
 export const AboutUsContainer = styled(BasicDiv)`
@@ -399,7 +400,7 @@ export const TextFront = styled.div`
   text-align: center;
   color: white;
   z-index: 1;
-  padding: 30px;
+  padding: 30px 30px 30px 0;
   background: rgba(${({ theme }) => theme.backgrounds.dark});
   clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 0 51%, 0% 0%);
   h1 {
@@ -408,7 +409,7 @@ export const TextFront = styled.div`
   }
   h3 {
     font-size: 3rem;
-    width: 90%;
+    width: 80%;
   }
   h4 {
     font-size: 1.5rem;

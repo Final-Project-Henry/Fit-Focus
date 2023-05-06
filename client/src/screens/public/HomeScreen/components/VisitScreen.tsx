@@ -42,6 +42,7 @@ import { Link } from 'react-router-dom'
 import useWindowsSize from 'shared/customHooks/useWindowsSize'
 import CardOffer from './CardOffer'
 import { useEffect, useState } from 'react'
+import Footer from 'components/Footer/Footer'
 
 const VisitScreen = () => {
   const { width } = useWindowsSize()
@@ -136,6 +137,7 @@ const VisitScreen = () => {
         </AboutUsContainer>
       </AboutUsCover>
       {/* -------------------------Footer------------------------- */}
+      <Footer />
     </VisitScreenContainer>
   )
 }

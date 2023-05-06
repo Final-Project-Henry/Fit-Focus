@@ -20,6 +20,8 @@ import {
   UserInformationcreen,
   UsersListScreen,
 } from '../module_imports/admin-routes'
+import PrivacyScreen from 'screens/public/PrivacyScreen/PrivacyScreen'
+import TermsOfUseScreen from 'screens/public/TermsOfUseScreen/TermsOfUseScreen'
 
 export const roles = {
   visitRole: 'visit',
@@ -140,6 +142,20 @@ export const routes = [
     path: 'contact-us',
     title: 'Contáctanos',
     component: <ContactUsScreen />,
+    layout: 'visit',
+    role: [roles.visitRole, roles.loggedRole],
+  },
+  {
+    path: 'privacy',
+    title: 'Política de Privacidad',
+    component: <PrivacyScreen />,
+    layout: 'visit',
+    role: [roles.visitRole, roles.loggedRole],
+  },
+  {
+    path: 'terms-of-use',
+    title: 'Términos y Condiciones',
+    component: <TermsOfUseScreen />,
     layout: 'visit',
     role: [roles.visitRole, roles.loggedRole],
   },

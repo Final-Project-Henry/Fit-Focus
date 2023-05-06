@@ -39,7 +39,8 @@ export const visitImageBar =
 export const visitVideo =
   'https://res.cloudinary.com/dm0fwscsy/video/upload/v1677647247/Fit-Focus/videos/laptop_page_g8ee5i.mp4'
 export const visitImageFront =
-  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1681278450/Fit-Focus/assets/photo-1612823334879-01148de469d9_f2ebej.avif'
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1683350063/Fit-Focus/assets/pexels-tim-samuel-6697176_r8wba2.jpg'
+// 'https://res.cloudinary.com/dm0fwscsy/image/upload/v1681278450/Fit-Focus/assets/photo-1612823334879-01148de469d9_f2ebej.avif'
 export const visitImageFrontMobile =
   'https://res.cloudinary.com/dm0fwscsy/image/upload/v1681360303/Fit-Focus/assets/pexels-photo-6303468_l85tru.webp'
 export const squadAnimation =
