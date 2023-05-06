@@ -38,7 +38,7 @@ import {
   visitVideo,
 } from 'shared/shareData'
 import BenefitsTable from './BenefitsTable'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import useWindowsSize from 'shared/customHooks/useWindowsSize'
 import CardOffer from './CardOffer'
 import { useEffect, useState } from 'react'
@@ -46,6 +46,7 @@ import Footer from 'components/Footer/Footer'
 
 const VisitScreen = () => {
   const { width } = useWindowsSize()
+  const navigate = useNavigate()
 
   const [isMobile, setIsMobile] = useState(false)
 
@@ -66,7 +67,7 @@ const VisitScreen = () => {
             <h1>Fit Focus</h1>
             <h3>¿No sabes como empezar a cambiar tu vida y mejorar tu salud?</h3>
             <h4>No tienes que preocuparte, nosotros te ayudamos a lograrlo!!</h4>
-            <button>Haz click AQUI</button>
+            <button onClick={() => navigate('/register')}>Haz click AQUI</button>
           </TextFront>
         </FrontContainer>
       </FrontCover>
@@ -91,7 +92,7 @@ const VisitScreen = () => {
             <TextQuestion>
               <h2>¿Tienes mas de 20?</h2>
               <span>Entonces esta app esta hecha a tu medida</span>
-              <Link to='/login'>Empieza a cambiar tu vida ya!</Link>
+              <Link to='/register'>Empieza a cambiar tu vida ya!</Link>
             </TextQuestion>
             <img src={visitImageBar} />
           </BarQuestion>

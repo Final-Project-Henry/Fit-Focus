@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { StrictMode } from 'react'
 import { Provider } from 'react-redux'
 import { store } from 'redux/store'
@@ -5,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { createRoot } from 'react-dom/client'
 import { ThemeProvider } from 'styled-components'
 import { GoogleOAuthProvider } from '@react-oauth/google'
-import axios from 'axios'
+import { ScreenMessageProvider } from 'contexts/ScreenMessageContext'
 import ManagementRoutes from 'routes/ManagementRoutes'
 import theme from 'shared/theme'
 import './index.css'
@@ -22,9 +23,11 @@ root.render(
     <GoogleOAuthProvider clientId={googleId}>
       <ThemeProvider theme={theme}>
         <Provider store={store}>
-          <BrowserRouter>
-            <ManagementRoutes />
-          </BrowserRouter>
+          <ScreenMessageProvider>
+            <BrowserRouter>
+              <ManagementRoutes />
+            </BrowserRouter>
+          </ScreenMessageProvider>
         </Provider>
       </ThemeProvider>
     </GoogleOAuthProvider>

@@ -8,11 +8,14 @@ import { roles, routes } from './helpers/routes'
 import { RouteInterface } from 'shared/interfaces/routes-interfaces'
 import { useAppSelector } from 'shared/customHooks/reduxHooks'
 import { errors } from 'shared/shareData'
+import Toast from 'shared/helpers/screen-message'
+import { types, useScreenMessage } from 'contexts/ScreenMessageContext'
 
 const ManagementRoutes = () => {
   const [role, setRole] = useState(roles.visitRole)
   const [filteredRoutes, setFilteredRoutes] = useState<RouteInterface[]>([])
   const [adminRoutes, setAdminRoutes] = useState<RouteInterface[] | null>(null)
+  const { data, setData } = useScreenMessage()
 
   const { userInfo } = useAppSelector(state => state.userLogin)
 
@@ -34,6 +37,18 @@ const ManagementRoutes = () => {
     }
     setFilteredRoutes(routeFilter)
   }, [role])
+  useEffect(() => {
+    if (data?.type !== types.default) {
+      showScreenMessage()
+    }
+  }, [data])
+
+  const showScreenMessage = () => {
+    Toast(setData).fire({
+      icon: data.type !== 'default' ? data.type : 'success',
+      title: data.message,
+    })
+  }
 
   return (
     <Routes>
