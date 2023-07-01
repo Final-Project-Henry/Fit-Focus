@@ -33,7 +33,8 @@ export const AdrianAvatar =
 export const visitImage1 =
   'https://res.cloudinary.com/dm0fwscsy/image/upload/v1681101680/Fit-Focus/assets/GettyImages-915116594_s8ofab.webp'
 export const visitImage2 =
-  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1681268327/Fit-Focus/assets/pexels-photo-6443525_lfal7m.jpg'
+  // 'https://res.cloudinary.com/dm0fwscsy/image/upload/v1681268327/Fit-Focus/assets/pexels-photo-6443525_lfal7m.jpg'
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1683695450/Fit-Focus/assets/pexels-photo-6443525_lfal7m_sxjw6r.webp'
 export const visitImageBar =
   'https://res.cloudinary.com/dm0fwscsy/image/upload/v1681275889/Fit-Focus/assets/visitor3_img_dmmg7d.png'
 export const visitVideo =
@@ -45,3 +46,17 @@ export const visitImageFrontMobile =
   'https://res.cloudinary.com/dm0fwscsy/image/upload/v1681360303/Fit-Focus/assets/pexels-photo-6303468_l85tru.webp'
 export const squadAnimation =
   'https://res.cloudinary.com/dm0fwscsy/image/upload/v1681361774/Fit-Focus/assets/squats-body-weight-training_zfjyj5.gif'
+export const noVisitImage1 =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1683405658/Fit-Focus/assets/sad-woman-suffering-from-headache-sitting-bed-with-eyes-closed-while-holding-her-head-pain_zoqx5w.jpg'
+export const noVisitImage2 =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1688230031/Fit-Focus/assets/jyit6hyan98v8buvqptp.jpg'
+export const noVisitImage3 =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1688230154/Fit-Focus/assets/tek6xksnimwsh4h38cxo.jpg'
+export const noVisitImage4 =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1688230199/Fit-Focus/assets/nyrnlsfblwmbdtsvsva9.jpg'
+export const noVisitImage5 =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1688230242/Fit-Focus/assets/a3b501ebyrau1z6f2p0c.jpg'
+export const noVisitImage6 =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1688230336/Fit-Focus/assets/t7ild0chsglhuzp35ffm.jpg'
+export const noVisitImage7 =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1688230469/Fit-Focus/assets/set0sn0oqswivdkjym51.jpg'

@@ -5,6 +5,7 @@
 api/node_modules
 api/.pnp
 client/node_modules
+client/build
 client/.pnp
 .pnp.js
 api/src/seederData.js

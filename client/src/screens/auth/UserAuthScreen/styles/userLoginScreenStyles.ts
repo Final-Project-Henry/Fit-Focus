@@ -113,19 +113,3 @@ export const RecoveryText = styled.span`
   text-align: start;
   cursor: pointer;
 `
-export const SubmitButton = styled.button`
-  background: ${({ theme }) => theme.colors.blue};
-  color: ${({ theme }) => theme.colors.white};
-  padding: 10px 15px;
-  font-weight: 500;
-  width: 100%;
-  border-radius: 3px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  div {
-    min-width: 30px;
-    overflow: hidden;
-  }
-`

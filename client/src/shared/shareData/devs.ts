@@ -20,7 +20,7 @@ export default [
     name: 'Adrian Acurero',
     avatar: AdrianAvatar,
     mail: 'adrianacurero',
-    git: 'Adr-AA',
+    git: 'AcureroAdrian',
     link: 'adrian-acurero',
   },
   {

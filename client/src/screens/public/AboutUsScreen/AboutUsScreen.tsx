@@ -1,8 +1,18 @@
+import { useEffect } from 'react'
 import CustomTable from 'components/CustomTable/CustomTable'
 import { AboutUsBody, Container } from './styles/aboutUsScreenStyles'
 import { aboutUsColumns, devsData } from './helpers/devsData'
+import { useScreenMessage } from 'contexts/ScreenMessageContext'
 
 const AboutUsScreen = () => {
+  const { setData } = useScreenMessage()
+
+  useEffect(() => {
+    setData({
+      message: 'Gracias por querer saber mas de nosotros.',
+      type: 'success',
+    })
+  }, [])
   return (
     <Container>
       <AboutUsBody>

@@ -3,8 +3,9 @@ import { AccountCircle, Lock, Visibility, VisibilityOff } from '@mui/icons-mater
 import GoogleAuth from 'components/GoogleAuth/GoogleAuth'
 import GridContainer from 'components/Grid/GridContainer'
 import GridItem from 'components/Grid/GridItem'
+import Button from 'components/CustomButton/Button'
 import { LoginInputsProps } from '../helpers/interfaces'
-import { LoginFormContainer, RecoveryText, SubmitButton, Titles } from '../styles/userLoginScreenStyles'
+import { LoginFormContainer, RecoveryText, Titles } from '../styles/userLoginScreenStyles'
 
 const LoginInputs = ({
   data,
@@ -94,11 +95,11 @@ const LoginInputs = ({
           <RecoveryText onClick={recoveryPass}>Olvidaste tu contraseña?</RecoveryText>
         </GridItem>
         <GridItem xs={12} sm={6} md={12}>
-          <SubmitButton onClick={submit} disabled={disableButton}>
+          <Button onClick={submit} disabled={disableButton}>
             <div>{disableButton && <CircularProgress color='inherit' size={15} />}</div>
             <span>{disableButton ? 'Iniciando...' : 'Iniciar sesión'}</span>
             <div></div>
-          </SubmitButton>
+          </Button>
         </GridItem>
         <GridItem xs={12} sx={{ alignItems: 'center' }}>
           <Divider style={{ width: '100%', marginBottom: '5px' }}>

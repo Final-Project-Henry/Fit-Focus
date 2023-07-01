@@ -13,12 +13,14 @@ import {
   Title,
   TitleContainer,
 } from './styles/landingPageStyles'
+import { useScreenMessage } from 'contexts/ScreenMessageContext'
 
 const LandingPage = () => {
   const navigate = useNavigate()
   const { width } = useWindowsSize()
 
   const [isSmall, setIsSmall] = useState(false)
+  const { setData } = useScreenMessage()
 
   useEffect(() => {
     if (width && width < 760) {
@@ -29,7 +31,14 @@ const LandingPage = () => {
   }, [width])
 
   const handleOnClick = () => {
+    showMessage()
     navigate('/home')
+  }
+  const showMessage = () => {
+    setData({
+      message: 'Bienvenido a FITFOCUS!!!',
+      type: 'success',
+    })
   }
 
   return (

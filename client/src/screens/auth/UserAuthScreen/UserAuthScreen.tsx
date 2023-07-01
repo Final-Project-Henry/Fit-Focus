@@ -25,6 +25,7 @@ import {
 } from './styles/userLoginScreenStyles'
 import RegisterInputs from './components/RegisterInputs'
 import { GOOGLE_AUTH_RESET, USER_REGISTER_RESET } from 'redux/constants/userConstants'
+import { useScreenMessage } from 'contexts/ScreenMessageContext'
 
 const UserLoginScreen = () => {
   const navigate = useNavigate()
@@ -36,6 +37,7 @@ const UserLoginScreen = () => {
   const [error, setError] = useState<ErrorInput>(errorInitialState)
   const [errorRegister, setErrorRegister] = useState<ErrorRegisterInput>(errorRegisterInitialState)
   const [isLogin, setIsLogin] = useState<boolean>(true)
+  const { setData } = useScreenMessage()
 
   const { loadingUserLogin, successUserLogin, errorUserLogin } = useAppSelector(state => state.userLogin)
   const { loadingUserRegister, successUserRegister, errorUserRegister } = useAppSelector(state => state.userRegister)
@@ -51,6 +53,7 @@ const UserLoginScreen = () => {
   }, [])
   useEffect(() => {
     if (successUserLogin || successUserRegister || successUserAuthGoogle) {
+      showMessage()
       navigate('/home')
     }
   }, [successUserLogin, successUserRegister, successUserAuthGoogle])
@@ -104,6 +107,12 @@ const UserLoginScreen = () => {
       })
     }
     dispatch(Register(userRegisterInfo.name, userRegisterInfo.email, userRegisterInfo.password))
+  }
+  const showMessage = () => {
+    setData({
+      message: 'Bienvenido!',
+      type: 'success',
+    })
   }
 
   return (

@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from 'shared/customHooks/reduxHooks'
 import { GET_USER_LOGOUT } from 'redux/constants/userConstants'
 import CustomAlert from 'components/Alert/CustomAlert'
+import { useScreenMessage } from 'contexts/ScreenMessageContext'
 
 const Navbar = () => {
   const { width } = useWindowsSize()
@@ -16,6 +17,7 @@ const Navbar = () => {
   const [isSmall, setIsSmall] = useState(false)
   const [openUserMenu, setOpenUserMenu] = useState(false)
   const [openMenuRoutes, setOpenMenuRoutes] = useState(false)
+  const { setData } = useScreenMessage()
 
   const { userInfo } = useAppSelector(state => state.userLogin)
 
@@ -48,6 +50,7 @@ const Navbar = () => {
         confirmText: 'Cerrar Sesión',
         cancelText: 'Cancelar',
         confirmAction: () => {
+          showMessage()
           navigate('/home')
           dispatch({ type: GET_USER_LOGOUT })
         },
@@ -59,6 +62,12 @@ const Navbar = () => {
   }
   const handleOpenMenuRoutes = () => {
     setOpenMenuRoutes(!openMenuRoutes)
+  }
+  const showMessage = () => {
+    setData({
+      message: 'Hasta la pronto.',
+      type: 'warning',
+    })
   }
 
   return isSmall ? (

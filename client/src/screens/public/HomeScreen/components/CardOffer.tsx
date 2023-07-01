@@ -2,8 +2,24 @@ import { List, ListItem } from '@mui/material'
 import { CardOfferContainer, PriceContainer } from '../styles/homeScreenStyles'
 import { Check, Star } from '@mui/icons-material'
 import { CardOfferProps } from '../helper/interfaces'
+import { useNavigate } from 'react-router-dom'
+import { useScreenMessage } from 'contexts/ScreenMessageContext'
 
 const CardOffer = ({ isFree }: CardOfferProps) => {
+  const navigate = useNavigate()
+  const { setData } = useScreenMessage()
+
+  const handleClick = () => {
+    if (isFree) {
+      navigate('/register')
+    } else {
+      setData({
+        message: 'Necesitas inciar sesion primero.',
+        type: 'info',
+      })
+      navigate('/login')
+    }
+  }
   return (
     <CardOfferContainer>
       <span>{isFree ? 'Gratis!' : 'Un único pago!!'}</span>
@@ -39,7 +55,7 @@ const CardOffer = ({ isFree }: CardOfferProps) => {
           </>
         )}
       </List>
-      <button>{isFree ? 'Empieza Gratis!' : 'Hazte Premium ya!!'}</button>
+      <button onClick={handleClick}>{isFree ? 'Empieza Gratis!' : 'Hazte Premium ya!!'}</button>
     </CardOfferContainer>
   )
 }

@@ -3,8 +3,9 @@ import { AccountCircle, Email, Lock, Visibility, VisibilityOff } from '@mui/icon
 import GoogleAuth from 'components/GoogleAuth/GoogleAuth'
 import GridContainer from 'components/Grid/GridContainer'
 import GridItem from 'components/Grid/GridItem'
+import Button from 'components/CustomButton/Button'
 import { RegisterInputsProps } from '../helpers/interfaces'
-import { LoginFormContainer, SubmitButton, Titles } from '../styles/userLoginScreenStyles'
+import { LoginFormContainer, Titles } from '../styles/userLoginScreenStyles'
 
 const RegisterInputs = ({ data, handleInfo, submit, error, errorLogin, disableButton }: RegisterInputsProps) => {
   return (
@@ -107,11 +108,11 @@ const RegisterInputs = ({ data, handleInfo, submit, error, errorLogin, disableBu
           </GridContainer>
         </GridItem>
         <GridItem xs={12}>
-          <SubmitButton onClick={submit} disabled={disableButton}>
+          <Button onClick={submit} disabled={disableButton}>
             <div>{disableButton && <CircularProgress color='inherit' size={15} />}</div>
             <span>{disableButton ? 'Registrando...' : 'Registrarse'}</span>
             <div></div>
-          </SubmitButton>
+          </Button>
         </GridItem>
         <GridItem xs={12} sx={{ alignItems: 'center' }}>
           <Divider style={{ width: '100%', marginBottom: '5px' }}>

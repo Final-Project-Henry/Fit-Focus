@@ -43,6 +43,9 @@ body {
   font-size: 24px;
   color: #00bcd4;
 }
+
+/* mixin */
 .swal2-top-end{
   margin-top: 100px;
+  width: fit-content !important;
 }
