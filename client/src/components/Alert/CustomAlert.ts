@@ -1,6 +1,7 @@
 import Swal, { SweetAlertResult } from 'sweetalert2'
-import { FunctionData } from './helper/interfaces'
 import { getIconColor, getIconName, getTitle } from './helper/get-icon-name'
+import { FunctionData } from './helper/interfaces'
+import theme from 'shared/theme'
 
 const CustomAlert = async ({
   confirmText,
@@ -9,7 +10,7 @@ const CustomAlert = async ({
   showCancel = false,
   cancelText = '',
   confirmColor,
-  cancelColor = 'transparent',
+  cancelColor = theme.colors.silver,
   confirmAction,
   cancelAction = () => {
     ;('')

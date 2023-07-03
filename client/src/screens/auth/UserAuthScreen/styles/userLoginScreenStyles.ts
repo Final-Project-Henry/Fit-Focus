@@ -1,3 +1,4 @@
+import GridItem from 'components/Grid/GridItem'
 import styled from 'styled-components'
 
 export const ScreenContainer = styled.div`
@@ -112,4 +113,13 @@ export const RecoveryText = styled.span`
   width: 100%;
   text-align: start;
   cursor: pointer;
+`
+export const MessageModal = styled.p`
+  font-size: 1rem;
+  font-family: 'Oswald';
+  font-weight: 300;
+  width: 100%;
+`
+export const GridAction = styled(GridItem)`
+  padding: 5px !important;
 `

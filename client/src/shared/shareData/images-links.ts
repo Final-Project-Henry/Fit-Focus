@@ -60,3 +60,7 @@ export const noVisitImage6 =
   'https://res.cloudinary.com/dm0fwscsy/image/upload/v1688230336/Fit-Focus/assets/t7ild0chsglhuzp35ffm.jpg'
 export const noVisitImage7 =
   'https://res.cloudinary.com/dm0fwscsy/image/upload/v1688230469/Fit-Focus/assets/set0sn0oqswivdkjym51.jpg'
+
+//HOME-LOGGED
+export const homeLoggedBanner =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1688248183/Fit-Focus/assets/zor5pmbxahcnubn3lz8l.jpg'

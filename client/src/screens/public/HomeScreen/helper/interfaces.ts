@@ -13,3 +13,7 @@ export interface CardDevProps {
 export interface CardOfferProps {
   isFree: boolean
 }
+
+export interface LoggedScreenProps {
+  onClick: () => void
+}

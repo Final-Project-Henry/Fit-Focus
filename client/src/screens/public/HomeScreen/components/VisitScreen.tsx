@@ -1,4 +1,21 @@
+import { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import Footer from 'components/Footer/Footer'
+import CardDev from './CardDev'
+import CardOffer from './CardOffer'
+import BenefitsTable from './BenefitsTable'
+import { DevInterface } from '../helper/interfaces'
 import devs from 'shared/shareData/devs'
+import useWindowsSize from 'shared/customHooks/useWindowsSize'
+import {
+  squadAnimation,
+  visitImage1,
+  visitImage2,
+  visitImageBar,
+  visitImageFront,
+  visitImageFrontMobile,
+  visitVideo,
+} from 'shared/shareData'
 import {
   AboutUsContainer,
   AboutUsCover,
@@ -26,23 +43,6 @@ import {
   VisitImageContainer,
   VisitScreenContainer,
 } from '../styles/homeScreenStyles'
-import CardDev from './CardDev'
-import { DevInterface } from '../helper/interfaces'
-import {
-  squadAnimation,
-  visitImage1,
-  visitImage2,
-  visitImageBar,
-  visitImageFront,
-  visitImageFrontMobile,
-  visitVideo,
-} from 'shared/shareData'
-import BenefitsTable from './BenefitsTable'
-import { Link, useNavigate } from 'react-router-dom'
-import useWindowsSize from 'shared/customHooks/useWindowsSize'
-import CardOffer from './CardOffer'
-import { useEffect, useState } from 'react'
-import Footer from 'components/Footer/Footer'
 
 const VisitScreen = () => {
   const { width } = useWindowsSize()

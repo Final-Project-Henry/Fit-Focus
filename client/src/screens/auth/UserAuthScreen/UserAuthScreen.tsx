@@ -26,6 +26,7 @@ import {
 import RegisterInputs from './components/RegisterInputs'
 import { GOOGLE_AUTH_RESET, USER_REGISTER_RESET } from 'redux/constants/userConstants'
 import { useScreenMessage } from 'contexts/ScreenMessageContext'
+import PasswordRecoveryModal from './components/PasswordRecoveryModal'
 
 const UserLoginScreen = () => {
   const navigate = useNavigate()
@@ -37,6 +38,7 @@ const UserLoginScreen = () => {
   const [error, setError] = useState<ErrorInput>(errorInitialState)
   const [errorRegister, setErrorRegister] = useState<ErrorRegisterInput>(errorRegisterInitialState)
   const [isLogin, setIsLogin] = useState<boolean>(true)
+  const [showRecoveryModal, setShowRecoveryModal] = useState<boolean>(false)
   const { setData } = useScreenMessage()
 
   const { loadingUserLogin, successUserLogin, errorUserLogin } = useAppSelector(state => state.userLogin)
@@ -87,7 +89,8 @@ const UserLoginScreen = () => {
     }))
   }
   const recoveryPass = () => {
-    navigate('/home') //modify redirect to recovery password path
+    // navigate('/home') //modify redirect to recovery password path
+    setShowRecoveryModal(true)
   }
   const handleSubmit = () => {
     if (!inputsValidation(userInfo)) {
@@ -113,6 +116,9 @@ const UserLoginScreen = () => {
       message: 'Bienvenido!',
       type: 'success',
     })
+  }
+  const closeRecoveryModal = () => {
+    setShowRecoveryModal(false)
   }
 
   return (
@@ -173,6 +179,7 @@ const UserLoginScreen = () => {
           </GridContainer>
         )}
       </CardContainer>
+      {showRecoveryModal && <PasswordRecoveryModal openModal={showRecoveryModal} closeModal={closeRecoveryModal} />}
     </ScreenContainer>
   )
 }

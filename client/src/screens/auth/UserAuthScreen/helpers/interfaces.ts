@@ -38,3 +38,7 @@ export interface RegisterInputsProps {
   errorLogin?: string
   disableButton: boolean
 }
+export interface PasswordRecoveryModalProps {
+  openModal: boolean
+  closeModal: () => void
+}
