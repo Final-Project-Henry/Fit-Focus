@@ -1,11 +1,11 @@
 /* eslint-env node */
 'use strict'
 
+require('colors')
 const express = require('express')
 const dotenv = require('dotenv')
 const cors = require('cors')
 const path = require('path')
-require('colors')
 const morgan = require('morgan')
 const connectDB = require('../mongoose/db')
 const apiRoutes = require('../../routes')
@@ -16,8 +16,8 @@ const loadExercisesToDB = require('../../loadExercisesToDB')
 
 // Server Config
 dotenv.config()
-connectDB().then(async () => {
-  await loadExercisesToDB()
+connectDB().then(() => {
+  loadExercisesToDB()
 })
 
 //apply middlewares

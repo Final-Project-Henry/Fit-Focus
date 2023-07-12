@@ -10,8 +10,9 @@ import {
   WeekExercisesArea,
   WeekExercisesContent,
 } from '../styles/loggedScreenStyles'
+import ExerciseToShowCard from 'components/ExerciseToShowCard/ExerciseToShowCard'
 
-const LoggedScreen = ({ onClick }: LoggedScreenProps) => {
+const LoggedScreen = ({ onClick, loginExercises }: LoggedScreenProps) => {
   return (
     <LoggedScreenContainer>
       {/* -------------------------BannerArea------------------------- */}
@@ -26,7 +27,9 @@ const LoggedScreen = ({ onClick }: LoggedScreenProps) => {
       </BannerArea>
       {/* -------------------------WeekExercises------------------------- */}
       <WeekExercisesArea>
-        <WeekExercisesContent></WeekExercisesContent>
+        <WeekExercisesContent>
+          <ExerciseToShowCard exerciseData={loginExercises?.top[0] || null} key={1} />
+        </WeekExercisesContent>
       </WeekExercisesArea>
       {/* -------------------------Footer------------------------- */}
       <Footer />

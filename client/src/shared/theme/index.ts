@@ -14,6 +14,25 @@ export default {
     electricBlue: '#0828C9',
     orange: '#ffa000',
   },
+  bgCardColors: {
+    genre: {
+      man: '#1298C3',
+      woman: '#E881D3',
+      both: 'linear-gradient(90deg, rgba(18,152,195,1) 0%, rgba(232,129,211,1) 100%)',
+    },
+    difficulty: {
+      1: '#70A802',
+      2: '#F7B704',
+      3: '#F44F0B',
+    },
+    muscle: {
+      upper_body: '#006CB7',
+      lower_body: '#0B6D30',
+      functional: '#E76B21',
+      abs: '#B11317',
+      stretching: '#6D2A77',
+    },
+  },
   backgrounds: {
     dark: '20, 25, 46, 0.5',
   },

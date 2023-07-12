@@ -6,13 +6,17 @@ const exerciseSchema = mongoose.Schema(
       type: String,
       unique: true,
     },
-    difficulty: {
+    name_spanish: {
       type: String,
-      enum: ['easy', 'medium', 'hard'],
+    },
+    difficulty: {
+      type: Number,
+      required: true,
     },
     muscles: {
       type: String,
-      enum: ['upper-body', 'lower-body', 'functional', 'abs', 'stretching'],
+      enum: ['upper_body', 'lower_body', 'functional', 'abs', 'stretching'],
+      required: true,
     },
     genre: {
       type: String,
@@ -30,22 +34,21 @@ const exerciseSchema = mongoose.Schema(
     },
     isPremium: {
       type: Boolean,
+      required: true,
     },
     description: {
       type: String,
+      required: true,
     },
     status: {
-      type: 'string',
+      type: String,
       enum: ['active', 'delete'],
       default: 'active',
     },
-    comments: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'Comment',
-      },
-    ],
+    isWeekSelected: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,

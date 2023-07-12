@@ -2,12 +2,16 @@ const exerciseRepository = require('./shared/repositories/exercise-repository')
 const exercises = require('./seederData')
 
 const loader = async () => {
-  try {
-    await exerciseRepository.createMany(exercises)
+  const exercisesInDB = await exerciseRepository.getAllExercisesInDB()
+  const verifyNames = exercisesInDB.map(e => e.name)
+
+  const exercisesNotSavedInDB = exercises.filter(e => !verifyNames.includes(e.name))
+
+  if (exercisesNotSavedInDB?.length > 0) {
+    await exerciseRepository.createMany(exercisesNotSavedInDB)
     console.log('Exercises loaded successfully'.green.bold)
-  } catch (err) {
-    console.log('Exercises already loaded'.red.bold)
-    return
+  } else {
+    console.log('Exercises already loaded'.green.magenta)
   }
 }
 

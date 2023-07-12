@@ -7,11 +7,18 @@ const commentExerciseSchema = mongoose.Schema(
       required: true,
       ref: 'User',
     },
+    exercise: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'Exercise',
+    },
     comment: {
       type: String,
     },
     rating: {
       type: Number,
+      min: 1,
+      max: 5,
     },
     status: {
       type: String,
@@ -26,5 +33,7 @@ const commentExerciseSchema = mongoose.Schema(
     timestamps: true,
   },
 )
+
+commentExerciseSchema.index({ user: 1, exercise: 1 }, { unique: true })
 
 module.exports = mongoose.model('CommentExercise', commentExerciseSchema)

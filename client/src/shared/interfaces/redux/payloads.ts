@@ -1,11 +1,14 @@
+import { DifficultyEnum, GenreEnum, MusclesEnum, StatusEnum } from 'screens/public/HomeScreen/helper/interfaces'
+
 //PAYLOADS
 export interface CommentExerciseInterface {
   _id: string
   user: string
+  exercise: string
   comment: string
   rating: number
   status: string
-  report: number
+  report?: number
   createAt: string
 }
 export interface UserInfoInterface {
@@ -23,4 +26,28 @@ export interface UserInfoInterface {
   token: string
   createAt?: string
   updateAt?: string
+}
+
+export interface ExerciseToShowInterface {
+  _id: string
+  name: string
+  difficulty: DifficultyEnum
+  muscles: MusclesEnum
+  genre: GenreEnum
+  gifUrl: string
+  totalRating?: number
+}
+export interface ExerciseDetail extends ExerciseToShowInterface {
+  needsAccessories: boolean
+  videoUrl: string
+  isPremium: boolean
+  description: string
+  status: StatusEnum
+  isWeekSelected: boolean
+  comments: CommentExerciseInterface[]
+}
+
+export interface ExercisesLoginInterface {
+  week: ExerciseToShowInterface[]
+  top: ExerciseToShowInterface[]
 }

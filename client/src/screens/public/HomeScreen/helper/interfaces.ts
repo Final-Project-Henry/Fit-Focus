@@ -1,3 +1,5 @@
+import { ExercisesLoginInterface } from 'shared/interfaces/redux'
+
 export interface DevInterface {
   name: string
   avatar: string
@@ -16,4 +18,10 @@ export interface CardOfferProps {
 
 export interface LoggedScreenProps {
   onClick: () => void
+  loginExercises: ExercisesLoginInterface | null
 }
+
+export type MusclesEnum = 'upper_body' | 'lower_body' | 'functional' | 'abs' | 'stretching'
+export type GenreEnum = 'man' | 'woman' | 'both'
+export type DifficultyEnum = 1 | 2 | 3
+export type StatusEnum = 'active' | 'delete'

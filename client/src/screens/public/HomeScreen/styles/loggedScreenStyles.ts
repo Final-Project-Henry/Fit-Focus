@@ -68,7 +68,7 @@ export const WeekExercisesArea = styled(ResponsiveContainer)`
 `
 export const WeekExercisesContent = styled(BasicDiv)`
   background-color: blue;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   padding-bottom: 10%;
