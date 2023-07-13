@@ -162,7 +162,7 @@ export const AboutUsCover = styled(ResponsiveContainer)`
 export const TitleSection = styled.h2`
   font-family: 'Oswald';
   font-weight: 700;
-  font-size: 3rem;
+  font-size: ${({ theme }) => theme.dims.fonts.section};
   text-align: center;
   color: ${({ theme }) => theme.colors.darkBlue};
   @media (max-width: 500px) {
@@ -291,7 +291,7 @@ export const BgImageVisit = styled.img`
 export const Message = styled.p`
   padding: 30px;
   font-family: 'Oswald';
-  font-size: 3rem;
+  font-size: ${({ theme }) => theme.dims.fonts.section};
   color: white;
   position: absolute;
   text-align: center;
@@ -335,7 +335,7 @@ export const TextQuestion = styled.div`
   color: white;
   font-family: 'Oswald';
   h2 {
-    font-size: 3rem;
+    font-size: ${({ theme }) => theme.dims.fonts.section};
     font-weight: 500;
   }
   span {
@@ -408,7 +408,7 @@ export const TextFront = styled.div`
     font-weight: 500;
   }
   h3 {
-    font-size: 3rem;
+    font-size: ${({ theme }) => theme.dims.fonts.section};
     width: 80%;
   }
   h4 {
@@ -424,7 +424,7 @@ export const TextFront = styled.div`
   @media (max-width: 760px) {
     width: 90%;
     h1 {
-      font-size: 3rem;
+      font-size: ${({ theme }) => theme.dims.fonts.section};
     }
     h3 {
       font-size: 2rem;

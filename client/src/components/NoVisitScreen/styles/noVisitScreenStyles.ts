@@ -43,7 +43,7 @@ export const Message = styled.p`
   z-index: 1;
 `
 export const Title = styled.h2`
-  font-size: 3rem;
+  font-size: ${({ theme }) => theme.dims.fonts.section};
   font-weight: 500;
   z-index: 1;
 `

@@ -62,14 +62,24 @@ export const BannerButton = styled.button`
   box-shadow: ${({ theme }) => theme.shadows.depth4};
 `
 export const WeekExercisesArea = styled(ResponsiveContainer)`
-  background-color: red;
-  background-size: cover;
-  background-position: center;
+  background-color: white;
+  height: fit-content;
 `
 export const WeekExercisesContent = styled(BasicDiv)`
-  background-color: blue;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 20px;
   align-items: center;
   flex-direction: column;
-  padding-bottom: 10%;
+  height: 100%;
+  padding: 20px;
+  padding-bottom: 40px;
+  @media (max-width: 500px) {
+    padding: 0;
+    padding-bottom: 40px;
+  }
+`
+export const WeekTitle = styled.h1`
+  font-size: ${({ theme }) => theme.dims.fonts.section};
+  font-weight: 700;
+  text-align: center;
 `

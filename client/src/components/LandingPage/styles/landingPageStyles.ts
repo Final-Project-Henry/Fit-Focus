@@ -24,7 +24,7 @@ export const BgVideo = styled.video`
 `
 export const Title = styled.h4`
   font-family: 'Tiro';
-  font-size: 3.5rem;
+  font-size: ${({ theme }) => theme.dims.fonts.section};
 `
 export const SubTitle = styled.h4`
   font-size: 2rem;

@@ -62,6 +62,7 @@ export default {
       small: '0.8em',
       medium: '1.5em',
       title: '3em',
+      section: '3rem',
     },
     circle: {
       small: '1em',

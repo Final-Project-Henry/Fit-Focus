@@ -10,6 +10,15 @@ export const CardContainer = styled.div`
   padding: 0;
   margin: 0;
   overflow: hidden;
+  box-shadow: ${({ theme }) => theme.shadows.depth4};
+  :hover {
+    cursor: pointer;
+    border: 1px solid ${({ theme }) => theme.colors.white};
+  }
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `
 export const CardBodyContainer = styled.img`
   width: 100%;

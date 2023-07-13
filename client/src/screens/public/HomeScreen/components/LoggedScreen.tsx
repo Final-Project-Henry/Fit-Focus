@@ -1,4 +1,5 @@
 import Footer from 'components/Footer/Footer'
+import HorizontalCarrousel from 'components/HorizontalCarrousel/HorizontalCarrousel'
 import { LoggedScreenProps } from '../helper/interfaces'
 import {
   BannerArea,
@@ -9,8 +10,8 @@ import {
   Title,
   WeekExercisesArea,
   WeekExercisesContent,
+  WeekTitle,
 } from '../styles/loggedScreenStyles'
-import ExerciseToShowCard from 'components/ExerciseToShowCard/ExerciseToShowCard'
 
 const LoggedScreen = ({ onClick, loginExercises }: LoggedScreenProps) => {
   return (
@@ -28,7 +29,15 @@ const LoggedScreen = ({ onClick, loginExercises }: LoggedScreenProps) => {
       {/* -------------------------WeekExercises------------------------- */}
       <WeekExercisesArea>
         <WeekExercisesContent>
-          <ExerciseToShowCard exerciseData={loginExercises?.top[0] || null} key={1} />
+          <WeekTitle>Ejercicios de la semana</WeekTitle>
+          <HorizontalCarrousel exercisesToShow={loginExercises?.week || []} />
+        </WeekExercisesContent>
+      </WeekExercisesArea>
+      {/* -------------------------TopExercises------------------------- */}
+      <WeekExercisesArea>
+        <WeekExercisesContent>
+          <WeekTitle>Ejercicios mejor calificados</WeekTitle>
+          <HorizontalCarrousel exercisesToShow={loginExercises?.top || []} />
         </WeekExercisesContent>
       </WeekExercisesArea>
       {/* -------------------------Footer------------------------- */}
