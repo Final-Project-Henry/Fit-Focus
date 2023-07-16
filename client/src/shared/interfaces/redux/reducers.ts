@@ -1,4 +1,4 @@
-import { ExerciseDetail, ExercisesLoginInterface, UserInfoInterface } from './payloads'
+import { ArticleData, ExerciseDetail, ExercisesLoginInterface, UserInfoInterface } from './payloads'
 
 //USERS
 export type userLoginInterface = {
@@ -36,4 +36,12 @@ export type exerciseByIdInterface = {
   successExerciseById?: boolean
   exerciseById?: ExerciseDetail
   errorExerciseById?: boolean
+}
+
+//NEWS
+export type newsLoginInterface = {
+  loadingLoginNews?: boolean
+  successLoginNews?: boolean
+  loginNews?: ArticleData[]
+  errorLoginNews?: boolean
 }

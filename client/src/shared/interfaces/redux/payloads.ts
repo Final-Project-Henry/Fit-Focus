@@ -47,7 +47,28 @@ export interface ExerciseDetail extends ExerciseToShowInterface {
   comments: CommentExerciseInterface[]
 }
 
+interface Source {
+  id: string | null
+  name: string
+}
+export interface ArticleData {
+  source: Source
+  author: string
+  title: string
+  description: string
+  url: string
+  urlToImage: string | null
+  publishedAt: string
+  content: string | null
+}
+
 export interface ExercisesLoginInterface {
   week: ExerciseToShowInterface[]
   top: ExerciseToShowInterface[]
+}
+
+export interface NewsPayloadResponse {
+  status: string
+  totalResults: number
+  articles: ArticleData[]
 }

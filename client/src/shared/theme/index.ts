@@ -60,6 +60,7 @@ export default {
     },
     fonts: {
       small: '0.8em',
+      extraSmall: '1.2rem',
       medium: '1.5em',
       title: '3em',
       section: '3rem',

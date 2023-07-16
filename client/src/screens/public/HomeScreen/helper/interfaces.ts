@@ -1,4 +1,4 @@
-import { ExercisesLoginInterface } from 'shared/interfaces/redux'
+import { ArticleData, ExercisesLoginInterface } from 'shared/interfaces/redux'
 
 export interface DevInterface {
   name: string
@@ -19,6 +19,7 @@ export interface CardOfferProps {
 export interface LoggedScreenProps {
   onClick: () => void
   loginExercises: ExercisesLoginInterface | null
+  newsToShow: ArticleData[] | null
 }
 
 export type MusclesEnum = 'upper_body' | 'lower_body' | 'functional' | 'abs' | 'stretching'

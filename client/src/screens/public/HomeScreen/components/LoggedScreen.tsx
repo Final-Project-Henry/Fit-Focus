@@ -6,14 +6,19 @@ import {
   BannerButton,
   BannerContent,
   LoggedScreenContainer,
+  NewsArea,
+  NewsContainer,
+  NewsContent,
+  NewsTitle,
   SubTitle,
   Title,
   WeekExercisesArea,
   WeekExercisesContent,
   WeekTitle,
 } from '../styles/loggedScreenStyles'
+import NewsCard from 'components/NewsCard/NewsCard'
 
-const LoggedScreen = ({ onClick, loginExercises }: LoggedScreenProps) => {
+const LoggedScreen = ({ onClick, loginExercises, newsToShow }: LoggedScreenProps) => {
   return (
     <LoggedScreenContainer>
       {/* -------------------------BannerArea------------------------- */}
@@ -40,6 +45,17 @@ const LoggedScreen = ({ onClick, loginExercises }: LoggedScreenProps) => {
           <HorizontalCarrousel exercisesToShow={loginExercises?.top || []} />
         </WeekExercisesContent>
       </WeekExercisesArea>
+      {/* -----------------------------News----------------------------- */}
+      <NewsArea>
+        <NewsContent>
+          <NewsTitle>Noticias relacionadas</NewsTitle>
+          <NewsContainer>
+            {newsToShow?.map((e, i) => (
+              <NewsCard key={i} data={e} />
+            ))}
+          </NewsContainer>
+        </NewsContent>
+      </NewsArea>
       {/* -------------------------Footer------------------------- */}
       <Footer />
     </LoggedScreenContainer>

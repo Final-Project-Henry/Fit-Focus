@@ -83,3 +83,33 @@ export const WeekTitle = styled.h1`
   font-weight: 700;
   text-align: center;
 `
+export const NewsArea = styled(ResponsiveContainer)`
+  background-color: white;
+  height: fit-content;
+`
+export const NewsContent = styled(BasicDiv)`
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+  padding-bottom: 40px;
+  @media (max-width: 500px) {
+    padding: 0;
+    padding-bottom: 40px;
+  }
+`
+export const NewsTitle = styled.h1`
+  font-size: ${({ theme }) => theme.dims.fonts.section};
+  font-weight: 700;
+  text-align: center;
+`
+export const NewsContainer = styled.div`
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+`

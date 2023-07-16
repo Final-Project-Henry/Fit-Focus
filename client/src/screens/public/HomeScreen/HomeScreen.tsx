@@ -6,6 +6,7 @@ import LoggedScreen from './components/LoggedScreen'
 import { premiumValidation } from './helper/functions'
 import { getLoginExercises } from 'redux/actions/exercisesActions'
 import Loading from 'components/loading/Loading'
+import { getLoginNews } from 'redux/actions/newsActions'
 
 const HomeScreen = () => {
   const navigate = useNavigate()
@@ -13,6 +14,7 @@ const HomeScreen = () => {
 
   const { userInfo } = useAppSelector(state => state.userLogin)
   const { loadingLoginExercises, successLoginExercises, loginExercises } = useAppSelector(state => state.exercisesLogin)
+  const { loadingLoginNews, successLoginNews, loginNews } = useAppSelector(state => state.newsLogin)
 
   const handleStartNow = () => {
     const isPremium = userInfo ? premiumValidation(userInfo) : false
@@ -28,13 +30,16 @@ const HomeScreen = () => {
     if (userInfo && !successLoginExercises) {
       dispatch(getLoginExercises())
     }
+    if (userInfo && !successLoginNews) {
+      dispatch(getLoginNews())
+    }
   }, [userInfo])
 
   return userInfo ? (
-    loadingLoginExercises ? (
+    loadingLoginExercises || loadingLoginNews ? (
       <Loading />
     ) : (
-      <LoggedScreen onClick={handleStartNow} loginExercises={loginExercises || null} />
+      <LoggedScreen onClick={handleStartNow} loginExercises={loginExercises || null} newsToShow={loginNews || null} />
     )
   ) : (
     <VisitScreen />
