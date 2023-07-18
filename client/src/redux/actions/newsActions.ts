@@ -27,3 +27,28 @@ export const getLoginNews = () => async (dispatch: AppDispatch) => {
     })
   }
 }
+
+export const searchNews =
+  (searchText = 'nutrición', language = 'es', page = 1) =>
+  async (dispatch: AppDispatch) => {
+    try {
+      dispatch({ type: types.SEARCH_NEWS_REQUEST })
+
+      const newsApi = process.env.REACT_APP_NEWS_API_KEY
+
+      const { data } = await axios.get(
+        `https://newsapi.org/v2/everything?sortBy=publishedAt&apiKey=${newsApi}&q=${searchText}&language=${language}&pagesize=6&page=${page}&searchIn=title`,
+      )
+
+      dispatch({ type: types.SEARCH_NEWS_SUCCESS, payload: data })
+    } catch (error) {
+      const payloadError = error as PayloadError
+      dispatch({
+        type: types.SEARCH_NEWS_FAIL,
+        payload:
+          payloadError.response && payloadError.response.data?.message
+            ? payloadError.response.data.message
+            : payloadError.message,
+      })
+    }
+  }

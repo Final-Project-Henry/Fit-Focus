@@ -45,7 +45,13 @@ body {
 }
 
 /* mixin */
-.swal2-top-end{
+.swal2-top-end {
   margin-top: 100px;
   width: fit-content !important;
+}
+
+.MuiFilledInput-root {
+  :focus {
+    --tw-ring-shadow: none;
+  }
 }

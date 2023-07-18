@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const CardContainer = styled.div`
   width: 350px;
   height: 500px;
-  background-color: red;
   position: relative;
   overflow: hidden;
   border-radius: 15px;

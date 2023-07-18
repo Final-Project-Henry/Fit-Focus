@@ -64,3 +64,16 @@ export const noVisitImage7 =
 //HOME-LOGGED
 export const homeLoggedBanner =
   'https://res.cloudinary.com/dm0fwscsy/image/upload/v1688248183/Fit-Focus/assets/zor5pmbxahcnubn3lz8l.jpg'
+export const newsBanner =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1689525690/Fit-Focus/assets/l2uufilnxamicozfspvt.jpg'
+
+export const contactUsBanner =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1689659455/Fit-Focus/assets/oxs5hibdppmm8fxaj1y9.jpg'
+export const calculatorBanner =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1689660395/Fit-Focus/assets/bgefcnvhggnwy6w0wpsh.png'
+export const exercisesBanner =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1689660608/Fit-Focus/assets/bmbsi2cbfowqpzhpenje.webp'
+export const routineBanner =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1689660692/Fit-Focus/assets/z3temnt0b3lsv7uzw1z8.png'
+export const favoriteBanner =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1689660987/Fit-Focus/assets/d06zpe1mo3qcysn7xme8.jpg'

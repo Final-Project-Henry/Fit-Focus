@@ -45,3 +45,10 @@ export type newsLoginInterface = {
   loginNews?: ArticleData[]
   errorLoginNews?: boolean
 }
+export type searchNewsListInterface = {
+  loadingSearchNewsList?: boolean
+  successSearchNewsList?: boolean
+  searchNewsList?: ArticleData[]
+  totalResults?: number
+  errorSearchNewsList?: boolean
+}

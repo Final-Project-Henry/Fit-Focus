@@ -1,5 +1,11 @@
 import { DifficultyEnum, GenreEnum, MusclesEnum, StatusEnum } from 'screens/public/HomeScreen/helper/interfaces'
 
+//SPECIAL PAYLOAD TO ACCEPT OBJS HOW ACTION.PAYLOAD
+export type ModifiedPayloadAction<T> = {
+  type: string
+  payload: T
+}
+
 //PAYLOADS
 export interface CommentExerciseInterface {
   _id: string

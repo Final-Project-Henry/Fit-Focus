@@ -4,6 +4,7 @@ import {
   exercisesByFiltersInterface,
   exercisesLoginInterface,
   newsLoginInterface,
+  searchNewsListInterface,
   userAuthGoogleInterface,
   userLoginInterface,
   userRegisterInterface,
@@ -29,4 +30,5 @@ export type RootState = DefaultRootState & {
   exercisesByFilters?: exercisesByFiltersInterface
   exerciseById?: exerciseByIdInterface
   newsLogin?: newsLoginInterface
+  searchNewsList?: searchNewsListInterface
 }

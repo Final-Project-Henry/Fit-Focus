@@ -10,5 +10,6 @@ export const routes = [
     ],
   },
   { path: '/contact-us', title: 'Opiniones', subMenus: false },
+  { path: '/calculator', title: 'Calculadora', subMenus: false },
   { path: '/news', title: 'Noticias', subMenus: false },
 ]

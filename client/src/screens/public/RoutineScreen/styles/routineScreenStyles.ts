@@ -7,3 +7,11 @@ export const RoutineContainer = styled.div`
   justify-content: center;
   align-items: center;
 `
+export const RoutineBodyContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+`
