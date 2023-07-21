@@ -181,7 +181,6 @@ export const DevCardContainer = styled.div`
   justify-content: space-between;
   padding: 10px 10px;
   background: white;
-  /* border-radius: 30px; */
   box-shadow: ${({ theme }) => theme.shadows.depth4};
 `
 export const UserInfo = styled.div`

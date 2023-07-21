@@ -34,10 +34,10 @@ export const searchNews =
     try {
       dispatch({ type: types.SEARCH_NEWS_REQUEST })
 
-      const newsApi = process.env.REACT_APP_NEWS_API_KEY
+      const newsApiKey = process.env.REACT_APP_NEWS_API_KEY
 
       const { data } = await axios.get(
-        `https://newsapi.org/v2/everything?sortBy=publishedAt&apiKey=${newsApi}&q=${searchText}&language=${language}&pagesize=6&page=${page}&searchIn=title`,
+        `https://newsapi.org/v2/everything?sortBy=publishedAt&apiKey=${newsApiKey}&q=${searchText}&language=${language}&pagesize=6&page=${page}&searchIn=title`,
       )
 
       dispatch({ type: types.SEARCH_NEWS_SUCCESS, payload: data })

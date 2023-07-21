@@ -10,6 +10,7 @@ import { useAppSelector } from 'shared/customHooks/reduxHooks'
 import { errors } from 'shared/shareData'
 import Toast from 'shared/helpers/screen-message'
 import { types, useScreenMessage } from 'contexts/ScreenMessageContext'
+import Loading from 'components/loading/Loading'
 
 const ManagementRoutes = () => {
   const [role, setRole] = useState(roles.visitRole)
@@ -30,12 +31,30 @@ const ManagementRoutes = () => {
       routeFilter = routes.filter(route => route.role.includes(roles.loggedRole))
       if (role === roles.adminRole) {
         const aditionalRoutes = routes.filter(route => route.role.includes(roles.adminRole))
-        setAdminRoutes(aditionalRoutes)
+        setAdminRoutes([
+          ...aditionalRoutes,
+          {
+            path: '*',
+            title: '',
+            layout: '',
+            role: [roles.adminRole],
+            component: <ErrorAndRedirectPage message={errors.notFound.message} number={errors.notFound.number} />,
+          },
+        ])
       }
     } else {
       routeFilter = routes.filter(route => route.role.includes(roles.visitRole))
     }
-    setFilteredRoutes(routeFilter)
+    setFilteredRoutes([
+      ...routeFilter,
+      {
+        path: '*',
+        title: '',
+        layout: '',
+        role: [roles.loggedRole, roles.visitRole],
+        component: <ErrorAndRedirectPage message={errors.notFound.message} number={errors.notFound.number} />,
+      },
+    ])
   }, [role])
   useEffect(() => {
     if (data?.type !== types.default) {
@@ -55,23 +74,23 @@ const ManagementRoutes = () => {
       <Route path='/' element={<LandingPage />} />
       {adminRoutes && (
         <Route path='/admin' element={<AdminLayout />}>
-          {adminRoutes.map((route: RouteInterface, index: number) => (
-            <Route key={index} path={route.path} element={route.component} />
-          ))}
-          <Route
-            path={'*'}
-            element={<ErrorAndRedirectPage message={errors.notFound.message} number={errors.notFound.number} />}
-          />
+          {!adminRoutes.length ? (
+            <Route path={'*'} element={<Loading />} />
+          ) : (
+            adminRoutes.map((route: RouteInterface, index: number) => (
+              <Route key={index} path={route.path} element={route.component} />
+            ))
+          )}
         </Route>
       )}
       <Route path='/' element={<PublicLayout />}>
-        {filteredRoutes.map((route: RouteInterface, index: number) => (
-          <Route key={index} path={route.path} element={route.component} />
-        ))}
-        <Route
-          path={'*'}
-          element={<ErrorAndRedirectPage message={errors.notFound.message} number={errors.notFound.number} />}
-        />
+        {!filteredRoutes.length ? (
+          <Route path={'*'} element={<Loading />} />
+        ) : (
+          filteredRoutes.map((route: RouteInterface, index: number) => (
+            <Route key={index} path={route.path} element={route.component} />
+          ))
+        )}
       </Route>
     </Routes>
   )

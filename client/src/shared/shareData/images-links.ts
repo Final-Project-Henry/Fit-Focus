@@ -77,3 +77,6 @@ export const routineBanner =
   'https://res.cloudinary.com/dm0fwscsy/image/upload/v1689660692/Fit-Focus/assets/z3temnt0b3lsv7uzw1z8.png'
 export const favoriteBanner =
   'https://res.cloudinary.com/dm0fwscsy/image/upload/v1689660987/Fit-Focus/assets/d06zpe1mo3qcysn7xme8.jpg'
+
+export const calculatorTable =
+  'https://res.cloudinary.com/dm0fwscsy/image/upload/v1689907655/Fit-Focus/assets/fpuj4l4fl6ze7pio3jg4.png'

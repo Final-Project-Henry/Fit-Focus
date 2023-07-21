@@ -11,6 +11,7 @@ export const ImageBanner = styled.img`
 export const ImageContainer = styled.div`
   width: 100%;
   height: 50vh;
+  min-height: 50vh;
   display: flex;
   justify-content: center;
   position: relative;

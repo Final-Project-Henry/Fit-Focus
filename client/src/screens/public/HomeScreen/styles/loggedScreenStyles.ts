@@ -15,7 +15,6 @@ const ResponsiveContainer = styled.div`
 `
 
 export const LoggedScreenContainer = styled.div`
-  background-color: red;
   width: 100%;
   flex-direction: column;
   height: fit-content;

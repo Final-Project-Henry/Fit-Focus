@@ -16,7 +16,7 @@ const NewsBody = () => {
   const dispatch = useAppDispatch()
 
   const [data, setData] = useState<ArticleData[]>([])
-  const [searchText, setSearchText] = useState('')
+  const [searchText, setSearchText] = useState('nutrición')
   const [language, setLanguage] = useState('es')
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [hasNextpage, setHasNextPage] = useState<boolean>(false)
