@@ -29,7 +29,7 @@ const RegisterInputs = ({ data, handleInfo, submit, error, errorLogin, disableBu
                 helperText={error.name}
                 type='text'
                 fullWidth
-                placeholder='Alex Perez'
+                placeholder='Alex'
                 required={true}
                 value={data.name}
                 onChange={({ target: { value } }) => handleInfo('name', value)}
