@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { FullNavbarProps, RouteInterface } from 'shared/interfaces/navbar-interfaces'
-import { defaultAvatar, logoLight, routes } from 'shared/shareData'
+import { logoLight, routes } from 'shared/shareData'
 import {
   AvatarContainer,
   Container,
@@ -92,7 +92,7 @@ const FullNavbar = ({
           <LoginArea>
             <ExmailText>{email}</ExmailText>
             <AvatarContainer onClick={handleUserMenu} id='avatar-logo'>
-              <Avatar src={avatar || defaultAvatar} alt='avatar' />
+              <Avatar src={avatar} alt='avatar' />
               {openUserMenu && (
                 <UserMenu
                   openUserMenu={openUserMenu}

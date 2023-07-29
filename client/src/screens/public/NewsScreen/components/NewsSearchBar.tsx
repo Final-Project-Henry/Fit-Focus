@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react'
-import { FormControl, IconButton, InputAdornment, InputLabel, MenuItem, Select, TextField } from '@mui/material'
+import { FormControl, IconButton, InputAdornment, MenuItem, Select, TextField } from '@mui/material'
 import { Search } from '@mui/icons-material'
 import { SearchbarContainer } from '../styles/newsScreenStyles'
 import { languagesOptions } from '../helper/initialValues'

@@ -88,3 +88,24 @@ export const userAuthGoogleReducer = (state = {}, action: PayloadAction) => {
       return state
   }
 }
+
+export const avatarUpdateReducer = (state = {}, action: PayloadAction) => {
+  switch (action.type) {
+    case types.AVATAR_UPDATE_REQUEST:
+      return { loadingUserAvatarUpdate: true }
+    case types.AVATAR_UPDATE_SUCCESS:
+      return {
+        loadingUserAvatarUpdate: false,
+        successUserAvatarUpdate: true,
+      }
+    case types.AVATAR_UPDATE_FAIL:
+      return {
+        loadingUserAvatarUpdate: false,
+        errorUserAvatarUpdate: action.payload,
+      }
+    case types.AVATAR_UPDATE_RESET:
+      return {}
+    default:
+      return state
+  }
+}

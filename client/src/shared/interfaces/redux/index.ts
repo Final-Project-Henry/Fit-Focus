@@ -1,5 +1,6 @@
 import { RootState as DefaultRootState } from 'redux/store'
 import {
+  avatarUpdateInterface,
   exerciseByIdInterface,
   exercisesByFiltersInterface,
   exercisesLoginInterface,
@@ -31,4 +32,5 @@ export type RootState = DefaultRootState & {
   exerciseById?: exerciseByIdInterface
   newsLogin?: newsLoginInterface
   searchNewsList?: searchNewsListInterface
+  avatarUpdate?: avatarUpdateInterface
 }

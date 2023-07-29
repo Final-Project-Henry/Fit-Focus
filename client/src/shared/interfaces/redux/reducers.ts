@@ -17,6 +17,11 @@ export type userAuthGoogleInterface = {
   successUserAuthGoogle?: boolean
   errorUserAuthGoogle?: string
 }
+export type avatarUpdateInterface = {
+  loadingUserAvatarUpdate?: boolean
+  successUserAvatarUpdate?: boolean
+  errorUserAvatarUpdate?: string
+}
 
 //EXERCISES
 export type exercisesLoginInterface = {

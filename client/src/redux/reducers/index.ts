@@ -1,5 +1,11 @@
 import { combineReducers } from '@reduxjs/toolkit'
-import { userAuthGoogleReducer, userLoginReducer, userRefreshTokenReducer, userRegisterReducer } from './userReducer'
+import {
+  avatarUpdateReducer,
+  userAuthGoogleReducer,
+  userLoginReducer,
+  userRefreshTokenReducer,
+  userRegisterReducer,
+} from './userReducer'
 import { exerciseByIdReducer, exercisesByFiltersReducer, exercisesLoginReducer } from './exercisesReducer'
 import { newsLoginReducer, searchNewsReducer } from './newsReducer'
 
@@ -13,4 +19,5 @@ export default combineReducers({
   exerciseById: exerciseByIdReducer,
   newsLogin: newsLoginReducer,
   searchNewsList: searchNewsReducer,
+  avatarUpdate: avatarUpdateReducer,
 })

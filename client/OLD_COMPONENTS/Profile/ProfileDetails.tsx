@@ -1,7 +1,5 @@
 import { current } from '@reduxjs/toolkit'
-import { userInfo } from 'os'
 import { useEffect, useState } from 'react'
-import ContentEditable from 'react-contenteditable'
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch, useToken } from '../../app/hooks'
 import { EditUser, infoUserRutina, Rutines_Get } from '../../features/counter/counterSlice'
@@ -254,7 +252,7 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
               <ul className='flex flex-col pl-0 mb-0 rounded-lg'>
                 <li className='relative block px-4 py-2 pt-0 pl-0 leading-normal bg-white border-0 rounded-t-lg text-size-base text-inherit'>
                   <strong className='text-slate-700 mr-0.5'>{editable.info ? 'Editar nombre:' : 'Nombre:'}</strong>
-                  <ContentEditable
+                  {/* <ContentEditable */}
                     id='name'
                     html={infoUser.name !== undefined ? infoUser.name : 'Cargando...'}
                     onChange={handleChangeInfo}
@@ -270,7 +268,7 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
                 {/*  */}
                 <li className='relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-base text-inherit'>
                   <strong className='text-slate-700 mr-0.5'>{editable.info ? 'Editar correo:' : 'Correo:'}</strong>
-                  <ContentEditable
+                  {/* <ContentEditable */}
                     id='email'
                     html={infoUser.email !== undefined ? infoUser.email : 'Cargando...'}
                     onChange={handleChangeInfo}
@@ -399,7 +397,7 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
                 <ul className='grid grid-flow-row grid-cols-2 pl-0 mb-0 rounded-lg'>
                   <li className='relative block px-4 pb-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-base text-inherit'>
                     <strong className='text-slate-700 mr-0.5'>{editable.status ? 'Editar peso:' : 'Peso:'}</strong>
-                    <ContentEditable
+                    {/* <ContentEditable */}
                       id='weight'
                       html={statusUser.weight !== undefined ? String(statusUser.weight) : 'Cargando...'}
                       onChange={handleChangeStatus}
@@ -418,7 +416,7 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
                   {/*  */}
                   <li className='relative block px-4 pb-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-base text-inherit'>
                     <strong className='text-slate-700 mr-0.5'>{editable.status ? 'Editar edad:' : 'Edad:'}</strong>
-                    <ContentEditable
+                    {/* <ContentEditable */}
                       id='age'
                       html={statusUser.age !== undefined ? String(statusUser.age) : 'Cargando...'}
                       onChange={handleChangeStatus}
@@ -437,7 +435,7 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
                   {/*  */}
                   <li className='relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-size-base text-inherit'>
                     <strong className='text-slate-700 mr-0.5'>{editable.status ? 'Editar altura:' : 'Altura:'}</strong>
-                    <ContentEditable
+                    {/* <ContentEditable */}
                       id='height'
                       html={statusUser.height !== undefined ? String(statusUser.height) : 'Cargando...'}
                       onChange={handleChangeStatus}
@@ -467,7 +465,7 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
                         <option value='false'>No</option>
                       </select>
                     ) : (
-                      <ContentEditable
+                      // <ContentEditable
                         id='equipment'
                         html={statusUser.equipment !== undefined ? String(statusUser.equipment) : 'Cargando...'}
                         onChange={handleChangeStatus}
@@ -489,7 +487,7 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
                         <option value='woman'>Otro</option>
                       </select>
                     ) : (
-                      <ContentEditable
+                      // <ContentEditable
                         id='genre'
                         html={statusUser.genre !== undefined ? statusUser.genre : 'Cargando...'}
                         onChange={handleChangeStatus}
@@ -512,7 +510,7 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
                         <option value='gain muscles'>Ganar musculos</option>
                       </select>
                     ) : (
-                      <ContentEditable
+                      // <ContentEditable
                         id='equipmet'
                         html={statusUser.goal !== undefined ? statusUser.goal : 'Cargando...'}
                         onChange={handleChangeStatus}
@@ -536,7 +534,7 @@ const ProfileDetails = ({ name, email, plan, age, equipment, experience, genre, 
                         <option value='advanced'>Avanzado</option>
                       </select>
                     ) : (
-                      <ContentEditable
+                      // <ContentEditable
                         id='experience'
                         html={statusUser.experience !== undefined ? statusUser.experience : 'Cargando...'}
                         onChange={handleChangeStatus}

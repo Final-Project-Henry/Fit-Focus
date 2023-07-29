@@ -148,3 +148,45 @@ export const AuthGoogle = (token: string) => async (dispatch: AppDispatch) => {
     })
   }
 }
+
+export const updateAvatar = (avatar: File) => async (dispatch: AppDispatch, getState: () => RootState) => {
+  try {
+    dispatch({ type: types.AVATAR_UPDATE_REQUEST })
+
+    const {
+      userLogin: { userInfo },
+    } = getState()
+
+    const config = {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: `Bearer ${userInfo?.token}`,
+      },
+    }
+
+    const formData = new FormData()
+
+    formData.append('avatar', avatar)
+
+    const { data } = await axios.put('/api/users/avatar', formData, config)
+
+    const decode = jwtDecode(data.token)
+    const newUserInfo = {
+      ...(decode as object),
+      token: data.token,
+    }
+    dispatch({ type: types.AVATAR_UPDATE_SUCCESS })
+    dispatch({ type: types.GET_USER_LOGIN_SUCCESS, payload: newUserInfo })
+
+    localStorage.setItem('token-user', JSON.stringify(data.token))
+  } catch (error) {
+    const payloadError = error as PayloadError
+    dispatch({
+      type: types.AVATAR_UPDATE_FAIL,
+      payload:
+        payloadError.response && payloadError.response.data?.message
+          ? payloadError.response.data.message
+          : payloadError.message,
+    })
+  }
+}

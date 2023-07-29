@@ -1,5 +1,5 @@
+import { IconButton } from '@mui/material'
 import GridContainer from 'components/Grid/GridContainer'
-import theme from 'shared/theme'
 import styled from 'styled-components'
 
 const BasicDiv = styled.div`
@@ -38,7 +38,6 @@ export const TabContainer = styled.div`
 export const UserInfoContainer = styled.div`
   width: 100%;
   height: 100%;
-  background-color: red;
 `
 export const GridContainerCenter = styled(GridContainer)`
   align-items: center;
@@ -90,4 +89,19 @@ export const NameInfo = styled.h2`
 export const EmailInfo = styled.h2`
   font-size: ${({ theme }) => theme.dims.fonts.extraSmall};
   font-weight: 500;
+`
+export const GroupButtons = styled.div`
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+`
+export const AvatarButton = styled(IconButton)`
+  height: 40px;
+  width: 40px;
 `

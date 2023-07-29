@@ -5,18 +5,24 @@ import { FooterInfo, UserProfileBodyContainer, UserProfileContainer } from './st
 import UserInfoTab from './components/UserInfoTab'
 import SettingsTab from './components/SettingsTab'
 import { AccountCircle, Settings } from '@mui/icons-material'
-import { useAppSelector } from 'shared/customHooks/reduxHooks'
+import { useAppDispatch, useAppSelector } from 'shared/customHooks/reduxHooks'
 import { useScreenMessage } from 'contexts/ScreenMessageContext'
+import { updateAvatar } from 'redux/actions/userActions'
 
 const UserProfileScreen = () => {
   const imageRef = createRef<HTMLInputElement>()
+  const dispatch = useAppDispatch()
 
   const { setData } = useScreenMessage()
   const [value, setValue] = useState<number>(0)
   const [error, setError] = useState<string>('')
   const [profileImage, setProfileImage] = useState<string | null>(null)
+  const [profileFile, setProfileFile] = useState<File | null>(null)
 
   const { userInfo } = useAppSelector(state => state.userLogin)
+  const { loadingUserAvatarUpdate, errorUserAvatarUpdate, successUserAvatarUpdate } = useAppSelector(
+    state => state.avatarUpdate,
+  )
 
   useEffect(() => {
     if (error.length) {
@@ -26,6 +32,19 @@ const UserProfileScreen = () => {
       })
     }
   }, [error])
+  useEffect(() => {
+    if (errorUserAvatarUpdate) {
+      setError(errorUserAvatarUpdate)
+    }
+  }, [errorUserAvatarUpdate])
+  useEffect(() => {
+    if (successUserAvatarUpdate) {
+      setData({
+        message: 'Imagen guardada!',
+        type: 'success',
+      })
+    }
+  }, [successUserAvatarUpdate])
 
   const handleChange = (event: SyntheticEvent, newValue: number) => {
     setValue(newValue)
@@ -41,12 +60,24 @@ const UserProfileScreen = () => {
   }
   const handleSelectImage = (e: ChangeEvent<HTMLInputElement>) => {
     const image = e?.target?.files?.[0]
-    if (image && !image?.type?.startsWith('image')) {
+    if (!image) return
+    if (!image?.type?.startsWith('image')) {
       setError('Formato del archivo incorrecto')
       return
     }
     const urlImage = image ? URL.createObjectURL(image) : null
     setProfileImage(urlImage)
+    setProfileFile(image)
+    setError('')
+  }
+  const handleAvatar = (type: string) => {
+    if (type === 'cancel') {
+      setProfileImage(null)
+      setProfileFile(null)
+      setError('')
+    } else {
+      profileFile && dispatch(updateAvatar(profileFile))
+    }
   }
 
   return (
@@ -59,7 +90,13 @@ const UserProfileScreen = () => {
           </Tabs>
         </Box>
         <CustomTabPanel value={value} index={0}>
-          <UserInfoTab userInfo={userInfo || null} handleImage={handleImage} profileImage={profileImage} />
+          <UserInfoTab
+            userInfo={userInfo || null}
+            handleImage={handleImage}
+            profileImage={profileImage}
+            handleAvatar={handleAvatar}
+            loadingUpload={loadingUserAvatarUpdate || false}
+          />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
           <SettingsTab />

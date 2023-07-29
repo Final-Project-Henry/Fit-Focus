@@ -17,6 +17,8 @@ const userSchema = mongoose.Schema(
     },
     avatar: {
       type: String,
+      default:
+        'https://res.cloudinary.com/dm0fwscsy/image/upload/v1690505444/Fit-Focus/assets/jzbdj0ye09xxhe5rwf0p.jpg',
     },
     plan: {
       type: String,

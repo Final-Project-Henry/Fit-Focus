@@ -20,10 +20,10 @@ const GoogleAuth = ({ isLogin }: GoogleAuthProps) => {
     <ButtonContainer>
       <GoogleLogin
         shape='pill'
-        context={isLogin ? 'signin' : 'signup'}
+        context={!isLogin ? 'signup' : 'signin'}
         theme='filled_blue'
         logo_alignment='left'
-        width='310'
+        width={310}
         onSuccess={handleSuccess}
         onError={handleError}
       />
