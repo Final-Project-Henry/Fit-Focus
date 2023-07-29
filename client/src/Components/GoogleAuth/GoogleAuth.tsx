@@ -38,7 +38,7 @@ export default function GoogleAuth() {
   return (
     <Fragment>
       <GoogleLogin
-        width="200"
+        width={200}
         onSuccess={(res) => {
           if (typeof res.credential === "string") setCode(res.credential);
         }}
