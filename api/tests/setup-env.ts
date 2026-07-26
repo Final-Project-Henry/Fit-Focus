@@ -1,0 +1,11 @@
+process.env.NODE_ENV = 'test';
+process.env.PORT = process.env.PORT || '3001';
+process.env.SECRET = process.env.SECRET || 'test-secret-key';
+process.env.MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/fitfocus-test';
+process.env.NODEMAILER = process.env.NODEMAILER || 'test-nodemailer-pass';
+process.env.ACCESS_TOKEN = process.env.ACCESS_TOKEN || 'TEST-ACCESS-TOKEN';
+process.env.MERCADOPAGO_USE_SANDBOX = process.env.MERCADOPAGO_USE_SANDBOX || 'false';
+process.env.CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:3000';
+process.env.GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID || 'test-google-client-id';
+process.env.GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET || 'test-google-client-secret';
+process.env.REDIRECT_URI = process.env.REDIRECT_URI || 'http://localhost:3000';

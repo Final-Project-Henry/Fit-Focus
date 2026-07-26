@@ -1,10 +1,10 @@
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import { http } from '@/shared/api/http';
 import type { RootState, AppDispatch } from "./store";
 import { useEffect, useState } from "react";
-import { selectUser, sigendOut } from "../features/counter/counterSlice";
+import { selectUser, sigendOut } from "@/features/user/userSlice";
 import jwtDecode from "jwt-decode";
-import axios from "axios";
-import funcion from "../additional_info/functions";
+import funcion from "@/additional_info/functions";
 import { useNavigate } from "react-router-dom";
 // Use throughout your app instead of plain `useDispatch` and `useSelector`
 export const useAppDispatch = () => useDispatch<AppDispatch>();
@@ -68,13 +68,13 @@ export async function opiniom(token: string, feedback: object) {
   let bodyContent = JSON.stringify(feedback);
 
   let reqOptions = {
-    url: "http://localhost:3001/auth/userfeedback",
+    url: "/auth/userfeedback",
     method: "PUT",
     headers: headersList,
     data: bodyContent,
   };
 
-  let response = await axios.request(reqOptions);
+  let response = await http.request(reqOptions);
 
 }
 

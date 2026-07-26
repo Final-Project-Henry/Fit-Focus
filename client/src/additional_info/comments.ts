@@ -1,15 +1,15 @@
-import  avatar_1 from '../Components/assets/avatars_test/avatar_1.png';
-import  avatar_2 from '../Components/assets/avatars_test/avatar_2.png';
-import  avatar_3 from '../Components/assets/avatars_test/avatar_3.png';
-import  avatar_4 from '../Components/assets/avatars_test/avatar_4.png';
-import  avatar_5 from '../Components/assets/avatars_test/avatar_5.png';
-import  avatar_6 from '../Components/assets/avatars_test/avatar_6.png';
-import  avatar_7 from '../Components/assets/avatars_test/avatar_7.png';
-import  avatar_8 from '../Components/assets/avatars_test/avatar_8.png';
-import  avatar_9 from '../Components/assets/avatars_test/avatar_9.png';
-import  avatar_10 from '../Components/assets/avatars_test/avatar_10.png';
-import  avatar_11 from '../Components/assets/avatars_test/avatar_11.png';
-import  avatar_12 from '../Components/assets/avatars_test/avatar_12.png';
+import  avatar_1 from '@/assets/legacy/avatars_test/avatar_1.png';
+import  avatar_2 from '@/assets/legacy/avatars_test/avatar_2.png';
+import  avatar_3 from '@/assets/legacy/avatars_test/avatar_3.png';
+import  avatar_4 from '@/assets/legacy/avatars_test/avatar_4.png';
+import  avatar_5 from '@/assets/legacy/avatars_test/avatar_5.png';
+import  avatar_6 from '@/assets/legacy/avatars_test/avatar_6.png';
+import  avatar_7 from '@/assets/legacy/avatars_test/avatar_7.png';
+import  avatar_8 from '@/assets/legacy/avatars_test/avatar_8.png';
+import  avatar_9 from '@/assets/legacy/avatars_test/avatar_9.png';
+import  avatar_10 from '@/assets/legacy/avatars_test/avatar_10.png';
+import  avatar_11 from '@/assets/legacy/avatars_test/avatar_11.png';
+import  avatar_12 from '@/assets/legacy/avatars_test/avatar_12.png';
 
 export const datos = [
      {

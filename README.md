@@ -22,21 +22,22 @@ HTML, Javascript, Typescript, React JS, Redux toolkit, CSS, TailwindCSS, Styled-
 
 # Back End:
 
-Mongo DB, Mongoose, Mongo Atlas, Node JS, Json Web Token authentication, Nodemailer, oAuth.
+Mongo DB, Mongoose, Mongo Atlas, Node JS / TypeScript, Express modular (routes → services → repositories), Json Web Token authentication, Nodemailer, oAuth, Zod, Jest.
 
-# Instrucciones de incio
+# Instrucciones de inicio
 
 <b>IMPORTANTE:</b> Es necesario tener las siguientes versiones de node y NPM
 
-- <b>Node:</b> 12.18.3 or higher
-- <b>NPM:</b> 6.14.16 or higher
+- <b>Node:</b> 18 or higher (recomendado)
+- <b>NPM:</b> 8 or higher
 
 # Instalar los paquetes necesarios para iniciar
 
 - Abrir la consola en el proyecto
-  - En la ruta <b>api</b>, ejecutar el comando <b>npm install</b>
-  - En la ruta <b>cliente</b>, ejecutar el comando <b>npm install</b>
-  - Por ultimo, en la ruta <b>cliente<b>, ejecutar <b>npm start</b>
+  - En la ruta <b>api</b>, ejecutar <b>npm install</b> y luego <b>npm run dev</b> (Mongo: `make up` en api)
+  - En la ruta <b>client</b>, copiar <b>.env.example</b> → <b>.env</b>, ejecutar <b>npm install</b> y <b>npm run dev</b> (Vite en :3000)
+  - Detalle del API: <b>api/README.md</b> · Detalle del client: <b>client/README.md</b>
+  - Tests del API: en <b>api</b> ejecutar <b>npm test</b>
 
 # Para probar el modo PREMIUM deberá usar los daots de tarjeta de prueba
 

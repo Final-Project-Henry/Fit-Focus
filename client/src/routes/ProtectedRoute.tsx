@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Error_page from "../Components/error/Error_page";
+import Error_page from "@/screens/error/Error_page";
 
 const ProtectedRoute = ({ user }: any) => {
   if (!user) {

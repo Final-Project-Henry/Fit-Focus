@@ -1,0 +1,58 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useToken } from "@/app/hooks";
+import './Error_page.css';
+import logo from "@/assets/legacy/icons/nav-icon2.png";
+import bad from "@/assets/legacy/icons/bad_request.png";
+import alert from "@/assets/legacy/icons/alert.png";
+
+export default function Error_page(props: {
+  error: string;
+  numb_error: string;
+}) {
+  const token = useToken();
+  const navigate = useNavigate();
+
+  const onClick = () => {
+    navigate(token ? "/fitfocus" : "/home");
+  };
+  return (
+    <div
+      style={{
+        display: "flex",
+        gap: "50px",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: "10vh",
+      }}
+    >
+      <div className={"container"}>
+        <img className={"img"} src={logo}></img>
+        <div className={"error"}>
+          <p style={{ fontSize: "2rem", fontWeight: "500" }}>
+            {props.numb_error}.
+          </p>
+          <p style={{ paddingTop: "10px", fontSize: "1.2rem" }}>
+            <b>HA OCURRIDO UN PROBLEMA</b>
+          </p>
+          <img src={alert} width="30px" alt="alert.png" />
+        </div>
+        <div className={"text"}>
+          <p>Su cliente no tiene permiso para acceder a esta URL.</p>
+          <p>
+            Si el problema persiste, pongase en contacto con servicio técnico.
+          </p>
+          <p className="mt-5">
+            <b>
+              <i>Error: {props.error}</i>
+            </b>
+          </p>
+        </div>
+        <button className={"btn"} onClick={onClick}>
+          Ir a Home
+        </button>
+      </div>
+      <img className={"bad"} src={bad}></img>
+    </div>
+  );
+}

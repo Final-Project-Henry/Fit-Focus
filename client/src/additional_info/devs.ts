@@ -1,11 +1,11 @@
-import adrian from '../Components/assets/visitors/avatars_staff/adrian.png';
-import cate from '../Components/assets/visitors/avatars_staff/caterina.png';
-import david from '../Components/assets/visitors/avatars_staff/david.png';
-import ivan from '../Components/assets/visitors/avatars_staff/ivan.png';
-import marcel from '../Components/assets/visitors/avatars_staff/marcel.png';
-import martin from '../Components/assets/visitors/avatars_staff/martin.png';
-import rafael from '../Components/assets/visitors/avatars_staff/rafael.png';
-import rodrigo from '../Components/assets/visitors/avatars_staff/rodrigo.png';
+import adrian from '@/assets/legacy/visitors/avatars_staff/adrian.png';
+import cate from '@/assets/legacy/visitors/avatars_staff/caterina.png';
+import david from '@/assets/legacy/visitors/avatars_staff/david.png';
+import ivan from '@/assets/legacy/visitors/avatars_staff/ivan.png';
+import marcel from '@/assets/legacy/visitors/avatars_staff/marcel.png';
+import martin from '@/assets/legacy/visitors/avatars_staff/martin.png';
+import rafael from '@/assets/legacy/visitors/avatars_staff/rafael.png';
+import rodrigo from '@/assets/legacy/visitors/avatars_staff/rodrigo.png';
 
 
 export default [

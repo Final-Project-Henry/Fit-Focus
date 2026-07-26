@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-import { RootState } from "../../app/store";
+import { http } from '@/shared/api/http';
+import { RootState } from "@/app/store";
 
 export interface State {
   user_status: string;
@@ -53,7 +53,7 @@ export const get_users = createAsyncThunk(
         token = userlogin.token;
       }
     }
-    const response = await axios.get("http://localhost:3001/admin/allusers", {
+    const response = await http.get("/admin/allusers", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -73,7 +73,7 @@ export const get_questions = createAsyncThunk(
         token = userlogin.token;
       }
     }
-    const response = await axios.get("http://localhost:3001/admin/questions", {
+    const response = await http.get("/admin/questions", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -92,8 +92,8 @@ export const add_admin = createAsyncThunk(
         token = userlogin.token;
       }
     }
-    const response = await axios.post(
-      "http://localhost:3001/superAdmin/admin",
+    const response = await http.post(
+      "/superAdmin/admin",
       { _id: _id },
       {
         headers: {
@@ -115,8 +115,8 @@ export const change_profile = createAsyncThunk(
         token = userlogin.token;
       }
     }
-    const response = await axios.put(
-      "http://localhost:3001/admin/changeUserInfo",
+    const response = await http.put(
+      "/admin/changeUserInfo",
       { _id: data._id, data: data.data },
       {
         headers: {
@@ -138,8 +138,8 @@ export const change_info = createAsyncThunk(
         token = userlogin.token;
       }
     }
-    const response = await axios.put(
-      "http://localhost:3001/admin/changeInfo",
+    const response = await http.put(
+      "/admin/changeInfo",
       { _id: data._id, data: data.data },
       {
         headers: {
@@ -162,8 +162,8 @@ export const change_exercise = createAsyncThunk(
         token = userlogin.token;
       }
     }
-    const response = await axios.put(
-      "http://localhost:3001/admin/change_exercise",
+    const response = await http.put(
+      "/admin/change_exercise",
       { _id: data._id, data: data.data },
       {
         headers: {
@@ -186,8 +186,8 @@ export const delete_user = createAsyncThunk(
         token = userlogin.token;
       }
     }
-    const response = await axios.delete(
-      "http://localhost:3001/admin/deleteUser",
+    const response = await http.delete(
+      "/admin/deleteUser",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -210,8 +210,8 @@ export const add_exercise = createAsyncThunk(
         token = userlogin.token;
       }
     }
-    const response = await axios.post(
-      "http://localhost:3001/admin/addExercise",
+    const response = await http.post(
+      "/admin/addExercise",
       { datos: data },
       {
         headers: {
@@ -234,8 +234,8 @@ export const add_response = createAsyncThunk(
         token = userlogin.token;
       }
     }
-    const response = await axios.put(
-      "http://localhost:3001/admin/response_ask",
+    const response = await http.put(
+      "/admin/response_ask",
       { email: data.email, response: data.response },
       {
         headers: {
@@ -258,8 +258,8 @@ export const delete_exer = createAsyncThunk(
         token = userlogin.token;
       }
     }
-    const response = await axios.delete(
-      "http://localhost:3001/admin/deleteExercise",
+    const response = await http.delete(
+      "/admin/deleteExercise",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -282,8 +282,8 @@ export const delete_comment = createAsyncThunk(
         token = userlogin.token;
       }
     }
-    const response = await axios.delete(
-      "http://localhost:3001/admin/deleteUserComment",
+    const response = await http.delete(
+      "/admin/deleteUserComment",
       {
         headers: {
           Authorization: `Bearer ${token}`,
